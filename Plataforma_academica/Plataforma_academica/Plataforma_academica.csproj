@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AcademicaProfesionalController.cs" />
+    <Compile Include="Controllers\ActividadesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PrincipalPlataformaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -156,12 +157,14 @@
     </Compile>
     <Compile Include="Models\AcademicaInfantil.cs" />
     <Compile Include="Models\AcademicaProfesional.cs" />
+    <Compile Include="Models\Actividades.cs" />
     <Compile Include="Models\principalP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Estilos\actividadesStyl.css" />
     <Content Include="Estilos\InfantilPage1.css" />
     <Content Include="Estilos\Menu_plataforma.css" />
     <Content Include="Estilos\Modal_Inicio.css" />
@@ -207,6 +210,7 @@
     <Content Include="Scripts\Modal_entrada.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\nanvarprofesional.js" />
+    <Content Include="Scripts\principaldashb.js" />
     <Content Include="Scripts\profesionalweb.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -228,6 +232,7 @@
     <Content Include="Views\AcademicaProfesional\Academicaprofesional.cshtml" />
     <Content Include="Views\AcademicaProfesional\Academicainfantil.cshtml" />
     <Content Include="Views\PrincipalPlataforma\principalplataforma.cshtml" />
+    <Content Include="Views\Actividades\Actividades.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
