@@ -1,5 +1,5 @@
 ﻿@model Plataforma_academica.Models.principalP
-<link href="~/Estilos/principal1.css" rel="stylesheet" type="text/css">
+<link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
 
 @{
     ViewBag.Title = "principalplataforma";
@@ -7,7 +7,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<h2>principalplataforma</h2>
+<h2>Amazonian language tic´s</h2>
 
 
 @using (Html.BeginForm()) 
@@ -17,33 +17,100 @@
     <div class="form-horizontal">
         <main class="page-content">
             <div class="container-fluid">
-                <h4>principalP</h4>
-                <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
+                            <div class="col-sm-4">
+                                <h4>Curso</h4>
+                                <nav>
+                                    <ul>
+                                        <li><a href="#">Ingles</a></li>
+                                        <li><a href="#">Portugues</a></li>
+                                        <li><a href="#">Frances</a></li>
+                                        <li><a href="#">Ingles</a></li>
+                                        <li><a href="#">Portugues</a></li>
+                                        <li><a href="#">Frances</a></li>
+                                        <li><a href="#">Ingles</a></li>
+                                        <li><a href="#">Portugues</a></li>
+                                        <li><a href="#">Frances</a></li>
+                                        <li><a href="#">Ingles</a></li>
+                                        <li><a href="#">Portugues</a></li>
+                                        <li><a href="#">Frances</a></li>
+                                        <li><a href="#">Ingles</a></li>
+                                        <li><a href="#">Portugues</a></li>
+                                        <li><a href="#">Frances</a></li>
+                                    </ul>
+                                </nav>
+                            </div>                        
+                        <div class="col-sm-4">
+                            <h4>Nivel</h4>
+                            <nav>
+                                <ul>
+                                    <li><a href="#">Basico</a></li>
+                                    <li><a href="#">Medio</a></li>
+                                    <li><a href="#">Avanzado</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Progreso de los cursos</h4>
                             <div class="progress-outer">
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:80%; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);"></div>
                                     <div class="progress-value">80%</div>
                                 </div>
-                                <h6>Progreso del curso</h6>
+                                <h6>Progreso Ingles</h6>
                             </div>
                             <div class="progress-outer">
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:60%; box-shadow:-1px 10px 10px rgba(116, 195, 116,0.7);"></div>
                                     <div class="progress-value">60%</div>
                                 </div>
-                                <h6>Progreso de las actividades</h6>
+                                <h6>Progreso Portugues</h6>
                             </div>
                             <div class="progress-outer">
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:40%; box-shadow:-1px 10px 10px rgba(240, 173, 78,0.7);"></div>
                                     <div class="progress-value">40%</div>
                                 </div>
-                                <h6>Progreso de los examenes</h6>
+                                <h6>Progreso Frances</h6>
                             </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>Unidades</h4>
+                            <nav>
+                                <ul>
+                                    <li><a href="#">Unidad 1</a></li>
+                                    <li><a href="#">Unidad 2</a></li>
+                                    <li><a href="#">Unidad 3</a></li>
+                                    <li><a href="#">Unidad 4</a></li>
+                                    <li><a href="#">Unidad 5</a></li>
+                                    <li><a href="#">Unidad 1</a></li>
+                                    <li><a href="#">Unidad 2</a></li>
+                                    <li><a href="#">Unidad 3</a></li>
+                                    <li><a href="#">Unidad 4</a></li>
+                                    <li><a href="#">Unidad 5</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>Actividades</h4>
+                            <nav>
+                                <ul>
+                                    <li>@Html.ActionLink("Actividad 1", "Actividades", "Actividades")</li>
+                                    <li><a href="#">Actividad 2</a></li>
+                                    <li><a href="#">Actividad 3</a></li>
+                                    <li><a href="#">Actividad 4</a></li>
+                                    <li><a href="#">Actividad 5</a></li>
+                                    <li><a href="#">Actividad 6</a></li>
+                                    <li><a href="#">Actividad 7</a></li>
+                                    <li><a href="#">Actividad 8</a></li>
+                                    <li><a href="#">Actividad 9</a></li>
+                                    <li><a href="#">Actividad 10</a></li>
+                                    <li><a href="#">Quiz</a></li>
+                                    <li><a href="#">Examen</a></li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -53,9 +120,6 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

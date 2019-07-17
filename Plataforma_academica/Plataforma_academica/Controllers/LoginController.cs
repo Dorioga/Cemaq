@@ -6,12 +6,11 @@ using System.Web.Mvc;
 
 namespace Plataforma_academica.Controllers
 {
-    public class PrincipalPlataformaController : Controller
+    public class LoginController : Controller
     {
-        // GET: PrincipalPlataforma
-        public ActionResult principalplataforma()
+        // GET: Login
+        public ActionResult Login()
         {
-
             return View();
         }
     }
