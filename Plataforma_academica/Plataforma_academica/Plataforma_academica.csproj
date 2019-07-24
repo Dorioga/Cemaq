@@ -77,6 +77,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -148,6 +149,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Conexion\Conexion.cs" />
     <Compile Include="Controllers\AcademicaProfesionalController.cs" />
     <Compile Include="Controllers\ActividadesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -160,6 +162,7 @@
     <Compile Include="Models\AcademicaProfesional.cs" />
     <Compile Include="Models\Actividades.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Permisos_Menu.cs" />
     <Compile Include="Models\principalP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -169,8 +172,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Estilos\actividadesStyl.css" />
     <Content Include="Estilos\InfantilPage1.css" />
-    <Content Include="Estilos\Menu_plataforma.css" />
+    <Content Include="Estilos\loginStyle1.css" />
+    <Content Include="Estilos\Menu_plataforma1.css" />
     <Content Include="Estilos\Modal_Inicio.css" />
+    <Content Include="Estilos\navbarderecho1.css" />
     <Content Include="Estilos\principal.css" />
     <Content Include="Estilos\ProfesionalPage1.css" />
     <Content Include="favicon.ico" />
@@ -209,6 +214,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\loginscript.js" />
+    <Content Include="Scripts\login_campos.js" />
     <Content Include="Scripts\Menuprincipal.js" />
     <Content Include="Scripts\Modal_entrada.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />

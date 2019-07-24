@@ -13,32 +13,36 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
+   <div class="form-horizontal">
+       @{
+           Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
+           Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
+           Plataforma_academica.Models.principalP[] arreglo;
+       }
         <main class="page-content">
             <div class="container-fluid">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="container">
                     <div class="row">
                             <div class="col-sm-4">
-                                <h4>Curso</h4>
+                                <h4>Cursos</h4>
                                 <nav>
                                     <ul>
-                                        <li><a href="#">Ingles</a></li>
-                                        <li><a href="#">Portugues</a></li>
-                                        <li><a href="#">Frances</a></li>
-                                        <li><a href="#">Ingles</a></li>
-                                        <li><a href="#">Portugues</a></li>
-                                        <li><a href="#">Frances</a></li>
-                                        <li><a href="#">Ingles</a></li>
-                                        <li><a href="#">Portugues</a></li>
-                                        <li><a href="#">Frances</a></li>
-                                        <li><a href="#">Ingles</a></li>
-                                        <li><a href="#">Portugues</a></li>
-                                        <li><a href="#">Frances</a></li>
-                                        <li><a href="#">Ingles</a></li>
-                                        <li><a href="#">Portugues</a></li>
-                                        <li><a href="#">Frances</a></li>
+                                       @{
+                                           if (usu != null)
+                                           {
+                                                
+                                                    arreglo = principal.BuscarCursos(usu.cedula);
+
+                                                    for (int i = 0; i < arreglo.Length; i++)
+                                                    {
+                                                    <li><button type="submit" name="ir" value="@arreglo[i].codigo_curso">@arreglo[i].nombre_curso</button></li>
+
+                                                    }
+                                                
+                                            }
+                                    }
+                                    
                                     </ul>
                                 </nav>
                             </div>                        
