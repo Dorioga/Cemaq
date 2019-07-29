@@ -161,9 +161,12 @@
     <Compile Include="Models\AcademicaInfantil.cs" />
     <Compile Include="Models\AcademicaProfesional.cs" />
     <Compile Include="Models\Actividades.cs" />
+    <Compile Include="Models\Actividades_unidad.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Niveles.cs" />
     <Compile Include="Models\Permisos_Menu.cs" />
     <Compile Include="Models\principalP.cs" />
+    <Compile Include="Models\Unidades.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -176,7 +179,7 @@
     <Content Include="Estilos\Menu_plataforma1.css" />
     <Content Include="Estilos\Modal_Inicio.css" />
     <Content Include="Estilos\navbarderecho1.css" />
-    <Content Include="Estilos\principal.css" />
+    <Content Include="Estilos\principal1.css" />
     <Content Include="Estilos\ProfesionalPage1.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -224,7 +227,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

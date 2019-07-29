@@ -1,5 +1,5 @@
 ﻿@model Plataforma_academica.Models.principalP
-<link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
+<link href="~/Estilos/principal1.css" rel="stylesheet" type="text/css">
 
 @{
     ViewBag.Title = "principalplataforma";
@@ -18,6 +18,12 @@
            Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
            Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
            Plataforma_academica.Models.principalP[] arreglo;
+           Plataforma_academica.Models.Niveles nivel = new Plataforma_academica.Models.Niveles();
+           Plataforma_academica.Models.Niveles[] arreglo_nivel;
+           Plataforma_academica.Models.Unidades unidad = new Plataforma_academica.Models.Unidades();
+           Plataforma_academica.Models.Unidades[] arreglo_unidad;
+           Plataforma_academica.Models.Actividades_unidad actividad = new Plataforma_academica.Models.Actividades_unidad();
+           Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad;
        }
         <main class="page-content">
             <div class="container-fluid">
@@ -37,9 +43,7 @@
                                                     for (int i = 0; i < arreglo.Length; i++)
                                                     {
                                                     <li><button type="submit" name="ir" value="@arreglo[i].codigo_curso">@arreglo[i].nombre_curso</button></li>
-
-                                                    }
-                                                
+                                                    }                                                
                                             }
                                     }
                                     
@@ -50,9 +54,24 @@
                             <h4>Nivel</h4>
                             <nav>
                                 <ul>
-                                    <li><a href="#">Basico</a></li>
-                                    <li><a href="#">Medio</a></li>
-                                    <li><a href="#">Avanzado</a></li>
+                                    @{
+                                        if (TempData["mensaje1"] != null && usu != null)
+                                        {
+                                            TempData.Keep("mensaje1");
+                                            nivel.codigo_nivel = Convert.ToString(TempData["mensaje1"]);
+                                            arreglo_nivel = nivel.Consultar_niveles_grupo(nivel);
+
+                                            for (int i = 0; i < arreglo_nivel.Length; i++)
+                                            {
+                                                <li><button type="submit" name="irr" value="@arreglo_nivel[i].codigo_nivel">@arreglo_nivel[i].nombre_nivel</button></li>
+
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <li><a >Elija un Curso</a></li>
+                                        }
+                                    }                                    
                                 </ul>
                             </nav>
                         </div>
@@ -84,16 +103,24 @@
                             <h4>Unidades</h4>
                             <nav>
                                 <ul>
-                                    <li><a href="#">Unidad 1</a></li>
-                                    <li><a href="#">Unidad 2</a></li>
-                                    <li><a href="#">Unidad 3</a></li>
-                                    <li><a href="#">Unidad 4</a></li>
-                                    <li><a href="#">Unidad 5</a></li>
-                                    <li><a href="#">Unidad 1</a></li>
-                                    <li><a href="#">Unidad 2</a></li>
-                                    <li><a href="#">Unidad 3</a></li>
-                                    <li><a href="#">Unidad 4</a></li>
-                                    <li><a href="#">Unidad 5</a></li>
+                                    @{
+                                        if (TempData["mensaje2"] != null && usu != null)
+                                        {
+                                            TempData.Keep("mensaje2");
+                                            string nc = Convert.ToString(TempData["mensaje2"]);
+                                            arreglo_unidad = unidad.Consultar_unidades_grupo(nc);
+
+                                            for (int i = 0; i < arreglo_unidad.Length; i++)
+                                            {
+                                                <li><button type="submit" name="irrr" value="@arreglo_unidad[i].codigo_unidad">@arreglo_unidad[i].nombre_unidad</button></li>
+
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <li><a>Elija un Nivel</a></li>
+                                        }
+                                    }  
                                 </ul>
                             </nav>
                         </div>
@@ -102,17 +129,24 @@
                             <nav>
                                 <ul>
                                     <li>@Html.ActionLink("Actividad 1", "Actividades", "Actividades")</li>
-                                    <li><a href="#">Actividad 2</a></li>
-                                    <li><a href="#">Actividad 3</a></li>
-                                    <li><a href="#">Actividad 4</a></li>
-                                    <li><a href="#">Actividad 5</a></li>
-                                    <li><a href="#">Actividad 6</a></li>
-                                    <li><a href="#">Actividad 7</a></li>
-                                    <li><a href="#">Actividad 8</a></li>
-                                    <li><a href="#">Actividad 9</a></li>
-                                    <li><a href="#">Actividad 10</a></li>
-                                    <li><a href="#">Quiz</a></li>
-                                    <li><a href="#">Examen</a></li>
+                                    @{
+                                        if (TempData["mensaje3"] != null && usu != null)
+                                        {
+                                            TempData.Keep("mensaje3");
+                                            string nc = Convert.ToString(TempData["mensaje3"]);
+                                            arreglo_actividad = actividad.Consultar_Actividad_unidades(nc);
+
+                                            for (int i = 0; i < arreglo_actividad.Length; i++) 
+                                            {
+                                                @*<li><button type="submit" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">@Html.ActionLink(arreglo_actividad[i].nombre_actividad, "Actividades", "Actividades")</button></li>*@
+                                                <li><button type="submit" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">@arreglo_actividad[i].nombre_actividad</button></li>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <li><a>Elija un Nivel</a></li>
+                                        }
+                                    }  
                                 </ul>
                             </nav>
                         </div>

@@ -12,8 +12,63 @@ namespace Plataforma_academica.Controllers
     {
         // GET: PrincipalPlataforma
         public ActionResult principalplataforma()
-        {        
+        {
+            Models.Login user = Session["usuario"] as Models.Login;
+            Models.Niveles nivel = new Models.Niveles();
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                String codig = Request.Form["ir"];
+
+                if (codig != null)
+                {
+                    TempData["mensaje1"] = codig;
+                    return View();
+                }
+                else
+                {
+                    String codig2 = Request.Form["irr"];
+
+                    if (codig2 != null)
+                    {
+                        TempData["mensaje2"] = codig2;
+                        return View();
+                    }
+                    else
+                    {
+                        String codig3 = Request.Form["irrr"];
+
+                        if (codig3 != null)
+                        {
+                            TempData["mensaje3"] = codig3;
+                            return View();
+                        }else
+                        {
+                            String codig4 = Request.Form["irrrr"];
+
+                            if (codig4 != null)
+                            {
+                                //TempData["mensaje3"] = codig3;
+                                principalP act1 = new principalP();
+                                act1.codigo_actividad = codig4;
+                                Session["usuario3"] = act1;
+                                return RedirectToAction("Actividades", "Actividades"); ;
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+            
+
             return View();
         }
+
+       
     }
 }

@@ -3,90 +3,103 @@
 @{
     ViewBag.Title = "Actividades";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
-}
+</head>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <body>
+            @{
+                Plataforma_academica.Models.Actividades act = Session["usuario2"] as Plataforma_academica.Models.Actividades;
+            }
+            
+            @{
+                if (act != null)
+                {
+                    <h2>@Html.LabelFor(Model => act.Nombre_actividad, act.Nombre_actividad, new { @class = "" })</h2>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    <body>
-        <h2>Nombre de la actividad (Tema)</h2>
-        <p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.</p>
-        <p>Resize the browser window to see the responsive effect (you will learn more about this in our next chapter - HTML Responsive.)</p>
-        <section>
-            <div class="card">
-                <div class="card-block p-3">
-                    <nav>
-                        <ul>
-                            <li><a href="#">London</a></li>
-                            <li><a href="#">Paris</a></li>
-                            <li><a href="#">Tokyo</a></li>
-                        </ul>
-                    </nav>
-                    <article>
-                        <h4>Videos</h4>
-                        <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-                        <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
-                    </article>
+                }
+            }
+            <p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.</p>
+            <p>Resize the browser window to see the responsive effect (you will learn more about this in our next chapter - HTML Responsive.)</p>
+            <section>
+                <div class="card">
+                    <div class="card-block p-3">
+                        <nav>
+                            <ul>
+                                <li><a href="#">London</a></li>
+                                <li><a href="#">Paris</a></li>
+                                <li><a href="#">Tokyo</a></li>
+                            </ul>
+                        </nav>
+                        <article>
+                            <h4>Videos</h4>
+                            <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+                            <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+                        </article>
+                    </div>
                 </div>
-            </div>
-            <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-12 mb-4">
-                        <div class="card">
-                            <div class="card-block p-3">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM"></iframe>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <div class="card">
+                                <div class="card-block p-3">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM"></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-block p-3">
-                    <audio controls>
-                        <source src="~/Audios/J Balvin - Yo Te Lo Dije.mp3" type="audio/mp3" />
-                    </audio>
+                <div class="card">
+                    <div class="card-block p-3">
+                        <audio controls>
+                            <source src="~/Audios/J Balvin - Yo Te Lo Dije.mp3" type="audio/mp3" />
+                        </audio>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-block p-3">
-                    <nav>
-                        <ul>
-                            <li><a href="#">London</a></li>
-                            <li><a href="#">Paris</a></li>
-                            <li><a href="#">Tokyo</a></li>
-                        </ul>
-                    </nav>
-                    <article>
-                        <h4>Videos</h4>
-                        <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-                        <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
-                    </article>
+                <div class="card">
+                    <div class="card-block p-3">
+                        <nav>
+                            <ul>
+                                <li><a href="#">London</a></li>
+                                <li><a href="#">Paris</a></li>
+                                <li><a href="#">Tokyo</a></li>
+                            </ul>
+                        </nav>
+                        <article>
+                            <h4>Videos</h4>
+                            <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+                            <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+                        </article>
+                    </div>
                 </div>
-            </div>
-            <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-12 mb-4">
-                        <div class="card">
-                            <div class="card-block p-3">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM"></iframe>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <div class="card">
+                                <div class="card-block p-3">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM"></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </section>
+            </section>
 
-    </body>
+        </body>
 
-}
+    }
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

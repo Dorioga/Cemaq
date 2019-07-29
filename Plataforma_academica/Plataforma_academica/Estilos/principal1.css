@@ -102,3 +102,9 @@ h2 {
     margin-top: 3px;
     margin-bottom: 10px;
 }
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-left: 17px;
+}
