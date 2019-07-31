@@ -13,7 +13,7 @@ namespace Plataforma_academica.Models
         public Permisos_Menu[] ConsultarMenu(String cargo)
         {
             Conexion.Conexion con = new Conexion.Conexion();
-            DataTable menu = con.Execute_Query("call Pr_cargar_permisos(" + cargo + ")");
+            DataTable menu = con.Execute_Query("call Pr_cargar_permiso(" + cargo + ")");
             Permisos_Menu[] arreglo = new Permisos_Menu[menu.Rows.Count];
             int j = 0;
             foreach (DataRow i in menu.Rows)

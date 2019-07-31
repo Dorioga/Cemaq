@@ -100,11 +100,25 @@ body {
 
 h2 {
     margin-top: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
 }
 
 ul, ol {
     margin-top: 0;
     margin-bottom: 10px;
     padding-left: 17px;
+}
+
+.label {
+    margin-bottom: 0px;
+    font-weight: inherit;
+    display: inline;
+    font-size: 104%;
+    color: #333333;
+    padding-left: 0px
+}
+
+img {
+    width: 100%;
+    vertical-align: middle;
 }
