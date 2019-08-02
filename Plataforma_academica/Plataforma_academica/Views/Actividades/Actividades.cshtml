@@ -7,13 +7,14 @@
 }
 <head>
     <link href="~/Estilos/principal1.css" rel="stylesheet" type="text/css">
-    <link href="~/Estilos/actividadesStyl.css" rel="stylesheet" type="text/css">
+    <link href="~/Estilos/actividadesStyl1.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
 </head>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <body>
+        <body onload="disabled">
+            
             @{
                 Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
                 Plataforma_academica.Models.principalP act1 = Session["usuario3"] as Plataforma_academica.Models.principalP;
@@ -42,7 +43,7 @@
                                             <div class="card">
                                                 <div class="card-block p-3">
                                                     <div>
-                                                        <img src="~/Imagenes/@arreglo[0].url_multimedia" alt="Nature">
+                                                        <img src="~/Imagenes/@arreglo[0].url_multimedia" alt="Nature" disabled="true">
                                                     </div>
                                                 </div>
                                             </div>
@@ -84,7 +85,7 @@
                                         <div class="card-block p-3">
                                             <article>
                                                 <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control"})                                            
+                                                @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control", @disabled = "true"})                                            
                                              </article>
                                         </div>
                                     </div>

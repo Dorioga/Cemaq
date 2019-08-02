@@ -173,10 +173,10 @@
     <Content Include="Audios\J Balvin - Yo Te Lo Dije.mp3" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Estilos\actividadesStyl.css" />
+    <Content Include="Estilos\actividadesStyl1.css" />
     <Content Include="Estilos\InfantilPage1.css" />
     <Content Include="Estilos\loginStyle1.css" />
-    <Content Include="Estilos\Menu_plataforma1.css" />
+    <Content Include="Estilos\Menu_plataforma.css" />
     <Content Include="Estilos\Modal_Inicio.css" />
     <Content Include="Estilos\navbarderecho1.css" />
     <Content Include="Estilos\principal1.css" />
