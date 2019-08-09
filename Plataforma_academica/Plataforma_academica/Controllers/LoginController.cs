@@ -34,7 +34,14 @@ namespace Plataforma_academica.Controllers
                         user.cedula = datos.Rows[0]["id_persona"].ToString();
                         Session["usuario"] = user;
                         ViewBag.mensaje = "datos correctos";
-                        return RedirectToAction("principalplataforma", "PrincipalPlataforma");//Pagina secundaria luego del login
+                        if (Convert.ToInt32(datos.Rows[0]["id_rol"].ToString())< 7 && Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) > 3)
+                        {
+                            return RedirectToAction("principalplataforma", "PrincipalPlataforma");//Pagina secundaria luego del login
+
+                        }else
+                        {
+                            return RedirectToAction("seleccionar_unidad_para_contenido", "Seleccionar_para_subir_contenido");
+                        }
 
                     }
                     else
