@@ -8,35 +8,35 @@
 <head>
     <link href="~/Estilos/principal1.css" rel="stylesheet" type="text/css">
     <link href="~/Estilos/actividadesStyl1.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <body onload="disabled">
-            
-            @{
-                Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
-                Plataforma_academica.Models.principalP act1 = Session["usuario3"] as Plataforma_academica.Models.principalP;
-                Plataforma_academica.Models.Actividades actividad = new Plataforma_academica.Models.Actividades();
-                Plataforma_academica.Models.Actividades[] arreglo2;
-            }
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <body onload="disabled">
 
-            @{
-                int rol=Convert.ToInt32(usu.rol);
-                if (usu != null && rol > 3 && rol < 7)
+        @{
+            Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
+            Plataforma_academica.Models.Actividades actividad = new Plataforma_academica.Models.Actividades();
+            Plataforma_academica.Models.Actividades[] arreglo;
+            int rol = Convert.ToInt32(usu.rol);
+
+            if (usu != null)
+            {
+                if (rol > 3 && rol < 7)
                 {
-                    arreglo2 = actividad.Consultar_contenido_actividad(act1.codigo_actividad);
-                    <h2>@Html.LabelFor(Model => arreglo2[0].Nombre_actividad, arreglo2[0].Nombre_actividad, new { @class = "" })</h2>//titulo actividad
-                    if (arreglo2[0].id_tipo_multimedia == "3")
+                    Plataforma_academica.Models.principalP act1 = Session["usuario3"] as Plataforma_academica.Models.principalP;
+                    arreglo = actividad.Consultar_contenido_actividad(act1.codigo_actividad);
+                    <h2>@Html.LabelFor(Model => arreglo[0].Nombre_actividad, arreglo[0].Nombre_actividad, new { @class = "" })</h2>//titulo actividad
+                    if (arreglo[0].id_tipo_multimedia == "3")
                     {
-                        @Html.LabelFor(Model => arreglo2[0].descripcion, arreglo2[0].descripcion, new { @class = "label" })
+                        @Html.LabelFor(Model => arreglo[0].descripcion, arreglo[0].descripcion, new { @class = "label" })
                     }
                     else
                     {
-                        if (arreglo2[0].id_tipo_multimedia == "2")
+                        if (arreglo[0].id_tipo_multimedia == "2")
                         {
-                            <p>@Html.LabelFor(Model => arreglo2[0].descripcion, arreglo2[0].descripcion, new { @class = "form-control", @id = "p" })</p>
+                            <p>@Html.LabelFor(Model => arreglo[0].descripcion, arreglo[0].descripcion, new { @class = "form-control", @id = "p" })</p>
                             <section>
                                 <div class="container mt-4">
                                     <div class="row">
@@ -44,7 +44,7 @@
                                             <div class="card">
                                                 <div class="card-block p-3">
                                                     <div>
-                                                        <img src="~/Imagenes/@arreglo2[0].url_multimedia" alt="Nature" disabled="true">
+                                                        <img src="~/Imagenes/@arreglo[0].url_multimedia" alt="Nature" disabled="true">
                                                     </div>
                                                 </div>
                                             </div>
@@ -62,7 +62,7 @@
                                             <div class="card">
                                                 <div class="card-block p-3">
                                                     <div class="embed-responsive embed-responsive-16by9">
-                                                        <iframe class="embed-responsive-item" src="@arreglo2[0].url_multimedia"></iframe>
+                                                        <iframe class="embed-responsive-item" src="@arreglo[0].url_multimedia"></iframe>
                                                     </div>
                                                 </div>
                                             </div>
@@ -72,27 +72,27 @@
                             </section>
                         }
                     }//descripcion actividad
-                    if (arreglo2[0].titulo_seccion == null)
+                    if (arreglo[0].titulo_seccion == null)
                     {
                     }
                     else
                     {
-                        for (int i = 1; i < arreglo2.Length; i++)
+                        for (int i = 1; i < arreglo.Length; i++)
                         {
-                            if (arreglo2[i].titulo_seccion != null)
+                            if (arreglo[i].titulo_seccion != null)
                             {
                                 <section>
                                     <div class="card">
                                         <div class="card-block p-3">
                                             <article>
-                                                <h4>@Html.LabelFor(Model => arreglo2[i].titulo_seccion, arreglo2[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                @Html.TextArea(arreglo2[i].contenido_seccion, arreglo2[i].contenido_seccion, new { @class = "form-control", @disabled = "true"})                                            
-                                             </article>
+                                                <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control", @disabled = "true" })
+                                            </article>
                                         </div>
                                     </div>
                                 </section>
                             }
-                            if (arreglo2[i].id_tipo_multimedia == "1")
+                            if (arreglo[i].id_tipo_multimedia == "1")
                             {
                                 <section>
                                     <div class="container mt-4">
@@ -101,7 +101,7 @@
                                                 <div class="card">
                                                     <div class="card-block p-3">
                                                         <div class="embed-responsive embed-responsive-16by9">
-                                                            <iframe width="560" height="315" src="@arreglo2[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                            <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -110,7 +110,7 @@
                                     </div>
                                 </section>
                             }
-                            if (arreglo2[i].id_tipo_multimedia == "2")
+                            if (arreglo[i].id_tipo_multimedia == "2")
                             {
                                 <section>
                                     <div class="container mt-4">
@@ -119,7 +119,7 @@
                                                 <div class="card">
                                                     <div class="card-block p-3">
                                                         <div>
-                                                            <img src="@arreglo2[i].url_multimedia" alt="Nature">
+                                                            <img src="@arreglo[i].url_multimedia" alt="Nature">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -128,13 +128,13 @@
                                     </div>
                                 </section>
                             }
-                            if (arreglo2[i].id_tipo_multimedia == "4")
+                            if (arreglo[i].id_tipo_multimedia == "4")
                             {
                                 <section>
                                     <div class="card">
                                         <div class="card-block p-3">
                                             <audio controls>
-                                                <source src="~/Audios/@arreglo2[i].url_multimedia" type="audio/mp3" />
+                                                <source src="~/Audios/@arreglo[i].url_multimedia" type="audio/mp3" />
                                             </audio>
                                         </div>
                                     </div>
@@ -146,23 +146,20 @@
                 }
                 else //Para administrativos y docente, ingresar herramientas adicionales si es el caso.
                 {
-                    Plataforma_academica.Models.Login usu1 = Session["usuario"] as Plataforma_academica.Models.Login;
-                    Plataforma_academica.Models.principalP act2 = Session["usuario10"] as Plataforma_academica.Models.principalP;
-                    Plataforma_academica.Models.Actividades actividad1 = new Plataforma_academica.Models.Actividades();
-                    Plataforma_academica.Models.Actividades[] arreglo1;
-                    if (usu1 != null && rol < 4 || rol >= 7)
+                    if (rol < 4 || rol >= 7)
                     {
-                        arreglo1 = actividad1.Consultar_contenido_actividad(act2.codigo_actividad);
-                        <h2>@Html.LabelFor(Model => arreglo1[0].Nombre_actividad, arreglo1[0].Nombre_actividad, new { @class = "" })</h2>//titulo actividad
-                        if (arreglo1[0].id_tipo_multimedia == "3")
+                        Plataforma_academica.Models.principalP act2 = Session["usuario10"] as Plataforma_academica.Models.principalP;
+                        arreglo = actividad.Consultar_contenido_actividad(act2.codigo_actividad);
+                        <h2>@Html.LabelFor(Model => arreglo[0].Nombre_actividad, arreglo[0].Nombre_actividad, new { @class = "" })</h2>//titulo actividad
+                        if (arreglo[0].id_tipo_multimedia == "3")
                         {
-                            @Html.LabelFor(Model => arreglo1[0].descripcion, arreglo1[0].descripcion, new { @class = "label" })
+                            @Html.LabelFor(Model => arreglo[0].descripcion, arreglo[0].descripcion, new { @class = "label" })
                         }
                         else
                         {
-                            if (arreglo1[0].id_tipo_multimedia == "2")
+                            if (arreglo[0].id_tipo_multimedia == "2")
                             {
-                                <p>@Html.LabelFor(Model => arreglo1[0].descripcion, arreglo1[0].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                <p>@Html.LabelFor(Model => arreglo[0].descripcion, arreglo[0].descripcion, new { @class = "form-control", @id = "p" })</p>
                                 <section>
                                     <div class="container mt-4">
                                         <div class="row">
@@ -170,7 +167,7 @@
                                                 <div class="card">
                                                     <div class="card-block p-3">
                                                         <div>
-                                                            <img src="~/Imagenes/@arreglo1[0].url_multimedia" alt="Nature" disabled="true">
+                                                            <img src="~/Imagenes/@arreglo[0].url_multimedia" alt="Nature" disabled="true">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -188,7 +185,7 @@
                                                 <div class="card">
                                                     <div class="card-block p-3">
                                                         <div class="embed-responsive embed-responsive-16by9">
-                                                            <iframe class="embed-responsive-item" src="@arreglo1[0].url_multimedia"></iframe>
+                                                            <iframe class="embed-responsive-item" src="@arreglo[0].url_multimedia"></iframe>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -198,27 +195,27 @@
                                 </section>
                             }
                         }//descripcion actividad
-                        if (arreglo1[0].titulo_seccion == null)
+                        if (arreglo[0].titulo_seccion == null)
                         {
                         }
                         else
                         {
-                            for (int i = 1; i < arreglo1.Length; i++)
+                            for (int i = 1; i < arreglo.Length; i++)
                             {
-                                if (arreglo1[i].titulo_seccion != null)
+                                if (arreglo[i].titulo_seccion != null)
                                 {
                                     <section>
                                         <div class="card">
                                             <div class="card-block p-3">
                                                 <article>
-                                                    <h4>@Html.LabelFor(Model => arreglo1[i].titulo_seccion, arreglo1[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                    @Html.TextArea(arreglo1[i].contenido_seccion, arreglo1[i].contenido_seccion, new { @class = "form-control", @disabled = "true" })
+                                                    <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                    @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control", @disabled = "true" })
                                                 </article>
                                             </div>
                                         </div>
                                     </section>
                                 }
-                                if (arreglo1[i].id_tipo_multimedia == "1")
+                                if (arreglo[i].id_tipo_multimedia == "1")
                                 {
                                     <section>
                                         <div class="container mt-4">
@@ -227,7 +224,7 @@
                                                     <div class="card">
                                                         <div class="card-block p-3">
                                                             <div class="embed-responsive embed-responsive-16by9">
-                                                                <iframe width="560" height="315" src="@arreglo1[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                                <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -236,7 +233,7 @@
                                         </div>
                                     </section>
                                 }
-                                if (arreglo1[i].id_tipo_multimedia == "2")
+                                if (arreglo[i].id_tipo_multimedia == "2")
                                 {
                                     <section>
                                         <div class="container mt-4">
@@ -245,7 +242,7 @@
                                                     <div class="card">
                                                         <div class="card-block p-3">
                                                             <div>
-                                                                <img src="@arreglo1[i].url_multimedia" alt="Nature">
+                                                                <img src="@arreglo[i].url_multimedia" alt="Nature">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -254,13 +251,13 @@
                                         </div>
                                     </section>
                                 }
-                                if (arreglo1[i].id_tipo_multimedia == "4")
+                                if (arreglo[i].id_tipo_multimedia == "4")
                                 {
                                     <section>
                                         <div class="card">
                                             <div class="card-block p-3">
                                                 <audio controls>
-                                                    <source src="~/Audios/@arreglo1[i].url_multimedia" type="audio/mp3" />
+                                                    <source src="~/Audios/@arreglo[i].url_multimedia" type="audio/mp3" />
                                                 </audio>
                                             </div>
                                         </div>
@@ -271,14 +268,17 @@
                         }
                     }
                 }
-            }            
-            
-
-        </body>
-
-    }
+            }
 
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+        }
+
+
+    </body>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
