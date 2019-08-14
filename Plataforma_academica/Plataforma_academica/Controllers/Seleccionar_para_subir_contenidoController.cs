@@ -73,7 +73,7 @@ namespace Plataforma_academica.Controllers
                                     principalP act1 = new principalP();
                                     act1.codigo_actividad = codig4;
                                     Session["usuario10"] = act1;
-                                    return RedirectToAction("Actividad", "Actividades"); 
+                                    return RedirectToAction("Actividades", "Actividades"); 
                                 }
                             }
                             
