@@ -135,16 +135,27 @@
                                         {
                                             TempData.Keep("mensaje12");
                                             string nc = Convert.ToString(TempData["mensaje12"]);
-                                            arreglo_actividad = actividad.Consultar_Actividad_unidades(nc);
+                                            arreglo_actividad = actividad.Consultar_Actividad_unidades_edic(nc);
                                             <li><button type="submit" name="ir5" value="nueva">Nueva Actividad</button></li>
                                             for (int i = 0; i < arreglo_actividad.Length; i++)
                                             {
-                                                <li><button type="submit" name="ir4" value="@arreglo_actividad[i].codigo_actividad">@arreglo_actividad[i].nombre_actividad</button></li>
+                                                <li>
+                                                    <div class="btn-group">
+                                                        <button type="submit" name="ir4" value="@arreglo_actividad[i].codigo_actividad">@arreglo_actividad[i].nombre_actividad</button>
+                                                        @{
+                                                            if (arreglo_actividad[i].edicion == "Desaprobado")
+                                                            {
+                                                                <button type="submit" name="ir4" value="@arreglo_actividad[i].codigo_actividad">Editar</button>
+                                                            }
+                                                        }
+
+                                                    </div>
+                                                </li>
                                             }
                                         }
                                         else
                                         {
-                                            <li><a>Elija una unidad</a></li>
+                                            <li><a> Elija una unidad</a></li>
                                         }
                                     }
                                 </ul>
