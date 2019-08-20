@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -15,6 +15,7 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="~/Estilos/Menu_plataforma.css" rel="stylesheet" type="text/css">
     <link href="~/Estilos/navbarderecho1.css" rel="stylesheet" type="text/css">
+    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
     <script src="~/Scripts/Menuprincipal.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -25,11 +26,14 @@
         Plataforma_academica.Models.Permisos_Menu menu = new Plataforma_academica.Models.Permisos_Menu();
         Plataforma_academica.Models.Permisos_Menu[] arreglo;
     }
+    <!-- Menu's  -->
     <main class="page-content">
+
         <div class="page-wrapper chiller-theme toggled">
             <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
                 <i class="fas fa-bars"></i>
             </a>
+            <!-- Menu Der  -->
             <nav id="sidebar" class="sidebar-wrapper">
                 <div class="sidebar-content">
                     <div class="sidebar-brand">
@@ -49,7 +53,9 @@
                                     if (usu != null)
                                     {
 
-                                        <li><span class="glyphicon glyphicon-user"></span>@Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-user"></span>@Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })
+                                        </li>
 
                                     }
                                     else
@@ -57,7 +63,7 @@
                                         <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
                                         <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                                     }
-                                }     
+                                }
                             </span>
                             <span class="user-role">
                                 @{
@@ -72,7 +78,7 @@
                                         <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
                                         <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                                     }
-                                }  
+                                }
                             </span>
                             <span class="user-status">
                                 <i class="fa fa-circle"></i>
@@ -80,31 +86,33 @@
                             </span>
                         </div>
                     </div>
-                    <!-- sidebar-header  -->                   
+                    <!-- sidebar-header  -->
                     <div class="sidebar-menu">
                         <ul>
                             <li class="header-menu">
                                 <span>General</span>
                             </li>
-                                 @{
-                                    if (usu != null)
-                                    {
+                            @{
+                                if (usu != null)
+                                {
                                     <li class="sidebar-dropdown">
-                                      @{
-                                          arreglo = menu.ConsultarMenu(usu.rol);
+                                        @{
+                                            arreglo = menu.ConsultarMenu(usu.rol);
 
-                                          for (int i = 0; i < arreglo.Length; i++)
-                                          {
-                                          <li style="padding-bottom: 10px"><a><span class="fa fa-tachometer-alt"></span>@Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)</a></li>
+                                            for (int i = 0; i < arreglo.Length; i++)
+                                            {
+                                            <li style="padding-bottom: 10px">
+                                                <a><span class="fa fa-tachometer-alt"></span>@Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)</a>
+                                            </li>
 
-                                          }
-                                          <br>
-                                            <li role="separator" class="divider"></li>
-                                            <li>@Html.ActionLink("Cerrar sesion", "cerrarsesion", "Login")</li>
                                         }
-                                    </li>
+                                        <br>
+                                        <li role="separator" class="divider"></li>
+                                        <li>@Html.ActionLink("Cerrar sesion", "cerrarsesion", "Login")</li>
+                                        }
+                                        </li>
                                     }
-                                }                       
+                            }
                         </ul>
                     </div>
                 </div>
@@ -129,28 +137,35 @@
             </nav>
 
         </div>
-
+        <!-- Menu Izq  -->
         <nav id="nav" class="show">
             <ul class="main">
-                <li><a target="_blank" href="https://www.facebook.com/ravi7284007">Hi There! Ravi</a></li>
-                <li><a target="_blank" href="https://www.facebook.com/ravi7284007">About ME</a></li>
-                <li><a href="#">Web Development</a></li>
-                <li><a href="#">Digital Marketing</a></li>
-                <li><a target="_blank" href="https://www.instagram.com/ravi_singh_7/">Portfolio</a></li>
-                <li><a target="_blank" href="https://500px.com/ravi7284007">Contact</a></li>
+                <li>
+                    <a target="_blank" href="https://www.facebook.com/ravi7284007">Hi There! Ravi</a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.facebook.com/ravi7284007">About ME</a>
+                </li>
+                <li>
+                    <a href="#">Web Development</a>
+                </li>
+                <li>
+                    <a href="#">Digital Marketing</a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.instagram.com/ravi_singh_7/">Portfolio</a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://500px.com/ravi7284007">Contact</a>
+                </li>
             </ul>
         </nav>
-        <div class="overlay"></div>
-        
     </main>
-       
-    <div class="container body-content">
+    <!-- Contenedor Seleccionar_unidad  -->
+    <div class="contenedor">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Amazonian Language Tic</p>
-        </footer>
     </div>
+
     <!-- page-wrapper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

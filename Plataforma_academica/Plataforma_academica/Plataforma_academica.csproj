@@ -189,7 +189,7 @@
     <Content Include="Estilos\Menu_plataforma.css" />
     <Content Include="Estilos\Modal_Inicio.css" />
     <Content Include="Estilos\navbarderecho1.css" />
-    <Content Include="Estilos\principal1.css" />
+    <Content Include="Estilos\principal.css" />
     <Content Include="Estilos\ProfesionalPage1.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
