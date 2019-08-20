@@ -31,11 +31,10 @@
     background-color: #28a745;
 }
 
-@media (min-width: 992px) {
-    .container {
-        max-width: 850px;
-    }
+.container {
+        max-width: 79%;
 }
+
 
 @media screen and (min-width: 992x){
 .page-wrapper.toggled .page-content{
@@ -99,8 +98,8 @@ body {
 }
 
 h2 {
-    margin-top: 3px;
-    margin-bottom: 1px;
+    
+    margin: 0 11% 10px;
 }
 
 ul, ol {
@@ -131,4 +130,8 @@ textarea {
 
 textarea.form-control {
     min-height: 300px;
+}
+
+p{
+    margin: 0 11% 10px;
 }

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="academialenguaamazonica" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\alejandro\\Documents\\GitHub\\AMAZONIAN_LENGUAGE_TICS\\Plataforma_academica\\Plataforma_academica\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\alejandro\\Documents\\GitHub\\AMAZONIAN_LENGUAGE_TICS\\Plataforma_academica\\Plataforma_academica\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="plataforma_academica-Web.config Connection String" description="plataforma_academica Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." value="server=138.68.45.248;user id=sitice;password=siticepro;persist security info=True;database=sys2; Ssl Mode=none;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\alejandro\\Documents\\GitHub\\AMAZONIAN_LENGUAGE_TICS\\Plataforma_academica\\Plataforma_academica\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='plataforma_academica']/@connectionString" />
+  </parameter>
+</parameters>

@@ -17,8 +17,16 @@ namespace Plataforma_academica.Models
             //@ -27,5 + 28,23 @@ namespace Plataforma_academica.Models
             
             Conexion.Conexion con = new Conexion.Conexion();
-            DataTable porcentaje = con.Execute_Query("call Pr_cargar_actividad_edic(" + nc + ")");
+            DataTable porcentaje = con.Execute_Query("call Pr_cargar_actividad(" + nc + ")");
             Actividades_unidad[] arreglo = new Actividades_unidad[porcentaje.Rows.Count];
+            int j = 0;
+            foreach (DataRow i in porcentaje.Rows)
+            {
+                arreglo[j] = new Actividades_unidad();
+                arreglo[j].nombre_actividad = i["nombre actividad"].ToString();
+                arreglo[j].codigo_actividad = i["codigo actividad"].ToString();
+                j++;
+            }
             return arreglo;
 
         }

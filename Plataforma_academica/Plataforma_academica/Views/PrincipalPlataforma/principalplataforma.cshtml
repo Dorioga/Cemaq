@@ -7,7 +7,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<h2>Amazonian language tic´s</h2>
+<h2>Amazonian Language TIC´S</h2>
 
 
 @using (Html.BeginForm()) 
@@ -137,8 +137,7 @@
 
                                             for (int i = 0; i < arreglo_actividad.Length; i++) 
                                             {
-                                                @*<li><button type="submit" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">@Html.ActionLink(arreglo_actividad[i].nombre_actividad, "Actividades", "Actividades")</button></li>*@
-                                                <li><button type="submit" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">@arreglo_actividad[i].nombre_actividad</button></li>
+                                               <li><button type="submit" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">@arreglo_actividad[i].nombre_actividad</button></li>
                                             }
                                         }
                                         else

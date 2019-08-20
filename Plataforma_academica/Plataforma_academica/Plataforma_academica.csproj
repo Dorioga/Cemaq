@@ -154,6 +154,7 @@
     <Compile Include="Controllers\AcademicaProfesionalController.cs" />
     <Compile Include="Controllers\ActividadesController.cs" />
     <Compile Include="Controllers\ContenidoController.cs" />
+    <Compile Include="Controllers\Editar_ActividadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PrincipalPlataformaController.cs" />
@@ -166,6 +167,8 @@
     <Compile Include="Models\Actividades.cs" />
     <Compile Include="Models\Actividades_unidad.cs" />
     <Compile Include="Models\contenido.cs" />
+    <Compile Include="Models\Editar_Actividad.cs" />
+    <Compile Include="Models\lista_tipo_multimedia.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Niveles.cs" />
     <Compile Include="Models\Permisos_Menu.cs" />
@@ -179,6 +182,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Estilos\actividadesStyl1.css" />
+    <Content Include="Estilos\actividad_editar.css" />
     <Content Include="Estilos\Contenido.css" />
     <Content Include="Estilos\InfantilPage1.css" />
     <Content Include="Estilos\loginStyle1.css" />
@@ -259,6 +263,7 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Contenido\Cargar_contenido.cshtml" />
     <Content Include="Views\Seleccionar_para_subir_contenido\seleccionar_unidad_para_contenido.cshtml" />
+    <Content Include="Views\Editar_Actividad\Editar_Actividad.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

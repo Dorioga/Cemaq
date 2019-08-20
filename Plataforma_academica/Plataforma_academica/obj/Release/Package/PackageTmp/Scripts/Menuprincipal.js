@@ -1,7 +1,7 @@
 ﻿jQuery(function ($) {
 
     $(".sidebar-dropdown > a").click(function() {
-        $(".sidebar-submenu").slideUp(200);
+        $(".sidebar-submenu").slideUp(300);
         if (
           $(this)
             .parent()

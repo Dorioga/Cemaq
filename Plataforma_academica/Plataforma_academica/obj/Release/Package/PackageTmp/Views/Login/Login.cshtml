@@ -1,0 +1,99 @@
+﻿@model Plataforma_academica.Models.Login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="~/Estilos/loginStyle1.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <script src="~/Scripts/login_campos.js"></script>
+</head>
+
+<body class="login-page sidebar-collapse">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+    }
+    <!-- Navbar -->
+   
+    <div class="page-header clear-filter" filter-color="orange">
+        <div class="page-header-image" style="background-image:url('https://images.unsplash.com/photo-1438783122414-75b2c084bd44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80 2378w')">
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="col-md-4 ml-auto mr-auto">
+                    <div class="card card-login card-plain">
+                        <form class="form" method="" action="">
+                            <div class="card-header text-center">
+                                <div class="logo-container">
+                                    <img src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/now-logo.png" alt="">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group no-border input-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="now-ui-icons users_circle-08"></i>
+                                        </span>
+                                    </div>
+                                    @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", @placeholder = "Usuario", @id = "usuario" } })
+                                    @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="input-group no-border input-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="now-ui-icons text_caps-small"></i>
+                                        </span>
+                                    </div>
+                                    @Html.EditorFor(model => model.contraseña, new { htmlAttributes = new { @type = "password", @class = "form-control", @placeholder = "Contraseña", @id = "contraseña" } })
+                                    @Html.ValidationMessageFor(model => model.contraseña, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <input type="submit" value="Iniciar Sesión" class="btn btn-primary btn-round btn-lg btn-block" id="envia" />
+                                
+                                <div class="pull-left">
+                                    <h6>
+                                        <a href="#pablo" class="link">Create Account</a>
+                                    </h6>
+                                </div>
+                                <div class="pull-right">
+                                    <h6>
+                                        <a href="#pablo" class="link">Need Help?</a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="copyright" id="copyright">
+
+                    <p>Made with <a href="http://academialenguaamazonica.azurewebsites.net/" target="_blank">Now UI Kit</a> by Creative Tim</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>
