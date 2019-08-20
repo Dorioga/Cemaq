@@ -1,162 +1,160 @@
 ﻿@model Plataforma_academica.Models.principalP
-<link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
+
 
 @{
     ViewBag.Title = "principalplataforma";
 }
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
 </head>
 <h2>Amazonian Language TIC´S</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-   <div class="form-horizontal">
-       @{
-           Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
-           Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
-           Plataforma_academica.Models.principalP[] arreglo;
-           Plataforma_academica.Models.Niveles nivel = new Plataforma_academica.Models.Niveles();
-           Plataforma_academica.Models.Niveles[] arreglo_nivel;
-           Plataforma_academica.Models.Unidades unidad = new Plataforma_academica.Models.Unidades();
-           Plataforma_academica.Models.Unidades[] arreglo_unidad;
-           Plataforma_academica.Models.Actividades_unidad actividad = new Plataforma_academica.Models.Actividades_unidad();
-           Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad;
-       }
-        <main class="page-content">
-            <div class="container-fluid">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="container">
-                    <div class="row">
-                            <div class="col-sm-4">
-                                <h4>Cursos</h4>
-                                <nav>
-                                    <ul>
-                                       @{
-                                           if (usu != null)
-                                           {
-                                                
-                                                    arreglo = principal.BuscarCursos(usu.cedula);
+    
+        Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
+        Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
+        Plataforma_academica.Models.principalP[] arreglo;
+        Plataforma_academica.Models.Niveles nivel = new Plataforma_academica.Models.Niveles();
+        Plataforma_academica.Models.Niveles[] arreglo_nivel;
+        Plataforma_academica.Models.Unidades unidad = new Plataforma_academica.Models.Unidades();
+        Plataforma_academica.Models.Unidades[] arreglo_unidad;
+        Plataforma_academica.Models.Actividades_unidad actividad = new Plataforma_academica.Models.Actividades_unidad();
+        Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad;
 
-                                                    for (int i = 0; i < arreglo.Length; i++)
-                                                    {
-                                                    <li><button type="submit" name="ir" value="@arreglo[i].codigo_curso">@arreglo[i].nombre_curso</button></li>
-                                                    }                                                
-                                            }
+        <main class="con_form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h4>Cursos</h4>
+                        <nav>
+                            <ul>
+                                @{
+                                    if (usu != null)
+                                    {
+
+                                        arreglo = principal.BuscarCursos(usu.cedula);
+
+                                        for (int i = 0; i < arreglo.Length; i++)
+                                        {
+                                            <li><button type="submit" name="ir" value="@arreglo[i].codigo_curso">@arreglo[i].nombre_curso</button></li>
+                                        }
                                     }
-                                    
-                                    </ul>
-                                </nav>
-                            </div>                        
-                        <div class="col-sm-4">
-                            <h4>Nivel</h4>
-                            <nav>
-                                <ul>
-                                    @{
-                                        if (TempData["mensaje1"] != null && usu != null)
-                                        {
-                                            TempData.Keep("mensaje1");
-                                            nivel.codigo_nivel = Convert.ToString(TempData["mensaje1"]);
-                                            arreglo_nivel = nivel.Consultar_niveles_grupo(nivel);
+                                }
 
-                                            for (int i = 0; i < arreglo_nivel.Length; i++)
-                                            {
-                                                <li><button type="submit" name="irr" value="@arreglo_nivel[i].codigo_nivel">@arreglo_nivel[i].nombre_nivel</button></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>Nivel</h4>
+                        <nav>
+                            <ul>
+                                @{
+                                    if (TempData["mensaje1"] != null && usu != null)
+                                    {
+                                        TempData.Keep("mensaje1");
+                                        nivel.codigo_nivel = Convert.ToString(TempData["mensaje1"]);
+                                        arreglo_nivel = nivel.Consultar_niveles_grupo(nivel);
 
-                                            }
-                                        }
-                                        else
+                                        for (int i = 0; i < arreglo_nivel.Length; i++)
                                         {
-                                            <li><a >Elija un Curso</a></li>
+                                            <li><button type="submit" name="irr" value="@arreglo_nivel[i].codigo_nivel">@arreglo_nivel[i].nombre_nivel</button></li>
+
                                         }
-                                    }                                    
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="col-md-4">
-                            <h4>Progreso de los cursos</h4>
-                            <div class="progress-outer">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:80%; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);"></div>
-                                    <div class="progress-value">80%</div>
-                                </div>
-                                <h6>Progreso Ingles</h6>
+                                    }
+                                    else
+                                    {
+                                        <li><a>Elija un Curso</a></li>
+                                    }
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Progreso de los cursos</h4>
+                        <div class="progress-outer">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:80%; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);"></div>
+                                <div class="progress-value">80%</div>
                             </div>
-                            <div class="progress-outer">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:60%; box-shadow:-1px 10px 10px rgba(116, 195, 116,0.7);"></div>
-                                    <div class="progress-value">60%</div>
-                                </div>
-                                <h6>Progreso Portugues</h6>
+                            <h6>Progreso Ingles</h6>
+                        </div>
+                        <div class="progress-outer">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:60%; box-shadow:-1px 10px 10px rgba(116, 195, 116,0.7);"></div>
+                                <div class="progress-value">60%</div>
                             </div>
-                            <div class="progress-outer">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:40%; box-shadow:-1px 10px 10px rgba(240, 173, 78,0.7);"></div>
-                                    <div class="progress-value">40%</div>
-                                </div>
-                                <h6>Progreso Frances</h6>
+                            <h6>Progreso Portugues</h6>
+                        </div>
+                        <div class="progress-outer">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:40%; box-shadow:-1px 10px 10px rgba(240, 173, 78,0.7);"></div>
+                                <div class="progress-value">40%</div>
                             </div>
+                            <h6>Progreso Frances</h6>
                         </div>
-                        <div class="col-sm-4">
-                            <h4>Unidades</h4>
-                            <nav>
-                                <ul>
-                                    @{
-                                        if (TempData["mensaje2"] != null && usu != null)
-                                        {
-                                            TempData.Keep("mensaje2");
-                                            string nc = Convert.ToString(TempData["mensaje2"]);
-                                            arreglo_unidad = unidad.Consultar_unidades_grupo(nc);
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>Unidades</h4>
+                        <nav>
+                            <ul>
+                                @{
+                                    if (TempData["mensaje2"] != null && usu != null)
+                                    {
+                                        TempData.Keep("mensaje2");
+                                        string nc = Convert.ToString(TempData["mensaje2"]);
+                                        arreglo_unidad = unidad.Consultar_unidades_grupo(nc);
 
-                                            for (int i = 0; i < arreglo_unidad.Length; i++)
-                                            {
-                                                <li><button type="submit" name="irrr" value="@arreglo_unidad[i].codigo_unidad">@arreglo_unidad[i].nombre_unidad</button></li>
+                                        for (int i = 0; i < arreglo_unidad.Length; i++)
+                                        {
+                                            <li><button type="submit" name="irrr" value="@arreglo_unidad[i].codigo_unidad">@arreglo_unidad[i].nombre_unidad</button></li>
 
-                                            }
                                         }
-                                        else
-                                        {
-                                            <li><a>Elija un Nivel</a></li>
-                                        }
-                                    }  
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="col-sm-4">
-                            <h4>Actividades</h4>
-                            <nav>
-                                <ul>
-                                    @{
-                                        if (TempData["mensaje3"] != null && usu != null)
-                                        {
-                                            TempData.Keep("mensaje3");
-                                            string nc = Convert.ToString(TempData["mensaje3"]);
-                                            arreglo_actividad = actividad.Consultar_Actividad_unidades(nc);
+                                    }
+                                    else
+                                    {
+                                        <li><a>Elija un Nivel</a></li>
+                                    }
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>Actividades</h4>
+                        <nav>
+                            <ul>
+                                @{
+                                    if (TempData["mensaje3"] != null && usu != null)
+                                    {
+                                        TempData.Keep("mensaje3");
+                                        string nc = Convert.ToString(TempData["mensaje3"]);
+                                        arreglo_actividad = actividad.Consultar_Actividad_unidades(nc);
 
-                                            for (int i = 0; i < arreglo_actividad.Length; i++) 
-                                            {
-                                               <li><button type="submit" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">@arreglo_actividad[i].nombre_actividad</button></li>
-                                            }
-                                        }
-                                        else
+                                        for (int i = 0; i < arreglo_actividad.Length; i++)
                                         {
-                                            <li><a>Elija un Nivel</a></li>
+                                            <li><button type="submit" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">@arreglo_actividad[i].nombre_actividad</button></li>
                                         }
-                                    }  
-                                </ul>
-                            </nav>
-                        </div>
+                                    }
+                                    else
+                                    {
+                                        <li><a>Elija un Nivel</a></li>
+                                    }
+                                }
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
         </main>
-        
-    </div>
-}
+  }
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Amazonian Language Tic</p>
+    </footer>
 
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
