@@ -27,6 +27,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="container">
             <div class="row">
+                <!--Cursos-->
                 <div class="col-sm-4">
                     <h4>Cursos</h4>
                     <nav>
@@ -39,7 +40,12 @@
 
                                     for (int i = 0; i < arreglo.Length; i++)
                                     {
-                                        <li><button type="submit" class="btn btn-primary btn-sm" name="ir1" value="@arreglo[i].codigo_curso">@arreglo[i].nombre_curso</button></li>
+                                        <li>
+                                            <button type="submit" class="btn btn-info btn-sm " name="ir1" value="@arreglo[i].codigo_curso">
+                                                <span class="glyphicon glyphicon-book"></span>
+                                                @arreglo[i].nombre_curso
+                                            </button>
+                                        </li>
                                     }
                                 }
                             }
@@ -47,6 +53,7 @@
                         </ul>
                     </nav>
                 </div>
+                <!-- Nivel -->
                 <div class="col-sm-4">
                     <h4>Nivel</h4>
                     <nav>
@@ -60,7 +67,12 @@
 
                                     for (int i = 0; i < arreglo_nivel.Length; i++)
                                     {
-                                        <li><button type="submit" name="ir2" value="@arreglo_nivel[i].codigo_nivel">@arreglo_nivel[i].nombre_nivel</button></li>
+                                        <li>
+                                            <button type="submit" class="btn btn-info btn-sm " name="ir2" value="@arreglo_nivel[i].codigo_nivel">
+                                                <span class="glyphicon glyphicon-stats"></span>
+                                                @arreglo_nivel[i].nombre_nivel
+                                            </button>
+                                        </li>
 
                                     }
                                 }
@@ -72,6 +84,7 @@
                         </ul>
                     </nav>
                 </div>
+                <!-- Barra Progreso -->
                 <div class="col-md-4">
                     <h4>Progreso de los cursos</h4>
                     <div class="progress-outer">
@@ -96,6 +109,7 @@
                         <h6>Progreso Frances</h6>
                     </div>
                 </div>
+                <!--Unidades-->
                 <div class="col-sm-4">
                     <h4>Unidades</h4>
                     <nav>
@@ -109,7 +123,12 @@
 
                                     for (int i = 0; i < arreglo_unidad.Length; i++)
                                     {
-                                        <li><button type="submit" name="ir3" value="@arreglo_unidad[i].codigo_unidad">@arreglo_unidad[i].nombre_unidad</button></li>
+                                        <li>
+                                            <button type="submit" class="btn btn-info btn-sm" name="ir3" value="@arreglo_unidad[i].codigo_unidad">
+                                                <span class="glyphicon glyphicon-th-large"></span>
+                                                @arreglo_unidad[i].nombre_unidad
+                                            </button>
+                                        </li>
 
                                     }
                                 }
@@ -121,6 +140,7 @@
                         </ul>
                     </nav>
                 </div>
+                <!--Actividades-->
                 <div class="col-sm-4">
                     <h4>Actividades</h4>
                     <nav>
@@ -131,16 +151,28 @@
                                     TempData.Keep("mensaje12");
                                     string nc = Convert.ToString(TempData["mensaje12"]);
                                     arreglo_actividad = actividad.Consultar_Actividad_unidades_edic(nc);
-                                    <li><button type="submit" name="ir5" value="nueva">Nueva Actividad</button></li>
+                                    <li>
+                                        <button type="submit" class="btn btn-info btn-sm" name="ir5" value="nueva">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                            Actividad
+                                        </button>
+                                    </li>
                                     for (int i = 0; i < arreglo_actividad.Length; i++)
                                     {
                                         <li>
                                             <div class="btn-group">
-                                                <button type="submit" name="ir4" value="@arreglo_actividad[i].codigo_actividad">@arreglo_actividad[i].nombre_actividad</button>
+
+                                                <button type="submit" class="btn btn-info btn-sm" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
+                                                    <span class="glyphicon glyphicon-blackboard"></span>
+                                                    @arreglo_actividad[i].nombre_actividad
+                                                </button>
                                                 @{
                                                     if (arreglo_actividad[i].edicion == "Desaprobado")
                                                     {
-                                                        <button type="submit" name="ir6" value="@arreglo_actividad[i].codigo_actividad">Editar</button>
+
+                                                        <button type="submit" class="btn btn-info btn-sm" name="ir6" value="@arreglo_actividad[i].codigo_actividad">
+                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                        </button>
                                                     }
                                                 }
 
