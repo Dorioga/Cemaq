@@ -6,166 +6,197 @@
 }
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Estilos/principal1.css" rel="stylesheet" type="text/css">
+    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
 </head>
 
+<h2>Amazonian language tic´s</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
+    Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
+    Plataforma_academica.Models.principalP[] arreglo;
+    Plataforma_academica.Models.Niveles nivel = new Plataforma_academica.Models.Niveles();
+    Plataforma_academica.Models.Niveles[] arreglo_nivel;
+    Plataforma_academica.Models.Unidades unidad = new Plataforma_academica.Models.Unidades();
+    Plataforma_academica.Models.Unidades[] arreglo_unidad;
+    Plataforma_academica.Models.Actividades_unidad actividad = new Plataforma_academica.Models.Actividades_unidad();
+    Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad;
 
-    <h2>Amazonian Language TIC´S</h2>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <div class="form-horizontal">
-            @{
-                Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
-                Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
-                Plataforma_academica.Models.principalP[] arreglo;
-                Plataforma_academica.Models.Niveles nivel = new Plataforma_academica.Models.Niveles();
-                Plataforma_academica.Models.Niveles[] arreglo_nivel;
-                Plataforma_academica.Models.Unidades unidad = new Plataforma_academica.Models.Unidades();
-                Plataforma_academica.Models.Unidades[] arreglo_unidad;
-                Plataforma_academica.Models.Actividades_unidad actividad = new Plataforma_academica.Models.Actividades_unidad();
-                Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad;
-            }
-            <main class="page-content">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h4>Cursos</h4>
-                                <nav>
-                                    <ul>
-                                        @{
-                                            if (usu != null)
-                                            {
+    <main class="con_form">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="container">
+            <div class="row">
+                <!--Cursos-->
+                <div class="col-sm-4">
+                    <h4>Cursos</h4>
+                    <nav>
+                        <ul>
+                            @{
+                                if (usu != null)
+                                {
 
-                                                arreglo = principal.BuscarCursos(usu.cedula);
+                                    arreglo = principal.BuscarCursos(usu.cedula);
 
-                                                for (int i = 0; i < arreglo.Length; i++)
-                                                {
-                                                    <li><button type="submit" name="ir1" value="@arreglo[i].codigo_curso">@arreglo[i].nombre_curso</button></li>
-                                                }
-                                            }
-                                        }
+                                    for (int i = 0; i < arreglo.Length; i++)
+                                    {
+                                        <li>
+                                            <button type="submit" class="btn btn-info btn-sm " name="ir1" value="@arreglo[i].codigo_curso">
+                                                <span class="glyphicon glyphicon-book"></span>
+                                                @arreglo[i].nombre_curso
+                                            </button>
+                                        </li>
+                                    }
+                                }
+                            }
 
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div class="col-sm-4">
-                                <h4>Nivel</h4>
-                                <nav>
-                                    <ul>
-                                        @{
-                                            if (TempData["mensaje10"] != null && usu != null)
-                                            {
-                                                TempData.Keep("mensaje10");
-                                                nivel.codigo_nivel = Convert.ToString(TempData["mensaje10"]);
-                                                arreglo_nivel = nivel.Consultar_niveles_grupo(nivel);
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Nivel -->
+                <div class="col-sm-4">
+                    <h4>Nivel</h4>
+                    <nav>
+                        <ul>
+                            @{
+                                if (TempData["mensaje10"] != null && usu != null)
+                                {
+                                    TempData.Keep("mensaje10");
+                                    nivel.codigo_nivel = Convert.ToString(TempData["mensaje10"]);
+                                    arreglo_nivel = nivel.Consultar_niveles_grupo(nivel);
 
-                                                for (int i = 0; i < arreglo_nivel.Length; i++)
-                                                {
-                                                    <li><button type="submit" name="ir2" value="@arreglo_nivel[i].codigo_nivel">@arreglo_nivel[i].nombre_nivel</button></li>
+                                    for (int i = 0; i < arreglo_nivel.Length; i++)
+                                    {
+                                        <li>
+                                            <button type="submit" class="btn btn-info btn-sm " name="ir2" value="@arreglo_nivel[i].codigo_nivel">
+                                                <span class="glyphicon glyphicon-stats"></span>
+                                                @arreglo_nivel[i].nombre_nivel
+                                            </button>
+                                        </li>
 
-                                                }
-                                            }
-                                            else
-                                            {
-                                                <li><a>Elija un Curso</a></li>
-                                            }
-                                        }
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div class="col-md-4">
-                                <h4>Progreso de los cursos</h4>
-                                <div class="progress-outer">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:80%; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);"></div>
-                                        <div class="progress-value">80%</div>
-                                    </div>
-                                    <h6>Progreso Ingles</h6>
-                                </div>
-                                <div class="progress-outer">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:60%; box-shadow:-1px 10px 10px rgba(116, 195, 116,0.7);"></div>
-                                        <div class="progress-value">60%</div>
-                                    </div>
-                                    <h6>Progreso Portugues</h6>
-                                </div>
-                                <div class="progress-outer">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:40%; box-shadow:-1px 10px 10px rgba(240, 173, 78,0.7);"></div>
-                                        <div class="progress-value">40%</div>
-                                    </div>
-                                    <h6>Progreso Frances</h6>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <h4>Unidades</h4>
-                                <nav>
-                                    <ul>
-                                        @{
-                                            if (TempData["mensaje11"] != null && usu != null)
-                                            {
-                                                TempData.Keep("mensaje11");
-                                                string nc = Convert.ToString(TempData["mensaje11"]);
-                                                arreglo_unidad = unidad.Consultar_unidades_grupo(nc);
-
-                                                for (int i = 0; i < arreglo_unidad.Length; i++)
-                                                {
-                                                    <li><button type="submit" name="ir3" value="@arreglo_unidad[i].codigo_unidad">@arreglo_unidad[i].nombre_unidad</button></li>
-
-                                                }
-                                            }
-                                            else
-                                            {
-                                                <li><a>Elija un Nivel</a></li>
-                                            }
-                                        }
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div class="col-sm-4">
-                                <h4>Actividades</h4>
-                                <nav>
-                                    <ul>
-                                        @{
-                                            if (TempData["mensaje12"] != null && usu != null)
-                                            {
-                                                TempData.Keep("mensaje12");
-                                                string nc = Convert.ToString(TempData["mensaje12"]);
-                                                arreglo_actividad = actividad.Consultar_Actividad_unidades_edic(nc);
-                                                <li><button type="submit" name="ir5" value="nueva">Nueva Actividad</button></li>
-                                                for (int i = 0; i < arreglo_actividad.Length; i++)
-                                                {
-                                                    <li>
-                                                        <div class="btn-group">
-                                                            <button type="submit" name="ir4" value="@arreglo_actividad[i].codigo_actividad">@arreglo_actividad[i].nombre_actividad</button>
-                                                            @{
-                                                                if (arreglo_actividad[i].edicion == "Desaprobado")
-                                                                {
-                                                                    <button type="submit" name="ir6" value="@arreglo_actividad[i].codigo_actividad">Editar</button>
-                                                                }
-                                                            }
-
-                                                        </div>
-                                                    </li>
-                                                                    }
-                                                                }
-                                                                else
-                                                                {
-                                                                    <li><a> Elija una unidad</a></li>
-                                                                }
-                                        }
-                                    </ul>
-                                </nav>
-                            </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <li><a>Elija un Curso</a></li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Barra Progreso -->
+                <div class="col-md-4">
+                    <h4>Progreso de los cursos</h4>
+                    <div class="progress-outer">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:80%; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);"></div>
+                            <div class="progress-value">80%</div>
                         </div>
+                        <h6>Progreso Ingles</h6>
                     </div>
-         </main>
-    </div>
- }
+                    <div class="progress-outer">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:60%; box-shadow:-1px 10px 10px rgba(116, 195, 116,0.7);"></div>
+                            <div class="progress-value">60%</div>
+                        </div>
+                        <h6>Progreso Portugues</h6>
+                    </div>
+                    <div class="progress-outer">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:40%; box-shadow:-1px 10px 10px rgba(240, 173, 78,0.7);"></div>
+                            <div class="progress-value">40%</div>
+                        </div>
+                        <h6>Progreso Frances</h6>
+                    </div>
+                </div>
+                <!--Unidades-->
+                <div class="col-sm-4">
+                    <h4>Unidades</h4>
+                    <nav>
+                        <ul>
+                            @{
+                                if (TempData["mensaje11"] != null && usu != null)
+                                {
+                                    TempData.Keep("mensaje11");
+                                    string nc = Convert.ToString(TempData["mensaje11"]);
+                                    arreglo_unidad = unidad.Consultar_unidades_grupo(nc);
 
+                                    for (int i = 0; i < arreglo_unidad.Length; i++)
+                                    {
+                                        <li>
+                                            <button type="submit" class="btn btn-info btn-sm" name="ir3" value="@arreglo_unidad[i].codigo_unidad">
+                                                <span class="glyphicon glyphicon-th-large"></span>
+                                                @arreglo_unidad[i].nombre_unidad
+                                            </button>
+                                        </li>
 
-            @section Scripts {
-                @Scripts.Render("~/bundles/jqueryval")
-            }
+                                    }
+                                }
+                                else
+                                {
+                                    <li><a>Elija un Nivel</a></li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </div>
+                <!--Actividades-->
+                <div class="col-sm-4">
+                    <h4>Actividades</h4>
+                    <nav>
+                        <ul>
+                            @{
+                                if (TempData["mensaje12"] != null && usu != null)
+                                {
+                                    TempData.Keep("mensaje12");
+                                    string nc = Convert.ToString(TempData["mensaje12"]);
+                                    arreglo_actividad = actividad.Consultar_Actividad_unidades_edic(nc);
+                                    <li>
+                                        <button type="submit" class="btn btn-info btn-sm" name="ir5" value="nueva">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                            Actividad
+                                        </button>
+                                    </li>
+                                    for (int i = 0; i < arreglo_actividad.Length; i++)
+                                    {
+                                        <li>
+                                            <div class="btn-group">
+
+                                                <button type="submit" class="btn btn-info btn-sm" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
+                                                    <span class="glyphicon glyphicon-blackboard"></span>
+                                                    @arreglo_actividad[i].nombre_actividad
+                                                </button>
+                                                @{
+                                                    if (arreglo_actividad[i].edicion == "Desaprobado")
+                                                    {
+
+                                                        <button type="submit" class="btn btn-info btn-sm" name="ir6" value="@arreglo_actividad[i].codigo_actividad">
+                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                        </button>
+                                                    }
+                                                }
+
+                                            </div>
+                                        </li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li><a> Elija una unidad</a></li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+}
+<footer>
+    <p>&copy; @DateTime.Now.Year - Amazonian Language Tic</p>
+</footer>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

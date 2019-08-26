@@ -18,10 +18,11 @@ namespace Plataforma_academica.Models
         public String url_multimedia { set; get; }
         public String descripcion_editar { set; get; }
         public String id_seccion { set; get; }
+       private Conexion.Conexion con = new Conexion.Conexion();
 
         public Editar_Actividad[] Editar_contenido_actividad(string cn)
         {
-            Conexion.Conexion con = new Conexion.Conexion();
+            
             DataTable actividad = con.Execute_Query("call Pr_cargar_contenido(" + cn + ")");
             Editar_Actividad[] arreglo = new Editar_Actividad[actividad.Rows.Count];
             Editar_Actividad inicio = new Editar_Actividad();
@@ -43,6 +44,13 @@ namespace Plataforma_academica.Models
                 j++;
             }
             return arreglo;
+        }
+
+        public bool Actualizar_nombre_actividad(string cn, Editar_Actividad obj)
+        {
+            con = new Conexion.Conexion();
+            int x = con.Execute_Operation("call Pr_Actualizar_Nombre_Actividad ('" + obj.Nombre_actividad + "', '" + cn+ "')");
+            return x > 0 ? true : false;
         }
     }
 }

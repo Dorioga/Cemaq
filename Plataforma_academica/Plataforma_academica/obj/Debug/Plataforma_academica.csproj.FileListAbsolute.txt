@@ -313,6 +313,6 @@ C:\Users\alejandro\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica
 C:\Users\alejandro\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica\Plataforma_academica\bin\es\System.Web.WebPages.resources.dll
 C:\Users\alejandro\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica\Plataforma_academica\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\alejandro\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica\Plataforma_academica\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\alejandro\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica\Plataforma_academica\obj\Debug\Plataforma_academica.csprojResolveAssemblyReference.cache
 C:\Users\alejandro\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica\Plataforma_academica\obj\Debug\Plataforma_academica.dll
 C:\Users\alejandro\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica\Plataforma_academica\obj\Debug\Plataforma_academica.pdb
+C:\Users\alejandro\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica\Plataforma_academica\obj\Debug\Plataforma_academica.csprojResolveAssemblyReference.cache

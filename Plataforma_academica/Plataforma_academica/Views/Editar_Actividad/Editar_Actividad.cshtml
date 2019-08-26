@@ -18,18 +18,21 @@
             Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
             Plataforma_academica.Models.Editar_Actividad editar_actividad = new Plataforma_academica.Models.Editar_Actividad();
             Plataforma_academica.Models.Editar_Actividad[] arreglo_editar;
+            Plataforma_academica.Models.Editar_Actividad datos = new Plataforma_academica.Models.Editar_Actividad();
             int rol = Convert.ToInt32(usu.rol);
 
             if (rol < 4)
             {
+
                 Plataforma_academica.Models.principalP act2 = Session["usuario12"] as Plataforma_academica.Models.principalP;
                 arreglo_editar = editar_actividad.Editar_contenido_actividad(act2.codigo_actividad);
+
                 <h4>Comentarios de correciones</h4>
                         @Html.LabelFor(Model => arreglo_editar[0].descripcion_editar, arreglo_editar[0].descripcion_editar, new { @class = "form-control", @id = "p" })
                 <hr/>
                 <h4>Titulo de la Actividad</h4>
-                        @Html.TextArea( arreglo_editar[0].Nombre_actividad, arreglo_editar[0].Nombre_actividad, new { @class = "form-control" })//titulo actividad
-                        <button type="submit" name="ir1" value="@arreglo_editar[0].id_actividad">Modificar</button>
+                 @Html.TextAreaFor(model => model.Nombre_actividad,  new { @class = "form-control", @placeholder = @arreglo_editar[0].Nombre_actividad})//titulo actividad
+                 <button type="submit" name="ir1" value="@arreglo_editar[0].id_actividad">Modificar</button>
                 if (arreglo_editar[0].id_tipo_multimedia == "3")
                 {
                     <h4>Descripcion de la Actividad</h4>
@@ -39,8 +42,7 @@
                 else
                 {
                     if (arreglo_editar[0].id_tipo_multimedia == "2")
-                    {
-                      
+                    {                      
                       <h4>Descripcion de la Actividad</h4>
                       <p>@Html.TextArea(arreglo_editar[0].descripcion, arreglo_editar[0].descripcion, new { @class = "form-control" })</p>
                       <button type="submit" name="ir3" value="@arreglo_editar[0].id_actividad">Modificar</button>
@@ -58,6 +60,7 @@
                              </div>
                          </div>
                        </div>
+                       @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
                        <input type="file" name="excelfile" />
                        <button type="submit" name="ir4" value="@arreglo_editar[0].id_multimedia">Modificar imagen</button>
                        <button type="submit" name="ir5" value="@arreglo_editar[0].id_multimedia">Eliminar imagen</button>
@@ -82,6 +85,7 @@
                                </div>
                             </div>
                          </div>
+                          @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
                           <input type="file" name="excelfile" />
                           <button type="submit" name="ir6" value="@arreglo_editar[0].id_multimedia">Modificar multimedia</button>
                           <button type="submit" name="ir7" value="@arreglo_editar[0].id_multimedia">Eliminar multimedia</button>
@@ -124,6 +128,7 @@
                                    </article>
                                 </div>
                               </div>
+                                @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
                             <button type="submit" name="ir15" value="@arreglo_editar[0].id_seccion">Guardar edición</button>
                                 <input type="file" name="excelfile" />
                                 <button type="submit" name="ir16" value="@arreglo_editar[0].id_multimedia">Subir multimedia</button>
@@ -147,6 +152,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
                                         <input type="file" name="excelfile" />
                                         <button type="submit" name="ir9" value="@arreglo_editar[0].id_multimedia">Modificar multimedia</button>
                                         <button type="submit" name="ir10" value="@arreglo_editar[0].id_multimedia">Eliminar multimedia</button>
@@ -169,6 +175,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
                                         <input type="file" name="excelfile" />
                                         <button type="submit" name="ir11" value="@arreglo_editar[0].id_multimedia">Modificar imagen</button>
                                         <button type="submit" name="ir12" value="@arreglo_editar[0].id_multimedia">Eliminar imagen</button>
@@ -186,6 +193,7 @@
                                                 </audio>
                                             </div>
                                         </div>
+                                        @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
                                         <input type="file" name="excelfile" />
                                         <button type="submit" name="ir13" value="@arreglo_editar[0].id_multimedia">Modificar multimedia</button>
                                         <button type="submit" name="ir14" value="@arreglo_editar[0].id_multimedia">Eliminar multimedia</button>
