@@ -36,7 +36,7 @@
                 if (arreglo_editar[0].id_tipo_multimedia == "3")
                 {
                     <h4>Descripcion de la Actividad</h4>
-                    @Html.TextArea(arreglo_editar[0].descripcion, arreglo_editar[0].descripcion, new { @class = "form-control" })
+                    @Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @arreglo_editar[0].descripcion })
                     <button type="submit" name="ir2" value="@arreglo_editar[0].id_actividad">Modificar</button>
                 }
                 else
@@ -44,7 +44,7 @@
                     if (arreglo_editar[0].id_tipo_multimedia == "2")
                     {                      
                       <h4>Descripcion de la Actividad</h4>
-                      <p>@Html.TextArea(arreglo_editar[0].descripcion, arreglo_editar[0].descripcion, new { @class = "form-control" })</p>
+                      <p>@Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @arreglo_editar[0].descripcion })</p>
                       <button type="submit" name="ir3" value="@arreglo_editar[0].id_actividad">Modificar</button>
                       <section>
                         <div class="container mt-4">
@@ -107,8 +107,8 @@
                                         <div class="card">
                                             <div class="card-block p-3">
                                                 <article>
-                                                    @Html.TextArea(arreglo_editar[i].titulo_seccion, arreglo_editar[i].titulo_seccion, new { @class = "form-control" }) @*titulo sub*@
-                                                    @Html.TextArea(arreglo_editar[i].contenido_seccion, arreglo_editar[i].contenido_seccion, new { @class = "form-control" })
+                                                    @Html.TextAreaFor(model => model.titulo_seccion, new { @class = "form-control", @placeholder = @arreglo_editar[i].titulo_seccion }) @*titulo sub*@
+                                                    @Html.TextAreaFor(model => model.contenido_seccion, new { @class = "form-control", @placeholder = @arreglo_editar[i].contenido_seccion })
                                                 </article>
                                             </div>
                                         </div>
@@ -123,8 +123,8 @@
                               <div class="card">
                                 <div class="card-block p-3">
                                   <article>
-                                     @Html.TextArea(arreglo_editar[i].titulo_seccion, arreglo_editar[i].titulo_seccion, new { @class = "form-control" }) @*titulo sub*@
-                                     @Html.TextArea(arreglo_editar[i].contenido_seccion, arreglo_editar[i].contenido_seccion, new { @class = "form-control" })
+                                     @Html.TextAreaFor(model => model.titulo_seccion,  new { @class = "form-control", @placeholder = @arreglo_editar[i].titulo_seccion }) @*titulo sub*@
+                                     @Html.TextAreaFor(model => model.contenido_seccion, new { @class = "form-control", @placeholder= arreglo_editar[i].contenido_seccion })
                                    </article>
                                 </div>
                               </div>
