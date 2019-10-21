@@ -238,6 +238,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\loginscript.js" />
     <Content Include="Scripts\login_campos.js" />
+    <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\Menuprincipal.js" />
     <Content Include="Scripts\Modal_entrada.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />

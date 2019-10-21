@@ -1,6 +1,5 @@
-﻿body {
-    height: 100%;
-    padding-top: 8px;
+﻿body, html {
+    background-color: #eeeeee;
 }
 
 h2 {
@@ -8,9 +7,30 @@ h2 {
     margin-bottom: 1px;
 }
 
+header {
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    background-color: #23374d;
+    color: #FFFFFF;
+}
+
 img {
     width: 100%;
     vertical-align: middle;
+}
+
+label {
+    margin: 0;
+}
+
+li {
+    text-decoration-style: none;
+}
+
+p {
+    margin: 0;
 }
 
 textarea {
@@ -19,11 +39,13 @@ textarea {
 }
 
 ul, ol {
-    margin-top: 0;
-    margin-bottom: 10px;
-    padding-left: 17px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-inline-start: 0px;
 }
+
 .btn-block {
+    white-space: normal;
     text-align: initial;
     padding-left: 10px;
 }
@@ -34,7 +56,6 @@ ul, ol {
 }
 
 .btn-actividad {
-    white-space: normal;
     text-align: left;
 }
 
@@ -42,15 +63,70 @@ ul, ol {
     width: 20%;
 }
 
-.contenedor {
-    width: 62%;
-    min-width: 50%;
+.cerrarsesion {
+    margin-right: 15px;
     height: 100%;
+    order: 2;
+    flex: 1 0 auto;
+}
+
+.col-sm-4 {
+    position: inherit;
+}
+
+.container {
+    height: 100%;
+    border-radius: 15px;
+}
+
+.contenedor {
+    float: none;
+    width: 62%;
+    display: flow-root;
+    min-width: 50%;
+    height: auto;
     margin-left: 19%;
+    margin-top: 80px;
+}
+
+.contenido {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .con_form {
     height: 60%;
+    border-radius: 14px;
+}
+
+.datos-perfil {
+    margin: 0px 15px 0 15px;
+    height: 100%;
+    order: 1;
+    flex: 3 0 auto;
+}
+
+.fas, .fa {
+    color: #ffffff;
+}
+
+.foto-perfil {
+    height: 100%;
+    order: 0;
+    flex: 1 0 auto;
+}
+
+.glyphicon {
+    position: inherit;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    float: right;
+    height: 100%;
 }
 
 .label {
@@ -61,6 +137,99 @@ ul, ol {
     color: #333333;
     padding-left: 0px max-width: 100%;
     min-height: 300px;
+}
+
+.list-group {
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+.list-group-item {
+    color: white;
+    background-color: #A9BCD0;
+    border: 0px;
+}
+
+.list-group-item-heading {
+    margin-bottom: 0px;
+}
+
+.lista-menu {
+    background-color: #1089ff;
+    width: 100%;
+    order: 1;
+    display: inline;
+    height: 90%;
+}
+
+.logo {
+    border-radius: 10px 10px 0 0;
+    background-color: #23374D;
+    cursor: pointer;
+    padding-top: 5px;
+    width: 100%;
+    text-align: center;
+    order: 0;
+    flex: 0 0 5%;
+}
+
+.menu-izq {
+    position: fixed;
+    float: left;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #23374D;
+    margin-left: 1%;
+    width: 16%;
+}
+
+.menu-der {
+    right: 0px;
+    position: fixed;
+    background-color: #A9BCD0;
+    float: right;
+    margin-right: 1%;
+    border-radius: 15px;
+    width: 16%;
+    height: 87%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #23374D;
+}
+
+.navbar {
+    height: 100%;
+    margin: 0px;
+    display: block;
+    padding: 0px;
+}
+
+.page-content {
+    margin-top: 10px;
+}
+
+.perfil {
+    max-height: 58px;
+    width: 58px;
+    float: left;
+    border-radius: 15px;
+}
+
+@media screen and (max-width:510px) {
+    .perfil {
+        max-height: 45px;
+        width: 45px;
+    }
+}
+
+.pie {
+    border-radius: 0 0 10px 10px;
+    background-color: #23374D;
+    text-align: center;
+    width: 100%;
+    order: 2;
+    flex: 0 0 5%;
 }
 
 .progress {
@@ -77,7 +246,7 @@ ul, ol {
     }
 
     .progress .progress-value {
-        position: relative;
+        position: inherit;
         left: -45px;
         top: 4px;
         font-size: 14px;
@@ -98,13 +267,12 @@ ul, ol {
 }
 
 .row {
-    background-color: #edededc2;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    background-color: #A9BCD0;
+    color: #747572;
     border-radius: 15px;
-    border-color: #d2d2d2;
-    border-width: 5px;
-    box-shadow: 0 1px 0 #cfcfcf;
+    padding: 15px;
+}
+
+.user-info {
+    float: right;
 }
