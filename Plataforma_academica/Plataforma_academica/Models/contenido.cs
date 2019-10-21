@@ -19,7 +19,6 @@ namespace Plataforma_academica.Models
             conexion = new Conexion.Conexion();
             int x = conexion.Execute_Operation("call Pr_ingresar_titulo_actividad ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "unidad id" + "')");
             return x > 0 ? true : false;
-
         }
     }
 }

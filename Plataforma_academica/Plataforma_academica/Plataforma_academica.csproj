@@ -190,7 +190,6 @@
     <Content Include="Estilos\Modal_Inicio.css" />
     <Content Include="Estilos\navbarderecho1.css" />
     <Content Include="Estilos\principal.css" />
-    <Content Include="Estilos\principal_sin_textarea.css" />
     <Content Include="Estilos\ProfesionalPage1.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -212,6 +211,10 @@
     <Content Include="Imagenes\p3.jpg" />
     <Content Include="Imagenes\subject pronouns.jpg" />
     <Content Include="Imagenes\ubicacion.png" />
+    <Content Include="imagen_multimedia\20190828164733traiding.jpg" />
+    <Content Include="imagen_multimedia\20191014132309j balvin - yo te lo dije.mp3" />
+    <Content Include="imagen_multimedia\20191014160449j balvin - yo te lo dije.mp3" />
+    <Content Include="imagen_multimedia\2019101416094220190829095254subject pronouns.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -219,9 +222,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\academialenguaamazonica - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Emergente.js" />
     <Content Include="Scripts\infantilpage.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

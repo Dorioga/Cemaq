@@ -10,205 +10,284 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Editar_Actividad", "Editar_Actividad", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <body>
-        @{
-            Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
-            Plataforma_academica.Models.Editar_Actividad editar_actividad = new Plataforma_academica.Models.Editar_Actividad();
+        @{  Plataforma_academica.Models.Editar_Actividad editar_actividad = new Plataforma_academica.Models.Editar_Actividad();
             Plataforma_academica.Models.Editar_Actividad[] arreglo_editar;
-            Plataforma_academica.Models.Editar_Actividad datos = new Plataforma_academica.Models.Editar_Actividad();
-            int rol = Convert.ToInt32(usu.rol);
+            Plataforma_academica.Models.principalP act2 = Session["usuario12"] as Plataforma_academica.Models.principalP;
+            Plataforma_academica.Models.Editar_Actividad edicion = Session["usuario19"] as Plataforma_academica.Models.Editar_Actividad;
+            arreglo_editar = editar_actividad.Buscar_comentario_editar(act2.codigo_actividad);
 
-            if (rol < 4)
+        <h4>Comentarios de correciones</h4>
+        @Html.LabelFor(Model => arreglo_editar[0].descripcion_editar, arreglo_editar[0].descripcion_editar, new { @class = "form-control", @id = "p" })
+        <hr />
+        <section>           
+            @Html.DropDownListFor(model => model.editar_elegir, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
+            <button type="submit" name="ir100">Cargar</button>
+        </section>
+            if (act2.codigo_actividad != null && Model.editar_elegir != null)
             {
-
-                Plataforma_academica.Models.principalP act2 = Session["usuario12"] as Plataforma_academica.Models.principalP;
-                arreglo_editar = editar_actividad.Editar_contenido_actividad(act2.codigo_actividad);
-
-                <h4>Comentarios de correciones</h4>
-                        @Html.LabelFor(Model => arreglo_editar[0].descripcion_editar, arreglo_editar[0].descripcion_editar, new { @class = "form-control", @id = "p" })
-                <hr/>
-                <h4>Titulo de la Actividad</h4>
-                 @Html.TextAreaFor(model => model.Nombre_actividad,  new { @class = "form-control", @placeholder = @arreglo_editar[0].Nombre_actividad})//titulo actividad
-                 <button type="submit" name="ir1" value="@arreglo_editar[0].id_actividad">Modificar</button>
-                if (arreglo_editar[0].id_tipo_multimedia == "3")
+                if (edicion.Nombre_actividad==edicion.titulo_seccion)
                 {
-                    <h4>Descripcion de la Actividad</h4>
-                    @Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @arreglo_editar[0].descripcion })
-                    <button type="submit" name="ir2" value="@arreglo_editar[0].id_actividad">Modificar</button>
+                    if (edicion.id_tipo_multimedia == "3")
+                    {
+                    <hr />
+                    <h4>Titulo de la Sección</h4>
+                    @Html.TextAreaFor(model => model.Nombre_actividad, new { @class = "form-control", @placeholder = edicion.titulo_seccion })//titulo actividad
+                    <button type="submit" name="ir1" value="@arreglo_editar[0].id_actividad">Modificar</button>
+                    <p></p>
+                    <h4>Descripcion de la Sección</h4>
+                    <p>@Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @edicion.contenido_seccion })</p>
+                    <button type="submit" name="ir2" value="@edicion.id_actividad">Modificar</button>
+                    <p></p>
+                    @Html.DropDownListFor(model => model.mul, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
+                    <input type="file" name="file" />
+                    <button type="submit" name="ir3" value="@edicion.id_seccion">Subir multimedia</button>
                 }
                 else
                 {
-                    if (arreglo_editar[0].id_tipo_multimedia == "2")
-                    {                      
-                      <h4>Descripcion de la Actividad</h4>
-                      <p>@Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @arreglo_editar[0].descripcion })</p>
-                      <button type="submit" name="ir3" value="@arreglo_editar[0].id_actividad">Modificar</button>
-                      <section>
-                        <div class="container mt-4">
-                          <div class="row">
-                             <div class="col-md-12 mb-4">
-                                <div class="card">
-                                   <div class="card-block p-3">
-                                      <div>
-                                        <img src="~/Imagenes/@arreglo_editar[0].url_multimedia" alt="Nature" disabled="true">
-                                      </div>
-                                   </div>
+                    if (edicion.id_tipo_multimedia == "2")
+                    {
+                        <hr />
+                        <h4>Titulo de la Sección</h4>
+                        @Html.TextAreaFor(model => model.Nombre_actividad, new { @class = "form-control", @placeholder = edicion.titulo_seccion })//titulo actividad
+                        <button type="submit" name="ir4" value="@act2.codigo_actividad">Modificar</button>
+                        <p></p>
+                        <h4>Descripcion de la Sección</h4>
+                        <p>@Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @edicion.contenido_seccion })</p>
+                        <button type="submit" name="ir5" value="@act2.codigo_actividad">Modificar</button>
+                        <section>
+                            <div class="container mt-4">
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                        <div class="card">
+                                            <div class="card-block p-3">
+                                                <div>
+                                                    <img src="~/imagen_multimedia/@edicion.url_multimedia" alt="Nature" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                             </div>
-                         </div>
-                       </div>
-                       @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
-                       <input type="file" name="excelfile" />
-                       <button type="submit" name="ir4" value="@arreglo_editar[0].id_multimedia">Modificar imagen</button>
-                       <button type="submit" name="ir5" value="@arreglo_editar[0].id_multimedia">Eliminar imagen</button>
-                      </section>
+                            </div>
+                            @Html.DropDownListFor(model => model.mul, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
+                            @*@Html.DropDownList("listar1", (IEnumerable<SelectListItem>)ViewData["lista"], "--Seleccione uno--")*@
+                            <input type="file" name="file" />
+                            <button type="submit" name="ir6" value="@edicion.id_multimedia">Modificar imagen</button>
+                            <button type="submit" name="ir7" value="@edicion.id_multimedia">Eliminar imagen</button>
+                        </section>
 
                     }
                     else
                     {
-                     <hr/>
-                     <h4>Descripcion de la Actividad</h4>
-                      <section>
-                        <div class="container mt-4">
-                           <div class="row">
-                              <div class="col-md-12 mb-4">
-                                   <div class="card">
-                                       <div class="card-block p-3">
-                                           <div class="embed-responsive embed-responsive-16by9">
-                                              <iframe class="embed-responsive-item" src="@arreglo_editar[0].url_multimedia"></iframe>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                            </div>
-                         </div>
-                          @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
-                          <input type="file" name="excelfile" />
-                          <button type="submit" name="ir6" value="@arreglo_editar[0].id_multimedia">Modificar multimedia</button>
-                          <button type="submit" name="ir7" value="@arreglo_editar[0].id_multimedia">Eliminar multimedia</button>
-                       </section>
+                        if (edicion.id_tipo_multimedia == "1")
+                        {
+                            <hr />
+                            <h4>Titulo de la Sección</h4>
+                            @Html.TextAreaFor(model => model.Nombre_actividad, new { @class = "form-control", @placeholder = edicion.titulo_seccion })//titulo actividad
+                            <button type="submit" name="ir8" value="@arreglo_editar[0].id_actividad">Modificar</button>
+                            <p></p>
+                            <h4>Descripcion de la Sección</h4>
+                            <p>@Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @edicion.contenido_seccion })</p>
+                            <button type="submit" name="ir9" value="@edicion.id_actividad">Modificar</button>
+                            <section>
+                                <div class="container mt-4">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-4">
+                                            <div class="card">
+                                                <div class="card-block p-3">
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe width="560" height="315" src="@edicion.url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @Html.DropDownListFor(model => model.mul, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
+                                <input type="file" name="file" />
+                                <button type="submit" name="ir10" value="@edicion.id_multimedia">Modificar multimedia</button>
+                                <button type="submit" name="ir11" value="@edicion.id_multimedia">Eliminar multimedia</button>
+                            </section>
+                        }
+                        else
+                        {
+                            if (edicion.id_tipo_multimedia == "4")
+                            {
+                                <hr />
+                                <h4>Titulo de la Sección</h4>
+                                @Html.TextAreaFor(model => model.Nombre_actividad, new { @class = "form-control", @placeholder = edicion.titulo_seccion })//titulo actividad
+                                <button type="submit" name="ir12" value="@arreglo_editar[0].id_actividad">Modificar</button>
+                                <p></p>
+                                <h4>Descripcion de la Sección</h4>
+                                <p>@Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @edicion.contenido_seccion })</p>
+                                <button type="submit" name="ir13" value="@edicion.id_actividad">Modificar</button>
+                                <section>
+                                    <div class="card">
+                                        <div class="card-block p-3">
+                                            <audio controls>
+                                                <source src="~/imagen_multimedia/@edicion.url_multimedia" type="audio/mp3" />
+                                            </audio>
+                                        </div>
+                                    </div>
+                                    @Html.DropDownListFor(model => model.mul, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
+                                    @*@Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")*@
+                                    <input type="file" name="file" />
+                                    <button type="submit" name="ir14" value="@edicion.id_multimedia">Modificar multimedia</button>
+                                    <button type="submit" name="ir15" value="@edicion.id_multimedia">Eliminar multimedia</button>
+                                </section>
+                                    <hr>
+                                }
+                            }
+                        }
                     }
-                }//descripcion actividad
-                if (arreglo_editar[0].titulo_seccion == null)
+                }
+                ///////////////////////////////////////////////
+                else
                 {
+                    if (edicion.id_tipo_multimedia == "3")
+                    {
+                        //
+                    <hr />
+                    <h4>Titulo de la Sección</h4>
+                    @Html.TextAreaFor(model => model.titulo_seccion, new { @class = "form-control", @placeholder = edicion.titulo_seccion })//titulo actividad
+                    <button type="submit" name="ir16" value="@act2.codigo_actividad">Modificar</button>
+                    <p></p>
+                    <h4>Descripcion de la Sección</h4>
+                    <p>@Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @edicion.contenido_seccion })</p>
+                    <button type="submit" name="ir17" value="@act2.codigo_actividad">Modificar</button>
+                    <p></p>
+                    @Html.DropDownListFor(model => model.mul, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
+                    <input type="file" name="file" />
+                    <button type="submit" name="ir18" value="@edicion.id_multimedia">Subir multimedia</button>
                 }
                 else
                 {
-                    <hr />
-                    <h4>Descripcion contenido de la Actividad</h4>
-                    for (int i = 1; i < arreglo_editar.Length; i++)
+                    if (edicion.id_tipo_multimedia == "2")
                     {
-                        if (arreglo_editar[i].titulo_seccion != null && arreglo_editar[i].id_tipo_multimedia != "3")
-                        {
-                                  <section>
+                        <hr />
+                        <h4>Titulo de la Sección</h4>
+                        @Html.TextAreaFor(model => model.titulo_seccion, new { @class = "form-control", @placeholder = edicion.titulo_seccion })//titulo actividad
+                        <button type="submit" name="ir19" value="@act2.codigo_actividad">Modificar</button>
+                        <p></p>
+                        <h4>Descripcion de la Sección</h4>
+                        <p>@Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @edicion.contenido_seccion })</p>
+                        <button type="submit" name="ir22" value="@act2.codigo_actividad">Modificar</button>
+                        <section>
+                            <div class="container mt-4">
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
                                         <div class="card">
                                             <div class="card-block p-3">
-                                                <article>
-                                                    @Html.TextAreaFor(model => model.titulo_seccion, new { @class = "form-control", @placeholder = @arreglo_editar[i].titulo_seccion }) @*titulo sub*@
-                                                    @Html.TextAreaFor(model => model.contenido_seccion, new { @class = "form-control", @placeholder = @arreglo_editar[i].contenido_seccion })
-                                                </article>
+                                                <div>
+                                                    <img src="~/imagen_multimedia/@edicion.url_multimedia" alt="Nature" disabled="true">
+                                                </div>
                                             </div>
                                         </div>
-                                        <button type="submit" name="ir8" value="@arreglo_editar[0].id_seccion">Guardar edición</button>
-                                   </section>
-                                
-                        }
-                        if (arreglo_editar[i].id_tipo_multimedia == "3")
-                        {
-
-                            <section>
-                              <div class="card">
-                                <div class="card-block p-3">
-                                  <article>
-                                     @Html.TextAreaFor(model => model.titulo_seccion,  new { @class = "form-control", @placeholder = @arreglo_editar[i].titulo_seccion }) @*titulo sub*@
-                                     @Html.TextAreaFor(model => model.contenido_seccion, new { @class = "form-control", @placeholder= arreglo_editar[i].contenido_seccion })
-                                   </article>
+                                    </div>
                                 </div>
-                              </div>
-                                @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
-                            <button type="submit" name="ir15" value="@arreglo_editar[0].id_seccion">Guardar edición</button>
-                                <input type="file" name="excelfile" />
-                                <button type="submit" name="ir16" value="@arreglo_editar[0].id_multimedia">Subir multimedia</button>
+                            </div>
+                            @Html.DropDownListFor(model => model.mul, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
+                            @*@Html.DropDownList("listar1", (IEnumerable<SelectListItem>)ViewData["lista"], "--Seleccione uno--")*@
+                            <input type="file" name="file" />
+                            <button type="submit" name="ir6" value="@edicion.id_multimedia">Modificar imagen</button>
+                            <button type="submit" name="ir7" value="@edicion.id_multimedia">Eliminar imagen</button>
+                        </section>
+
+                    }
+                    else
+                    {
+                        if (edicion.id_tipo_multimedia == "1")
+                        {
+                            <hr />
+                            <h4>Titulo de la Sección</h4>
+                            @Html.TextAreaFor(model => model.titulo_seccion, new { @class = "form-control", @placeholder = edicion.titulo_seccion })//titulo actividad
+                            <button type="submit" name="ir20" value="@act2.codigo_actividad">Modificar</button>
+                            <p></p>
+                            <h4>Descripcion de la Sección</h4>
+                            <p>@Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @edicion.contenido_seccion })</p>
+                            <button type="submit" name="ir23" value="@act2.codigo_actividad">Modificar</button>
+                            <section>
+                                <div class="container mt-4">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-4">
+                                            <div class="card">
+                                                <div class="card-block p-3">
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe width="560" height="315" src="@edicion.url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @Html.DropDownListFor(model => model.mul, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
+                                <input type="file" name="file" />
+                                <button type="submit" name="ir10" value="@edicion.id_multimedia">Modificar multimedia</button>
+                                <button type="submit" name="ir11" value="@edicion.id_multimedia">Eliminar multimedia</button>
                             </section>
-                            //<hr>
-
                         }
-                        if (arreglo_editar[i].id_tipo_multimedia == "1")
+                        else
                         {
-                                    <section>
-                                        <div class="container mt-4">
-                                            <div class="row">
-                                                <div class="col-md-12 mb-4">
-                                                    <div class="card">
-                                                        <div class="card-block p-3">
-                                                            <div class="embed-responsive embed-responsive-16by9">
-                                                                <iframe width="560" height="315" src="@arreglo_editar[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            if (edicion.id_tipo_multimedia == "4")
+                            {
+                                <hr />
+                                <h4>Titulo de la Sección</h4>
+                                @Html.TextAreaFor(model => model.titulo_seccion, new { @class = "form-control", @placeholder = edicion.titulo_seccion })//titulo actividad
+                                <button type="submit" name="ir21" value="@act2.codigo_actividad">Modificar</button>
+                                <p></p>
+                                <h4>Descripcion de la Sección</h4>
+                                <p>@Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @placeholder = @edicion.contenido_seccion })</p>
+                                <button type="submit" name="ir24" value="@act2.codigo_actividad">Modificar</button>
+                                <section>
+                                    <div class="card">
+                                        <div class="card-block p-3">
+                                            <audio controls>
+                                                <source src="~/imagen_multimedia/@edicion.url_multimedia" type="audio/mp3" />
+                                            </audio>
                                         </div>
-                                        @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
-                                        <input type="file" name="excelfile" />
-                                        <button type="submit" name="ir9" value="@arreglo_editar[0].id_multimedia">Modificar multimedia</button>
-                                        <button type="submit" name="ir10" value="@arreglo_editar[0].id_multimedia">Eliminar multimedia</button>
-                                    </section>
+                                    </div>
+                                    @Html.DropDownListFor(model => model.mul, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
+                                    @*@Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")*@
+                                    <input type="file" name="file" />
+                                    <button type="submit" name="ir14" value="@edicion.id_multimedia">Modificar multimedia</button>
+                                    <button type="submit" name="ir15" value="@edicion.id_multimedia">Eliminar multimedia</button>
+                                </section>
                                     <hr>
-                        }
-                        if (arreglo_editar[i].id_tipo_multimedia == "2")
-                        {
-                                    <section>
-                                        <div class="container mt-4">
-                                            <div class="row">
-                                                <div class="col-md-12 mb-4">
-                                                    <div class="card">
-                                                        <div class="card-block p-3">
-                                                            <div>
-                                                                <img src="@arreglo_editar[i].url_multimedia" alt="Nature">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
-                                        <input type="file" name="excelfile" />
-                                        <button type="submit" name="ir11" value="@arreglo_editar[0].id_multimedia">Modificar imagen</button>
-                                        <button type="submit" name="ir12" value="@arreglo_editar[0].id_multimedia">Eliminar imagen</button>
-                                    </section>
-                                    <hr>
-
-                        }
-                        if (arreglo_editar[i].id_tipo_multimedia == "4")
-                        {
-                                    <section>
-                                        <div class="card">
-                                            <div class="card-block p-3">
-                                                <audio controls>
-                                                    <source src="~/Audios/@arreglo_editar[i].url_multimedia" type="audio/mp3" />
-                                                </audio>
-                                            </div>
-                                        </div>
-                                        @Html.DropDownList("listar", (IEnumerable<SelectListItem>)ViewData["lista"], "--Select One--")
-                                        <input type="file" name="excelfile" />
-                                        <button type="submit" name="ir13" value="@arreglo_editar[0].id_multimedia">Modificar multimedia</button>
-                                        <button type="submit" name="ir14" value="@arreglo_editar[0].id_multimedia">Eliminar multimedia</button>
-                                    </section>
-
-                                    <hr>
+                                }
+                            }
                         }
                     }
                 }
             }
 
+            if (ViewBag.mensaje == "vacios")
+            {
+                @Scripts.Render("~/js/login_campos.js")
+            }
+            else if (ViewBag.mensaje == "Registro exitoso")
+            {
+                @Scripts.Render("~/Scripts/Emergente.js")
+            }
         }
-
-
-        
+        <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3>Verificacion de actualización</h3>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Se realizo la modificacion de forma exitosa</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
    
 }
