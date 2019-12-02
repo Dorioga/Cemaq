@@ -2,6 +2,7 @@
     background-color: #eeeeee;
 }
 
+
 h2 {
     margin-top: 3px;
     margin-bottom: 1px;
@@ -14,6 +15,11 @@ header {
     top: 0%;
     background-color: #23374d;
     color: #FFFFFF;
+}
+
+hr {
+    border: 5px dashed green;
+    border-radius: 5px;
 }
 
 img {
@@ -62,6 +68,9 @@ ul, ol {
 .btn-editar {
     width: 20%;
 }
+.card {
+    position: inherit;
+}
 
 .cerrarsesion {
     margin-right: 15px;
@@ -70,7 +79,10 @@ ul, ol {
     flex: 1 0 auto;
 }
 
-.col-sm-4 {
+.col-sm-4{
+    position: inherit;
+}
+ .col-md-12 {
     position: inherit;
 }
 
