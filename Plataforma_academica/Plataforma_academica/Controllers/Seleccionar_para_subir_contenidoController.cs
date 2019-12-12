@@ -46,7 +46,7 @@ namespace Plataforma_academica.Controllers
                             return View();
                         }
                         else
-                        {                            
+                        {
                             String codig5 = Request.Form["ir5"];
                             if (codig5 != null)
                             {
@@ -66,7 +66,6 @@ namespace Plataforma_academica.Controllers
                             else
                             {
                                 String codig4 = Request.Form["ir4"];
-
                                 if (codig4 != null)
                                 {
                                     //TempData["mensaje3"] = codig3;
@@ -74,7 +73,8 @@ namespace Plataforma_academica.Controllers
                                     act1.codigo_actividad = codig4;
                                     Session["usuario10"] = act1;
                                     return RedirectToAction("Actividades", "Actividades");
-                                }else
+                                }
+                                else
                                 {
                                     String codig6 = Request.Form["ir6"];
                                     if (codig6 != null)
@@ -84,9 +84,49 @@ namespace Plataforma_academica.Controllers
                                         Session["usuario12"] = act2;
                                         return RedirectToAction("Editar_Actividad", "Editar_Actividad");
                                     }
+                                    else
+                                    {
+                                        String codig7 = Request.Form["ir99"];
+                                        if (codig7 != null)
+                                        {
+                                            TempData.Keep("mensaje10");
+                                            TempData.Keep("mensaje11");
+                                            TempData.Keep("mensaje12");
+                                            String unidad = Convert.ToString(TempData["mensaje12"]);
+                                            String curso = Convert.ToString(TempData["mensaje10"]);
+                                            String nivel1 = Convert.ToString(TempData["mensaje11"]);
+                                            Subir_contenidos unid1 = new Subir_contenidos();
+                                            unid1.codigo_unidad = unidad;
+                                            unid1.codigo_curso = curso;
+                                            unid1.codigo_nivel = nivel1;
+                                            Session["usuario11"] = unid1;
+                                            return RedirectToAction("Contenido_practico", "Contenido_practico");
+                                        }
+                                        else
+                                        {
+                                            String codig8 = Request.Form["ir4_"];
+                                            if (codig8 != null)
+                                            {
+                                                //Terminar codigo para visualizar el examen como tutor
+                                                principalP act2 = new principalP();
+                                                act2.codigo_examen = codig8;
+                                                Session["usuarios10"] = act2;
+                                                return RedirectToAction("Practica", "Practica");
+                                            }
+                                            String codig9 = Request.Form["ir6_"];
+                                            if (codig9 != null)
+                                            {
+                                                //ingresar a la edicion del examen
+                                                // principalP act2 = new principalP();
+                                                //act2.codigo_actividad = codig6;
+                                                //Session["usuarios12"] = act2;
+                                                //return RedirectToAction("Editar_Actividad", "Editar_Actividad");
+                                            }
+                                        }
+                                    }
                                 }
                             }
-                            
+
                         }
 
                     }

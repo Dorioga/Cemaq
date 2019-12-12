@@ -5,6 +5,7 @@ using Plataforma_academica.Models;
 using System.Web;
 using System.Web.Mvc;
 using System.Data;
+using System.Web.UI;
 
 namespace Plataforma_academica.Controllers
 {
