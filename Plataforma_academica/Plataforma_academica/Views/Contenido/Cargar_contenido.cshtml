@@ -5,49 +5,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <head>
     <link href="~/Estilos/Contenido.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
-    <link href="~/Estilos/actividadesStyl1.css" rel="stylesheet" type="text/css">
 </head>
-@using (Html.BeginForm("Cargar_contenido", "contenido", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         @{
             Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
-            Plataforma_academica.Models.Subir_contenidos unid1 = Session["usuario11"] as Plataforma_academica.Models.Subir_contenidos;
-
+            Plataforma_academica.Models.Subir_contenidos unid1  = Session["usuario11"] as Plataforma_academica.Models.Subir_contenidos;
+            
         }
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <section>
-            <h5>Titulo Sección</h5>
+            <section>
+            <h5>Titulo Actividad</h5>
             @Html.EditorFor(model => model.nombre_contenido, new { htmlAttributes = new { @class = "form-control", @id = "contenido" } })
             @Html.ValidationMessageFor(model => model.nombre_contenido, "", new { @class = "text-danger" })
-        </section>
-        <section>
-            <div class="card">
-                <div class="card-block p-3">
-                    <article>
-                        <h5>Descripción de Sección</h5>
-                        @Html.TextAreaFor(model => model.descripcion_contenido, new { @class = "form-control" })
-                    </article>
+            </section>
+            <section>
+                <div class="card">
+                    <div class="card-block p-3">
+                        <article>
+                            <h5>Descripción Actividad (Opcional)</h5>
+                            @Html.TextAreaFor(model => model.descripcion_contenido, new { @class = "form-control"})
+                        </article>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
         <section>
             <div class="card">
                 <div class="card-block p-3">
                     <article>
-                        <h5>Tipo Multimedia</h5>
-                        @Html.DropDownListFor(model => model.tipo_multimedia, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
-                        <h5>Publico para el multimedia</h5>
-                        @Html.DropDownListFor(model => model.tipo_clasificacion, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
                         <h5>Multimedia Actividad (Opcional)</h5>
-                        <input type="file" name="file" />
+                        <input type="file" name="excelfile" />
+                        <br />
+                        <input type="submit" value="Subir Multimedia" class="btn btn-default" />
                     </article>
                 </div>
             </div>
@@ -56,54 +51,17 @@
             <div class="card">
                 <div class="card-block p-3">
                     <article>
-                        <input type="submit" id="subir" name="subir" value="Guardar" class="btn btn-primary" />
-                        <input type="submit" id="seccion" name="seccion" value="Guardar Sección" class="btn btn-primary" disabled />
+                        <input type="submit" value="Finalizar" class="btn btn-default" />
+                        <input type="submit" value="Agregar Sección" class="btn btn-default" />
                     </article>
                 </div>
             </div>
         </section>
-    </div>
-
-    if (ViewBag.mensaje == "vacios")
-    {
-        @Scripts.Render("~/js/login_campos.js")
-    }
-    else
-    {
-        if (ViewBag.mensaje == "Registro exitoso")
-        {
-            @Scripts.Render("~/Scripts/CrearSeccion.js")
-        }
-        else
-        {
-            if (ViewBag.mensaje == "Habilitar Sección")
-            {
-                @Scripts.Render("~/Scripts/button_habilitar.js")
-            }
-        }
-    }
-    <div class="modal fade" id="mostrarmodal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-        <div class="modal-dialog" style="position: initial;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3 style="position: absolute;">Verificacion de proceso</h3>
-                </div>
-                <div class="modal-body">
-                    <h4>La actividad se creo de forma exitosa, ¿desea adicionar una nueva sección a esta actividad?</h4>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" name="agregar" value="1" class="btn btn-info" onclick="myFunction()">Agregar Sección</button>
-                    <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="btn btn-danger">Finalizar Actividad</a>
-                </div>
-            </div>
-        </div>
-    </div>
+     </div>
 }
 
 
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-
 }

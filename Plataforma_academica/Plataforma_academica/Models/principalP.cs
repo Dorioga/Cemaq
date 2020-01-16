@@ -11,7 +11,6 @@ namespace Plataforma_academica.Models
         public string nombre_curso { set; get; }
         public string codigo_curso { set; get; }
         public string codigo_actividad { set; get; }
-        public string codigo_examen { set; get; }
 
         private Conexion.Conexion conexion;
 

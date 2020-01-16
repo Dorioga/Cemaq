@@ -10,7 +10,5 @@ namespace Plataforma_academica.Models
         public string codigo_unidad { set; get; }
         public string codigo_nivel { set; get; }
         public string codigo_curso { set; get; }
-
-
     }
 }

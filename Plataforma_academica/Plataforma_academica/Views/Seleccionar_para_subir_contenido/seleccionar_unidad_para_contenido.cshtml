@@ -9,8 +9,7 @@
     <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
 </head>
 
-
-
+<h2>Amazonian language tic´s</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -23,7 +22,6 @@
     Plataforma_academica.Models.Unidades[] arreglo_unidad;
     Plataforma_academica.Models.Actividades_unidad actividad = new Plataforma_academica.Models.Actividades_unidad();
     Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad;
-    Plataforma_academica.Models.Actividades_unidad[] arreglo_examen;
 
     <main class="con_form">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -153,20 +151,11 @@
                                     TempData.Keep("mensaje12");
                                     string nc = Convert.ToString(TempData["mensaje12"]);
                                     arreglo_actividad = actividad.Consultar_Actividad_unidades_edic(nc);
-                                    arreglo_examen = actividad.Consultar_examen_unidades_edic(nc);
                                     <li>
-                                        <div class="btn-group">
-                                            <button type="submit" class="btn btn-info btn-sm btn-block" name="ir5" value="nueva">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                                Actividad
-                                            </button>
-
-                                            <button type="submit" class="btn  btn-info btn-sm btn-block" name="ir99" value="nueva2">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                                Actividad Practica
-                                            </button>
-
-                                        </div>
+                                        <button type="submit" class="btn btn-info btn-sm btn-block" name="ir5" value="nueva">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                            Actividad
+                                        </button>
                                     </li>
                                     for (int i = 0; i < arreglo_actividad.Length; i++)
                                     {
@@ -180,26 +169,6 @@
                                                     if (arreglo_actividad[i].edicion == "Desaprobado")
                                                     {
                                                         <button type="submit" class="btn btn-info btn-sm btn-editar" name="ir6" value="@arreglo_actividad[i].codigo_actividad">
-                                                            <span class="glyphicon glyphicon-pencil"></span>
-                                                        </button>
-                                                    }
-                                                }
-
-                                            </div>
-                                        </li>
-                                    }
-                                    for (int i = 0; i < arreglo_examen.Length; i++)
-                                    {
-                                        <li>
-                                            <div class="btn-group">
-                                                <button type="submit" class="btn btn-info btn-sm btn-block btn-actividad" name="ir4_" value="@arreglo_examen[i].id_examen">
-                                                    <span class="glyphicon glyphicon-list-alt"></span>
-                                                    @arreglo_examen[i].examen
-                                                </button>
-                                                @{
-                                                    if (arreglo_examen[i].edicion_examen == "Desaprobado")
-                                                    {
-                                                        <button type="submit" class="btn btn-info btn-sm btn-editar" name="ir6_" value="@arreglo_examen[i].id_examen">
                                                             <span class="glyphicon glyphicon-pencil"></span>
                                                         </button>
                                                     }
@@ -222,7 +191,7 @@
     </main>
 
 }
-<footer class="marca">
+<footer>
     <p>&copy; @DateTime.Now.Year - Amazonian Language Tic</p>
 </footer>
 @section Scripts {

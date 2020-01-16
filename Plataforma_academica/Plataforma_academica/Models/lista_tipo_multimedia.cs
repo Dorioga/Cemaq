@@ -8,8 +8,7 @@ namespace Plataforma_academica.Models
 {
     public class lista_tipo_multimedia
     {
-        public string codigo;
-        public string nombre;
+        public string codigo, nombre;
 
         public lista_tipo_multimedia[] Consultar_tipo_multimedia()
         {

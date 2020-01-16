@@ -23,24 +23,6 @@ ul, ol {
     margin-bottom: 10px;
     padding-left: 17px;
 }
-.btn-block {
-    text-align: initial;
-    padding-left: 10px;
-}
-
-.btn-group {
-    display: flex;
-    text-align: left;
-}
-
-.btn-actividad {
-    white-space: normal;
-    text-align: left;
-}
-
-.btn-editar {
-    width: 20%;
-}
 
 .contenedor {
     width: 62%;

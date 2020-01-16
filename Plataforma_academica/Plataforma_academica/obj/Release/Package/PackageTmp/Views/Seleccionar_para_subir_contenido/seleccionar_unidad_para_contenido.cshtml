@@ -41,7 +41,7 @@
                                     for (int i = 0; i < arreglo.Length; i++)
                                     {
                                         <li>
-                                            <button type="submit" class="btn btn-info btn-sm btn-block" name="ir1" value="@arreglo[i].codigo_curso">
+                                            <button type="submit" class="btn btn-info btn-sm " name="ir1" value="@arreglo[i].codigo_curso">
                                                 <span class="glyphicon glyphicon-book"></span>
                                                 @arreglo[i].nombre_curso
                                             </button>
@@ -68,7 +68,7 @@
                                     for (int i = 0; i < arreglo_nivel.Length; i++)
                                     {
                                         <li>
-                                            <button type="submit" class="btn btn-info btn-sm btn-block " name="ir2" value="@arreglo_nivel[i].codigo_nivel">
+                                            <button type="submit" class="btn btn-info btn-sm " name="ir2" value="@arreglo_nivel[i].codigo_nivel">
                                                 <span class="glyphicon glyphicon-stats"></span>
                                                 @arreglo_nivel[i].nombre_nivel
                                             </button>
@@ -124,7 +124,7 @@
                                     for (int i = 0; i < arreglo_unidad.Length; i++)
                                     {
                                         <li>
-                                            <button type="submit" class="btn btn-info btn-sm btn-block" name="ir3" value="@arreglo_unidad[i].codigo_unidad">
+                                            <button type="submit" class="btn btn-info btn-sm" name="ir3" value="@arreglo_unidad[i].codigo_unidad">
                                                 <span class="glyphicon glyphicon-th-large"></span>
                                                 @arreglo_unidad[i].nombre_unidad
                                             </button>
@@ -152,7 +152,7 @@
                                     string nc = Convert.ToString(TempData["mensaje12"]);
                                     arreglo_actividad = actividad.Consultar_Actividad_unidades_edic(nc);
                                     <li>
-                                        <button type="submit" class="btn btn-info btn-sm btn-block" name="ir5" value="nueva">
+                                        <button type="submit" class="btn btn-info btn-sm" name="ir5" value="nueva">
                                             <span class="glyphicon glyphicon-plus"></span>
                                             Actividad
                                         </button>
@@ -161,14 +161,16 @@
                                     {
                                         <li>
                                             <div class="btn-group">
-                                                <button type="submit" class="btn btn-info btn-sm btn-block btn-actividad" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
-                                                    <span class="glyphicon glyphicon-lock"></span>
+
+                                                <button type="submit" class="btn btn-info btn-sm" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
+                                                    <span class="glyphicon glyphicon-blackboard"></span>
                                                     @arreglo_actividad[i].nombre_actividad
                                                 </button>
                                                 @{
                                                     if (arreglo_actividad[i].edicion == "Desaprobado")
                                                     {
-                                                        <button type="submit" class="btn btn-info btn-sm btn-editar" name="ir6" value="@arreglo_actividad[i].codigo_actividad">
+
+                                                        <button type="submit" class="btn btn-info btn-sm" name="ir6" value="@arreglo_actividad[i].codigo_actividad">
                                                             <span class="glyphicon glyphicon-pencil"></span>
                                                         </button>
                                                     }

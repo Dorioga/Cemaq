@@ -45,8 +45,7 @@ namespace Plataforma_academica.Controllers
                         {
                             TempData["mensaje3"] = codig3;
                             return View();
-                        }
-                        else
+                        }else
                         {
                             String codig4 = Request.Form["irrrr"];
 
@@ -58,18 +57,6 @@ namespace Plataforma_academica.Controllers
                                 Session["usuario3"] = act1;
                                 return RedirectToAction("Actividades", "Actividades"); ;
                             }
-                            else
-                            {
-                                String codig5 = Request.Form["irrrr5"];
-                                if (codig5 != null)
-                                {
-                                    //Arreglar el codio para visualizar los examenes por parte de los alumnos
-                                    principalP act2 = new principalP();
-                                    act2.codigo_examen = codig5;
-                                    Session["usuarios2"] = act2;
-                                    return RedirectToAction("Practica", "Practica");
-                                }
-                            }
                         }
 
                     }
@@ -77,7 +64,7 @@ namespace Plataforma_academica.Controllers
                 }
 
             }
-
+            
 
             return View();
         }
