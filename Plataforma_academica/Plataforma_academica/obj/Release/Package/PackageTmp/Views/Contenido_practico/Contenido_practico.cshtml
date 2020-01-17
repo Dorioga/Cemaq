@@ -1,0 +1,188 @@
+﻿@model Plataforma_academica.Models.Contenido_practico
+
+@{
+    ViewBag.Title = "Contenido_practico";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/Estilos/Contenido.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Estilos/actividadesStyl1.css" rel="stylesheet" type="text/css">
+</head>
+
+@using (Html.BeginForm("Contenido_practico", "Contenido_practico", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @{
+            Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
+            Plataforma_academica.Models.Contenido_practico pregunta = Session["usuario_pregunta"] as Plataforma_academica.Models.Contenido_practico;
+            Plataforma_academica.Models.Subir_contenidos unid1 = Session["usuario11"] as Plataforma_academica.Models.Subir_contenidos;
+            Plataforma_academica.Models.Contenido_practico practico = new Plataforma_academica.Models.Contenido_practico();
+
+        }
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })        
+        <section id="seccion1">
+            <h5>Titulo Sección</h5>
+            @Html.EditorFor(model => model.nombre_contenido, new { htmlAttributes = new { @class = "form-control", @id = "contenido" } })
+            @Html.ValidationMessageFor(model => model.nombre_contenido, "", new { @class = "text-danger" })
+        </section>
+        <section id="seccion2">
+            <div class="card">
+                <div class="card-block p-3">
+                    <article>
+                        <h5>Descripción de Sección</h5>
+                        @Html.TextAreaFor(model => model.descripcion_contenido, new { @class = "form-control" })
+                        <h5>Metodo para evaluar</h5>
+                        @Html.DropDownListFor(model => model.tipo_e, (IEnumerable<SelectListItem>)ViewData["lista4"], "--Seleccione one--")
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="seccion3">
+            <div class="card">
+                <div class="card-block p-3">
+                    <article>
+                        <input type="submit" id="subir1" name="subir1" value="Guardar" class="btn btn-primary" />
+                    </article>
+                </div>
+            </div>
+        </section>
+        @{
+            if (ViewBag.mensaje == "Registro exitoso")
+            {
+                @Scripts.Render("~/Scripts/Deshabilitar_creacion_exame.js")
+                @Scripts.Render("~/Scripts/button_habilitar_pregunt.js")
+                <section>
+                    <h5>Titulo de la pregunta</h5>
+                    @Html.EditorFor(model => model.nombre_pregunta, new { htmlAttributes = new { @class = "form-control", @id = "contenido" } })
+                    @Html.ValidationMessageFor(model => model.nombre_contenido, "", new { @class = "text-danger" })
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="card-block p-3">
+                            <article>
+                                <h5>Enuciado de la pregunta</h5>
+                                @Html.TextAreaFor(model => model.descripcion_pregunta, new { @class = "form-control" })
+                            </article>
+                        </div>
+                    </div>
+                </section>               
+                <section>
+                    <div class="card">
+                        <div class="card-block p-3">
+                            <article>
+                                <h5>Tipo Multimedia</h5>
+                                @Html.DropDownListFor(model => model.tipo_multimedia, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
+                                <h5>Publico para el multimedia</h5>
+                                @Html.DropDownListFor(model => model.tipo_clasificacion, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
+                                <h5>Multimedia Actividad (Opcional)</h5>
+                                <input type="file" name="file" />
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="card-block p-3">
+                            <h5>Tipo de pregunta que desea realizar</h5>
+                            @Html.DropDownListFor(model => model.tipo_pregunta, (IEnumerable<SelectListItem>)ViewData["lista3"], "--Seleccione one--")
+                            <input type="submit" id="elegir" name="elegir" value="Elegir" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </section>
+            }
+            if (ViewBag.mensaje == "Registro pregunta")
+            {
+                if (pregunta.tipo_pregunta < 3)
+                {
+                    @Scripts.Render("~/Scripts/Deshabilitar_creacion_exame.js")
+                    @Scripts.Render("~/Scripts/button_habilitar_pregunt.js")
+                    <section>
+                        <h5>Titulo de la pregunta</h5>
+                        @Html.EditorFor(model => model.nombre_pregunta, new { htmlAttributes = new { @class = "form-control", @id = "contenido" } })
+                        @Html.ValidationMessageFor(model => model.nombre_contenido, "", new { @class = "text-danger" })
+                    </section>
+                    <section>
+                        <div class="card">
+                            <div class="card-block p-3">
+                                <article>
+                                    <h5>Enuciado de la pregunta</h5>
+                                    @Html.TextAreaFor(model => model.descripcion_pregunta, new { @class = "form-control" })
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="card">
+                            <div class="card-block p-3">
+                                <h5>Tipo de pregunta que desea realizar</h5>
+                                @Html.DropDownListFor(model => model.tipo_pregunta, (IEnumerable<SelectListItem>)ViewData["lista3"], "--Seleccione one--")
+                                <input type="submit" id="elegir1" name="elegir1" value="Elegir" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="card">
+                            <div class="card-block p-3">
+                                <article>
+                                    <p><b>Ingrese las respuesta y elija cual es la correcta</b></p>                                 
+                                    @{
+                                        for (int i = 1; i < 5; i++)
+                                        {
+                                            <h5>Opción @i</h5>
+                                            @Html.TextAreaFor(model => model.respuestas, new { @id = "respuestas", cols = "100%", Styles= "border-radius:4px" })
+                                            @Html.DropDownListFor(model => model.tipo_condicion, (IEnumerable<SelectListItem>)ViewData["lista5"])
+                                        }
+                                    }
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="card">
+                            <div class="card-block p-3">
+                                <article>
+                                    <input type="submit" id="seccion_2" name="seccion_2" value="Guardar Respuesta" class="btn btn-primary" />
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+              }
+            }
+
+        }        
+        
+    </div>
+    if (ViewBag.mensaje == "Registro otra respuesta")
+    {
+       @Scripts.Render("~/Scripts/CrearPregunta.js")
+    }
+    <div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog" style="position: initial;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 style="position: absolute;">Verificacion de proceso</h3>
+                </div>
+                <div class="modal-body">
+                    <h4>La Pregunta y sus respuestas se han creado de forma exitosa, ¿desea adicionar una nueva pregunta a esta practica?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="agregar" value="1" class="btn btn-info" onclick="myFunction()">Agregar Pregunta</button>
+                    <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="btn btn-danger">Finalizar Practica</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+                                        }
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

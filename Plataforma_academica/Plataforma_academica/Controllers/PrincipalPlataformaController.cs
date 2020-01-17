@@ -56,6 +56,17 @@ namespace Plataforma_academica.Controllers
                                 act1.codigo_actividad = codig4;
                                 Session["usuario3"] = act1;
                                 return RedirectToAction("Actividades", "Actividades"); ;
+                            }else
+                            {
+                                String codig5 = Request.Form["irrrr5"];
+                                if (codig5 != null)
+                                {
+                                    //Arreglar el codio para visualizar los examenes por parte de los alumnos
+                                    principalP act2 = new principalP();
+                                    act2.codigo_examen = codig5;
+                                    Session["usuarios2"] = act2;
+                                    return RedirectToAction("Practica", "Practica"); 
+                                }
                             }
                         }
 

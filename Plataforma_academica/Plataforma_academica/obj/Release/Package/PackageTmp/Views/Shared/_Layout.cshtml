@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
     <title>Sidebar template</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="~/Estilos/Menu_plataforma.css" rel="stylesheet" type="text/css">
     <link href="~/Estilos/navbarderecho1.css" rel="stylesheet" type="text/css">
@@ -20,7 +21,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body onload="window.history.forward();">
     @{
         Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
         Plataforma_academica.Models.Permisos_Menu menu = new Plataforma_academica.Models.Permisos_Menu();
@@ -37,10 +38,7 @@
             <nav id="sidebar" class="sidebar-wrapper">
                 <div class="sidebar-content">
                     <div class="sidebar-brand">
-                        <a>Amazonian Language TIC</a>
-                        <div id="close-sidebar">
-                            <i class="fas fa-times"></i>
-                        </div>
+                        <a>Amazonian Language TIC</a>                        
                     </div>
                     <div class="sidebar-header">
                         <div class="user-pic">
@@ -80,10 +78,15 @@
                                     }
                                 }
                             </span>
-                            <span class="user-status">
-                                <i class="fa fa-circle"></i>
-                                <span>Online</span>
-                            </span>
+                            @{
+                                if (usu.conexion_usuario == "Conectado")
+                                {
+                                    <span class="user-status">
+                                        <i class="fa fa-circle"></i>
+                                        <span>Online</span>
+                                    </span>
+                                }
+                            }
                         </div>
                     </div>
                     <!-- sidebar-header  -->
@@ -105,37 +108,30 @@
                                                 <a><span class="fa fa-tachometer-alt"></span>@Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)</a>
                                             </li>
 
-                                        }
-                                        <br>
-                                        <li role="separator" class="divider"></li>
-                                        <li>@Html.ActionLink("Cerrar sesion", "cerrarsesion", "Login")</li>
+                                        }                                      
                                         }
                                         </li>
                                     }
                             }
                         </ul>
-                    </div>
-                </div>
+                    </div>                    
+                </div>                  
+                
                 <!-- sidebar-content  -->
                 <div class="sidebar-footer">
                     <a href="#">
                         <i class="fa fa-bell"></i>
                         <span class="badge badge-pill badge-warning notification">3</span>
-                    </a>
-                    <a href="#">
-                        <i class="fa fa-envelope"></i>
-                        <span class="badge badge-pill badge-success notification">7</span>
-                    </a>
+                    </a>                    
                     <a href="#">
                         <i class="fa fa-cog"></i>
                         <span class="badge-sonar"></span>
                     </a>
-                    <a href="#">
-                        <i class="fa fa-power-off"></i>
+                    <a href="@Url.Action("cerrarsesion","Login")">
+                        <i class="fa fa-power-off"></i>                     
                     </a>
                 </div>
             </nav>
-
         </div>
         <!-- Menu Izq  -->
         <nav id="nav" class="show">
@@ -159,6 +155,8 @@
                     <a target="_blank" href="https://500px.com/ravi7284007">Contact</a>
                 </li>
             </ul>
+
+            
         </nav>
     </main>
     <!-- Contenedor Seleccionar_unidad  -->
@@ -172,6 +170,7 @@
             crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

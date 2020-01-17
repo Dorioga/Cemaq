@@ -14,6 +14,7 @@ namespace Plataforma_academica.Models
         public string rol { set; get; }
         public string cedula { set; get; }
         public string Tipo_rol { set; get; }
+        public string conexion_usuario { set; get; }
 
         private Conexion.Conexion conexion;
 
@@ -25,5 +26,14 @@ namespace Plataforma_academica.Models
             return x;
 
         }
+
+        public bool Actualizar_conexion(Login obj)
+        {
+            conexion = new Conexion.Conexion();
+            int x = conexion.Execute_Operation("call Pr_cerrar_sesion ('" + obj.cedula + "')");
+            return x > 0 ? true : false;
+        }
+
+        
     }
 }
