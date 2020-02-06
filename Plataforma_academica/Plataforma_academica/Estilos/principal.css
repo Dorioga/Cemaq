@@ -171,12 +171,13 @@ ul, ol {
 
 .list-group-item {
     color: white;
-    background-color: #8ac386;
+    background-color: #a4e2a0;
     border: 0px;
 }
 
 .list-group-item-heading {
     margin-bottom: 0px;
+    background-color: #8ac386;
 }
 
 .lista-menu {
