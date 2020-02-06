@@ -23,6 +23,7 @@ namespace Plataforma_academica.Models
         public int id_respuesta { set; get; }
         public String contenido_respuesta { set; get; }
         public int nombre_condicion { set; get; }
+        public DataTable examen_unidad_nivel { set; get; }
 
         public Practicas[] Consultar_contenido_practica(string cn)
         {
@@ -122,6 +123,22 @@ namespace Plataforma_academica.Models
             Conexion.Conexion con = new Conexion.Conexion();
             int x = con.Execute_Operation("call Pr_actualizar_intentos ('" + inten + "','" + id + "','" + examen + "','" + opcion + "','" + nota + "','" +id_pregunta+ "')");
             return x > 0 ? true : false;
+        }
+
+        public bool Actualizar_porcentaje_examen(double porcentaje, string codigo_examen, int id_curso_examen)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            int x = con.Execute_Operation("call Pr_actualizar_porcentaje_examen('" + porcentaje + "', '"+codigo_examen+"','" + id_curso_examen + "')");
+            return x > 0 ? true : false;
+        }
+
+        public DataTable Buscarexamen_codigo(string examen, string id_usuario)
+        {
+            //Login (Se realiza la verificacion del usuario y su contraseña)
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable x = con.Execute_Query("call Pr_cargar_curso_examen ('" + id_usuario + "','" + examen + "')");
+            return x;
+
         }
     }
 }

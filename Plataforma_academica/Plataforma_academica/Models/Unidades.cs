@@ -29,5 +29,23 @@ namespace Plataforma_academica.Models
             return arreglo;
 
         }
+
+        public Unidades[] Consultar_unidades_usuario(string nc, string id_usuario)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable porcentaje = con.Execute_Query("call Pr_cargar_unidad_usuario(" + nc + ", "+id_usuario+")");
+            Unidades[] arreglo = new Unidades[porcentaje.Rows.Count];
+            int j = 0;
+            foreach (DataRow i in porcentaje.Rows)
+            {
+                arreglo[j] = new Unidades();
+                arreglo[j].nombre_unidad = i["Nombre Unidad"].ToString();
+                arreglo[j].codigo_unidad = i["Codigo Curso nivel"].ToString();
+                arreglo[j].codigo_curso_nivel = i["Codigo Unidad"].ToString();
+                j++;
+            }
+            return arreglo;
+
+        }
     }
 }

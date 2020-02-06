@@ -51,8 +51,25 @@ namespace Plataforma_academica.Models
 
         }
 
+        public Actividades_unidad[] Consultar_examen_usuario(string nc, string id_usuario)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable porcentaje1 = con.Execute_Query("call Pr_cargar_examen_usuario(" + nc + ","+id_usuario+")");
+            Actividades_unidad[] arreglo = new Actividades_unidad[porcentaje1.Rows.Count];
+            int j = 0;
+            foreach (DataRow i in porcentaje1.Rows)
+            {
+                arreglo[j] = new Actividades_unidad();
+                arreglo[j].examen = i["nombre examen"].ToString();
+                arreglo[j].id_examen = i["id examen"].ToString();
+                j++;
+            }
+            return arreglo;
+
+        }
+
         public Actividades_unidad[] Consultar_Actividad_unidades_edic(string nc)
-    {
+        {
         Conexion.Conexion con = new Conexion.Conexion();
         DataTable porcentaje = con.Execute_Query("call Pr_cargar_actividad_edic(" + nc + ")");
         Actividades_unidad[] arreglo = new Actividades_unidad[porcentaje.Rows.Count];
@@ -86,5 +103,23 @@ namespace Plataforma_academica.Models
             return arreglo;
 
         }
+
+        public Actividades_unidad[] Consultar_Actividad_usuario(string nc, string id_usuario)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable porcentaje = con.Execute_Query("call Pr_cargar_actividad_usuario(" + nc + ", "+id_usuario+")");
+            Actividades_unidad[] arreglo = new Actividades_unidad[porcentaje.Rows.Count];
+            int j = 0;
+            foreach (DataRow i in porcentaje.Rows)
+            {
+                arreglo[j] = new Actividades_unidad();
+                arreglo[j].nombre_actividad = i["nombre_actividad"].ToString();
+                arreglo[j].codigo_actividad = i["id_actividad"].ToString();
+                j++;
+            }
+            return arreglo;
+
+        }
+
     }
 }

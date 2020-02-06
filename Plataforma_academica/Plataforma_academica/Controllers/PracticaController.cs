@@ -73,7 +73,6 @@ namespace Plataforma_academica.Controllers
                                 }
                                 ViewBag.mensaje3 = "Este es su intento N°: " + intentos2 + " intentos permitidos";
                             }
-                            //error?
                             if (practica.intentos == 1)
                             {                                
                                 intentos2=practica.intentos;
@@ -112,7 +111,7 @@ namespace Plataforma_academica.Controllers
                                 datos = practica.Buscarintentos(act3.codigo_examen, user.usuario);
                                 if (datos != null && datos.Rows.Count > 0)
                                 {
-                                    practica.intentos = Convert.ToInt32(datos.Rows[0]["intetos"].ToString());
+                                    practica.intentos = Convert.ToInt32(datos.Rows[0]["intentos"].ToString());
                                     Session["intentos"] = practica;
                                 }
                                 else
@@ -126,17 +125,16 @@ namespace Plataforma_academica.Controllers
                                         int respuesta = Convert.ToInt32(Request.Form["elegida_" + i]);
                                         if (respuesta == 2)
                                         {
-                                            
                                             practica.registrar_nota(user.usuario, arreglo[i].id_pregunta, respuesta, evaluar,intentos2);
                                             suma++;
                                         }
                                         else
-                                        {
-                                            
+                                        {                                            
                                             practica.registrar_nota(user.usuario, arreglo[i].id_pregunta, respuesta, 0, intentos2);
                                         }
 
                                     }
+                                    ///dlkjslfkjdlkflsk
                                     ViewBag.mensaje3 = "Este es su intento N°: " + intentos2 + " intentos permitidos";
                                 }
                                 if (practica.intentos == 1)
@@ -158,6 +156,11 @@ namespace Plataforma_academica.Controllers
                                         }
 
                                     }
+                                    if (intentos2 == 2)
+                                    {
+                                        practica.examen_unidad_nivel = practica.Buscarexamen_codigo(act3.codigo_examen, user.usuario);
+                                        practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
+                                    }
                                     ViewBag.mensaje3 = "Este es su intento N°: " + intentos2 + " intentos permitidos";
                                 }
                                 else
@@ -177,6 +180,11 @@ namespace Plataforma_academica.Controllers
                             ViewBag.mensaje2 = "su nota es: "+resultado+" por lo cual se le recomienda instruirse nuevamente sobre las actividades relacionadas al examen";
                         }else
                         {
+                            if (resultado >= 3)
+                            {
+                                practica.examen_unidad_nivel = practica.Buscarexamen_codigo(act3.codigo_examen, user.usuario);
+                                practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
+                            }
                             if (resultado < 3.5)
                             {
                                 ViewBag.mensaje1 = "aprobo";

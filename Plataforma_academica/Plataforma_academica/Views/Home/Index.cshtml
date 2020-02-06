@@ -17,26 +17,26 @@
 </head>
 @using (Html.BeginForm("Academicaprofesional", "AcademicaProfesional", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-<body>
-    <header>
-        <p>Que perfil desea ver?</p>
-    </header>
-    @* Moda de Inicio *@
-    <div class="medio">
-        <div class="column">
-            <button type="submit" name="irr" value="infantil" class="b hvr-shutter-in-vertical b2 ">
-                Infantil
-            </button>
+    <body>
+        <header>
+            <p>Que perfil desea ver?</p>
+        </header>
+        @* Moda de Inicio *@
+        <div class="medio">
+            <div class="column">
+                <button type="submit" name="irr" value="infantil" class="b hvr-shutter-in-vertical b2 ">
+                    Infantil
+                </button>
+            </div>
+            <div class="column">
+                <button type="submit" name="ir" value="profesional" class="b  hvr-shutter-in-vertical b1">
+                    Profesional
+                </button>
+            </div>
         </div>
-        <div class="column">
-            <button type="submit" name="ir" value="profesional" class="b  hvr-shutter-in-vertical b1">
-                Profesional
-            </button>
-        </div>
-    </div>
-    <footer>
-        <h4>Amazonian Language Tics</h4>
-    </footer>
-</body>
+        <footer>
+            <h4>Amazonian Language Tics</h4>
+        </footer>
+    </body>
 }
 </html>

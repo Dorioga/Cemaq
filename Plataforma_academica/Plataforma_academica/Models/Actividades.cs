@@ -16,6 +16,11 @@ namespace Plataforma_academica.Models
         public String contenido_seccion { set; get; }
         public String id_multimedia { set; get; }
         public String url_multimedia { set; get; }
+        public int seccion { set; get; }
+        public int cont_seccion { set; get; }
+        public int id_curso_actividad { set; get; }
+        public double porc { set; get; }
+        public DataTable actual_seccion { set; get; }
 
         public Actividades[] Consultar_contenido_actividad(string cn)
         {
@@ -39,6 +44,41 @@ namespace Plataforma_academica.Models
                 j++;
             }
             return arreglo;
+        }
+
+        public DataTable Buscar_cantidad_secciones(string u)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable x = con.Execute_Query("call Pr_cargar_cantidad_secciones (" + u + ")");
+            return x;
+        }
+
+        public bool Actualizar_porcentaje(double porcentaje, int codigo_actividad, int seccion, int id_curso_actividd)
+        {
+           Conexion.Conexion con = new Conexion.Conexion();
+           int x = con.Execute_Operation("call Pr_actualizar_porcentaje_actividad ('" +porcentaje+ "', '" +codigo_actividad+ "', '" +seccion+"', '" +id_curso_actividd+"')");
+           return x > 0 ? true : false;
+        }
+
+        public bool Actualizar_porcentaje_estado(int codigo_actividad, int id_curso_actividd)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            int x = con.Execute_Operation("call Pr_actualizar_esatado_eactividad ('" + codigo_actividad + "', '" + id_curso_actividd + "')");
+            return x > 0 ? true : false;
+        }
+
+        public DataTable Buscar_porcentaje_seccion(string u)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable x = con.Execute_Query("call Pr_cargar_porcentaje (" + u + ")");
+            return x;
+        }
+
+        public DataTable Buscar_seccion_actual(string u, string id_usuario)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable x = con.Execute_Query("call Pr_cargar_seccion_actual (" + u + ", "+id_usuario+")");
+            return x;
         }
     }
 }
