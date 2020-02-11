@@ -20,10 +20,12 @@ hr {
     border: 5px dashed green;
     border-radius: 5px;
 }
+
 img {
     width: 100%;
     vertical-align: middle;
 }
+
 label {
     margin: 0;
 }
@@ -35,7 +37,6 @@ li {
 p {
     margin: 0;
 }
-
 textarea {
     max-width: 100%;
     min-height: 299px;
@@ -46,6 +47,7 @@ ul, ol {
     margin-bottom: 0px;
     padding-inline-start: 0px;
 }
+
 .btn-block {
     white-space: normal;
     margin-top: 0px;
@@ -63,6 +65,7 @@ ul, ol {
 }
 
 .btn-actividad {
+    white-space: normal;
     text-align: left;
 }
 
@@ -101,6 +104,7 @@ ul, ol {
     margin-left: 19%;
     margin-top: 80px;
 }
+
 .contenido {
     height: 100%;
     display: flex;
@@ -108,13 +112,13 @@ ul, ol {
     background-color: #6edb67;
     border-radius: 15px;
 }
+
 }
 
 .con_form {
     height: 60%;
     border-radius: 14px;
 }
-
 .datos-perfil {
     margin: 0px 15px 0 15px;
     height: 100%;
@@ -125,11 +129,13 @@ ul, ol {
 .fas, .fa {
     color: #ffffff;
 }
+
 .foto-perfil {
     height: 100%;
     order: 0;
     flex: 1 0 auto;
 }
+
 .glyphicon {
     position: inherit;
 }
@@ -270,6 +276,15 @@ ul, ol {
         letter-spacing: 2px;
     }
 
+    .porcentaje{
+        position:relative;
+        left: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        letter-spacing: 2px;
+    }
+
 .progress-bar.active {
     animation: reverse progress-bar-stripes 6.0s linear infinite, animate-positive 2s;
 }
@@ -278,7 +293,7 @@ ul, ol {
     background: #ffffff0a;
     border-radius: 78px;
     padding: 0px;
-    margin: -5px -11px;
+    margin: 0px -11px;
 }
 
 .row {
@@ -306,9 +321,12 @@ ul, ol {
     font-size: 16px;
     text-align: center;
 }
+
+
 .user-info {
     float: right;
 }
+
 
 *{box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}body{background: #f0f0f0;}.content{width: 260px; margin: 100px auto;}.colors{width: 260px; float: left; margin: 20px auto;}.colors a{width: 43.3px; height: 30px; float: left;}.colors .default{background: #414956;}.colors .blue{background: #4A89DC;}.colors .green{background: #03A678;}.colors .red{background: #ED5565;}.colors .white{background: #fff;}.colors .black{background: #292929;}
 

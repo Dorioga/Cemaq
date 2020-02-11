@@ -66,7 +66,7 @@
                                 {
                                     TempData.Keep("mensaje1");
                                     nivel.codigo_nivel = Convert.ToString(TempData["mensaje1"]);
-                                    arreglo_nivel = nivel.Consultar_niveles_grupo(nivel);
+                                    arreglo_nivel = nivel.Consultar_niveles_usuario(nivel,usu.usuario);
 
                                     for (int i = 0; i < arreglo_nivel.Length; i++)
                                     {
@@ -122,7 +122,7 @@
                                 {
                                     TempData.Keep("mensaje2");
                                     string nc = Convert.ToString(TempData["mensaje2"]);
-                                    arreglo_unidad = unidad.Consultar_unidades_grupo(nc);
+                                    arreglo_unidad = unidad.Consultar_unidades_usuario(nc, usu.usuario);
 
                                     for (int i = 0; i < arreglo_unidad.Length; i++)
                                     {
@@ -153,8 +153,8 @@
                                             {
                                                 TempData.Keep("mensaje3");
                                                 string nc = Convert.ToString(TempData["mensaje3"]);
-                                                arreglo_actividad = actividad.Consultar_Actividad_unidades(nc);
-                                                arreglo_examen = actividad.Consultar_examen_unidades(nc);
+                                                arreglo_actividad = actividad.Consultar_Actividad_usuario(nc,usu.usuario);
+                                                arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
                                                 for (int i = 0; i < arreglo_actividad.Length; i++)
                                                 {
                                                   <li>

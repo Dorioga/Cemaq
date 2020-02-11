@@ -183,6 +183,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ReporteController.cs" />
     <Compile Include="Models\ChatHub.cs" />
     <Compile Include="Conexion\Conexion.cs" />
     <Compile Include="Controllers\AcademicaProfesionalController.cs" />
@@ -217,8 +218,10 @@
     <Compile Include="Models\Niveles.cs" />
     <Compile Include="Models\Pais.cs" />
     <Compile Include="Models\Permisos_Menu.cs" />
+    <Compile Include="Models\Porcentaje_usuario.cs" />
     <Compile Include="Models\Practicas.cs" />
     <Compile Include="Models\principalP.cs" />
+    <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\Subir_contenidos.cs" />
     <Compile Include="Models\Clasificacion_multimedia.cs" />
     <Compile Include="Models\Tipo_de_pregunta.cs" />
@@ -362,6 +365,7 @@
     <Content Include="Views\Editar_Actividad\Editar_Actividad.cshtml" />
     <Content Include="Views\Contenido_practico\Contenido_practico.cshtml" />
     <Content Include="Views\Practica\Practica.cshtml" />
+    <Content Include="Views\Reporte\Reporte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

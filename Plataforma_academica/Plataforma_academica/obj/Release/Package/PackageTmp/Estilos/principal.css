@@ -9,7 +9,6 @@ h2 {
 }
 
 img {
-    width: 100%;
     vertical-align: middle;
 }
 
@@ -26,6 +25,10 @@ ul, ol {
 .btn-block {
     text-align: initial;
     padding-left: 10px;
+}
+
+.btn-block+.btn-block {
+    margin-top: 0px;
 }
 
 .btn-group {

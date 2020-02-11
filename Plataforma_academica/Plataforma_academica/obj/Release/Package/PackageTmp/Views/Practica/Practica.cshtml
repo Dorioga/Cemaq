@@ -10,6 +10,7 @@
     <link href="~/Estilos/actividadesStyl1.css" rel="stylesheet" type="text/css">
     <link href="~/Estilos/visualizar_practica.css" rel="stylesheet" type="text/css">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Scripts.Render("~/Scripts/modal_inicial_mensaje.js")
 </head>
 
 @using (Html.BeginForm()) 
@@ -17,6 +18,19 @@
     @Html.AntiForgeryToken()
 
    <body>
+       <div class="modal fade" id="mostrarmoda" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+           <div class="modal-dialog" style="position: initial;">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                       <h3 style="position: absolute;">Información</h3>
+                   </div>
+                   <div class="modal-body">
+                       Se le recuerda al estudiante que podra repetir el examen las veces que desee, pero se mantendra la nota del primer intento
+                   </div>                   
+               </div>
+           </div>
+       </div> 
        @{
            Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
            Plataforma_academica.Models.Practicas practica = new Plataforma_academica.Models.Practicas();
@@ -33,18 +47,18 @@
                <h2>@Html.LabelFor(Model => arreglo3[0].nombre_examen, arreglo3[0].nombre_examen, new { @class = "" })</h2>//titulo actividad
                 <p>@Html.LabelFor(Model => arreglo3[0].descripcion_examen, arreglo3[0].descripcion_examen, new { @class = "form-control", @id = "p" })</p>
 
-               //descripcion actividad
-               arreglo = practica.Consultar_contenido_practica(act2.codigo_examen);
-               if (arreglo[0].nombre_pregunta == null)
-               {
-               }
-               else
-               {
-                   for (int i = 0; i < arreglo.Length; i++)
-                   {
-                       arreglo2 = practica.Consultar_respuestas_practica(act2.codigo_examen, arreglo[i].id_pregunta);
-                       if (arreglo[i].id_tipo_multimedia == 3)
-                       {
+                           //descripcion actividad
+                           arreglo = practica.Consultar_contenido_practica(act2.codigo_examen);                           
+                           if (arreglo[0].nombre_pregunta == null)
+                           {
+                           }
+                           else
+                           {
+                               for (int i = 0; i < arreglo.Length; i++)
+                               {
+                                   arreglo2 = practica.Consultar_respuestas_practica(act2.codigo_examen, arreglo[i].id_pregunta);
+                                   if (arreglo[i].id_tipo_multimedia == 3)
+                                   {
                         <section>
                             <div class="card">
                                 <div class="card-block p-3">
@@ -235,6 +249,7 @@
                             <h4>@ViewBag.mensaje2</h4>
                         </div>
                         <div class="modal-footer">
+                            <h4>@ViewBag.mensaje3</h4>
                             <a href="/PrincipalPlataforma/principalplataforma" class="btn btn-info">Finalizar</a>
                         </div>
                     </div>
@@ -453,6 +468,7 @@
                             <h4>@ViewBag.mensaje2</h4>
                         </div>
                         <div class="modal-footer">
+                            <h4>@ViewBag.mensaje3</h4>
                             <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="btn btn-info">Finalizar</a>
                         </div>
                     </div>
