@@ -1,4 +1,17 @@
 ﻿
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+}
+hmtl,body{
+    height:87vh;
+}
 
 h2 {
     margin-top: 3px;
@@ -9,6 +22,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0%;
+    z-index:999;
     -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
@@ -37,9 +51,10 @@ li {
 p {
     margin: 0;
 }
+
 textarea {
     max-width: 100%;
-    min-height: 299px;
+width:100%;
 }
 
 ul, ol {
@@ -47,6 +62,54 @@ ul, ol {
     margin-bottom: 0px;
     padding-inline-start: 0px;
 }
+
+.form-control[disabled]{
+    cursor:auto;
+}
+.container,
+.bb-custom-wrapper,
+.bb-bookblock {
+    width: 100%;
+    height: 100%;
+  
+}
+    .bb-custom-wrapper nav {
+        z-index: 999;
+        position: relative;
+        width: 100%;
+    }
+    .bb-custom-wrapper nav span {
+        position:relative;
+        width: 30px;
+        height: 30px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        top: 0;
+        left: 0;
+        background: orange;
+        border-radius: 50%;
+        color: #fff;
+        line-height: 42px;
+        text-align: center;
+        speak: none;
+        font-weight: bold;
+        cursor: pointer;
+        float:right;
+    }
+    .bb-item h2{
+        margin-bottom:5px;
+    }
+    .bb-item section{
+        margin-top:5px;
+    }
+    .bb-item div{
+        text-align:center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+      
 
 .btn-block {
     white-space: normal;
@@ -91,18 +154,26 @@ ul, ol {
     position: inherit;
 }
 
-.container {
-    height: 100%;
-    border-radius: 15px;
-}
+
 .contenedor {
     float: none;
     width: 62%;
     display: flow-root;
     min-width: 50%;
-    height: auto;
+    height: 100%;
     margin-left: 19%;
     margin-top: 80px;
+    border-radius: 15px;
+    position: relative;
+    padding: 10px;
+    left: 0px;
+    border-color: #D7D7D7;
+    -webkit-transition: left 0.3s ease-in-out;
+    -o-transition: left 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
+    -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
 }
 
 .contenido {
@@ -113,7 +184,7 @@ ul, ol {
     border-radius: 15px;
 }
 
-}
+
 
 .con_form {
     height: 60%;
@@ -125,7 +196,13 @@ ul, ol {
     order: 1;
     flex: 3 0 auto;
 }
-
+.embed-responsive {
+    display:flex;
+    height: 35vh;
+}
+    .embed-responsive iframe{
+    position:relative;
+}
 .fas, .fa {
     color: #ffffff;
 }
@@ -147,6 +224,17 @@ ul, ol {
     float: right;
     height: 100%;
 }
+
+.js .content {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    bottom: 50px;
+    overflow: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
 
 .label {
     margin-bottom: 0px;
@@ -297,7 +385,7 @@ ul, ol {
 }
 
 .row {
-    background-color: #edededc2;
+    background-color: #CECEDF;
     padding-top: 10px;
     padding-bottom: 20px;
     padding-left: 20px;
@@ -307,6 +395,26 @@ ul, ol {
     border-width: 5px;
     box-shadow: 0 1px 0 #cfcfcf;
 }
+.step {
+    height: 20px;
+    width: 20px;
+    margin: 0 2px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+    .step.active {
+        opacity: 1;
+    }
+
+    /* Mark the steps that are finished and valid: */
+    .step.finish {
+        background-color: #bbbbbb;
+    }
+
 
 .panel-group .panel {
     margin-bottom: 0;

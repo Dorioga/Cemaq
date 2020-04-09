@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="~/Scripts/menu.js"></script>
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
@@ -14,13 +14,57 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
     <!--
-        <link href="~/Estilos/Menu_plataforma.css" rel="stylesheet" type="text/css">
-        <link href="~/Estilos/navbarderecho1.css" rel="stylesheet" type="text/css">
-         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <link href="~/Estilos/Menu_plataforma.css" rel="stylesheet" type="text/css">
+          <link href="~/Estilos/navbarderecho1.css" rel="stylesheet" type="text/css">
+           <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        var tx = document.getElementsByTagName('textarea');
+        for (var i = 0; i < tx.length; i++) {
+            //tx[i].setAttribute('style', 'height:' + 100 + 'px;overflow-y:hidden;');
+            tx[i].addEventListener("change", OnInput, false);
+
+        }
+
+        function OnInput() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        }
+
+
+        -->
+
+
+
 
     <script src="~/Scripts/Menuprincipal.js"></script>
+    <script>
+      
+       
+        function AjustarTextArea() {
+            console.log('hola')
+           // var texto = document.getElementById("autosize1")
+           // console.log(texto)
+        
+             //console.log(texto.scrollHeight)
+            //texto.style.height = (texto.scrollHeight) + 'px';
+          
+           
+            var tx = document.getElementsByTagName('textarea');
+            //console.log('Hola')
+            for (var i = 0; i < tx.length; i++) {
+               // console.log('Tengo TextArEa')
+               // tx[i].setAttribute('style', 'height:' + 100 + 'px;overflow-y:hidden;');
+               // tx[i].style.height = 'auto';
+                tx[i].style.height = (tx[i].scrollHeight) + 'px';
+               console.log(tx[i].scrollHeight)
+            }
+        }
+
+    </script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -69,7 +113,7 @@
     <div class="menu-izq">
         <nav class="contenido nav">
             <!-- header nav-->
-            <div class="logo" onclick="divmenu()">
+            <div class="logo" onclick="">
                 <a>
                     <span class="fas fa-bars"></span>
                 </a>
@@ -130,7 +174,7 @@
 
 
     <!-- Contenedor Seleccionar_unidad  -->
-    <div class="contenedor">
+    <div class="contenedor" id="container">
         @RenderBody()
     </div>
 
@@ -143,5 +187,144 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <!--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+    <!--<script src="~/Scripts/jquerypp.custom.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.1/script/jquery.jscrollpane.min.js"></script>
+    <script src="~/Scripts/jquery.bookblock.js"></script>
+    <script>
+        var Pagina = (function () {
+             
+            var $bookBlock = $('#bb-bookblock'),
+                $items = $bookBlock.children(),
+                itemsCount = $items.length,
+                current = 0,
+                current = 0,
+                bb = $bookBlock.bookblock({
+                    speed: 800,
+                    perspective: 2000,
+                    shadowSides: 0.8,
+                    shadowFlip: 0.4,
+                    onEndFlip: function (old, page, isLimit) {
+
+                        current = page;
+                        // updateNavigation
+                        updateNavigation(isLimit);
+                        setJSP('init');
+                         AjustarTextArea()
+                        // destroy jScrollPane on the content div for the old item
+                        setJSP('destroy', old);
+
+                    }
+                }),
+                $navNext = $('#bb-nav-next'),
+                $navPrev = $('#bb-nav-prev').hide(),
+                transEndEventNames = {
+                    'WebkitTransition': 'webkitTransitionEnd',
+                    'MozTransition': 'transitionend',
+                    'OTransition': 'oTransitionEnd',
+                    'msTransition': 'MSTransitionEnd',
+                    'transition': 'transitionend'
+                },
+                transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+                supportTransitions = Modernizr.csstransitions;
+
+            function init() {
+
+                // initialize jScrollPane on the content div of the first item
+                setJSP('init');
+                initEvents();
+
+            }
+
+            function initEvents() {
+
+                // add navigation events
+                $navNext.on('click', function () {
+                    bb.next();
+      
+
+                    return false;
+                });
+
+                $navPrev.on('click', function () {
+                    bb.prev();
+                    AjustarTextArea()
+
+                    return false;
+                });
+                $items.on({
+                    'swipeleft': function (event) {
+                        if ($container.data('opened')) {
+                            return false;
+                        }
+                        bb.next();
+                        return false;
+                    },
+                    'swiperight': function (event) {
+                        if ($container.data('opened')) {
+                            return false;
+                        }
+                        bb.prev();
+                        return false;
+                    }
+                });
+
+                // reinit jScrollPane on window resize
+                $(window).on('debouncedresize', function () {
+                    // reinitialise jScrollPane on the content div
+                    setJSP('reinit');
+                });
+
+            }
+
+
+            function setJSP(action, idx) {
+
+                var idx = idx === undefined ? current : idx,
+                    $content = $items.eq(idx).children('div.content'),
+                    apiJSP = $content.data('jsp');
+
+                if (action === 'init' && apiJSP === undefined) {
+                    $content.jScrollPane({ verticalGutter: 0, hideFocus: true });
+                }
+                else if (action === 'reinit' && apiJSP !== undefined) {
+                    apiJSP.reinitialise();
+                }
+                else if (action === 'destroy' && apiJSP !== undefined) {
+                    apiJSP.destroy();
+                }
+
+            }
+
+            function updateNavigation(isLastPage) {
+
+                if (current === 0) {
+                    $navNext.show();
+                    $navPrev.hide();
+                }
+                else if (isLastPage) {
+                    $navNext.hide();
+                    $navPrev.show();
+                }
+                else {
+                    $navNext.show();
+                    $navPrev.show();
+                }
+
+            }
+
+            return { init: init };
+
+        })();
+
+    </script>
+
+    <script>
+        Pagina.init();
+    </script>
+
 </body>
+
 </html>

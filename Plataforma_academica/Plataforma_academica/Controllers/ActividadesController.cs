@@ -46,6 +46,7 @@ namespace Plataforma_academica.Controllers
                             act.Actualizar_porcentaje(porce, Convert.ToInt32(actividad.codigo_actividad), 1, act.id_curso_actividad);
                         }
                     }
+                    TempData["Autosize"] = "<script>AjustarTextArea()</script>";
                     return View();//Pagina de actividad
                 }
             }

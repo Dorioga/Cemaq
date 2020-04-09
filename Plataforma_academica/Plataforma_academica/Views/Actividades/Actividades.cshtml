@@ -5,669 +5,332 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-<head>
-    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
-    <link href="~/Estilos/actividadesStyl1.css" rel="stylesheet" type="text/css">
-    <link href="~/Estilos/paginaci.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <head>
+        <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
+        <link href="~/Estilos/actividadesStyl1.css" rel="stylesheet" type="text/css">
+        <link href="~/Estilos/paginaci.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="~/Estilos/bookblock.css" />
 
-</head>
+    </head>    
+
 @using (Html.BeginForm())
 {
     int i = 0;
     @Html.AntiForgeryToken()
 
-    <body>
-        <form id="regForm">
+<form id="regForm">
+    <div class="bb-custom-wrapper">
+        <div id="bb-bookblock" class="bb-bookblock">
+            <nav>
+
+                <span id="bb-nav-next"> → </span>
+                <span id="bb-nav-prev"> ← </span>
+            </nav>
+
             @{
-                            Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
-                            Plataforma_academica.Models.principalP actividad1 = Session["usuario3"] as Plataforma_academica.Models.principalP;
-                            Plataforma_academica.Models.Actividades actividad = new Plataforma_academica.Models.Actividades();
-                            Plataforma_academica.Models.Actividades[] arreglo;
-                            Plataforma_academica.Models.Actividades us = new Plataforma_academica.Models.Actividades();
-                            int rol = Convert.ToInt32(usu.rol);
-                            int seccion_actual = 0;
-                            if (usu != null)
-                            {
-                                if (rol > 3 && rol < 7)
-                                {
-                                    Plataforma_academica.Models.principalP act1 = Session["usuario3"] as Plataforma_academica.Models.principalP;
-                                    arreglo = actividad.Consultar_contenido_actividad(act1.codigo_actividad);
-                                    actividad.actual_seccion = actividad.Buscar_seccion_actual(actividad1.codigo_actividad, usu.usuario);
-                                    seccion_actual = Convert.ToInt32(actividad.actual_seccion.Rows[0]["seccion_leida"].ToString()) - 1;
-                                    for (i = 0; i < arreglo.Length; i++)
+                Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
+                Plataforma_academica.Models.principalP actividad1 = Session["usuario3"] as Plataforma_academica.Models.principalP;
+                Plataforma_academica.Models.Actividades actividad = new Plataforma_academica.Models.Actividades();
+                Plataforma_academica.Models.Actividades[] arreglo;
+                Plataforma_academica.Models.Actividades us = new Plataforma_academica.Models.Actividades();
+                int rol = Convert.ToInt32(usu.rol);
+                int seccion_actual = 0;
+                if (usu != null)
+                {
+                    if (rol > 3 && rol < 7)
+                    {
+                        Plataforma_academica.Models.principalP act1 = Session["usuario3"] as Plataforma_academica.Models.principalP;
+                        arreglo = actividad.Consultar_contenido_actividad(act1.codigo_actividad);
+                        actividad.actual_seccion = actividad.Buscar_seccion_actual(actividad1.codigo_actividad, usu.usuario);
+                        seccion_actual = Convert.ToInt32(actividad.actual_seccion.Rows[0]["seccion_leida"].ToString()) - 1;
+                        for (i = 0; i < arreglo.Length; i++)
+                        {
+                            <!-- Tabs-->
+                            <div class="bb-item">
+                                @{
+                                    if (i == 0)
                                     {
-                        <div class="tab">                            
-                            @{
-                                if (i == 0)
-                                {
-                                    <h2>@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
-                                    if (arreglo[i].id_tipo_multimedia == "3")
-                                    {
-                                        <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
-                                    }
-                                    else
-                                    {
-                                        if (arreglo[i].id_tipo_multimedia == "2")
+                                        <h2>@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
+                                        if (arreglo[i].id_tipo_multimedia == "3")
                                         {
-                                        <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
-                                        <section>
-                                            <div class="container mt-4">
-                                                <div class="row">
-                                                    <div class="col-md-12 mb-4">
-                                                        <div class="card">
-                                                            <div class="card-block p-3">
-                                                                <div>
-                                                                    <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    }
-                                    else
-                                    {
-                                        <section>
-                                            <div class="container mt-4">
-                                                <div class="row">
-                                                    <div class="col-md-12 mb-4">
-                                                        <div class="card">
-                                                            <div class="card-block p-3">
-                                                                <div class="embed-responsive embed-responsive-16by9">
-                                                                    <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    }
-                                }
-                                }
-                                else
-                                {
-                                    if (arreglo[i].id_tipo_multimedia == "3")
-                                    {
-                                        <section>
-                                            <div class="card">
-                                                <div class="card-block p-3">
-                                                    <article>
-                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                        @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control", @disabled = "true" })
-                                                    </article>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    }
-                                    if (arreglo[i].id_tipo_multimedia == "1")
-                                    {
-                                        if (arreglo[i].contenido_seccion == "\r\n")
-                                        {
-                                            <section>
-                                                <div class="container mt-4">
-                                                    <div class="row">
-                                                        <div class="col-md-12 mb-4">
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <div class="card">
-                                                                <div class="card-block p-3">
-                                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                                        <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
+                                            <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
                                         }
                                         else
                                         {
-                                            <section>
-                                                <div class="card">
-                                                    <div class="card-block p-3">
-                                                        <article>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control", @disabled = "true" })
-                                                        </article>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <div class="container mt-4">
-                                                    <div class="row">
-                                                        <div class="col-md-12 mb-4">
-                                                            <div class="card">
-                                                                <div class="card-block p-3">
-                                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                                        <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        }
-                                    }
-                                    if (arreglo[i].id_tipo_multimedia == "2")
-                                    {
-                                        if (arreglo[i].contenido_seccion == "\r\n")
-                                        {
-                                            <section>
-                                                <div class="container mt-4">
-                                                    <div class="row">
-                                                        <div class="col-md-12 mb-4">
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <div class="card">
-                                                                <div class="card-block p-3">
-                                                                    <div>
-                                                                        <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        }
-                                        else
-                                        {
-                                            <section>
-                                                <div class="card">
-                                                    <div class="card-block p-3">
-                                                        <article>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control", @disabled = "true" })
-                                                        </article>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <div class="container mt-4">
-                                                    <div class="row">
-                                                        <div class="col-md-12 mb-4">
-                                                            <div class="card">
-                                                                <div class="card-block p-3">
-                                                                    <div>
-                                                                        <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        }
-                                    }
-                                    if (arreglo[i].id_tipo_multimedia == "4")
-                                    {
-                                        if (arreglo[i].contenido_seccion == "\r\n")
-                                        {
-                                            <section>
-                                                <div class="card">
-                                                    <div class="card-block p-3">
-                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                        <audio controls>
-                                                            <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
-                                                        </audio>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        }
-                                        else
-                                        {
-                                            <section>
-                                                <div class="card">
-                                                    <div class="card-block p-3">
-                                                        <article>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control", @disabled = "true" })
-                                                        </article>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <div class="card">
-                                                    <div class="card-block p-3">
-                                                        <audio controls>
-                                                            <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
-                                                        </audio>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        }
-                                    }
-                                }
-                                int m = i + 1;
-                                    <div style="text-align:center;margin-top:40px;">
-                                        <span class="step">@m</span>
-                                    </div>
-                            } 
-                                                 
-                            
-                        </div>
-                                }
-                                <div style="overflow:auto;">
-                                    <div style="float:right;">
-                                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                                        <button type="button" id="nextBtn" name = "nextBtn" onclick = "nextPrev(1)" value = "porcentaje" AutoPostBack = "false">Next</button>
-                                    </div>
-                                </div>                               
-                       }
-                                    else
-                                    {
-                                        if (rol < 4 || rol >= 7)
-                                        {
-                                            Plataforma_academica.Models.principalP act2 = Session["usuario10"] as Plataforma_academica.Models.principalP;
-                                            arreglo = actividad.Consultar_contenido_actividad(act2.codigo_actividad);
-                                            for (i = 0; i < arreglo.Length; i++)
+                                            if (arreglo[i].id_tipo_multimedia == "2")
                                             {
-                                          <div class="tab">                            
-                            @{
-                                if (i == 0)
-                                {
-                                    <h2>@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
-                                    if (arreglo[i].id_tipo_multimedia == "3")
-                                    {
-                                        <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                                <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                                <section>
+                                                    <div>
+                                                        <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
+                                                    </div>
+                                                </section>
+                                            }
+                                            else
+                                            {
+                                                <section>
+                                                    <div class="embed-responsive ">
+                                                        <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                    </div>
+                                                </section>
+                                            }
+                                        }
                                     }
                                     else
                                     {
-                                        if (arreglo[i].id_tipo_multimedia == "2")
+                                        if (arreglo[i].id_tipo_multimedia == "3")
                                         {
-                                        <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
-                                        <section>
-                                            <div class="container mt-4">
-                                                <div class="row">
-                                                    <div class="col-md-12 mb-4">
-                                                        <div class="card">
-                                                            <div class="card-block p-3">
-                                                                <div>
-                                                                    <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                            <section>
+                                                <article>
+                                                    <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+
+                                                <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
+
+                                                </article>
+                                            </section>
+                                        }
+                                        if (arreglo[i].id_tipo_multimedia == "1")
+                                        {
+                                            if (arreglo[i].contenido_seccion == "\r\n")
+                                            {
+                                                <section>
+                                                    <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                    <div class="embed-responsive ">
+                                                        <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    }
-                                    else
-                                    {
-                                        <section>
-                                            <div class="container mt-4">
-                                                <div class="row">
-                                                    <div class="col-md-12 mb-4">
-                                                        <div class="card">
-                                                            <div class="card-block p-3">
-                                                                <div class="embed-responsive embed-responsive-16by9">
-                                                                    <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    }
-                                }
-                                }
-                                else
-                                {
-                                    if (arreglo[i].id_tipo_multimedia == "3")
-                                    {
-                                        <section>
-                                            <div class="card">
-                                                <div class="card-block p-3">
+                                                </section>
+                                            }
+                                            else
+                                            {
+                                                <section>
                                                     <article>
                                                         <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                        @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control", @disabled = "true" })
+                                                    <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
                                                     </article>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    }
-                                    if (arreglo[i].id_tipo_multimedia == "1")
-                                    {
-                                        if (arreglo[i].contenido_seccion == "\r\n")
-                                        {
-                                            <section>
-                                                <div class="container mt-4">
-                                                    <div class="row">
-                                                        <div class="col-md-12 mb-4">
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <div class="card">
-                                                                <div class="card-block p-3">
-                                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                                        <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                </section>
+                                                <section>
+                                                    <div class="embed-responsive">
+                                                        <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                     </div>
-                                                </div>
-                                            </section>
+                                                </section>
+                                            }
+                                        }
+                                        if (arreglo[i].id_tipo_multimedia == "2")
+                                        {
+                                            if (arreglo[i].contenido_seccion == "\r\n")
+                                            {
+                                                <section>
+                                                    <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                    <div>
+                                                        <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
+                                                    </div>
+                                                </section>
+                                            }
+                                            else
+                                            {
+                                                <section>
+                                                    <article>
+                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                    <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
+                                                    </article>
+                                                </section>
+                                                <section>
+                                                    <div>
+                                                        <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
+                                                    </div>
+                                                </section>
+                                            }
+                                        }
+                                        if (arreglo[i].id_tipo_multimedia == "4")
+                                        {
+                                            if (arreglo[i].contenido_seccion == "\r\n")
+                                            {
+                                                <section>
+                                                    <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                    <audio controls>
+                                                        <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
+                                                    </audio>
+                                                </section>
+                                            }
+                                            else
+                                            {
+                                                <section>
+                                                    <article>
+                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                    <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
+                                                    </article>
+                                                </section>
+                                                <section>
+                                                    <audio controls>
+                                                        <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
+                                                    </audio>
+                                                </section>
+                                            }
+                                        }
+                                    }
+                                    int m = i + 1;
+                                    <div>
+                                        <span class="step">@m</span>
+                                    </div>
+                                }
+
+                            </div>
+                        }
+
+                    }
+                    else
+                    {
+                        if (rol < 4 || rol >= 7)
+                        {
+                            Plataforma_academica.Models.principalP act2 = Session["usuario10"] as Plataforma_academica.Models.principalP;
+                            arreglo = actividad.Consultar_contenido_actividad(act2.codigo_actividad);
+                            for (i = 0; i < arreglo.Length; i++)
+                            {
+                                <div class="bb-item">
+                                    @{
+                                        if (i == 0)
+                                        {
+                                            <h2>@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
+                                            if (arreglo[i].id_tipo_multimedia == "3")
+                                            {
+                                                <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                            }
+                                            else
+                                            {
+                                                if (arreglo[i].id_tipo_multimedia == "2")
+                                                {
+                                                    <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                                    <section>
+                                                        <div>
+                                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
+                                                        </div>
+                                                    </section>
+                                                }
+                                                else
+                                                {
+                                                    <section>
+                                                        <div class="embed-responsive ">
+                                                            <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                        </div>
+                                                    </section>
+                                                }
+                                            }
                                         }
                                         else
                                         {
-                                            <section>
-                                                <div class="card">
-                                                    <div class="card-block p-3">
+                                            if (arreglo[i].id_tipo_multimedia == "3")
+                                            {
+                                                <section>
+                                                    <article>
+                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                    <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
+                                                    </article>
+                                                </section>
+                                            }
+                                            if (arreglo[i].id_tipo_multimedia == "1")
+                                            {
+                                                if (arreglo[i].contenido_seccion == "\r\n")
+                                                {
+                                                    <section>
+                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                        <div class="embed-responsive ">
+                                                            <iframe src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        </div>
+                                                    </section>
+                                                }
+                                                else
+                                                {
+                                                    <section>
                                                         <article>
                                                             <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control", @disabled = "true" })
+                                                            <!-- Html.TextArea("autosize", arreglo[i].contenido_seccion)-->
+                                                            <textarea id="autosize1">@arreglo[i].contenido_seccion </textarea>
                                                         </article>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <div class="container mt-4">
-                                                    <div class="row">
-                                                        <div class="col-md-12 mb-4">
-                                                            <div class="card">
-                                                                <div class="card-block p-3">
-                                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                                        <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                    </section>
+                                                    <section>
+                                                        <div class="embed-responsive ">
+                                                            <iframe src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        }
-                                    }
-                                    if (arreglo[i].id_tipo_multimedia == "2")
-                                    {
-                                        if (arreglo[i].contenido_seccion == "\r\n")
-                                        {
-                                            <section>
-                                                <div class="container mt-4">
-                                                    <div class="row">
-                                                        <div class="col-md-12 mb-4">
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <div class="card">
-                                                                <div class="card-block p-3">
-                                                                    <div>
-                                                                        <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                    </section>
+                                                }
+                                            }
+                                            if (arreglo[i].id_tipo_multimedia == "2")
+                                            {
+                                                if (arreglo[i].contenido_seccion == "\r\n")
+                                                {
+                                                    <section>
+                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                        <div>
+                                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        }
-                                        else
-                                        {
-                                            <section>
-                                                <div class="card">
-                                                    <div class="card-block p-3">
+                                                    </section>
+                                                }
+                                                else
+                                                {
+                                                    <section>
                                                         <article>
                                                             <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control", @disabled = "true" })
+                                                        <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
                                                         </article>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <div class="container mt-4">
-                                                    <div class="row">
-                                                        <div class="col-md-12 mb-4">
-                                                            <div class="card">
-                                                                <div class="card-block p-3">
-                                                                    <div>
-                                                                        <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                    </section>
+                                                    <section>
+                                                        <div>
+                                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        }
-                                    }
-                                    if (arreglo[i].id_tipo_multimedia == "4")
-                                    {
-                                        if (arreglo[i].contenido_seccion == "\r\n")
-                                        {
-                                            <section>
-                                                <div class="card">
-                                                    <div class="card-block p-3">
+                                                    </section>
+                                                }
+                                            }
+                                            if (arreglo[i].id_tipo_multimedia == "4")
+                                            {
+                                                if (arreglo[i].contenido_seccion == "\r\n")
+                                                {
+                                                    <section>
                                                         <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
                                                         <audio controls>
                                                             <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
                                                         </audio>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        }
-                                        else
-                                        {
-                                            <section>
-                                                <div class="card">
-                                                    <div class="card-block p-3">
+                                                    </section>
+                                                }
+                                                else
+                                                {
+                                                    <section>
                                                         <article>
                                                             <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            @Html.TextArea(arreglo[i].contenido_seccion, arreglo[i].contenido_seccion, new { @class = "form-control", @disabled = "true" })
+                                                        <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
                                                         </article>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <div class="card">
-                                                    <div class="card-block p-3">
+                                                    </section>
+                                                    <section>
                                                         <audio controls>
                                                             <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
                                                         </audio>
-                                                    </div>
-                                                </div>
-                                            </section>
+                                                    </section>
+                                                }
+                                            }
                                         }
-                                    }
-                                }
-                                    int m = i + 1;
-                                    <div style="text-align:center;margin-top:40px;">
-                                        <span class="step">@m</span>
-                                    </div>
-                                
-                            }                      
-                            
-                        </div>
+                                        int m = i + 1;
+                                        <div>
+                                            <span class="step">@m</span>
+                                        </div>
 
-                                }
-                                <div style="overflow:auto;">
-                                    <div style="float:right;">
-                                        <button type="button" id="prevBtn1" onclick="nextPrev1(-1)">Previous</button>
-                                        <button type="button" id="nextBtn1" onclick="nextPrev1(1)">Next</button>
-                                    </div>
+                                    }
                                 </div>
-                                        }
-                                    }
-                                }
 
-            }
-            
-            
-            <!-- Circles which indicates the steps of the form: -->
-            
-        </form>
-
-        <script>
-            if(@rol < 4 || @rol > 7){
-                var currentTab1 = 0;
-                showTab1(currentTab1);
-            }else{
-                var currentTab = @seccion_actual; // Current tab is set to be the first tab (0)
-                showTab(currentTab);
-            }// Display the current tab
-
-
-            function showTab(n) {
-                // This function will display the specified tab of the form...
-                var x = document.getElementsByClassName("tab");
-                x[n].style.display = "block";
-                //... and fix the Previous/Next buttons:
-                if (n == 0) {
-                    document.getElementById("prevBtn").style.display = "none";
-                } else {
-                    document.getElementById("prevBtn").style.display = "inline";
-                }
-                if (n == (x.length - 1)) {
-                    document.getElementById("nextBtn").disabled = true;
-                } else {
-                    document.getElementById("nextBtn").innerHTML = "Next";
-                    document.getElementById("nextBtn").disabled = false;
-                }
-                //... and run a function that will display the correct step indicator:
-                fixStepIndicator(n)
-            }
-
-            function showTab1(n) {
-                // This function will display the specified tab of the form...
-                var x = document.getElementsByClassName("tab");
-                x[n].style.display = "block";
-                //... and fix the Previous/Next buttons:
-                if (n == 0) {
-                    document.getElementById("prevBtn1").style.display = "none";
-                } else {
-                    document.getElementById("prevBtn1").style.display = "inline";
-                }
-                if (n == (x.length - 1)) {
-                    document.getElementById("nextBtn1").disabled = true;
-                } else {
-                    document.getElementById("nextBtn1").innerHTML = "Next";
-                    document.getElementById("nextBtn1").disabled = false;
-                }
-                //... and run a function that will display the correct step indicator:
-                fixStepIndicator1(n)
-            }
-
-            function nextPrev(n) {
-                // This function will figure out which tab to display
-                var x = document.getElementsByClassName("tab");
-                // Exit the function if any field in the current tab is invalid:
-                if (n == 1 && !validateForm()) return false;
-                // Hide the current tab:
-                x[currentTab].style.display = "none";
-                // Increase or decrease the current tab by 1:
-                currentTab = currentTab + n;
-                // if you have reached the end of the form...
-                if (currentTab >= x.length) {
-                    // ... the form gets submitted:
-                    document.getElementById("regForm").submit();
-                    return false;
-                }
-                // Otherwise, display the correct tab:
-                showTab(currentTab);
-            }
-
-            function nextPrev1(n) {
-                // This function will figure out which tab to display
-                var x = document.getElementsByClassName("tab");
-                // Exit the function if any field in the current tab is invalid:
-                if (n == 1 && !validateForm1()) return false;
-                // Hide the current tab:
-                x[currentTab1].style.display = "none";
-                // Increase or decrease the current tab by 1:
-                currentTab1 = currentTab1 + n;
-                // if you have reached the end of the form...
-                if (currentTab1 >= x.length) {
-                    // ... the form gets submitted:
-                    document.getElementById("regForm").submit();
-                    return false;
-                }
-                // Otherwise, display the correct tab:
-                showTab1(currentTab1);
-            }
-
-            function validateForm1() {
-                // This function deals with validation of the form fields
-                var x, y, i, valid = true;
-                x = document.getElementsByClassName("tab");
-                y = x[currentTab1].getElementsByTagName("input");
-                // A loop that checks every input field in the current tab:
-                for (i = 0; i < y.length; i++) {
-                    // If a field is empty...
-                    if (y[i].value == "") {
-                        // add an "invalid" class to the field:
-                        y[i].className += " invalid";
-                        // and set the current valid status to false
-                        valid = false;
+                            }
+                        }
                     }
                 }
-                // If the valid status is true, mark the step as finished and valid:
-                if (valid) {
-                    document.getElementsByClassName("step")[currentTab1].className += " finish";
-                }
-                return valid; // return the valid status
+
             }
+        </div>
+        <!-- Botones-->
 
-            function validateForm() {
-                // This function deals with validation of the form fields
-                var x, y, i, valid = true;
-                x = document.getElementsByClassName("tab");
-                y = x[currentTab].getElementsByTagName("input");
-                // A loop that checks every input field in the current tab:
-                for (i = 0; i < y.length; i++) {
-                    // If a field is empty...
-                    if (y[i].value == "") {
-                        // add an "invalid" class to the field:
-                        y[i].className += " invalid";
-                        // and set the current valid status to false
-                        valid = false;
-                    }
-                }
-                // If the valid status is true, mark the step as finished and valid:
-                if (valid) {
-                    document.getElementsByClassName("step")[currentTab].className += " finish";
-                }
-                return valid; // return the valid status
-            }
+       
 
-            function fixStepIndicator(n) {
-                // This function removes the "active" class of all steps...
-                var i, x = document.getElementsByClassName("step");
-                for (i = 0; i < x.length; i++) {
-                    x[i].className = x[i].className.replace(" active", "");
-                }
-                //... and adds the "active" class on the current step:
-                x[n].className += " active";
-            }
+        <!-- Circles which indicates the steps of the form: -->
+    </div>
+</form>
 
-            function fixStepIndicator1(n) {
-                // This function removes the "active" class of all steps...
-                var i, x = document.getElementsByClassName("step");
-                for (i = 0; i < x.length; i++) {
-                    x[i].className = x[i].className.replace(" active", "");
-                }
-                //... and adds the "active" class on the current step:
-                x[n].className += " active";
-            }
-
-            $(function () {
-
-                $("#nextBtn").click(function () {
-                    if(currentTab > @seccion_actual){
-                        var url = "@Url.Action("porcentaje","Actividades")";
-                        $.post(url).done(function(){
-
-                        }).fail(manejaErrorAjax).always(function(){
-
-                        });
-                    }
-                });
-                function manejaErrorAjax(err){
-                    console.log(err.responseText);
-                }
-            });
-        </script>
-
-    </body>
 
 }
 
