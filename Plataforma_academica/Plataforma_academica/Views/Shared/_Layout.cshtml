@@ -45,20 +45,8 @@
       
        
         function AjustarTextArea() {
-            console.log('hola')
-           // var texto = document.getElementById("autosize1")
-           // console.log(texto)
-        
-             //console.log(texto.scrollHeight)
-            //texto.style.height = (texto.scrollHeight) + 'px';
-          
-           
             var tx = document.getElementsByTagName('textarea');
-            //console.log('Hola')
             for (var i = 0; i < tx.length; i++) {
-               // console.log('Tengo TextArEa')
-               // tx[i].setAttribute('style', 'height:' + 100 + 'px;overflow-y:hidden;');
-               // tx[i].style.height = 'auto';
                 tx[i].style.height = (tx[i].scrollHeight) + 'px';
                console.log(tx[i].scrollHeight)
             }
