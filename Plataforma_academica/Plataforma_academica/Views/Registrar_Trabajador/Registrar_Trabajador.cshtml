@@ -1,0 +1,209 @@
+﻿@model Plataforma_academica.Models.Registrar_Trabajador
+
+@{
+    ViewBag.Title = "Registrar_Trabajador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
+</head>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td colspan="1">
+                        <div class="well form-horizontal">
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Tipo de Documento</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DropDownListFor(model => model.tipo_doc, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Numero de Identificación</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        @Html.EditorFor(model => model.cedula, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.ValidationMessageFor(model => model.cedula, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Primer Nombre</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        @Html.EditorFor(model => model.nombre1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.ValidationMessageFor(model => model.nombre1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Segundo Nombre</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        @Html.EditorFor(model => model.nombre2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.ValidationMessageFor(model => model.nombre2, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Primer Apellido</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        @Html.EditorFor(model => model.apellido1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.ValidationMessageFor(model => model.apellido1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Segundo Apellido</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        @Html.EditorFor(model => model.apellido2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.ValidationMessageFor(model => model.apellido2, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Fecha de Nacimiento</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        @{
+                                            string x = DateTime.Now.ToString("yyyy-MM-dd");
+                                        }
+                                        @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString(), @min = "2018-07-01" } })
+                                        @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Numero Telefono</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Correo</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Genero</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        @Html.EditorFor(model => model.genero, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.ValidationMessageFor(model => model.genero, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Nombre Contrato</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        @Html.EditorFor(model => model.nombre_contrato, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.ValidationMessageFor(model => model.nombre_contrato, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Primer Nombre</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DropDownListFor(model => model.tipo_pobla, (IEnumerable<SelectListItem>)ViewData["lista3"], "--Seleccione one--")
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Primer Nombre</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DropDownListFor(model => model.tipo_rol, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" name="subir1" value="Finalizar">Guardar</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        @{
+            if (ViewBag.mensaje == "Exito")
+            {
+                @Scripts.Render("~/Scripts/registro.js")
+            }
+            else
+            {
+                if (ViewBag.mensaje == "No se registro el examen")
+                {
+                    @Scripts.Render("~/Scripts/registrono.js")
+                }
+
+            }
+            <div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog" style="position: initial;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3 style="position: absolute;">Verificacion de proceso</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h4>El Trabajador se registro de forma exitosa, ¿desea registrar un nuevo usuario?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="/Registrar_Trabajador/Registrar_Trabajador" class="btn btn-info">Registrar Nuevo</a>
+                            <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="btn btn-danger">Finalizar Registro</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="mostrarmodal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog" style="position: initial;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3 style="position: absolute;">Verificacion de proceso</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h4>El Usuario no fue registrado</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="/Registrar_Trabajador/Registrar_Trabajador" class="btn btn-danger">Reintentar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

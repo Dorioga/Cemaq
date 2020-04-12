@@ -12,7 +12,7 @@ namespace Plataforma_academica
         public void Configuration(IAppBuilder app)
         {
             // Para obtener más información acerca de cómo configurar su aplicación, visite http://go.microsoft.com/fwlink/?LinkID=316888
-            app.MapSignalR();
+          
         }
     }
 }

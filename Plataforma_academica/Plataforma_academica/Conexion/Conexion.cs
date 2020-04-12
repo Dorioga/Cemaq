@@ -68,7 +68,7 @@ namespace Plataforma_academica.Conexion
 
         }
 
-
+        
         //Execute Operation
         public int Execute_Operation(string sentencia)
         {
@@ -91,8 +91,9 @@ namespace Plataforma_academica.Conexion
             }
             catch
             {
-
+                Disconnect();
                 return -1;
+                
             }
 
 

@@ -134,7 +134,7 @@ namespace Plataforma_academica.Controllers
                                         }
 
                                     }
-                                    ///dlkjslfkjdlkflsk
+                                    
                                     ViewBag.mensaje3 = "Este es su intento N°: " + intentos2 + " intentos permitidos";
                                 }
                                 if (practica.intentos == 1)

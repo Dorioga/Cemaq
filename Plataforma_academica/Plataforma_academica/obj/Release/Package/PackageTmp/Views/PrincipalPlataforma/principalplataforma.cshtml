@@ -7,6 +7,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
+    <link href="~/Estilos/submenu.css" rel="stylesheet" type="text/css">
 </head>
 <h2>Amazonian Language TIC´S</h2>
 
@@ -25,6 +26,12 @@
     Plataforma_academica.Models.Actividades_unidad actividad = new Plataforma_academica.Models.Actividades_unidad();
     Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad;
     Plataforma_academica.Models.Actividades_unidad[] arreglo_examen;
+    Plataforma_academica.Models.Porcentaje_usuario porcentaje = new Plataforma_academica.Models.Porcentaje_usuario();
+    Plataforma_academica.Models.Porcentaje_usuario[] arreglo_porcentaje;
+    Plataforma_academica.Models.Porcentaje_usuario[] arreglo_porcentaje_nivel;
+    Plataforma_academica.Models.Porcentaje_usuario[] arreglo_porcentaje_unidad;
+    Plataforma_academica.Models.Porcentaje_usuario[] arreglo_porcentaje_actividad;
+    Plataforma_academica.Models.Porcentaje_usuario[] arreglo_porcentaje_examen;
 
     <main class="con_form">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -88,30 +95,117 @@
                     </nav>
                 </div>
                 <!-- Barra Progreso -->
-                <div class="col-md-4">
-                    <h4>Progreso de los cursos</h4>
-                    <div class="progress-outer">
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:80%; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);"></div>
-                            <div class="progress-value">80%</div>
-                        </div>
-                        <h6>Progreso Ingles</h6>
+                <div class="col-sm-4_1">
+                    <h4>Progreso</h4>
+                    <div class="dropdown">
+                        <ul class="dropdown-menu1 multi-level" role="menu" style="width: 278%; border-radius: 11px;" aria-labelledby="dropdownMenu">
+                           
+                             @{
+                                arreglo_porcentaje = porcentaje.Porcentaje_Cursos(usu.usuario);
+                                for (int i = 0; i < arreglo_porcentaje.Length; i++)
+                                {
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">
+                                            <div class="progress-outer">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:@arreglo_porcentaje[i].porcentaje_curso%"; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                                        <h6 class="porcentaje">@arreglo_porcentaje[i].porcentaje_curso%</h6>
+                                                    </div>
+                                                </div>
+                                                <h6 style="white-space: normal;">Curso @arreglo_porcentaje[i].nombre_curso</h6>
+                                            </div>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            @{
+                                                arreglo_porcentaje_nivel = porcentaje.Porcentaje_nivel(arreglo_porcentaje[i].id_curso,usu.usuario);
+                                                for (int j = 0; j < arreglo_porcentaje_nivel.Length; j++)
+                                                {
+                                                    <li class="dropdown-submenu">
+                                                        <a href="#">
+                                                            <div class="progress-outer">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_porcentaje_nivel[j].porcentaje_desarrollo%"; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                                                        <h6 class="porcentaje">@arreglo_porcentaje_nivel[j].porcentaje_desarrollo%</h6>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                <h6 style="white-space: normal;">Nivel @arreglo_porcentaje_nivel[j].nombre_nivel</h6>
+                                                            </div>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            @{
+                                                                arreglo_porcentaje_unidad = porcentaje.Porcentaje_unidad(arreglo_porcentaje_nivel[j].id_curso_usuario_nivel);
+                                                                for (int k = 0; k < arreglo_porcentaje_unidad.Length; k++)
+                                                                {
+                                                                    <li class="dropdown-submenu">
+                                                                        <a href="#">
+                                                                            <div class="progress-outer">
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:@arreglo_porcentaje_unidad[k].porcentaje_usuario_unidad%; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                                                                        <h6 class="porcentaje">@arreglo_porcentaje_unidad[k].porcentaje_usuario_unidad%</h6>
+                                                                                    </div>                                                                                   
+                                                                                </div>
+                                                                                <h6 style="white-space: normal;">Unidad @arreglo_porcentaje_unidad[k].nombre_unidad</h6>
+                                                                            </div>
+                                                                        </a>
+                                                                        <ul class="dropdown-menu" style="left: 195px; top: 26px;">
+                                                                            @{
+                                                                                arreglo_porcentaje_actividad = porcentaje.Porcentaje_actividad(arreglo_porcentaje_unidad[k].id_curso_usuario_unidad);
+                                                                                for (int l = 0; l < arreglo_porcentaje_actividad.Length; l++)
+                                                                                {
+                                                                                    <li class="dropdown-submenu">
+                                                                                        <a href="#">
+                                                                                            <div class="progress-outer">
+                                                                                                <div class="progress">
+                                                                                                    <div class="progress-bar progress-bar-striped progress-bar-striped active" style="width:@arreglo_porcentaje_actividad[l].porcentaje_usuario_actividad%"; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                                                                                        <h6 class="porcentaje">@arreglo_porcentaje_actividad[l].porcentaje_usuario_actividad%</h6>
+                                                                                                    </div>                                                                                                    
+                                                                                                </div>
+                                                                                                <h6 style="white-space: normal;">Actividad @arreglo_porcentaje_actividad[l].nombre_actividad</h6>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                }
+
+                                                                                arreglo_porcentaje_examen = porcentaje.Porcentaje_examen(arreglo_porcentaje_unidad[k].id_curso_usuario_unidad);
+                                                                                for (int m = 0; m < arreglo_porcentaje_examen.Length; m++)
+                                                                                {
+                                                                                    <li class="dropdown-submenu">
+                                                                                        <a href="#">
+                                                                                            <div class="progress-outer">
+                                                                                                <div class="progress">
+                                                                                                    <div class="progress-bar progress-bar-striped progress-bar-warning active" style="width:@arreglo_porcentaje_examen[m].porcentaje_examen%"; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                                                                                        <h6 class="porcentaje">@arreglo_porcentaje_examen[m].porcentaje_examen%</h6>
+                                                                                                    </div>
+
+                                                                                                </div>
+                                                                                                <h6 style="white-space: normal;">Examen @arreglo_porcentaje_examen[m].nombre_examen</h6>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                }
+                                                                            }
+                                                                            
+                                                                        </ul>
+                                                                    </li>
+                                                                                }
+                                                            }
+                                                            
+                                                        </ul>
+                                                    </li>
+                                                                }
+                                            }
+                                            
+                                        </ul>
+                                    </li>
+
+                                                }
+
+                            }
+                        </ul>
                     </div>
-                    <div class="progress-outer">
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:60%; box-shadow:-1px 10px 10px rgba(116, 195, 116,0.7);"></div>
-                            <div class="progress-value">60%</div>
-                        </div>
-                        <h6>Progreso Portugues</h6>
-                    </div>
-                    <div class="progress-outer">
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:40%; box-shadow:-1px 10px 10px rgba(240, 173, 78,0.7);"></div>
-                            <div class="progress-value">40%</div>
-                        </div>
-                        <h6>Progreso Frances</h6>
-                    </div>
-                </div>
+                </div>               
+
                 <!--Unidades-->
                 <div class="col-sm-4">
                     <h4>Unidades</h4>

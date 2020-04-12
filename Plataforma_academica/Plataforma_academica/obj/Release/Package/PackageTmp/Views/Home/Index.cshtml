@@ -12,30 +12,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link href="~/Estilos/Modal_Inicio.css" rel="stylesheet">
+    <link href="~/Estilos/hover.css" rel="stylesheet" media="all" />
     @Scripts.Render("~/Scripts/Modal_entrada.js")
 </head>
 @using (Html.BeginForm("Academicaprofesional", "AcademicaProfesional", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-<body>
-    <header>
-        Como desea aprender
-    </header>
-    @* Moda de Inicio *@
-    <div class="medio">
-        <div class="column">
-            <button type="submit" name="irr" value="infantil" class="b b2">
-                Infantil
-            </button>
+    <body>
+        <header>
+            <p>Que perfil desea ver?</p>
+        </header>
+        @* Moda de Inicio *@
+        <div class="medio">
+            <div class="column">
+                <button type="submit" name="irr" value="infantil" class="b hvr-shutter-in-vertical b2 ">
+                    Infantil
+                </button>
+            </div>
+            <div class="column">
+                <button type="submit" name="ir" value="profesional" class="b  hvr-shutter-in-vertical b1">
+                    Profesional
+                </button>
+            </div>
         </div>
-        <div class="column">
-            <button type="submit" name="ir" value="profesional" class="b b1">
-                Profesional
-            </button>
-        </div>
-    </div>
-    <footer>
-        <h4>Amazonian Language Tics</h4>
-    </footer>
-</body>
+        <footer>
+            <h4>Amazonian Language Tics</h4>
+        </footer>
+    </body>
 }
 </html>

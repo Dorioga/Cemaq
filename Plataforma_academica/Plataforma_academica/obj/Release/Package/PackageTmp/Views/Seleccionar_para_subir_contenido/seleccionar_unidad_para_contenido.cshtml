@@ -26,7 +26,7 @@
     <script src="/signalr/hubs"></script>
     }   
 
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         $(function () {
 
             setScreen(false);
@@ -292,13 +292,12 @@
             ////});
 
         }
-    </script>
+    </script>*@
     
 </head>
 
 
 
-<h2>Amazonian language tic´s</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -391,7 +390,7 @@
                 </div>
                 <!-- Barra Progreso -->
                 <div class="col-md-4">
-                    <h4>Progreso de los cursos</h4>
+                    @*<h4>Progreso de los cursos</h4>
                     <div class="progress-outer">
                         <div class="progress">
                             <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:80%; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);"></div>
@@ -413,9 +412,9 @@
                         </div>
                         <h6>Progreso Frances</h6>
                     </div>
-    @*--*@          <button class="open-button" name="ir7_">
+    @*--*@          @*<button class="open-button" name="ir7_">
                             <i class="glyphicon glyphicon-comment"><span class="badge-sonar1"></span></i>
-                    </button>
+                    </button>*@
                     
                 </div>
                 <!--Unidades-->
@@ -524,12 +523,12 @@
                 </div>
             </div>
             @{
-               <ul class="nav nav-tabs chat-popup1" id="myForm7">
+               @*<ul class="nav nav-tabs chat-popup1" id="myForm7">
                    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
                    <li><a data-toggle="tab" href="#menu1">Chat</a></li>
                    <li><a data-toggle="tab" href="#divContainer">mensajes</a></li><span class="close" onclick="closeForm()">x</span>
-               </ul>
-               <div class="tab-content chat-popup1" id="myForm6">
+               </ul>*@
+               @*<div class="tab-content chat-popup1" id="myForm6">
                    <div div id="home" class="tab-pane fade in active">
                        <div class="chat-popup" id="myForm">
                            <div class="col-md-4">
@@ -709,7 +708,7 @@
                     }
                    </div>
                    @* Chats *@
-                   <div id="menu1" class="tab-pane fade">
+                   @*<div id="menu1" class="tab-pane fade">
                        <div>
                            <div class="chat-list-box1">
                                <div class="head-box">
@@ -748,15 +747,14 @@
 
                            </div>
                        </div> 
-                   </div>                  
+                   </div>*@                  
 
 
-                   <div id="divContainer" class="tab-pane fade">
+                   @*<div id="divContainer" class="tab-pane fade">
                        <div id="divLogin" class="login">
                            <div>
                                Your Name:<br />
                                <input id="txtNickName" value="@usu.Nombre" type="text" class="textBox" disabled/>
-                               @*<label id="txtNickName" value="@usu.Nombre">@Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })</label>*@
                            </div>
                            <div id="divButton">
                                <input id="btnStartChat" type="button" class="submitButton" value="Start Chat" />
@@ -782,13 +780,13 @@
 
                        <input id="hdId" type="hidden" />
                        <input id="hdUserName" type="hidden" />
-                   </div>
+                   </div>*@
 
 
 
 
-               </div>
-                    <div class="col-md-8" id="mensajes">
+               @*</div>*@
+                    @*<div class="col-md-8" id="mensajes">
                         <div class="message-box">
                             <div class="head-box-1">
                                 <ul class="msg-box list-inline text-left d-inline-block float-left">
@@ -798,18 +796,7 @@
                                 </ul>
                             </div>
                             <div class="msg_history">
-                                @*<div class="received_msg">
-                                    <div class="received_withd_msg">
-                                        <p>Hi, How are you ?</p>
-                                        <span class="time_date"> 11:01 AM    |    June 9</span>
-                                    </div>
-                                </div>
-                                <div class="outgoing_msg">
-                                    <div class="sent_msg">
-                                        <p>Hello, i am fine thankyou, what about you ?</p>
-                                        <span class="time_date"> 11:01 AM    |    June 9</span>
-                                    </div>
-                                </div>*@
+                              
                                 
 
                             </div>
@@ -820,8 +807,8 @@
                                     </ul>
                             </div>
                         </div>
-                    </div>
-                if (ViewBag.mensaje == "pais")
+                    </div>*@
+                @*if (ViewBag.mensaje == "pais")
                 {
                   @Scripts.Render("~/Scripts/chat.js")
                 }
@@ -870,11 +857,11 @@
                                                            }
                                                        }
                                                    }
-                                               }
+                                               }*@
             }
                    
         </div>
-        <script>
+        @*<script>
                   function closeForm() {
                       document.getElementById("myForm").style.display = "none";
                       document.getElementById("myForm6").style.display = "none";
@@ -884,11 +871,11 @@
                       document.getElementById("myForm3").style.display = "none";
                       document.getElementById("myForm4").style.display = "none";
                   }
-        </script>
+        </script>*@
     </main>
 
                                 }
-<footer>
+<footer class="marca">
     <p>&copy; @DateTime.Now.Year - Amazonian Language Tic</p>
 </footer>
 

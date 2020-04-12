@@ -111,7 +111,6 @@ namespace Plataforma_academica.Models
 
         public DataTable Buscarintentos(string examen, string id_usuario)
         {
-            //Login (Se realiza la verificacion del usuario y su contraseña)
             Conexion.Conexion con = new Conexion.Conexion();
             DataTable x = con.Execute_Query("call Pr_cargar_intentos_examen ('" + examen + "', '" + id_usuario + "')");
             return x;

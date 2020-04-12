@@ -1,0 +1,124 @@
+﻿@model Plataforma_academica.Models.Registrar_Beneficiario
+
+@{
+    ViewBag.Title = "Registar_Beneficiario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
+    
+</head>
+<h2>Registar Beneficiario</h2>
+
+    @using (Html.BeginForm("Registrar_Beneficiario", "Registrar_Beneficiario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        Plataforma_academica.Models.Registrar_Beneficiario us = new Plataforma_academica.Models.Registrar_Beneficiario();
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="file" name="excelfile" />
+                    <input type="submit" value="Subir Excel" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+        if (ViewBag.mensaje == "Selecione un archivo de Excel!")
+        {
+            <div class="alert alert-danger fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                @ViewBag.mensaje
+            </div>
+        }
+        else
+        {
+            //Como trabaja xD Ejecute y mur
+            if (ViewBag.mensaje == "Correcto!")
+            {
+                <div class="alert alert-danger fade in">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    @ViewBag.mensaje
+                </div>
+            }
+            else
+            {
+                
+                if (ViewBag.mensaje == "Selecione un archivo de Excel correcto!")
+                {
+                    <div class="alert alert-danger fade in">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        @ViewBag.mensaje
+                    </div>
+                }
+                else if (ViewBag.mensaje == "El alumno ya existe")
+                {
+                    <div class="alert alert-danger fade in">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        @ViewBag.mensaje2
+                    </div>
+                }
+                {
+
+                }
+            }
+
+        }
+
+        <table cellpadding="2" cellspacing="2" border="1">
+
+            @if (ViewBag.ListAlumnos != null)
+            {
+                <tr>
+                    <th>Numero Cedula</th>
+                    <th>Primer Nombre</th>
+                    <th>Segundo Nombre</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Genero</th>
+                    <th>Documento</th>
+                    <th>Población</th>
+                    <th>Rol</th>
+                </tr>
+                foreach (var R in ViewBag.ListAlumnos)
+                {
+                    <tr>
+                        <td>@R.cedula</td>
+                        <td>@R.nombre1</td>
+                        <td>@R.nombre2</td>
+                        <td>@R.apellido1</td>
+                        <td>@R.apellido2</td>
+                        <td>@R.fecha_nacimiento</td>
+                        <td>@R.telefono</td>
+                        <td>@R.correo</td>
+                        <td>@R.genero</td>
+                        <td>@R.documento</td>
+                        <td>@R.poblacion</td>
+                        <td>@R.cod_rol</td>
+                    </tr>
+                }
+            }
+
+        </table>
+        @*<script>
+            //Editar la funcion para traer las otras list
+            function nextPrev(id) {
+                
+
+                    var url = "@Url.Action("Lista_municipios", "Registrar_Beneficiario")?id="+id;
+                    $.post(url).done(function () {
+
+                    }).fail(manejaErrorAjax).always(function () {
+
+                    });
+            };
+        </script>*@
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
