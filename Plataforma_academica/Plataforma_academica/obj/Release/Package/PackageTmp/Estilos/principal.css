@@ -206,7 +206,7 @@ ul, ol {
 
 .embed-responsive {
     display: flex;
-    height: 35vh;
+    height: 64vh;
 }
 
     .embed-responsive iframe {
