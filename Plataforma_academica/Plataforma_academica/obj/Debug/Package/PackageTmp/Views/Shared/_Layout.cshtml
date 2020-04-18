@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function AjustarTextArea() {
+            var tx = document.getElementsByTagName('textarea');
+            for (var i = 0; i < tx.length; i++) {
+                tx[i].style.height = (tx[i].scrollHeight) + 'px';
+                console.log(tx[i].scrollHeight)
+            }
+        }
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="~/Scripts/menu.js"></script>
+    <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    <title>Sidebar template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+    <script src="~/Scripts/Menuprincipal.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @{
+        Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
+        Plataforma_academica.Models.Permisos_Menu menu = new Plataforma_academica.Models.Permisos_Menu();
+        Plataforma_academica.Models.Permisos_Menu[] arreglo;
+    }
+
+    <header>
+
+        <nav class="navbar">
+            <a class="navbar-brand"><strong>Amazonian Language Tic's</strong></a>
+            <div class="info">
+                <div class="p-2">
+                    <img class=" perfil" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg">
+                </div>
+                <ul class="p-2">
+                    @{
+                        if (usu != null)
+                        {
+
+                            <p><span class="glyphicon glyphicon-user"></span> @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })</p>
+                            <p>@Html.LabelFor(Model => usu.Tipo_rol, usu.Tipo_rol, new { @class = "" })</p>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
+                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                        }
+                    }
+                </ul>
+                <div class="p-2">
+
+                    <a href="/Login/cerrarsesion">
+                        <span class="glyphicon glyphicon-log-out">
+                        </span>
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Menu izq  -->
+    <div class="menu-izq">
+        <nav class="contenido nav">
+            <!-- header nav-->
+            <div class="logo" onclick="">
+                <a>
+                    <span class="fas fa-bars"></span>
+                </a>
+            </div>
+            <!-- contenido nav-->
+            <div class="lista-menu" id="menu">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-heading">
+                        <span>General</span>
+                    </li>
+                    @{
+                        if (usu != null)
+                        {
+
+                            arreglo = menu.ConsultarMenu(usu.rol);
+
+                            for (int i = 0; i < arreglo.Length; i++)
+                            {
+                                <li class="list-group-item">
+                                    <a><span class="fa fa-tachometer-alt"></span>@Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)</a>
+                                </li>
+
+                            }
+
+                            <!--  <li>@Html.ActionLink("Cerrar sesion", "cerrarsesion", "Login")</li>  -->
+
+                        }
+                    }
+                </ul>
+            </div>
+            <!-- footer -->
+            <footer class="pie">
+                <a href="#">
+                    <i class="fa fa-bell"></i>
+                    <span class="badge badge-pill badge-warning notification">3</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-envelope"></i>
+                    <span class="badge badge-pill badge-success notification">7</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-cog"></i>
+                    <span class="badge-sonar"></span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-power-off"></i>
+                </a>
+            </footer>
+        </nav>
+
+    </div>
+
+    <!-- Menu Derecho  -->
+    <nav class="menu-der">
+        <ul class="contenido list-group">
+        </ul>
+    </nav>
+
+
+    <!-- Contenedor Seleccionar_unidad  -->
+    <div class="contenedor" id="container">
+        @RenderBody()
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.1/script/jquery.jscrollpane.min.js"></script>
+    <script src="~/Scripts/jquery.bookblock.js"></script>
+    <script>
+        var Pagina = (function () {
+
+            var $bookBlock = $('#bb-bookblock'),
+                $items = $bookBlock.children(),
+                itemsCount = $items.length,
+                current = 0,
+                current = 0,
+                bb = $bookBlock.bookblock({
+                    speed: 800,
+                    perspective: 2000,
+                    shadowSides: 0.8,
+                    shadowFlip: 0.4,
+                    onEndFlip: function (old, page, isLimit) {
+
+                        current = page;
+                        // updateNavigation
+                        updateNavigation(isLimit);
+                        setJSP('init');
+                        AjustarTextArea()
+                        // destroy jScrollPane on the content div for the old item
+                        setJSP('destroy', old);
+
+                    }
+                }),
+                $navNext = $('#bb-nav-next'),
+                $navPrev = $('#bb-nav-prev').hide(),
+                transEndEventNames = {
+                    'WebkitTransition': 'webkitTransitionEnd',
+                    'MozTransition': 'transitionend',
+                    'OTransition': 'oTransitionEnd',
+                    'msTransition': 'MSTransitionEnd',
+                    'transition': 'transitionend'
+                },
+                transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+                supportTransitions = Modernizr.csstransitions;
+
+            function init() {
+
+                // initialize jScrollPane on the content div of the first item
+                setJSP('init');
+                initEvents();
+
+            }
+
+            function initEvents() {
+
+                // add navigation events
+                $navNext.on('click', function () {
+                    bb.next();
+
+
+                    return false;
+                });
+
+                $navPrev.on('click', function () {
+                    bb.prev();
+                    AjustarTextArea()
+
+                    return false;
+                });
+                $items.on({
+                    'swipeleft': function (event) {
+                        if ($container.data('opened')) {
+                            return false;
+                        }
+                        bb.next();
+                        return false;
+                    },
+                    'swiperight': function (event) {
+                        if ($container.data('opened')) {
+                            return false;
+                        }
+                        bb.prev();
+                        return false;
+                    }
+                });
+
+                // reinit jScrollPane on window resize
+                $(window).on('debouncedresize', function () {
+                    // reinitialise jScrollPane on the content div
+                    setJSP('reinit');
+                });
+
+            }
+
+
+            function setJSP(action, idx) {
+
+                var idx = idx === undefined ? current : idx,
+                    $content = $items.eq(idx).children('div.content'),
+                    apiJSP = $content.data('jsp');
+
+                if (action === 'init' && apiJSP === undefined) {
+                    $content.jScrollPane({ verticalGutter: 0, hideFocus: true });
+                }
+                else if (action === 'reinit' && apiJSP !== undefined) {
+                    apiJSP.reinitialise();
+                }
+                else if (action === 'destroy' && apiJSP !== undefined) {
+                    apiJSP.destroy();
+                }
+
+            }
+
+            function updateNavigation(isLastPage) {
+
+                if (current === 0) {
+                    $navNext.show();
+                    $navPrev.hide();
+                }
+                else if (isLastPage) {
+                    $navNext.hide();
+                    $navPrev.show();
+                }
+                else {
+                    $navNext.show();
+                    $navPrev.show();
+                }
+
+            }
+
+            return { init: init };
+
+        })();
+
+    </script>
+
+    <script>
+        Pagina.init();
+    </script>
+
+
+    <!-- page-wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+﻿
+html, body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://cdna.artstation.com/p/assets/images/images/020/078/010/large/dawnpu-at-art-vision-studio-.jpg?1566274256);
+    background-position-y: center;
+}
+
+.caja {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fondo {
+    width: 25%;
+    height: 30%;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    border-style: solid;
+}
+
+.form_caja {
+    width: 80%;
+}
+
+.form_caja {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_textbox {
+    margin-bottom: 10px;
+    width: 80%;
+}
