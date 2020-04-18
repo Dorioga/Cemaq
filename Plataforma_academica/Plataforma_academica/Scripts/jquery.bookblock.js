@@ -509,7 +509,7 @@
 		// public method: goes to a specific page
         jump: function (page) {
             console.log("pagina= "+ page);
-			page -= 1;
+		
 
 			if (page === this.current || page >= this.itemsCount || page < 0) {
 				return false;

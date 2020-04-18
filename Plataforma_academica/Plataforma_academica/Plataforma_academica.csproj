@@ -300,27 +300,14 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Properties\PublishProfiles\academia.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - FTP %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - FTP %283%29.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - FTP %284%29.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - FTP %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - FTP1.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - ReadOnly - FTP %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - ReadOnly - FTP %283%29.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - ReadOnly - FTP %284%29.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - ReadOnly - FTP %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - ReadOnly - FTP1.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy %283%29.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy %284%29.pubxml" />
-    <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

@@ -62,7 +62,7 @@
                         <h5>Tipo Multimedia</h5>
                         @Html.DropDownListFor(model => model.tipo_multimedia, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--", new { @onchange = "mostrar(this.value)" })
                         <section class="oculta" id="capa">
-                            <h5>Url del video</h5>
+                            <h5>Titulo Sección</h5>
                             @Html.EditorFor(model => model.url_video, new { htmlAttributes = new { @class = "form-control", @id = "contenido" } })
                             @Html.ValidationMessageFor(model => model.url_video, "", new { @class = "text-danger" })
                         </section>
