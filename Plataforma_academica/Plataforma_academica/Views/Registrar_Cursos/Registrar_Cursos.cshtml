@@ -61,13 +61,13 @@
                                     <div class="col-sm-4">
                                         <h3>Intermedio</h3>
                                         <div class="col-md-81 inputGroupContainer">
-                                               @Html.DropDownListFor(model => model.cantidadIntermedio, (IEnumerable<SelectListItem>)ViewData["lista3"], "-Cantidad unidades-")
+                                               @Html.DropDownListFor(model => model.cantidadIntermedio, (IEnumerable<SelectListItem>)ViewData["lista3"])
                                         </div>                                      
                                     </div>
                                     <div class="col-sm-4">
                                         <h3>Avanzado</h3>                                        
                                         <div class="col-md-81 inputGroupContainer">
-                                            @Html.DropDownListFor(model => model.cantidadAvanzado, (IEnumerable<SelectListItem>)ViewData["lista4"], "-Cantidad unidades-")
+                                            @Html.DropDownListFor(model => model.cantidadAvanzado, (IEnumerable<SelectListItem>)ViewData["lista4"])
                                         </div>
                                     </div>
                              </div>
