@@ -34,7 +34,7 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.EditorFor(model => model.cedula, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.EditorFor(model => model.cedula, new { htmlAttributes = new { @class = "form-control", @placeholder = "Numero de Identificación*", @id = "nombre" } })
                                         @Html.ValidationMessageFor(model => model.cedula, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.EditorFor(model => model.nombre2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.EditorFor(model => model.nombre2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Segundo Nombre(Opcional)", @id = "nombre" } })
                                         @Html.ValidationMessageFor(model => model.nombre2, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.EditorFor(model => model.apellido1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.EditorFor(model => model.apellido1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Apellido*", @id = "nombre" } })
                                         @Html.ValidationMessageFor(model => model.apellido1, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.EditorFor(model => model.apellido2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.EditorFor(model => model.apellido2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Segundo Apellido(Opcional)", @id = "nombre" } })
                                         @Html.ValidationMessageFor(model => model.apellido2, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@
                                         @{
                                             string x = DateTime.Now.ToString("yyyy-MM-dd");
                                         }
-                                        @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString(), @min = "2018-07-01" } })
+                                        @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString()} })
                                         @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.EditorFor(model => model.telefono, new { htmlAttributes = new {@type= "number", @class = "form-control", @placeholder = "Numero Telefono*", @id = "nombre" } })
                                         @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.EditorFor(model => model.correo, new { htmlAttributes = new {@type= "email", @class = "form-control", @placeholder = "Correo Electronico*", @id = "nombre" } })
                                         @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.EditorFor(model => model.genero, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.EditorFor(model => model.genero, new { htmlAttributes = new { @class = "form-control", @placeholder = "Genero*", @id = "nombre" } })
                                         @Html.ValidationMessageFor(model => model.genero, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -127,13 +127,13 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.EditorFor(model => model.nombre_contrato, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre*", @id = "nombre" } })
+                                        @Html.EditorFor(model => model.nombre_contrato, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre del Contrato*", @id = "nombre" } })
                                         @Html.ValidationMessageFor(model => model.nombre_contrato, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Primer Nombre</label>
+                                <label class="col-md-4 control-label">Tipo Población</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         @Html.DropDownListFor(model => model.tipo_pobla, (IEnumerable<SelectListItem>)ViewData["lista3"], "--Seleccione one--")
@@ -141,7 +141,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Primer Nombre</label>
+                                <label class="col-md-4 control-label">Tipo de Rol</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         @Html.DropDownListFor(model => model.tipo_rol, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")

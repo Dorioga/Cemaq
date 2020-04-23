@@ -244,6 +244,7 @@
     <Content Include="Estilos\actividad_editar.css" />
     <Content Include="Estilos\aprobado_perdido.css" />
     <Content Include="Estilos\bookblock.css" />
+    <Content Include="Estilos\botones3D.css" />
     <Content Include="Estilos\ChatStyle.css" />
     <Content Include="Estilos\chat_8.css" />
     <Content Include="Estilos\Contenido.css" />
@@ -304,10 +305,16 @@
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\amazoniaacademia - FTP %286%29.pubxml" />
+    <None Include="Properties\PublishProfiles\amazoniaacademia - FTP %287%29.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - FTP1.pubxml" />
+    <None Include="Properties\PublishProfiles\amazoniaacademia - ReadOnly - FTP %286%29.pubxml" />
+    <None Include="Properties\PublishProfiles\amazoniaacademia - ReadOnly - FTP %287%29.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - ReadOnly - FTP1.pubxml" />
+    <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy %286%29.pubxml" />
+    <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy %287%29.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

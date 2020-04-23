@@ -507,9 +507,9 @@
 			this._action('prev');
 		},
 		// public method: goes to a specific page
-		jump: function(page) {
-
-			page -= 1;
+        jump: function (page) {
+            console.log("pagina= "+ page);
+		
 
 			if (page === this.current || page >= this.itemsCount || page < 0) {
 				return false;

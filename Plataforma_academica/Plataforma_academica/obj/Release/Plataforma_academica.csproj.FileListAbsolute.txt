@@ -476,3 +476,11 @@ C:\Users\Diego\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica\Pla
 C:\Users\Diego\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.csproj.CopyComplete
 C:\Users\Diego\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.dll
 C:\Users\Diego\Documents\GitHub\AMAZONIAN_LENGUAGE_TICS\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.pdb
+C:\Users\usuario\Pictures\Saved Pictures\AMAZONIAN_LANGUAGE_TICS\Plataforma_academica\Plataforma_academica\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\usuario\Pictures\Saved Pictures\AMAZONIAN_LANGUAGE_TICS\Plataforma_academica\Plataforma_academica\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\usuario\Pictures\Saved Pictures\AMAZONIAN_LANGUAGE_TICS\Plataforma_academica\Plataforma_academica\bin\Microsoft.AspNet.SignalR.Owin.xml
+C:\Users\usuario\Pictures\Saved Pictures\AMAZONIAN_LANGUAGE_TICS\Plataforma_academica\Plataforma_academica\bin\SignalRChat.pdb
+C:\Users\usuario\Pictures\Saved Pictures\AMAZONIAN_LANGUAGE_TICS\Plataforma_academica\Plataforma_academica\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\usuario\Pictures\Saved Pictures\AMAZONIAN_LANGUAGE_TICS\Plataforma_academica\Plataforma_academica\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\usuario\Pictures\Saved Pictures\AMAZONIAN_LANGUAGE_TICS\Plataforma_academica\Plataforma_academica\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\Users\usuario\Pictures\Saved Pictures\AMAZONIAN_LANGUAGE_TICS\Plataforma_academica\Plataforma_academica\bin\Microsoft.AspNet.SignalR.SystemWeb.xml

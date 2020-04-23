@@ -11,6 +11,7 @@
     <link href="~/Estilos/paginaci.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="~/Estilos/bookblock.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 
@@ -43,7 +44,7 @@
                             Plataforma_academica.Models.principalP act1 = Session["usuario3"] as Plataforma_academica.Models.principalP;
                             arreglo = actividad.Consultar_contenido_actividad(act1.codigo_actividad);
                             actividad.actual_seccion = actividad.Buscar_seccion_actual(actividad1.codigo_actividad, usu.usuario);
-                            seccion_actual = Convert.ToInt32(actividad.actual_seccion.Rows[0]["seccion_leida"].ToString()) - 1;
+                            seccion_actual = Convert.ToInt32(actividad.actual_seccion.Rows[0]["seccion_leida"].ToString())-1;
                             for (i = 0; i < arreglo.Length; i++)
                             {
                                 <!-- Tabs-->
@@ -62,18 +63,31 @@
                                                 {
                                                     <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
                                                     <section>
-                                                        <div>
+                                                        <div class="w3-animate-zoom">
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                         </div>
                                                     </section>
                                                 }
                                                 else
                                                 {
-                                                    <section>
-                                                        <div class="embed-responsive ">
-                                                            <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
-                                                        </div>
-                                                    </section>
+                                                    if (arreglo[i].descripcion != null)
+                                                    {
+                                                        <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                                        <section>
+                                                            <div class="embed-responsive ">
+                                                                <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                            </div>
+                                                        </section>
+                                                    }
+                                                    else
+                                                    {
+                                                        <section>
+                                                            <div class="embed-responsive ">
+                                                                <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                            </div>
+                                                        </section>
+                                                    }
+
                                                 }
                                             }
                                         }
@@ -122,7 +136,7 @@
                                                 {
                                                     <section>
                                                         <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                        <div>
+                                                        <div class="w3-animate-zoom">
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                         </div>
                                                     </section>
@@ -136,7 +150,7 @@
                                                         </article>
                                                     </section>
                                                     <section>
-                                                        <div>
+                                                        <div class="w3-animate-zoom">
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                         </div>
                                                     </section>
@@ -202,18 +216,31 @@
                                                     {
                                                         <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
                                                         <section>
-                                                            <div>
+                                                            <div class="w3-animate-zoom">
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                             </div>
                                                         </section>
                                                     }
                                                     else
                                                     {
-                                                        <section>
-                                                            <div class="embed-responsive ">
-                                                                <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
-                                                            </div>
-                                                        </section>
+                                                        if (arreglo[i].descripcion != null)
+                                                        {
+                                                            <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                                            <section>
+                                                                <div class="embed-responsive ">
+                                                                    <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                                </div>
+                                                            </section>
+                                                        }
+                                                        else
+                                                        {
+                                                            <section>
+                                                                <div class="embed-responsive ">
+                                                                    <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                                </div>
+                                                            </section>
+                                                        }
+
                                                     }
                                                 }
                                             }
@@ -261,7 +288,7 @@
                                                     {
                                                         <section>
                                                             <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <div>
+                                                            <div class="w3-animate-zoom">
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                             </div>
                                                         </section>
@@ -275,7 +302,7 @@
                                                             </article>
                                                         </section>
                                                         <section>
-                                                            <div>
+                                                            <div class="w3-animate-zoom">
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                             </div>
                                                         </section>
@@ -327,7 +354,164 @@
             <!-- Circles which indicates the steps of the form: -->
         </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.1/script/jquery.jscrollpane.min.js"></script>
+    <script src="~/Scripts/jquery.bookblock.js"></script>
+    <script>
+        var Pagina = (function () {
 
+            var $bookBlock = $('#bb-bookblock'),
+                $items = $bookBlock.children(),
+                itemsCount = $items.length,
+                current = 0,
+                currentaux = 0
+                bb = $bookBlock.bookblock({
+                    speed: 800,
+                    perspective: 2000,
+                    shadowSides: 0.8,
+                    shadowFlip: 0.4,
+                    onEndFlip: function (old, page, isLimit) {
+                        current = page;
+                        console.log("Current "  + current)
+                        // updateNavigation
+                        updateNavigation(isLimit);
+                        setJSP('init');
+                        AjustarTextArea()
+                        // destroy jScrollPane on the content div for the old item
+                        setJSP('destroy', old);
+
+                    }
+                }),
+                $navNext = $('#bb-nav-next'),
+                $navPrev = $('#bb-nav-prev').hide(),
+                transEndEventNames = {
+                    'WebkitTransition': 'webkitTransitionEnd',
+                    'MozTransition': 'transitionend',
+                    'OTransition': 'oTransitionEnd',
+                    'msTransition': 'MSTransitionEnd',
+                    'transition': 'transitionend'
+                },
+                transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+                supportTransitions = Modernizr.csstransitions;
+
+
+            function init() {               
+            
+                    if(@rol>= 4 || @rol < 7){
+                        current = @seccion_actual;
+                        currentaux =@seccion_actual;
+                       // Current tab is set to be the first tab (0)
+                    }// Display the current tab
+
+                console.log("Funciona")
+                // initialize jScrollPane on the content div of the first item
+                setJSP('init');
+                initEvents();
+                bb.jump(current);
+            }
+
+            function initEvents() {
+
+                // add navigation events
+                $navNext.on('click', function () {
+
+                    bb.next();
+
+                    if (@rol >= 4 || @rol < 7) {
+                        console.log("Current " + current);
+                        if (current+1 > currentaux) {
+                            currentaux = current+1;
+                            //&& (itemsCount - 1) > current
+                        var url = "@Url.Action("porcentaje","Actividades")";
+                        $.post(url).done(function(){
+
+                        }).fail(manejaErrorAjax).always(function(){
+
+                        });
+                    }
+                    }
+
+
+                    return false;
+                });
+
+                $navPrev.on('click', function () {
+                    bb.prev();
+
+
+                    return false;
+                });
+                $items.on({
+                    'swipeleft': function (event) {
+                        if ($container.data('opened')) {
+                            return false;
+                        }
+                        bb.next();
+                        return false;
+                    },
+                    'swiperight': function (event) {
+                        if ($container.data('opened')) {
+                            return false;
+                        }
+                        bb.prev();
+                        return false;
+                    }
+                });
+
+                // reinit jScrollPane on window resize
+                $(window).on('debouncedresize', function () {
+                    // reinitialise jScrollPane on the content div
+                    setJSP('reinit');
+                });
+
+            }
+
+
+            function setJSP(action, idx) {
+
+                var idx = idx === undefined ? current : idx,
+                    $content = $items.eq(idx).children('div.content'),
+                    apiJSP = $content.data('jsp');
+
+                if (action === 'init' && apiJSP === undefined) {
+                    $content.jScrollPane({ verticalGutter: 0, hideFocus: true });
+                }
+                else if (action === 'reinit' && apiJSP !== undefined) {
+                    apiJSP.reinitialise();
+                }
+                else if (action === 'destroy' && apiJSP !== undefined) {
+                    apiJSP.destroy();
+                }
+
+            }
+
+            function updateNavigation(isLastPage) {
+
+                if (current === 0) {
+                    $navNext.show();
+                    $navPrev.hide();
+                }
+                else if (isLastPage) {
+                    $navNext.hide();
+                    $navPrev.show();
+                }
+                else {
+                    $navNext.show();
+                    $navPrev.show();
+                }
+
+            }
+
+            return { init: init };
+
+        })();
+
+    </script>
+
+    <script>
+        Pagina.init();
+    </script>
 }
 
 
