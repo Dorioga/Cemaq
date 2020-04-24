@@ -163,7 +163,7 @@ ul, ol {
 
 .contenedor {
     float: none;
-    width: 62%;
+    width: 64%;
     display: flow-root;
     min-width: 50%;
     height: auto;
@@ -173,7 +173,7 @@ ul, ol {
     border-radius: 15px;
     position: relative;
     padding: 10px;
-    left: 0px;
+    left: -17px;
     border-color: #D7D7D7;
     -webkit-transition: left 0.3s ease-in-out;
     -o-transition: left 0.3s ease-in-out;

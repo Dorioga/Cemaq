@@ -79,7 +79,7 @@
                                 <button type="submit" class="col-lg-40 button1" name="ir1" value="@arreglo[i].codigo_curso">
                                     <div class="our-team-main">
                                         <div class="team-front">
-                                            <img src="~/imagen_multimedia/study.svg" />
+                                            <img src="~/imagen_multimedia/6.png" />
                                             <span>@arreglo[i].nombre_curso</span>
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                 <div class="contenercheck">
                     <h4>Niveles <input type="checkbox" id="nivel" onclick="mynivel()" /></h4>
                 </div>
-                <div class="contener" id="Niveles">
+                <div class="contener" id="Niveles" style="display: none">
                     @{
                         if (TempData["mensaje10"] != null && usu != null)
                         {
@@ -104,7 +104,7 @@
                               <button type="submit" class="col-lg-40 button1" name="ir2" value="@arreglo_nivel[i].codigo_nivel">
                                   <div class="our-team-main">
                                       <div class="team-front">
-                                          <img src="https://app.schoology.com/sites/all/themes/schoology_theme/images/course-default.svg" />
+                                          <img src="~/imagen_multimedia/2.png" />
                                           <span>@arreglo_nivel[i].nombre_nivel</span>
                                       </div>
                                   </div>
@@ -125,7 +125,7 @@
                 <div class="contenercheck">
                     <h4>Unidades <input type="checkbox" id="unidad" onclick="myunidad()" /></h4>
                 </div>
-                <div class="contener" id="Unidades">
+                <div class="contener" id="Unidades" style="display: none">
                     @{
                         if (TempData["mensaje11"] != null && usu != null)
                         {
@@ -138,7 +138,7 @@
                                     <button type="submit" class="col-lg-40 button1" name="ir3" value="@arreglo_unidad[i].codigo_unidad">
                                         <div class="our-team-main">
                                             <div class="team-front">
-                                                <img src="https://app.schoology.com/sites/all/themes/schoology_theme/images/course-default.svg" />
+                                                <img src="~/imagen_multimedia/4.png" />
                                                 <span>@arreglo_unidad[i].nombre_unidad</span>
                                             </div>
                                         </div>
@@ -159,7 +159,7 @@
                 <div class="contenercheck">
                     <h4>Actividades <input type="checkbox" id="actividad" onclick="myactividad()" /></h4>
                 </div>
-                <div class="contener" id="Actividades">
+                <div class="contener" id="Actividades" style="display: none">
                     @{
                         if (TempData["mensaje12"] != null && usu != null)
                         {
@@ -170,7 +170,7 @@
                                 <button type="submit" class="col-lg-40 button1" name="ir5" value="nueva">
                                     <div class="our-team-main">
                                         <div class="team-front">
-                                            <img src="https://app.schoology.com/sites/all/themes/schoology_theme/images/course-default.svg" />
+                                            <img src="~/imagen_multimedia/7.png" />
                                             <span>Actividad</span>
                                         </div>
                                     </div>                                 
@@ -178,7 +178,7 @@
                                 <button type="submit" class="col-lg-40 button1" name="ir99" value="nueva2">
                                     <div class="our-team-main">
                                         <div class="team-front">
-                                            <img src="https://app.schoology.com/sites/all/themes/schoology_theme/images/course-default.svg" />
+                                            <img src="~/imagen_multimedia/8.png" />
                                             <span>Actividad Practica</span>
                                         </div>
                                     </div>                                 
@@ -188,7 +188,7 @@
                                 <button type="submit" class="col-lg-40 button1" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
                                     <div class="our-team-main">
                                         <div class="team-front">
-                                            <img src="https://app.schoology.com/sites/all/themes/schoology_theme/images/course-default.svg" />
+                                            <img src="~/imagen_multimedia/1.png" />
                                             <span>@arreglo_actividad[i].nombre_actividad</span>
                                         </div>
                                     </div>
@@ -210,7 +210,7 @@
                         <button type="submit" class="col-lg-40 button1" name="ir4_" value="@arreglo_examen[i].id_examen">
                             <div class="our-team-main">
                                 <div class="team-front">
-                                    <img src="https://app.schoology.com/sites/all/themes/schoology_theme/images/course-default.svg" />
+                                    <img src="~/imagen_multimedia/5.png" />
                                     <span>@arreglo_examen[i].examen</span>
                                 </div>
                             </div>
@@ -238,79 +238,7 @@
                         <a> Elija una unidad</a>
                         }
                         }
-                    </div>
-                @*<div class="col-sm-4">
-                    <h4>Actividades</h4>
-                    <nav>
-                        <ul>
-                            @{
-                                if (TempData["mensaje12"] != null && usu != null)
-                                {
-                                    TempData.Keep("mensaje12");
-                                    string nc = Convert.ToString(TempData["mensaje12"]);
-                                    arreglo_actividad = actividad.Consultar_Actividad_unidades_edic(nc);
-                                    arreglo_examen = actividad.Consultar_examen_unidades_edic(nc);
-                                    <li>
-                                        <div class="btn-group">
-                                            <button type="submit" class="btn btn-info btn-sm btn-block" name="ir5" value="nueva">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                                Actividad
-                                            </button>
-                                            <button type="submit" class="btn btn-info btn-sm btn-block" name="ir99" value="nueva2">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                                Actividad Practica 
-                                            </button>
-                                        </div>            
-</li>
-                                    for (int i = 0; i < arreglo_actividad.Length; i++)
-                                    {
-                                        <li>
-                                            <div class="btn-group">
-                                                <button type="submit" class="btn btn-info btn-sm btn-block btn-actividad" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
-                                                    <span class="glyphicon glyphicon-lock"></span>
-                                                    @arreglo_actividad[i].nombre_actividad
-                                                </button>
-                                                @{
-                                                    if (arreglo_actividad[i].edicion == "Desaprobado")
-                                                    {
-                                                        <button type="submit" class="btn btn-info btn-sm btn-editar" name="ir6" value="@arreglo_actividad[i].codigo_actividad">
-                                                            <span class="glyphicon glyphicon-pencil"></span>
-                                                        </button>
-                                                    }
-                                                }
-
-                                            </div>
-                                        </li>
-                                                    }
-                                                    for (int i = 0; i < arreglo_examen.Length; i++)
-                                                    {
-                                        <li>
-                                            <div class="btn-group">
-                                                <button type="submit" class="btn btn-info btn-sm btn-block btn-actividad" name="ir4_" value="@arreglo_examen[i].id_examen">
-                                                    <span class="glyphicon glyphicon-list-alt"></span>
-                                                    @arreglo_examen[i].examen
-                                                </button>
-                                                @{
-                                                    if (arreglo_examen[i].edicion_examen == "Desaprobado")
-                                                    {
-                                                        <button type="submit" class="btn btn-info btn-sm btn-editar" name="ir6_" value="@arreglo_examen[i].id_examen">
-                                                            <span class="glyphicon glyphicon-pencil"></span>
-                                                        </button>
-                                                    }
-                                                }
-
-                                            </div>
-                                        </li>
-                                                        }
-                                                    }
-                                                    else
-                                                    {
-                                    <li><a> Elija una unidad</a></li>
-                                                    }
-                            }
-                        </ul>
-                    </nav>
-                </div>*@
+                    </div>               
             </div>                              
         </div>
         <script>

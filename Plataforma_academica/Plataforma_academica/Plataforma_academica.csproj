@@ -245,6 +245,7 @@
     <Content Include="Estilos\aprobado_perdido.css" />
     <Content Include="Estilos\bookblock.css" />
     <Content Include="Estilos\botones3D.css" />
+    <Content Include="Estilos\botonestudiante.css" />
     <Content Include="Estilos\ChatStyle.css" />
     <Content Include="Estilos\chat_8.css" />
     <Content Include="Estilos\Contenido.css" />
@@ -286,6 +287,8 @@
     <Content Include="Imagenes\p3.jpg" />
     <Content Include="Imagenes\subject pronouns.jpg" />
     <Content Include="Imagenes\ubicacion.png" />
+    <Content Include="imagen_multimedia\1.png" />
+    <Content Include="imagen_multimedia\2.png" />
     <Content Include="imagen_multimedia\20190828164733traiding.jpg" />
     <Content Include="imagen_multimedia\20191014132309j balvin - yo te lo dije.mp3" />
     <Content Include="imagen_multimedia\20191014160449j balvin - yo te lo dije.mp3" />
@@ -293,7 +296,16 @@
     <Content Include="imagen_multimedia\2019112510085120190828173222traiding.jpg" />
     <Content Include="imagen_multimedia\2019112614395320190828164733traiding.jpg" />
     <Content Include="imagen_multimedia\20200414163942mapa.jpg" />
+    <Content Include="imagen_multimedia\3.png" />
+    <Content Include="imagen_multimedia\4.png" />
+    <Content Include="imagen_multimedia\5.png" />
+    <Content Include="imagen_multimedia\6.png" />
+    <Content Include="imagen_multimedia\7.png" />
+    <Content Include="imagen_multimedia\8.png" />
+    <Content Include="imagen_multimedia\concepto-lecciones-linea-ninos_23-2148507729.jpg" />
+    <Content Include="imagen_multimedia\school-desk-and-chair-with-underside-shelf.svg" />
     <Content Include="imagen_multimedia\study.svg" />
+    <Content Include="imagen_multimedia\study1.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\alumnos.js" />
