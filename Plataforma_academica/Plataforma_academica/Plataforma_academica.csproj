@@ -264,6 +264,7 @@
     <Content Include="Estilos\principal.css" />
     <Content Include="Estilos\principal_sin_textarea.css" />
     <Content Include="Estilos\ProfesionalPage1.css" />
+    <Content Include="Estilos\seleccion_raiz.css" />
     <Content Include="Estilos\submenu.css" />
     <Content Include="Estilos\visualizar_practica.css" />
     <Content Include="Excel_R_Beneficiarios\20200219094645libro1.xlsx" />
@@ -290,9 +291,9 @@
     <Content Include="imagen_multimedia\1.png" />
     <Content Include="imagen_multimedia\2.png" />
     <Content Include="imagen_multimedia\20190828164733traiding.jpg" />
-    <Content Include="imagen_multimedia\20191014132309j balvin - yo te lo dije.mp3" />
     <Content Include="imagen_multimedia\20191014160449j balvin - yo te lo dije.mp3" />
     <Content Include="imagen_multimedia\2019101416094220190829095254subject pronouns.jpg" />
+    <Content Include="imagen_multimedia\2019101432309j balvin - yo te lo dije.mp3" />
     <Content Include="imagen_multimedia\2019112510085120190828173222traiding.jpg" />
     <Content Include="imagen_multimedia\2019112614395320190828164733traiding.jpg" />
     <Content Include="imagen_multimedia\20200414163942mapa.jpg" />

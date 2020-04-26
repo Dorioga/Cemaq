@@ -18,7 +18,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="~/Scripts/menu.js"></script>
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Sidebar template</title>
+    <title>Academia Amazonica</title>
+    <link rel="stylesheet" type="text/css" href="~/Estilos/seleccion_raiz.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -82,10 +83,8 @@
             </div>
             <!-- contenido nav-->
             <div class="lista-menu" id="menu">
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-heading">
-                        <span>General</span>
-                    </li>
+                <nav>
+                    <span>General</span>
                     @{
                         if (usu != null)
                         {
@@ -94,9 +93,10 @@
 
                             for (int i = 0; i < arreglo.Length; i++)
                             {
-                                <li class="list-group-item">
-                                    <a><span class="fa fa-tachometer-alt"></span>@Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)</a>
-                                </li>
+                                <div class="list-group-item nav-item nav-link active">
+                                    <a>
+                                    <span class="fa fa-tachometer-alt"></span>  @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)</a>                                     
+                                </div>
 
                             }
 
@@ -104,7 +104,7 @@
 
                         }
                     }
-                </ul>
+                </nav>
             </div>
             <!-- footer -->
             <footer class="pie">
