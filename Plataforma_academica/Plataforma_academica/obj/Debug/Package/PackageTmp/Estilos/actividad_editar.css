@@ -43,6 +43,9 @@
 }
 }
 
+body {
+    padding-top: 10px;
+}
 
 .progress-outer{
     background: #ffffff0a;

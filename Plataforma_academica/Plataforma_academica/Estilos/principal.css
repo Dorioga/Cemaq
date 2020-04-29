@@ -51,6 +51,25 @@ li {
 p {
     margin: 0;
 }
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 
 textarea {
     max-width: 100%;
@@ -63,9 +82,30 @@ ul, ol {
     padding-inline-start: 0px;
 }
 
+.accordion .items{
+    padding:7px;
+    height:5em;
+    overflow:hidden;
+    transition: all 0.3s cubic-bezier(0.4,0.0,0.2,1);
+}
+.accordion .items.active{
+    height:auto;
+    max-height:20em;
+    overflow-y:scroll;
+
+}
+.accordion .items .h6{
+    cursor:pointer;
+}
+
+
 .form-control[disabled] {
     cursor: auto;
 }
+.barra{
+    margin-top:0.5em;
+}
+
 
 .container,
 .bb-custom-wrapper,
@@ -356,6 +396,7 @@ ul, ol {
 .progress {
     height: 27px;
     margin: 0;
+    cursor: pointer;
     overflow: visible;
     border-radius: 50px;
     background: #727d88;
