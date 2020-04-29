@@ -204,6 +204,7 @@
     <Compile Include="Models\Actividades_unidad.cs" />
     <Compile Include="Models\Alumnos.cs" />
     <Compile Include="Models\Chat.cs" />
+    <Compile Include="Models\ChatHub.cs" />
     <Compile Include="Models\Condiciones.cs" />
     <Compile Include="Models\contenido.cs" />
     <Compile Include="Models\Contenido_practico.cs" />
@@ -291,9 +292,9 @@
     <Content Include="imagen_multimedia\1.png" />
     <Content Include="imagen_multimedia\2.png" />
     <Content Include="imagen_multimedia\20190828164733traiding.jpg" />
+    <Content Include="imagen_multimedia\20191014132309j balvin - yo te lo dije.mp3" />
     <Content Include="imagen_multimedia\20191014160449j balvin - yo te lo dije.mp3" />
     <Content Include="imagen_multimedia\2019101416094220190829095254subject pronouns.jpg" />
-    <Content Include="imagen_multimedia\2019101432309j balvin - yo te lo dije.mp3" />
     <Content Include="imagen_multimedia\2019112510085120190828173222traiding.jpg" />
     <Content Include="imagen_multimedia\2019112614395320190828164733traiding.jpg" />
     <Content Include="imagen_multimedia\20200414163942mapa.jpg" />
@@ -373,6 +374,7 @@
     <Content Include="Scripts\principaldashb.js" />
     <Content Include="Scripts\procentaje.js" />
     <Content Include="Scripts\profesionalweb.js" />
+    <Content Include="Scripts\progresos.js" />
     <Content Include="Scripts\registro.js" />
     <Content Include="Scripts\registrono.js" />
     <Content Include="Scripts\respond.js" />
