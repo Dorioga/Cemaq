@@ -15,6 +15,7 @@ namespace Plataforma_academica.Controllers
         Actividades act = new Actividades();
 
         // GET: Actividades
+        
         public ActionResult Actividades()
         {
             Models.Login user = Session["usuario"] as Models.Login;

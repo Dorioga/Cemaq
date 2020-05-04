@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    background-image: url(https://caqueta.travel/sites/default/files/styles/cut_slide/public/hotel_royal.jpg?itok=QdqSrRJ9&c=44a1fbe30a6f723656d20984cd3ed721);
+    background-image: url("/Imagenes/florencia.jpg");
     background-position-y: center;
 }
 

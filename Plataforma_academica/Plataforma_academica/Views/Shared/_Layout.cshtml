@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="~/Estilos/botonmodal.css" rel="stylesheet" type="text/css">
     <script>
         function AjustarTextArea() {
             var tx = document.getElementsByTagName('textarea');
@@ -13,6 +14,18 @@
                 tx[i].style.height = (tx[i].scrollHeight) + 'px';
                 console.log(tx[i].scrollHeight)
             }
+        }
+        function myFunction1() {
+            var x = document.getElementById("demo").value;
+            window.open(x);
+        }
+
+        function myFunction2() {
+
+            var x = document.getElementById("demo1").value;
+            window.open(x);
+            //document.getElementById("myImg").src = "https://zoom.us/wc/" + x + "/join?prefer=1&un=Users";
+
         }
     </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,15 +59,23 @@
             <a class="navbar-brand"><strong>Amazonian Language Tic's</strong></a>
             <div class="info">
                 <div class="p-2">
-                    <img class=" perfil" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg">
+                    <img class="perfil" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg">
                 </div>
                 <ul class="p-2">
                     @{
                         if (usu != null)
                         {
 
-                            <p><span class="glyphicon glyphicon-user"></span> @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })</p>
-                            <p>@Html.LabelFor(Model => usu.Tipo_rol, usu.Tipo_rol, new { @class = "" })</p>
+                            if (Convert.ToInt32(usu.rol) < 4 || Convert.ToInt32(usu.rol) > 6)
+                            {
+                                <p><img src="~/Imagenes/user-tie-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: -2%; margin-right: 2%;" /> @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })</p>
+                                <p>@Html.LabelFor(Model => usu.Tipo_rol, usu.Tipo_rol, new { @class = "" })</p>
+                            }
+                            else
+                            {
+                                <p><img src="~/Imagenes/user-alt-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: -2%; margin-right: 2%;" /> @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })</p>
+                                <p>@Html.LabelFor(Model => usu.Tipo_rol, usu.Tipo_rol, new { @class = "" })</p>
+                            }
                         }
                         else
                         {
@@ -63,14 +84,6 @@
                         }
                     }
                 </ul>
-                <div class="p-2">
-
-                    <a href="/Login/cerrarsesion">
-                        <span class="glyphicon glyphicon-log-out">
-                        </span>
-                    </a>
-
-                </div>
             </div>
         </nav>
     </header>
@@ -95,36 +108,55 @@
 
                             for (int i = 0; i < arreglo.Length; i++)
                             {
-                                        <div class="list-group-item nav-item nav-link active">
-                                            <a>
-                                                <span class="fa fa-tachometer-alt"></span>  @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)</a>
-                                        </div>
+                                <div class="list-group-item nav-item nav-link active">
+                                    <a>
+                                        <img src="~/Imagenes/book-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" /> @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)
+                                    </a>
+                                </div>
 
                             }
 
-                            <!--  <li>@Html.ActionLink("Cerrar sesion", "cerrarsesion", "Login")</li>  -->
-
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
+                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                         }
                     }
                 </nav>
-            </div>
+            </div>          
+
             <!-- footer -->
             <footer class="pie">
-                <a href="#">
-                    <i class="fa fa-bell"></i>
-                    <span class="badge badge-pill badge-warning notification">3</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-envelope"></i>
-                    <span class="badge badge-pill badge-success notification">7</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-cog"></i>
-                    <span class="badge-sonar"></span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-power-off"></i>
-                </a>
+               @{
+                   if (usu != null)
+                   {
+                       if (Convert.ToInt32(usu.rol) < 4 || Convert.ToInt32(usu.rol) > 6)
+                       {
+
+                        <img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
+                        <a href="https://zoom.us/signin" target="_blank">
+                            <img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
+                        </a>
+                        <a href="http://pizarravirtualamazoniantic.azurewebsites.net/" target="_blank">
+                            <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
+                        </a>
+                        <img src="~/Imagenes/user-cog-solid.svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
+
+
+                       }
+                       else
+                       {
+                        <img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
+                        <a href="#"><img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal1" /></a>
+                        <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>
+                        <img src="~/Imagenes/user-cog-solid.svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
+
+                       }
+                   }
+            }
+                <a href="/Login/cerrarsesion"><img src="~/Imagenes/power-off-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" /></a>
+
             </footer>
         </nav>
 
@@ -135,7 +167,45 @@
         <ul class="contenido list-group">
         </ul>
     </nav>
-
+    
+    <!-- Modal1 -->
+    <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog" style="position: initial;">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="position: absolute;">VideoConferencia en Zoom</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Ingrese el link proporcionado por el docente para acceder a la conferencia</p>
+                    <input type="text" id="demo1" class="form-control" />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn1 btn1-dark" style="color: white;" onclick="myFunction2()">Acceder a reunionvirtual</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal2 -->
+    <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog" style="position: initial;">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="position: absolute;">Pizarra Virtual</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Ingrese el link propocionado por el docente para acceder a la clase en la pizarra virtual</p>
+                    <input type="text" id="demo" class="form-control" />                    
+                </div>
+                <div class="modal-footer">
+                    <button class="btn1 btn1-dark" style="color: white;" onclick="myFunction1()">Acceder a Pizarra</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Contenedor Seleccionar_unidad  -->
     <div class="contenedor" id="container">
@@ -150,6 +220,7 @@
             crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

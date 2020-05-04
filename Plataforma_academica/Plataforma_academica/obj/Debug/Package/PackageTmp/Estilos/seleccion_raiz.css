@@ -1,0 +1,10 @@
+﻿
+nav > div.nav-item.nav-link,
+nav > div.nav-item.nav-link.active
+{
+border: none;
+    padding: 11px 7px;
+    color: #fff;
+    background: #d4d4d4;
+    border-radius: 0;
+}
