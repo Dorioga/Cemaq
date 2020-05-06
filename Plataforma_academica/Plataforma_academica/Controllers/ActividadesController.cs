@@ -6,6 +6,7 @@ using System.Web;
 using Plataforma_academica.Models;
 using System.Web.Mvc;
 using System.Net;
+using System.Net.Mail;
 
 namespace Plataforma_academica.Controllers
 {
@@ -21,7 +22,10 @@ namespace Plataforma_academica.Controllers
             Models.Login user = Session["usuario"] as Models.Login;
             Models.principalP actividad = Session["usuario3"] as Models.principalP;
             DataTable datos2 = null;
+            Models.principalP acti = Session["usuario10"] as Models.principalP;
             DataTable datos3 = null;
+            Actividades ver = new Actividades();
+            Actividades[] arreglos;
 
             if (user == null)
             {
@@ -46,11 +50,60 @@ namespace Plataforma_academica.Controllers
                             act.id_curso_actividad = Convert.ToInt32(datos2.Rows[0]["id tabla"].ToString());
                             act.Actualizar_porcentaje(porce, Convert.ToInt32(actividad.codigo_actividad), 1, act.id_curso_actividad);
                         }
+                    }else
+                    {
+                        if (acti != null)
+                        {
+                            String codigo = Request.Form["iraprobado"];
+                            if (codigo != null)
+                            {
+                                if (ver.Actualizar_actividad_y_usurio_actividad(codigo))
+                                {
+                                    arreglos = ver.usuarios_correo_actividad(codigo);
+                                    for (int i = 0; i < arreglos.Length; i++)
+                                    {
+                                        SendEmail(arreglos[i].correo, arreglos[i].nombre_usuario, arreglos[i].identificacion, arreglos[i].nombre_act, arreglos[i].desc);
+                                    }
+                                    ViewBag.mensaje = "actualizacion";
+                                }
+                            }
+                        }
                     }
                     return View();//Pagina de actividad
                 }
             }
             
+        }
+
+        public bool SendEmail(string correo, string nombre_usuario, string identificacion, string nombre_act, string desc)
+        {
+            bool a = false;
+            if (correo == null)
+            {
+                a = false;
+            }
+            else
+            {
+                MailMessage mail = new MailMessage();
+                mail.To.Add(correo);
+                mail.From = new MailAddress("amazonianacademia@gmail.com");
+                mail.Subject = "Notificación";
+                mail.Body = "Se realizo la activación de la actividad: \n\r" +nombre_act + " Su objetivo es: " + desc +
+                    "\n\rpara el estudiante: " + nombre_usuario + " identificacon con: "+ identificacion + "https://amazoniaacademia.azurewebsites.net/Login/Login";
+
+
+                mail.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");                
+                smtp.Host = "smtp.gmail.com";
+                smtp.Credentials = new NetworkCredential("amazonianacademia@gmail.com", "amazonian2020");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                a = true;
+                return a;
+            }
+
+            return a;
         }
 
         [HttpPost]

@@ -13,9 +13,18 @@ namespace Plataforma_academica.Models
         public String Nombre_actividad { set; get; }
         public String descripcion { set; get; }
         public String titulo_seccion { set; get; }
+        public String edicion { set; get; }
+        public String edicion_estado { set; get; }
         public String contenido_seccion { set; get; }
         public String id_multimedia { set; get; }
         public String url_multimedia { set; get; }
+
+        public String nombre_usuario { set; get; }
+        public String correo { set; get; }
+        public String identificacion { set; get; }
+        public String nombre_act { set; get; }
+        public String desc { set; get; }
+
         public int seccion { set; get; }
         public int cont_seccion { set; get; }
         public int id_curso_actividad { set; get; }
@@ -35,12 +44,40 @@ namespace Plataforma_academica.Models
                 arreglo[j].id_actividad = i["id_actividad"].ToString();
                 arreglo[j].Nombre_actividad = i["Nombre_actividad"].ToString();
                 arreglo[j].descripcion = i["descripcion"].ToString();
+                arreglo[j].edicion_estado = i["estado_edicion_actividad"].ToString();
                 arreglo[j].titulo_seccion = i["titulo_seccion"].ToString();
                 arreglo[j].contenido_seccion = i["contenido_seccion"].ToString();
                 arreglo[j].id_multimedia = i["id_multimedia"].ToString();
                 arreglo[j].url_multimedia = i["url_multimedia"].ToString();
                 arreglo[j].id_tipo_multimedia = i["tipo multimedia"].ToString();
 
+                j++;
+            }
+            return arreglo;
+        }
+
+        public bool Actualizar_actividad_y_usurio_actividad(string id)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            int x = con.Execute_Operation("call Pr_actualizar_actividad_estado ('" + id + "')");
+            return x > 0 ? true : false;
+        }
+
+        public Actividades[] usuarios_correo_actividad(string u)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable acti_usu = con.Execute_Query("call Pr_correos_respecto_actividad(" + u + ")");
+            Actividades[] arreglo = new Actividades[acti_usu.Rows.Count];
+            Actividades inicio = new Actividades();
+            int j = 0;
+            foreach (DataRow i in acti_usu.Rows)
+            {
+                arreglo[j] = new Actividades();
+                arreglo[j].nombre_usuario = i["nombre"].ToString();
+                arreglo[j].correo = i["email_persona"].ToString();
+                arreglo[j].identificacion = i["id_persona"].ToString();
+                arreglo[j].nombre_act = i["nombre_actividad"].ToString();
+                arreglo[j].desc = i["descripcion"].ToString();
                 j++;
             }
             return arreglo;

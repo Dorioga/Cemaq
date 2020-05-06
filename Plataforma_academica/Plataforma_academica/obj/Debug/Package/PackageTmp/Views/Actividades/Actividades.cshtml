@@ -339,7 +339,15 @@
                                             <div>
                                                 <span class="step">@m</span>
                                             </div>
-
+                                            if (i==(arreglo.Length-1) && arreglo[i].edicion_estado=="Pendiente")
+                                            {
+                                              <div>
+                                                  <h5>Descripción para editar</h5>
+                                                  @Html.TextAreaFor(model => model.edicion, new { @class = "form-control" })
+                                                  <button type="submit" class="btn" name="iraprobado" value="@arreglo[i].id_actividad" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Aprobado</button>
+                                                  <button type="submit" class="btn" name="irdesaprobado" value="@arreglo[i].id_actividad" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Desaprobado</button>
+                                              </div>
+                                            }
                                         }
                                     </div>
 

@@ -81,12 +81,20 @@ namespace Plataforma_academica.Controllers
                 {
                     contenido id = new contenido();
                     DataTable datos = null;
+                    contenido[] arre;
+                    contenido ar = new contenido();
+                    Plataforma_academica.Models.principalP act3 = Session["usuario10"] as Plataforma_academica.Models.principalP;
                     Plataforma_academica.Models.Subir_contenidos usu = Session["usuario11"] as Plataforma_academica.Models.Subir_contenidos;
                     datos = obj.Registrar_Contenido(obj, usu.codigo_unidad, Subir(file), nombre);
                     if (datos != null)
                     {
                         id.id_actividad = Convert.ToInt32(datos.Rows[0]["id_actividad"].ToString());
                         Session["usuario_id_actividad_seccion"] = id;
+                        arre = ar.buscar_usuarios_correo(usu.codigo_unidad);
+                        for (int i=0; i<arre.Length; i++)
+                        {
+                            ar.Registrar_actividad_automatico(obj,arre[i].codigo_usuario_unidad);
+                        }
                         ViewBag.mensaje = "Registro exitoso";
                     }
                     else

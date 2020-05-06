@@ -16,6 +16,7 @@ namespace Plataforma_academica.Models
         public String tipo_clasificacion { set; get; }
         public int id_actividad { set; get; }
         public string url_video { set; get; }
+        public string codigo_usuario_unidad { set; get; }
 
         private Conexion.Conexion conexion;
 
@@ -33,6 +34,31 @@ namespace Plataforma_academica.Models
                 return x;
             }
                 
+        }
+
+        public contenido[] buscar_usuarios_correo(string u)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable conten = con.Execute_Query("call Pr_cargar_usuario_unidad_para_correo(" + u + ")");
+            contenido[] arreglo = new contenido[conten.Rows.Count];
+            contenido inicio = new contenido();
+            int j = 0;
+            foreach (DataRow i in conten.Rows)
+            {
+                arreglo[j] = new contenido();
+                arreglo[j].codigo_usuario_unidad = i["id"].ToString();
+
+                j++;
+            }
+            return arreglo;
+        }
+
+        public bool Registrar_actividad_automatico(contenido obj, string uni)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            int x = con.Execute_Operation("call Pr_registrar_actividad_automatico ('" + obj.nombre_contenido + "', '" +uni + "')");
+            return x > 0 ? true : false;
+
         }
 
         public bool Registrar_seccion(contenido obj, int id_act, string archivo, string o)

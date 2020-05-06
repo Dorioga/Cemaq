@@ -33,7 +33,7 @@
             Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
             Plataforma_academica.Models.Reporte rp = new Plataforma_academica.Models.Reporte();
             Plataforma_academica.Models.Reporte[] arreglo;
-            int f=1;
+            int f=0;
             string today = DateTime.Today.ToString("dd-MM-yyyy");
             if (Convert.ToUInt32(usu.rol) > 3 || Convert.ToUInt32(usu.rol) < 7 || Convert.ToUInt32(usu.rol)==1)
             {
@@ -84,8 +84,8 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th class="text-left">PORCENTAJE REALIZADO</th>
-                                            <th class="text-right">MATERIA</th>
+                                            <th class="text-left">MATERIA</th>
+                                            <th class="text-right">PORCENTAJE</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -93,7 +93,7 @@
                                             arreglo = rp.ReporteUsuario_materia(Convert.ToInt32(usu.cedula));
                                             for (int i = 0; i < arreglo.Length; i++)
                                             {
-                                                f = f + i;
+                                                f = f + 1;
                                                 <tr>
                                                     
                                                     <td class="no">@f</td>
