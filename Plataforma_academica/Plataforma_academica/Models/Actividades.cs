@@ -24,6 +24,9 @@ namespace Plataforma_academica.Models
         public String identificacion { set; get; }
         public String nombre_act { set; get; }
         public String desc { set; get; }
+        public String curso { set; get; }
+        public String nombre_uni { set; get; }
+        public String niv { set; get; }
 
         public int seccion { set; get; }
         public int cont_seccion { set; get; }
@@ -78,6 +81,9 @@ namespace Plataforma_academica.Models
                 arreglo[j].identificacion = i["id_persona"].ToString();
                 arreglo[j].nombre_act = i["nombre_actividad"].ToString();
                 arreglo[j].desc = i["descripcion"].ToString();
+                arreglo[j].curso = i["nombre_curso"].ToString();
+                arreglo[j].nombre_uni = i["nombre_unidad"].ToString();
+                arreglo[j].niv = i["nombre_nivel"].ToString();
                 j++;
             }
             return arreglo;
@@ -88,6 +94,13 @@ namespace Plataforma_academica.Models
             Conexion.Conexion con = new Conexion.Conexion();
             DataTable x = con.Execute_Query("call Pr_cargar_cantidad_secciones (" + u + ")");
             return x;
+        }
+
+        public bool Actualizar_estado(string codigo_actividad, string edicion)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            int x = con.Execute_Operation("call Pr_actualizar_act ('" + codigo_actividad + "','" + edicion + "')");
+            return x > 0 ? true : false;
         }
 
         public bool Actualizar_porcentaje(double porcentaje, int codigo_actividad, int seccion, int id_curso_actividd)

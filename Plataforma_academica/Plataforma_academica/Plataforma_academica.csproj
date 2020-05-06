@@ -253,6 +253,7 @@
     <Content Include="Estilos\chat_8.css" />
     <Content Include="Estilos\Contenido.css" />
     <Content Include="Estilos\cursos.css" />
+    <Content Include="Estilos\estilo_edicion.css" />
     <Content Include="Estilos\hover-min.css" />
     <Content Include="Estilos\hover.css" />
     <Content Include="Estilos\InfantilPage1.css" />
@@ -339,6 +340,7 @@
     <Content Include="imagen_multimedia\study.svg" />
     <Content Include="imagen_multimedia\study1.jpg" />
     <Content Include="Scripts\accederzoom.js" />
+    <Content Include="Scripts\actualizar.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\alumnos.js" />

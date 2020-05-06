@@ -353,10 +353,30 @@
 
                                 }
                             }
+                          if (ViewBag.mensaje1 == "actualizacion" || ViewBag.mensaje1 == "actualizacion_")
+                          {
+                             @Scripts.Render("~/Scripts/actualizar.js")
+                          }
                         }
                     }
 
                 }
+            </div>
+            <div class="modal fade" id="mostrarmodal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog" style="position: initial;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3 style="position: absolute;">Verificacion de proceso</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h4>@ViewBag.mensaje</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="btn btn-danger">Finalizar verificacion</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- Botones-->
             <!-- Circles which indicates the steps of the form: -->

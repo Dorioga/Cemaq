@@ -17,7 +17,7 @@ namespace Plataforma_academica.Controllers
 
         // GET: Actividades
         
-        public ActionResult Actividades()
+        public ActionResult Actividades(Actividades obj)
         {
             Models.Login user = Session["usuario"] as Models.Login;
             Models.principalP actividad = Session["usuario3"] as Models.principalP;
@@ -62,9 +62,22 @@ namespace Plataforma_academica.Controllers
                                     arreglos = ver.usuarios_correo_actividad(codigo);
                                     for (int i = 0; i < arreglos.Length; i++)
                                     {
-                                        SendEmail(arreglos[i].correo, arreglos[i].nombre_usuario, arreglos[i].identificacion, arreglos[i].nombre_act, arreglos[i].desc);
+                                        SendEmail(arreglos[i].correo, arreglos[i].nombre_usuario, arreglos[i].identificacion, arreglos[i].nombre_act, arreglos[i].desc, arreglos[i].curso, arreglos[i].nombre_uni, arreglos[i].niv);
                                     }
-                                    ViewBag.mensaje = "actualizacion";
+                                    ViewBag.mensaje1 = "actualizacion";
+                                    ViewBag.mensaje = "Lactividad fue habilitada con exito para los beneficiarios";
+
+                                }
+                            }else
+                            {
+                                String codigo1 = Request.Form["irdesaprobado"];
+                                if (codigo1 != null)
+                                {
+                                    if (ver.Actualizar_estado(codigo1, obj.edicion))
+                                    {
+                                        ViewBag.mensaje1 = "actualizacion_";
+                                        ViewBag.mensaje = "Se a realizado las recomendaciones para edición";
+                                    }
                                 }
                             }
                         }
@@ -75,7 +88,7 @@ namespace Plataforma_academica.Controllers
             
         }
 
-        public bool SendEmail(string correo, string nombre_usuario, string identificacion, string nombre_act, string desc)
+        public bool SendEmail(string correo, string nombre_usuario, string identificacion, string nombre_act, string desc, string curso, string nombre_uni, string niv)
         {
             bool a = false;
             if (correo == null)
@@ -88,8 +101,8 @@ namespace Plataforma_academica.Controllers
                 mail.To.Add(correo);
                 mail.From = new MailAddress("amazonianacademia@gmail.com");
                 mail.Subject = "Notificación";
-                mail.Body = "Se realizo la activación de la actividad: \n\r" +nombre_act + " Su objetivo es: " + desc +
-                    "\n\rpara el estudiante: " + nombre_usuario + " identificacon con: "+ identificacion + "https://amazoniaacademia.azurewebsites.net/Login/Login";
+                mail.Body = "Se habilito la actividad: \n\r" +nombre_act + " las cual esta en "+curso +" - "+niv+" - "+ nombre_uni + " y su objetivo es: " + desc +
+                    "\n\rpara el estudiante: " + nombre_usuario + " identificacon con: "+ identificacion + " https://amazoniaacademia.azurewebsites.net/Login/Login";
 
 
                 mail.IsBodyHtml = true;
