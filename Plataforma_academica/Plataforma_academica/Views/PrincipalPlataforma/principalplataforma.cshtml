@@ -9,7 +9,7 @@
     <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
     <link href="~/Estilos/submenu.css" rel="stylesheet" type="text/css">
     <link href="~/Estilos/botonestudiante.css" rel="stylesheet" type="text/css">
-    
+
 </head>
 
 
@@ -48,9 +48,9 @@
                         for (int i = 0; i < arreglo_porcentaje.Length; i++)
                         {
                             <!-- Cursos  -->
-                            <div class="items">
-                                <div class="progress curso">
-                                    <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:@arreglo_porcentaje[i].porcentaje_curso%" ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                            <div class="items curso @i" id="curso">
+                                <div class="progress ">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:@arreglo_porcentaje[i].porcentaje_curso% ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
                                         <h6 class="porcentaje">@arreglo_porcentaje[i].porcentaje_curso%</h6>
                                     </div>
                                 </div>
@@ -60,9 +60,9 @@
                                     for (int j = 0; j < arreglo_porcentaje_nivel.Length; j++)
                                     {
                                         <!-- NIVEL -->
-                                        <div class="items ">
-                                            <div class="progress nivel">
-                                                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_porcentaje_nivel[j].porcentaje_desarrollo%" ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                        <div class="items nivel @i @j" id="nivel">
+                                            <div class="progress ">
+                                                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_porcentaje_nivel[j].porcentaje_desarrollo% ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
                                                     <h6 class="porcentaje">@arreglo_porcentaje_nivel[j].porcentaje_desarrollo%</h6>
                                                 </div>
 
@@ -72,9 +72,10 @@
                                                 arreglo_porcentaje_unidad = porcentaje.Porcentaje_unidad(arreglo_porcentaje_nivel[j].id_curso_usuario_nivel);
                                                 for (int k = 0; k < arreglo_porcentaje_unidad.Length; k++)
                                                 {
+                                                    int a = k + 10;
                                                     <!-- Unidad  -->
-                                                    <div class="items ">
-                                                        <div class="progress unidad">
+                                                    <div class="items  unidad  @i @j @a " id="unidad">
+                                                        <div class="progress">
                                                             <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:@arreglo_porcentaje_unidad[k].porcentaje_usuario_unidad%; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
                                                                 <h6 class="porcentaje">@arreglo_porcentaje_unidad[k].porcentaje_usuario_unidad%</h6>
                                                             </div>
@@ -86,9 +87,9 @@
                                                             arreglo_porcentaje_actividad = porcentaje.Porcentaje_actividad(arreglo_porcentaje_unidad[k].id_curso_usuario_unidad);
                                                             for (int l = 0; l < arreglo_porcentaje_actividad.Length; l++)
                                                             {
-                                                                <div class="items ">
-                                                                    <div class="progress actividad">
-                                                                        <div class="progress-bar progress-bar-striped progress-bar-striped active" style="width:@arreglo_porcentaje_actividad[l].porcentaje_usuario_actividad%" ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                                                <div class="items actividad @l" id="actividad1">
+                                                                    <div class="progress ">
+                                                                        <div class="progress-bar progress-bar-striped progress-bar-striped active" style="width:@arreglo_porcentaje_actividad[l].porcentaje_usuario_actividad% ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
                                                                             <h6 class="porcentaje">@arreglo_porcentaje_actividad[l].porcentaje_usuario_actividad%</h6>
                                                                         </div>
                                                                     </div>
@@ -100,9 +101,10 @@
                                                             arreglo_porcentaje_examen = porcentaje.Porcentaje_examen(arreglo_porcentaje_unidad[k].id_curso_usuario_unidad);
                                                             for (int m = 0; m < arreglo_porcentaje_examen.Length; m++)
                                                             {
-                                                                <div class="items ">
-                                                                    <div class="progress examen">
-                                                                        <div class="progress-bar progress-bar-striped progress-bar-warning active" style="width:@arreglo_porcentaje_examen[m].porcentaje_examen%" ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+
+                                                                <div class="items examen @m" id="examen1">
+                                                                    <div class="progress ">
+                                                                        <div class="progress-bar progress-bar-striped progress-bar-warning active" style="width:@arreglo_porcentaje_examen[m].porcentaje_examen% ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
                                                                             <h6 class="porcentaje">@arreglo_porcentaje_examen[m].porcentaje_examen%</h6>
                                                                         </div>
 
@@ -279,7 +281,7 @@
                     text.style.display = "none";
                 }
             }
-      
+
             function mynivel() {
                 var checkBox = document.getElementById("nivel");
                 var text = document.getElementById("Niveles");
@@ -308,12 +310,19 @@
                 }
             }
             function myprogreso() {
+                var itemc = document.getElementById("curso");
+                var ncurso = itemc.parentNode.getElementsByClassName('curso').length;
+                var acurso = itemc.parentNode.getElementsByClassName('curso');
                 var checkBox = document.getElementById("progreso");
                 var text = document.getElementById("Progresos");
                 var bar = document.getElementById("barra");
                 if (checkBox.checked == true) {
                     text.style.display = "block";
                     bar.style.display = "block";
+                    for (var i = 0; i < ncurso; i++) {
+                        acurso[i].style.display = "block";
+                    }
+
                 } else {
                     text.style.display = "none";
                 }
