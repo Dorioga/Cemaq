@@ -7,6 +7,7 @@ using Plataforma_academica.Models;
 using System.Web.Mvc;
 using System.Net;
 using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace Plataforma_academica.Controllers
 {
@@ -17,7 +18,7 @@ namespace Plataforma_academica.Controllers
 
         // GET: Actividades
         
-        public ActionResult Actividades(Actividades obj)
+        public async Task<ActionResult> Actividades(Actividades obj)
         {
             Models.Login user = Session["usuario"] as Models.Login;
             Models.principalP actividad = Session["usuario3"] as Models.principalP;
@@ -25,7 +26,6 @@ namespace Plataforma_academica.Controllers
             Models.principalP acti = Session["usuario10"] as Models.principalP;
             DataTable datos3 = null;
             Actividades ver = new Actividades();
-            Actividades[] arreglos;
 
             if (user == null)
             {
@@ -57,16 +57,22 @@ namespace Plataforma_academica.Controllers
                             String codigo = Request.Form["iraprobado"];
                             if (codigo != null)
                             {
+
+                                Plataforma_academica.Models.Subir_contenidos usu = Session["uni"] as Plataforma_academica.Models.Subir_contenidos;
                                 if (ver.Actualizar_actividad_y_usurio_actividad(codigo))
                                 {
-                                    arreglos = ver.usuarios_correo_actividad(codigo);
-                                    for (int i = 0; i < arreglos.Length; i++)
+                                    var registro = registro_curso_usuario_actividad(codigo, usu.codigo_unidad);
+                                    var correo = SendEmail(codigo, usu.codigo_unidad);
+                                    await Task.WhenAll(registro, correo);
+                                    if (registro.Result && correo.Result)
                                     {
-                                        SendEmail(arreglos[i].correo, arreglos[i].nombre_usuario, arreglos[i].identificacion, arreglos[i].nombre_act, arreglos[i].desc, arreglos[i].curso, arreglos[i].nombre_uni, arreglos[i].niv);
+                                        return RedirectToAction("seleccionar_unidad_para_contenido", "Seleccionar_para_subir_contenido");
                                     }
-                                    ViewBag.mensaje1 = "actualizacion";
-                                    ViewBag.mensaje = "Lactividad fue habilitada con exito para los beneficiarios";
-
+                                    else
+                                    {
+                                        ViewBag.mensaje1 = "actualizacion_no_registro";
+                                        ViewBag.mensaje = "La actividad no fue habilitada con exito para los beneficiarios";
+                                    }
                                 }
                             }else
                             {
@@ -88,35 +94,70 @@ namespace Plataforma_academica.Controllers
             
         }
 
-        public bool SendEmail(string correo, string nombre_usuario, string identificacion, string nombre_act, string desc, string curso, string nombre_uni, string niv)
+        public async Task<bool> SendEmail(string codigo, string uni)
         {
-            bool a = false;
-            if (correo == null)
-            {
-                a = false;
-            }
-            else
-            {
-                MailMessage mail = new MailMessage();
-                mail.To.Add(correo);
-                mail.From = new MailAddress("amazonianacademia@gmail.com");
-                mail.Subject = "Notificación";
-                mail.Body = "Se habilito la actividad: \n\r" +nombre_act + " las cual esta en "+curso +" - "+niv+" - "+ nombre_uni + " y su objetivo es: " + desc +
-                    "\n\rpara el estudiante: " + nombre_usuario + " identificacon con: "+ identificacion + " https://amazoniaacademia.azurewebsites.net/Login/Login";
+            return await Task.Run(() => {
+                Actividades[] arreglos;
+                Actividades ver = new Actividades();
+                Actividades ac = new Actividades();
+                bool a = false;
+                DataTable dato;
+                dato = ac.i_actividad(codigo); 
+                arreglos = ver.usuarios_correo_actividad(uni);
+                for (int i = 0; i < arreglos.Length; i++)
+                {
+                    if (arreglos[i].correo == null)
+                    {
+                        a = false;
+                    }
+                    else
+                    {
+                        MailMessage mail = new MailMessage();
+                        mail.To.Add(arreglos[i].correo);
+                        mail.From = new MailAddress("amazonianacademia@gmail.com");
+                        mail.Subject = "Notificación";
+                        mail.Body = "Se habilito la actividad: \n\r" + dato.Rows[0]["actividad"].ToString() + " las cual esta en el Curso: " + dato.Rows[0]["curso"].ToString() + " Nivel: " + dato.Rows[0]["nivel"].ToString() + " Unidad: " + dato.Rows[0]["unidad"].ToString() + " y su objetivo es: " + dato.Rows[0]["descripcion"].ToString() +
+                            "\n\rpara el estudiante: " + arreglos[i].nombre_usuario + " identificado con el N°: " + arreglos[i].identificacion + " "+"https://amazoniaacademia.azurewebsites.net/Login/Login";
 
 
-                mail.IsBodyHtml = true;
+                        mail.IsBodyHtml = true;
 
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com");                
-                smtp.Host = "smtp.gmail.com";
-                smtp.Credentials = new NetworkCredential("amazonianacademia@gmail.com", "amazonian2020");
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
-                a = true;
+                        SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                        smtp.Host = "smtp.gmail.com";
+                        smtp.Credentials = new NetworkCredential("amazonianacademia@gmail.com", "amazonian2020");
+                        smtp.EnableSsl = true;
+                        smtp.Send(mail);
+                        a = true;
+                    }
+                }
                 return a;
-            }
+            });
+           
+        }
 
-            return a;
+        public async Task<bool> registro_curso_usuario_actividad(string obj, string codigo_unidad)
+        {
+            contenido ar = new contenido();
+            contenido[] arre;
+            bool b = false;
+            Plataforma_academica.Models.principalP act3 = Session["usuario10"] as Plataforma_academica.Models.principalP;
+            return await Task.Run(() => {                
+                arre = ar.buscar_usuarios_correo(codigo_unidad);
+                if (arre != null)
+                {
+                    for (int i = 0; i < arre.Length; i++)
+                    {
+                        ar.Registrar_actividad_automatico(obj, arre[i].codigo_usuario_unidad);
+                    }
+                   b = true;
+                    return b;
+                }
+                else
+                {
+                   b = false;
+                   return b;
+                }
+            });     
         }
 
         [HttpPost]

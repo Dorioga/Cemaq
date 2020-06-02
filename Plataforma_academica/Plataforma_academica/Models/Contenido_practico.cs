@@ -22,7 +22,8 @@ namespace Plataforma_academica.Models
         public string url_multimedia { set; get; }
         public string id_pregunta { set; get; }
         public int[] tipo_condicion { set; get; }
-        
+        public string codigo_usuario_unidad { set; get; }
+
         private Conexion.Conexion conexion;
 
         public DataTable Registrar_Titulo_practica(Contenido_practico obj, string unidad)
@@ -30,6 +31,31 @@ namespace Plataforma_academica.Models
             conexion = new Conexion.Conexion();
             DataTable x = conexion.Execute_Query("call Pr_ingresar_examen ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "','" + obj.tipo_e + "','" + unidad+ "')");
             return x;
+        }
+
+        public Contenido_practico[] buscar_usuarios_correo(string u)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable conten = con.Execute_Query("call Pr_cargar_usuario_unidad_para_correo(" + u + ")");
+            Contenido_practico[] arreglo = new Contenido_practico[conten.Rows.Count];
+            contenido inicio = new contenido();
+            int j = 0;
+            foreach (DataRow i in conten.Rows)
+            {
+                arreglo[j] = new Contenido_practico();
+                arreglo[j].codigo_usuario_unidad = i["id"].ToString();
+
+                j++;
+            }
+            return arreglo;
+        }
+
+        public bool Registrar_examen_automatico(Contenido_practico obj, string uni)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            int x = con.Execute_Operation("call Pr_registrar_examen_automatico ('" + obj.nombre_contenido + "', '" + uni + "')");
+            return x > 0 ? true : false;
+
         }
 
         public DataTable Registrar_pregunta(Contenido_practico obj, int fk_examen, string url, string nombre)

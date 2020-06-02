@@ -344,7 +344,7 @@
                                               <div>
                                                   <h5>Descripción para editar</h5>
                                                   @Html.TextAreaFor(model => model.edicion, new { @class = "form-control" })
-                                                  <button type="submit" class="btn" name="iraprobado" value="@arreglo[i].id_actividad" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Aprobado</button>
+                                                  <button  type="submit" class="btn" name="iraprobado" value="@arreglo[i].id_actividad" onclick="activar()" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Aprobado</button>
                                                   <button type="submit" class="btn" name="irdesaprobado" value="@arreglo[i].id_actividad" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Desaprobado</button>
                                               </div>
                                             }
@@ -353,9 +353,15 @@
 
                                 }
                             }
-                          if (ViewBag.mensaje1 == "actualizacion" || ViewBag.mensaje1 == "actualizacion_")
+                          if (ViewBag.mensaje1 == "actualizacion" || ViewBag.mensaje1 == "actualizacion_no_registro")
                           {
+                             <script>
+                                 $(document).ready(function () {
+                                     $("#myModal").modal("hide");
+                                 });
+                             </script>
                              @Scripts.Render("~/Scripts/actualizar.js")
+
                           }
                         }
                     }
@@ -378,6 +384,26 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3 style="position: absolute;">Activar la actividad e informar por correo</h3>
+                        </div>
+                        <div class="modal-body">
+                            <img src="~/Imagenes/giphy.gif" />
+                        </div>
+                        <div class="modal-footer">
+                            <p style="text-align: center;">Este proceso puede tomar algunos minutos, al finalizar sera redirigido</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
             <!-- Botones-->
             <!-- Circles which indicates the steps of the form: -->
         </div>
@@ -386,6 +412,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.1/script/jquery.jscrollpane.min.js"></script>
     <script src="~/Scripts/jquery.bookblock.js"></script>
+    <script>
+        function activar(){
+            $(document).ready(function () {
+                $("#myModal").modal("show");
+            });
+        }
+    </script>
     <script>
         var Pagina = (function () {
 

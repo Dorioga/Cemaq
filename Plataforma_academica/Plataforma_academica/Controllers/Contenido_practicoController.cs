@@ -138,12 +138,19 @@ namespace Plataforma_academica.Controllers
                 {
                     Contenido_practico id_examen = new Contenido_practico();
                     DataTable datos = null;
+                    Contenido_practico[] arre;
+                    Contenido_practico ar = new Contenido_practico();
                     Plataforma_academica.Models.Subir_contenidos usu = Session["usuario11"] as Plataforma_academica.Models.Subir_contenidos;
                     datos = obj.Registrar_Titulo_practica(obj, usu.codigo_unidad);
                     if (datos != null)
                     {
                         id_examen.id_exam = Convert.ToInt32(datos.Rows[0]["id_examen"].ToString());
                         Session["usuario_id_actividad_examen"] = id_examen;
+                        arre = ar.buscar_usuarios_correo(usu.codigo_unidad);
+                        for (int i = 0; i < arre.Length; i++)
+                        {
+                            ar.Registrar_examen_automatico(obj, arre[i].codigo_usuario_unidad);
+                        }
                         ViewBag.mensaje = "Registro exitoso";
                         codigo1 = null;
                     }

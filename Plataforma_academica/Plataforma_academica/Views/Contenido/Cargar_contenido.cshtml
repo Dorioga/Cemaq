@@ -78,13 +78,28 @@
             <div class="card">
                 <div class="card-block p-3">
                     <article>
-                        <input type="submit" id="subir" name="subir" value="Guardar" class="btn btn-primary" />
+                        <input type="submit" id="subir" name="subir" value="Guardar" class="btn btn-primary" @*onclick="initEvents()"*@/>
                         <input type="submit" id="seccion" name="seccion" value="Guardar Sección" class="btn btn-primary" disabled />
                     </article>
                 </div>
             </div>
         </section>
      </div>
+
+     @*<script>
+         function initEvents() {
+
+             var text = $("#contenido").val();
+             var url = "@Url.Action("automatico", "Contenido")";
+             LoadingElementId = "cargar";
+             var data = {text: text}
+                 $.post(url, data).done(function(data){
+
+                 }).fail(manejaErrorAjax).always(function(){
+
+                 });
+             }
+     </script>*@
 
      if (ViewBag.mensaje == "vacios")
      {

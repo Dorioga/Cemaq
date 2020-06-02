@@ -180,6 +180,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Editar_examenController.cs" />
     <Compile Include="Controllers\Registrar_BeneficiarioController.cs" />
     <Compile Include="Controllers\Registrar_CursosController.cs" />
     <Compile Include="Controllers\Registrar_TrabajadorController.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="Models\Contenido_practico.cs" />
     <Compile Include="Models\Departamento.cs" />
     <Compile Include="Models\Editar_Actividad.cs" />
+    <Compile Include="Models\Editar_examen.cs" />
     <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\Grupo.cs" />
     <Compile Include="Models\lista_tipo_multimedia.cs" />
@@ -286,12 +288,14 @@
     <Content Include="Imagenes\animated_favicon1.gif" />
     <Content Include="Imagenes\bell-solid.svg" />
     <Content Include="Imagenes\book-solid.svg" />
+    <Content Include="Imagenes\cargando-gif-sin-fondo-7.gif" />
     <Content Include="Imagenes\chalkboard-teacher-solid.svg" />
     <Content Include="Imagenes\computadora %281%29.png" />
     <Content Include="Imagenes\computadora.png" />
     <Content Include="Imagenes\construccion-y-herramientas.png" />
     <Content Include="Imagenes\d0a964d7-76e1-4186-b03e-021f57f3b982.jpg" />
     <Content Include="Imagenes\florencia.jpg" />
+    <Content Include="Imagenes\giphy.gif" />
     <Content Include="Imagenes\icon %282%29.png" />
     <Content Include="Imagenes\icon.png" />
     <Content Include="Imagenes\infantil\avataaars.png" />
@@ -304,14 +308,17 @@
     <Content Include="Imagenes\interfaz %281%29.png" />
     <Content Include="Imagenes\interfaz %282%29.png" />
     <Content Include="Imagenes\interfaz.png" />
+    <Content Include="Imagenes\loading.gif" />
     <Content Include="Imagenes\negocio.png" />
     <Content Include="Imagenes\negocios-y-finanzas %281%29.png" />
     <Content Include="Imagenes\negocios-y-finanzas.png" />
+    <Content Include="Imagenes\NuyF.gif" />
     <Content Include="Imagenes\p1.jpg" />
     <Content Include="Imagenes\p2.jpg" />
     <Content Include="Imagenes\p3.jpg" />
     <Content Include="Imagenes\peole.png" />
     <Content Include="Imagenes\power-off-solid.svg" />
+    <Content Include="Imagenes\PU8T.gif" />
     <Content Include="Imagenes\sitio-web.png" />
     <Content Include="Imagenes\subject pronouns.jpg" />
     <Content Include="Imagenes\tecnologia.png" />
@@ -320,6 +327,7 @@
     <Content Include="Imagenes\user-cog-solid.svg" />
     <Content Include="Imagenes\user-tie-solid.svg" />
     <Content Include="Imagenes\video-solid.svg" />
+    <Content Include="Imagenes\YCZH.gif" />
     <Content Include="imagen_multimedia\1.png" />
     <Content Include="imagen_multimedia\2.png" />
     <Content Include="imagen_multimedia\20190828164733traiding.jpg" />
@@ -454,6 +462,7 @@
     <Content Include="Views\Registrar_Trabajador\Registrar_Trabajador.cshtml" />
     <Content Include="Views\Registrar_Cursos\Registrar_Cursos.cshtml" />
     <Content Include="Views\Zoomconferencia\Zoomconferencia.cshtml" />
+    <Content Include="Views\Editar_examen\Editar_examen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

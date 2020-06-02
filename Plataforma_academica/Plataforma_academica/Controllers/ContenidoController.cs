@@ -80,21 +80,15 @@ namespace Plataforma_academica.Controllers
                 if (codigo1 != null)
                 {
                     contenido id = new contenido();
-                    DataTable datos = null;
-                    contenido[] arre;
-                    contenido ar = new contenido();
-                    Plataforma_academica.Models.principalP act3 = Session["usuario10"] as Plataforma_academica.Models.principalP;
+                    DataTable datos = null;                
+                    
+                    //Plataforma_academica.Models.principalP act3 = Session["usuario10"] as Plataforma_academica.Models.principalP;
                     Plataforma_academica.Models.Subir_contenidos usu = Session["usuario11"] as Plataforma_academica.Models.Subir_contenidos;
                     datos = obj.Registrar_Contenido(obj, usu.codigo_unidad, Subir(file), nombre);
                     if (datos != null)
                     {
                         id.id_actividad = Convert.ToInt32(datos.Rows[0]["id_actividad"].ToString());
-                        Session["usuario_id_actividad_seccion"] = id;
-                        arre = ar.buscar_usuarios_correo(usu.codigo_unidad);
-                        for (int i=0; i<arre.Length; i++)
-                        {
-                            ar.Registrar_actividad_automatico(obj,arre[i].codigo_usuario_unidad);
-                        }
+                        Session["usuario_id_actividad_seccion"] = id;                       
                         ViewBag.mensaje = "Registro exitoso";
                     }
                     else
@@ -126,6 +120,22 @@ namespace Plataforma_academica.Controllers
             }
             return View();
         }
+
+        //[HttpPost]
+        //public JsonResult automatico(string text)
+        //{
+        //    contenido[] arre;
+        //    Plataforma_academica.Models.Subir_contenidos usu = Session["usuario11"] as Plataforma_academica.Models.Subir_contenidos;
+        //    contenido ar = new contenido();
+        //    arre = ar.buscar_usuarios_correo(usu.codigo_unidad);
+        //    var x = 2;
+        //    for (int i = 0; i < arre.Length; i++)
+        //    {
+        //        ar.Registrar_actividad_automatico(text, arre[i].codigo_usuario_unidad);
+        //    }
+        //    return Json(x);
+        //}
+
         public bool ValidarDatos(contenido obj)
         {
             if (obj.nombre_contenido != null)

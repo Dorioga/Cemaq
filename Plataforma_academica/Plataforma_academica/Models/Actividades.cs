@@ -53,7 +53,6 @@ namespace Plataforma_academica.Models
                 arreglo[j].id_multimedia = i["id_multimedia"].ToString();
                 arreglo[j].url_multimedia = i["url_multimedia"].ToString();
                 arreglo[j].id_tipo_multimedia = i["tipo multimedia"].ToString();
-
                 j++;
             }
             return arreglo;
@@ -63,7 +62,7 @@ namespace Plataforma_academica.Models
         {
             Conexion.Conexion con = new Conexion.Conexion();
             int x = con.Execute_Operation("call Pr_actualizar_actividad_estado ('" + id + "')");
-            return x > 0 ? true : false;
+            return x >= 0 ? true : false;
         }
 
         public Actividades[] usuarios_correo_actividad(string u)
@@ -79,14 +78,19 @@ namespace Plataforma_academica.Models
                 arreglo[j].nombre_usuario = i["nombre"].ToString();
                 arreglo[j].correo = i["email_persona"].ToString();
                 arreglo[j].identificacion = i["id_persona"].ToString();
-                arreglo[j].nombre_act = i["nombre_actividad"].ToString();
-                arreglo[j].desc = i["descripcion"].ToString();
                 arreglo[j].curso = i["nombre_curso"].ToString();
                 arreglo[j].nombre_uni = i["nombre_unidad"].ToString();
                 arreglo[j].niv = i["nombre_nivel"].ToString();
                 j++;
             }
             return arreglo;
+        }
+
+        public DataTable i_actividad(string u)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable x = con.Execute_Query("call Pr_id_actividad (" + u + ")");
+            return x;
         }
 
         public DataTable Buscar_cantidad_secciones(string u)

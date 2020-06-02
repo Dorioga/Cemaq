@@ -73,6 +73,11 @@ namespace Plataforma_academica.Controllers
                                     principalP act1 = new principalP();
                                     act1.codigo_actividad = codig4;
                                     Session["usuario10"] = act1;
+                                    Subir_contenidos unid1 = new Subir_contenidos();
+                                    TempData.Keep("mensaje12");
+                                    String unidad = Convert.ToString(TempData["mensaje12"]);
+                                    unid1.codigo_unidad = unidad;
+                                    Session["uni"] = unid1;
                                     return RedirectToAction("Actividades", "Actividades");
                                 }else
                                 {
@@ -116,10 +121,10 @@ namespace Plataforma_academica.Controllers
                                                 String codig9 = Request.Form["ir6_"];
                                                 if (codig9 != null)
                                                 {
-                                                    //ingresar a la edicion del examen
-                                                    // principalP act2 = new principalP();
-                                                    //act2.codigo_actividad = codig6;
-                                                    //Session["usuarios12"] = act2;
+                                                     //ingresar a la edicion del examen
+                                                    principalP act2 = new principalP();
+                                                    act2.codigo_examen = codig9;
+                                                    Session["editar_examen"] = act2;
                                                     //return RedirectToAction("Editar_Actividad", "Editar_Actividad");
                                                 }else
                                                 {

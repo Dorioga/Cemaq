@@ -53,10 +53,10 @@ namespace Plataforma_academica.Models
             return arreglo;
         }
 
-        public bool Registrar_actividad_automatico(contenido obj, string uni)
+        public bool Registrar_actividad_automatico(string obj, string uni)
         {
             Conexion.Conexion con = new Conexion.Conexion();
-            int x = con.Execute_Operation("call Pr_registrar_actividad_automatico ('" + obj.nombre_contenido + "', '" +uni + "')");
+            int x = con.Execute_Operation("call Pr_registrar_actividad_automatico ('" + obj + "', '" +uni + "')");
             return x > 0 ? true : false;
 
         }
