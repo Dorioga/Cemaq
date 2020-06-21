@@ -1,12 +1,17 @@
 ﻿
 .button1 {
-  background-color: rgba(255,255,255,.15);
+  background-color: rgba(255, 255, 255, 0);
   text-decoration: none;
   outline: none;
   border: none;
   border-radius: 15px;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   
+}
+
+h6 {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .row1
@@ -67,13 +72,13 @@
     outline: none;
 	width:100%;
 	height:auto;
-	border-bottom:5px #323233 solid;
+	border-bottom:5px #009688 solid;
 	background:rgba(255,255,255,.15);
 	text-align:center;
 	border-radius:10px;
 	overflow:hidden;
-  box-shadow: 0 9px #999;
-	box-shadow: 0 9px #999;
+  /*box-shadow: 0 9px #999;
+	box-shadow: 0 9px #999;*/
 	position:relative;
 	margin: 3px 0px 0px 0px;
 }
@@ -105,13 +110,15 @@
 
 .our-team-main span
 {
-	font-size:12px;
-	font-weight:600;
+	font-size: 12px;
+    font-weight: 750;
+    color: white;
+}
 }
 
 .contenercheck
 {
- background-color: #f1f1f1;
+ background-color: #5998da;
     padding: 0px 0px 0px 14px;
     border-radius: 5px;
     width: 98%;
@@ -141,7 +148,7 @@
 
 .contener
 {
- background-color: #f1f1f1;
+ background-color: #021d3a;
     padding: 0px 0px 3px 9px;
     border-radius: 5px;
     width: 98%;
@@ -168,7 +175,7 @@
 	height:auto;
 	position:relative;
 	z-index:10;
-	background:#fff;
+	background:#021d3a;
 	bottom:0px;
 	outline: none;
 }

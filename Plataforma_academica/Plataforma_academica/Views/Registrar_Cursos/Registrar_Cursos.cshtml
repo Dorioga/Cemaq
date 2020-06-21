@@ -10,7 +10,7 @@
 </head>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Registrar_Cursos", "Registrar_Cursos", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -20,45 +20,51 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <table class="table table-striped">
             <tbody>
-                <tr>
-                    <td colspan="1">
-                        <div class="well form-horizontal1">
+                <tr style="background-color: #021d3a;border-top: 1px solid #dddddd00;">
+                    <td colspan="1" style="background-color: #021d3a; border-top: 1px solid #dddddd00;">
+                        <div class="well form-horizontal1" style="background-color: #021d3a;">
                             <div class="form-group">
-                                <label class="col-md-4 control-label1">Nombre del curso</label>
+                                <label class="col-md-4 control-label1" style="color:white;">Nombre del curso</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.EditorFor(model => model.Nombre_curso, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre del curso*", @id = "nombre" } })
+                                        @Html.EditorFor(model => model.Nombre_curso, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre del diplomado*", @id = "nombre" } })
                                         @Html.ValidationMessageFor(model => model.Nombre_curso, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label1">Descripción del curso</label>
+                                <label class="col-md-4 control-label1" style="color:white;">Descripción del diplomado</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
-                                       @Html.TextAreaFor(model => model.descripcion_curso, new { @class = "form-control", @placeholder = "Descripcion del curso*" })    
+                                       @Html.TextAreaFor(model => model.descripcion_curso, new { @class = "form-control", @placeholder = "Descripcion del diplomado*" })    
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label1">Tipo de Tematica</label>
+                                <label class="col-md-4 control-label1" style="color:white;">Tipo de Tematica</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         @Html.DropDownListFor(model => model.codigo_tematica, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">                                
-                                    <div class="col-sm-4">
-                                        <h3>Basico</h3>
-                                        <div class="col-md-81 inputGroupContainer">
-                                           @Html.DropDownListFor(model => model.cantidadBasico, (IEnumerable<SelectListItem>)ViewData["lista2"], "-Cantidad unidades-")
-                                        </div>  
-                                        <br />
-                                        <button type="submit" name="ir100" value="crear">crear</button>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label1" style="color:white;">Duración del Diplomado</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DropDownListFor(model => model.codigo_horas, (IEnumerable<SelectListItem>)ViewData["lista5"], "--Seleccione one--")
                                     </div>
-                                    <div class="col-sm-4">
+                                </div>
+                            </div>
+                            <div class="form-group">                                
+                                    <label class="col-sm-4" control-label1" style="color:white;">Modulos</label>
+                                        <div class="col-md-8 inputGroupContainer">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.cantidadBasico, (IEnumerable<SelectListItem>)ViewData["lista2"], "-Cantidad modulos-")
+                                            </div>
+                                         </div> 
+                                    @*<div class="col-sm-4">
                                         <h3>Intermedio</h3>
                                         <div class="col-md-81 inputGroupContainer">
                                                @Html.DropDownListFor(model => model.cantidadIntermedio, (IEnumerable<SelectListItem>)ViewData["lista3"])
@@ -69,14 +75,22 @@
                                         <div class="col-md-81 inputGroupContainer">
                                             @Html.DropDownListFor(model => model.cantidadAvanzado, (IEnumerable<SelectListItem>)ViewData["lista4"])
                                         </div>
-                                    </div>
+                                    </div>*@
                              </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label1"></label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <button class="btn btn-success" type="submit" name="ir100" value="crear">Crear</button>
+                                    </div>
+                                </div>
+                            </div>
                             @{
                                 if (ViewBag.mensaje1 == "Registro exitoso")
                                 {
                                     <div class="form-group" id="Cantidad">
                                         <div class="col-sm-4">
-                                                <h3>Basico</h3>
+                                                <h3 style="color:white;">Basico</h3>
                                                 <div class="col-md-81 inputGroupContainer">
                                                 @for (int k = 0; k < Convert.ToInt32(ViewBag.mensajebasico); k++)
                                                 {
@@ -92,10 +106,20 @@
                                                     </div>
                                                 }
                                             </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label1" style="color:white;">Imagen</label>
+                                                <div class="col-md-8 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <input type="file" name="file" accept=".png,.jpg,.jpeg,.gif"/>
+                                                    </div>
+                                                </div>
+                                            </div>
                                                 <br />
                                                 <button type="submit" name="ir101" value="crear" class="btn btn-success">Guardar</button>                                                
                                             </div>
-                                            <div class="col-sm-4">
+
+                                       
+                                            @*<div class="col-sm-4">
                                                 <h3>Intermedio</h3>
                                                 <div class="col-md-81 inputGroupContainer">
                                                 @for (int j = 0; j < Convert.ToInt32(ViewBag.mensajeintermedio); j++)
@@ -130,7 +154,7 @@
                                                     </div>
                                                 }
                                             </div>
-                                        </div>
+                                        </div>*@
                                     </div>
                                 }
                                 if (ViewBag.mensaje2 == "Registro exito")

@@ -12,7 +12,7 @@ namespace Plataforma_academica.Controllers
     {
         string nombre;
         // GET: Contenido
-        public ActionResult Cargar_contenido(contenido obj, lista_tipo_multimedia tipo, HttpPostedFileBase file, Clasificacion_multimedia tipoact)
+        public ActionResult Cargar_contenido(contenido obj, lista_tipo_multimedia tipo, HttpPostedFileBase file, HttpPostedFileBase file1, Clasificacion_multimedia tipoact)
         {
             Plataforma_academica.Models.principalP act2 = Session["usuario12"] as Plataforma_academica.Models.principalP;
             Login user = Session["usuario"] as Login;
@@ -84,7 +84,7 @@ namespace Plataforma_academica.Controllers
                     
                     //Plataforma_academica.Models.principalP act3 = Session["usuario10"] as Plataforma_academica.Models.principalP;
                     Plataforma_academica.Models.Subir_contenidos usu = Session["usuario11"] as Plataforma_academica.Models.Subir_contenidos;
-                    datos = obj.Registrar_Contenido(obj, usu.codigo_unidad, Subir(file), nombre);
+                    datos = obj.Registrar_Contenido(obj, usu.codigo_unidad, Subir(file), nombre, Subir(file1));
                     if (datos != null)
                     {
                         id.id_actividad = Convert.ToInt32(datos.Rows[0]["id_actividad"].ToString());

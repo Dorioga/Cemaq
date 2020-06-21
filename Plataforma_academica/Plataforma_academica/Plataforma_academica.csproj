@@ -180,7 +180,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Diplomados_matriculadosController.cs" />
     <Compile Include="Controllers\Editar_examenController.cs" />
+    <Compile Include="Controllers\Principal_todosController.cs" />
     <Compile Include="Controllers\Registrar_BeneficiarioController.cs" />
     <Compile Include="Controllers\Registrar_CursosController.cs" />
     <Compile Include="Controllers\Registrar_TrabajadorController.cs" />
@@ -210,10 +212,12 @@
     <Compile Include="Models\contenido.cs" />
     <Compile Include="Models\Contenido_practico.cs" />
     <Compile Include="Models\Departamento.cs" />
+    <Compile Include="Models\Diplomados_matriculados.cs" />
     <Compile Include="Models\Editar_Actividad.cs" />
     <Compile Include="Models\Editar_examen.cs" />
     <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\Grupo.cs" />
+    <Compile Include="Models\Horas_diplomado.cs" />
     <Compile Include="Models\lista_tipo_multimedia.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Municipio.cs" />
@@ -223,6 +227,7 @@
     <Compile Include="Models\Porcentaje_usuario.cs" />
     <Compile Include="Models\Practicas.cs" />
     <Compile Include="Models\principalP.cs" />
+    <Compile Include="Models\Principal_todos.cs" />
     <Compile Include="Models\Registrar_Beneficiario.cs" />
     <Compile Include="Models\Registrar_Cursos.cs" />
     <Compile Include="Models\Registrar_Trabajador.cs" />
@@ -255,6 +260,7 @@
     <Content Include="Estilos\chat_8.css" />
     <Content Include="Estilos\Contenido.css" />
     <Content Include="Estilos\cursos.css" />
+    <Content Include="Estilos\escritos.css" />
     <Content Include="Estilos\estilo_edicion.css" />
     <Content Include="Estilos\hover-min.css" />
     <Content Include="Estilos\hover.css" />
@@ -275,6 +281,7 @@
     <Content Include="Estilos\report.css" />
     <Content Include="Estilos\seleccion_raiz.css" />
     <Content Include="Estilos\submenu.css" />
+    <Content Include="Estilos\tabla.css" />
     <Content Include="Estilos\Tabsreport.css" />
     <Content Include="Estilos\visualizar_practica.css" />
     <Content Include="Excel_R_Beneficiarios\20200219094645libro1.xlsx" />
@@ -293,7 +300,11 @@
     <Content Include="Imagenes\computadora %281%29.png" />
     <Content Include="Imagenes\computadora.png" />
     <Content Include="Imagenes\construccion-y-herramientas.png" />
+    <Content Include="Imagenes\Corel.png" />
+    <Content Include="Imagenes\cropped-cemaq_logo2-2.png" />
+    <Content Include="Imagenes\cropped-favicom-32x32.png" />
     <Content Include="Imagenes\d0a964d7-76e1-4186-b03e-021f57f3b982.jpg" />
+    <Content Include="Imagenes\Excel.png" />
     <Content Include="Imagenes\florencia.jpg" />
     <Content Include="Imagenes\giphy.gif" />
     <Content Include="Imagenes\icon %282%29.png" />
@@ -318,6 +329,8 @@
     <Content Include="Imagenes\p3.jpg" />
     <Content Include="Imagenes\peole.png" />
     <Content Include="Imagenes\power-off-solid.svg" />
+    <Content Include="Imagenes\Powerpoint.png" />
+    <Content Include="Imagenes\Prezi.png" />
     <Content Include="Imagenes\PU8T.gif" />
     <Content Include="Imagenes\sitio-web.png" />
     <Content Include="Imagenes\subject pronouns.jpg" />
@@ -327,6 +340,7 @@
     <Content Include="Imagenes\user-cog-solid.svg" />
     <Content Include="Imagenes\user-tie-solid.svg" />
     <Content Include="Imagenes\video-solid.svg" />
+    <Content Include="Imagenes\Word.png" />
     <Content Include="Imagenes\YCZH.gif" />
     <Content Include="imagen_multimedia\1.png" />
     <Content Include="imagen_multimedia\2.png" />
@@ -343,10 +357,21 @@
     <Content Include="imagen_multimedia\6.png" />
     <Content Include="imagen_multimedia\7.png" />
     <Content Include="imagen_multimedia\8.png" />
+    <Content Include="imagen_multimedia\Actividad.png" />
+    <Content Include="imagen_multimedia\Agregar Actividad.png" />
+    <Content Include="imagen_multimedia\cerrar-sesion %282%29.svg" />
+    <Content Include="imagen_multimedia\cerrar-sesion %284%29.svg" />
     <Content Include="imagen_multimedia\concepto-lecciones-linea-ninos_23-2148507729.jpg" />
+    <Content Include="imagen_multimedia\Examen.png" />
+    <Content Include="imagen_multimedia\logout.svg" />
+    <Content Include="imagen_multimedia\Modulo.png" />
+    <Content Include="imagen_multimedia\persona %282%29.svg" />
+    <Content Include="imagen_multimedia\persona.svg" />
     <Content Include="imagen_multimedia\school-desk-and-chair-with-underside-shelf.svg" />
     <Content Include="imagen_multimedia\study.svg" />
     <Content Include="imagen_multimedia\study1.jpg" />
+    <Content Include="imagen_multimedia\usuario %281%29.svg" />
+    <Content Include="imagen_multimedia\usuario.svg" />
     <Content Include="Scripts\accederzoom.js" />
     <Content Include="Scripts\actualizar.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
@@ -430,6 +455,7 @@
     <Content Include="Scripts\ui\jquery.ui.mouse.js" />
     <Content Include="Scripts\ui\jquery.ui.resizable.js" />
     <Content Include="Scripts\ui\jquery.ui.widget.js" />
+    <Content Include="Scripts\ventanaactividad.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -463,6 +489,8 @@
     <Content Include="Views\Registrar_Cursos\Registrar_Cursos.cshtml" />
     <Content Include="Views\Zoomconferencia\Zoomconferencia.cshtml" />
     <Content Include="Views\Editar_examen\Editar_examen.cshtml" />
+    <Content Include="Views\Principal_todos\Principal_todos.cshtml" />
+    <Content Include="Views\Diplomados_matriculados\Diplomados_matriculados.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

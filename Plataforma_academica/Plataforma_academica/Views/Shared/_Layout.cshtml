@@ -31,8 +31,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="~/Scripts/menu.js"></script>
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Academia Amazonica</title>
+    <title>CEMAQ - Diplomados</title>
     <link rel="stylesheet" type="text/css" href="~/Estilos/seleccion_raiz.css" />
+    <link rel="icon" type="image/gif" href="~/Imagenes/cropped-favicom-32x32.png">
     
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -56,7 +57,9 @@
     <header>
 
         <nav class="navbar">
-            <a class="navbar-brand"><strong>Amazonian Language Tic's</strong></a>
+            <a href="javascript:" onclick="window.open('https://cemaq.com.co/');" class="navbar-brand" style="padding: 0px 0px; ">
+            <img style="width: 60%;background-color: white;border-radius: 10px;" src="~/Imagenes/cropped-cemaq_logo2-2.png"></img>
+            </a>
             <div class="info">
                 <div class="p-2">
                     <img class="perfil" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg">
@@ -73,7 +76,7 @@
                             }
                             else
                             {
-                                <p><img src="~/Imagenes/user-alt-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: -2%; margin-right: 2%;" /> @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })</p>
+                                <p><img src="~/imagen_multimedia/usuario.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: -2%; margin-right: 2%;" /> @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })</p>
                                 <p>@Html.LabelFor(Model => usu.Tipo_rol, usu.Tipo_rol, new { @class = "" })</p>
                             }
                         }
@@ -110,7 +113,7 @@
                             {
                                 <div class="list-group-item nav-item nav-link active">
                                     <a>
-                                        <img src="~/Imagenes/book-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" /> @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)
+                                        <img src="~/Imagenes/cropped-favicom-32x32.png" style="width: 25px;height: 26px;padding: 0%;margin-left: 1%;margin-right: 1%;" /> @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)
                                     </a>
                                 </div>
 
@@ -134,28 +137,28 @@
                        if (Convert.ToInt32(usu.rol) < 4 || Convert.ToInt32(usu.rol) > 6)
                        {
 
-                        <img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
+                        @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
                         <a href="https://zoom.us/signin" target="_blank">
                             <img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
                         </a>
                         <a href="http://pizarravirtualamazoniantic.azurewebsites.net/" target="_blank">
                             <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
-                        </a>
-                        <img src="~/Imagenes/user-cog-solid.svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
+                        </a>*@
+                        <img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
 
 
                        }
                        else
                        {
-                        <img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
-                        <a href="#"><img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal1" /></a>
-                        <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>
-                        <img src="~/Imagenes/user-cog-solid.svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
+                        @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />*@
+                        @*<a href="#"><img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal1" /></a>
+                        <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>*@
+                        <img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
 
                        }
                    }
             }
-                <a href="/Login/cerrarsesion"><img src="~/Imagenes/power-off-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" /></a>
+                <a href="/Login/cerrarsesion"><img src="~/imagen_multimedia/cerrar-sesion (4).svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" /></a>
 
             </footer>
         </nav>

@@ -2,9 +2,11 @@
 nav > div.nav-item.nav-link,
 nav > div.nav-item.nav-link.active
 {
-border: none;
-    padding: 11px 7px;
-    color: #fff;
+ border: none;
+    padding: 5px 0px;
+    /*font-weight: bold;*/
+    font-size: 14px;
+    color: #060606;
     background: #d4d4d4;
     border-radius: 0;
 }

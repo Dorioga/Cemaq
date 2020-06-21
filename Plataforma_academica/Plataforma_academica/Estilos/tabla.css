@@ -1,0 +1,26 @@
+﻿.table thead > tr > th {
+    text-align: center;
+}
+
+.buton {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 9px;
+  box-shadow: 0 5px #999;
+}
+
+.buton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+

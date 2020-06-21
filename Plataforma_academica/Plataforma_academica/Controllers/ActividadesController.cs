@@ -35,12 +35,18 @@ namespace Plataforma_academica.Controllers
             {
                 if (Convert.ToInt32(user.rol) > 10)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("principalplataforma", "PrincipalPlataforma");
                 }
                 else
                 {
-                    //cargar y aumentar en uno la seccion de la tabla y el porcentaje aumentarlo como si ya se hubiera realizado uno
-                    if (actividad != null)
+                    String codigo_ = Request.Form["subir"];
+                    if (codigo_ != null)
+                    {
+                        var ruta = Server.MapPath("~/imagen_multimedia/"+codigo_);
+                        return File(ruta, "aplication/pdf,docx", codigo_);
+                    }
+                        //cargar y aumentar en uno la seccion de la tabla y el porcentaje aumentarlo como si ya se hubiera realizado uno
+                        if (actividad != null)
                     {
                         datos2 = act.Buscar_porcentaje_seccion(actividad.codigo_actividad);
                         if (Convert.ToInt32(datos2.Rows[0]["seccion"].ToString()) == 0)

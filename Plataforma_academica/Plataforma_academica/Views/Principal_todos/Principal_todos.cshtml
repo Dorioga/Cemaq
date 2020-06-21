@@ -1,0 +1,121 @@
+﻿@model Plataforma_academica.Models.Principal_todos
+
+@{
+    ViewBag.Title = "Principal_todos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+
+    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
+</head>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
+    Plataforma_academica.Models.Principal_todos principal = new Plataforma_academica.Models.Principal_todos();
+    Plataforma_academica.Models.Principal_todos[] arreglo;
+    Plataforma_academica.Models.Principal_todos principal_modulos = new Plataforma_academica.Models.Principal_todos();
+    Plataforma_academica.Models.Principal_todos[] modulos;
+
+    <main class="con_form">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>Areas...</h4>
+                    <nav>
+                        <ul>
+                            @{
+                                if (usu != null)
+                                {
+
+                                    arreglo = principal.Buscarareas();
+
+                                    for (int i = 0; i < arreglo.Length; i++)
+                                    {
+                                        <li>
+                                            <button style="margin-bottom: 5px; padding: 15px 10px;" type="submit" class="btn btn-info btn-sm btn-block" name="ir" value="@arreglo[i].id_tematica">
+                                                <span class="glyphicon glyphicon-book"></span>
+                                                @arreglo[i].nombre_tematica
+                                            </button>
+                                        </li>
+                                    }
+                                }
+                            }
+
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul>
+                            @{
+                                if (TempData["mensaje1"] != null && usu != null)
+                                {
+                                    TempData.Keep("mensaje1");
+                                    principal_modulos.id_c = Convert.ToString(TempData["mensaje1"]);
+                                    modulos = principal_modulos.Buscar_descripcion_areas(principal_modulos);
+                                    <div class="panel panel-default panel-table">
+                                        <div class="panel-heading">
+                                            <div class="tr">
+                                                <div class="td">Descripción Tematica</div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+@{
+    for (int i = 0; i < modulos.Length; i++)
+    {
+        <div class="tr">
+            <div class="td">@modulos[i].descripcion</div>
+        </div>
+    }
+}                                           
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Nivel -->
+                <div class="col-sm-6">
+                    <h4>Modulos</h4>
+                    <nav>
+                        <ul>
+                            @{
+                                if (TempData["mensaje1"] != null && usu != null)
+                                {
+                                    TempData.Keep("mensaje1");
+                                    principal_modulos.id_c = Convert.ToString(TempData["mensaje1"]);
+                                    modulos = principal_modulos.Buscar_cursos_areas(principal_modulos);
+
+                                    for (int i = 0; i < modulos.Length; i++)
+                                    {
+                                        <li>
+                                            <button style="margin-bottom: 5px; padding: 15px 10px;" type="submit" class="btn btn-info btn-sm btn-block" name="irr" value="@modulos[i].id_curso">
+                                                <span class="glyphicon glyphicon-stats"></span>
+                                                @modulos[i].nombre_curso
+                                            </button>
+                                        </li>
+
+                                    }
+                                }
+                                else
+                                {
+                                    <li><a>Elija un Curso</a></li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

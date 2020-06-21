@@ -4,8 +4,9 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    background-image: url("/Imagenes/florencia.jpg");
-    background-position-y: center;
+    background-image: url(https://cemaq.com.co/wp-content/uploads/2020/02/a0055c44-f102-438a-9494-37320b0c0839.jpg);
+    background-repeat: space;
+    background-position: center;
 }
 
 .caja {

@@ -30,15 +30,6 @@ namespace Plataforma_academica.Controllers
                 }
                 else
                 {
-                    String codig2 = Request.Form["irr"];
-
-                    if (codig2 != null)
-                    {
-                        TempData["mensaje2"] = codig2;
-                        return View();
-                    }
-                    else
-                    {
                         String codig3 = Request.Form["irrr"];
 
                         if (codig3 != null)
@@ -55,8 +46,11 @@ namespace Plataforma_academica.Controllers
                                 principalP act1 = new principalP();
                                 act1.codigo_actividad = codig4;
                                 Session["usuario3"] = act1;
-                                return RedirectToAction("Actividades", "Actividades"); ;
-                            }else
+                            ViewBag.mensaje = "actividad";
+                            return View();
+                            //return RedirectToAction("Actividades", "Actividades"); 
+                        }
+                        else
                             {
                                 String codig5 = Request.Form["irrrr5"];
                                 if (codig5 != null)
@@ -64,13 +58,12 @@ namespace Plataforma_academica.Controllers
                                     //Arreglar el codio para visualizar los examenes por parte de los alumnos
                                     principalP act2 = new principalP();
                                     act2.codigo_examen = codig5;
-                                    Session["usuarios2"] = act2;
-                                    return RedirectToAction("Practica", "Practica"); 
-                                }
+                                Session["usuarios2"] = act2;
+                                return RedirectToAction("Practica", "Practica");
+                            }
                             }
                         }
-
-                    }
+                        
 
                 }
 

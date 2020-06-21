@@ -41,7 +41,7 @@
         }
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <section>
-            <h5>Titulo Sección</h5>
+            <h5>Titulo</h5>
             @Html.EditorFor(model => model.nombre_contenido, new { htmlAttributes = new { @class = "form-control", @id = "contenido" } })
             @Html.ValidationMessageFor(model => model.nombre_contenido, "", new { @class = "text-danger" })
             </section>
@@ -49,7 +49,7 @@
                 <div class="card">
                     <div class="card-block p-3">
                         <article>
-                            <h5>Descripción de Sección</h5>
+                            <h5>Descripción</h5>
                             @Html.TextAreaFor(model => model.descripcion_contenido, new { @class = "form-control"})
                         </article>
                     </div>
@@ -70,6 +70,8 @@
                         @Html.DropDownListFor(model => model.tipo_clasificacion, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
                         <h5>Multimedia Actividad (Opcional)</h5>
                         <input type="file" name="file" />
+                        <h5>Archivo de la actividad</h5>
+                        <input type="file" name="file1" accept=".docx,.pdf"  />
                     </article>
                 </div>
             </div>

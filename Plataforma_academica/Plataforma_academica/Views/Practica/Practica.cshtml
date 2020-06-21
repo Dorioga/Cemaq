@@ -47,7 +47,7 @@
                Plataforma_academica.Models.principalP act2 = Session["usuarios2"] as Plataforma_academica.Models.principalP;
                arreglo3 = practica.Consultar_examen_practica(act2.codigo_examen);
                <h2>@Html.LabelFor(Model => arreglo3[0].nombre_examen, arreglo3[0].nombre_examen, new { @class = "" })</h2>//titulo actividad
-                <p>@Html.LabelFor(Model => arreglo3[0].descripcion_examen, arreglo3[0].descripcion_examen, new { @class = "form-control", @id = "p" })</p>
+                <p>@Html.LabelFor(Model => arreglo3[0].descripcion_examen, arreglo3[0].descripcion_examen, new { @class = "form-control", @id = "p", @style = "color: white;background-color: #021d3a;border: 1px solid white;" })</p>
 
                            //descripcion actividad
                            arreglo = practica.Consultar_contenido_practica(act2.codigo_examen);                           
@@ -61,17 +61,17 @@
                                    arreglo2 = practica.Consultar_respuestas_practica(act2.codigo_examen, arreglo[i].id_pregunta);
                                    if (arreglo[i].id_tipo_multimedia == 3)
                                    {
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
-                                        <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
-                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "form-control", @disabled = "true" })                                         
+                                        <h4 style = "color: white;">@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "form-control", @disabled = "true",@style = "color: white;background-color: #021d3a;border: 1px solid #021d3a;" })                                         
                                     </article>
                                 </div>
                             </div>
                         </section>
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
@@ -79,7 +79,7 @@
                                            for (int j = 0; j < arreglo2.Length; j++)
                                            {                                                
                                                 <div class="radio">
-                                                    <label><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                    <label style = "color: white;"><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
                                                 </div> 
                                            }
                                     }                                         
@@ -90,19 +90,19 @@
                        }
                        if (arreglo[i].id_tipo_multimedia == 1)
                        {
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
-                                        <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
-                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "form-control", @disabled = "true" })                                         
+                                        <h4 style = "color: white;">@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "form-control", @disabled = "true",@style = "color: white;background-color: #021d3a;border: 1px solid #021d3a;" })                                         
                                     </article>
                                 </div>
                             </div>
                         </section>
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="container mt-4">
-                                <div class="row">
+                                <div class="row" style="background-color: #021d3a;box-shadow: 0 1px 0 #cfcfcf00;">
                                     <div class="col-md-12 mb-4">
                                         <div class="card">
                                             <div class="card-block p-3">
@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                         </section> 
-                         <section>
+                         <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
@@ -123,7 +123,7 @@
                                            for (int j = 0; j < arreglo2.Length; j++)
                                            {                                                
                                                 <div class="radio">
-                                                    <label><input type="radio" name="elegida_@i" id="radio_@j" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                    <label style = "color: white;"><input type="radio" name="elegida_@i" id="radio_@j" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
                                                 </div> 
                                            }
                                     }                                         
@@ -134,19 +134,19 @@
                        }
                        if (arreglo[i].id_tipo_multimedia == 2)
                        {
-                                               <section>
+                                               <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
-                                        <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
-                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "form-control", @disabled = "true" })                                         
+                                        <h4 style = "color: white;">@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "form-control", @disabled = "true", @style = "color: white;background-color: #021d3a;border: 1px solid #021d3a;" })                                         
                                     </article>
                                 </div>
                             </div>
                         </section>
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="container mt-4">
-                                <div class="row">
+                                <div class="row" style="background-color: #021d3a;box-shadow: 0 1px 0 #cfcfcf00;">
                                     <div class="col-md-12 mb-4">
                                         <div class="card">
                                             <div class="card-block p-3">
@@ -159,7 +159,7 @@
                                 </div>
                             </div>
                         </section>
-                         <section>
+                         <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
@@ -167,7 +167,7 @@
                                            for (int j = 0; j < arreglo2.Length; j++)
                                            {                                                
                                                 <div class="radio">
-                                                    <label><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                    <label style = "color: white;"><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
                                                 </div> 
                                            }
                                     }                                         
@@ -178,17 +178,17 @@
                        }
                        if (arreglo[i].id_tipo_multimedia == 4)
                        {
-                                               <section>
+                                               <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
-                                        <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
-                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "form-control", @disabled = "true" })                                         
+                                        <h4 style = "color: white;">@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "form-control", @disabled = "true", style = "color: white;" })                                         
                                     </article>
                                 </div>
                             </div>
                         </section>
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <audio controls>
@@ -197,7 +197,7 @@
                                 </div>
                             </div>
                         </section>
-                         <section>
+                         <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
@@ -205,7 +205,7 @@
                                            for (int j = 0; j < arreglo2.Length; j++)
                                            {                                                
                                                 <div class="radio">
-                                                    <label><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                    <label style = "color: white;"><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
                                                 </div> 
                                            }
                                     }                                         
@@ -279,7 +279,7 @@
                        arreglo2 = practica.Consultar_respuestas_practica(act2.codigo_examen, arreglo[i].id_pregunta);
                        if (arreglo[i].id_tipo_multimedia == 3)
                        {
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
@@ -289,7 +289,7 @@
                                 </div>
                             </div>
                         </section>
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
@@ -308,7 +308,7 @@
                        }
                        if (arreglo[i].id_tipo_multimedia == 1)
                        {
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
@@ -318,9 +318,9 @@
                                 </div>
                             </div>
                         </section>
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="container mt-4">
-                                <div class="row">
+                                <div class="row" style="background-color: #021d3a;box-shadow: 0 1px 0 #cfcfcf00;">
                                     <div class="col-md-12 mb-4">
                                         <div class="card">
                                             <div class="card-block p-3">
@@ -333,7 +333,7 @@
                                 </div>
                             </div>
                         </section> 
-                         <section>
+                         <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
@@ -352,7 +352,7 @@
                        }
                        if (arreglo[i].id_tipo_multimedia == 2)
                        {
-                                               <section>
+                                               <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
@@ -362,9 +362,9 @@
                                 </div>
                             </div>
                         </section>
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="container mt-4">
-                                <div class="row">
+                                <div class="row" style="background-color: #021d3a;box-shadow: 0 1px 0 #cfcfcf00;">
                                     <div class="col-md-12 mb-4">
                                         <div class="card">
                                             <div class="card-block p-3">
@@ -377,7 +377,7 @@
                                 </div>
                             </div>
                         </section>
-                         <section>
+                         <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
@@ -396,7 +396,7 @@
                        }
                        if (arreglo[i].id_tipo_multimedia == 4)
                        {
-                                               <section>
+                                               <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>
@@ -406,7 +406,7 @@
                                 </div>
                             </div>
                         </section>
-                        <section>
+                        <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <audio controls>
@@ -415,7 +415,7 @@
                                 </div>
                             </div>
                         </section>
-                         <section>
+                         <section style="border: 1px solid white;">
                             <div class="card">
                                 <div class="card-block p-3">
                                     <article>

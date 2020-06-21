@@ -27,6 +27,7 @@ namespace Plataforma_academica.Models
         public String curso { set; get; }
         public String nombre_uni { set; get; }
         public String niv { set; get; }
+        public String arch { set; get; }
 
         public int seccion { set; get; }
         public int cont_seccion { set; get; }
@@ -53,6 +54,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].id_multimedia = i["id_multimedia"].ToString();
                 arreglo[j].url_multimedia = i["url_multimedia"].ToString();
                 arreglo[j].id_tipo_multimedia = i["tipo multimedia"].ToString();
+                arreglo[j].arch = i["Archivo"].ToString();
                 j++;
             }
             return arreglo;
