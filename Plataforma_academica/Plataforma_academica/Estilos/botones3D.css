@@ -19,12 +19,13 @@
 
 .col-lg-40
 {
-    max-width: 16%;
+    max-width: 10em;
     flex: 0 0 33.3333%;
     position: relative;
     width: 100%;
     left: 0.20%;
     min-height: 1px;
+    height:9em;
     padding-right: 0px;
     padding-left: 3px;
     outline: none;
@@ -56,29 +57,34 @@
     margin-bottom: 8px;
 }
 
-.our-team-main:active {
-  box-shadow: 0 5px #999;
-  transform: translateY(4px);
-  border-radius: 15px;
+.button1:hover {
+    box-shadow: 0 5px #1bbc97;
+    transform: translateY(4px);
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #1bbc97;
 }
 
-.our-team-main
-{
+.our-team-main {
     outline: none;
-	width:100%;
-	height:auto;
-	border-bottom:5px #999 solid;
-	background:rgba(255,255,255,.15);
-	text-align:center;
-	border-radius:10px;
-	overflow:hidden;
-  /*box-shadow: 0 9px #999;
-	box-shadow: 0 9px #999;*/
-	position:relative;
-	margin: 3px 0px 0px 0px;
-
+    width: 100%;
+    height: auto;
+    background: rgba(255,255,255,.15);
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
 }
 
+.button1 img {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+}
+}
 
 .button1 span {  
   display: inline-block;
@@ -86,14 +92,7 @@
   transition: 0.5s;
 }
 
-.button1 span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
+
 
 .button1:hover span {
   padding-right: 9px;
@@ -111,40 +110,40 @@
     color: white;
 }
 
-.contenercheck
-{
- background-color: #5998da;
+.contenercheck {
+    background-color: #1bbc97;
     padding: 0px 0px 0px 14px;
     border-radius: 5px;
     width: 98%;
     position: relative;
     left: 17px;
-    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.50),0 2px 10px 0 rgba(0,0,0,0.60)!important;
 }
 
-.contener
-{
- background-color: #07294d;
-    padding: 0px 0px 3px 9px;
-    border-radius: 5px;
+.contener {
+    background-color: #263859;
+    padding: 1em 0px 3px 9px;
+    /border-radius: 5px;
     width: 98%;
     position: relative;
     left: 17px;
-    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.50),0 2px 10px 0 rgba(0,0,0,0.60)!important;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.50),0 2px 10px 0 rgba(0,0,0,0.60) !important;
 }
 
 
 
 
-.team-front
-{
-	width:100%;
-	height:auto;
-	position:relative;
-	z-index:10;
-	background:#07294d;
-	bottom:0px;
-	outline: none;
+.team-front {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: flex;
+    z-index: 10;
+    background: #263859;
+    bottom: 0px;
+    outline: none;
 }
 
 .our-team-main1:active {

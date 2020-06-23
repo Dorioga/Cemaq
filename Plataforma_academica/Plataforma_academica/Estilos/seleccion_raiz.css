@@ -1,12 +1,11 @@
 ﻿
 nav > div.nav-item.nav-link,
-nav > div.nav-item.nav-link.active
-{
- border: none;
+nav > div.nav-item.nav-link.active {
+    border: none;
     padding: 5px 0px;
     /*font-weight: bold;*/
     font-size: 14px;
     color: #060606;
-    background: #d4d4d4;
+    background: #263859;
     border-radius: 0;
 }
