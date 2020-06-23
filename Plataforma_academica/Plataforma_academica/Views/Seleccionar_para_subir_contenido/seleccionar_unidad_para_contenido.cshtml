@@ -279,7 +279,12 @@
                 }
             }
         </script>
-
+        @{
+            if (ViewBag.mensaje == "actividad")
+            {
+                <script> window.open ('@Url.Action("Actividades", "Actividades")'); </script>
+            }
+        }
     </main>
 
                                 }
