@@ -37,7 +37,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <h6 style="margin-top: 0px;color: red;margin-bottom: 0px;"><strong>Para descargar su certificado debe haber realizado el pago del mismo, el cumplimiento del 100% del porcentaje y aprobar el test</strong></h6>
+                            <h6 style="margin-top: 0px;color: red;margin-bottom: 0px;"><strong>Para descargar su certificado debe haber realizado el pago del mismo, el cumplimiento del 100% del porcentaje y realizado el test</strong></h6>
                         </tr>
                         @{
                             for (int i = 0; i < arreglo.Length; i++)
@@ -50,7 +50,7 @@
                                     <td>@arreglo[i].examen</td>
                                     <td>@arreglo[i].estado_pago</td>                                    
                                     @{
-                                        if (Convert.ToDouble(arreglo[i].porcentaje) >= 100 && arreglo[i].estado_pago == "Pagado" && Convert.ToDouble(arreglo[i].examen) >= 100)
+                                        if (Convert.ToDouble(arreglo[i].porcentaje) >= 100 && arreglo[i].estado_pago == "Pagado")
                                         {
                                             <td><button class="buton" name="ir" value="@arreglo[i].id_curso">Abrir</button></td>
                                         }
