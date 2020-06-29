@@ -15,14 +15,16 @@
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <link href="~/Estilos/loginStyle1.css" rel="stylesheet" type="text/css">
+    @*<link href="~/Estilos/loginStyle1.css" rel="stylesheet" type="text/css">*@
+    <link href="~/Estilos/nuevo_login.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width" />
     <title>CEMAQ - Iniciar Sesión</title>
     <link rel="icon" type="image/gif" href="~/Imagenes/cropped-favicom-32x32.png">
     <script src="~/Scripts/login_campos.js"></script>
+  
 </head>
 
-<body class="login-page sidebar-collapse">
+<body class="login-page sidebar-collapse" style="background-color: #17223b;">
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
 
@@ -30,10 +32,130 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
+
+        <div class="container register">
+            <div class="row">
+                <div class="col-md-3 register-left">
+                    <img src="~/Imagenes/cropped-cemaq_logo2.png" alt="" />
+                    <h3>BIENVENIDO A</h3>
+                    <h3>CEMAQ DIPLOMADOS</h3>
+                </div>
+                <div class="col-md-9 register-right">
+                    <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Acceder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Registrar</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Iniciar Sesión</h3>
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", @placeholder = "Usuario *", @id = "usuario" } })
+                                        @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.contraseña, new { htmlAttributes = new { @type = "password", @class = "form-control", @placeholder = "Contraseña", @id = "contraseña" } })
+                                        @Html.ValidationMessageFor(model => model.contraseña, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Iniciar Sesión" name="iniciar" class="btn btn-primary btn-round btn-lg btn-block" id="envia" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <h3 class="register-heading">Nuevo Registro</h3>
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(model => model.tipo_doc, (IEnumerable<SelectListItem>)ViewData["lista1"], "Tipo documento *", htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.cedula, new { htmlAttributes = new { @type = "number", @class = "form-control", @placeholder = "N° Cedula *" } })
+                                        @Html.ValidationMessageFor(model => model.cedula, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.nombre1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre *"} })
+                                        @Html.ValidationMessageFor(model => model.nombre1, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.nombre2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Segundo Nombre" } })
+                                        @Html.ValidationMessageFor(model => model.nombre2, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.apellido1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Apellido *" } })
+                                        @Html.ValidationMessageFor(model => model.apellido1, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.apellido2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Segundo Apellido" } })
+                                        @Html.ValidationMessageFor(model => model.apellido2, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @type = "number", @class = "form-control", @placeholder = "N° Telefono *" } })
+                                        @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">                                    
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @type = "email", @class = "form-control", @placeholder = "Correo *" } })
+                                        @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.genero, new { htmlAttributes = new { @type = "text", @class = "form-control", @placeholder = "Genero *" } })
+                                        @Html.ValidationMessageFor(model => model.genero, "", new { @class = "text-danger" })
+                                    </div>                                    
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(model => model.tipo_pobla, (IEnumerable<SelectListItem>)ViewData["lista3"], "Tipo población *", new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(model => model.pais, (IEnumerable<SelectListItem>)ViewData["lista4"], "País de Residencia *", new { @class = "form-control"})                                        
+                                    </div>
+                                    <div class="form-group oculta1" id="capa1">
+                                        @Html.DropDownListFor(model => model.departamento, (IEnumerable<SelectListItem>)ViewData["lista5"], "Departamento *", new { @class = "form-control"})
+                                    </div>
+                                    <div class="form-group oculta2" id="capa2">
+                                        @Html.DropDownListFor(model => model.municipio, (IEnumerable<SelectListItem>)ViewData["lista6"], "Municipio *", new { @class = "form-control"})
+                                    </div>
+                                    <div class="form-group">
+                                        <p>
+                                            @{
+                                                string x = DateTime.Now.ToString("yyyy-MM-dd");
+                                            }
+                                            @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString() } })
+                                            @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
+                                            Fecha de nacimiento *
+                                        </p>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Registrar" name ="subir1" class="btn btn-primary btn-round btn-lg btn-block" id="envia" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            if (ViewBag.mensaje == "Exito")
+            {
+            }
     }
     <!-- Navbar -->
 
-    <div class=" caja">
+   
+
+    @*<div class="caja">
         <div class="fondo">
             <form class="form_caja">
                 <div class="form_textbox">
@@ -75,7 +197,7 @@
                         -->
             </form>
         </div>
-    </div>
+    </div>*@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </body>

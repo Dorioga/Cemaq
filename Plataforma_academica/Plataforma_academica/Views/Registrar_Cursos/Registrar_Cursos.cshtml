@@ -45,7 +45,7 @@
                                 <label class="col-md-4 control-label1" style="color:white;">Tipo de Tematica</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
-                                        @Html.DropDownListFor(model => model.codigo_tematica, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
+                                        @Html.DropDownListFor(model => model.codigo_tematica, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--", new { @class = "form-control" })
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 <label class="col-md-4 control-label1" style="color:white;">Duración del Diplomado</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
-                                        @Html.DropDownListFor(model => model.codigo_horas, (IEnumerable<SelectListItem>)ViewData["lista5"], "--Seleccione one--")
+                                        @Html.DropDownListFor(model => model.codigo_horas, (IEnumerable<SelectListItem>)ViewData["lista5"], "--Seleccione one--", new { @class = "form-control" })
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                     <label class="col-sm-4" control-label1" style="color:white;">Modulos</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
-                                                @Html.DropDownListFor(model => model.cantidadBasico, (IEnumerable<SelectListItem>)ViewData["lista2"], "-Cantidad modulos-")
+                                                @Html.DropDownListFor(model => model.cantidadBasico, (IEnumerable<SelectListItem>)ViewData["lista2"], "-Cantidad modulos-", new { @class = "form-control" })
                                             </div>
                                          </div> 
                                     @*<div class="col-sm-4">
@@ -90,18 +90,18 @@
                                 {
                                     <div class="form-group" id="Cantidad">
                                         <div class="col-sm-4">
-                                                <h3 style="color:white;">Basico</h3>
+                                                <h3 style="color:white;">Modulos Nuevos</h3>
                                                 <div class="col-md-81 inputGroupContainer">
                                                 @for (int k = 0; k < Convert.ToInt32(ViewBag.mensajebasico); k++)
                                                 {
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                                        @Html.EditorFor(model => model.basico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre U. basico*", @id = "nombre"+k } })
+                                                        @Html.EditorFor(model => model.basico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre M.odulo*", @id = "nombre"+k } })
                                                         @Html.ValidationMessageFor(model => model.basico[k], "", new { @class = "text-danger" })
                                                     </div>
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                                                        @Html.EditorFor(model => model.descripcionbasico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "descripción U. basico*", @id = "nombre"+k } })
+                                                        @Html.EditorFor(model => model.descripcionbasico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "descripción Modulo*", @id = "nombre"+k } })
                                                         @Html.ValidationMessageFor(model => model.descripcionbasico[k], "", new { @class = "text-danger" })
                                                     </div>
                                                 }

@@ -12,10 +12,10 @@ namespace Plataforma_academica.Models
         public string nombre_municipio{ set; get; }
 
 
-        public Municipio[] BuscarMunicipio(string depart)
+        public Municipio[] BuscarMunicipio()
         {
             Conexion.Conexion con = new Conexion.Conexion();
-            DataTable municipio = con.Execute_Query("call Pr_cargar_municipio('" + depart+ "')");
+            DataTable municipio = con.Execute_Query("call Pr_cargar_municipio()");
             Municipio[] arreglo = new Municipio[municipio.Rows.Count];
             int j = 0;
             foreach (DataRow i in municipio.Rows)

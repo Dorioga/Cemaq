@@ -14,6 +14,8 @@ namespace Plataforma_academica.Controllers
         public ActionResult principalplataforma()
         {
             Models.Login user = Session["usuario"] as Models.Login;
+            //Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
+            //Plataforma_academica.Models.principalP[] arreglo;
             Models.Niveles nivel = new Models.Niveles();
             if (user == null)
             {
@@ -21,6 +23,11 @@ namespace Plataforma_academica.Controllers
             }
             else
             {
+                //arreglo = principal.BuscarCursos(user.cedula);
+                //if (arreglo.Length == 0)
+                //{
+                //    return RedirectToAction("Principal_todos", "Principal_todos");
+                //}
                 String codig = Request.Form["ir"];
 
                 if (codig != null)

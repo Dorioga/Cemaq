@@ -232,6 +232,7 @@
     <Compile Include="Models\Registrar_Cursos.cs" />
     <Compile Include="Models\Registrar_Trabajador.cs" />
     <Compile Include="Models\Reporte.cs" />
+    <Compile Include="Models\Registrar_estudiante.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Subir_contenidos.cs" />
     <Compile Include="Models\Clasificacion_multimedia.cs" />
@@ -272,6 +273,7 @@
     <Content Include="Estilos\modalzoom.css" />
     <Content Include="Estilos\Modal_Inicio.css" />
     <Content Include="Estilos\navbarderecho1.css" />
+    <Content Include="Estilos\nuevo_login.css" />
     <Content Include="Estilos\paginaci.css" />
     <Content Include="Estilos\practica_textaarea.css" />
     <Content Include="Estilos\principal.css" />
@@ -302,6 +304,7 @@
     <Content Include="Imagenes\construccion-y-herramientas.png" />
     <Content Include="Imagenes\Corel.png" />
     <Content Include="Imagenes\cropped-cemaq_logo2-2.png" />
+    <Content Include="Imagenes\cropped-cemaq_logo2.png" />
     <Content Include="Imagenes\cropped-favicom-32x32.png" />
     <Content Include="Imagenes\d0a964d7-76e1-4186-b03e-021f57f3b982.jpg" />
     <Content Include="Imagenes\Excel.png" />

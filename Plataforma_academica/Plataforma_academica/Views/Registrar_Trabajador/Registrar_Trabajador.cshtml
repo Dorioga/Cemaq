@@ -6,6 +6,7 @@
 }
 <head>
     <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
+    <link href="~/Estilos/modal.css" rel="stylesheet" type="text/css">
 </head>
 
 @using (Html.BeginForm()) 
@@ -18,14 +19,14 @@
         <table class="table table-striped">
             <tbody>
                 <tr>
-                    <td colspan="1">
-                        <div class="well form-horizontal">
+                    <td colspan="1" style="background-color: #17223b;border: 1px solid #ffffff00;">
+                        <div class="well form-horizontal" style="background-color: #17223b;border: 1px solid #fffbfb;">
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Tipo de Documento</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
-                                        @Html.DropDownListFor(model => model.tipo_doc, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
+                                        @Html.DropDownListFor(model => model.tipo_doc, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--", new { @class = "form-control" })
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +137,7 @@
                                 <label class="col-md-4 control-label">Tipo Población</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
-                                        @Html.DropDownListFor(model => model.tipo_pobla, (IEnumerable<SelectListItem>)ViewData["lista3"], "--Seleccione one--")
+                                        @Html.DropDownListFor(model => model.tipo_pobla, (IEnumerable<SelectListItem>)ViewData["lista3"], "--Seleccione one--", new { @class = "form-control" })
                                     </div>
                                 </div>
                             </div>
@@ -144,11 +145,11 @@
                                 <label class="col-md-4 control-label">Tipo de Rol</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
-                                        @Html.DropDownListFor(model => model.tipo_rol, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
+                                        @Html.DropDownListFor(model => model.tipo_rol, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--", new { @class = "form-control" })
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" name="subir1" value="Finalizar">Guardar</button>
+                            <button type="submit" name="subir1" style="width: 15%; text-align: center;padding-left: 0px;" class="btn btn-primary btn-round btn-lg btn-block" value="Finalizar">Guardar</button>
                         </div>
                     </td>
                 </tr>

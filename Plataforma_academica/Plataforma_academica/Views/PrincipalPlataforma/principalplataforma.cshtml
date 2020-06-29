@@ -141,6 +141,10 @@
                         {
 
                             arreglo = principal.BuscarCursos(usu.cedula);
+                            if (arreglo.Length == 0)
+                            {
+                                <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
+                            }
 
                             for (int i = 0; i < arreglo.Length; i++)
                             {

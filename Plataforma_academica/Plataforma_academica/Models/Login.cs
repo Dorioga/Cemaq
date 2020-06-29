@@ -14,6 +14,19 @@ namespace Plataforma_academica.Models
         public string rol { set; get; }
         public string cedula { set; get; }
         public string Tipo_rol { set; get; }
+        public string tipo_doc { set; get; }
+        public string tipo_pobla { set; get; }
+        public string nombre1 { set; get; }
+        public string nombre2 { set; get; }
+        public string apellido1 { set; get; }
+        public string apellido2 { set; get; }
+        public DateTime fecha_nacimiento { set; get; }
+        public string telefono { set; get; }
+        public string correo { set; get; }
+        public string genero { set; get; }
+        public string municipio { set; get; }
+        public string departamento { set; get; }
+        public string pais { set; get; }
         public string conexion_usuario { set; get; }
 
         private Conexion.Conexion conexion;
@@ -24,6 +37,15 @@ namespace Plataforma_academica.Models
             conexion = new Conexion.Conexion();
             DataTable x = conexion.Execute_Query("call Pr_Iniciar_sesion ('" + u + "', '" + c + "')");
             return x;
+
+        }
+
+        public bool Registrar_estudiante(Login obj)
+        {
+            conexion = new Conexion.Conexion();
+            string fecha = obj.fecha_nacimiento.ToString("yyyy-MM-dd");
+            int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "')");
+            return x == 0 ? true : false;
 
         }
 

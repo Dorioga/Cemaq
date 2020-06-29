@@ -23,7 +23,7 @@ namespace Plataforma_academica.Controllers
             {
                 if (Convert.ToInt32(user.rol) > 3)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Login");
                 }else
                 {
                     if (Request.Form["listar"] != null)
