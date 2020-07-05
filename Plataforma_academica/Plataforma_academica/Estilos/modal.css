@@ -11,6 +11,7 @@
     background-clip: padding-box;
 }
 
+
 select.form-control:not([size]):not([multiple]) {
     height: calc(3.25rem + 2px);
     border-radius: 3px;

@@ -11,6 +11,12 @@
 a{
     color:white;
 }
+
+a:not([href]):not([tabindex]) {
+    color: white;
+    text-decoration: none;
+}
+
 hmtl, body {
     height: 87vh;
    

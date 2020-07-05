@@ -6,12 +6,18 @@
     font-weight: inherit;
     font-size: 14px;
     line-height: 1.428571429;
-    color: #555555;
+    color: #ffffff;
     vertical-align: middle;
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
+    background-color: #021d3a;
+    border: 1px solid #ffffff;
     border-radius: 4px;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+h5, .h5 {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
 }
 
 .modal.in .modal-dialog {

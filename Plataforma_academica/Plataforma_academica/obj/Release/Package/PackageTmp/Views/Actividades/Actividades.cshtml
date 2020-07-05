@@ -11,6 +11,7 @@
     <link href="~/Estilos/paginaci.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="~/Estilos/bookblock.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 
@@ -23,7 +24,6 @@
         <div class="bb-custom-wrapper">
             <div id="bb-bookblock" class="bb-bookblock">
                 <nav>
-
                     <span id="bb-nav-next"> → </span>
                     <span id="bb-nav-prev"> ← </span>
                 </nav>
@@ -51,7 +51,10 @@
                                     @{
                                         if (i == 0)
                                         {
-                                            <h2>@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
+                                            <h2 style="color: white;">@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
+                                            <button type="submit" id="subir" name="subir" value="@arreglo[i].arch" class="btn btn-primary">Descargar Contenido</button>
+                                            <br />
+                                            <br />
                                             if (arreglo[i].id_tipo_multimedia == "3")
                                             {
                                                 <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
@@ -62,18 +65,31 @@
                                                 {
                                                     <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
                                                     <section>
-                                                        <div>
+                                                        <div @*class="w3-animate-zoom"*@>
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                         </div>
                                                     </section>
                                                 }
                                                 else
                                                 {
-                                                    <section>
-                                                        <div class="embed-responsive ">
-                                                            <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
-                                                        </div>
-                                                    </section>
+                                                    if (arreglo[i].descripcion != null)
+                                                    {
+                                                        <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                                        <section>
+                                                            <div class="embed-responsive ">
+                                                                <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                            </div>
+                                                        </section>
+                                                    }
+                                                    else
+                                                    {
+                                                        <section>
+                                                            <div class="embed-responsive ">
+                                                                <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                            </div>
+                                                        </section>
+                                                    }
+
                                                 }
                                             }
                                         }
@@ -83,9 +99,9 @@
                                             {
                                                 <section>
                                                     <article>
-                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                        <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
 
-                                                        <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
+                                                        <textarea id="autosize" style="border-radius: 5px;">@arreglo[i].contenido_seccion </textarea>
 
                                                     </article>
                                                 </section>
@@ -95,7 +111,7 @@
                                                 if (arreglo[i].contenido_seccion == "\r\n")
                                                 {
                                                     <section>
-                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                        <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
                                                         <div class="embed-responsive1">
                                                             <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                         </div>
@@ -105,8 +121,8 @@
                                                 {
                                                     <section>
                                                         <article>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
+                                                            <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                            <textarea id="autosize" style="border-radius: 5px;">@arreglo[i].contenido_seccion </textarea>
                                                         </article>
                                                     </section>
                                                     <section>
@@ -121,8 +137,8 @@
                                                 if (arreglo[i].contenido_seccion == "\r\n")
                                                 {
                                                     <section>
-                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                        <div>
+                                                        <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                        <div @*class="w3-animate-zoom"*@>
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                         </div>
                                                     </section>
@@ -131,12 +147,12 @@
                                                 {
                                                     <section>
                                                         <article>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
+                                                            <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                            <textarea id="autosize" style="border-radius: 5px;">@arreglo[i].contenido_seccion </textarea>
                                                         </article>
                                                     </section>
                                                     <section>
-                                                        <div>
+                                                        <div @*class="w3-animate-zoom"*@>
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                         </div>
                                                     </section>
@@ -147,7 +163,7 @@
                                                 if (arreglo[i].contenido_seccion == "\r\n")
                                                 {
                                                     <section>
-                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                        <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
                                                         <audio controls>
                                                             <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
                                                         </audio>
@@ -157,8 +173,8 @@
                                                 {
                                                     <section>
                                                         <article>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
+                                                            <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                            <textarea id="autosize" style="border-radius: 5px;">@arreglo[i].contenido_seccion </textarea>
                                                         </article>
                                                     </section>
                                                     <section>
@@ -191,7 +207,10 @@
                                         @{
                                             if (i == 0)
                                             {
-                                                <h2>@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
+                                                <h2 style="color: white;">@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
+                                                <button type="submit" id="subir" name="subir" value="@arreglo[i].arch" class="btn btn-primary">Descargar Contenido</button>
+                                                <br />
+                                                <br />
                                                 if (arreglo[i].id_tipo_multimedia == "3")
                                                 {
                                                     <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
@@ -202,18 +221,31 @@
                                                     {
                                                         <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
                                                         <section>
-                                                            <div>
+                                                            <div @*class="w3-animate-zoom"*@>
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                             </div>
                                                         </section>
                                                     }
                                                     else
                                                     {
-                                                        <section>
-                                                            <div class="embed-responsive ">
-                                                                <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
-                                                            </div>
-                                                        </section>
+                                                        if (arreglo[i].descripcion != null)
+                                                        {
+                                                            <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                                            <section>
+                                                                <div class="embed-responsive ">
+                                                                    <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                                </div>
+                                                            </section>
+                                                        }
+                                                        else
+                                                        {
+                                                            <section>
+                                                                <div class="embed-responsive ">
+                                                                    <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                                </div>
+                                                            </section>
+                                                        }
+
                                                     }
                                                 }
                                             }
@@ -223,8 +255,8 @@
                                                 {
                                                     <section>
                                                         <article>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
+                                                            <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                            <textarea id="autosize" style="border-radius: 5px;">@arreglo[i].contenido_seccion </textarea>
                                                         </article>
                                                     </section>
                                                 }
@@ -233,7 +265,7 @@
                                                     if (arreglo[i].contenido_seccion == "\r\n")
                                                     {
                                                         <section>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                            <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
                                                             <div class="embed-responsive ">
                                                                 <iframe src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                             </div>
@@ -243,9 +275,9 @@
                                                     {
                                                         <section>
                                                             <article>
-                                                                <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                                <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
                                                                 <!-- Html.TextArea("autosize", arreglo[i].contenido_seccion)-->
-                                                                <textarea id="autosize1">@arreglo[i].contenido_seccion </textarea>
+                                                                <textarea id="autosize1" style="border-radius: 5px;">@arreglo[i].contenido_seccion </textarea>
                                                             </article>
                                                         </section>
                                                         <section>
@@ -260,8 +292,8 @@
                                                     if (arreglo[i].contenido_seccion == "\r\n")
                                                     {
                                                         <section>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <div>
+                                                            <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                            <div @*class="w3-animate-zoom"*@>
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                             </div>
                                                         </section>
@@ -270,8 +302,8 @@
                                                     {
                                                         <section>
                                                             <article>
-                                                                <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                                <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
+                                                                <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                                <textarea id="autosize" style="border-radius: 5px;">@arreglo[i].contenido_seccion </textarea>
                                                             </article>
                                                         </section>
                                                         <section>
@@ -286,7 +318,7 @@
                                                     if (arreglo[i].contenido_seccion == "\r\n")
                                                     {
                                                         <section>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                            <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
                                                             <audio controls>
                                                                 <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
                                                             </audio>
@@ -296,8 +328,8 @@
                                                     {
                                                         <section>
                                                             <article>
-                                                                <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                                <textarea id="autosize">@arreglo[i].contenido_seccion </textarea>
+                                                                <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                                <textarea id="autosize" style="border-radius: 5px;">@arreglo[i].contenido_seccion </textarea>
                                                             </article>
                                                         </section>
                                                         <section>
@@ -312,16 +344,70 @@
                                             <div>
                                                 <span class="step">@m</span>
                                             </div>
-
+                                            if (i==(arreglo.Length-1) && arreglo[i].edicion_estado=="Pendiente")
+                                            {
+                                              <div>
+                                                  <h5 style="color: white;">Descripción para editar</h5>
+                                                  @Html.TextAreaFor(model => model.edicion, new { @class = "form-control" })
+                                                  <button  type="submit" class="btn" name="iraprobado" value="@arreglo[i].id_actividad" onclick="activar()" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Aprobado</button>
+                                                  <button type="submit" class="btn" name="irdesaprobado" value="@arreglo[i].id_actividad" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Desaprobado</button>
+                                              </div>
+                                            }
                                         }
                                     </div>
 
                                 }
                             }
+                          if (ViewBag.mensaje1 == "actualizacion" || ViewBag.mensaje1 == "actualizacion_no_registro")
+                          {
+                             <script>
+                                 $(document).ready(function () {
+                                     $("#myModal").modal("hide");
+                                 });
+                             </script>
+                             @Scripts.Render("~/Scripts/actualizar.js")
+
+                          }
                         }
                     }
 
                 }
+            </div>
+            <div class="modal fade" id="mostrarmodal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog" style="position: initial;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3 style="position: absolute;">Verificacion de proceso</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h4>@ViewBag.mensaje</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="btn btn-danger">Finalizar verificacion</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3 style="position: absolute;">Activar la actividad e informar por correo</h3>
+                        </div>
+                        <div class="modal-body">
+                            <img src="~/Imagenes/giphy.gif" />
+                        </div>
+                        <div class="modal-footer">
+                            <p style="text-align: center;">Este proceso puede tomar algunos minutos, al finalizar sera redirigido</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <!-- Botones-->
             <!-- Circles which indicates the steps of the form: -->
@@ -331,6 +417,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.1/script/jquery.jscrollpane.min.js"></script>
     <script src="~/Scripts/jquery.bookblock.js"></script>
+    <script>
+        function activar(){
+            $(document).ready(function () {
+                $("#myModal").modal("show");
+            });
+        }
+    </script>
     <script>
         var Pagina = (function () {
 

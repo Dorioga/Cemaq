@@ -19,42 +19,46 @@ namespace Plataforma_academica.Controllers
         public ActionResult Login(Login usr, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla, Municipio mun, Pais pa, Departamento d)
         {
             DataTable datos = null; 
-                if (usr.usuario == null || usr.contraseña == null)
-                {
-                    ViewBag.mensaje = "vacios";
-                }
+                
                     String codigo2 = Request.Form["iniciar"];
                     if (codigo2 != null)
                     {
-                        datos = user.BuscarPersona(usr.usuario, usr.contraseña);
-
-                        if (datos != null && datos.Rows.Count > 0)
+                        if (usr.usuario == null || usr.contraseña == null)
                         {
-                            user.Nombre = datos.Rows[0]["nombre"].ToString();
-                            user.rol = datos.Rows[0]["id_rol"].ToString();
-                            user.cedula = datos.Rows[0]["id_persona"].ToString();
-                            user.Tipo_rol = datos.Rows[0]["nombre_rol"].ToString();
-                            user.cedula = datos.Rows[0]["id_persona"].ToString();
-                            user.usuario = datos.Rows[0]["id_usuario"].ToString();
-                            user.conexion_usuario = datos.Rows[0]["estado_conexion_usuario"].ToString();
-                            Session["usuario"] = user;
-                            ViewBag.mensaje = "datos correctos";
-                            if (Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) < 7 && Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) > 3)
+                            ViewBag.mensaje = "vacios";
+                            ViewBag.mensaje2 = "Los campos de Usuario y Contraseña no deben estar vacios";
+                        }else
+                        {
+                            datos = user.BuscarPersona(usr.usuario, usr.contraseña);
+
+                            if (datos != null && datos.Rows.Count > 0)
                             {
-                                return RedirectToAction("principalplataforma", "PrincipalPlataforma");//Pagina secundaria luego del login
+                                user.Nombre = datos.Rows[0]["nombre"].ToString();
+                                user.rol = datos.Rows[0]["id_rol"].ToString();
+                                user.cedula = datos.Rows[0]["id_persona"].ToString();
+                                user.Tipo_rol = datos.Rows[0]["nombre_rol"].ToString();
+                                user.cedula = datos.Rows[0]["id_persona"].ToString();
+                                user.usuario = datos.Rows[0]["id_usuario"].ToString();
+                                user.conexion_usuario = datos.Rows[0]["estado_conexion_usuario"].ToString();
+                                Session["usuario"] = user;
+                                if (Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) < 7 && Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) > 3)
+                                {
+                                    return RedirectToAction("principalplataforma", "PrincipalPlataforma");//Pagina secundaria luego del login
+                                }
+                                else
+                                {
+                                    return RedirectToAction("seleccionar_unidad_para_contenido", "Seleccionar_para_subir_contenido");
+                                }
 
                             }
                             else
                             {
-                                return RedirectToAction("seleccionar_unidad_para_contenido", "Seleccionar_para_subir_contenido");
+                                ViewBag.mensaje = "datos incorrectos";
+                                ViewBag.mensaje2 = "El Usuario o Contraseña son incorrectos, ingrese los datos e intentelo nuevamente";
                             }
-
-                        }
-                        else
-                        {
-                            ViewBag.mensaje = "datos incorrectos";
-                        }
-                    }
+                        }               
+                
+                    }       
                     
                 if (Request.Form["listar1"] != null)
                 {
@@ -165,10 +169,12 @@ namespace Plataforma_academica.Controllers
                     if (usr.Registrar_estudiante(usr))
                     {
                         ViewBag.mensaje = "Exito";
+                        ViewBag.mensaje2 = "El Nuevo Usuario fue registrado con exito, se envió los datos de inicio de sesión, al correo "+usr.correo;
                     }
                     else
                     {
-                        ViewBag.mensaje = "No se registro el examen";
+                        ViewBag.mensaje = "No se registro el usuario";
+                        ViewBag.mensaje2 = "El Usuario no fue registrado, intentelo nuevamente.";
                     }
                 }
             }
@@ -186,6 +192,7 @@ namespace Plataforma_academica.Controllers
                 return false;
             }
         }
+
 
         public ActionResult cerrarsesion()
         {

@@ -44,19 +44,28 @@ namespace Plataforma_academica.Models
         }
 
 
-        public bool Registrar_Nivel_Beneficiarios(Registrar_Beneficiario obj)
+        public bool Registrar_Nivel_Beneficiarios(string id_curso, string nivel1, string usuario)
         {
-            int y = Convert.ToInt32(obj.cantidad_nivel);
+            
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_ingresar_nivel_usuario ('" + obj.cedula + "','" + obj.nombre_curso + "','" + obj.nivel1 + "','" + obj.nivel2 + "','" + obj.nivel3 + "','" + y + "')");
+            int x = conexion.Execute_Operation("call Pr_ingresar_nivel_usuario ('" + id_curso + "','" + nivel1 + "','"+usuario+"')");
             return x == 0 ? true : false;
 
         }
 
-        public bool Registrar_Unidad_Beneficiarios1(Registrar_Beneficiario obj,  Registrar_Beneficiario obj1)
+        public bool Registrar_curso_usuario(string usuario, string id_curso)
+        {
+
+            conexion = new Conexion.Conexion();
+            int x = conexion.Execute_Operation("call Pr_registrar_curso_usuario ('" + id_curso + "','" + usuario + "')");
+            return x > 0 ? true : false;
+
+        }
+
+        public bool Registrar_Unidad_Beneficiarios1(Principal_todos obj, string id_curso, string id_nivel, string usuario)
         {
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_ingresar_unidades_beneficiario ('" + obj.codigo_unidad + "', '" + obj1.nombre_curso + "', '" + obj1.nivel1 + "', '" + obj1.cedula + "')");
+            int x = conexion.Execute_Operation("call Pr_ingresar_unidades_beneficiario ('" + obj.id_unidad + "', '" + id_curso + "', '" + id_nivel + "','"+usuario+"')");
             return x > 0 ? true : false;
 
         }
@@ -77,26 +86,26 @@ namespace Plataforma_academica.Models
 
         }
 
-        public bool Registrar_actividad_Beneficiarios(Registrar_Beneficiario obj, Registrar_Beneficiario obj1, Registrar_Beneficiario obj2)
+        public bool Registrar_actividad_Beneficiarios(Principal_todos obj, string usuario, Principal_todos obj1)
         {
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_ingresar_actividad_beneficiario ('" + obj2.codigo_unidad + "', '" + obj1.cedula + "', '" + obj.codigo_actividad + "')");
+            int x = conexion.Execute_Operation("call Pr_ingresar_actividad_beneficiario ('" + obj.id_unidad + "', '" + usuario + "', '" + obj1.id_actividad + "')");
             return x > 0 ? true : false;
 
         }
 
-        public bool Registrar_examen_Beneficiarios(Registrar_Beneficiario obj, Registrar_Beneficiario obj1, Registrar_Beneficiario obj2)
+        public bool Registrar_examen_Beneficiarios(Principal_todos obj, string usuario)
         {
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_ingresar_examen_beneficiario ('" + obj2.codigo_unidad + "', '" + obj1.cedula + "', '"+obj.codigo_examen+"')");
+            int x = conexion.Execute_Operation("call Pr_ingresar_examen_beneficiario ('" + obj.id_unidad + "', '" + usuario + "', '"+obj.id_examen+"')");
             return x > 0 ? true : false;
 
         }
 
-        public DataTable Buscarunidades_para_registrar1(Registrar_Beneficiario obj)
+        public DataTable Buscarunidades_para_registrar1(string id_nivel, string id_curso)
         {
             conexion = new Conexion.Conexion();
-            DataTable x = conexion.Execute_Query("call Pr_cargar_unidades_registrar_beneficiario('" + obj.nivel1 + "', '" + obj.nombre_curso + "')");
+            DataTable x = conexion.Execute_Query("call Pr_cargar_unidades_registrar_beneficiario('" + id_nivel + "', '" + id_curso + "')");
             return x;
         }
 
@@ -114,17 +123,17 @@ namespace Plataforma_academica.Models
             return x;
         }
 
-        public DataTable Buscarexamen_para_registrar(Registrar_Beneficiario obj)
+        public DataTable Buscarexamen_para_registrar(Principal_todos obj)
         {
             conexion = new Conexion.Conexion();
-            DataTable x = conexion.Execute_Query("call Pr_cargar_examen_beneficiario('" + obj.codigo_unidad + "')");
+            DataTable x = conexion.Execute_Query("call Pr_cargar_examen_beneficiario('" + obj.id_unidad + "')");
             return x;
         }
 
-        public DataTable Buscaractividades_para_registrar(Registrar_Beneficiario obj)
+        public DataTable Buscaractividades_para_registrar(Principal_todos obj)
         {
             conexion = new Conexion.Conexion();
-            DataTable x = conexion.Execute_Query("call Pr_cargar_actividad_beneficiario('" + obj.codigo_unidad + "')");
+            DataTable x = conexion.Execute_Query("call Pr_cargar_actividad_beneficiario('" + obj.id_unidad + "')");
             return x;
         }
 

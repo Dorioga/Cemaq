@@ -92,156 +92,156 @@ namespace Plataforma_academica.Controllers
                                     {
                                         if (D.Registrar_Beneficiarios(R))
                                         {
-                                            if (D.Registrar_Nivel_Beneficiarios(R))
-                                            {
-                                                if (Convert.ToUInt32(R.cantidad_nivel) == 1)
-                                                {
-                                                    datos2 = D.Buscarunidades_para_registrar1(R);
-                                                    for (int i = 0; i < datos2.Rows.Count; i++)
-                                                    {
-                                                        unidad.codigo_unidad = datos2.Rows[i]["id_unidad"].ToString();
-                                                        if (unidad1.Registrar_Unidad_Beneficiarios1(unidad, R))
-                                                        {
-                                                            datos1 = D.Buscaractividades_para_registrar(unidad);
-                                                            for (int j = 0; j < datos1.Rows.Count; j++)
-                                                            {
-                                                                actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
-                                                                actividad.Registrar_actividad_Beneficiarios(actividad,R, unidad);
+                                            //if (D.Registrar_Nivel_Beneficiarios(R))
+                                            //{
+                                            //    if (Convert.ToUInt32(R.cantidad_nivel) == 1)
+                                            //    {
+                                            //        datos2 = D.Buscarunidades_para_registrar1(R);
+                                            //        for (int i = 0; i < datos2.Rows.Count; i++)
+                                            //        {
+                                            //            unidad.codigo_unidad = datos2.Rows[i]["id_unidad"].ToString();
+                                            //            if (unidad1.Registrar_Unidad_Beneficiarios1(unidad, R))
+                                            //            {
+                                            //                datos1 = D.Buscaractividades_para_registrar(unidad);
+                                            //                for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                {
+                                            //                    actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
+                                            //                    actividad.Registrar_actividad_Beneficiarios(actividad,R, unidad);
 
-                                                            }
-                                                            datos1 = D.Buscarexamen_para_registrar(unidad);
-                                                            for (int j = 0; j < datos1.Rows.Count; j++)
-                                                            {
-                                                                actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
-                                                                actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
+                                            //                }
+                                            //                datos1 = D.Buscarexamen_para_registrar(unidad);
+                                            //                for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                {
+                                            //                    actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
+                                            //                    actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
 
-                                                            }
-                                                        }
+                                            //                }
+                                            //            }
 
-                                                    }
-                                                }else
-                                                {
-                                                    if (Convert.ToUInt32(R.cantidad_nivel) == 2)
-                                                    {
-                                                        datos1 = D.Buscarunidades_para_registrar1(R);
-                                                        for (int i = 0; i < datos1.Rows.Count; i++)
-                                                        {
-                                                            unidad.codigo_unidad = datos1.Rows[i]["id_unidad"].ToString();
-                                                            if (unidad1.Registrar_Unidad_Beneficiarios1(unidad, R))
-                                                            {
-                                                                datos1 = D.Buscaractividades_para_registrar(unidad);
-                                                                for (int j = 0; j < datos1.Rows.Count; j++)
-                                                                {
-                                                                    actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
-                                                                    actividad.Registrar_actividad_Beneficiarios(actividad, R, unidad);
+                                            //        }
+                                            //    }else
+                                            //    {
+                                            //        if (Convert.ToUInt32(R.cantidad_nivel) == 2)
+                                            //        {
+                                            //            datos1 = D.Buscarunidades_para_registrar1(R);
+                                            //            for (int i = 0; i < datos1.Rows.Count; i++)
+                                            //            {
+                                            //                unidad.codigo_unidad = datos1.Rows[i]["id_unidad"].ToString();
+                                            //                if (unidad1.Registrar_Unidad_Beneficiarios1(unidad, R))
+                                            //                {
+                                            //                    datos1 = D.Buscaractividades_para_registrar(unidad);
+                                            //                    for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                    {
+                                            //                        actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
+                                            //                        actividad.Registrar_actividad_Beneficiarios(actividad, R, unidad);
 
-                                                                }
-                                                                datos1 = D.Buscarexamen_para_registrar(unidad);
-                                                                for (int j = 0; j < datos1.Rows.Count; j++)
-                                                                {
-                                                                    actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
-                                                                    actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
+                                            //                    }
+                                            //                    datos1 = D.Buscarexamen_para_registrar(unidad);
+                                            //                    for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                    {
+                                            //                        actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
+                                            //                        actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
 
-                                                                }
-                                                            }
-                                                        }
-                                                        datos1 = R.Buscarunidades_para_registrar2(R);
-                                                        for (int i = 0; i < datos1.Rows.Count; i++)
-                                                        {
-                                                            unidad.codigo_unidad = datos1.Rows[i]["id_unidad"].ToString();
-                                                            if (unidad1.Registrar_Unidad_Beneficiarios2(unidad, R))
-                                                            {
-                                                                datos1 = D.Buscaractividades_para_registrar(unidad);
-                                                                for (int j = 0; j < datos1.Rows.Count; j++)
-                                                                {
-                                                                    actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
-                                                                    actividad.Registrar_actividad_Beneficiarios(actividad, R, unidad);
+                                            //                    }
+                                            //                }
+                                            //            }
+                                            //            datos1 = R.Buscarunidades_para_registrar2(R);
+                                            //            for (int i = 0; i < datos1.Rows.Count; i++)
+                                            //            {
+                                            //                unidad.codigo_unidad = datos1.Rows[i]["id_unidad"].ToString();
+                                            //                if (unidad1.Registrar_Unidad_Beneficiarios2(unidad, R))
+                                            //                {
+                                            //                    datos1 = D.Buscaractividades_para_registrar(unidad);
+                                            //                    for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                    {
+                                            //                        actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
+                                            //                        actividad.Registrar_actividad_Beneficiarios(actividad, R, unidad);
 
-                                                                }
-                                                                datos1 = D.Buscarexamen_para_registrar(unidad);
-                                                                for (int j = 0; j < datos1.Rows.Count; j++)
-                                                                {
-                                                                    actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
-                                                                    actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
+                                            //                    }
+                                            //                    datos1 = D.Buscarexamen_para_registrar(unidad);
+                                            //                    for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                    {
+                                            //                        actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
+                                            //                        actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
 
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                    else
-                                                    {
-                                                        if (Convert.ToUInt32(R.cantidad_nivel) == 3)
-                                                        {
-                                                            datos1 = D.Buscarunidades_para_registrar1(R);
-                                                            for (int i = 0; i < datos1.Rows.Count; i++)
-                                                            {
-                                                                unidad.codigo_unidad = datos1.Rows[i]["id_unidad"].ToString();
-                                                                if (unidad1.Registrar_Unidad_Beneficiarios1(unidad, R))
-                                                                {
-                                                                    datos1 = D.Buscaractividades_para_registrar(unidad);
-                                                                    for (int j = 0; j < datos1.Rows.Count; j++)
-                                                                    {
-                                                                        actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
-                                                                        actividad.Registrar_actividad_Beneficiarios(actividad, R, unidad);
+                                            //                    }
+                                            //                }
+                                            //            }
+                                            //        }
+                                            //        else
+                                            //        {
+                                            //            if (Convert.ToUInt32(R.cantidad_nivel) == 3)
+                                            //            {
+                                            //                datos1 = D.Buscarunidades_para_registrar1(R);
+                                            //                for (int i = 0; i < datos1.Rows.Count; i++)
+                                            //                {
+                                            //                    unidad.codigo_unidad = datos1.Rows[i]["id_unidad"].ToString();
+                                            //                    if (unidad1.Registrar_Unidad_Beneficiarios1(unidad, R))
+                                            //                    {
+                                            //                        datos1 = D.Buscaractividades_para_registrar(unidad);
+                                            //                        for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                        {
+                                            //                            actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
+                                            //                            actividad.Registrar_actividad_Beneficiarios(actividad, R, unidad);
 
-                                                                    }
-                                                                    datos1 = D.Buscarexamen_para_registrar(unidad);
-                                                                    for (int j = 0; j < datos1.Rows.Count; j++)
-                                                                    {
-                                                                        actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
-                                                                        actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
+                                            //                        }
+                                            //                        datos1 = D.Buscarexamen_para_registrar(unidad);
+                                            //                        for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                        {
+                                            //                            actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
+                                            //                            actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
 
-                                                                    }
-                                                                }
-                                                            }
-                                                            datos1 = D.Buscarunidades_para_registrar2(R);
-                                                            for (int i = 0; i < datos1.Rows.Count; i++)
-                                                            {
-                                                                unidad.codigo_unidad = datos1.Rows[i]["id_unidad"].ToString();
-                                                                if (unidad1.Registrar_Unidad_Beneficiarios2(unidad, R))
-                                                                {
-                                                                    datos1 = D.Buscaractividades_para_registrar(unidad);
-                                                                    for (int j = 0; j < datos1.Rows.Count; j++)
-                                                                    {
-                                                                        actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
-                                                                        actividad.Registrar_actividad_Beneficiarios(actividad, R, unidad);
+                                            //                        }
+                                            //                    }
+                                            //                }
+                                            //                datos1 = D.Buscarunidades_para_registrar2(R);
+                                            //                for (int i = 0; i < datos1.Rows.Count; i++)
+                                            //                {
+                                            //                    unidad.codigo_unidad = datos1.Rows[i]["id_unidad"].ToString();
+                                            //                    if (unidad1.Registrar_Unidad_Beneficiarios2(unidad, R))
+                                            //                    {
+                                            //                        datos1 = D.Buscaractividades_para_registrar(unidad);
+                                            //                        for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                        {
+                                            //                            actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
+                                            //                            actividad.Registrar_actividad_Beneficiarios(actividad, R, unidad);
 
-                                                                    }
-                                                                    datos1 = D.Buscarexamen_para_registrar(unidad);
-                                                                    for (int j = 0; j < datos1.Rows.Count; j++)
-                                                                    {
-                                                                        actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
-                                                                        actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
+                                            //                        }
+                                            //                        datos1 = D.Buscarexamen_para_registrar(unidad);
+                                            //                        for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                        {
+                                            //                            actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
+                                            //                            actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
 
-                                                                    }
-                                                                }
-                                                            }
-                                                            datos1 = D.Buscarunidades_para_registrar3(R);
-                                                            for (int i = 0; i < datos1.Rows.Count; i++)
-                                                            {
-                                                                unidad.codigo_unidad = datos1.Rows[i]["id_unidad"].ToString();
-                                                                if (unidad1.Registrar_Unidad_Beneficiarios3(unidad, R))
-                                                                {
-                                                                    datos1 = D.Buscaractividades_para_registrar(unidad);
-                                                                    for (int j = 0; j < datos1.Rows.Count; j++)
-                                                                    {
-                                                                        actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
-                                                                        actividad.Registrar_actividad_Beneficiarios(actividad, R, unidad);
+                                            //                        }
+                                            //                    }
+                                            //                }
+                                            //                datos1 = D.Buscarunidades_para_registrar3(R);
+                                            //                for (int i = 0; i < datos1.Rows.Count; i++)
+                                            //                {
+                                            //                    unidad.codigo_unidad = datos1.Rows[i]["id_unidad"].ToString();
+                                            //                    if (unidad1.Registrar_Unidad_Beneficiarios3(unidad, R))
+                                            //                    {
+                                            //                        datos1 = D.Buscaractividades_para_registrar(unidad);
+                                            //                        for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                        {
+                                            //                            actividad.codigo_actividad = datos1.Rows[j]["id_actividad"].ToString();
+                                            //                            actividad.Registrar_actividad_Beneficiarios(actividad, R, unidad);
 
-                                                                    }
-                                                                    datos1 = D.Buscarexamen_para_registrar(unidad);
-                                                                    for (int j = 0; j < datos1.Rows.Count; j++)
-                                                                    {
-                                                                        actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
-                                                                        actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
+                                            //                        }
+                                            //                        datos1 = D.Buscarexamen_para_registrar(unidad);
+                                            //                        for (int j = 0; j < datos1.Rows.Count; j++)
+                                            //                        {
+                                            //                            actividad.codigo_examen = datos1.Rows[j]["id_examen"].ToString();
+                                            //                            actividad.Registrar_examen_Beneficiarios(actividad, R, unidad);
 
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }                                             
-                                            }
+                                            //                        }
+                                            //                    }
+                                            //                }
+                                            //            }
+                                            //        }
+                                            //    }                                             
+                                            //}
                                         }else
                                         {
                                             ViewBag.Mensaje = "Incorrecto!";

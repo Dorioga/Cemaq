@@ -291,6 +291,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\20200619151509excel.png" />
+    <Content Include="Imagenes\20200629170822coaching para liderazgo.png" />
+    <Content Include="Imagenes\20200629172954coaching para liderazgo.png" />
+    <Content Include="Imagenes\20200704113900derechos humanos.png" />
     <Content Include="Imagenes\31981.jpg" />
     <Content Include="Imagenes\59235.jpg" />
     <Content Include="Imagenes\68.jpg" />
@@ -354,6 +358,7 @@
     <Content Include="imagen_multimedia\2019112510085120190828173222traiding.jpg" />
     <Content Include="imagen_multimedia\2019112614395320190828164733traiding.jpg" />
     <Content Include="imagen_multimedia\20200414163942mapa.jpg" />
+    <Content Include="imagen_multimedia\20200704124637disciplinario.jpg" />
     <Content Include="imagen_multimedia\3.png" />
     <Content Include="imagen_multimedia\4.png" />
     <Content Include="imagen_multimedia\5.png" />
@@ -385,6 +390,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="imagen_multimedia\20200704124000guia didactica 1-rd generalidades del régimen disciplinario.pdf" />
+    <Content Include="imagen_multimedia\20200704121537el derecho disciplinario en colombia estado del arte.pdf" />
+    <Content Include="imagen_multimedia\20200704115115el derecho disciplinario en colombia estado del arte.pdf" />
+    <Content Include="imagen_multimedia\20200704114619el derecho disciplinario en colombia estado del arte.pdf" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - Web Deploy %282%29.pubxml" />
@@ -401,6 +410,9 @@
     <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy %287%29.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\amazoniaacademia - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\Diplomados-Cemaq - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Diplomados-Cemaq - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Diplomados-Cemaq - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\botonregresar.js" />
     <Content Include="Scripts\buton_examen.js" />
@@ -413,6 +425,7 @@
     <Content Include="Scripts\CrearSeccion.js" />
     <Content Include="Scripts\departamento.js" />
     <Content Include="Scripts\Deshabilitar_creacion_exame.js" />
+    <Content Include="Scripts\Emerentelogin.js" />
     <Content Include="Scripts\Emergente.js" />
     <Content Include="Scripts\Emergente1.js" />
     <Content Include="Scripts\Emergente2.js" />

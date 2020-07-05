@@ -1,31 +1,31 @@
 ﻿jQuery(function ($) {
 
-    $(".sidebar-dropdown > a").click(function() {
-        $(".sidebar-submenu").slideUp(300);
+    $(".logo").click(function() {
+        $(".lista-menu").slideUp(300);
         if (
           $(this)
             .parent()
             .hasClass("active")
         ) {
-            $(".sidebar-dropdown").removeClass("active");
+            $(".logo").removeClass("active");
             $(this)
               .parent()
               .removeClass("active");
         } else {
-            $(".sidebar-dropdown").removeClass("active");
+            $(".logo").removeClass("active");
             $(this)
-              .next(".sidebar-submenu")
+              .next(".lista-menu")
               .slideDown(200);
             $(this)
               .parent()
               .addClass("active");
         }
     });
-
+    /*
     $("#close-sidebar").click(function() {
         $(".page-wrapper").removeClass("toggled");
     });
     $("#show-sidebar").click(function() {
         $(".page-wrapper").addClass("toggled");
-    });
+    });*/
 });

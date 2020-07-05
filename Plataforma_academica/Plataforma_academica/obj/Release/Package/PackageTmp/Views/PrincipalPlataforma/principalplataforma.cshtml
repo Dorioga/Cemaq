@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
     <link href="~/Estilos/submenu.css" rel="stylesheet" type="text/css">
+    <link href="~/Estilos/botonestudiante.css" rel="stylesheet" type="text/css">
+    <link href="~/Estilos/escritos.css" rel="stylesheet" type="text/css">
+
 </head>
 
 
@@ -34,255 +37,331 @@
 
     <main class="con_form">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="container">
-            <div class="row">
-                <!--Cursos-->
-                <div class="col-sm-4">
-                    <h4>Cursos</h4>
-                    <nav>
-                        <ul>
-                            @{
-                                if (usu != null)
-                                {
-
-                                    arreglo = principal.BuscarCursos(usu.cedula);
-
-                                    for (int i = 0; i < arreglo.Length; i++)
+        @*<div class="contenercheck1">
+            <h4>Progreso Cursos <input type="checkbox" id="progreso" onclick="myprogreso()" /></h4>
+        </div>
+        <div class="contener1" id="Progresos" style="display: none">
+            <!-- Barra Progreso -->
+            <div class="col-sm-4_1 barra" style="display: none" id="barra">
+                <div class="accordion">
+                    @{
+                        arreglo_porcentaje = porcentaje.Porcentaje_Cursos(usu.usuario);
+                        for (int i = 0; i < arreglo_porcentaje.Length; i++)
+                        {
+                            <!-- Cursos  -->
+                            <div class="items curso @i" id="curso">
+                                <div class="progress ">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:@arreglo_porcentaje[i].porcentaje_curso% ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                        <h6 class="porcentaje">@arreglo_porcentaje[i].porcentaje_curso%</h6>
+                                    </div>
+                                </div>
+                                <h6 style="white-space: normal; color: black;">Curso @arreglo_porcentaje[i].nombre_curso</h6>
+                                @{
+                                    arreglo_porcentaje_nivel = porcentaje.Porcentaje_nivel(arreglo_porcentaje[i].id_curso, usu.usuario);
+                                    for (int j = 0; j < arreglo_porcentaje_nivel.Length; j++)
                                     {
-                                        <li>
-                                            <button type="submit" class="btn btn-info btn-sm btn-block" name="ir" value="@arreglo[i].codigo_curso">
-                                                <span class="glyphicon glyphicon-book"></span>
-                                                @arreglo[i].nombre_curso
-                                            </button>
-                                        </li>
-                                    }
-                                }
-                            }
-
-                        </ul>
-                    </nav>
-                </div>
-                <!-- Nivel -->
-                <div class="col-sm-4">
-                    <h4>Nivel</h4>
-                    <nav>
-                        <ul>
-                            @{
-                                if (TempData["mensaje1"] != null && usu != null)
-                                {
-                                    TempData.Keep("mensaje1");
-                                    nivel.codigo_nivel = Convert.ToString(TempData["mensaje1"]);
-                                    arreglo_nivel = nivel.Consultar_niveles_usuario(nivel,usu.usuario);
-
-                                    for (int i = 0; i < arreglo_nivel.Length; i++)
-                                    {
-                                        <li>
-                                            <button type="submit" class="btn btn-info btn-sm btn-block" name="irr" value="@arreglo_nivel[i].codigo_nivel">
-                                                <span class="glyphicon glyphicon-stats"></span>
-                                                @arreglo_nivel[i].nombre_nivel
-                                            </button>
-                                        </li>
-
-                                    }
-                                }
-                                else
-                                {
-                                    <li><a>Elija un Curso</a></li>
-                                }
-                            }
-                        </ul>
-                    </nav>
-                </div>
-                <!-- Barra Progreso -->
-                <div class="col-sm-4_1">
-                    <h4>Progreso</h4>
-                    <div class="dropdown">
-                        <ul class="dropdown-menu1 multi-level" role="menu" style="width: 278%; border-radius: 11px;" aria-labelledby="dropdownMenu">
-                           
-                             @{
-                                arreglo_porcentaje = porcentaje.Porcentaje_Cursos(usu.usuario);
-                                for (int i = 0; i < arreglo_porcentaje.Length; i++)
-                                {
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">
-                                            <div class="progress-outer">
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:@arreglo_porcentaje[i].porcentaje_curso%"; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
-                                                        <h6 class="porcentaje">@arreglo_porcentaje[i].porcentaje_curso%</h6>
-                                                    </div>
+                                        <!-- NIVEL -->
+                                        <div class="items nivel @i @j" id="nivel">
+                                            <div class="progress ">
+                                                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_porcentaje_nivel[j].porcentaje_desarrollo% ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                                    <h6 class="porcentaje">@arreglo_porcentaje_nivel[j].porcentaje_desarrollo%</h6>
                                                 </div>
-                                                <h6 style="white-space: normal;">Curso @arreglo_porcentaje[i].nombre_curso</h6>
+
                                             </div>
-                                        </a>
-                                        <ul class="dropdown-menu">
+                                            <h6 style="white-space: normal;">Nivel @arreglo_porcentaje_nivel[j].nombre_nivel</h6>
                                             @{
-                                                arreglo_porcentaje_nivel = porcentaje.Porcentaje_nivel(arreglo_porcentaje[i].id_curso,usu.usuario);
-                                                for (int j = 0; j < arreglo_porcentaje_nivel.Length; j++)
+                                                arreglo_porcentaje_unidad = porcentaje.Porcentaje_unidad(arreglo_porcentaje_nivel[j].id_curso_usuario_nivel);
+                                                for (int k = 0; k < arreglo_porcentaje_unidad.Length; k++)
                                                 {
-                                                    <li class="dropdown-submenu">
-                                                        <a href="#">
-                                                            <div class="progress-outer">
-                                                                <div class="progress">
-                                                                    <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_porcentaje_nivel[j].porcentaje_desarrollo%"; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
-                                                                        <h6 class="porcentaje">@arreglo_porcentaje_nivel[j].porcentaje_desarrollo%</h6>
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <h6 style="white-space: normal;">Nivel @arreglo_porcentaje_nivel[j].nombre_nivel</h6>
+                                                    int a = k + 10;
+                                                    <!-- Unidad  -->
+                                                    <div class="items  unidad  @i @j @a " id="unidad">
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:@arreglo_porcentaje_unidad[k].porcentaje_usuario_unidad%; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                                                <h6 class="porcentaje">@arreglo_porcentaje_unidad[k].porcentaje_usuario_unidad%</h6>
                                                             </div>
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            @{
-                                                                arreglo_porcentaje_unidad = porcentaje.Porcentaje_unidad(arreglo_porcentaje_nivel[j].id_curso_usuario_nivel);
-                                                                for (int k = 0; k < arreglo_porcentaje_unidad.Length; k++)
-                                                                {
-                                                                    <li class="dropdown-submenu">
-                                                                        <a href="#">
-                                                                            <div class="progress-outer">
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:@arreglo_porcentaje_unidad[k].porcentaje_usuario_unidad%; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
-                                                                                        <h6 class="porcentaje">@arreglo_porcentaje_unidad[k].porcentaje_usuario_unidad%</h6>
-                                                                                    </div>                                                                                   
-                                                                                </div>
-                                                                                <h6 style="white-space: normal;">Unidad @arreglo_porcentaje_unidad[k].nombre_unidad</h6>
-                                                                            </div>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu" style="left: 195px; top: 26px;">
-                                                                            @{
-                                                                                arreglo_porcentaje_actividad = porcentaje.Porcentaje_actividad(arreglo_porcentaje_unidad[k].id_curso_usuario_unidad);
-                                                                                for (int l = 0; l < arreglo_porcentaje_actividad.Length; l++)
-                                                                                {
-                                                                                    <li class="dropdown-submenu">
-                                                                                        <a href="#">
-                                                                                            <div class="progress-outer">
-                                                                                                <div class="progress">
-                                                                                                    <div class="progress-bar progress-bar-striped progress-bar-striped active" style="width:@arreglo_porcentaje_actividad[l].porcentaje_usuario_actividad%"; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
-                                                                                                        <h6 class="porcentaje">@arreglo_porcentaje_actividad[l].porcentaje_usuario_actividad%</h6>
-                                                                                                    </div>                                                                                                    
-                                                                                                </div>
-                                                                                                <h6 style="white-space: normal;">Actividad @arreglo_porcentaje_actividad[l].nombre_actividad</h6>
-                                                                                            </div>
-                                                                                        </a>
-                                                                                    </li>
-                                                                                }
+                                                        </div>
+                                                        <h6 style="white-space: normal;">Unidad @arreglo_porcentaje_unidad[k].nombre_unidad</h6>
+                                                        @{
 
-                                                                                arreglo_porcentaje_examen = porcentaje.Porcentaje_examen(arreglo_porcentaje_unidad[k].id_curso_usuario_unidad);
-                                                                                for (int m = 0; m < arreglo_porcentaje_examen.Length; m++)
-                                                                                {
-                                                                                    <li class="dropdown-submenu">
-                                                                                        <a href="#">
-                                                                                            <div class="progress-outer">
-                                                                                                <div class="progress">
-                                                                                                    <div class="progress-bar progress-bar-striped progress-bar-warning active" style="width:@arreglo_porcentaje_examen[m].porcentaje_examen%"; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
-                                                                                                        <h6 class="porcentaje">@arreglo_porcentaje_examen[m].porcentaje_examen%</h6>
-                                                                                                    </div>
-
-                                                                                                </div>
-                                                                                                <h6 style="white-space: normal;">Examen @arreglo_porcentaje_examen[m].nombre_examen</h6>
-                                                                                            </div>
-                                                                                        </a>
-                                                                                    </li>
-                                                                                }
-                                                                            }
-                                                                            
-                                                                        </ul>
-                                                                    </li>
-                                                                                }
+                                                            <!-- Actividad  -->
+                                                            arreglo_porcentaje_actividad = porcentaje.Porcentaje_actividad(arreglo_porcentaje_unidad[k].id_curso_usuario_unidad);
+                                                            for (int l = 0; l < arreglo_porcentaje_actividad.Length; l++)
+                                                            {
+                                                                <div class="items actividad @l" id="actividad1">
+                                                                    <div class="progress ">
+                                                                        <div class="progress-bar progress-bar-striped progress-bar-striped active" style="width:@arreglo_porcentaje_actividad[l].porcentaje_usuario_actividad% ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                                                            <h6 class="porcentaje">@arreglo_porcentaje_actividad[l].porcentaje_usuario_actividad%</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <h6 style="white-space: normal;">Actividad @arreglo_porcentaje_actividad[l].nombre_actividad</h6>
+                                                                </div>
                                                             }
-                                                            
-                                                        </ul>
-                                                    </li>
-                                                                }
-                                            }
-                                            
-                                        </ul>
-                                    </li>
+
+                                                            <!-- Examen  -->
+                                                            arreglo_porcentaje_examen = porcentaje.Porcentaje_examen(arreglo_porcentaje_unidad[k].id_curso_usuario_unidad);
+                                                            for (int m = 0; m < arreglo_porcentaje_examen.Length; m++)
+                                                            {
+
+                                                                <div class="items examen @m" id="examen1">
+                                                                    <div class="progress ">
+                                                                        <div class="progress-bar progress-bar-striped progress-bar-warning active" style="width:@arreglo_porcentaje_examen[m].porcentaje_examen% ; box-shadow:-1px 10px 10px rgba(91, 192, 222, 0.7);">
+                                                                            <h6 class="porcentaje">@arreglo_porcentaje_examen[m].porcentaje_examen%</h6>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <h6 style="white-space: normal;">Examen @arreglo_porcentaje_examen[m].nombre_examen</h6>
+                                                                </div>
+                                                            }
+                                                        }
+                                                    </div>
 
                                                 }
-
-                            }
-                        </ul>
-                    </div>
-                </div>               
-
-                <!--Unidades-->
-                <div class="col-sm-4">
-                    <h4>Unidades</h4>
-                    <nav>
-                        <ul>
-                            @{
-                                if (TempData["mensaje2"] != null && usu != null)
-                                {
-                                    TempData.Keep("mensaje2");
-                                    string nc = Convert.ToString(TempData["mensaje2"]);
-                                    arreglo_unidad = unidad.Consultar_unidades_usuario(nc, usu.usuario);
-
-                                    for (int i = 0; i < arreglo_unidad.Length; i++)
-                                    {
-                                        <li>
-                                            <button type="submit" class="btn btn-info btn-sm btn-block" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
-                                                <span class="glyphicon glyphicon-th-large"></span>
-                                                @arreglo_unidad[i].nombre_unidad
-                                            </button>
-                                        </li>
+                                            }
+                                        </div>
 
                                     }
                                 }
-                                else
-                                {
-                                    <li><a>Elija un Nivel</a></li>
-                                }
-                            }
-                        </ul>
-                    </nav>
-                </div>
-                <!--Actividades-->
-                <div class="col-sm-4">
-                    <h4>Actividades</h4>
-                    <nav>
-                        <ul>
-                            @{
-                                            if (TempData["mensaje3"] != null && usu != null)
-                                            {
-                                                TempData.Keep("mensaje3");
-                                                string nc = Convert.ToString(TempData["mensaje3"]);
-                                                arreglo_actividad = actividad.Consultar_Actividad_usuario(nc,usu.usuario);
-                                                arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
-                                                for (int i = 0; i < arreglo_actividad.Length; i++)
-                                                {
-                                                  <li>
-                                                     <button type="submit" class="btn btn-info btn-sm btn-block btn-actividad " name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
-                                                     <span class="glyphicon glyphicon-lock"></span>
-                                                     @arreglo_actividad[i].nombre_actividad
-                                                     </button>
-                                                  </li>
-                                                }
-                                                 for (int i = 0; i < arreglo_examen.Length; i++)
-                                                {
-                                                    <li>
-                                                    <button type="submit" class="btn btn-info btn-sm btn-block btn-actividad " name="irrrr5" value="@arreglo_examen[i].id_examen">
-                                                    <span class="glyphicon glyphicon-list-alt"></span>
-                                                    @arreglo_examen[i].examen
-                                                    </button>
-                                                    </li>
-                                                }
-                                            }
-                                else
-                                {
-                                    <li><a>Elija un Nivel</a></li>
-                                }
-                            }
-                        </ul>
-                    </nav>
+                            </div>
+                        }
+                    }
                 </div>
             </div>
+        </div>*@
+
+        <div class="container">
+            <div class="row1">
+                <!--Diplomados-->
+                <div class="contenercheck" style="background-color: #5998da;padding: 0px 0px 0px 14px;border-radius: 5px;width: 98%;position: relative;left: 17px;box-shadow: 0 3px 4px 0 rgba(0,0,0,0.50),0 2px 10px 0 rgba(0,0,0,0.60)!important;">
+                    <h4>Diplomados @*<input type="checkbox" id="curso" onclick="myFunction()" checked="checked" />*@</h4>
+                </div>
+                <div class="contener">
+                    @{
+                        if (usu != null)
+                        {
+
+                            arreglo = principal.BuscarCursos(usu.cedula);
+                            if (arreglo.Length == 0)
+                            {
+                                <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
+                            }
+
+                            for (int i = 0; i < arreglo.Length; i++)
+                            {
+                                <button type="submit" class="col-lg-40 button1" name="ir" value="@arreglo[i].codigo_curso">
+                                    <div class="our-team-main">
+                                        <div class="team-front">
+                                            <img style="width: 100px; height: 95px; border-radius: 50px;" src="~/imagenes/@arreglo[i].url" />
+                                            <div class="progress ">
+                                                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                                    <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
+                                                </div>
+                                            </div>
+                                            @*<h6>Desarrollo el @arreglo[i].porcentaje_diplomado%</h6>*@
+                                            <span>@arreglo[i].nombre_curso</span>
+                                        </div>
+                                    </div>
+                                </button>
+                            }
+                        }
+                    }
+                </div>
+                 @*Nivel 
+                <div class="contenercheck">
+                    <h4>Niveles <input type="checkbox" id="nivel" onclick="mynivel()" /></h4>
+                </div>      
+                <div class="contener" id="Niveles">
+                    @{
+                        if (TempData["mensaje1"] != null && usu != null)
+                        {
+                            TempData.Keep("mensaje1");
+                            nivel.codigo_nivel = Convert.ToString(TempData["mensaje1"]);
+                            arreglo_nivel = nivel.Consultar_niveles_usuario(nivel, usu.usuario);
+
+                            for (int i = 0; i < arreglo_nivel.Length; i++)
+                            {
+                                <button type="submit" class="col-lg-40 button1" name="irr" value="@arreglo_nivel[i].codigo_nivel">
+                                    <div class="our-team-main">
+                                        <div class="team-front">
+                                            <img src="~/imagen_multimedia/2.png" />
+                                            <span>@arreglo_nivel[i].nombre_nivel</span>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        var checkBox = document.getElementById("nivel");
+                                        checkBox.checked = "checked"
+                                    </script>
+                                </button>
+                            }
+                        }
+                        else
+                        {
+                            <a> Elija un curso</a>
+                        }
+                    }
+                </div>*@
+                <!--Unidades-->
+                <div class="contenercheck" style="background-color: #5998da;padding: 0px 0px 0px 14px;border-radius: 5px;width: 98%;position: relative;left: 17px;box-shadow: 0 3px 4px 0 rgba(0,0,0,0.50),0 2px 10px 0 rgba(0,0,0,0.60)!important;">
+                    <h4>Modulos @*<input type="checkbox" id="unidad" onclick="myunidad()" />*@</h4>
+                </div>                   
+                <div class="contener">
+                    @{
+                        if (TempData["mensaje1"] != null && usu != null)
+                        {
+                            TempData.Keep("mensaje1");
+                            string nc = Convert.ToString(TempData["mensaje1"]);
+                            arreglo_unidad = unidad.Consultar_unidades_usuario(nc, usu.usuario);
+
+                            for (int i = 0; i < arreglo_unidad.Length; i++)
+                            {
+                                <button type="submit" class="col-lg-40 button1" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
+                                    <div class="our-team-main">
+                                        <div class="team-front">
+                                            <img style="width: 100px; height: 95px; border-radius: 50px;" src="~/imagen_multimedia/Modulo.png" />
+                                            <div class="progress ">
+                                                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                                    <h6 class="porcentaje">@arreglo_unidad[i].porcentaje_modulo%</h6>
+                                                </div>
+                                            </div>
+                                            <span>@arreglo_unidad[i].nombre_unidad</span>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        var checkBox = document.getElementById("unidad");
+                                        checkBox.checked = "checked"
+                                    </script>
+                                </button>
+                            }
+                        }
+                        else
+                        {
+                            <a style="color: white;"> Elija un Diplomado</a>
+                        }
+                    }
+                </div>
+                <!--Actividades-->
+                <div class="contenercheck" style="background-color: #5998da;padding: 0px 0px 0px 14px;border-radius: 5px;width: 98%;position: relative;left: 17px;box-shadow: 0 3px 4px 0 rgba(0,0,0,0.50),0 2px 10px 0 rgba(0,0,0,0.60)!important;">
+                    <h4>Actividades y Test @*<input type="checkbox" id="actividad" onclick="myactividad()" />*@</h4>
+                </div>
+                <div class="contener" id="Actividades">
+                    @{
+                        if (TempData["mensaje3"] != null && usu != null)
+                        {
+                            TempData.Keep("mensaje3");
+                            string nc = Convert.ToString(TempData["mensaje3"]);
+                            arreglo_actividad = actividad.Consultar_Actividad_usuario(nc, usu.usuario);
+                            arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
+                            for (int i = 0; i < arreglo_actividad.Length; i++)
+                            {
+                                <button type="submit" class="col-lg-40 button1" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
+                                    <div class="our-team-main">
+                                        <div class="team-front">
+                                            <img style="width: 100px; height: 95px; border-radius: 50px;" src="~/imagen_multimedia/Actividad.png" />
+                                            <div class="progress ">
+                                                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                                    <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
+                                                </div>
+                                            </div>
+                                            <span>@arreglo_actividad[i].nombre_actividad</span>
+                                        </div>
+                                    </div>
+                                </button>
+                            }
+                            for (int i = 0; i < arreglo_examen.Length; i++)
+                            {
+                                <button type="submit" class="col-lg-40 button1" name="irrrr5" value="@arreglo_examen[i].id_examen">
+                                    <div class="our-team-main">
+                                        <div class="team-front">
+                                            <img style="width: 100px; height: 95px; border-radius: 50px;" src="~/imagen_multimedia/Examen.png" />
+                                            <span>@arreglo_examen[i].examen</span>
+                                        </div>
+                                    </div>
+                                </button>
+                            }
+                            <script>
+                                var checkBox = document.getElementById("actividad");
+                                checkBox.checked = "checked"
+                            </script>
+                        }
+                        else
+                        {
+                            <a style="color: white;"> Elija un Modulo</a>
+                        }
+                    }
+                </div>
+
+            </div>
         </div>
+       
+        <script>
+            function myFunction() {
+                var checkBox = document.getElementById("curso");
+                var text = document.getElementById("Cursos");
+                if (checkBox.checked == true) {
+                    text.style.display = "block";
+                } else {
+                    text.style.display = "none";
+                }
+            }
+
+            //function mynivel() {
+            //    var checkBox = document.getElementById("nivel");
+            //    var text = document.getElementById("Niveles");
+            //    if (checkBox.checked == true) {
+            //        text.style.display = "block";
+            //    } else {
+            //        text.style.display = "none";
+            //    }
+            //}
+            function myunidad() {
+                var checkBox = document.getElementById("unidad");
+                var text = document.getElementById("Unidades");
+                if (checkBox.checked == true) {
+                    text.style.display = "block";
+                } else {
+                    text.style.display = "none";
+                }
+            }
+            function myactividad() {
+                var checkBox = document.getElementById("actividad");
+                var text = document.getElementById("Actividades");
+                if (checkBox.checked == true) {
+                    text.style.display = "block";
+                } else {
+                    text.style.display = "none";
+                }
+            }
+            function myprogreso() {
+                var itemc = document.getElementById("curso");
+                var ncurso = itemc.parentNode.getElementsByClassName('curso').length;
+                var acurso = itemc.parentNode.getElementsByClassName('curso');
+                var checkBox = document.getElementById("progreso");
+                var text = document.getElementById("Progresos");
+                var bar = document.getElementById("barra");
+                if (checkBox.checked == true) {
+                    text.style.display = "block";
+                    bar.style.display = "block";
+                    for (var i = 0; i < ncurso; i++) {
+                        acurso[i].style.display = "block";
+                    }
+
+                } else {
+                    text.style.display = "none";
+                }
+            }
+        </script>
+        @{
+            if (ViewBag.mensaje == "actividad")
+            {
+                <script> window.open ('@Url.Action("Actividades", "Actividades")'); </script>
+            }
+        }
     </main>
 }
 <footer>
-    <p>&copy; @DateTime.Now.Year - Amazonian Language Tic</p>
+    <p style="color: white;margin-top: 8px;margin-bottom: -6px;">&copy; @DateTime.Now.Year - CEMAQ - Diplomados</p>
 </footer>
-
+<script src="~/Scripts/progresos.js" charset="utf-8"></script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

@@ -14,11 +14,34 @@ namespace Plataforma_academica.Models
         public string id_c { set; get; }
         public string nombre_curso { set; get; }
         public string descripcion { set; get; }
+        public string id_R { set; get; }
+        public string nombre_R { set; get; }
+        public string descripcion_R { set; get; }
+        public string id_unidad { set; get; }
+        public string id_actividad { set; get; }
+        public string id_examen { set; get; }
 
+        Conexion.Conexion con = new Conexion.Conexion();
+
+        public DataTable Buscarcurso(string u)
+        {
+            
+            DataTable x = con.Execute_Query("call Pr_cargar_diploamo_para_registrar ('" + u +"')");
+            return x;
+
+        }
+
+        public DataTable Buscarcurso_inscrito(string u, string usuario)
+        {
+
+            DataTable x = con.Execute_Query("call Pr_cargar_si_esta_el_curso ('" + u + "', '" + usuario + "')");
+            return x;
+
+        }
 
         public Principal_todos[] Buscarareas()
         {
-            Conexion.Conexion con = new Conexion.Conexion();
+            
             DataTable areas = con.Execute_Query("call Pr_cargar_tematicas()");
             Principal_todos[] arreglo = new Principal_todos[areas.Rows.Count];
             int j = 0;

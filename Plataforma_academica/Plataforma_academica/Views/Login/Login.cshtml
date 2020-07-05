@@ -147,10 +147,43 @@
                 </div>
             </div>
         </div>
-            if (ViewBag.mensaje == "Exito")
-            {
-            }
-    }
+         if (ViewBag.mensaje == "datos incorrectos")
+         {
+             @Scripts.Render("~/Scripts/Emerentelogin.js")
+         }else
+         {
+              if(ViewBag.mensaje == "Exito" )
+                {
+                     @Scripts.Render("~/Scripts/Emerentelogin.js")
+                }
+                else
+                {
+                   if(ViewBag.mensaje == "No se registro el usuario")
+                   {
+                      @Scripts.Render("~/Scripts/Emerentelogin.js")
+                                                        }
+                                                    }
+                                                }
+
+                                                <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                                    <div class="modal-dialog" style="position: initial;">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                <h4 style="position: absolute;">Verificaciónn del proceso</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <h5>@ViewBag.mensaje2</h5>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" data-dismiss="modal" aria-hidden="true" class="btn btn-danger" >Cerrar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                }
     <!-- Navbar -->
 
    

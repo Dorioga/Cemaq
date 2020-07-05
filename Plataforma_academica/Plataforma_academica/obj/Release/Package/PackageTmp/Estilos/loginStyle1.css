@@ -4,8 +4,9 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    background-image: url(https://cdna.artstation.com/p/assets/images/images/020/078/010/large/dawnpu-at-art-vision-studio-.jpg?1566274256);
-    background-position-y: center;
+    background-image: url(https://cemaq.com.co/wp-content/uploads/2020/02/a0055c44-f102-438a-9494-37320b0c0839.jpg);
+    background-repeat: space;
+    background-position: center;
 }
 
 .caja {
