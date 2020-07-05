@@ -48,7 +48,7 @@ namespace Plataforma_academica.Controllers
                         //cargar y aumentar en uno la seccion de la tabla y el porcentaje aumentarlo como si ya se hubiera realizado uno
                         if (actividad != null)
                     {
-                        datos2 = act.Buscar_porcentaje_seccion(actividad.codigo_actividad);
+                        datos2 = act.Buscar_porcentaje_seccion(actividad.codigo_actividad, user.usuario);
                         if (Convert.ToInt32(datos2.Rows[0]["seccion"].ToString()) == 0)
                         {
                             datos3 = act.Buscar_cantidad_secciones(actividad.codigo_actividad);
@@ -171,12 +171,13 @@ namespace Plataforma_academica.Controllers
         {
             Models.principalP actividad = Session["usuario3"] as Models.principalP;
             Models.Actividades sec1 = Session["seccion1"] as Models.Actividades;
+            Models.Login usr = Session["usuario"] as Models.Login;
             Actividades usu = new Actividades();
             DataTable datos = null;            
             DataTable datos1 = null;
             var x = 2;
 
-            datos1 = usu.Buscar_porcentaje_seccion(actividad.codigo_actividad);
+            datos1 = usu.Buscar_porcentaje_seccion(actividad.codigo_actividad, usr.usuario);
             usu.id_curso_actividad = Convert.ToInt32(datos1.Rows[0]["id tabla"].ToString());
             Session["seccion1"] = usu;
 

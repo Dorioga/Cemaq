@@ -123,10 +123,10 @@ namespace Plataforma_academica.Models
             return x > 0 ? true : false;
         }
 
-        public DataTable Buscar_porcentaje_seccion(string u)
+        public DataTable Buscar_porcentaje_seccion(string u, string usuario)
         {
             Conexion.Conexion con = new Conexion.Conexion();
-            DataTable x = con.Execute_Query("call Pr_cargar_porcentaje (" + u + ")");
+            DataTable x = con.Execute_Query("call Pr_cargar_porcentaje (" + u + "," + usuario + ")");
             return x;
         }
 
