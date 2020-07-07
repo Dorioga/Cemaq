@@ -16,7 +16,7 @@ namespace Plataforma_academica.Controllers
 
         // GET: Login
 
-        public ActionResult Login(Login usr, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla, Municipio mun, Pais pa, Departamento d)
+        public ActionResult Login(Login usr, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla, Municipio mun, Pais pa, Departamento d, Genero g)
         {
             DataTable datos = null; 
                 
@@ -80,8 +80,12 @@ namespace Plataforma_academica.Controllers
                 {
                     mun.id_municipio = Request.Form["listar3"].ToString();
                 }
-                
-                List<SelectListItem> prueba = ViewData["lista"] as List<SelectListItem>;
+            if (Request.Form["listar6"] != null)
+            {
+                g.id_genero = Request.Form["listar6"].ToString();
+            }
+
+            List<SelectListItem> prueba = ViewData["lista"] as List<SelectListItem>;
                 if (prueba == null)
                 {
                     Plataforma_academica.Models.Tipo_documento ti = new Plataforma_academica.Models.Tipo_documento();
@@ -94,12 +98,15 @@ namespace Plataforma_academica.Controllers
                     Plataforma_academica.Models.Municipio[] mu;
                     Plataforma_academica.Models.Departamento dp = new Plataforma_academica.Models.Departamento();
                     Plataforma_academica.Models.Departamento[] depa;
+                Plataforma_academica.Models.Genero ge= new Plataforma_academica.Models.Genero();
+                Plataforma_academica.Models.Genero[] gen;
 
                     tid = ti.Buscartipodocumento();
                     tipob = tip.Buscarpoblacion();
                     pai = p.BuscarPais();
                     depa = dp.BuscarDepartamento();
                     mu = m.BuscarMunicipio();
+                    gen = ge.BuscarGenero();
 
                     List<SelectListItem> lista1 = new List<SelectListItem>();
                     foreach (Tipo_documento i in tid)
@@ -160,7 +167,19 @@ namespace Plataforma_academica.Controllers
                         });
                     }
                     ViewData["lista6"] = lista6;
+
+                List<SelectListItem> lista7 = new List<SelectListItem>();
+                foreach (Genero i in gen)
+                {
+                    lista7.Add(new SelectListItem
+                    {
+                        Text = i.nombre_genero,
+                        Value = i.id_genero,
+                        Selected = false
+                    });
                 }
+                ViewData["lista7"] = lista7;
+            }
             if (ValidarDatos(usr))
             {
                 String codigo1 = Request.Form["subir1"];

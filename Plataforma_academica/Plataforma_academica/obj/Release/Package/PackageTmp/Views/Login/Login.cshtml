@@ -111,9 +111,8 @@
                                         @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                        @Html.EditorFor(model => model.genero, new { htmlAttributes = new { @type = "text", @class = "form-control", @placeholder = "Genero *" } })
-                                        @Html.ValidationMessageFor(model => model.genero, "", new { @class = "text-danger" })
-                                    </div>                                    
+                                        @Html.DropDownListFor(model => model.genero, (IEnumerable<SelectListItem>)ViewData["lista7"], "Genero *", new { @class = "form-control" })
+                                    </div>                                 
                                     <div class="form-group">
                                         @Html.DropDownListFor(model => model.tipo_pobla, (IEnumerable<SelectListItem>)ViewData["lista3"], "Tipo población *", new { @class = "form-control" })
                                     </div>

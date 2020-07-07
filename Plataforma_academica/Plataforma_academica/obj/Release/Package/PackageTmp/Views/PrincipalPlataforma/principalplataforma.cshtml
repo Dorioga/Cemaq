@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
     <link href="~/Estilos/submenu.css" rel="stylesheet" type="text/css">
-    <link href="~/Estilos/botonestudiante.css" rel="stylesheet" type="text/css">
+    <link href="~/Estilos/botones3D.css" rel="stylesheet" type="text/css">
     <link href="~/Estilos/escritos.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -132,7 +132,7 @@
         <div class="container">
             <div class="row1">
                 <!--Diplomados-->
-                <div class="contenercheck" style="background-color: #5998da;padding: 0px 0px 0px 14px;border-radius: 5px;width: 98%;position: relative;left: 17px;box-shadow: 0 3px 4px 0 rgba(0,0,0,0.50),0 2px 10px 0 rgba(0,0,0,0.60)!important;">
+                <div class="contenercheck" >
                     <h4>Diplomados @*<input type="checkbox" id="curso" onclick="myFunction()" checked="checked" />*@</h4>
                 </div>
                 <div class="contener">
@@ -148,10 +148,10 @@
 
                             for (int i = 0; i < arreglo.Length; i++)
                             {
-                                <button type="submit" class="col-lg-40 button1" name="ir" value="@arreglo[i].codigo_curso">
+                                <button type="submit" class="col-lg-40 button1 est" name="ir" value="@arreglo[i].codigo_curso">
                                     <div class="our-team-main">
                                         <div class="team-front">
-                                            <img style="width: 100px; height: 95px; border-radius: 50px;" src="~/imagenes/@arreglo[i].url" />
+                                            <img  src="~/imagenes/@arreglo[i].url" />
                                             <div class="progress ">
                                                 <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
                                                     <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
@@ -201,7 +201,7 @@
                     }
                 </div>*@
                 <!--Unidades-->
-                <div class="contenercheck" style="background-color: #5998da;padding: 0px 0px 0px 14px;border-radius: 5px;width: 98%;position: relative;left: 17px;box-shadow: 0 3px 4px 0 rgba(0,0,0,0.50),0 2px 10px 0 rgba(0,0,0,0.60)!important;">
+                <div class="contenercheck" >
                     <h4>Modulos @*<input type="checkbox" id="unidad" onclick="myunidad()" />*@</h4>
                 </div>                   
                 <div class="contener">
@@ -214,10 +214,10 @@
 
                             for (int i = 0; i < arreglo_unidad.Length; i++)
                             {
-                                <button type="submit" class="col-lg-40 button1" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
+                                <button type="submit" class="col-lg-40 button1 est" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
                                     <div class="our-team-main">
                                         <div class="team-front">
-                                            <img style="width: 100px; height: 95px; border-radius: 50px;" src="~/imagen_multimedia/Modulo.png" />
+                                            <img   src="~/imagen_multimedia/Modulo.png" />
                                             <div class="progress ">
                                                 <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
                                                     <h6 class="porcentaje">@arreglo_unidad[i].porcentaje_modulo%</h6>
@@ -240,7 +240,7 @@
                     }
                 </div>
                 <!--Actividades-->
-                <div class="contenercheck" style="background-color: #5998da;padding: 0px 0px 0px 14px;border-radius: 5px;width: 98%;position: relative;left: 17px;box-shadow: 0 3px 4px 0 rgba(0,0,0,0.50),0 2px 10px 0 rgba(0,0,0,0.60)!important;">
+                <div class="contenercheck" >
                     <h4>Actividades y Test @*<input type="checkbox" id="actividad" onclick="myactividad()" />*@</h4>
                 </div>
                 <div class="contener" id="Actividades">
@@ -253,10 +253,10 @@
                             arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
                             for (int i = 0; i < arreglo_actividad.Length; i++)
                             {
-                                <button type="submit" class="col-lg-40 button1" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
+                                <button type="submit" class="col-lg-40 button1 est" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
                                     <div class="our-team-main">
                                         <div class="team-front">
-                                            <img style="width: 100px; height: 95px; border-radius: 50px;" src="~/imagen_multimedia/Actividad.png" />
+                                            <img   src="~/imagen_multimedia/Actividad.png" />
                                             <div class="progress ">
                                                 <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
                                                     <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
@@ -269,10 +269,10 @@
                             }
                             for (int i = 0; i < arreglo_examen.Length; i++)
                             {
-                                <button type="submit" class="col-lg-40 button1" name="irrrr5" value="@arreglo_examen[i].id_examen">
+                                <button type="submit" class="col-lg-40 button1 est" name="irrrr5" value="@arreglo_examen[i].id_examen">
                                     <div class="our-team-main">
                                         <div class="team-front">
-                                            <img style="width: 100px; height: 95px; border-radius: 50px;" src="~/imagen_multimedia/Examen.png" />
+                                            <img src="~/imagen_multimedia/Examen.png" />
                                             <span>@arreglo_examen[i].examen</span>
                                         </div>
                                     </div>

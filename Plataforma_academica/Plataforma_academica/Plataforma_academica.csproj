@@ -216,6 +216,7 @@
     <Compile Include="Models\Editar_Actividad.cs" />
     <Compile Include="Models\Editar_examen.cs" />
     <Compile Include="Models\Empresa.cs" />
+    <Compile Include="Models\Genero.cs" />
     <Compile Include="Models\Grupo.cs" />
     <Compile Include="Models\Horas_diplomado.cs" />
     <Compile Include="Models\lista_tipo_multimedia.cs" />

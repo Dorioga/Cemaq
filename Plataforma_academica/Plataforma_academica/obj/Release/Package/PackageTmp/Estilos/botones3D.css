@@ -1,35 +1,33 @@
 ﻿
 .button1 {
-  background-color: rgba(255, 255, 255, 0);
-  text-decoration: none;
-  outline: none;
-  border: none;
-  border-radius: 15px;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.row1
-{
+.row1 {
+    height:auto;
     display: flex;
     flex-wrap: wrap;
     margin-right: -20px;
     margin-left: -36px;
 }
 
-.col-lg-40
-{
+.col-lg-40 {
     max-width: 10em;
     flex: 0 0 33.3333%;
     position: relative;
     width: 100%;
     left: 0.20%;
     min-height: 1px;
-    height:9em;
+    height: 100%;
     padding-right: 0px;
     padding-left: 3px;
     outline: none;
-    margin-bottom: 8px;
+    margin-bottom: 1em;
 }
 
 .team-front1 {
@@ -42,9 +40,8 @@
     outline: none;
 }
 
-.col-lg-41
-{
-        max-width: 16%;
+.col-lg-41 {
+    max-width: 16%;
     max-height: 9%;
     /* flex: 0 0 33.3333%; */
     position: relative;
@@ -57,9 +54,9 @@
     margin-bottom: 8px;
 }
 
-.button1:hover {
-    box-shadow: 0 5px #1bbc97;
-    transform: translateY(4px);
+.team-front:hover {
+    /*box-shadow 0 5px #1bbc97;
+    transform: translateY(1px);*/
     border-radius: 15px;
     border-style: solid;
     border-color: #1bbc97;
@@ -83,29 +80,20 @@
     margin-top: 1em;
     margin-bottom: 0.5em;
 }
+
 }
 }
 
-.button1 span {  
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+.button1 span {
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 
 
 
-.button1:hover span {
-  padding-right: 9px;
-}
-
-.button1:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-.our-team-main span
-{
-	font-size: 12px;
+.our-team-main span {
+    font-size: 12px;
     font-weight: 750;
     color: white;
 }
@@ -121,7 +109,8 @@
 
 .contener {
     background-color: #263859;
-    padding: 1em 0px 3px 9px;
+    height:100%;
+    padding: 1em 0em;
     border-radius: 5px;
     width: 98%;
     position: relative;
@@ -147,13 +136,12 @@
 }
 
 .our-team-main1:active {
-  box-shadow: 0 5px #999;
-  transform: translateY(4px);
-  border-radius: 15px;
+    box-shadow: 0 5px #999;
+    transform: translateY(4px);
+    border-radius: 15px;
 }
 
-.our-team-main1
-{
+.our-team-main1 {
     outline: none;
     width: 100%;
     height: 88px;
@@ -170,9 +158,7 @@
     margin: 3px 0px 0px 0px;
 }
 
-.our-team-main1 span
-{
-	font-size:12px;
-	font-weight:600;
-}
-
+    .our-team-main1 span {
+        font-size: 12px;
+        font-weight: 600;
+    }

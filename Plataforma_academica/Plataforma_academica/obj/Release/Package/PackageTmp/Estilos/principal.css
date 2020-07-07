@@ -9,7 +9,7 @@
 }
 
 a{
-    color:white;
+    color:white !important;
 }
 
 a:not([href]):not([tabindex]) {
@@ -118,7 +118,11 @@ ul, ol {
             cursor: pointer;
         }
 
-
+.alert-danger {
+    color: white !important;
+    background-color: #263859 !important;
+    border:none;
+}
 .form-control[disabled] {
     cursor: auto;
 }
@@ -150,7 +154,7 @@ ul, ol {
             justify-content: center;
             top: 0;
             left: 0;
-            background: orange;
+            background: #1bbc97;
             border-radius: 50%;
             color: #fff;
             line-height: 42px;
@@ -206,6 +210,14 @@ ul, ol {
     position: inherit;
     background-color: #021d3a;
 }
+.catalogo {
+    margin-bottom: 5px;
+    padding: 15px 10px;
+    background: #263859 !important;
+}
+    .catalogo:hover {
+        background: #1bbc97 !important;
+    }
 
 .cerrarsesion {
     margin-right: 15px;
@@ -263,9 +275,71 @@ ul, ol {
 
 .con_form {
     height: 60%;
-    border-radius: 14px;
+    border-radius: 15px;
+    border: 3px solid #1bbc97;
+    color:white !important;
+}
+    .con_form h6 {
+        color: #ffffff;
+    }
+.parpadeo {
+    animation-name: parpadeo;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count:5;
+    -webkit-animation-name: parpadeo;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count:5;
 }
 
+@-moz-keyframes parpadeo {
+    0% {
+        opacity: 1.0;
+    }
+
+    50% {
+        opacity: 0.0;
+    }
+
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes parpadeo {
+    0% {
+        opacity: 1.0;
+    }
+
+    50% {
+        opacity: 0.0;
+    }
+
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes parpadeo {
+    0% {
+        opacity: 1.0;
+    }
+
+    50% {
+        opacity: 0.0;
+    }
+
+    100% {
+        opacity: 1.0;
+    }
+}
+
+
+.bcrear {
+    background: #1bbc97 !important;
+    border-color: #1bbc97 !important;
+}
 .datos-perfil {
     margin: 0px 15px 0 15px;
     height: 100%;
@@ -286,6 +360,24 @@ ul, ol {
     color: #ffffff;
 }
 
+.form-horizontal {
+    border: 3px solid #1bbc97;
+    border-radius:15px;
+    background-color: #263859 !important;
+}
+.form-horizontal h2{
+    margin: 0.5em;
+}
+    .form-horizontal table tbody tr {
+        background-color: transparent !important;
+        border: none;
+    }
+        .form-horizontal table tbody tr td{
+    background-color:transparent !important;
+    border:none;
+    padding:0px;
+}
+
 .foto-perfil {
     height: 100%;
     order: 0;
@@ -294,6 +386,12 @@ ul, ol {
 
 .glyphicon {
     position: inherit;
+}
+.guardar {
+    width: 15%;
+    text-align: center;
+    padding-left: 0px;
+    background: #1bbc97 !important;
 }
 
 .info {
@@ -386,6 +484,20 @@ ul, ol {
     border-style: solid;
     border-color: rgb(27, 188, 151);
 }
+.modal-header {
+    border-bottom: 0.5em solid #1bbc97 !important;
+}
+.modal-content {
+    background: #263859 !important;
+    color:white !important;
+}
+.modal-footer {
+    border-top: 0.5em solid #1bbc97 !important;
+}
+.modal-footer button {
+    background: #1bbc97 !important;
+    color:white !important;
+}
 
 .navbar {
     height: 100%;
@@ -428,11 +540,12 @@ ul, ol {
 
 
 .progress {
+    width: 14em;
     height: 18px;
     margin: 0;
     cursor: pointer;
-    margin-top: 3px;
-    margin-bottom: 0px;
+    margin-top: 1em;
+    margin-bottom:1em;
     overflow: visible;
     border-radius: 7px;
     background: #727d88;
@@ -474,12 +587,13 @@ ul, ol {
 }
 
 .row {
-    background-color: #CCCCCC;
+    background-color: #263859;
+    color:white;
     padding-top: 10px;
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    border-radius: 15px;
+    border-radius: 12px;
     border-color: #d2d2d2;
     border-width: 5px;
     box-shadow: 0 1px 0 #cfcfcf;
@@ -524,14 +638,17 @@ ul, ol {
 .user-info {
     float: right;
 }
-
+.well{
+    border:none;
+    margin:0px;
+    background-color:transparent !important;
+}
 
 * {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
-
 body {
     background: #17223b;
 }
