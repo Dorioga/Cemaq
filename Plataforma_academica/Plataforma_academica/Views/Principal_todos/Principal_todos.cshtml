@@ -37,7 +37,7 @@
                                     for (int i = 0; i < arreglo.Length; i++)
                                     {
                                         <li>
-                                            <button style="margin-bottom: 5px; padding: 15px 10px;" type="submit" class="btn btn-info btn-sm btn-block" name="ir" value="@arreglo[i].id_tematica">
+                                            <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="ir" value="@arreglo[i].id_tematica">
                                                 <span class="glyphicon glyphicon-book"></span>
                                                 @arreglo[i].nombre_tematica
                                             </button>
@@ -93,7 +93,7 @@
                                     for (int i = 0; i < modulos.Length; i++)
                                     {
                                         <li>
-                                            <button style="margin-bottom: 5px; padding: 15px 10px;" type="submit" class="btn btn-info btn-sm btn-block" name="irr" value="@modulos[i].id_curso">
+                                            <button  type="submit" class="btn btn-info btn-sm btn-block catalogo" name="irr" value="@modulos[i].id_curso">
                                                 <span class="glyphicon glyphicon-stats"></span>
                                                 @modulos[i].nombre_curso
                                             </button>

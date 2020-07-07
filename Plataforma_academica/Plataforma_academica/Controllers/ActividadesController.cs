@@ -174,10 +174,9 @@ namespace Plataforma_academica.Controllers
             Models.Login usr = Session["usuario"] as Models.Login;
             Actividades usu = new Actividades();
             DataTable datos = null;            
-            DataTable datos1 = null;
             var x = 2;
 
-            datos1 = usu.Buscar_porcentaje_seccion(actividad.codigo_actividad, usr.usuario);
+            DataTable datos1 = usu.Buscar_porcentaje_seccion(actividad.codigo_actividad, usr.usuario);
             usu.id_curso_actividad = Convert.ToInt32(datos1.Rows[0]["id tabla"].ToString());
             Session["seccion1"] = usu;
 

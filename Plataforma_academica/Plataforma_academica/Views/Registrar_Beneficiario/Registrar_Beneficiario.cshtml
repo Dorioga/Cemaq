@@ -7,21 +7,21 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
-    
+
 </head>
-<h2>Registar Beneficiario</h2>
+<div class="form-horizontal">
+    <h2>Registar Beneficiario</h2>
+
 
     @using (Html.BeginForm("Registrar_Beneficiario", "Registrar_Beneficiario", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
         Plataforma_academica.Models.Registrar_Beneficiario us = new Plataforma_academica.Models.Registrar_Beneficiario();
-        <div class="form-horizontal">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="file" name="excelfile" />
-                    <input type="submit" value="Subir Excel" class="btn btn-default" />
-                </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="file" name="excelfile" />
+                <input type="submit" value="Subir Excel" class="btn btn-default" />
             </div>
         </div>
 
@@ -44,7 +44,7 @@
             }
             else
             {
-                
+
                 if (ViewBag.mensaje == "Selecione un archivo de Excel correcto!")
                 {
                     <div class="alert alert-danger fade in">
@@ -105,20 +105,21 @@
 
         </table>
         @*<script>
-            //Editar la funcion para traer las otras list
-            function nextPrev(id) {
-                
+                //Editar la funcion para traer las otras list
+                function nextPrev(id) {
 
-                    var url = "@Url.Action("Lista_municipios", "Registrar_Beneficiario")?id="+id;
-                    $.post(url).done(function () {
 
-                    }).fail(manejaErrorAjax).always(function () {
+                        var url = "@Url.Action("Lista_municipios", "Registrar_Beneficiario")?id="+id;
+                        $.post(url).done(function () {
 
-                    });
-            };
-        </script>*@
+                        }).fail(manejaErrorAjax).always(function () {
+
+                        });
+                };
+            </script>*@
     }
+</div>
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
