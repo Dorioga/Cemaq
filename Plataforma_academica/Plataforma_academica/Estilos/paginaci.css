@@ -3,14 +3,16 @@
 }
 /* Make circles that indicate the steps of the form: */
 .step {
-  height: 20px;
-  width: 20px;
-  margin: 0 2px;
-  background-color: #4CAF50;
-  border: none;  
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
+ height: 30px;
+    width: 30px;
+    color: black;
+    padding-top: 4px;
+    margin: 0 2px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
 }
 
 .step.active {

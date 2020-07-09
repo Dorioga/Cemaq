@@ -14,14 +14,14 @@ namespace Plataforma_academica.Models
         public Clasificacion_multimedia[] Consultar_tipo_clasificacion()
         {
             Conexion.Conexion con = new Conexion.Conexion();
-            DataTable estado = con.Execute_Query("CALL Pr_Cargar_clasificacion_multimedia()");
+            DataTable estado = con.Execute_Query("CALL Pr_Cargar_tipo_soporte()");
             Clasificacion_multimedia[] arreglo = new Clasificacion_multimedia[estado.Rows.Count];
             int j = 0;
             foreach (DataRow i in estado.Rows)
             {
                 arreglo[j] = new Clasificacion_multimedia();
-                arreglo[j].codigo = i["id_clasificacion"].ToString();
-                arreglo[j].nombre = i["nombre_clasificacion"].ToString();
+                arreglo[j].codigo = i["Id_tipo_soporte"].ToString();
+                arreglo[j].nombre = i["Nombre_soporte"].ToString();
                 j++;
             }
             return arreglo;

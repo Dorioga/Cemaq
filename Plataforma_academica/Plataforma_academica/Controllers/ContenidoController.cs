@@ -12,7 +12,7 @@ namespace Plataforma_academica.Controllers
     {
         string nombre;
         // GET: Contenido
-        public ActionResult Cargar_contenido(contenido obj, lista_tipo_multimedia tipo, HttpPostedFileBase file, HttpPostedFileBase file1, Clasificacion_multimedia tipoact)
+        public ActionResult Cargar_contenido(contenido obj, lista_tipo_multimedia tipo, HttpPostedFileBase file, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3, Clasificacion_multimedia tipoact)
         {
             Plataforma_academica.Models.principalP act2 = Session["usuario12"] as Plataforma_academica.Models.principalP;
             Login user = Session["usuario"] as Login;
@@ -105,7 +105,7 @@ namespace Plataforma_academica.Controllers
                         if (codigo3 != null)
                         {
                             Plataforma_academica.Models.contenido id_actividad = Session["usuario_id_actividad_seccion"] as Plataforma_academica.Models.contenido;
-                            if (obj.Registrar_seccion(obj, id_actividad.id_actividad, Subir(file), nombre))
+                            if (obj.Registrar_seccion(obj, id_actividad.id_actividad, Subir(file), nombre, Subir(file1)))
                             {
                                 ViewBag.mensaje = "Registro exitoso";
                             }

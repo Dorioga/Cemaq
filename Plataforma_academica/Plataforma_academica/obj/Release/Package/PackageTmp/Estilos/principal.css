@@ -276,7 +276,7 @@ ul, ol {
 .con_form {
     height: 60%;
     border-radius: 15px;
-    border: 3px solid #1bbc97;
+    /*border: 3px solid #1bbc97;*/
     color:white !important;
 }
     .con_form h6 {
@@ -363,7 +363,7 @@ ul, ol {
 .form-horizontal {
     border: 3px solid #1bbc97;
     border-radius:15px;
-    background-color: #263859 !important;
+    background-color: #021d3a !important;
 }
 .form-horizontal h2{
     margin: 0.5em;
