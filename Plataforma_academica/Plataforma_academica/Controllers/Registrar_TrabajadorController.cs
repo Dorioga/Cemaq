@@ -10,8 +10,9 @@ namespace Plataforma_academica.Controllers
 {
     public class Registrar_TrabajadorController : Controller
     {
+        string nombre;
         // GET: Registrar_Trabajador
-        public ActionResult Registrar_Trabajador(Registrar_Trabajador obj, Rol rol, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla)
+        public ActionResult Registrar_Trabajador(Registrar_Trabajador obj, HttpPostedFileBase file1, Rol rol, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla, Genero g, Contrato c, Escolaridad e, Estado_civil es)
         {
             Models.Login user = Session["usuario"] as Models.Login;
 
@@ -38,6 +39,22 @@ namespace Plataforma_academica.Controllers
                     {
                         tipo_pobla.id_tipo_poblacion = Request.Form["listar2"].ToString();
                     }
+                    if (Request.Form["listar6"] != null)
+                    {
+                        g.id_genero = Request.Form["listar6"].ToString();
+                    }
+                    if (Request.Form["listar7"] != null)
+                    {
+                        c.id_contrato = Request.Form["listar7"].ToString();
+                    }
+                    if (Request.Form["listar8"] != null)
+                    {
+                        e.id_escolaridad = Request.Form["listar8"].ToString();
+                    }
+                    if (Request.Form["listar9"] != null)
+                    {
+                        es.id_estado = Request.Form["listar9"].ToString();
+                    }
                     List<SelectListItem> prueba = ViewData["lista"] as List<SelectListItem>;
                     if (prueba == null)
                     {
@@ -47,10 +64,22 @@ namespace Plataforma_academica.Controllers
                         Plataforma_academica.Models.Tipo_documento[] tid;
                         Plataforma_academica.Models.Tipo_poblacion tip = new Plataforma_academica.Models.Tipo_poblacion();
                         Plataforma_academica.Models.Tipo_poblacion[] tipob;
+                        Plataforma_academica.Models.Genero ge = new Plataforma_academica.Models.Genero();
+                        Plataforma_academica.Models.Genero[] gen;
+                        Plataforma_academica.Models.Contrato co = new Plataforma_academica.Models.Contrato();
+                        Plataforma_academica.Models.Contrato[] con;
+                        Plataforma_academica.Models.Estado_civil esta = new Plataforma_academica.Models.Estado_civil();
+                        Plataforma_academica.Models.Estado_civil[] civi;
+                        Plataforma_academica.Models.Escolaridad esco = new Plataforma_academica.Models.Escolaridad();
+                        Plataforma_academica.Models.Escolaridad[] cola;
 
                         rol_ = r.BuscarRol();
                         tid = ti.Buscartipodocumento();
                         tipob = tip.Buscarpoblacion();
+                        gen = ge.BuscarGenero();
+                        con = co.BuscarContrato();
+                        civi = esta.BuscarEstadoCivil();
+                        cola = esco.BuscarEscolaridad();
 
                         List<SelectListItem> lista = new List<SelectListItem>();
                         foreach (Rol i in rol_)
@@ -87,6 +116,54 @@ namespace Plataforma_academica.Controllers
                             });
                         }
                         ViewData["lista3"] = lista2;
+
+                        List<SelectListItem> lista7 = new List<SelectListItem>();
+                        foreach (Genero i in gen)
+                        {
+                            lista7.Add(new SelectListItem
+                            {
+                                Text = i.nombre_genero,
+                                Value = i.id_genero,
+                                Selected = false
+                            });
+                        }
+                        ViewData["lista7"] = lista7;
+
+                        List<SelectListItem> lista8 = new List<SelectListItem>();
+                        foreach (Contrato i in con)
+                        {
+                            lista8.Add(new SelectListItem
+                            {
+                                Text = i.nombre_contrato,
+                                Value = i.id_contrato,
+                                Selected = false
+                            });
+                        }
+                        ViewData["lista8"] = lista8;
+
+                        List<SelectListItem> lista9 = new List<SelectListItem>();
+                        foreach (Estado_civil i in civi)
+                        {
+                            lista9.Add(new SelectListItem
+                            {
+                                Text = i.nombre_estado,
+                                Value = i.id_estado,
+                                Selected = false
+                            });
+                        }
+                        ViewData["lista9"] = lista9;
+
+                        List<SelectListItem> lista10 = new List<SelectListItem>();
+                        foreach (Escolaridad i in cola)
+                        {
+                            lista10.Add(new SelectListItem
+                            {
+                                Text = i.nombre,
+                                Value = i.id_escolaridad,
+                                Selected = false
+                            });
+                        }
+                        ViewData["lista10"] = lista10;
                     }
                 }
 
@@ -97,7 +174,7 @@ namespace Plataforma_academica.Controllers
                 if (codigo1 != null)
                 {
                     Contenido_practico id_examen = new Contenido_practico();
-                    if (obj.Registrar_Trabajadores(obj))
+                    if (obj.Registrar_Trabajadores(obj,Subir(file1)))
                     {
                         ViewBag.mensaje = "Exito";
                     }                    
@@ -121,6 +198,25 @@ namespace Plataforma_academica.Controllers
             {
                 return false;
             }
+        }
+
+        [HttpPost]
+        public string Subir(HttpPostedFileBase file)
+        {
+            string archivo;
+
+            if (file == null)
+            {
+                nombre = null;
+                return null;
+            }
+            else
+            {
+                archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + file.FileName).ToLower();
+                file.SaveAs(Server.MapPath("~/Imagenes/" + archivo));
+                nombre = file.FileName;
+            }
+            return archivo;
         }
     }
 }

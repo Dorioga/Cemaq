@@ -11,7 +11,7 @@ namespace Plataforma_academica.Controllers
     {
         string nombre;
         // GET: Registrar_Cursos
-        public ActionResult Registrar_Cursos(Registrar_Cursos obj, Tematica t, Horas_diplomado horas, HttpPostedFileBase file)
+        public ActionResult Registrar_Cursos(Registrar_Cursos obj, Tematica t, Horas_diplomado horas, HttpPostedFileBase file, Docentes d)
         {
             Models.Login user = Session["usuario"] as Models.Login;
 
@@ -33,6 +33,10 @@ namespace Plataforma_academica.Controllers
                     {
                         horas.id_horas = Request.Form["listar1"].ToString();
                     }
+                    if (Request.Form["listar2"] != null)
+                    {
+                        d.id_docente = Request.Form["listar2"].ToString();
+                    }
                     List<SelectListItem> prueba = ViewData["lista"] as List<SelectListItem>;
                     if (prueba == null)
                     {
@@ -40,9 +44,12 @@ namespace Plataforma_academica.Controllers
                         Plataforma_academica.Models.Tematica[] temati;
                         Plataforma_academica.Models.Horas_diplomado ho = new Plataforma_academica.Models.Horas_diplomado();
                         Plataforma_academica.Models.Horas_diplomado[] hor;
+                        Plataforma_academica.Models.Docentes doc = new Plataforma_academica.Models.Docentes();
+                        Plataforma_academica.Models.Docentes[] doce;
 
                         temati = te.BuscarTematicas();
                         hor = ho.BuscarHoras();
+                        doce = doc.BuscarDocentes();
 
                         List<SelectListItem> lista = new List<SelectListItem>();
                         foreach (Tematica i in temati)
@@ -79,6 +86,18 @@ namespace Plataforma_academica.Controllers
                             });
                         }
                         ViewData["lista5"] = lista5;
+
+                        List<SelectListItem> lista6 = new List<SelectListItem>();
+                        foreach (Docentes i in doce)
+                        {
+                            lista6.Add(new SelectListItem
+                            {
+                                Text = i.nombre,
+                                Value = i.id_docente,
+                                Selected = false
+                            });
+                        }
+                        ViewData["lista6"] = lista6;
 
                         //List<SelectListItem> lista2 = new List<SelectListItem>();
                         //for (int j = 0; j < 11; j++)

@@ -16,11 +16,12 @@ namespace Plataforma_academica.Controllers
 
         // GET: Login
 
-        public ActionResult Login(Login usr, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla, Municipio mun, Pais pa, Departamento d, Genero g)
+        public ActionResult Login(Login usr, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla, Municipio mun, Pais pa, Departamento d, Genero g, Estado_civil e, Escolaridad cola)
         {
-            DataTable datos = null; 
-                
-                    String codigo2 = Request.Form["iniciar"];
+            DataTable datos = null;
+            HtmlHelper.ClientValidationEnabled = false;
+
+            String codigo2 = Request.Form["iniciar"];
                     if (codigo2 != null)
                     {
                         if (usr.usuario == null || usr.contraseña == null)
@@ -40,6 +41,8 @@ namespace Plataforma_academica.Controllers
                                 user.cedula = datos.Rows[0]["id_persona"].ToString();
                                 user.usuario = datos.Rows[0]["id_usuario"].ToString();
                                 user.conexion_usuario = datos.Rows[0]["estado_conexion_usuario"].ToString();
+                                user.genero = datos.Rows[0]["nombre_genero"].ToString();
+                                user.foto = datos.Rows[0]["foto"].ToString();
                                 Session["usuario"] = user;
                                 if (Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) < 7 && Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) > 3)
                                 {
@@ -80,9 +83,17 @@ namespace Plataforma_academica.Controllers
                 {
                     mun.id_municipio = Request.Form["listar3"].ToString();
                 }
+            if (Request.Form["listar7"] != null)
+            {
+                e.id_estado= Request.Form["listar7"].ToString();
+            }
             if (Request.Form["listar6"] != null)
             {
                 g.id_genero = Request.Form["listar6"].ToString();
+            }
+            if (Request.Form["listar8"] != null)
+            {
+                cola.id_escolaridad = Request.Form["listar8"].ToString();
             }
 
             List<SelectListItem> prueba = ViewData["lista"] as List<SelectListItem>;
@@ -100,13 +111,19 @@ namespace Plataforma_academica.Controllers
                     Plataforma_academica.Models.Departamento[] depa;
                 Plataforma_academica.Models.Genero ge= new Plataforma_academica.Models.Genero();
                 Plataforma_academica.Models.Genero[] gen;
+                Plataforma_academica.Models.Estado_civil es = new Plataforma_academica.Models.Estado_civil();
+                Plataforma_academica.Models.Estado_civil[] est;
+                Plataforma_academica.Models.Escolaridad esco = new Plataforma_academica.Models.Escolaridad();
+                Plataforma_academica.Models.Escolaridad[] escola;
 
-                    tid = ti.Buscartipodocumento();
+                tid = ti.Buscartipodocumento();
                     tipob = tip.Buscarpoblacion();
                     pai = p.BuscarPais();
                     depa = dp.BuscarDepartamento();
                     mu = m.BuscarMunicipio();
                     gen = ge.BuscarGenero();
+                est = es.BuscarEstadoCivil();
+                escola = esco.BuscarEscolaridad();
 
                     List<SelectListItem> lista1 = new List<SelectListItem>();
                     foreach (Tipo_documento i in tid)
@@ -179,6 +196,30 @@ namespace Plataforma_academica.Controllers
                     });
                 }
                 ViewData["lista7"] = lista7;
+
+                List<SelectListItem> lista8 = new List<SelectListItem>();
+                foreach (Estado_civil i in est)
+                {
+                    lista8.Add(new SelectListItem
+                    {
+                        Text = i.nombre_estado,
+                        Value = i.id_estado,
+                        Selected = false
+                    });
+                }
+                ViewData["lista8"] = lista8;
+
+                List<SelectListItem> lista9 = new List<SelectListItem>();
+                foreach (Escolaridad i in escola)
+                {
+                    lista9.Add(new SelectListItem
+                    {
+                        Text = i.nombre,
+                        Value = i.id_escolaridad,
+                        Selected = false
+                    });
+                }
+                ViewData["lista9"] = lista9;
             }
             if (ValidarDatos(usr))
             {

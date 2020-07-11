@@ -211,11 +211,15 @@
     <Compile Include="Models\Condiciones.cs" />
     <Compile Include="Models\contenido.cs" />
     <Compile Include="Models\Contenido_practico.cs" />
+    <Compile Include="Models\Contrato.cs" />
     <Compile Include="Models\Departamento.cs" />
     <Compile Include="Models\Diplomados_matriculados.cs" />
+    <Compile Include="Models\Docentes.cs" />
     <Compile Include="Models\Editar_Actividad.cs" />
     <Compile Include="Models\Editar_examen.cs" />
     <Compile Include="Models\Empresa.cs" />
+    <Compile Include="Models\Escolaridad.cs" />
+    <Compile Include="Models\Estado_civil.cs" />
     <Compile Include="Models\Genero.cs" />
     <Compile Include="Models\Grupo.cs" />
     <Compile Include="Models\Horas_diplomado.cs" />
@@ -314,6 +318,7 @@
     <Content Include="Imagenes\d0a964d7-76e1-4186-b03e-021f57f3b982.jpg" />
     <Content Include="Imagenes\Excel.png" />
     <Content Include="Imagenes\florencia.jpg" />
+    <Content Include="Imagenes\foto.jpeg" />
     <Content Include="Imagenes\giphy.gif" />
     <Content Include="Imagenes\icon %282%29.png" />
     <Content Include="Imagenes\icon.png" />
@@ -347,6 +352,9 @@
     <Content Include="Imagenes\user-alt-solid.svg" />
     <Content Include="Imagenes\user-cog-solid.svg" />
     <Content Include="Imagenes\user-tie-solid.svg" />
+    <Content Include="Imagenes\user.png" />
+    <Content Include="Imagenes\usuaria.png" />
+    <Content Include="Imagenes\usuario.png" />
     <Content Include="Imagenes\video-solid.svg" />
     <Content Include="Imagenes\Word.png" />
     <Content Include="Imagenes\YCZH.gif" />

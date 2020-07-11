@@ -148,7 +148,7 @@
 
                             for (int i = 0; i < arreglo.Length; i++)
                             {
-                                <button type="submit" class="col-lg-40 button1 est" name="ir" value="@arreglo[i].codigo_curso">
+                                <button type="submit" class="col-lg-40 button1 est" name="ir" value="@arreglo[i].codigo_curso" >
                                     <div class="our-team-main">
                                         <div class="team-front">
                                             <img  src="~/imagenes/@arreglo[i].url" />
@@ -211,7 +211,10 @@
                             TempData.Keep("mensaje1");
                             string nc = Convert.ToString(TempData["mensaje1"]);
                             arreglo_unidad = unidad.Consultar_unidades_usuario(nc, usu.usuario);
-
+                            if (arreglo_unidad[0].presentacion == "saludar")
+                            {
+                                @Scripts.Render("~/Scripts/Emerentelogin.js")
+                            }
                             for (int i = 0; i < arreglo_unidad.Length; i++)
                             {
                                 <button type="submit" class="col-lg-40 button1 est" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
@@ -290,6 +293,23 @@
                     }
                 </div>
 
+            </div>
+            
+            <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog" style="position: initial;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 style="position: absolute;">hola 1</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h5>Hola</h5>
+                        </div>
+                        <div class="modal-footer">                                   
+                            <button type="submit" name="ir_R" id="r" value="" class="btn btn-info">Registrar</button>                          
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
        

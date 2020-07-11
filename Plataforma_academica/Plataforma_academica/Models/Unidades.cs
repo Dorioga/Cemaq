@@ -12,6 +12,7 @@ namespace Plataforma_academica.Models
         public String codigo_curso_nivel;
         public String codigo_unidad;
         public String porcentaje_modulo;
+        public String presentacion;
 
         public Unidades[] Consultar_unidades_grupo(string nc)
         {
@@ -43,6 +44,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].codigo_unidad = i["Codigo Curso nivel"].ToString();
                 arreglo[j].codigo_curso_nivel = i["Codigo Unidad"].ToString();
                 arreglo[j].porcentaje_modulo = i["porcentaje"].ToString();
+                arreglo[j].presentacion = i["presentacion"].ToString();
                 j++;
             }
             return arreglo;

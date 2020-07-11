@@ -39,43 +39,48 @@
                     <img src="~/Imagenes/cropped-cemaq_logo2.png" alt="" />
                     <h3>BIENVENIDO A</h3>
                     <h3>CEMAQ DIPLOMADOS</h3>
-                </div>
+                    <div class="col-md-6" style="max-width: 100%;background-color: #f8f9fa;padding-top: 1em;border-radius: 20px;">
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", @placeholder = "Usuario *", @id = "usuario" } })
+                            @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.contraseña, new { htmlAttributes = new { @type = "password", @class = "form-control", @placeholder = "Contraseña", @id = "contraseña" } })
+                            @Html.ValidationMessageFor(model => model.contraseña, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Iniciar Sesión" name="iniciar" class="btn btn-primary btn-round btn-lg btn-block" id="envia" style="font-size: 1rem;line-height: 1.2;border-radius: 1.3rem;width: 126px;background-color: #007bff;" />
+                        </div>
+                    </div>
+                </div>                
                 <div class="col-md-9 register-right">
-                    <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                    @*<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Acceder</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Registrar</a>
                         </li>
-                    </ul>
+                    </ul>*@
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <h3 class="register-heading">Iniciar Sesión</h3>
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" style="padding-left: 100px;">
+                            
                             <div class="row register-form">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-
-                                    </div>
+                                
+                                @*<div class="col-sm-4" style="padding: 0px;" >
+                                    
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", @placeholder = "Usuario *", @id = "usuario" } })
-                                        @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
-                                    </div>
-                                    <div class="form-group">
-                                        @Html.EditorFor(model => model.contraseña, new { htmlAttributes = new { @type = "password", @class = "form-control", @placeholder = "Contraseña", @id = "contraseña" } })
-                                        @Html.ValidationMessageFor(model => model.contraseña, "", new { @class = "text-danger" })
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" value="Iniciar Sesión" name="iniciar" class="btn btn-primary btn-round btn-lg btn-block" id="envia" />
-                                    </div>
+                                <div class="col-sm-4" style="padding: 0px;left: 4px;">
+                                    
                                 </div>
-                            </div>
+                                <div class="col-sm-4" style="padding: 0px;left: 10px;">
+                                   
+                                </div>*@                                
+                            </div>                           
                         </div>
-                        <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <h3 class="register-heading">Nuevo Registro</h3>
-                            <div class="row register-form">
+                        
+                            <h3 class="register-heading">Regístrate</h3>
+                            <div class="row register-form" style="margin-top: 16%;">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         @Html.DropDownListFor(model => model.tipo_doc, (IEnumerable<SelectListItem>)ViewData["lista1"], "Tipo documento *", htmlAttributes: new { @class = "form-control" })
@@ -85,7 +90,7 @@
                                         @Html.ValidationMessageFor(model => model.cedula, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                        @Html.EditorFor(model => model.nombre1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre *"} })
+                                        @Html.EditorFor(model => model.nombre1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Nombre *" } })
                                         @Html.ValidationMessageFor(model => model.nombre1, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
@@ -101,8 +106,17 @@
                                         @Html.ValidationMessageFor(model => model.apellido2, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                        @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @type = "number", @class = "form-control", @placeholder = "N° Telefono *" } })
-                                        @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                                        @Html.DropDownListFor(model => model.estado_civil, (IEnumerable<SelectListItem>)ViewData["lista8"], "Estado Civil *", htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        <p>
+                                            @{
+                                                string x = DateTime.Now.ToString("yyyy-MM-dd");
+                                            }
+                                            @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString() } })
+                                            @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
+                                            Fecha de nacimiento *
+                                        </p>                                        
                                     </div>
                                 </div>
                                 <div class="col-md-6">                                    
@@ -126,22 +140,17 @@
                                         @Html.DropDownListFor(model => model.municipio, (IEnumerable<SelectListItem>)ViewData["lista6"], "Municipio *", new { @class = "form-control"})
                                     </div>
                                     <div class="form-group">
-                                        <p>
-                                            @{
-                                                string x = DateTime.Now.ToString("yyyy-MM-dd");
-                                            }
-                                            @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString() } })
-                                            @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
-                                            Fecha de nacimiento *
-                                        </p>
-
+                                        @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @type = "number", @class = "form-control", @placeholder = "N° Telefono *" } })
+                                        @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" value="Registrar" name ="subir1" class="btn btn-primary btn-round btn-lg btn-block" id="envia" />
+                                        @Html.DropDownListFor(model => model.escolaridad, (IEnumerable<SelectListItem>)ViewData["lista9"], "Nivel Escolaridad *", htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Enviar" name ="subir1" class="btn btn-primary btn-round btn-lg btn-block" id="envia" />
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>

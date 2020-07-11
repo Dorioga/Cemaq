@@ -12,6 +12,8 @@ namespace Plataforma_academica.Models
         public string contraseña { set; get; }
         public string Nombre { set; get; }
         public string rol { set; get; }
+        public string escolaridad { set; get; }
+        public string estado_civil { set; get; }
         public string cedula { set; get; }
         public string Tipo_rol { set; get; }
         public string tipo_doc { set; get; }
@@ -27,6 +29,7 @@ namespace Plataforma_academica.Models
         public string municipio { set; get; }
         public string departamento { set; get; }
         public string pais { set; get; }
+        public string foto { set; get; }
         public string conexion_usuario { set; get; }
 
         private Conexion.Conexion conexion;
@@ -44,8 +47,24 @@ namespace Plataforma_academica.Models
         {
             conexion = new Conexion.Conexion();
             string fecha = obj.fecha_nacimiento.ToString("yyyy-MM-dd");
-            int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "')");
-            return x == 0 ? true : false;
+            if (obj.genero=="1")
+            {
+                int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuario.png" + "')");
+                return x == 0 ? true : false;
+            }
+            else
+            {
+                if (obj.genero == "2")
+                {
+                    int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuaria.png" + "')");
+                    return x == 0 ? true : false;
+                }
+                else
+                {
+                    int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "user.png" + "')");
+                    return x == 0 ? true : false;
+                }
+            }
 
         }
 

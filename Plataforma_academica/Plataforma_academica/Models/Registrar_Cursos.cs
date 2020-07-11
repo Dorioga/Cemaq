@@ -15,6 +15,7 @@ namespace Plataforma_academica.Models
         public int cantidadBasico { set; get; }
         public int cantidadIntermedio { set; get; }
         public int cantidadAvanzado { set; get; }
+        public string docente { set; get; }
         public string[] basico { set; get; }
         public string[] intermedio { set; get; }
         public string[] descripcionbasico { set; get; }
@@ -35,7 +36,7 @@ namespace Plataforma_academica.Models
         {
 
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_ingresar_cursonivel ('" + obj.Nombre_curso + "','" + codigo_nivel + "')");
+            int x = conexion.Execute_Operation("call Pr_ingresar_cursonivel ('" + obj.Nombre_curso + "','" + codigo_nivel + "','" + obj.docente + "')");
             return x == 0 ? true : false;
 
         }
