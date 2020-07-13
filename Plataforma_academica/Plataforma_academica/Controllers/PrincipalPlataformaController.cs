@@ -11,6 +11,7 @@ namespace Plataforma_academica.Controllers
     public class PrincipalPlataformaController : Controller
     {
         // GET: PrincipalPlataforma
+
         public ActionResult principalplataforma()
         {
             Models.Login user = Session["usuario"] as Models.Login;

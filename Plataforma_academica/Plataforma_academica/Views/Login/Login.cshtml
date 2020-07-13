@@ -21,7 +21,22 @@
     <title>CEMAQ - Iniciar Sesión</title>
     <link rel="icon" type="image/gif" href="~/Imagenes/cropped-favicom-32x32.png">
     <script src="~/Scripts/login_campos.js"></script>
-  
+    <style type="text/css">
+        .oculta {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        function mostrar(value_elemento) {
+            var elemento = value_elemento;
+            var url = "@Url.Action("GetStates", "Login", new RouteValueDictionary(new { value_elemento = 57 }))";
+            $.post(url).done(function(){
+
+            }).fail(manejaErrorAjax).always(function(){
+
+            });           
+        }
+    </script>
 </head>
 
 <body class="login-page sidebar-collapse" style="background-color: #17223b;">
@@ -52,7 +67,7 @@
                             <input type="submit" value="Iniciar Sesión" name="iniciar" class="btn btn-primary btn-round btn-lg btn-block" id="envia" style="font-size: 1rem;line-height: 1.2;border-radius: 1.3rem;width: 126px;background-color: #007bff;" />
                         </div>
                     </div>
-                </div>                
+                </div>
                 <div class="col-md-9 register-right">
                     @*<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                         <li class="nav-item">
@@ -64,21 +79,21 @@
                     </ul>*@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" style="padding-left: 100px;">
-                            
+
                             <div class="row register-form">
-                                
+
                                 @*<div class="col-sm-4" style="padding: 0px;" >
-                                    
+
                                 </div>
                                 <div class="col-sm-4" style="padding: 0px;left: 4px;">
-                                    
+
                                 </div>
                                 <div class="col-sm-4" style="padding: 0px;left: 10px;">
-                                   
-                                </div>*@                                
-                            </div>                           
+
+                                </div>*@
+                            </div>
                         </div>
-                        
+
                             <h3 class="register-heading">Regístrate</h3>
                             <div class="row register-form" style="margin-top: 16%;">
                                 <div class="col-md-6">
@@ -116,28 +131,31 @@
                                             @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString() } })
                                             @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
                                             Fecha de nacimiento *
-                                        </p>                                        
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">                                    
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @type = "email", @class = "form-control", @placeholder = "Correo *" } })
                                         @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         @Html.DropDownListFor(model => model.genero, (IEnumerable<SelectListItem>)ViewData["lista7"], "Genero *", new { @class = "form-control" })
-                                    </div>                                 
+                                    </div>
                                     <div class="form-group">
                                         @Html.DropDownListFor(model => model.tipo_pobla, (IEnumerable<SelectListItem>)ViewData["lista3"], "Tipo población *", new { @class = "form-control" })
                                     </div>
                                     <div class="form-group">
-                                        @Html.DropDownListFor(model => model.pais, (IEnumerable<SelectListItem>)ViewData["lista4"], "País de Residencia *", new { @class = "form-control"})                                        
+                                        @Html.DropDownListFor(model => model.pais, (IEnumerable<SelectListItem>)ViewData["lista4"], "País de Residencia *", new { @onchange = "mostrar(this.value)", @class = "form-control"})
+                                        @*@Html.DropDownList("Country", ViewData["country"] as List<SelectListItem>,"País de Residencia *", new {@class = "form-control" })*@
                                     </div>
-                                    <div class="form-group oculta1" id="capa1">
-                                        @Html.DropDownListFor(model => model.departamento, (IEnumerable<SelectListItem>)ViewData["lista5"], "Departamento *", new { @class = "form-control"})
+                                    <div class="form-group">
+                                        @*@Html.DropDownListFor(model => model.departamento, (IEnumerable<SelectListItem>)ViewData["lista5"], "Departamento *", new { @class = "form-control"})*@
+                                        @Html.DropDownList("State", new SelectList(string.Empty, "Value", "Text"), "Please select a State", new { @class = "form-control" })
                                     </div>
-                                    <div class="form-group oculta2" id="capa2">
-                                        @Html.DropDownListFor(model => model.municipio, (IEnumerable<SelectListItem>)ViewData["lista6"], "Municipio *", new { @class = "form-control"})
+                                    <div class="form-group">
+                                        @*@Html.DropDownListFor(model => model.municipio, (IEnumerable<SelectListItem>)ViewData["lista6"], "Municipio *", new { @class = "form-control"})*@
+                                        @Html.DropDownList("city", new SelectList(string.Empty, "Value", "Text"), "Please select a city", new {@class = "form-control" })
                                     </div>
                                     <div class="form-group">
                                         @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @type = "number", @class = "form-control", @placeholder = "N° Telefono *" } })
@@ -194,7 +212,7 @@
                                                 }
     <!-- Navbar -->
 
-   
+
 
     @*<div class="caja">
         <div class="fondo">

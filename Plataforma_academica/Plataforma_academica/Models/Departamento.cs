@@ -12,10 +12,10 @@ namespace Plataforma_academica.Models
         public string nombre_departamento { set; get; }
 
 
-        public Departamento[] BuscarDepartamento()
+        public Departamento[] BuscarDepartamento(string x)
         {
             Conexion.Conexion con = new Conexion.Conexion();
-            DataTable departamento = con.Execute_Query("call Pr_cargar_departamento()");
+            DataTable departamento = con.Execute_Query("call Pr_cargar_departamento('"+x+"')");
             Departamento[] arreglo = new Departamento[departamento.Rows.Count];
             int j = 0;
             foreach (DataRow i in departamento.Rows)
