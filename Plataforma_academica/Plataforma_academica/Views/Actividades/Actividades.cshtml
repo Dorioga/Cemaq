@@ -21,23 +21,17 @@
     @Html.AntiForgeryToken()
 
     <form id="regForm">
-        <div class="bb-custom-wrapper">
-            <div id="bb-bookblock" class="bb-bookblock">
-                <nav>
-                    <span id="bb-nav-next">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z" />
-                            <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z" />
-                        </svg>
-                    </span>
-                    <span id="bb-nav-prev">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M5.854 4.646a.5.5 0 0 1 0 .708L3.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z" />
-                            <path fill-rule="evenodd" d="M2.5 8a.5.5 0 0 1 .5-.5h10.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                        </svg>
-                    </span>
-                </nav>
 
+        <div class="bb-custom-wrapper">
+            <!-- Boton Atras -->
+            <span id="bb-nav-prev" class="atras">
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.854 4.646a.5.5 0 0 1 0 .708L3.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z" />
+                    <path fill-rule="evenodd" d="M2.5 8a.5.5 0 0 1 .5-.5h10.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+            </span>
+            <!-- Libro Contenido -->
+            <div id="bb-bookblock" class="bb-bookblock">
                 @{
                     Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
                     Plataforma_academica.Models.principalP actividad1 = Session["usuario3"] as Plataforma_academica.Models.principalP;
@@ -54,7 +48,7 @@
                             Plataforma_academica.Models.principalP act1 = Session["usuario3"] as Plataforma_academica.Models.principalP;
                             arreglo = actividad.Consultar_contenido_actividad(act1.codigo_actividad);
                             actividad.actual_seccion = actividad.Buscar_seccion_actual(actividad1.codigo_actividad, usu.usuario);
-                            seccion_actual = Convert.ToInt32(actividad.actual_seccion.Rows[0]["seccion_leida"].ToString())-1;
+                            seccion_actual = Convert.ToInt32(actividad.actual_seccion.Rows[0]["seccion_leida"].ToString()) - 1;
                             cant = arreglo.Length;
                             for (i = 0; i < arreglo.Length; i++)
                             {
@@ -62,47 +56,52 @@
                                 <!-- Tabs-->
                                 <div class="bb-item">
                                     @{
+                                        //Primera hoja
                                         if (i == 0)
                                         {
-                                            <h2 style="color: white;">@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
-                                            
-                                            if (arreglo[i].id_tipo_multimedia == "3")
-                                            {
-                                                <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
-                                            }
-                                            else
-                                            {
-                                                if (arreglo[i].id_tipo_multimedia == "2")
-                                                {
-                                                    <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
-                                                    <section>
-                                                        <div @*class="w3-animate-zoom"*@>
-                                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
-                                                        </div>
-                                                    </section>
-                                                }
-                                                else
-                                                {
-                                                    if (arreglo[i].descripcion != null)
-                                                    {
-                                                        <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
-                                                        <section>
-                                                            <div class="embed-responsive ">
-                                                                <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
-                                                            </div>
-                                                        </section>
-                                                    }
-                                                    else
-                                                    {
-                                                        <section>
-                                                            <div class="embed-responsive ">
-                                                                <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
-                                                            </div>
-                                                        </section>
-                                                    }
+                                            <section>
+                                                <article>
+                                                    @{ 
+                                                        //Contenido Primera Hoja
 
-                                                }
-                                            }
+                                                        <h2 style="color: white;">@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
+
+                                                        if (arreglo[i].id_tipo_multimedia == "3")
+                                                        {
+                                                            <textarea>@arreglo[i].descripcion</textarea>
+                                                        }
+
+                                                        else
+                                                        {
+                                                            if (arreglo[i].id_tipo_multimedia == "2")
+                                                            {
+                                                                <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                                                <div @*class="w3-animate-zoom"*@>
+                                                                    <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                if (arreglo[i].descripcion != null)
+                                                                {
+                                                                    <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                                                    <div class="embed-responsive ">
+                                                                        <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                                    </div>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <div class="embed-responsive ">
+                                                                        <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                                    </div>
+                                                                }
+
+                                                            }
+                                                        }
+                                                    }
+                                                </article>
+                                            </section>
+                                            //Boton Material de Apoyo
                                             if (arreglo[i].tipo_seccion == "2")
                                             {
                                                 <button type="submit" id="subir" name="subir" value="@arreglo[i].arch" class="btn btn-primary">Material de apoyo</button>
@@ -118,7 +117,11 @@
                                                     <a href="@arreglo[i].arch" class="btn btn-primary" target="_blank">Material de apoyo</a>
                                                 }
                                             }
+
+
+
                                         }
+                                        //Segunda en Adelante
                                         else
                                         {
                                             if (arreglo[i].id_tipo_multimedia == "3")
@@ -129,11 +132,11 @@
 
                                                         <textarea id="autosize" style="border-radius: 5px;">@arreglo[i].contenido_seccion </textarea>
 
-                                                    </article>                                                        
+                                                    </article>
                                                 </section>
                                             }
                                             if (arreglo[i].id_tipo_multimedia == "1")
-                                            {                                                      
+                                            {
                                                 if (arreglo[i].contenido_seccion == "\r\n")
                                                 {
                                                     <section>
@@ -156,20 +159,20 @@
                                                             <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                         </div>
                                                     </section>
-                                                       
-                                                        }
-                                                        }
-                                                        if (arreglo[i].id_tipo_multimedia == "2")
-                                                        {
-                                                            if (arreglo[i].contenido_seccion == "\r\n")
-                                                            {
+
+                                                }
+                                            }
+                                            if (arreglo[i].id_tipo_multimedia == "2")
+                                            {
+                                                if (arreglo[i].contenido_seccion == "\r\n")
+                                                {
                                                     <section>
                                                         <h4 style="color: white;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
                                                         <div @*class="w3-animate-zoom"*@>
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                         </div>
                                                     </section>
-                                                    
+
                                                 }
                                                 else
                                                 {
@@ -184,7 +187,7 @@
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                         </div>
                                                     </section>
-                                                    
+
                                                 }
                                             }
                                             if (arreglo[i].id_tipo_multimedia == "4")
@@ -197,7 +200,7 @@
                                                             <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
                                                         </audio>
                                                     </section>
-                                                    
+
                                                 }
                                                 else
                                                 {
@@ -259,7 +262,7 @@
                                             }
                                         }
                                         int m = i + 1;
-                                        
+
                                         <div>
                                             <span class="step">@m</span>
                                         </div>
@@ -278,17 +281,17 @@
                                 cant = arreglo.Length;
                                 for (i = 0; i < arreglo.Length; i++)
                                 {
-                                  
+
                                     <div class="bb-item">
                                         @{
                                             if (i == 0)
                                             {
                                                 <h2 style="color: white;">@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
-                                                
+
                                                 if (arreglo[i].id_tipo_multimedia == "3")
                                                 {
                                                     <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
-                                                    
+
                                                 }
                                                 else
                                                 {
@@ -300,7 +303,7 @@
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                             </div>
                                                         </section>
-                                                        
+
                                                     }
                                                     else
                                                     {
@@ -312,7 +315,7 @@
                                                                     <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
                                                                 </div>
                                                             </section>
-                                                          
+
                                                         }
                                                         else
                                                         {
@@ -321,7 +324,7 @@
                                                                     <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
                                                                 </div>
                                                             </section>
-                                                           
+
                                                         }
 
                                                     }
@@ -352,7 +355,7 @@
                                                             <textarea id="autosize" style="border-radius: 5px;">@arreglo[i].contenido_seccion </textarea>
                                                         </article>
                                                     </section>
-                                                    
+
                                                 }
                                                 if (arreglo[i].id_tipo_multimedia == "1")
                                                 {
@@ -364,7 +367,7 @@
                                                                 <iframe src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                             </div>
                                                         </section>
-                                                        
+
                                                     }
                                                     else
                                                     {
@@ -380,7 +383,7 @@
                                                                 <iframe src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                             </div>
                                                         </section>
-                                                       
+
                                                     }
                                                 }
                                                 if (arreglo[i].id_tipo_multimedia == "2")
@@ -393,7 +396,7 @@
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                             </div>
                                                         </section>
-                                                        
+
                                                     }
                                                     else
                                                     {
@@ -408,7 +411,7 @@
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
                                                             </div>
                                                         </section>
-                                                        
+
                                                     }
                                                 }
                                                 if (arreglo[i].id_tipo_multimedia == "4")
@@ -486,35 +489,42 @@
                                             <div>
                                                 <span class="step">@m/@cant</span>
                                             </div>
-                                            if (i==(arreglo.Length-1) && arreglo[i].edicion_estado=="Pendiente")
+                                            if (i == (arreglo.Length - 1) && arreglo[i].edicion_estado == "Pendiente")
                                             {
-                                              <div>
-                                                  <h5 style="color: white;">Descripción para editar</h5>
-                                                  @Html.TextAreaFor(model => model.edicion, new { @class = "form-control" })
-                                                  <button  type="submit" class="btn" name="iraprobado" value="@arreglo[i].id_actividad" onclick="activar()" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Aprobado</button>
-                                                  <button type="submit" class="btn" name="irdesaprobado" value="@arreglo[i].id_actividad" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Desaprobado</button>
-                                              </div>
+                                                <div>
+                                                    <h5 style="color: white;">Descripción para editar</h5>
+                                                    @Html.TextAreaFor(model => model.edicion, new { @class = "form-control" })
+                                                    <button type="submit" class="btn" name="iraprobado" value="@arreglo[i].id_actividad" onclick="activar()" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Aprobado</button>
+                                                    <button type="submit" class="btn" name="irdesaprobado" value="@arreglo[i].id_actividad" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Desaprobado</button>
+                                                </div>
                                             }
                                         }
                                     </div>
 
                                 }
                             }
-                          if (ViewBag.mensaje1 == "actualizacion" || ViewBag.mensaje1 == "actualizacion_no_registro")
-                          {
-                             <script>
-                                 $(document).ready(function () {
-                                     $("#myModal").modal("hide");
-                                 });
-                             </script>
-                             @Scripts.Render("~/Scripts/actualizar.js")
+                            if (ViewBag.mensaje1 == "actualizacion" || ViewBag.mensaje1 == "actualizacion_no_registro")
+                            {
+                                <script>
+                                    $(document).ready(function () {
+                                        $("#myModal").modal("hide");
+                                    });
+                                </script>
+                                @Scripts.Render("~/Scripts/actualizar.js")
 
-                          }
+                            }
                         }
                     }
 
                 }
             </div>
+            <!-- Boton Adelante -->
+            <span id="bb-nav-next" class="adelante">
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z" />
+                    <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z" />
+                </svg>
+            </span>
             <div class="modal fade" id="mostrarmodal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                 <div class="modal-dialog" style="position: initial;">
                     <div class="modal-content">
@@ -560,7 +570,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.1/script/jquery.jscrollpane.min.js"></script>
     <script src="~/Scripts/jquery.bookblock.js"></script>
     <script>
-        function activar(){
+        function activar() {
             $(document).ready(function () {
                 $("#myModal").modal("show");
             });
@@ -604,8 +614,8 @@
                 supportTransitions = Modernizr.csstransitions;
 
 
-            function init() {               
-            
+            function init() {
+
                     if(@rol>= 4 || @rol < 7){
                         current = @seccion_actual;
                         currentaux =@seccion_actual;

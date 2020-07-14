@@ -276,13 +276,11 @@
     <Content Include="Estilos\hover.css" />
     <Content Include="Estilos\InfantilPage1.css" />
     <Content Include="Estilos\lista_personas.css" />
-    <Content Include="Estilos\loginStyle1.css" />
     <Content Include="Estilos\Menu_plataforma.css" />
     <Content Include="Estilos\modal.css" />
     <Content Include="Estilos\modalzoom.css" />
     <Content Include="Estilos\Modal_Inicio.css" />
     <Content Include="Estilos\navbarderecho1.css" />
-    <Content Include="Estilos\nuevo_login.css" />
     <Content Include="Estilos\paginaci.css" />
     <Content Include="Estilos\practica_textaarea.css" />
     <Content Include="Estilos\principal.css" />

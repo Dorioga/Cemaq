@@ -2,7 +2,6 @@
 .bb-bookblock {
     width:100%;
     min-height: 400px;
-    height: 85vh;
     position: relative;
     z-index: 100;
 }
@@ -34,7 +33,7 @@
     }
 
 .bb-content {
-    background: #fff;
+    background:#17223b;
 }
 
 .bb-inner {
