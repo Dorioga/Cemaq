@@ -255,6 +255,10 @@
     <Content Include="Audios\J Balvin - Yo Te Lo Dije.mp3" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen-sprite%402x.png" />
+    <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\chosen.css" />
+    <Content Include="Content\chosen.min.css" />
     <Content Include="Estilos\actividadesStyl1.css" />
     <Content Include="Estilos\actividad_editar.css" />
     <Content Include="Estilos\aprobado_perdido.css" />
@@ -434,6 +438,9 @@
     <Content Include="Scripts\button_habilitar_pregunt.js" />
     <Content Include="Scripts\chat.js" />
     <Content Include="Scripts\chat1.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
+    <Content Include="Scripts\chosen.proto.js" />
     <Content Include="Scripts\creadorzoom.js" />
     <Content Include="Scripts\CrearPregunta.js" />
     <Content Include="Scripts\CrearSeccion.js" />
@@ -524,6 +531,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
+    <Folder Include="obj\Debug\" />
     <Folder Include="Views\Pais\" />
     <Folder Include="Views\Profesional\" />
   </ItemGroup>

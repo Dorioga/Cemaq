@@ -105,10 +105,10 @@ namespace Plataforma_academica.Controllers
                 Plataforma_academica.Models.Tipo_poblacion[] tipob;
                 Plataforma_academica.Models.Pais p = new Plataforma_academica.Models.Pais();
                 Plataforma_academica.Models.Pais[] pai;
-                //Plataforma_academica.Models.Municipio m = new Plataforma_academica.Models.Municipio();
-                //Plataforma_academica.Models.Municipio[] mu;
-                //Plataforma_academica.Models.Departamento dp = new Plataforma_academica.Models.Departamento();
-                //Plataforma_academica.Models.Departamento[] depa;
+                Plataforma_academica.Models.Municipio m = new Plataforma_academica.Models.Municipio();
+                Plataforma_academica.Models.Municipio[] mu;
+                Plataforma_academica.Models.Departamento dp = new Plataforma_academica.Models.Departamento();
+                Plataforma_academica.Models.Departamento[] depa;
                 Plataforma_academica.Models.Genero ge = new Plataforma_academica.Models.Genero();
                 Plataforma_academica.Models.Genero[] gen;
                 Plataforma_academica.Models.Estado_civil es = new Plataforma_academica.Models.Estado_civil();
@@ -119,8 +119,8 @@ namespace Plataforma_academica.Controllers
                 tid = ti.Buscartipodocumento();
                 tipob = tip.Buscarpoblacion();
                 pai = p.BuscarPais();
-                //depa = dp.BuscarDepartamento();
-                //mu = m.BuscarMunicipio();
+                depa = dp.BuscarDepartamento();
+                mu = m.BuscarMunicipio();
                 gen = ge.BuscarGenero();
                 est = es.BuscarEstadoCivil();
                 escola = esco.BuscarEscolaridad();
@@ -148,7 +148,7 @@ namespace Plataforma_academica.Controllers
                     });
                 }
                 ViewData["lista3"] = lista2;
-
+                
                 List<SelectListItem> lista4 = new List<SelectListItem>();
                 foreach (Pais i in pai)
                 {
@@ -158,32 +158,33 @@ namespace Plataforma_academica.Controllers
                         Value = i.id_pais,
                         Selected = false
                     });
+
                 }
                 ViewData["lista4"] = lista4;
 
-                //List<SelectListItem> lista5 = new List<SelectListItem>();
-                //foreach (Departamento i in depa)
-                //{
-                //    lista5.Add(new SelectListItem
-                //    {
-                //        Text = i.nombre_departamento,
-                //        Value = i.id_departamento,
-                //        Selected = false
-                //    });
-                //}
-                //ViewData["lista5"] = lista5;
+                List<SelectListItem> lista5 = new List<SelectListItem>();
+                foreach (Departamento i in depa)
+                {
+                    lista5.Add(new SelectListItem
+                    {
+                        Text = i.nombre_departamento,
+                        Value = i.id_departamento,
+                        Selected = false
+                    });
+                }
+                ViewData["lista5"] = lista5;
 
-                //List<SelectListItem> lista6 = new List<SelectListItem>();
-                //foreach (Municipio i in mu)
-                //{
-                //    lista6.Add(new SelectListItem
-                //    {
-                //        Text = i.nombre_municipio,
-                //        Value = i.id_municipio,
-                //        Selected = false
-                //    });
-                //}
-                //ViewData["lista6"] = lista6;
+                List<SelectListItem> lista6 = new List<SelectListItem>();
+                foreach (Municipio i in mu)
+                {
+                    lista6.Add(new SelectListItem
+                    {
+                        Text = i.nombre_municipio,
+                        Value = i.id_municipio,
+                        Selected = false
+                    });
+                }
+                ViewData["lista6"] = lista6;
 
                 List<SelectListItem> lista7 = new List<SelectListItem>();
                 foreach (Genero i in gen)
@@ -264,49 +265,49 @@ namespace Plataforma_academica.Controllers
         }
 
         
-        public JsonResult GetStates(string value_elemento)
-        {
-            List<SelectListItem> states = new List<SelectListItem>();
+        //public JsonResult GetStateList(int CountryId)
+        //{
+        //    List<SelectListItem> states = new List<SelectListItem>();
 
-                Plataforma_academica.Models.Departamento dp = new Plataforma_academica.Models.Departamento();
-                Plataforma_academica.Models.Departamento[] depa;
+        //        Plataforma_academica.Models.Departamento dp = new Plataforma_academica.Models.Departamento();
+        //        Plataforma_academica.Models.Departamento[] depa;
 
-                depa = dp.BuscarDepartamento(value_elemento);
+        //        depa = dp.BuscarDepartamento(CountryId);
             
-                foreach (Departamento i in depa)
-                {
-                    states.Add(new SelectListItem
-                    {
-                        Text = i.nombre_departamento,
-                        Value = i.id_departamento,
-                        Selected = false
-                    });
-                }
-                ViewData["states"] = states;          
-            return Json(ViewData["states"]);
-        }
+        //        foreach (Departamento i in depa)
+        //        {
+        //            states.Add(new SelectListItem
+        //            {
+        //                Text = i.nombre_departamento,
+        //                Value = i.id_departamento,
+        //                Selected = false
+        //            });
+        //        }
+        //    ViewData["states"] = states;
+        //    return Json(ViewData["states"],JsonRequestBehavior.AllowGet);
+        //}
 
-        public JsonResult GetCity(string x)
-        {
-            List<SelectListItem> City = new List<SelectListItem>();
+        //public JsonResult GetCity(string x)
+        //{
+        //    List<SelectListItem> City = new List<SelectListItem>();
 
-            Plataforma_academica.Models.Municipio m = new Plataforma_academica.Models.Municipio();
-            Plataforma_academica.Models.Municipio[] mu;
+        //    Plataforma_academica.Models.Municipio m = new Plataforma_academica.Models.Municipio();
+        //    Plataforma_academica.Models.Municipio[] mu;
 
-            mu = m.BuscarMunicipio(x);
+        //    mu = m.BuscarMunicipio(x);
 
-            foreach (Municipio i in mu)
-            {
-                City.Add(new SelectListItem
-                {
-                    Text = i.nombre_municipio,
-                    Value = i.id_municipio,
-                    Selected = false
-                });
-            }
-            ViewData["City"] = City;
-            return Json(ViewData["City"]);
-        }
+        //    foreach (Municipio i in mu)
+        //    {
+        //        City.Add(new SelectListItem
+        //        {
+        //            Text = i.nombre_municipio,
+        //            Value = i.id_municipio,
+        //            Selected = false
+        //        });
+        //    }
+        //    ViewData["City"] = City;
+        //    return Json(ViewData["City"]);
+        //}
 
     }
 }
