@@ -33,9 +33,9 @@
     <script src="~/Scripts/menu.js"></script>
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
     <title>CEMAQ - Diplomados</title>
-    <link rel="stylesheet" type="text/css" href="~/Estilos/seleccion_raiz.css" />
+    <link rel="stylesheet" type="text/css" href="~/Estilos/Maestra.css" />
     <link rel="icon" type="image/gif" href="~/Imagenes/cropped-favicom-32x32.png">
-    
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
@@ -46,7 +46,8 @@
     <script src="~/Scripts/Menuprincipal.js"></script>
     <script src="~/Scripts/chosen.jquery.js"></script>
     <script src="~/Scripts/chosen.jquery.min.js"></script>
-
+    <script src="~/Scripts/Modooscuro.js"></script>
+    
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -58,14 +59,26 @@
     }
 
     <header>
-
-        <nav class="navbar">
-            <a href="javascript:" onclick="window.open('https://cemaq.com.co/');" class="navbar-brand" style="padding: 0px 0px; ">
-            <img src="~/Imagenes/cropped-cemaq_logo2-2.png"></img>
+        <!-- Menu Header  -->
+        <nav class="navbar" id="head">
+            <!--Logo -->
+            <a href="javascript:" onclick="window.open('https://cemaq.com.co/');" class="navbar-brand icono">
+                <img src="~/Imagenes/cropped-cemaq_logo2-2.png"></img>
             </a>
+            <!-- Checkbox Color  -->
+            <div class="slidermodo">
+                <input type="checkbox" class="switch_3" onclick="cambiarmodo()" checked>
+                <svg class="checkbox" xmlns="http://www.w3.org/2000/svg" style="isolation:isolate" viewBox="0 0 168 80">
+                    <path class="outer-ring" d="M41.534 9h88.932c17.51 0 31.724 13.658 31.724 30.482 0 16.823-14.215 30.48-31.724 30.48H41.534c-17.51 0-31.724-13.657-31.724-30.48C9.81 22.658 24.025 9 41.534 9z" fill="none" stroke="#233043" stroke-width="3" stroke-linecap="square" stroke-miterlimit="3" />
+                    <path class="is_checked" d="M17 39.482c0-12.694 10.306-23 23-23s23 10.306 23 23-10.306 23-23 23-23-10.306-23-23z" />
+                    <path class="is_unchecked" d="M132.77 22.348c7.705 10.695 5.286 25.617-5.417 33.327-2.567 1.85-5.38 3.116-8.288 3.812 7.977 5.03 18.54 5.024 26.668-.83 10.695-7.706 13.122-22.634 5.418-33.33-5.855-8.127-15.88-11.474-25.04-9.23 2.538 1.582 4.806 3.676 6.66 6.25z" />
+                </svg>
+              
+            </div>
+            <!-- Informacion del usuario  -->
             <div class="info">
                 <div class="p-2">
-                   <img class="perfil" src="~/Imagenes/@usu.foto">
+                    <img class="perfil" src="~/Imagenes/@usu.foto">
                 </div>
                 <ul class="p-2">
                     @{
@@ -95,9 +108,9 @@
     </header>
     <!-- Menu izq  -->
     <div class="menu-izq">
-        <nav class="contenido nav">
+        <nav class="contenido ">
             <!-- header nav-->
-            <div class="logo" onclick="">
+            <div class="logo exterior" id="exterior" onclick="">
                 <a>
                     <span class="fas fa-bars"></span>
                 </a>
@@ -114,7 +127,7 @@
 
                             for (int i = 0; i < arreglo.Length; i++)
                             {
-                                <div class="list-group-item nav-item nav-link active">
+                                <div class="opcion">
                                     <a style="color: white;">
                                         <img src="~/Imagenes/cropped-favicom-32x32.png" style="width: 25px;height: 26px;padding: 0%;margin-left: 1%;margin-right: 1%;" /> @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)
                                     </a>
@@ -133,7 +146,7 @@
             </div>          
 
             <!-- footer -->
-            <footer class="pie">
+            <footer class="pie exterior" id="exterior">
                @{
                    if (usu != null)
                    {

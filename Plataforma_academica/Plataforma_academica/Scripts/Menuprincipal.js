@@ -1,24 +1,14 @@
 ﻿jQuery(function ($) {
 
     $(".logo").click(function() {
-        $(".lista-menu").slideUp(300);
-        if (
-          $(this)
-            .parent()
-            .hasClass("active")
-        ) {
-            $(".logo").removeClass("active");
-            $(this)
-              .parent()
-              .removeClass("active");
+       
+        if ($(".logo").parent().hasClass("active")) {
+            $(".logo").next(".lista-menu").slideDown(200);
+            $(".logo").parent().removeClass("active");
         } else {
-            $(".logo").removeClass("active");
-            $(this)
-              .next(".lista-menu")
-              .slideDown(200);
-            $(this)
-              .parent()
-              .addClass("active");
+          //  $(".logo").removeClass("active");
+            $(".lista-menu").slideUp(300);            
+            $(".logo").parent().addClass("active");
         }
     });
     /*

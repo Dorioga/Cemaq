@@ -276,6 +276,8 @@
     <Content Include="Estilos\hover.css" />
     <Content Include="Estilos\InfantilPage1.css" />
     <Content Include="Estilos\lista_personas.css" />
+    <Content Include="Estilos\Login.css" />
+    <Content Include="Estilos\Maestra.css" />
     <Content Include="Estilos\Menu_plataforma.css" />
     <Content Include="Estilos\modal.css" />
     <Content Include="Estilos\modalzoom.css" />
@@ -472,6 +474,7 @@
     <Content Include="Scripts\Modal_entrada.js" />
     <Content Include="Scripts\modal_inicial_mensaje.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Modooscuro.js" />
     <Content Include="Scripts\municipio.js" />
     <Content Include="Scripts\nanvarprofesional.js" />
     <Content Include="Scripts\principaldashb.js" />
