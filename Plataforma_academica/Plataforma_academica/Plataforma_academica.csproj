@@ -263,9 +263,6 @@
     <Content Include="Estilos\actividad_editar.css" />
     <Content Include="Estilos\aprobado_perdido.css" />
     <Content Include="Estilos\bookblock.css" />
-    <Content Include="Estilos\botones3D.css" />
-    <Content Include="Estilos\botonestudiante.css" />
-    <Content Include="Estilos\botonmodal.css" />
     <Content Include="Estilos\ChatStyle.css" />
     <Content Include="Estilos\chat_8.css" />
     <Content Include="Estilos\Contenido.css" />
@@ -288,11 +285,9 @@
     <Content Include="Estilos\practica_textaarea.css" />
     <Content Include="Estilos\principal.css" />
     <Content Include="Estilos\principalreport.css" />
-    <Content Include="Estilos\principal_sin_textarea.css" />
     <Content Include="Estilos\ProfesionalPage1.css" />
     <Content Include="Estilos\report.css" />
     <Content Include="Estilos\seleccion_raiz.css" />
-    <Content Include="Estilos\submenu.css" />
     <Content Include="Estilos\tabla.css" />
     <Content Include="Estilos\Tabsreport.css" />
     <Content Include="Estilos\visualizar_practica.css" />

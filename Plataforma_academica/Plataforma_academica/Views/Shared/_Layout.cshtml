@@ -34,20 +34,21 @@
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
     <title>CEMAQ - Diplomados</title>
     <link rel="stylesheet" type="text/css" href="~/Estilos/Maestra.css" />
+    <!--<link rel="stylesheet" type="text/css" href="~/Estilos/Oscuro.css" />-->
     <link rel="icon" type="image/gif" href="~/Imagenes/cropped-favicom-32x32.png">
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
     <script src="~/Scripts/Menuprincipal.js"></script>
     <script src="~/Scripts/chosen.jquery.js"></script>
     <script src="~/Scripts/chosen.jquery.min.js"></script>
-    <script src="~/Scripts/Modooscuro.js"></script>
     
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -67,13 +68,11 @@
             </a>
             <!-- Checkbox Color  -->
             <div class="slidermodo">
-                <input type="checkbox" class="switch_3" onclick="cambiarmodo()" checked>
-                <svg class="checkbox" xmlns="http://www.w3.org/2000/svg" style="isolation:isolate" viewBox="0 0 168 80">
-                    <path class="outer-ring" d="M41.534 9h88.932c17.51 0 31.724 13.658 31.724 30.482 0 16.823-14.215 30.48-31.724 30.48H41.534c-17.51 0-31.724-13.657-31.724-30.48C9.81 22.658 24.025 9 41.534 9z" fill="none" stroke="#233043" stroke-width="3" stroke-linecap="square" stroke-miterlimit="3" />
-                    <path class="is_checked" d="M17 39.482c0-12.694 10.306-23 23-23s23 10.306 23 23-10.306 23-23 23-23-10.306-23-23z" />
-                    <path class="is_unchecked" d="M132.77 22.348c7.705 10.695 5.286 25.617-5.417 33.327-2.567 1.85-5.38 3.116-8.288 3.812 7.977 5.03 18.54 5.024 26.668-.83 10.695-7.706 13.122-22.634 5.418-33.33-5.855-8.127-15.88-11.474-25.04-9.23 2.538 1.582 4.806 3.676 6.66 6.25z" />
-                </svg>
-              
+                <button class="switch" id="switch">
+                    <span><i class="fas fa-sun"></i></span>
+                    <span><i class="fas fa-moon"></i></span>
+                </button>
+
             </div>
             <!-- Informacion del usuario  -->
             <div class="info">
@@ -106,87 +105,98 @@
             </div>
         </nav>
     </header>
-    <!-- Menu izq  -->
-    <div class="menu-izq">
-        <nav class="contenido ">
-            <!-- header nav-->
-            <div class="logo exterior" id="exterior" onclick="">
-                <a>
-                    <span class="fas fa-bars"></span>
-                </a>
-            </div>
-            <!-- contenido nav-->
-            <div class="lista-menu" id="menu">
-                <nav>
-                   
+    <!-- Contenedor para despues del Header -->
+
+    <main class="principal">
+        <!-- Menu izq  -->
+        <div class="menu-izq">
+            <nav class="contenido ">
+                <!-- header nav-->
+                <div class="logo exterior" id="exterior" onclick="">
+                    <a>
+                        <span class="fas fa-bars"></span>
+                    </a>
+                </div>
+                <!-- contenido nav-->
+                <div class="lista-menu" id="menu">
+                    <nav>
+
+                        @{
+                            if (usu != null)
+                            {
+
+                                arreglo = menu.ConsultarMenu(usu.rol);
+
+                                for (int i = 0; i < arreglo.Length; i++)
+                                {
+                                    <div class="opcion">
+                                        <a style="color: white;">
+                                            <img src="~/Imagenes/cropped-favicom-32x32.png" style="width: 25px;height: 26px;padding: 0%;margin-left: 1%;margin-right: 1%;" /> @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)
+                                        </a>
+                                    </div>
+
+                                }
+
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
+                                <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                            }
+                        }
+                    </nav>
+                </div>
+
+                <!-- footer -->
+                <footer class="pie exterior" id="exterior">
                     @{
                         if (usu != null)
                         {
-
-                            arreglo = menu.ConsultarMenu(usu.rol);
-
-                            for (int i = 0; i < arreglo.Length; i++)
+                            if (Convert.ToInt32(usu.rol) < 4 || Convert.ToInt32(usu.rol) > 6)
                             {
-                                <div class="opcion">
-                                    <a style="color: white;">
-                                        <img src="~/Imagenes/cropped-favicom-32x32.png" style="width: 25px;height: 26px;padding: 0%;margin-left: 1%;margin-right: 1%;" /> @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)
+
+                                @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
+                                    <a href="https://zoom.us/signin" target="_blank">
+                                        <img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
                                     </a>
-                                </div>
+                                    <a href="http://pizarravirtualamazoniantic.azurewebsites.net/" target="_blank">
+                                        <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
+                                    </a>*@
+                                <img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
+
 
                             }
+                            else
+                            {
+                                @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />*@
+                                @*<a href="#"><img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal1" /></a>
+                                    <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>*@
+                                <img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
 
-                        }
-                        else
-                        {
-                            <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
-                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                            }
                         }
                     }
-                </nav>
-            </div>          
+                    <a href="/Login/cerrarsesion"><img src="~/imagen_multimedia/cerrar-sesion (4).svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" /></a>
 
-            <!-- footer -->
-            <footer class="pie exterior" id="exterior">
-               @{
-                   if (usu != null)
-                   {
-                       if (Convert.ToInt32(usu.rol) < 4 || Convert.ToInt32(usu.rol) > 6)
-                       {
+                </footer>
+            </nav>
 
-                        @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
-                        <a href="https://zoom.us/signin" target="_blank">
-                            <img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
-                        </a>
-                        <a href="http://pizarravirtualamazoniantic.azurewebsites.net/" target="_blank">
-                            <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
-                        </a>*@
-                        <img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
+        </div>
 
-
-                       }
-                       else
-                       {
-                        @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />*@
-                        @*<a href="#"><img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal1" /></a>
-                        <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>*@
-                        <img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
-
-                       }
-                   }
-            }
-                <a href="/Login/cerrarsesion"><img src="~/imagen_multimedia/cerrar-sesion (4).svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" /></a>
-
-            </footer>
+        <!-- Menu Derecho  -->
+        <nav class="menu-der">
+            <ul class="contenido list-group">
+            </ul>
         </nav>
 
-    </div>
+        <!-- Contenedor Seleccionar_unidad  -->
+        <div class="contenedor" id="container">
+            @RenderBody()
+        </div>
 
-    <!-- Menu Derecho  -->
-    <nav class="menu-der">
-        <ul class="contenido list-group">
-        </ul>
-    </nav>
-    
+    </main>
+
+
     <!-- Modal1 -->
     <div class="modal fade" id="myModal1" role="dialog">
         <div class="modal-dialog" style="position: initial;">
@@ -217,7 +227,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Ingrese el link propocionado por el docente para acceder a la clase en la pizarra virtual</p>
-                    <input type="text" id="demo" class="form-control" />                    
+                    <input type="text" id="demo" class="form-control" />
                 </div>
                 <div class="modal-footer">
                     <button class="btn1 btn1-dark" style="color: white;" onclick="myFunction1()">Acceder a Pizarra</button>
@@ -226,26 +236,19 @@
         </div>
     </div>
 
-    <!-- Contenedor Seleccionar_unidad  -->
-    <div class="contenedor" id="container">
-        @RenderBody()
-    </div>
-   
-
-
     <!-- page-wrapper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/chosen.jquery.min.js"></script>
 
-
+    <script src="~/Scripts/Modooscuro.js"></script>
 
 </body>
 

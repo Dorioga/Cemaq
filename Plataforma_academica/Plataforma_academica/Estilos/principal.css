@@ -6,11 +6,11 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-}   
-
-hmtl, body {
-    height: 87vh;
 }
+
+
+   
+
 
 h2 {
     color: white;
@@ -24,10 +24,6 @@ hr {
     border-radius: 5px;
 }
 
-img {
-    width: 100%;
-    vertical-align: middle;
-}
 
 label {
     margin: 0;
@@ -285,46 +281,6 @@ ul, ol {
 }
 
 
-.contenedor {
-    float: none;
-    width: 64%;
-    display: flow-root;
-    min-width: 50%;
-    height: 87vh;
-    margin-left: 19%;
-    margin-top: 80px;
-    border-radius: 15px;
-    position: relative;
-    left: -17px;
-    border-color: #D7D7D7;
-    -webkit-transition: left 0.3s ease-in-out;
-    -o-transition: left 0.3s ease-in-out;
-    transition: left 0.3s ease-in-out;
-}
-
-.contenercheck {
-    background-color: #5998da;
-    padding: 0px 0px 0px 14px;
-    border-radius: 5px;
-    width: 98%;
-    position: relative;
-    left: 17px;
-    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.50),0 2px 10px 0 rgba(0,0,0,0.60) !important;
-}
-
-
-
-
-.con_form {
-    height: 60%;
-    border-radius: 15px;
-    /*border: 3px solid #1bbc97;*/
-    color: white !important;
-}
-
-    .con_form h6 {
-        color: #ffffff;
-    }
 
 
 
@@ -492,24 +448,6 @@ ul, ol {
     margin-top: 20px;
 }
 
-.modal-header {
-    border-bottom: 0.5em solid #1bbc97 !important;
-}
-
-.modal-content {
-    background: #263859 !important;
-    color: white !important;
-}
-
-.modal-footer {
-    border-top: 0.5em solid #1bbc97 !important;
-}
-
-    .modal-footer button {
-        background: #1bbc97 !important;
-        color: white !important;
-    }
-
 
 
 
@@ -534,52 +472,7 @@ ul, ol {
 
 
 
-.progress {
-    width: 14em;
-    height: 18px;
-    margin: 0;
-    cursor: pointer;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    overflow: visible;
-    border-radius: 7px;
-    background: #727d88;
-    box-shadow: inset 0 10px 10px rgba(113, 113, 117, 0.9);
-}
 
-    .progress .progress-bar {
-        border-radius: 7px;
-    }
-
-    .progress .progress-value {
-        position: relative;
-        left: -45px;
-        top: 4px;
-        font-size: 14px;
-        font-weight: bold;
-        color: #fff;
-        letter-spacing: 2px;
-    }
-
-.porcentaje {
-    position: relative;
-    left: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    letter-spacing: 2px;
-}
-
-.progress-bar.active {
-    animation: reverse progress-bar-stripes 6.0s linear infinite, animate-positive 2s;
-}
-
-.progress-outer {
-    background: #ffffff0a;
-    border-radius: 78px;
-    padding: 0px;
-    margin: 0px -11px;
-}
 
 .row {
     background-color: #263859;
@@ -646,9 +539,7 @@ ul, ol {
     -webkit-box-sizing: border-box;
 }
 
-body {
-    background: #17223b;
-}
+
 
 .content {
     width: 260px;
