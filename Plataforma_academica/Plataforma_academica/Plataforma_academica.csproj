@@ -275,6 +275,7 @@
     <Content Include="Estilos\lista_personas.css" />
     <Content Include="Estilos\Login.css" />
     <Content Include="Estilos\Maestra.css" />
+    <Content Include="Estilos\Maestra.min.css" />
     <Content Include="Estilos\Menu_plataforma.css" />
     <Content Include="Estilos\modal.css" />
     <Content Include="Estilos\modalzoom.css" />
@@ -409,6 +410,11 @@
     <Content Include="imagen_multimedia\20200704114619el derecho disciplinario en colombia estado del arte.pdf" />
     <Content Include="imagen_multimedia\20200708152422policia.pdf" />
     <Content Include="imagen_multimedia\20200708152739policia.pdf" />
+    <Content Include="Estilos\Maestra.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - Web Deploy %282%29.pubxml" />

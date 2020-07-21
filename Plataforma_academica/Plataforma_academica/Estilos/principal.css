@@ -56,15 +56,6 @@ p {
         background: #555;
     }
 
-textarea {
-    max-width: 100%;
-    width: 100%;
-    border:none;
-    background-color: #021d3a;
-    color: #f9fafa;
-    padding: 0px 4px 0px 5px;
-    overflow:hidden !important;
-}
 
 ul, ol {
     margin-top: 0px;
@@ -108,121 +99,7 @@ ul, ol {
     margin-top: 0.5em;
 }
 
-.bb-custom-wrapper {
-    display: flex;
-    border-radius: 15px;
-    flex-direction: row;
-    width: 100%;
-    background: #263859;
-    height: 86vh;
-    padding: 1em;
-}
 
-    .bb-custom-wrapper .atras {
-        display: flex;
-        align-items: center;
-        color: white;
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
-        -webkit-flex: 0 1 auto;
-        -ms-flex: 0 1 auto;
-        flex: 0 1 auto;
-        -webkit-align-self: auto;
-        -ms-flex-item-align: auto;
-        align-self: auto;
-    }
-
-    .bb-custom-wrapper .bb-bookblock {
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
-        -webkit-flex: 1 1 auto;
-        -ms-flex: 1 1 auto;
-        flex: 1 1 auto;
-        -webkit-align-self: auto;
-        -ms-flex-item-align: auto;
-        align-self: auto;
-    }
-
-    .bb-custom-wrapper .adelante {
-        display: flex;
-        align-items: center;
-        color: white;
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
-        -webkit-flex: 0 1 auto;
-        -ms-flex: 0 1 auto;
-        flex: 0 1 auto;
-        -webkit-align-self: auto;
-        -ms-flex-item-align: auto;
-        align-self: auto;
-    }
-
-
-.container,
-.bb-bookblock {
-    width: 100%;
-    height: 100%;
-}
-
-}
-
-.bb-custom-wrapper nav {
-    z-index: 999;
-    position: relative;
-    width: 100%;
-}
-
-    .bb-custom-wrapper nav span {
-        position: relative;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 0;
-        left: 0;
-        background: #1bbc97;
-        border-radius: 50%;
-        color: #fff;
-        line-height: 42px;
-        text-align: center;
-        speak: none;
-        font-weight: bold;
-        cursor: pointer;
-        float: right;
-    }
-
-.bb-item {
-    background-color: #17223b !important;
-    border-radius: 1em;
-    height: auto !important;
-    min-height: 81.5vh;
-    max-height: 81.5vh;
-    overflow-y: auto;
-}
-
-    .bb-item .btn {
-        margin-left: 1em !important;
-        margin-top: 1em;
-        position: absolute;
-    }
-
-    .bb-item h2 {
-              text-align:center;
-    }
-
-    .bb-item h4 {
-        text-align: center;
-    }
-
-    .bb-item div {
-        text-align: center;
-        margin-top: 1em;
-        margin-bottom: 1em;
-    }
 
 
 .btn-block {
