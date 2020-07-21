@@ -10,7 +10,8 @@
     <link href="~/Estilos/submenu.css" rel="stylesheet" type="text/css">
     <link href="~/Estilos/botones3D.css" rel="stylesheet" type="text/css">
     <link href="~/Estilos/escritos.css" rel="stylesheet" type="text/css">
-
+    <link href="~/Estilos/modal_presentacion.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 </head>
 
 
@@ -28,6 +29,7 @@
     Plataforma_academica.Models.Actividades_unidad actividad = new Plataforma_academica.Models.Actividades_unidad();
     Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad;
     Plataforma_academica.Models.Actividades_unidad[] arreglo_examen;
+    Plataforma_academica.Models.Unidades[] arreglo_docente;
     Plataforma_academica.Models.Porcentaje_usuario porcentaje = new Plataforma_academica.Models.Porcentaje_usuario();
     //Plataforma_academica.Models.Porcentaje_usuario[] arreglo_porcentaje;
     //Plataforma_academica.Models.Porcentaje_usuario[] arreglo_porcentaje_nivel;
@@ -294,23 +296,53 @@
                 </div>
 
             </div>
-            
-            <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog" style="position: initial;">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 style="position: absolute;">hola 1</h4>
+            @{
+
+                if (TempData["mensaje1"] != null && usu != null)
+                {
+                    TempData.Keep("mensaje1");
+                    string n = Convert.ToString(TempData["mensaje1"]);
+                    arreglo_docente = unidad.Consultar_docente_curso(n);
+                    if (arreglo_docente.Length > 0)
+                    {
+                        <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                            <div class="modal-dialog" style="left: 22%;top: -3%;position: absolute;">
+                                <div class="modal-content1">                                    
+                                    <div class="modal-body">                                        
+                                        <div>
+                                            <img class="perfil1" src="~/Imagenes/@arreglo_docente[0].foto">
+                                        </div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"> <i class="fa fa-user" style="color: #2f55a0;"></i> </span>
+                                            </div>
+                                            <label style="position: relative;margin-top: 14px;left: 4%;">@arreglo_docente[0].nombre</label>
+                                        </div>                                        
+                                        <div class="input-group2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" > <i class="fa fa-graduation-cap" style="color: #2f55a0;"></i> </span>
+                                            </div>
+                                            <label style="position: relative;margin-top: 3px;left: -6%;">@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
+                                        </div> 
+                                        <div class="input-group3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"> <i class="fa fa-envelope" style="color: #2f55a0;"></i> </span>
+                                            </div>
+                                            <label style="position: relative;margin-top: 14px;left: 4%;">@arreglo_docente[0].email_persona</label>
+                                        </div> 
+                                        <div>
+                                            <img class="perfil2" src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                                        </div>
+                                        <label class="label1">Bienvenidos al diplomado virtual en</label>
+                                        <label class="label2">@arreglo_docente[0].nombre_curso</label>
+                                        <label class="label3">Formación Virtual</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <h5>Hola</h5>
-                        </div>
-                        <div class="modal-footer">                                   
-                            <button type="submit" name="ir_R" id="r" value="" class="btn btn-info">Registrar</button>                          
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    }
+                }
+            }
         </div>
        
         <script>

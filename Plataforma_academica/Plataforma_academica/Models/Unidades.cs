@@ -13,6 +13,12 @@ namespace Plataforma_academica.Models
         public String codigo_unidad;
         public String porcentaje_modulo;
         public String presentacion;
+        public String nombre;
+        public String escolaridad;
+        public String academica;
+        public String foto;
+        public String nombre_curso;
+        public String email_persona;
 
         public Unidades[] Consultar_unidades_grupo(string nc)
         {
@@ -45,6 +51,27 @@ namespace Plataforma_academica.Models
                 arreglo[j].codigo_curso_nivel = i["Codigo Unidad"].ToString();
                 arreglo[j].porcentaje_modulo = i["porcentaje"].ToString();
                 arreglo[j].presentacion = i["presentacion"].ToString();
+                j++;
+            }
+            return arreglo;
+
+        }
+
+        public Unidades[] Consultar_docente_curso(string nc)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable porcentaje = con.Execute_Query("call Pr_cargar_docente_curso(" + nc + ")");
+            Unidades[] arreglo = new Unidades[porcentaje.Rows.Count];
+            int j = 0;
+            foreach (DataRow i in porcentaje.Rows)
+            {
+                arreglo[j] = new Unidades();
+                arreglo[j].nombre = i["nombre"].ToString();
+                arreglo[j].escolaridad = i["escolaridad"].ToString();
+                arreglo[j].academica = i["academica"].ToString();
+                arreglo[j].foto = i["foto"].ToString();
+                arreglo[j].nombre_curso= i["nombre_curso"].ToString();
+                arreglo[j].email_persona = i["email_persona"].ToString();
                 j++;
             }
             return arreglo;

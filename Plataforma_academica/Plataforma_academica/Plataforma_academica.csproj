@@ -282,6 +282,7 @@
     <Content Include="Estilos\modal.css" />
     <Content Include="Estilos\modalzoom.css" />
     <Content Include="Estilos\Modal_Inicio.css" />
+    <Content Include="Estilos\modal_presentacion.css" />
     <Content Include="Estilos\navbarderecho1.css" />
     <Content Include="Estilos\paginaci.css" />
     <Content Include="Estilos\practica_textaarea.css" />
@@ -308,6 +309,7 @@
     <Content Include="Imagenes\59235.jpg" />
     <Content Include="Imagenes\68.jpg" />
     <Content Include="Imagenes\animated_favicon1.gif" />
+    <Content Include="Imagenes\Banner1.png" />
     <Content Include="Imagenes\bell-solid.svg" />
     <Content Include="Imagenes\book-solid.svg" />
     <Content Include="Imagenes\cargando-gif-sin-fondo-7.gif" />
@@ -433,6 +435,7 @@
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\botonregresar.js" />
+    <Content Include="Scripts\busqueda_todos_diplomados.js" />
     <Content Include="Scripts\buton_examen.js" />
     <Content Include="Scripts\button_habilitar.js" />
     <Content Include="Scripts\button_habilitar_pregunt.js" />

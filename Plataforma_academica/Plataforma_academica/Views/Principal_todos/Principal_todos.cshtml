@@ -8,6 +8,7 @@
 <head>
 
     <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
+    <script src="~/Scripts/busqueda_todos_diplomados.js"></script>
 </head>
 
 
@@ -23,94 +24,115 @@
     <main class="con_form">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h4>Areas...</h4>
-                    <nav>
-                        <ul>
-                            @{
-                                if (usu != null)
+    <div class="row">
+        <div col-sm-6 style="margin-left: 15%;">
+            <div class="filterable">
+                <table class="tablenb">
+                    <thead>
+                        <tr class="filters">
+                            <th><input type="text" class="form-control" placeholder="Buscar Área" enabled></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            if (usu != null)
+                            {
+                                arreglo = principal.Buscarareas();
+
+                                for (int i = 0; i < arreglo.Length; i++)
                                 {
-
-                                    arreglo = principal.Buscarareas();
-
-                                    for (int i = 0; i < arreglo.Length; i++)
-                                    {
-                                        <li>
+                                    <tr>
+                                        <td>
                                             <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="ir" value="@arreglo[i].id_tematica">
                                                 <span class="glyphicon glyphicon-book"></span>
                                                 @arreglo[i].nombre_tematica
                                             </button>
-                                        </li>
-                                    }
+                                        </td>
+                                    </tr>
                                 }
                             }
-
-                        </ul>
-                    </nav>
-                    <nav>
-                        <ul>
+                        }                        
+                    </tbody>
+                </table>
+            </div>
+            @{
+                if (TempData["mensaje1"] != null && usu != null)
+                {
+                    TempData.Keep("mensaje1");
+                    principal_modulos.id_c = Convert.ToString(TempData["mensaje1"]);
+                    modulos = principal_modulos.Buscar_descripcion_areas(principal_modulos);
+                    <div class="panel panel-default panel-table">
+                        <div class="panel-heading">
+                            <div class="tr">
+                                <div class="td">Descripción Tematica</div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
                             @{
-                                if (TempData["mensaje1"] != null && usu != null)
+                                for (int i = 0; i < modulos.Length; i++)
                                 {
-                                    TempData.Keep("mensaje1");
-                                    principal_modulos.id_c = Convert.ToString(TempData["mensaje1"]);
-                                    modulos = principal_modulos.Buscar_descripcion_areas(principal_modulos);
-                                    <div class="panel panel-default panel-table">
-                                        <div class="panel-heading">
-                                            <div class="tr">
-                                                <div class="td">Descripción Tematica</div>
-                                            </div>
-                                        </div>
-                                        <div class="panel-body">
-@{
-    for (int i = 0; i < modulos.Length; i++)
-    {
-        <div class="tr">
-            <div class="td">@modulos[i].descripcion</div>
-        </div>
-    }
-}                                           
-                                        </div>
+                                    <div class="tr">
+                                        <div class="td">@modulos[i].descripcion</div>
                                     </div>
                                 }
                             }
-                        </ul>
-                    </nav>
-                </div>
-                <!-- Nivel -->
-                <div class="col-sm-6">
-                    <h4>Diplomados</h4>
-                    <nav>
-                        <ul>
-                            @{
-                                if (TempData["mensaje1"] != null && usu != null)
-                                {
-                                    TempData.Keep("mensaje1");
-                                    principal_modulos.id_c = Convert.ToString(TempData["mensaje1"]);
-                                    modulos = principal_modulos.Buscar_cursos_areas(principal_modulos);
+                        </div>
+                    </div>
+                                }
+            }
+        </div>
+        <div col-sm-6 style="margin-left: 10%;">
+            <div class="filterable1">
+                <table class="tablenb1">
+                    <thead>
+                        <tr class="filters1">
+                            <th><input type="text" class="form-control" placeholder="Buscar Diplomado" enabled></th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                                    for (int i = 0; i < modulos.Length; i++)
-                                    {
-                                        <li>
-                                            <button  type="submit" class="btn btn-info btn-sm btn-block catalogo" name="irr" value="@modulos[i].id_curso">
+                        @{
+                            if (TempData["mensaje1"] != null && usu != null)
+                            {
+                                TempData.Keep("mensaje1");
+                                principal_modulos.id_c = Convert.ToString(TempData["mensaje1"]);
+                                modulos = principal_modulos.Buscar_cursos_areas(principal_modulos);
+
+                                for (int i = 0; i < modulos.Length; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="irr" value="@modulos[i].id_curso">
                                                 <span class="glyphicon glyphicon-stats"></span>
                                                 @modulos[i].nombre_curso
                                             </button>
-                                        </li>
+                                        </td>
+                                        
+                                    </tr>
 
-                                    }
                                 }
-                                else
-                                {
-                                    <li><a>Elija una Area</a></li>
-                                }
+                                <tr>
+                                    <td>
+                                        <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="irr">
+                                            <span class="glyphicon glyphicon-stats"></span>nombre_curso
+                                        </button>
+                                    </td>
+
+                                </tr>
                             }
-                        </ul>
-                    </nav>
-                </div>
+                            else
+                            {
+                                <tr>
+                                    <td><a>Elija una Area</a></td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
+    </div>
         @{
             if (ViewBag.mensaje == "cargar")
             {
