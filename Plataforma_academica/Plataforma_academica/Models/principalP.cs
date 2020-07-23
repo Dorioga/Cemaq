@@ -55,5 +55,31 @@ namespace Plataforma_academica.Models
             return arreglo;
 
         }
+
+        public principalP[] BuscarCursosDocentes(string id_usuario)
+        {
+            //Login (Se realiza la verificacion del usuario y su contraseña)
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable menu = con.Execute_Query("call Pr_cargar_cursos_docentes('"+id_usuario+"')");
+            principalP[] arreglo = new principalP[menu.Rows.Count];
+            int j = 0;
+            foreach (DataRow i in menu.Rows)
+            {
+                arreglo[j] = new principalP();
+                arreglo[j].nombre_curso = i["nombre_curso"].ToString();
+                arreglo[j].codigo_curso = i["id_curso"].ToString();
+                arreglo[j].url = i["Url_imagen_curso"].ToString();
+                j++;
+            }
+            return arreglo;
+
+        }
+
+        public bool Actualizar_saludo(string curso, string usuario)
+        {
+            conexion = new Conexion.Conexion();
+            int x = conexion.Execute_Operation("call Pr_actualizar_saludo ('" + curso + "','" + usuario + "')");
+            return x > 0 ? true : false;
+        }
     }
 }

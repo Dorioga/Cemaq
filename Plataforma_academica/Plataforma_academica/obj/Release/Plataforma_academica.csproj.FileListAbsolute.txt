@@ -554,3 +554,6 @@ E:\Cemaq\Plataforma_academica\Plataforma_academica\bin\es\System.Web.WebPages.Ra
 E:\Cemaq\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.csprojResolveAssemblyReference.cache
 E:\Cemaq\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.dll
 E:\Cemaq\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.pdb
+E:\Cemaq\Plataforma_academica\Plataforma_academica\bin\es\Microsoft.Owin.resources.dll
+E:\Cemaq\Plataforma_academica\Plataforma_academica\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+E:\Cemaq\Plataforma_academica\Plataforma_academica\bin\es\Microsoft.Owin.Security.resources.dll

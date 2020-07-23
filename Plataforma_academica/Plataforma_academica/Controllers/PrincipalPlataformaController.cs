@@ -68,6 +68,14 @@ namespace Plataforma_academica.Controllers
                                     act2.codigo_examen = codig5;
                                 Session["usuarios2"] = act2;
                                 return RedirectToAction("Practica", "Practica");
+                            }else
+                            {
+                                String codigmo = Request.Form["irmodal"];
+                                if (codigmo != null)
+                                {
+                                    principalP actuali = new principalP();
+                                    actuali.Actualizar_saludo(codigmo,user.usuario);
+                                }
                             }
                             }
                         }

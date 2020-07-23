@@ -78,6 +78,14 @@
                                     </div>*@
                              </div>
                             <div class="form-group">
+                                <label class="col-sm-4" control-label1" style="color:white;">Docente modulo</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        @Html.DropDownListFor(model => model.docente, (IEnumerable<SelectListItem>)ViewData["lista6"], "-Docente-", new { @class = "form-control" })
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="form-group">
                                 <label class="col-md-4 control-label1"></label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
