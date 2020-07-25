@@ -23,10 +23,9 @@
 
     <main class="con_form">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="container">
     <div class="row">
-        <div col-sm-6 style="margin-left: 15%;">
-            <div class="filterable">
+        <div class="filtro" >
+            <div class="filterable filtroc">
                 <table class="tablenb">
                     <thead>
                         <tr class="filters">
@@ -81,8 +80,8 @@
                                 }
             }
         </div>
-        <div col-sm-6 style="margin-left: 10%;">
-            <div class="filterable1">
+        <div class="filtro">
+            <div class="filterable1 filtroc">
                 <table class="tablenb1">
                     <thead>
                         <tr class="filters1">
@@ -132,7 +131,6 @@
             </div>
         </div>
     </div>
-    </div>
         @{
             if (ViewBag.mensaje == "cargar")
             {
@@ -181,7 +179,9 @@
     </main>
 
 }
-
+<footer>
+    <p> @DateTime.Now.Year - CEMAQ - Diplomados</p>
+</footer>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
