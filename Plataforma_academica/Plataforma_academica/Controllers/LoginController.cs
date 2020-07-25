@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data;
 using System.Web.UI;
+using System.Net.Mail;
+using System.Net;
 
 namespace Plataforma_academica.Controllers
 {
@@ -43,6 +45,8 @@ namespace Plataforma_academica.Controllers
                         user.conexion_usuario = datos.Rows[0]["estado_conexion_usuario"].ToString();
                         user.genero = datos.Rows[0]["nombre_genero"].ToString();
                         user.foto = datos.Rows[0]["foto"].ToString();
+                        user.correo = datos.Rows[0]["email_persona"].ToString();
+                        user.nombre_usu = datos.Rows[0]["nombre2"].ToString();
                         Session["usuario"] = user;
                         if (Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) < 7 && Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) > 3)
                         {
@@ -229,8 +233,12 @@ namespace Plataforma_academica.Controllers
                 {
                     if (usr.Registrar_estudiante(usr))
                     {
-                        ViewBag.mensaje = "Exito";
-                        ViewBag.mensaje2 = "El Nuevo Usuario fue registrado con exito, se envió los datos de inicio de sesión, al correo " + usr.correo;
+                        if (SendEmail(user.correo,user.Nombre, user.cedula, user.nombre_usu))
+                        {
+                            ViewBag.mensaje = "Exito";
+                            ViewBag.mensaje2 = "El Nuevo Usuario fue registrado con exito, se envió los datos de inicio de sesión, al correo " + usr.correo;
+                        }
+                        
                     }
                     else
                     {
@@ -240,6 +248,38 @@ namespace Plataforma_academica.Controllers
                 }
             }
             return View();
+        }
+
+        public bool SendEmail(string c, string nombre, string contrase, string nom)
+        {
+            bool a = false;
+            if (c == null)
+            {
+                a = false;
+            }
+            else
+            {
+                MailMessage mail = new MailMessage();
+                mail.To.Add(c);
+                mail.From = new MailAddress("cemaqacademica@gmail.com");
+                mail.Subject = "Notificación";
+                mail.Body = nom + ", Usted ha sido registrado como un usuario de forma exitosa en DIPLOMADOS - CEMAQ, sus credenciales son:\n\r" +
+                    "Usuario: " + nombre +
+                    "\n\rContraseña: " + contrase + " " + "http://diplomados-cemaq.azurewebsites.net/Login/Login";
+
+
+                mail.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.Host = "smtp.gmail.com";
+                smtp.Credentials = new NetworkCredential("cemaqacademica@gmail.com", "academica2020!");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                a = true;
+                return a;
+            }
+
+            return a;
         }
 
         public bool ValidarDatos(Login obj)

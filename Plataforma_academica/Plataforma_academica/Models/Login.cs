@@ -30,6 +30,7 @@ namespace Plataforma_academica.Models
         public string departamento { set; get; }
         public string pais { set; get; }
         public string foto { set; get; }
+        public string nombre_usu { set; get; }
         public string conexion_usuario { set; get; }
 
         private Conexion.Conexion conexion;

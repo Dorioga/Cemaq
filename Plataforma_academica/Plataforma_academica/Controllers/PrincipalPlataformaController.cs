@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,8 +13,8 @@ namespace Plataforma_academica.Controllers
     public class PrincipalPlataformaController : Controller
     {
         // GET: PrincipalPlataforma
-
-        public ActionResult principalplataforma()
+        string nombre;
+        public ActionResult principalplataforma(HttpPostedFileBase file)
         {
             Models.Login user = Session["usuario"] as Models.Login;
             //Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
@@ -33,7 +35,7 @@ namespace Plataforma_academica.Controllers
 
                 if (codig != null)
                 {
-                    TempData["mensaje1"] = codig;
+                    TempData["mensaje9"] = codig;
                     return View();
                 }
                 else
@@ -42,7 +44,7 @@ namespace Plataforma_academica.Controllers
 
                         if (codig3 != null)
                         {
-                            TempData["mensaje3"] = codig3;
+                            TempData["mensaje10"] = codig3;
                             return View();
                         }else
                         {
@@ -50,12 +52,11 @@ namespace Plataforma_academica.Controllers
 
                             if (codig4 != null)
                             {
-                                //TempData["mensaje3"] = codig3;
                                 principalP act1 = new principalP();
                                 act1.codigo_actividad = codig4;
                                 Session["usuario3"] = act1;
-                            ViewBag.mensaje = "actividad";
-                            return View();
+                                ViewBag.mensaje = "actividad";
+                                return View();
                             //return RedirectToAction("Actividades", "Actividades"); 
                         }
                         else
@@ -76,6 +77,22 @@ namespace Plataforma_academica.Controllers
                                     principalP actuali = new principalP();
                                     actuali.Actualizar_saludo(codigmo,user.usuario);
                                 }
+                                else
+                                {
+                                    String codigarchivo = Request.Form["irarchivo"];
+                                    if (codigarchivo != null)
+                                    {
+                                        principalP subir = new principalP();
+                                        if (subir.Actualizar_subir_archivo(Subir(file), codigarchivo))
+                                        {
+                                            if (SendEmail(user.correo, user.Nombre))
+                                            {
+                                                ViewBag.mensaje = "exito";
+                                                return View();
+                                            }
+                                        }
+                                    }
+                                }
                             }
                             }
                         }
@@ -89,6 +106,53 @@ namespace Plataforma_academica.Controllers
             return View();
         }
 
-       
+        [HttpPost]
+        public string Subir(HttpPostedFileBase file)
+        {
+            string archivo;
+
+            if (file == null)
+            {
+                nombre = null;
+                return null;
+            }
+            else
+            {
+                archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + file.FileName).ToLower();
+                file.SaveAs(Server.MapPath("~/imagen_multimedia/" + archivo));
+                nombre = file.FileName;
+            }
+            return archivo;
+        }
+
+        public bool SendEmail(string c, string nom)
+        { bool a = false;
+            if (c == null)
+            {
+                a = false;
+            }else
+            {
+                MailMessage mail = new MailMessage();
+                mail.To.Add(c);
+                mail.From = new MailAddress("cemaqacademica@gmail.com");
+                mail.Subject = "Notificación";
+                mail.Body = nom+", Usted ha enviado de forma exitosa la actividad: \n\r" +
+                    "http://diplomados-cemaq.azurewebsites.net/Login/Login";
+
+
+                mail.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.Host = "smtp.gmail.com";
+                smtp.Credentials = new NetworkCredential("cemaqacademica@gmail.com", "academica2020!");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                a = true;
+                return a;
+            }
+
+            return a;
+        }              
+
     }
 }

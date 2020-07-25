@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -92,6 +94,7 @@ namespace Plataforma_academica.Controllers
                                         }
 
                                     }
+                                    SendEmail(user.correo, user.Nombre);
                                 }
                             }
                         }
@@ -99,6 +102,37 @@ namespace Plataforma_academica.Controllers
                 }
             }
             return View();
+        }
+
+        public bool SendEmail(string c, string nom)
+        {
+            bool a = false;
+            if (c == null)
+            {
+                a = false;
+            }
+            else
+            {
+                MailMessage mail = new MailMessage();
+                mail.To.Add(c);
+                mail.From = new MailAddress("cemaqacademica@gmail.com");
+                mail.Subject = "Notificación";
+                mail.Body = nom + ", Usted ha sido registrado de forma exitosa en un DIPLOMADO en:\n\r" + 
+                "para iniciar el proceso de formación ingrese a: "+"http://diplomados-cemaq.azurewebsites.net/Login/Login";
+
+
+                mail.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.Host = "smtp.gmail.com";
+                smtp.Credentials = new NetworkCredential("cemaqacademica@gmail.com", "academica2020!");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                a = true;
+                return a;
+            }
+
+            return a;
         }
     }
 }

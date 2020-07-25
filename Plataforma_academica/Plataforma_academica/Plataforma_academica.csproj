@@ -381,6 +381,7 @@
     <Content Include="imagen_multimedia\8.png" />
     <Content Include="imagen_multimedia\Actividad.png" />
     <Content Include="imagen_multimedia\Agregar Actividad.png" />
+    <Content Include="imagen_multimedia\Agregar Examen.png" />
     <Content Include="imagen_multimedia\cerrar-sesion %282%29.svg" />
     <Content Include="imagen_multimedia\cerrar-sesion %284%29.svg" />
     <Content Include="imagen_multimedia\concepto-lecciones-linea-ninos_23-2148507729.jpg" />
@@ -389,6 +390,7 @@
     <Content Include="imagen_multimedia\Modulo.png" />
     <Content Include="imagen_multimedia\persona %282%29.svg" />
     <Content Include="imagen_multimedia\persona.svg" />
+    <Content Include="imagen_multimedia\Presentacion Docente.png" />
     <Content Include="imagen_multimedia\school-desk-and-chair-with-underside-shelf.svg" />
     <Content Include="imagen_multimedia\study.svg" />
     <Content Include="imagen_multimedia\study1.jpg" />
@@ -479,6 +481,7 @@
     <Content Include="Scripts\menu_submenu.js" />
     <Content Include="Scripts\modalzoom.js" />
     <Content Include="Scripts\Modal_entrada.js" />
+    <Content Include="Scripts\modal_exito_subir.js" />
     <Content Include="Scripts\modal_inicial_mensaje.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Modooscuro.js" />

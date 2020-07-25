@@ -14,6 +14,7 @@ namespace Plataforma_academica.Models
         public string codigo_actividad { set; get; }
         public string url { set; get; }
         public string codigo_examen { set; get; }
+        public string informacion_actividad { set; get; }
 
         private Conexion.Conexion conexion;
 
@@ -79,6 +80,13 @@ namespace Plataforma_academica.Models
         {
             conexion = new Conexion.Conexion();
             int x = conexion.Execute_Operation("call Pr_actualizar_saludo ('" + curso + "','" + usuario + "')");
+            return x > 0 ? true : false;
+        }
+
+        public bool Actualizar_subir_archivo(string url_archivo, string codigo_curso_usuario_unidad)
+        {
+            conexion = new Conexion.Conexion();
+            int x = conexion.Execute_Operation("call Pr_actualizar_subir_archivo ('" + url_archivo + "','" + codigo_curso_usuario_unidad + "')");
             return x > 0 ? true : false;
         }
     }

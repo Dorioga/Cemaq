@@ -488,7 +488,8 @@
                                             <div>
                                                 <span class="step">@m/@cant</span>
                                             </div>
-                                            if (i == (arreglo.Length - 1) && arreglo[i].edicion_estado == "Pendiente")
+                                            //Metodo para activar nuevas actividades a todos los usuarios que tienen el diplomado registrado
+                                            @*if (i == (arreglo.Length - 1) && arreglo[i].edicion_estado == "Pendiente")
                                             {
                                                 <div>
                                                     <h4>Descripción para editar</h4>
@@ -496,7 +497,7 @@
                                                     <button type="submit" class="btn" name="iraprobado" value="@arreglo[i].id_actividad" onclick="activar()" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Aprobado</button>
                                                     <button type="submit" class="btn" name="irdesaprobado" value="@arreglo[i].id_actividad" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Desaprobado</button>
                                                 </div>
-                                            }
+                                            }*@
                                         }
                                     </div>
 

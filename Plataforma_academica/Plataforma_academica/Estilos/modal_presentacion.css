@@ -17,6 +17,15 @@
     font-size: 18px;
 }
 
+.subir{
+    position: fixed;
+    left: 83%;
+    top: 34%;
+    background-color: #ffffff57;
+    padding: 3px;
+    border-radius: 4px;
+}
+
 .label1{
     position: relative;
     left: 35%;
