@@ -210,42 +210,6 @@ header {
     -webkit-transition: left 0.3s ease-in-out;
     -o-transition: left 0.3s ease-in-out;
     transition: left 0.3s ease-in-out; }
-    .principal .contenedor .row {
-      background-color: #009245;
-      color: white;
-      padding: 1em;
-      display: flex;
-      flex-direction: row;
-      margin: 0px;
-      border-radius: 12px;
-      border-color: #d2d2d2;
-      border-width: 5px;
-      box-shadow: 0 1px 0 #cfcfcf; }
-      body.dark .principal .contenedor .row {
-        background: #263859; }
-      .principal .contenedor .row thead {
-        margin-bottom: 1em; }
-        .principal .contenedor .row thead input {
-          margin-bottom: 0.5em; }
-      .principal .contenedor .row tbody .catalogo {
-        margin-bottom: 0.5em;
-        border: none;
-        background: #005E2D;
-        padding-left: 1em; }
-        body.dark .principal .contenedor .row tbody .catalogo {
-          background: #17223b; }
-      .principal .contenedor .row tbody .catalogo:hover {
-        background: #ffff;
-        color: black; }
-        body.dark .principal .contenedor .row tbody .catalogo:hover {
-          background: #1bbc97;
-          color: white; }
-      .principal .contenedor .row .filtroc {
-        display: flex;
-        align-items: center;
-        justify-content: center; }
-      .principal .contenedor .row .filtro {
-        flex: 0 0 50%; }
     .principal .contenedor .bb-custom-wrapper {
       display: flex;
       border-radius: 15px;
@@ -505,12 +469,6 @@ header {
           body.dark .principal .contenedor .con_form .modal-footer button {
             background: #1bbc97;
             color: white; }
-      .principal .contenedor .con_form table thead tr {
-        background: #005E2D; }
-        body.dark .principal .contenedor .con_form table thead tr {
-          background: #1bbc97; }
-        .principal .contenedor .con_form table thead tr th {
-          text-align: center; }
       .principal .contenedor .con_form .formulario {
         display: flex;
         flex-direction: column;
@@ -519,9 +477,100 @@ header {
         background-color: #d6d6d6;
         border-color: #009245;
         border-radius: 15px; }
+        .principal .contenedor .con_form .formulario h2 {
+          color: #000000; }
+          body.dark .principal .contenedor .con_form .formulario h2 {
+            color: #ffff; }
         body.dark .principal .contenedor .con_form .formulario {
           background-color: #263859;
           border-color: #1bbc97; }
+        .principal .contenedor .con_form .formulario table {
+          width: 100%;
+          margin-bottom: 0em;
+          border-collapse: collapse;
+          border-radius: 1em;
+          overflow: hidden;
+          border: 0.2em solid;
+          border-color: #005E2D; }
+          body.dark .principal .contenedor .con_form .formulario table {
+            border-color: #1bbc97; }
+          .principal .contenedor .con_form .formulario table thead tr {
+            background: #005E2D; }
+            body.dark .principal .contenedor .con_form .formulario table thead tr {
+              background: #1bbc97; }
+            .principal .contenedor .con_form .formulario table thead tr th {
+              padding: 0.5em;
+              text-align: center;
+              border: none; }
+          .principal .contenedor .con_form .formulario table tbody tr {
+            text-align: center;
+            color: #000000; }
+            .principal .contenedor .con_form .formulario table tbody tr:hover td {
+              background: #009245 !important;
+              color: #ffff !important; }
+            body.dark .principal .contenedor .con_form .formulario table tbody tr {
+              color: #ffff; }
+            .principal .contenedor .con_form .formulario table tbody tr td {
+              vertical-align: inherit;
+              padding: 0.5em;
+              border: none; }
+              .principal .contenedor .con_form .formulario table tbody tr td .boton {
+                width: 100%;
+                padding: 0;
+                border-radius: 1em;
+                border: 1px solid;
+                border-color: #005E2D; }
+                .principal .contenedor .con_form .formulario table tbody tr td .boton:disabled {
+                  color: #000000; }
+                  body.dark .principal .contenedor .con_form .formulario table tbody tr td .boton:disabled {
+                    color: #ffff; }
+                .principal .contenedor .con_form .formulario table tbody tr td .boton:enabled {
+                  background: #009245;
+                  color: #ffff; }
+                  body.dark .principal .contenedor .con_form .formulario table tbody tr td .boton:enabled {
+                    background: #1bbc97; }
+                body.dark .principal .contenedor .con_form .formulario table tbody tr td .boton {
+                  border-color: #1bbc97; }
+          .principal .contenedor .con_form .formulario table tfoot {
+            width: 100%;
+            height: 0.5em;
+            background: #005E2D; }
+            body.dark .principal .contenedor .con_form .formulario table tfoot {
+              background: #1bbc97; }
+            .principal .contenedor .con_form .formulario table tfoot tr td {
+              border: none; }
+        .principal .contenedor .con_form .formulario .alert-danger {
+          color: #000000;
+          background-color: #d6d6d6;
+          border: solid;
+          border-color: #009245; }
+          body.dark .principal .contenedor .con_form .formulario .alert-danger {
+            color: #ffff;
+            background-color: #263859;
+            border-color: #1bbc97; }
+        .principal .contenedor .con_form .formulario .form-group {
+          margin: 1em 1em 1em 0px; }
+          .principal .contenedor .con_form .formulario .form-group input {
+            border: none;
+            margin: 0px 0px 0.5em 0px;
+            color: #000000;
+            max-width: 24vw; }
+            .principal .contenedor .con_form .formulario .form-group input[type="submit"] {
+              background: #009245;
+              border-radius: 1em;
+              padding: 0.5em;
+              width: 100%;
+              color: #ffff; }
+              body.dark .principal .contenedor .con_form .formulario .form-group input[type="submit"] {
+                background: #1bbc97; }
+            body.dark .principal .contenedor .con_form .formulario .form-group input {
+              color: #ffff; }
+        .principal .contenedor .con_form .formulario .pregunta1 {
+          margin-top: 0.5em;
+          border-top: 2px solid;
+          border-color: #009245; }
+          body.dark .principal .contenedor .con_form .formulario .pregunta1 {
+            border-color: #1bbc97; }
         .principal .contenedor .con_form .formulario .section_contenido {
           order: 0;
           flex: 0 1 auto;
@@ -571,12 +620,56 @@ header {
             width: 100%;
             height: 15em;
             resize: none;
-            padding-left: 0.5em; }
+            padding-left: 0.5em;
+            margin-bottom: 0.5em; }
             .principal .contenedor .con_form .formulario .section_contenido .textarea:focus {
               outline: none; }
             body.dark .principal .contenedor .con_form .formulario .section_contenido .textarea {
               border-color: #1bbc97; }
+      .principal .contenedor .con_form .row {
+        background-color: #d6d6d6;
+        color: #000000;
+        padding: 1em;
+        display: flex;
+        flex-direction: row;
+        margin: 0px;
+        border-radius: 1em;
+        border: solid;
+        border-color: #009245;
+        box-shadow: 0 1px 0 #cfcfcf; }
+        body.dark .principal .contenedor .con_form .row {
+          background: #263859;
+          border-color: #1bbc97;
+          color: #ffff; }
+        .principal .contenedor .con_form .row thead {
+          margin-bottom: 1em; }
+          .principal .contenedor .con_form .row thead input {
+            margin-bottom: 0.5em; }
+        .principal .contenedor .con_form .row tbody a {
+          padding-left: 1em; }
+        .principal .contenedor .con_form .row tbody .catalogo {
+          margin-bottom: 0.5em;
+          border: none;
+          background: #009245;
+          padding-left: 1em; }
+          body.dark .principal .contenedor .con_form .row tbody .catalogo {
+            background: #17223b; }
+        .principal .contenedor .con_form .row tbody .catalogo:hover {
+          background: #ffff;
+          color: black; }
+          body.dark .principal .contenedor .con_form .row tbody .catalogo:hover {
+            background: #1bbc97;
+            color: white; }
+        .principal .contenedor .con_form .row .td {
+          color: #000000; }
+        .principal .contenedor .con_form .row .filtroc {
+          display: flex;
+          align-items: center;
+          justify-content: center; }
+        .principal .contenedor .con_form .row .filtro {
+          flex: 0 0 50%; }
       .principal .contenedor .con_form .parpadeo {
+        margin: 0px 0px 1em 0px;
         text-align: center;
         animation-name: parpadeo;
         animation-duration: 2s;
@@ -589,10 +682,12 @@ header {
         color: #000000; }
         body.dark .principal .contenedor .con_form .parpadeo {
           color: #ffff; }
-    .principal .contenedor .footer p {
+    .principal .contenedor footer p {
       color: #000000;
-      margin-top: 8px;
-      margin-bottom: -6px; }
+      margin-top: 0.5em;
+      margin-bottom: 0.5em; }
+      body.dark .principal .contenedor footer p {
+        color: #ffff; }
   .principal .menu-der {
     right: 0px;
     position: fixed;

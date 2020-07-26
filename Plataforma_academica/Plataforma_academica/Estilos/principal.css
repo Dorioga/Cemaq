@@ -85,11 +85,7 @@ ul, ol {
             cursor: pointer;
         }
 
-.alert-danger {
-    color: white !important;
-    background-color: #263859 !important;
-    border: none;
-}
+
 
 .form-control[disabled] {
     cursor: auto;

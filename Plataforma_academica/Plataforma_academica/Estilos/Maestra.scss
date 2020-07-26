@@ -273,65 +273,6 @@ header {
         -webkit-transition: left 0.3s ease-in-out;
         -o-transition: left 0.3s ease-in-out;
         transition: left 0.3s ease-in-out;
-        //Contenedor Principal_Todos
-        .row {
-            background-color: $verdeclaro;
-            color: white;
-            padding: 1em;
-            display: flex;
-            flex-direction: row;
-            margin: 0px;
-            border-radius: 12px;
-            border-color: #d2d2d2;
-            border-width: 5px;
-            box-shadow: 0 1px 0 #cfcfcf;
-
-            body.dark & {
-                background: $azulclaro;
-            }
-            //Estilos Principal_Todos
-            thead {
-                margin-bottom: 1em;
-
-                input {
-                    margin-bottom: 0.5em;
-                }
-            }
-
-            tbody {
-
-                .catalogo {
-                    margin-bottom: 0.5em;
-                    border: none;
-                    background: $verdeoscuro;
-                    padding-left: 1em;
-
-                    body.dark & {
-                        background: $azuloscuro;
-                    }
-                }
-
-                .catalogo:hover {
-                    background: $blanco;
-                    color: black;
-
-                    body.dark & {
-                        background: $verdeazul;
-                        color: white;
-                    }
-                }
-            }
-
-            .filtroc {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .filtro {
-                flex: 0 0 50%;
-            }
-        }
         //Contenedor del Libro
         .bb-custom-wrapper {
             display: flex;
@@ -505,7 +446,7 @@ header {
                 }
             }
         }
-        //Contenedor del Menu, Cargar Contenido
+        //Contenedor del Menu, Cargar Contenido, cargar examen
         .con_form {
             border-radius: 15px;
             color: white;
@@ -709,22 +650,8 @@ header {
                 }
             }
             //Estilos de Diplomados Matriculados
-            table {
-                thead {
-                    tr {
-                        background: $verdeoscuro;
-
-                        body.dark & {
-                            background: $verdeazul;
-                        }
-
-                        th {
-                            text-align: center;
-                        }
-                    }
-                }
-            }
             //Estilos Cargar_Contenido
+            //Estilo Registrar_Beneficiario
             .formulario {
                 display: flex;
                 flex-direction: column;
@@ -734,9 +661,167 @@ header {
                 border-color: $verdeclaro;
                 border-radius: 15px;
 
+                h2 {
+                    color: $negro;
+
+                    body.dark & {
+                        color: $blanco;
+                    }
+                }
+
                 body.dark & {
                     background-color: $azulclaro;
                     border-color: $verdeazul;
+                }
+
+                table {
+                    width: 100%;
+                    margin-bottom: 0em;
+                    border-collapse: collapse;
+                    border-radius: 1em;
+                    overflow: hidden;
+                    border: 0.2em solid;
+                    border-color: $verdeoscuro;
+
+                    body.dark & {
+                        border-color: $verdeazul;
+                    }
+
+                    thead {
+                        tr {
+                            background: $verdeoscuro;
+
+                            body.dark & {
+                                background: $verdeazul;
+                            }
+
+                            th {
+                                padding: 0.5em;
+                                text-align: center;
+                                border: none;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            text-align: center;
+                            color: $negro;
+
+                            &:hover {
+                                td {
+                                    background: $verdeclaro !important;
+                                    color: $blanco !important;
+                                }
+                            }
+
+                            body.dark & {
+                                color: $blanco;
+                            }
+
+                            td {
+                                vertical-align: inherit;
+                                padding: 0.5em;
+                                border: none;
+
+                                .boton {
+                                    width: 100%;
+                                    padding: 0;
+                                    border-radius: 1em;
+                                    border: 1px solid;
+                                    border-color: $verdeoscuro;
+
+                                    &:disabled {
+                                        color: $negro;
+
+                                        body.dark & {
+                                            color: $blanco;
+                                        }
+                                    }
+
+                                    &:enabled {
+                                        background: $verdeclaro;
+                                        color: $blanco;
+
+                                        body.dark & {
+                                            background: $verdeazul;
+                                        }
+                                    }
+
+                                    body.dark & {
+                                        border-color: $verdeazul;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    tfoot {
+                        width: 100%;
+                        height: 0.5em;
+                        background: $verdeoscuro;
+
+                        body.dark & {
+                            background: $verdeazul;
+                        }
+
+                        tr {
+                            td {
+                                border: none;
+                            }
+                        }
+                    }
+                }
+
+
+                .alert-danger {
+                    color: $negro;
+                    background-color: $gris;
+                    border: solid;
+                    border-color: $verdeclaro;
+
+                    body.dark & {
+                        color: $blanco;
+                        background-color: $azulclaro;
+                        border-color: $verdeazul;
+                    }
+                }
+
+                .form-group {
+                    margin: 1em 1em 1em 0px;
+
+                    input {
+                        border: none;
+                        margin: 0px 0px 0.5em 0px;
+                        color: $negro;
+                        max-width: 24vw;
+
+                        &[type="submit"] {
+                            background: $verdeclaro;
+                            border-radius: 1em;
+                            padding: 0.5em;
+                            width: 100%;
+                            color: $blanco;
+
+                            body.dark & {
+                                background: $verdeazul;
+                            }
+                        }
+
+                        body.dark & {
+                            color: $blanco;
+                        }
+                    }
+                }
+
+                .pregunta1 {
+                    margin-top: 0.5em;
+                    border-top: 2px solid;
+                    border-color: $verdeclaro;
+
+                    body.dark & {
+                        border-color: $verdeazul;
+                    }
                 }
 
                 .section_contenido {
@@ -784,7 +869,7 @@ header {
                     .boton {
                         width: 25vh;
                         margin: 0.5em 0.5em 0px 0px;
-                        padding:0.5em;
+                        padding: 0.5em;
                         background: $verdeclaro;
                         color: $blanco;
 
@@ -797,7 +882,8 @@ header {
                         color: $negro;
                         border: none;
                         border-radius: 0px;
-                        padding:0px;
+                        padding: 0px;
+
                         body.dark & {
                             color: $blanco !important;
                         }
@@ -812,6 +898,7 @@ header {
                         height: 15em;
                         resize: none;
                         padding-left: 0.5em;
+                        margin-bottom: 0.5em;
 
                         &:focus {
                             outline: none;
@@ -823,10 +910,77 @@ header {
                     }
                 }
             }
+            //Contenedor Principal_Todos
+            .row {
+                background-color: $gris;
+                color: $negro;
+                padding: 1em;
+                display: flex;
+                flex-direction: row;
+                margin: 0px;
+                border-radius: 1em;
+                border: solid;
+                border-color: $verdeclaro;
+                box-shadow: 0 1px 0 #cfcfcf;
 
+                body.dark & {
+                    background: $azulclaro;
+                    border-color: $verdeazul;
+                    color: $blanco;
+                }
+                //Estilos Principal_Todos
+                thead {
+                    margin-bottom: 1em;
 
+                    input {
+                        margin-bottom: 0.5em;
+                    }
+                }
+
+                tbody {
+                    a {
+                        padding-left: 1em;
+                    }
+
+                    .catalogo {
+                        margin-bottom: 0.5em;
+                        border: none;
+                        background: $verdeclaro;
+                        padding-left: 1em;
+
+                        body.dark & {
+                            background: $azuloscuro;
+                        }
+                    }
+
+                    .catalogo:hover {
+                        background: $blanco;
+                        color: black;
+
+                        body.dark & {
+                            background: $verdeazul;
+                            color: white;
+                        }
+                    }
+                }
+
+                .td {
+                    color: $negro;
+                }
+
+                .filtroc {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .filtro {
+                    flex: 0 0 50%;
+                }
+            }
 
             .parpadeo {
+                margin: 0px 0px 1em 0px;
                 text-align: center;
                 animation-name: parpadeo;
                 animation-duration: 2s;
@@ -844,10 +998,14 @@ header {
             }
         }
         //Pie de Pagina
-        .footer p {
+        footer p {
             color: $negro;
-            margin-top: 8px;
-            margin-bottom: -6px;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+
+            body.dark & {
+                color: $blanco;
+            }
         }
     }
     //Estilos del Menu Derecho
