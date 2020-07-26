@@ -132,15 +132,7 @@ ul, ol {
     background-color: #021d3a;
 }
 
-.catalogo {
-    margin-bottom: 5px;
-    padding: 15px 10px;
-    background: #263859 !important;
-}
 
-    .catalogo:hover {
-        background: #1bbc97 !important;
-    }
 
 .cerrarsesion {
     margin-right: 15px;
@@ -161,16 +153,6 @@ ul, ol {
 
 
 
-.parpadeo {
-    animation-name: parpadeo;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: 5;
-    -webkit-animation-name: parpadeo;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: 5;
-}
 
 @-moz-keyframes parpadeo {
     0% {
@@ -351,18 +333,6 @@ ul, ol {
 
 
 
-.row {
-    background-color: #263859;
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 12px;
-    border-color: #d2d2d2;
-    border-width: 5px;
-    box-shadow: 0 1px 0 #cfcfcf;
-}
 
 .step {
     height: 20px;
