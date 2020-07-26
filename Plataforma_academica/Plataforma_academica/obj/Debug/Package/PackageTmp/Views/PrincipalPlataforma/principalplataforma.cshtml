@@ -13,7 +13,7 @@
     </head>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("principalplataforma", "PrincipalPlataforma", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -36,6 +36,7 @@
     //Plataforma_academica.Models.Porcentaje_usuario[] arreglo_porcentaje_examen;
 
 <main class="con_form">
+
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <!--Diplomados-->
     <button class="contenercheck first">
@@ -81,12 +82,12 @@
 
     <div class="contener">
         @{
-            if (TempData["mensaje1"] != null && usu != null)
+            if (TempData["mensaje9"] != null && usu != null)
             {
-                TempData.Keep("mensaje1");
-                string nc = Convert.ToString(TempData["mensaje1"]);
+                TempData.Keep("mensaje9");
+                string nc = Convert.ToString(TempData["mensaje9"]);
                 arreglo_unidad = unidad.Consultar_unidades_usuario(nc, usu.usuario);
-                if (arreglo_unidad[0].presentacion == "saludar")
+                if (arreglo_unidad[0].presentacion=="saludar")
                 {
                     @Scripts.Render("~/Scripts/Emerentelogin.js")
                 }
@@ -108,6 +109,12 @@
                         </script>
                     </button>
                 }
+                <button class="boton" href="#mostrarmodal2" data-toggle="modal">
+                    <div class="content-btn" onclick="modal2()">
+                        <img src="~/imagen_multimedia/Presentacion Docente.png" />
+                        <span><strong>Información docente</strong></span>
+                    </div>
+                </button>
             }
             else
             {
@@ -123,10 +130,10 @@
     </button>
     <div class="contener last" id="Actividades">
         @{
-            if (TempData["mensaje3"] != null && usu != null)
+            if (TempData["mensaje10"] != null && usu != null)
             {
-                TempData.Keep("mensaje3");
-                string nc = Convert.ToString(TempData["mensaje3"]);
+                TempData.Keep("mensaje10");
+                string nc = Convert.ToString(TempData["mensaje10"]);
                 arreglo_actividad = actividad.Consultar_Actividad_usuario(nc, usu.usuario);
                 arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
                 for (int i = 0; i < arreglo_actividad.Length; i++)
@@ -152,6 +159,15 @@
                         </div>
                     </button>
                 }
+                if (arreglo_actividad[0].url_archivo == "")
+                {
+                    <button class="boton" href="#mostrarmodal3" data-toggle="modal">
+                        <div class="content-btn">
+                            <img src="~/imagen_multimedia/Actividad.png" />
+                            <span><strong>Subir Actividad</strong></span>
+                        </div>
+                    </button>
+                }
                 <script>
                     var checkBox = document.getElementById("actividad");
                     checkBox.checked = "checked"
@@ -165,19 +181,74 @@
     </div>
     <!-- Modal de Registro-->
     @{
-
-        if (TempData["mensaje1"] != null && usu != null)
+        if (ViewBag.mensaje == "exito")
         {
-            TempData.Keep("mensaje1");
-            string n = Convert.ToString(TempData["mensaje1"]);
+            @Scripts.Render("~/Scripts/modal_exito_subir.js")
+        }
+        <div class="modal fade" id="mostrarmodal4" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog" style="left: 22%;top: -3%;position: absolute;">
+                <div class="modal-content1">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4>La actividad fue subida exitosamente</h4>
+                        <div>
+                            <img class="perfil2" src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        if (TempData["mensaje9"] != null && usu != null)
+        {
+            TempData.Keep("mensaje9");
+            string n = Convert.ToString(TempData["mensaje9"]);
             arreglo_docente = unidad.Consultar_docente_curso(n);
             if (arreglo_docente.Length > 0)
             {
+                <div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                    <div class="modal-dialog" style="left: 22%;top: -3%;position: absolute;">
+                        <div class="modal-content1">                   
+                            <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <div>
+                                    <img class="perfil1" src="~/Imagenes/@arreglo_docente[0].foto">
+                                </div>
+                                <div class="input-group4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-user" style="color: #2f55a0;"></i> </span>
+                                    </div>
+                                    <label style="position: relative;margin-top: 14px;left: 4%;">@arreglo_docente[0].nombre</label>
+                                </div>
+                                <div class="input-group5">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" > <i class="fa fa-graduation-cap" style="color: #2f55a0;"></i> </span>
+                                    </div>
+                                    <label style="position: relative;margin-top: 3px;left: -6%;">@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
+                                </div>
+                                <div class="input-group6">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-envelope" style="color: #2f55a0;"></i> </span>
+                                    </div>
+                                    <label style="position: relative;margin-top: 14px;left: 4%;">@arreglo_docente[0].email_persona</label>
+                                </div>
+                                <div>
+                                    <img class="perfil2" src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                                </div>
+                                <label class="label5">Docente de</label>
+                                <label class="label6">@arreglo_docente[0].nombre_curso</label>
+                                <label class="label7">Formación Virtual</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                     <div class="modal-dialog" style="left: 22%;top: -3%;position: absolute;">
                         <div class="modal-content1">
                             <div class="modal-body">
+                                <button type="submit" name="irmodal" class="btn" value="@n" style="float: right;margin-top: -15px;font-weight: bold;border-radius: 20px;">x</button>
                                 <div>
+                                    <h4 style="color: #080808;background-color: #ffffff91;text-align: center; width: 40%;">Docente</h4>
                                     <img class="perfil1" src="~/Imagenes/@arreglo_docente[0].foto">
                                 </div>
                                 <div class="input-group">
@@ -188,7 +259,7 @@
                                 </div>
                                 <div class="input-group2">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" > <i class="fa fa-graduation-cap" style="color: #2f55a0;"></i> </span>
+                                        <span class="input-group-text"> <i class="fa fa-graduation-cap" style="color: #2f55a0;"></i> </span>
                                     </div>
                                     <label style="position: relative;margin-top: 3px;left: -6%;">@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
                                 </div>
@@ -201,14 +272,63 @@
                                 <div>
                                     <img class="perfil2" src="~/Imagenes/cropped-cemaq_logo2-2.png">
                                 </div>
-                                <label class="label1">Bienvenidos al diplomado virtual en</label>
+                                <label class="label4">@usu.Nombre</label>
+                                <label class="label1">Bienvenido(a) al diplomado virtual en</label>
                                 <label class="label2">@arreglo_docente[0].nombre_curso</label>
                                 <label class="label3">Formación Virtual</label>
                             </div>
                         </div>
                     </div>
                 </div>
+                if (TempData["mensaje10"] != null && usu != null)
+                {
+                    TempData.Keep("mensaje10");
+                    string nx = Convert.ToString(TempData["mensaje10"]);
+                    <div class="modal fade" id="mostrarmodal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                        <div class="modal-dialog" style="left: 22%;top: -3%;position: absolute;">
+                            <div class="modal-content1">
+                                <div class="modal-body">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <div>
+                                        <img class="perfil1" src="~/Imagenes/@usu.foto">
+                                    </div>
+                                    <div class="input-group4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-user" style="color: #2f55a0;"></i> </span>
+                                        </div>
+                                        <label style="position: relative;margin-top: 14px;left: 4%;">@usu.Nombre</label>
+                                    </div>
+                                    <div class="input-group5">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-graduation-cap" style="color: #2f55a0;"></i> </span>
+                                        </div>
+                                        <label style="position: relative;margin-top: 3px;left: -13%;">@usu.Tipo_rol: @arreglo_docente[0].nombre_curso</label>
+                                    </div>
+                                    <div class="input-group6">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-envelope" style="color: #2f55a0;"></i> </span>
+                                        </div>
+                                        <label style="position: relative;margin-top: 14px;left: 4%;">@usu.correo</label>
+                                    </div>
+                                    <div>
+                                        <img class="perfil2" src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                                    </div>
+                                    <label class="label5">Subir Actividad:</label>
+                                    <div class="subir">
+                                        <input type="file" name="file" accept=".docx, .pdf" />
+                                        <div class="form-group oculta" id="capa1">
+                                            @Html.TextAreaFor(model => model.informacion_actividad, new { @class = "form-control", @placeholder = "Descripción del archivo (opcional)" })
+                                        </div>
+                                        <button type="submit" name="irarchivo" class="btn" value="@nx" style="float: right;">Enviar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
             }
+
+
         }
     }
 
