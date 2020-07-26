@@ -233,7 +233,7 @@ namespace Plataforma_academica.Controllers
                 {
                     if (usr.Registrar_estudiante(usr))
                     {
-                        if (SendEmail(user.correo,user.Nombre, user.cedula, user.nombre_usu))
+                        if (SendEmail(usr.correo,usr.nombre1,usr.apellido1, usr.cedula))
                         {
                             ViewBag.mensaje = "Exito";
                             ViewBag.mensaje2 = "El Nuevo Usuario fue registrado con exito, se envió los datos de inicio de sesión, al correo " + usr.correo;
@@ -250,7 +250,7 @@ namespace Plataforma_academica.Controllers
             return View();
         }
 
-        public bool SendEmail(string c, string nombre, string contrase, string nom)
+        public bool SendEmail(string c, string nombre, string apellido, string contrase)
         {
             bool a = false;
             if (c == null)
@@ -263,8 +263,8 @@ namespace Plataforma_academica.Controllers
                 mail.To.Add(c);
                 mail.From = new MailAddress("cemaqacademica@gmail.com");
                 mail.Subject = "Notificación";
-                mail.Body = nom + ", Usted ha sido registrado como un usuario de forma exitosa en DIPLOMADOS - CEMAQ, sus credenciales son:\n\r" +
-                    "Usuario: " + nombre +
+                mail.Body = "Usted ha sido registrado como un usuario de forma exitosa en DIPLOMADOS - CEMAQ, sus credenciales son:\n\r" +
+                    "Usuario: " + nombre +"."+apellido+
                     "\n\rContraseña: " + contrase + " " + "http://diplomados-cemaq.azurewebsites.net/Login/Login";
 
 
