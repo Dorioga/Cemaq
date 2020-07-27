@@ -601,6 +601,28 @@ header {
                         }
                     }
                 }
+
+                .pendiente {
+
+                    .msjem {
+                        display: none;
+                    }
+
+                    &:hover .msjem {
+                        display: block;
+                        position: fixed;
+                        overflow: hidden;
+                        background: $verdeclaro;
+                        color: $blanco;
+                        padding: 0.5em;
+                        width: 8em;
+                        border-radius: 0.5em;
+
+                        body.dark & {
+                            background: $verdeazul;
+                        }
+                    }
+                }
             }
 
             .first {
@@ -662,6 +684,16 @@ header {
                 border-radius: 15px;
 
                 h2 {
+                    color: $negro;
+
+                    body.dark & {
+                        color: $blanco;
+                    }
+                }
+
+                h3 {
+                    text-align: center;
+                    margin: 0px 0px 0.5em 0px;
                     color: $negro;
 
                     body.dark & {
@@ -824,12 +856,20 @@ header {
                     }
                 }
 
+                .tcolumn {
+                    display: flex;
+                    flex-direction: row;
+
+                    div {
+                        flex: 0 0 50%;
+                    }
+                }
+
                 .section_contenido {
                     order: 0;
                     flex: 0 1 auto;
                     align-self: auto;
-                    margin: 0px 0px 0.5em 0px;
-
+                    //margin: 0px 0px 0.5em 0px;
                     h5 {
                         color: $negro;
                         margin: 0px 0px 0.5em 0px;
@@ -846,7 +886,7 @@ header {
                         border-radius: 0.5em;
                         width: 100%;
                         margin: 0px 0px 0.5em 0px;
-                        padding-left: 0.5em;
+                        padding: 0.5em;
 
                         &:focus {
                             outline: none;
@@ -858,20 +898,35 @@ header {
                     }
 
                     select {
+                        max-width: 25vw;
+                        width: 100%;
                         border-radius: 0.5em;
                         margin: 0px 0px 0.5em 0px;
+                        padding: 0.5em;
+                        border: 1px solid;
+                        border-color: $verdeclaro;
 
                         &:focus {
                             outline: none;
                         }
+
+                        body.dark {
+                            border-color: $verdeazul;
+                        }
                     }
 
                     .boton {
+                        border: none;
+                        border-radius: 0.5em;
                         width: 25vh;
                         margin: 0.5em 0.5em 0px 0px;
                         padding: 0.5em;
                         background: $verdeclaro;
                         color: $blanco;
+
+                        &:hover {
+                            background: $verdeoscuro;
+                        }
 
                         body.dark & {
                             background: $verdeazul;
@@ -891,12 +946,35 @@ header {
 
 
                     .textarea {
+                        max-width: none;
                         border-color: $verdeclaro !important;
                         border: 1px solid;
                         border-radius: 0.5em;
                         width: 100%;
                         height: 15em;
                         resize: none;
+                        padding-top: 0.5em;
+                        padding-left: 0.5em;
+                        margin-bottom: 0.5em;
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        body.dark & {
+                            border-color: $verdeazul;
+                        }
+                    }
+                    //textarea mas pequeño
+                    .textarea1 {
+                        max-width: 25vw;
+                        border-color: $verdeclaro !important;
+                        border: 1px solid;
+                        border-radius: 0.5em;
+                        width: 100%;
+                        height: 5em;
+                        resize: none;
+                        padding-top: 0.5em;
                         padding-left: 0.5em;
                         margin-bottom: 0.5em;
 

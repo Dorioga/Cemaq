@@ -19,64 +19,41 @@
     <main class="con_form">
         <div class="formulario">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <!--Nombre Diplomado-->
             <section class="section_contenido">
-                <h5>Nombre del curso</h5>
-                <div class="col-md-8 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        @Html.EditorFor(model => model.Nombre_curso, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre del diplomado*", @id = "nombre" } })
-                        @Html.ValidationMessageFor(model => model.Nombre_curso, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+                <h5>Nombre del Diplomado</h5>
+                @Html.EditorFor(model => model.Nombre_curso, new { htmlAttributes = new { @placeholder = "Nombre del diplomado*", @id = "nombre" } })
+                @Html.ValidationMessageFor(model => model.Nombre_curso, "", new { @class = "text-danger" })
             </section>
+            <!--Descripcion Diplomado-->
             <section class="section_contenido">
-                <label class="col-md-4 control-label1" style="color:white;">Descripción del diplomado</label>
-                <div class="col-md-8 inputGroupContainer">
-                    <div class="input-group">
-                        @Html.TextAreaFor(model => model.descripcion_curso, new { @class = "form-control", @placeholder = "Descripcion del diplomado*" })
-                    </div>
-                </div>
+                <h5>Descripción del diplomado</h5>
+                @Html.TextAreaFor(model => model.descripcion_curso, new { @class = "textarea", @placeholder = "Descripcion del diplomado*" })
             </section>
+            <!--Escuela o Area-->
             <section class="section_contenido">
-                <label class="col-md-4 control-label1" style="color:white;">Tipo de Tematica</label>
-                <div class="col-md-8 inputGroupContainer">
-                    <div class="input-group">
-                        @Html.DropDownListFor(model => model.codigo_tematica, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--", new { @class = "form-control" })
-                    </div>
-                </div>
+                <h5> Escuela o Area</h5>
+                @Html.DropDownListFor(model => model.codigo_tematica, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
             </section>
+            <!--Duracion-->
             <section class="section_contenido">
-                <label class="col-md-4 control-label1" style="color:white;">Duración del Diplomado</label>
-                <div class="col-md-8 inputGroupContainer">
-                    <div class="input-group">
-                        @Html.DropDownListFor(model => model.codigo_horas, (IEnumerable<SelectListItem>)ViewData["lista5"], "--Seleccione one--", new { @class = "form-control" })
-                    </div>
-                </div>
+                <h5>Duración del Diplomado</h5>
+                @Html.DropDownListFor(model => model.codigo_horas, (IEnumerable<SelectListItem>)ViewData["lista5"], "--Seleccione one--")
             </section>
+            <!--Cantidad Modulos-->
             <section class="section_contenido">
-                <label class="col-sm-4" control-label1" style="color:white;">Modulos</label>
-                <div class="col-md-8 inputGroupContainer">
-                    <div class="input-group">
-                        @Html.DropDownListFor(model => model.cantidadBasico, (IEnumerable<SelectListItem>)ViewData["lista2"], "-Cantidad modulos-", new { @class = "form-control" })
-                    </div>
-                </div>
+                <h5>Cantidad Modulos</h5>
+                @Html.DropDownListFor(model => model.cantidadBasico, (IEnumerable<SelectListItem>)ViewData["lista2"], "-Cantidad modulos-")
 
             </section>
+            <!---->
             <section class="section_contenido">
-                <label class="col-sm-4" control-label1" style="color:white;">Docente modulo</label>
-                <div class="col-md-8 inputGroupContainer">
-                    <div class="input-group">
-                        @Html.DropDownListFor(model => model.docente, (IEnumerable<SelectListItem>)ViewData["lista6"], "-Docente-", new { @class = "form-control" })
-                    </div>
-                </div>
+                <h5>Docente modulo</h5>
+                        @Html.DropDownListFor(model => model.docente, (IEnumerable<SelectListItem>)ViewData["lista6"], "-Docente-")
             </section>
-            <section  class="section_contenido">
-                <label class="col-md-4 control-label1"></label>
-                <div class="col-md-8 inputGroupContainer">
-                    <div class="input-group">
-                        <button class="btn btn-success bcrear" type="submit" name="ir100" value="crear">Crear</button>
-                    </div>
-                </div>
+            <!---->
+            <section class="section_contenido">
+                        <button class="boton" type="submit" name="ir100" value="crear">Crear</button>
             </section>
             @{
                 if (ViewBag.mensaje1 == "Registro exitoso")
@@ -160,7 +137,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
 
 </main>
 }

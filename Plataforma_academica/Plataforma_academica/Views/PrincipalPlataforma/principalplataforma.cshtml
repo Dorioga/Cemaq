@@ -79,7 +79,6 @@
             <p>Modulos</p>
         </span>
     </button>
-
     <div class="contener">
         @{
             if (TempData["mensaje9"] != null && usu != null)
@@ -91,8 +90,17 @@
                 {
                     @Scripts.Render("~/Scripts/Emerentelogin.js")
                 }
+               <!--Boton De Inforamcion del Docente-->
+                <button class="boton" href="#mostrarmodal2" data-toggle="modal">
+                    <div class="content-btn" onclick="modal2()">
+                        <img src="~/imagen_multimedia/Presentacion Docente.png" />
+                        <span><strong>Información docente</strong></span>
+                    </div>
+                </button>
+
                 for (int i = 0; i < arreglo_unidad.Length; i++)
                 {
+                    <!--Modulo 1-->
                     if (i == 0)
                     {
                         <button type="submit" class="boton" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
@@ -106,20 +114,20 @@
                                 <span>@arreglo_unidad[i].nombre_unidad</span>
                             </div>
                             <script>
-                            var checkBox = document.getElementById("unidad");
-                            checkBox.checked = "checked"
+                                var checkBox = document.getElementById("unidad");
+                                checkBox.checked = "checked"
                             </script>
                         </button>
                     }
                     else
                     {
-                        
-                        if (Convert.ToInt32(arreglo_unidad[i-1].porcentaje_modulo) < 99)
+                        <!--Modulo 2-5 -->
+                        if (Convert.ToInt32(arreglo_unidad[i - 1].porcentaje_modulo) < 99)
                         {
-                            <button type="submit" disabled="true" class="boton" value="@arreglo_unidad[i].codigo_unidad">
+                            <button type="submit" disabled="true" class="boton pendiente" value="@arreglo_unidad[i].codigo_unidad">
                                 <div class="content-btn">
                                     <img src="~/imagen_multimedia/Modulo.png" />
-                                    <span>Anterior modulo pendiente</span>
+                                    <span class="msjem" id="msejem">Anterior modulo pendiente</span>
                                     <span>@arreglo_unidad[i].nombre_unidad</span>
                                 </div>
                             </button>
@@ -140,12 +148,7 @@
                         }
                     }
                 }
-                <button class="boton" href="#mostrarmodal2" data-toggle="modal">
-                    <div class="content-btn" onclick="modal2()">
-                        <img src="~/imagen_multimedia/Presentacion Docente.png" />
-                        <span><strong>Información docente</strong></span>
-                    </div>
-                </button>
+
 
             }
             else
@@ -154,6 +157,7 @@
             }
         }
     </div>
+
     <!--Actividades-->
     <button class="contenercheck">
         <span>
@@ -170,6 +174,7 @@
                 arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
                 for (int i = 0; i < arreglo_actividad.Length; i++)
                 {
+                    <!--Actividad 1-->
                     if (i == 0)
                     {
                         <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
@@ -189,10 +194,10 @@
                         if (Convert.ToInt32(arreglo_actividad[i - 1].porcentaje) < 99)
                         {
                             //aqui debe ir la notificacion emergente
-                            <button type="submit" class="boton" disabled="true" value="@arreglo_actividad[i].codigo_actividad">
+                            <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_actividad[i].codigo_actividad">
                                 <div class="content-btn">
                                     <img src="~/imagen_multimedia/Actividad.png" />
-                                      <span >Actividad anterior pendiente</span>
+                                    <span class="msjem">Actividad anterior pendiente</span>
                                     <span>@arreglo_actividad[i].nombre_actividad</span>
                                 </div>
                             </button>
@@ -217,7 +222,7 @@
                 for (int i = 0; i < arreglo_examen.Length; i++)
                 {
 
-                    if (a>=0)
+                    if (a >= 0)
                     {
                         if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
                         {
@@ -241,15 +246,15 @@
                         }
                     }
                 }
-                if (a>=0)
+                if (a >= 0)
                 {
                     if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
                     {
                         //aqui debe ir la notificacion emergente
-                        <button class="boton" data-toggle="modal">
+                        <button class="boton pendiente" data-toggle="modal">
                             <div class="content-btn">
                                 <img src="~/imagen_multimedia/Actividad.png" />
-                                <span>Pendientes</span>
+                                <span class="msjem">Pendientes</span>
                                 <span><strong>Subir Actividad</strong></span>
                             </div>
                         </button>
@@ -268,7 +273,6 @@
                 {
                     <a> El Modulo no posee actividades para trabajar</a>
                 }
-
             }
             else
             {
