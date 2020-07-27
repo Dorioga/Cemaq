@@ -217,47 +217,58 @@
                 for (int i = 0; i < arreglo_examen.Length; i++)
                 {
 
+                    if (a>=0)
+                    {
+                        if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
+                        {
+                            //aqui debe ir la notificacion emergente
+                            <button type="submit" class="boton" disabled="true" value="@arreglo_examen[i].id_examen">
+                                <div class="content-btn">
+                                    <img src="~/imagen_multimedia/Examen.png" />
+                                    <span>Actividades pendientes</span>
+                                    <span>@arreglo_examen[i].examen</span>
+                                </div>
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="boton" name="irrrr5" value="@arreglo_examen[i].id_examen">
+                                <div class="content-btn">
+                                    <img src="~/imagen_multimedia/Examen.png" />
+                                    <span>@arreglo_examen[i].examen</span>
+                                </div>
+                            </button>
+                        }
+                    }
+                }
+                if (a>=0)
+                {
                     if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
                     {
                         //aqui debe ir la notificacion emergente
-                        <button type="submit" class="boton" disabled="true" value="@arreglo_examen[i].id_examen">
+                        <button class="boton" data-toggle="modal">
                             <div class="content-btn">
-                                <img src="~/imagen_multimedia/Examen.png" />
-                                <span>Actividades pendientes</span>
-                                <span>@arreglo_examen[i].examen</span>
+                                <img src="~/imagen_multimedia/Actividad.png" />
+                                <span>Pendientes</span>
+                                <span><strong>Subir Actividad</strong></span>
                             </div>
                         </button>
                     }
                     else
                     {
-                        <button type="submit" class="boton" name="irrrr5" value="@arreglo_examen[i].id_examen">
+                        <button class="boton" href="#mostrarmodal3" data-toggle="modal">
                             <div class="content-btn">
-                                <img src="~/imagen_multimedia/Examen.png" />
-                                <span>@arreglo_examen[i].examen</span>
+                                <img src="~/imagen_multimedia/Actividad.png" />
+                                <span><strong>Subir Actividad</strong></span>
                             </div>
                         </button>
                     }
                 }
-                if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
-                {
-                    //aqui debe ir la notificacion emergente
-                    <button class="boton" data-toggle="modal">
-                        <div class="content-btn">
-                            <img src="~/imagen_multimedia/Actividad.png" />
-                            <span>Pendientes</span>
-                            <span><strong>Subir Actividad</strong></span>
-                        </div>
-                    </button>
-                }
                 else
                 {
-                    <button class="boton" href="#mostrarmodal3" data-toggle="modal">
-                        <div class="content-btn">
-                            <img src="~/imagen_multimedia/Actividad.png" />
-                            <span><strong>Subir Actividad</strong></span>
-                        </div>
-                    </button>
+                    <a> El Modulo no posee actividades para trabajar</a>
                 }
+
             }
             else
             {
