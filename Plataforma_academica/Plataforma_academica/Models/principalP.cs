@@ -16,7 +16,7 @@ namespace Plataforma_academica.Models
         public string codigo_examen { set; get; }
         public string informacion_actividad { set; get; }
         public DateTime fecha_cierre  { set; get; }
-
+        public string codigo_curso_usaurio { set; get; }
         private Conexion.Conexion conexion;
 
         public principalP[] BuscarCursos(string cc)
@@ -34,6 +34,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].porcentaje_diplomado= i["porcentaje"].ToString();
                 arreglo[j].url = i["Url_imagen_curso"].ToString();
                 arreglo[j].fecha_cierre = Convert.ToDateTime(i["fecha_cierre"].ToString());
+                arreglo[j].codigo_curso_usaurio = i["Id_curso_usuario"].ToString();
                 j++;
             }
             return arreglo;
@@ -82,6 +83,13 @@ namespace Plataforma_academica.Models
         {
             conexion = new Conexion.Conexion();
             int x = conexion.Execute_Operation("call Pr_actualizar_saludo ('" + curso + "','" + usuario + "')");
+            return x > 0 ? true : false;
+        }
+
+        public bool Actualizar_curso_usaurio(string curso_usuario)
+        {
+            conexion = new Conexion.Conexion();
+            int x = conexion.Execute_Operation("call Pr_actualizar_estado_curso_usuario ('" + curso_usuario + "')");
             return x > 0 ? true : false;
         }
 

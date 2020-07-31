@@ -107,6 +107,18 @@ namespace Plataforma_academica.Controllers
         }
 
         [HttpPost]
+        public JsonResult finalizado_por_fecha(string codigo)
+        {
+            var x = 2;
+            principalP act = new principalP();
+            if (act.Actualizar_curso_usaurio(codigo))
+            {
+                return Json(x);
+            }
+            return Json(0);
+        }
+
+        [HttpPost]
         public string Subir(HttpPostedFileBase file)
         {
             string archivo;

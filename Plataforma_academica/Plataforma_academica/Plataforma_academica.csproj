@@ -398,6 +398,7 @@
     <Content Include="imagen_multimedia\usuario.svg" />
     <Content Include="Scripts\accederzoom.js" />
     <Content Include="Scripts\actualizar.js" />
+    <Content Include="Scripts\actualizar_curso_usuario.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\alumnos.js" />
