@@ -6,66 +6,61 @@
 }
 
 
-<head>
-    <link href="~/Estilos/Contenido.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Estilos/actividadesStyl1.css" rel="stylesheet" type="text/css">
-    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
-    <style type="text/css">
-        .oculta {
-            display: none;
-        }
-    </style>
-    <script type="text/javascript">
+    <head>
 
-        function mostrar(value_elemento) {
-            var total = 2; //total de mis capas
-            var elemento, elemento1, tipo;
-            elemento = document.getElementById('capa');
-            elemento1 = document.getElementById('capa1');
-            tipo = document.getElementById("fname");
-            //elemento2 = document.getElementById('capa2');
-            //elemento3 = document.getElementById('capa3');
-            if (value_elemento == 1) {
-                elemento.style.display = "block";
-            } else {
-                elemento.style.display = "none";
-            }
-            if (value_elemento == 2) {
-                elemento1.style.display = "block";
-                tipo.accept = ".jpg,png";
-            } else {
-                if (value_elemento == 4) {
-                    elemento1.style.display = "block";
-                    tipo.accept = ".mp3";
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        
+        <script type="text/javascript">
+
+            function mostrar(value_elemento) {
+                var total = 2; //total de mis capas
+                var elemento, elemento1, tipo;
+                elemento = document.getElementById('capa');
+                elemento1 = document.getElementById('capa1');
+                tipo = document.getElementById("fname");
+                //elemento2 = document.getElementById('capa2');
+                //elemento3 = document.getElementById('capa3');
+                if (value_elemento == 1) {
+                    elemento.style.display = "block";
                 } else {
-                    if (value_elemento == 5) {
+                    elemento.style.display = "none";
+                }
+                if (value_elemento == 2) {
+                    elemento1.style.display = "block";
+                    tipo.accept = ".jpg,png";
+                } else {
+                    if (value_elemento == 4) {
                         elemento1.style.display = "block";
-                        tipo.accept = ".gif";
+                        tipo.accept = ".mp3";
                     } else {
-                        elemento1.style.display = "none";
+                        if (value_elemento == 5) {
+                            elemento1.style.display = "block";
+                            tipo.accept = ".gif";
+                        } else {
+                            elemento1.style.display = "none";
+                        }
                     }
                 }
             }
-        }
-        function mostrar1(value_elemento) {
-            var total = 2; //total de mis capas
-            var elemento, elemento1;
-            elemento = document.getElementById('capa4');
-            elemento1 = document.getElementById('capa5');
-            if (value_elemento == 3) {
-                elemento.style.display = "block";
-            } else {
-                elemento.style.display = "none";
+            function mostrar1(value_elemento) {
+                var total = 2; //total de mis capas
+                var elemento, elemento1;
+                elemento = document.getElementById('capa4');
+                elemento1 = document.getElementById('capa5');
+                if (value_elemento == 3) {
+                    elemento.style.display = "block";
+                } else {
+                    elemento.style.display = "none";
+                }
+                if (value_elemento == 2) {
+                    elemento1.style.display = "block";
+                } else {
+                    elemento1.style.display = "none";
+                }
             }
-            if (value_elemento == 2) {
-                elemento1.style.display = "block";
-            } else {
-                elemento1.style.display = "none";
-            }
-        }
-    </script>
-</head>
+        </script>
+    </head>
 @using (Html.BeginForm("Cargar_contenido", "contenido", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()

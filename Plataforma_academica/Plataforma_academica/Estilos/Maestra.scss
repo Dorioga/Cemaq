@@ -6,6 +6,11 @@ $gris: #d6d6d6;
 $negro: #000000;
 $azuloscuro: #17223b;
 $azulclaro: #263859;
+
+* {
+    transition: color .05s ease-in-out;
+}
+
 // Estilos Generales
 body {
     position: fixed;
@@ -165,6 +170,42 @@ header {
             flex: 0 1 auto;
             -ms-flex-item-align: auto;
             align-self: auto;
+
+            .p-2 {
+                flex: 0 0 auto;
+            }
+
+            .nombre {
+                display: flex;
+                flex-direction:column;
+
+                div {
+                    flex: 0 0 auto;
+
+                    img {
+                        width:1.5em;
+                        width:1.5em;
+                    }
+                }
+
+
+
+                label {
+                    flex: 0 0 auto;
+                }
+            }
+
+            .perfil {
+                width: 3.5em;
+                border-radius: 1em;
+            }
+
+            @media screen and (max-width:510px) {
+                .perfil {
+                    max-height: 45px;
+                    width: 45px;
+                }
+            }
         }
     }
 }
@@ -326,6 +367,11 @@ header {
                 -webkit-align-self: auto;
                 -ms-flex-item-align: auto;
                 align-self: auto;
+
+                svg {
+                    width: 2em;
+                    height: 2em;
+                }
             }
 
 
@@ -342,6 +388,11 @@ header {
                 -webkit-align-self: auto;
                 -ms-flex-item-align: auto;
                 align-self: auto;
+
+                svg {
+                    width: 2em;
+                    height: 2em;
+                }
             }
 
             .bb-bookblock {
@@ -411,6 +462,10 @@ header {
                     padding: 0px 4px 0px 5px;
                     overflow: hidden !important;
 
+                    &:focus {
+                        outline: none;
+                    }
+
                     body.dark & {
                         color: $blanco;
                         background-color: $azuloscuro;
@@ -451,20 +506,31 @@ header {
             border-radius: 15px;
             color: white;
 
+            .active {
+                display: none;
+            }
+
             .contenercheck {
                 background-color: $verdeclaro;
                 width: 100%;
                 position: relative;
                 border: none;
+                text-align: center;
+                padding: 0.1em;
+                cursor: pointer;
+                border-bottom: 0.1em solid;
+                border-color: $verdeoscuro;
 
                 body.dark & {
                     background-color: $verdeazul;
+                    border-color: $azuloscuro;
                 }
 
                 span {
                     p {
                         color: $blanco;
                         font-weight: bold;
+                        margin: 0;
                     }
                 }
             }
@@ -685,6 +751,7 @@ header {
 
                 h2 {
                     color: $negro;
+                    margin:0.1em;
 
                     body.dark & {
                         color: $blanco;
@@ -879,6 +946,10 @@ header {
                         }
                     }
 
+                    .oculta {
+                        display: none;
+                    }
+
                     input {
                         max-width: 25vw;
                         border-color: $verdeclaro !important;
@@ -1025,6 +1096,7 @@ header {
                         border: none;
                         background: $verdeclaro;
                         padding-left: 1em;
+                        text-align: initial;
 
                         body.dark & {
                             background: $azuloscuro;
@@ -1105,4 +1177,26 @@ header {
             background-color: $azulclaro;
         }
     }
+}
+
+//ScrollBar
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

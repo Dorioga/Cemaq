@@ -4,13 +4,11 @@
 @{
     ViewBag.Title = "principalplataforma";
 }
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
-    <link href="~/Estilos/escritos.css" rel="stylesheet" type="text/css">
-    <link href="~/Estilos/modal_presentacion.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-</head>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="~/Estilos/modal_presentacion.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    </head>
 
 
 @using (Html.BeginForm("principalplataforma", "PrincipalPlataforma", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -39,13 +37,13 @@
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <!--Diplomados-->
-    <button class="contenercheck first">
+    <div class="contenercheck first" id="bdiplomado">
         <span>
             <p>Diplomados</p>
         </span>
-    </button>
+    </div>
 
-    <div class="contener">
+    <div class="contener" id="diplomado">
         @{
             if (usu != null)
             {
@@ -64,7 +62,7 @@
                             <div class="content-btn">
                                 <img src="~/imagenes/@arreglo[i].url" />
                                 <div class="progress ">
-                                    <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
                                         <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
                                     </div>
                                 </div>
@@ -87,24 +85,23 @@
                                     <span>@arreglo[i].nombre_curso</span>
                                 </div>
                             </button>
-                        }
-                        else
-                        {
-                            //crear un script con json para actualizar automaticamente el estado de curso_usuario para que no se carque mas el curso que ya se paso de fecha
+                            }
+                            else
+                            {
+                                //crear un script con json para actualizar automaticamente el estado de curso_usuario para que no se carque mas el curso que ya se paso de fecha
+                            }
                         }
                     }
-
                 }
             }
-        }
-    </div>
+            </div>
     <!--Modulos-->
-    <button class="contenercheck">
+    <div class="contenercheck" id="bmodulo">
         <span>
             <p>Modulos</p>
         </span>
-    </button>
-    <div class="contener">
+    </div>
+    <div class="contener" id="modulo">
         @{
             if (TempData["mensaje9"] != null && usu != null)
             {
@@ -132,7 +129,7 @@
                             <div class="content-btn">
                                 <img src="~/imagen_multimedia/Modulo.png" />
                                 <div class="progress ">
-                                    <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
                                         <h6 class="porcentaje">@arreglo_unidad[i].porcentaje_modulo%</h6>
                                     </div>
                                 </div>
@@ -163,7 +160,7 @@
                                 <div class="content-btn">
                                     <img src="~/imagen_multimedia/Modulo.png" />
                                     <div class="progress ">
-                                        <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
                                             <h6 class="porcentaje">@arreglo_unidad[i].porcentaje_modulo%</h6>
                                         </div>
                                     </div>
@@ -184,12 +181,12 @@
     </div>
 
     <!--Actividades-->
-    <button class="contenercheck">
+    <div class="contenercheck" id="bactividad">
         <span>
             <p>Actividades</p>
         </span>
-    </button>
-    <div class="contener last" id="Actividades">
+    </div>
+    <div class="contener last" id="actividad">
         @{
             if (TempData["mensaje10"] != null && usu != null)
             {
@@ -206,7 +203,7 @@
                             <div class="content-btn">
                                 <img src="~/imagen_multimedia/Actividad.png" />
                                 <div class="progress ">
-                                    <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
                                         <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
                                     </div>
                                 </div>
@@ -233,7 +230,7 @@
                                 <div class="content-btn">
                                     <img src="~/imagen_multimedia/Actividad.png" />
                                     <div class="progress ">
-                                        <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
                                             <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
                                         </div>
                                     </div>
@@ -472,6 +469,7 @@
     <p> @DateTime.Now.Year - CEMAQ - Diplomados</p>
 </footer>
 <script src="~/Scripts/progresos.js" charset="utf-8"></script>
+<script src="~/Scripts/Manejocurso.js" charset="utf-8"></script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

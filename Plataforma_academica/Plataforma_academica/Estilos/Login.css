@@ -152,6 +152,11 @@ h6 {
 .row {
     padding: 1.5em 1.5em 1em;
 }
+@media (width:768px){
+    .row{
+        flex-direction:column;
+    }
+}
 .tab-content{
     padding-top:1em;
 }
