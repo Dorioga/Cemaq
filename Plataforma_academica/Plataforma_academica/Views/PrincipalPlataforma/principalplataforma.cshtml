@@ -58,17 +58,42 @@
 
                 for (int i = 0; i < arreglo.Length; i++)
                 {
-                    <button type="submit" class="boton" name="ir" value="@arreglo[i].codigo_curso">
-                        <div class="content-btn">
-                            <img src="~/imagenes/@arreglo[i].url" />
-                            <div class="progress ">
-                                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                    <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
+                    if (DateTime.Today < arreglo[i].fecha_cierre)
+                    {
+                        <button type="submit" class="boton" name="ir" value="@arreglo[i].codigo_curso">
+                            <div class="content-btn">
+                                <img src="~/imagenes/@arreglo[i].url" />
+                                <div class="progress ">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                        <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
+                                    </div>
                                 </div>
+                                <span>@arreglo[i].nombre_curso</span>
                             </div>
-                            <span>@arreglo[i].nombre_curso</span>
-                        </div>
-                    </button>
+                        </button>
+                    }
+                    else
+                    {
+                        if (DateTime.Today == arreglo[i].fecha_cierre)
+                        {
+                            <button type="submit" class="boton" name="ir" value="@arreglo[i].codigo_curso">
+                                <div class="content-btn">
+                                    <img src="~/imagenes/@arreglo[i].url" />
+                                    <div class="progress ">
+                                        <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                            <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
+                                        </div>
+                                    </div>
+                                    <span>@arreglo[i].nombre_curso</span>
+                                </div>
+                            </button>
+                        }
+                        else
+                        {
+                            //crear un script con json para actualizar automaticamente el estado de curso_usuario para que no se carque mas el curso que ya se paso de fecha
+                        }
+                    }
+
                 }
             }
         }

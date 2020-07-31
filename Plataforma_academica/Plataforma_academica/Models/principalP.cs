@@ -15,6 +15,7 @@ namespace Plataforma_academica.Models
         public string url { set; get; }
         public string codigo_examen { set; get; }
         public string informacion_actividad { set; get; }
+        public DateTime fecha_cierre  { set; get; }
 
         private Conexion.Conexion conexion;
 
@@ -32,6 +33,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].codigo_curso = i["codigo curso"].ToString();
                 arreglo[j].porcentaje_diplomado= i["porcentaje"].ToString();
                 arreglo[j].url = i["Url_imagen_curso"].ToString();
+                arreglo[j].fecha_cierre = Convert.ToDateTime(i["fecha_cierre"].ToString());
                 j++;
             }
             return arreglo;
