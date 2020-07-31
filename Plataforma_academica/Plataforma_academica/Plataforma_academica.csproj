@@ -475,6 +475,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\loginscript.js" />
     <Content Include="Scripts\login_campos.js" />
+    <Content Include="Scripts\Manejocurso.js" />
     <Content Include="Scripts\mensajes.js" />
     <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\Menuprincipal.js" />
