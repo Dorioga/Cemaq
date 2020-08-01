@@ -484,6 +484,7 @@ header {
         .principal .contenedor .con_form .contener .pendiente .msjem {
           display: none; }
         .principal .contenedor .con_form .contener .pendiente:hover .msjem {
+          z-index: 1000;
           display: block;
           position: fixed;
           overflow: hidden;
