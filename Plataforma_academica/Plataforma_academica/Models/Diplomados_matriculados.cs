@@ -12,7 +12,6 @@ namespace Plataforma_academica.Models
         public string nombre_curso{ set; get; }
         public string estado_pago { set; get; }
         public string porcentaje { set; get; }
-        public double examen { set; get; }
 
 
         public Diplomados_matriculados[] Buscardiplomadosdescargar(string id)
@@ -28,7 +27,6 @@ namespace Plataforma_academica.Models
                 arreglo[j].nombre_curso = i["nombre_curso"].ToString();
                 arreglo[j].estado_pago = i["estado_pago"].ToString();
                 arreglo[j].porcentaje = i["porcentaje"].ToString();
-                arreglo[j].examen = Convert.ToDouble(i["examen"].ToString());
                 j++;
             }
             return arreglo;

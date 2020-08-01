@@ -11,7 +11,15 @@ namespace Plataforma_academica.Controllers
         // GET: Diplomados_matriculados
         public ActionResult Diplomados_matriculados()
         {
-            return View();
+            Models.Login user = Session["usuario"] as Models.Login;
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }else
+            {
+                return View();
+            }
+            
         }
     }
 }

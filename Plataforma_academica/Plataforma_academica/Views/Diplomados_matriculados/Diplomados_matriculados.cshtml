@@ -21,16 +21,16 @@
             {
                 arreglo = principal.Buscardiplomadosdescargar(usu.usuario);
                 <!--Recordatorios-->
-                <h6 class="parpadeo"><strong>Para descargar su certificado debe haber realizado el pago del mismo, el cumplimiento del 100% del porcentaje y realizado el test</strong></h6>
+                <h6 class="parpadeo"><strong>Para descargar su certificado debe haber realizado el cumplimiento del 100% del diplomado y haber realizado el pago</strong></h6>
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">N°</th>
                             <th scope="col">Diplomado</th>
-                            <th scope="col">Porcentaje</th>
-                            <th scope="col">Test</th>
+                            <th scope="col">Porcentaje</th>                            
                             <th scope="col">Estado</th>
                             <th scope="col">Descargar</th>
+                            <th scope="col">Manual de pago</th>
                         </tr>
                     </thead>
 
@@ -44,7 +44,6 @@
                                     <td>@f</td>
                                     <td>@arreglo[i].nombre_curso</td>
                                     <td>@arreglo[i].porcentaje%</td>
-                                    <td>@arreglo[i].examen</td>
                                     <td>@arreglo[i].estado_pago</td>
                                     @{
                                         if (Convert.ToDouble(arreglo[i].porcentaje) >= 100 && arreglo[i].estado_pago == "Pagado")
@@ -56,7 +55,7 @@
                                             <td><button class="boton" disabled="disabled">Pendiente</button></td>
                                         }
                                     }
-
+                                    <td><button class="boton" name="i" value="">Abrir</button></td>
                                 </tr>
                             }
                         }
