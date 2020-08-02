@@ -72,7 +72,7 @@ namespace Plataforma_academica.Models
         public bool Actualizar_conexion(Login obj)
         {
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_cerrar_sesion ('" + obj.cedula + "')");
+            int x = conexion.Execute_Operation("call Pr_cerrar_sesion ('" + obj.cedula + "')");            
             return x > 0 ? true : false;
         }
 

@@ -299,6 +299,8 @@ namespace Plataforma_academica.Controllers
         {
             Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
             user.Actualizar_conexion(usu);
+            TempData.Remove("mensaje9");
+            TempData.Remove("mensaje10");
             Session.Clear();
             Response.AppendHeader("Cache-Control", "no-store");
             return RedirectToAction("Login", "Login");

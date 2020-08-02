@@ -58,7 +58,7 @@ namespace Plataforma_academica.Models
 
             conexion = new Conexion.Conexion();
             int x = conexion.Execute_Operation("call Pr_registrar_curso_usuario ('" + id_curso + "','" + usuario + "')");
-            return x > 0 ? true : false;
+            return x == 0 ? true : false;
 
         }
 
