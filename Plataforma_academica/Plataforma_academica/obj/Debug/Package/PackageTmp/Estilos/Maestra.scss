@@ -7,6 +7,11 @@ $negro: #000000;
 $azuloscuro: #17223b;
 $azulclaro: #263859;
 
+* {
+    transition: color .05s ease-in-out;
+}
+
+// Estilos Generales
 body {
     position: fixed;
     height: 100vh;
@@ -21,7 +26,7 @@ body {
     }
 }
 
-
+//Encabezado
 header {
     height: 10vh;
     flex-direction: row;
@@ -165,10 +170,46 @@ header {
             flex: 0 1 auto;
             -ms-flex-item-align: auto;
             align-self: auto;
+
+            .p-2 {
+                flex: 0 0 auto;
+            }
+
+            .nombre {
+                display: flex;
+                flex-direction:column;
+
+                div {
+                    flex: 0 0 auto;
+
+                    img {
+                        width:1.5em;
+                        width:1.5em;
+                    }
+                }
+
+
+
+                label {
+                    flex: 0 0 auto;
+                }
+            }
+
+            .perfil {
+                width: 3.5em;
+                border-radius: 1em;
+            }
+
+            @media screen and (max-width:510px) {
+                .perfil {
+                    max-height: 45px;
+                    width: 45px;
+                }
+            }
         }
     }
 }
-
+//Contenedor principal
 .principal {
     -ms-flex-order: 0;
     order: 0;
@@ -177,7 +218,7 @@ header {
     flex: 1 1 auto;
     -ms-flex-item-align: auto;
     align-self: auto;
-
+    //Estilos del Menu Izquierdo
     .menu-izq {
         margin-top: 12vh;
         position: fixed;
@@ -261,7 +302,7 @@ header {
             }
         }
     }
-
+    //Contendor Cambiante
     .contenedor {
         width: 64vw;
         min-width: 50%;
@@ -273,8 +314,852 @@ header {
         -webkit-transition: left 0.3s ease-in-out;
         -o-transition: left 0.3s ease-in-out;
         transition: left 0.3s ease-in-out;
-    }
+        //Contenedor del Libro
+        .bb-custom-wrapper {
+            display: flex;
+            border-radius: 15px;
+            flex-direction: row;
+            width: 100%;
+            background: $verdeclaro;
+            height: 86vh;
+            padding: 1em;
 
+            body.dark & {
+                background: $azulclaro;
+            }
+
+            nav {
+                z-index: 999;
+                position: relative;
+                width: 100%;
+            }
+
+            nav span {
+                position: relative;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                left: 0;
+                background: #1bbc97;
+                border-radius: 50%;
+                color: #fff;
+                line-height: 42px;
+                text-align: center;
+                speak: none;
+                font-weight: bold;
+                cursor: pointer;
+                float: right;
+            }
+
+            .adelante {
+                display: flex;
+                align-items: center;
+                color: white;
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+                -webkit-flex: 0 1 auto;
+                -ms-flex: 0 1 auto;
+                flex: 0 1 auto;
+                -webkit-align-self: auto;
+                -ms-flex-item-align: auto;
+                align-self: auto;
+
+                svg {
+                    width: 2em;
+                    height: 2em;
+                }
+            }
+
+
+            .atras {
+                display: flex;
+                align-items: center;
+                color: white;
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+                -webkit-flex: 0 1 auto;
+                -ms-flex: 0 1 auto;
+                flex: 0 1 auto;
+                -webkit-align-self: auto;
+                -ms-flex-item-align: auto;
+                align-self: auto;
+
+                svg {
+                    width: 2em;
+                    height: 2em;
+                }
+            }
+
+            .bb-bookblock {
+                width: 100%;
+                height: 100%;
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+                -webkit-flex: 1 1 auto;
+                -ms-flex: 1 1 auto;
+                flex: 1 1 auto;
+                -webkit-align-self: auto;
+                -ms-flex-item-align: auto;
+                align-self: auto;
+            }
+
+            .bb-content {
+                background: $gris !important;
+
+                body.dark & {
+                    background: $azuloscuro !important;
+                }
+            }
+
+            .bb-item {
+                background: $gris !important;
+                border-radius: 1em;
+                height: auto !important;
+                min-height: 81.5vh;
+                max-height: 81.5vh;
+                overflow-y: auto;
+
+                body.dark & {
+                    background: $azuloscuro !important;
+                }
+
+                div {
+                    text-align: center;
+                    margin-top: 1em;
+                    margin-bottom: 1em;
+                }
+
+                h2 {
+                    color: $negro;
+                    text-align: center;
+
+                    body.dark & {
+                        color: $blanco;
+                    }
+                }
+
+                h4 {
+                    color: $negro;
+                    text-align: center;
+
+                    body.dark & {
+                        color: $blanco;
+                    }
+                }
+
+                textarea {
+                    max-width: 100%;
+                    width: 100%;
+                    border: none;
+                    background-color: $gris;
+                    color: $negro;
+                    padding: 0px 4px 0px 5px;
+                    overflow: hidden !important;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    body.dark & {
+                        color: $blanco;
+                        background-color: $azuloscuro;
+                    }
+                }
+
+
+                .btn {
+                    margin-left: 1em !important;
+                    margin-top: 1em;
+                    position: absolute;
+                    background: $verdeclaro;
+
+                    body.dark & {
+                        background: $azulclaro;
+                    }
+                }
+
+                .step {
+                    height: 30px;
+                    width: 30px;
+                    color: $blanco;
+                    padding-top: 4px;
+                    margin: 0 2px;
+                    background: $verdeclaro;
+                    border: none;
+                    border-radius: 50%;
+                    display: inline-block;
+
+                    body.dark & {
+                        background: $azulclaro;
+                    }
+                }
+            }
+        }
+        //Contenedor del Menu, Cargar Contenido, cargar examen
+        .con_form {
+            border-radius: 15px;
+            color: white;
+
+            .active {
+                display: none;
+            }
+
+            .contenercheck {
+                background-color: $verdeclaro;
+                width: 100%;
+                position: relative;
+                border: none;
+                text-align: center;
+                padding: 0.1em;
+                cursor: pointer;
+                border-bottom: 0.1em solid;
+                border-color: $verdeoscuro;
+
+                body.dark & {
+                    background-color: $verdeazul;
+                    border-color: $azuloscuro;
+                }
+
+                span {
+                    p {
+                        color: $blanco;
+                        font-weight: bold;
+                        margin: 0;
+                    }
+                }
+            }
+
+            .contener {
+                background-color: $gris;
+                height: 100%;
+                padding: 0.5em 0em;
+                width: 100%;
+                position: relative;
+                border-style: solid;
+                border-color: $verdeclaro;
+
+                body.dark & {
+                    background-color: $azulclaro;
+                    border-color: $verdeazul;
+                }
+
+                a {
+                    color: $negro;
+                    padding-left: 1em;
+
+                    body.dark & {
+                        color: $blanco;
+                    }
+                }
+
+                .boton {
+                    background: $gris;
+                    max-width: 10em;
+                    position: relative;
+                    width: 100%;
+                    left: 0.5em;
+                    height: 100%;
+                    border: none;
+                    outline: none;
+
+                    body.dark & {
+                        background: $azulclaro;
+
+                        span {
+                            color: white;
+                        }
+                    }
+
+                    &:hover {
+                        border-radius: 10%;
+                        border-style: solid;
+                        border-color: $verdeclaro;
+
+                        body.dark & {
+                            border-color: $verdeazul;
+                        }
+                    }
+
+                    .content-btn {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 1em;
+
+                        img {
+                            order: 0;
+                            flex: 1 1 auto;
+                            align-self: auto;
+                            width: 70%;
+                            border-radius: 50%;
+                        }
+
+                        span {
+                            order: 0;
+                            flex: 0 1 auto;
+                            align-self: auto;
+                        }
+
+                        .progress {
+                            width: 100%;
+                            order: 0;
+                            flex: 0 1 auto;
+                            align-self: auto;
+                            cursor: pointer;
+                            margin: 1em;
+                            overflow: visible;
+                            border-radius: 7px;
+                            background: $verdeoscuro;
+
+                            body.dark & {
+                                background: $azuloscuro;
+                            }
+
+                            progress-bar {
+                                border-radius: 7px;
+                            }
+
+                            .progress-value {
+                                position: relative;
+                                left: -45px;
+                                top: 4px;
+                                font-size: 14px;
+                                font-weight: bold;
+                                color: #fff;
+                                letter-spacing: 2px;
+                            }
+
+                            .porcentaje {
+                                position: relative;
+                                left: 5px;
+                                font-size: 14px;
+                                font-weight: bold;
+                                color: #fff;
+                                letter-spacing: 2px;
+                            }
+                        }
+
+                        .progress-bar.active {
+                            animation: reverse progress-bar-stripes 6.0s linear infinite, animate-positive 2s;
+                        }
+
+                        .progress-bar-success {
+                            background: $verdeclaro;
+                            border-radius: 7px;
+
+                            body.dark & {
+                                background: $verdeazul;
+                            }
+                        }
+
+                        .progress-outer {
+                            background: #ffffff0a;
+                            border-radius: 78px;
+                            padding: 0px;
+                            margin: 0px -11px;
+                        }
+                    }
+                }
+
+                .pendiente {
+
+                    .msjem {
+                        display: none;
+                    }
+
+                    &:hover .msjem {
+                        z-index:1000;
+                        display: block;
+                        position: fixed;
+                        overflow: hidden;
+                        background: $verdeclaro;
+                        color: $blanco;
+                        padding: 0.5em;
+                        width: 8em;
+                        border-radius: 0.5em;
+
+                        body.dark & {
+                            background: $verdeazul;
+                        }
+                    }
+                }
+            }
+
+            .first {
+                border-radius: 5px 5px 0px 0px;
+            }
+
+            .last {
+                border-radius: 0px 0px 5px 5px;
+            }
+
+            .modal-header {
+                border-bottom: 0.5em solid $blanco;
+                background: $verdeoscuro;
+
+                body.dark & {
+                    border-color: $verdeazul;
+                    background: $azuloscuro;
+                }
+            }
+
+            .modal-content {
+                background: $verdeclaro;
+                color: white;
+
+                body.dark & {
+                    background: $azulclaro;
+                }
+            }
+
+            .modal-footer {
+                border-top: 0.5em solid;
+                background-color: $blanco;
+                background: $verdeoscuro;
+
+                body.dark & {
+                    border-color: $verdeazul;
+                    background: $azuloscuro;
+                }
+
+                button {
+                    background: $verdeclaro;
+
+                    body.dark & {
+                        background: #1bbc97;
+                        color: white;
+                    }
+                }
+            }
+            //Estilos de Diplomados Matriculados
+            //Estilos Cargar_Contenido
+            //Estilo Registrar_Beneficiario
+            .formulario {
+                display: flex;
+                flex-direction: column;
+                padding: 1em;
+                border: solid;
+                background-color: $gris;
+                border-color: $verdeclaro;
+                border-radius: 15px;
+
+                h2 {
+                    color: $negro;
+                    margin:0.1em;
+
+                    body.dark & {
+                        color: $blanco;
+                    }
+                }
+
+                h3 {
+                    text-align: center;
+                    margin: 0px 0px 0.5em 0px;
+                    color: $negro;
+
+                    body.dark & {
+                        color: $blanco;
+                    }
+                }
+
+                body.dark & {
+                    background-color: $azulclaro;
+                    border-color: $verdeazul;
+                }
+
+                table {
+                    width: 100%;
+                    margin-bottom: 0em;
+                    border-collapse: collapse;
+                    border-radius: 1em;
+                    overflow: hidden;
+                    border: 0.2em solid;
+                    border-color: $verdeoscuro;
+
+                    body.dark & {
+                        border-color: $verdeazul;
+                    }
+
+                    thead {
+                        tr {
+                            background: $verdeoscuro;
+
+                            body.dark & {
+                                background: $verdeazul;
+                            }
+
+                            th {
+                                padding: 0.5em;
+                                text-align: center;
+                                border: none;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            text-align: center;
+                            color: $negro;
+
+                            &:hover {
+                                td {
+                                    background: $verdeclaro !important;
+                                    color: $blanco !important;
+                                }
+                            }
+
+                            body.dark & {
+                                color: $blanco;
+                            }
+
+                            td {
+                                vertical-align: inherit;
+                                padding: 0.5em;
+                                border: none;
+
+                                .boton {
+                                    width: 100%;
+                                    padding: 0;
+                                    border-radius: 1em;
+                                    border: 1px solid;
+                                    border-color: $verdeoscuro;
+
+                                    &:disabled {
+                                        color: $negro;
+
+                                        body.dark & {
+                                            color: $blanco;
+                                        }
+                                    }
+
+                                    &:enabled {
+                                        background: $verdeclaro;
+                                        color: $blanco;
+
+                                        body.dark & {
+                                            background: $verdeazul;
+                                        }
+                                    }
+
+                                    body.dark & {
+                                        border-color: $verdeazul;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    tfoot {
+                        width: 100%;
+                        height: 0.5em;
+                        background: $verdeoscuro;
+
+                        body.dark & {
+                            background: $verdeazul;
+                        }
+
+                        tr {
+                            td {
+                                border: none;
+                            }
+                        }
+                    }
+                }
+
+
+                .alert-danger {
+                    color: $negro;
+                    background-color: $gris;
+                    border: solid;
+                    border-color: $verdeclaro;
+
+                    body.dark & {
+                        color: $blanco;
+                        background-color: $azulclaro;
+                        border-color: $verdeazul;
+                    }
+                }
+
+                .form-group {
+                    margin: 1em 1em 1em 0px;
+
+                    input {
+                        border: none;
+                        margin: 0px 0px 0.5em 0px;
+                        color: $negro;
+                        max-width: 24vw;
+
+                        &[type="submit"] {
+                            background: $verdeclaro;
+                            border-radius: 1em;
+                            padding: 0.5em;
+                            width: 100%;
+                            color: $blanco;
+
+                            body.dark & {
+                                background: $verdeazul;
+                            }
+                        }
+
+                        body.dark & {
+                            color: $blanco;
+                        }
+                    }
+                }
+
+                .pregunta1 {
+                    margin-top: 0.5em;
+                    border-top: 2px solid;
+                    border-color: $verdeclaro;
+
+                    body.dark & {
+                        border-color: $verdeazul;
+                    }
+                }
+
+                .tcolumn {
+                    display: flex;
+                    flex-direction: row;
+
+                    div {
+                        flex: 0 0 50%;
+                    }
+                }
+
+                .section_contenido {
+                    order: 0;
+                    flex: 0 1 auto;
+                    align-self: auto;
+                    //margin: 0px 0px 0.5em 0px;
+                    h5 {
+                        color: $negro;
+                        margin: 0px 0px 0.5em 0px;
+
+                        body.dark & {
+                            color: $blanco;
+                        }
+                    }
+
+                    .oculta {
+                        display: none;
+                    }
+
+                    input {
+                        max-width: 25vw;
+                        border-color: $verdeclaro !important;
+                        border: 1px solid;
+                        border-radius: 0.5em;
+                        width: 100%;
+                        margin: 0px 0px 0.5em 0px;
+                        padding: 0.5em;
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        body.dark & {
+                            border-color: $verdeazul;
+                        }
+                    }
+
+                    select {
+                        max-width: 25vw;
+                        width: 100%;
+                        border-radius: 0.5em;
+                        margin: 0px 0px 0.5em 0px;
+                        padding: 0.5em;
+                        border: 1px solid;
+                        border-color: $verdeclaro;
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        body.dark {
+                            border-color: $verdeazul;
+                        }
+                    }
+
+                    .boton {
+                        border: none;
+                        border-radius: 0.5em;
+                        width: 25vh;
+                        margin: 0.5em 0.5em 0px 0px;
+                        padding: 0.5em;
+                        background: $verdeclaro;
+                        color: $blanco;
+
+                        &:hover {
+                            background: $verdeoscuro;
+                        }
+
+                        body.dark & {
+                            background: $verdeazul;
+                        }
+                    }
+
+                    .filechooser {
+                        color: $negro;
+                        border: none;
+                        border-radius: 0px;
+                        padding: 0px;
+
+                        body.dark & {
+                            color: $blanco !important;
+                        }
+                    }
+
+
+                    .textarea {
+                        max-width: none;
+                        border-color: $verdeclaro !important;
+                        border: 1px solid;
+                        border-radius: 0.5em;
+                        width: 100%;
+                        height: 15em;
+                        resize: none;
+                        padding-top: 0.5em;
+                        padding-left: 0.5em;
+                        margin-bottom: 0.5em;
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        body.dark & {
+                            border-color: $verdeazul;
+                        }
+                    }
+                    //textarea mas pequeño
+                    .textarea1 {
+                        max-width: 25vw;
+                        border-color: $verdeclaro !important;
+                        border: 1px solid;
+                        border-radius: 0.5em;
+                        width: 100%;
+                        height: 5em;
+                        resize: none;
+                        padding-top: 0.5em;
+                        padding-left: 0.5em;
+                        margin-bottom: 0.5em;
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        body.dark & {
+                            border-color: $verdeazul;
+                        }
+                    }
+                }
+            }
+            //Contenedor Principal_Todos
+            .row {
+                background-color: $gris;
+                color: $negro;
+                padding: 1em;
+                display: flex;
+                flex-direction: row;
+                margin: 0px;
+                border-radius: 1em;
+                border: solid;
+                border-color: $verdeclaro;
+                box-shadow: 0 1px 0 #cfcfcf;
+
+                body.dark & {
+                    background: $azulclaro;
+                    border-color: $verdeazul;
+                    color: $blanco;
+                }
+                //Estilos Principal_Todos
+                thead {
+                    margin-bottom: 1em;
+
+                    input {
+                        margin-bottom: 0.5em;
+                    }
+                }
+
+                tbody {
+                    a {
+                        padding-left: 1em;
+                    }
+
+                    .catalogo {
+                        margin-bottom: 0.5em;
+                        border: none;
+                        background: $verdeclaro;
+                        padding-left: 1em;
+                        text-align: initial;
+
+                        body.dark & {
+                            background: $azuloscuro;
+                        }
+                    }
+
+                    .catalogo:hover {
+                        background: $blanco;
+                        color: black;
+
+                        body.dark & {
+                            background: $verdeazul;
+                            color: white;
+                        }
+                    }
+                }
+
+                .td {
+                    color: $negro;
+                }
+
+                .filtroc {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .filtro {
+                    flex: 0 0 50%;
+                }
+            }
+
+            .parpadeo {
+                margin: 0px 0px 1em 0px;
+                text-align: center;
+                animation-name: parpadeo;
+                animation-duration: 2s;
+                animation-timing-function: linear;
+                animation-iteration-count: 5;
+                -webkit-animation-name: parpadeo;
+                -webkit-animation-duration: 2s;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-iteration-count: 5;
+                color: $negro;
+
+                body.dark & {
+                    color: $blanco;
+                }
+            }
+        }
+        //Pie de Pagina
+        footer p {
+            color: $negro;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+
+            body.dark & {
+                color: $blanco;
+            }
+        }
+    }
+    //Estilos del Menu Derecho
     .menu-der {
         right: 0px;
         position: fixed;
@@ -295,382 +1180,24 @@ header {
     }
 }
 
-.bb-custom-wrapper {
-    display: flex;
-    border-radius: 15px;
-    flex-direction: row;
-    width: 100%;
-    background: $verdeclaro;
-    height: 86vh;
-    padding: 1em;
+//ScrollBar
 
-    body.dark & {
-        background: $azulclaro;
-    }
-
-    nav {
-        z-index: 999;
-        position: relative;
-        width: 100%;
-    }
-
-    nav span {
-        position: relative;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 0;
-        left: 0;
-        background: #1bbc97;
-        border-radius: 50%;
-        color: #fff;
-        line-height: 42px;
-        text-align: center;
-        speak: none;
-        font-weight: bold;
-        cursor: pointer;
-        float: right;
-    }
-
-    .atras {
-        display: flex;
-        align-items: center;
-        color: white;
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
-        -webkit-flex: 0 1 auto;
-        -ms-flex: 0 1 auto;
-        flex: 0 1 auto;
-        -webkit-align-self: auto;
-        -ms-flex-item-align: auto;
-        align-self: auto;
-    }
-
-    .bb-bookblock {
-        width: 100%;
-        height: 100%;
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
-        -webkit-flex: 1 1 auto;
-        -ms-flex: 1 1 auto;
-        flex: 1 1 auto;
-        -webkit-align-self: auto;
-        -ms-flex-item-align: auto;
-        align-self: auto;
-    }
-
-    .adelante {
-        display: flex;
-        align-items: center;
-        color: white;
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
-        -webkit-flex: 0 1 auto;
-        -ms-flex: 0 1 auto;
-        flex: 0 1 auto;
-        -webkit-align-self: auto;
-        -ms-flex-item-align: auto;
-        align-self: auto;
-    }
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
 }
 
-.bb-content {
-    background:$gris !important;
-    body.dark & {
-        background:$azuloscuro !important;
-    }
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
 
-.bb-item {
-    background: $gris !important;
-    border-radius: 1em;
-    height: auto !important;
-    min-height: 81.5vh;
-    max-height: 81.5vh;
-    overflow-y: auto;
-
-    body.dark & {
-        background: $azuloscuro !important;
-    }
-
-    div {
-        text-align: center;
-        margin-top: 1em;
-        margin-bottom: 1em;
-    }
-
-    h2 {
-        color: $negro;
-        text-align: center;
-
-        body.dark & {
-            color: $blanco;
-        }
-    }
-
-    h4 {
-        color: $negro;
-        text-align: center;
-
-        body.dark & {
-            color: $blanco;
-        }
-    }
-
-    .btn {
-        margin-left: 1em !important;
-        margin-top: 1em;
-        position: absolute;
-        background: $verdeclaro;
-
-        body.dark & {
-            background: $azulclaro;
-        }
-    }
-
-    .step {
-        height: 30px;
-        width: 30px;
-        color:$blanco;
-        padding-top: 4px;
-        margin: 0 2px;
-        background:$verdeclaro;
-        border: none;
-        border-radius: 50%;
-        display: inline-block;
-        body.dark &{
-             background:$azulclaro;
-        }
-    }
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
 }
 
-textarea {
-    max-width: 100%;
-    width: 100%;
-    border: none;
-    background-color: $gris;
-    color: $negro;
-    padding: 0px 4px 0px 5px;
-    overflow: hidden !important;
-
-    body.dark & {
-        color: $blanco;
-        background-color: $azuloscuro;
-    }
-}
-
-
-.con_form {
-    border-radius: 15px;
-    color: white !important;
-
-    .contenercheck {
-        background-color: $verdeclaro;
-        width: 100%;
-        position: relative;
-        border: none;
-
-        body.dark & {
-            background-color: $verdeazul;
-        }
-
-        span {
-            p {
-                color: $blanco;
-                font-weight: bold;
-            }
-        }
-    }
-
-    .contener {
-        background-color: $gris;
-        height: 100%;
-        padding: 0.5em 0em;
-        width: 100%;
-        position: relative;
-        border-style: solid;
-        border-color: $verdeclaro;
-
-        body.dark & {
-            background-color: $azulclaro;
-            border-color: $verdeazul;
-        }
-
-        a {
-            color: $negro;
-            padding-left: 1em;
-
-            body.dark & {
-                color: $blanco;
-            }
-        }
-
-        .boton {
-            background: $gris;
-            max-width: 10em;
-            position: relative;
-            width: 100%;
-            left: 0.5em;
-            height: 100%;
-            border: none;
-            outline: none;
-
-            body.dark & {
-                background: $azulclaro;
-
-                span {
-                    color: white;
-                }
-            }
-
-            &:hover {
-                border-radius: 10%;
-                border-style: solid;
-                border-color: $verdeclaro;
-
-                body.dark & {
-                    border-color: $verdeazul;
-                }
-            }
-
-            .content-btn {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 1em;
-
-                img {
-                    order: 0;
-                    flex: 1 1 auto;
-                    align-self: auto;
-                    width: 70%;
-                    border-radius: 50%;
-                }
-
-                span {
-                    order: 0;
-                    flex: 0 1 auto;
-                    align-self: auto;
-                }
-
-                .progress {
-                    width: 100%;
-                    order: 0;
-                    flex: 0 1 auto;
-                    align-self: auto;
-                    cursor: pointer;
-                    margin: 1em;
-                    overflow: visible;
-                    border-radius: 7px;
-                    background: $verdeoscuro;
-
-                    body.dark & {
-                        background: $azuloscuro;
-                    }
-
-                    progress-bar {
-                        border-radius: 7px;
-                    }
-
-                    .progress-value {
-                        position: relative;
-                        left: -45px;
-                        top: 4px;
-                        font-size: 14px;
-                        font-weight: bold;
-                        color: #fff;
-                        letter-spacing: 2px;
-                    }
-
-                    .porcentaje {
-                        position: relative;
-                        left: 5px;
-                        font-size: 14px;
-                        font-weight: bold;
-                        color: #fff;
-                        letter-spacing: 2px;
-                    }
-                }
-
-                .progress-bar.active {
-                    animation: reverse progress-bar-stripes 6.0s linear infinite, animate-positive 2s;
-                }
-
-                .progress-bar-success {
-                    background: $verdeclaro;
-                    border-radius: 7px;
-
-                    body.dark & {
-                        background: $verdeazul;
-                    }
-                }
-
-                .progress-outer {
-                    background: #ffffff0a;
-                    border-radius: 78px;
-                    padding: 0px;
-                    margin: 0px -11px;
-                }
-            }
-        }
-    }
-
-    .first {
-        border-radius: 5px 5px 0px 0px;
-    }
-
-    .last {
-        border-radius: 0px 0px 5px 5px;
-    }
-
-    .modal-header {
-        border-bottom: 0.5em solid $blanco;
-        background: $verdeoscuro;
-
-        body.dark & {
-            border-color: $verdeazul;
-            background: $azuloscuro;
-        }
-    }
-
-    .modal-content {
-        background: $verdeclaro;
-        color: white;
-
-        body.dark & {
-            background: $azulclaro;
-        }
-    }
-
-    .modal-footer {
-        border-top: 0.5em solid;
-        background-color: $blanco;
-        background: $verdeoscuro;
-
-        body.dark & {
-            border-color: $verdeazul;
-            background: $azuloscuro;
-        }
-
-        button {
-            background: $verdeclaro;
-
-            body.dark & {
-                background: #1bbc97;
-                color: white;
-            }
-        }
-    }
-}
-
-.footer p {
-    color: $negro;
-    margin-top: 8px;
-    margin-bottom: -6px;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

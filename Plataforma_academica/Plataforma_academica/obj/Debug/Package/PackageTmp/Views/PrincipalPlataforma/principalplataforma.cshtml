@@ -6,10 +6,10 @@
 }
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
-        <link href="~/Estilos/escritos.css" rel="stylesheet" type="text/css">
         <link href="~/Estilos/modal_presentacion.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+        
     </head>
 
 
@@ -39,13 +39,13 @@
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <!--Diplomados-->
-    <button class="contenercheck first">
+    <div class="contenercheck first" id="bdiplomado">
         <span>
             <p>Diplomados</p>
         </span>
-    </button>
+    </div>
 
-    <div class="contener">
+    <div class="contener" id="diplomado">
         @{
             if (usu != null)
             {
@@ -58,63 +58,135 @@
 
                 for (int i = 0; i < arreglo.Length; i++)
                 {
-                    <button type="submit" class="boton" name="ir" value="@arreglo[i].codigo_curso">
-                        <div class="content-btn">
-                            <img src="~/imagenes/@arreglo[i].url" />
-                            <div class="progress ">
-                                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                    <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
+                    if (DateTime.Today < arreglo[i].fecha_cierre)
+                    {
+                        TimeSpan dias_faltantes = arreglo[i].fecha_cierre - DateTime.Today;                        
+                        <button type="submit" class="boton" name="ir" value="@arreglo[i].codigo_curso">
+                            <div class="content-btn">
+                                <span>Quedan @Convert.ToInt32(dias_faltantes.Days) dias</span>
+                                <img src="~/imagenes/@arreglo[i].url" />
+                                <div class="progress ">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                        <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
+                                    </div>
                                 </div>
+                                <span>@arreglo[i].nombre_curso</span>
                             </div>
-                            <span>@arreglo[i].nombre_curso</span>
-                        </div>
-                    </button>
+                        </button>
+                    }
+                    else
+                    {
+                        if (DateTime.Today == arreglo[i].fecha_cierre)
+                        {
+                            <button type="submit" class="boton" name="ir" value="@arreglo[i].codigo_curso">
+                                <div class="content-btn">
+                                    <img src="~/imagenes/@arreglo[i].url" />
+                                    <div class="progress ">
+                                        <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                            <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
+                                        </div>
+                                    </div>
+                                    <span>@arreglo[i].nombre_curso</span>
+                                </div>
+                            </button>
+                        }
+                        else
+                        {
+                            //crear un script con json para actualizar automaticamente el estado de curso_usuario para que no se carque mas el curso que ya se paso de fecha
+                            <script>
+                                $(function () {
+                                    var url = "@Url.Action("finalizado_por_fecha", "PrincipalPlataforma")";
+                                    var codigo = @arreglo[i].codigo_curso_usaurio;
+                                    var data = {codigo : codigo};
+                                    $.post(url,data).done(function(data){
+
+                                    }).fail(manejarErrorAjax).always(function(){
+                                    });
+                                });
+                            </script>
+                        }
+                    }
                 }
             }
         }
-    </div>
+            </div>
     <!--Modulos-->
-    <button class="contenercheck">
+    <div class="contenercheck" id="bmodulo">
         <span>
             <p>Modulos</p>
         </span>
-    </button>
-
-    <div class="contener">
+    </div>
+    <div class="contener" id="modulo">
         @{
             if (TempData["mensaje9"] != null && usu != null)
             {
                 TempData.Keep("mensaje9");
                 string nc = Convert.ToString(TempData["mensaje9"]);
                 arreglo_unidad = unidad.Consultar_unidades_usuario(nc, usu.usuario);
-                if (arreglo_unidad[0].presentacion=="saludar")
+                if (arreglo_unidad[0].presentacion == "saludar")
                 {
                     @Scripts.Render("~/Scripts/Emerentelogin.js")
                 }
-                for (int i = 0; i < arreglo_unidad.Length; i++)
-                {
-                    <button type="submit" class="boton" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
-                        <div class="content-btn">
-                            <img src="~/imagen_multimedia/Modulo.png" />
-                            <div class="progress ">
-                                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                    <h6 class="porcentaje">@arreglo_unidad[i].porcentaje_modulo%</h6>
-                                </div>
-                            </div>
-                            <span>@arreglo_unidad[i].nombre_unidad</span>
-                        </div>
-                        <script>
-                            var checkBox = document.getElementById("unidad");
-                            checkBox.checked = "checked"
-                        </script>
-                    </button>
-                }
+               <!--Boton De Inforamcion del Docente-->
                 <button class="boton" href="#mostrarmodal2" data-toggle="modal">
                     <div class="content-btn" onclick="modal2()">
                         <img src="~/imagen_multimedia/Presentacion Docente.png" />
                         <span><strong>Información docente</strong></span>
                     </div>
                 </button>
+
+                for (int i = 0; i < arreglo_unidad.Length; i++)
+                {
+                    <!--Modulo 1-->
+                    if (i == 0)
+                    {
+                        <button type="submit" class="boton" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
+                            <div class="content-btn">
+                                <img src="~/imagen_multimedia/Modulo.png" />
+                                <div class="progress ">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                        <h6 class="porcentaje">@arreglo_unidad[i].porcentaje_modulo%</h6>
+                                    </div>
+                                </div>
+                                <span>@arreglo_unidad[i].nombre_unidad</span>
+                            </div>
+                            <script>
+                                var checkBox = document.getElementById("unidad");
+                                checkBox.checked = "checked"
+                            </script>
+                        </button>
+                    }
+                    else
+                    {
+                        <!--Modulo 2-5 -->
+                        if (Convert.ToInt32(arreglo_unidad[i - 1].porcentaje_modulo) < 99)
+                        {
+                            <button type="submit" disabled="true" class="boton pendiente" value="@arreglo_unidad[i].codigo_unidad">
+                                <div class="content-btn">
+                                    <img src="~/imagen_multimedia/Modulo.png" />
+                                    <span class="msjem" id="msejem">Anterior modulo pendiente</span>
+                                    <span>@arreglo_unidad[i].nombre_unidad</span>
+                                </div>
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="boton" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
+                                <div class="content-btn">
+                                    <img src="~/imagen_multimedia/Modulo.png" />
+                                    <div class="progress ">
+                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                            <h6 class="porcentaje">@arreglo_unidad[i].porcentaje_modulo%</h6>
+                                        </div>
+                                    </div>
+                                    <span>@arreglo_unidad[i].nombre_unidad</span>
+                                </div>
+                            </button>
+                        }
+                    }
+                }
+
+
             }
             else
             {
@@ -122,13 +194,14 @@
             }
         }
     </div>
+
     <!--Actividades-->
-    <button class="contenercheck">
+    <div class="contenercheck" id="bactividad">
         <span>
             <p>Actividades</p>
         </span>
-    </button>
-    <div class="contener last" id="Actividades">
+    </div>
+    <div class="contener last" id="actividad">
         @{
             if (TempData["mensaje10"] != null && usu != null)
             {
@@ -138,40 +211,105 @@
                 arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
                 for (int i = 0; i < arreglo_actividad.Length; i++)
                 {
-                    <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
-                        <div class="content-btn">
-                            <img src="~/imagen_multimedia/Actividad.png" />
-                            <div class="progress ">
-                                <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                    <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
+                    <!--Actividad 1-->
+                    if (i == 0)
+                    {
+                        <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
+                            <div class="content-btn">
+                                <img src="~/imagen_multimedia/Actividad.png" />
+                                <div class="progress ">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                        <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
+                                    </div>
                                 </div>
+                                <span>@arreglo_actividad[i].nombre_actividad</span>
                             </div>
-                            <span>@arreglo_actividad[i].nombre_actividad</span>
-                        </div>
-                    </button>
+                        </button>
+                    }
+                    else
+                    {
+                        if (Convert.ToInt32(arreglo_actividad[i - 1].porcentaje) < 99)
+                        {
+                            //aqui debe ir la notificacion emergente
+                            <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_actividad[i].codigo_actividad">
+                                <div class="content-btn">
+                                    <img src="~/imagen_multimedia/Actividad.png" />
+                                    <span class="msjem">Actividad anterior pendiente</span>
+                                    <span>@arreglo_actividad[i].nombre_actividad</span>
+                                </div>
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
+                                <div class="content-btn">
+                                    <img src="~/imagen_multimedia/Actividad.png" />
+                                    <div class="progress ">
+                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                            <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
+                                        </div>
+                                    </div>
+                                    <span>@arreglo_actividad[i].nombre_actividad</span>
+                                </div>
+                            </button>
+                        }
+                    }
                 }
+                int a = Convert.ToInt32(arreglo_actividad.LongLength) - 1;
                 for (int i = 0; i < arreglo_examen.Length; i++)
                 {
-                    <button type="submit" class="boton" name="irrrr5" value="@arreglo_examen[i].id_examen">
-                        <div class="content-btn">
-                            <img src="~/imagen_multimedia/Examen.png" />
-                            <span>@arreglo_examen[i].examen</span>
-                        </div>
-                    </button>
+
+                    if (a >= 0)
+                    {
+                        if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
+                        {
+                            //aqui debe ir la notificacion emergente
+                            <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_examen[i].id_examen">
+                                <div class="content-btn">
+                                    <img src="~/imagen_multimedia/Examen.png" />
+                                    <span>Actividades pendientes</span>
+                                    <span>@arreglo_examen[i].examen</span>
+                                </div>
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="boton" name="irrrr5" value="@arreglo_examen[i].id_examen">
+                                <div class="content-btn">
+                                    <img src="~/imagen_multimedia/Examen.png" />
+                                    <span>@arreglo_examen[i].examen</span>
+                                </div>
+                            </button>
+                        }
+                    }
                 }
-                if (arreglo_actividad[0].url_archivo == "")
+                if (a >= 0)
                 {
-                    <button class="boton" href="#mostrarmodal3" data-toggle="modal">
-                        <div class="content-btn">
-                            <img src="~/imagen_multimedia/Actividad.png" />
-                            <span><strong>Subir Actividad</strong></span>
-                        </div>
-                    </button>
+                    if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
+                    {
+                        //aqui debe ir la notificacion emergente
+                        <button class="boton pendiente" data-toggle="modal">
+                            <div class="content-btn">
+                                <img src="~/imagen_multimedia/Actividad.png" />
+                                <span class="msjem">Pendientes</span>
+                                <span><strong>Subir Actividad</strong></span>
+                            </div>
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="boton" href="#mostrarmodal3" data-toggle="modal">
+                            <div class="content-btn">
+                                <img src="~/imagen_multimedia/Actividad.png" />
+                                <span><strong>Subir Actividad</strong></span>
+                            </div>
+                        </button>
+                    }
                 }
-                <script>
-                    var checkBox = document.getElementById("actividad");
-                    checkBox.checked = "checked"
-                </script>
+                else
+                {
+                    <a> El Modulo no posee actividades para trabajar</a>
+                }
             }
             else
             {
@@ -208,7 +346,7 @@
             {
                 <div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                     <div class="modal-dialog" style="left: 22%;top: -3%;position: absolute;">
-                        <div class="modal-content1">                   
+                        <div class="modal-content1">
                             <div class="modal-body">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 <div>
@@ -222,7 +360,7 @@
                                 </div>
                                 <div class="input-group5">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" > <i class="fa fa-graduation-cap" style="color: #2f55a0;"></i> </span>
+                                        <span class="input-group-text"> <i class="fa fa-graduation-cap" style="color: #2f55a0;"></i> </span>
                                     </div>
                                     <label style="position: relative;margin-top: 3px;left: -6%;">@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
                                 </div>
@@ -327,10 +465,10 @@
                     </div>
                 }
             }
-
-
         }
     }
+
+
 
     @{
         if (ViewBag.mensaje == "actividad")
@@ -340,12 +478,14 @@
     }
 
 </main>
-    
+
 }
 <footer>
-    <p @DateTime.Now.Year - CEMAQ - Diplomados</p>
+    <p> @DateTime.Now.Year - CEMAQ - Diplomados</p>
 </footer>
 <script src="~/Scripts/progresos.js" charset="utf-8"></script>
+<script src="~/Scripts/Manejocurso.js" charset="utf-8"></script>
+<script src="~/Scripts/Efect Pending.js" charset="utf-8"></script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

@@ -79,20 +79,28 @@
                 <div class="p-2">
                     <img class="perfil" src="~/Imagenes/@usu.foto">
                 </div>
-                <ul class="p-2">
+                <div class="p-2 nombre">
                     @{
                         if (usu != null)
                         {
 
                             if (Convert.ToInt32(usu.rol) < 4 || Convert.ToInt32(usu.rol) > 6)
                             {
-                                <p><img src="~/Imagenes/user-tie-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: -2%; margin-right: 2%;" /> @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })</p>
-                                <p>@Html.LabelFor(Model => usu.Tipo_rol, usu.Tipo_rol, new { @class = "" })</p>
+                                <div>
+                                    <img src="~/Imagenes/user-tie-solid.svg"  />
+                                    @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })
+                                </div>
+
+                                @Html.LabelFor(Model => usu.Tipo_rol, usu.Tipo_rol, new { @class = "" })
                             }
                             else
                             {
-                                <p><img src="~/imagen_multimedia/usuario.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: -2%; margin-right: 2%;" /> @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })</p>
-                                <p>@Html.LabelFor(Model => usu.Tipo_rol, usu.Tipo_rol, new { @class = "" })</p>
+                                <div>
+                                    <img src="~/imagen_multimedia/usuario.svg" />
+                                    @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })
+                                </div>
+
+                                @Html.LabelFor(Model => usu.Tipo_rol, usu.Tipo_rol, new { @class = "" })
                             }
                         }
                         else
@@ -101,7 +109,7 @@
                             <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                         }
                     }
-                </ul>
+                </div>
             </div>
         </nav>
     </header>

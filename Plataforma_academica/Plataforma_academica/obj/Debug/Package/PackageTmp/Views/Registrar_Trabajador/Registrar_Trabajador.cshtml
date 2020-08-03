@@ -4,132 +4,152 @@
     ViewBag.Title = "Registrar_Trabajador";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
-    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
-    <link href="~/Estilos/modal.css" rel="stylesheet" type="text/css">
-    <style type="text/css">
-        .oculta {
-            display: none;
-        }
-    </style>
-    <script type="text/javascript">
+    <head>
+        <link href="~/Estilos/modal.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+            .oculta {
+                display: none;
+            }
+        </style>
+        <script type="text/javascript">
 
-        function mostrar(value_elemento){
-            var total = 1; //total de mis capas
-            var elemento,elemento1, elemento2, elemento3;
-            elemento = document.getElementById('capa');
-            elemento1 = document.getElementById('capa1');
-            elemento2 = document.getElementById('capa2');
-            elemento3 = document.getElementById('capa3');
-                if (value_elemento == 7){
+            function mostrar(value_elemento) {
+                var total = 1; //total de mis capas
+                var elemento, elemento1, elemento2, elemento3;
+                elemento = document.getElementById('capa');
+                elemento1 = document.getElementById('capa1');
+                elemento2 = document.getElementById('capa2');
+                elemento3 = document.getElementById('capa3');
+                if (value_elemento == 7) {
                     elemento.style.display = "block";
                     elemento1.style.display = "block";
                     elemento2.style.display = "block";
                     elemento3.style.display = "block";
-                }else{
+                } else {
                     elemento.style.display = "none";
                     elemento1.style.display = "none";
                     elemento2.style.display = "none";
                     elemento3.style.display = "none";
                 }
-        }
-    </script>
-</head>
+            }
+        </script>
+    </head>
 
 @using (Html.BeginForm("Registrar_Trabajador", "Registrar_Trabajador", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="container register">
-            <div class="row" style="box-shadow: 0 1px 0 #cfcfcf00;padding-left: 130px;">
-                <div class="col-md-9 register-right">
-                    <h3 class="register-heading">Nuevo Usuario</h3>
-                    <div class="row register-form" style="box-shadow: 0 1px 0 #cfcfcf00;">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                @Html.DropDownListFor(model => model.tipo_rol, (IEnumerable<SelectListItem>)ViewData["lista2"], "Tipo de trabajador*", new { @class = "form-control", @onchange = "mostrar(this.value)" })
-                            </div>
-                            <div class="form-group">
-                                @Html.DropDownListFor(model => model.tipo_doc, (IEnumerable<SelectListItem>)ViewData["lista1"], "Tipo de documento*", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group">
-                                @Html.EditorFor(model => model.cedula, new { htmlAttributes = new { @class = "form-control1", @placeholder = "Numero de Identificación*", @id = "nombre" } })
-                                @Html.ValidationMessageFor(model => model.cedula, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                @Html.EditorFor(model => model.nombre1, new { htmlAttributes = new { @class = "form-control1", @placeholder = "Primer Nombre*", @id = "nombre" } })
-                                @Html.ValidationMessageFor(model => model.nombre1, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                @Html.EditorFor(model => model.nombre2, new { htmlAttributes = new { @class = "form-control1", @placeholder = "Segundo Nombre(Opcional)", @id = "nombre" } })
-                                @Html.ValidationMessageFor(model => model.nombre2, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                @Html.EditorFor(model => model.apellido1, new { htmlAttributes = new { @class = "form-control1", @placeholder = "Primer Apellido*", @id = "nombre" } })
-                                @Html.ValidationMessageFor(model => model.apellido1, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                @Html.EditorFor(model => model.apellido2, new { htmlAttributes = new { @class = "form-control1", @placeholder = "Segundo Apellido(Opcional)", @id = "nombre" } })
-                                @Html.ValidationMessageFor(model => model.apellido2, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                @Html.DropDownListFor(model => model.escolaridad, (IEnumerable<SelectListItem>)ViewData["lista10"], "Nivel de educación*", new { @class = "form-control" })
-                            </div>                            
-                            <div class="form-group oculta" id="capa">
-                                @Html.TextAreaFor(model => model.experiencia, new { @class = "form-control", @placeholder = "Experiencia profesional*" })
-                            </div>
-                            <div class="form-group oculta" id="capa1">
-                                @Html.TextAreaFor(model => model.formacion, new { @class = "form-control", @placeholder = "Formación academica*" })
-                            </div>
-                        </div>
-                        <div class="col-md-6">                            
-                            <div class="form-group">
-                                @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @type = "number", @class = "form-control1", @placeholder = "Numero Telefono*", @id = "nombre" } })
-                                @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @type = "email", @class = "form-control1", @placeholder = "Correo Electronico*", @id = "nombre" } })
-                                @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                @Html.DropDownListFor(model => model.genero, (IEnumerable<SelectListItem>)ViewData["lista7"], "Genero *", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group">
-                                @Html.DropDownListFor(model => model.nombre_contrato, (IEnumerable<SelectListItem>)ViewData["lista8"], "Contrato *", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group">
-                                @Html.DropDownListFor(model => model.tipo_pobla, (IEnumerable<SelectListItem>)ViewData["lista3"], "Tipo de población*", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group">
-                                @Html.DropDownListFor(model => model.estado_civil, (IEnumerable<SelectListItem>)ViewData["lista9"], "Estado Civil*", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group oculta" id="capa2">
-                                @Html.TextAreaFor(model => model.publicaciones, new { @class = "form-control", @placeholder = "Publicaciones*" })
-                            </div>
-                            <div class="form-group">
-                                <p>
-                                    @{
-                                        string x = DateTime.Now.ToString("yyyy-MM-dd");
-                                    }
-                                    @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString() } })
-                                    @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
-                                    Fecha de nacimiento *
-                                </p>
-                            </div>     
-
-                            <div class="form-group oculta" id="capa3">
-                                <p>
-                                    <input type="file" name="file1" accept=".jpg, .png,.jpeg " />
-                                    Foto del docente *
-                                </p>
-                            </div>                       
-                            <div class="form-group">
-                                <button type="submit" name="subir1" class="btn btn-primary btn-round btn-lg btn-block" style="text-align: center;" value="Finalizar">Guardar</button>
-                            </div>
-                        </div>
+        <main class="con_form">
+            <div class="formulario">
+                <h3>Nuevo Usuario</h3>
+                <!--2 Columnas-->
+                <div class="tcolumn">
+                    <!--Columna izquerda-->
+                    <div>
+                        <!--Tipo de Trabajador-->
+                        <selection class="section_contenido">
+                            @Html.DropDownListFor(model => model.tipo_rol, (IEnumerable<SelectListItem>)ViewData["lista2"], "Tipo de trabajador*", new { @onchange = "mostrar(this.value)" })
+                        </selection>
+                        <!--Tipo Documento-->
+                        <section class="section_contenido">
+                            @Html.DropDownListFor(model => model.tipo_doc, (IEnumerable<SelectListItem>)ViewData["lista1"], "Tipo de documento*")
+                        </section>
+                        <!--Numero Identificacion-->
+                        <section class="section_contenido">
+                            @Html.EditorFor(model => model.cedula, new { htmlAttributes = new { @placeholder = "Numero de Identificación*", @id = "nombre" } })
+                            @Html.ValidationMessageFor(model => model.cedula, "", new { @class = "text-danger" })
+                        </section>
+                        <!--Primer Nombre-->
+                        <section class="section_contenido">
+                            @Html.EditorFor(model => model.nombre1, new { htmlAttributes = new { @placeholder = "Primer Nombre*", @id = "nombre" } })
+                            @Html.ValidationMessageFor(model => model.nombre1, "", new { @class = "text-danger" })
+                        </section>
+                        <!--Segundo Nombre-->
+                        <section class="section_contenido">
+                            @Html.EditorFor(model => model.nombre2, new { htmlAttributes = new { @placeholder = "Segundo Nombre(Opcional)", @id = "nombre" } })
+                            @Html.ValidationMessageFor(model => model.nombre2, "", new { @class = "text-danger" })
+                        </section>
+                        <!--Primer Apellido-->
+                        <section class="section_contenido">
+                            @Html.EditorFor(model => model.apellido1, new { htmlAttributes = new { @placeholder = "Primer Apellido*", @id = "nombre" } })
+                            @Html.ValidationMessageFor(model => model.apellido1, "", new { @class = "text-danger" })
+                        </section>
+                        <!--Segundo Apellido-->
+                        <section class="section_contenido">
+                            @Html.EditorFor(model => model.apellido2, new { htmlAttributes = new { @placeholder = "Segundo Apellido(Opcional)", @id = "nombre" } })
+                            @Html.ValidationMessageFor(model => model.apellido2, "", new { @class = "text-danger" })
+                        </section>
+                        <!--Nivel Escolaridad-->
+                        <section class="section_contenido">
+                            @Html.DropDownListFor(model => model.escolaridad, (IEnumerable<SelectListItem>)ViewData["lista10"], "Nivel de educación*")
+                        </section>
+                        <!--Experiencia Profesional Docente-->
+                        <section class="section_contenido oculta" id="capa">
+                            @Html.TextAreaFor(model => model.experiencia, new { @class = "textarea1", @placeholder = "Experiencia profesional*" })
+                        </section>
+                        <!--Formacion Academica docente-->
+                        <section class="section_contenido oculta" id="capa1">
+                            @Html.TextAreaFor(model => model.formacion, new { @class = "textarea1", @placeholder = "Formación academica*" })
+                        </section>
+                    </div>
+                    <!--Columna Derecha-->
+                    <div>
+                        <!--Numero Telefono-->
+                        <section class="section_contenido">
+                            @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @type = "tel", @placeholder = "Numero Telefono*", @id = "nombre" } })
+                            @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                        </section>
+                        <!--Correo Electronico-->
+                        <section class="section_contenido">
+                            @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @type = "email", @placeholder = "Correo Electronico*", @id = "nombre" } })
+                            @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
+                        </section>
+                        <!--Genero-->
+                        <section class="section_contenido">
+                            @Html.DropDownListFor(model => model.genero, (IEnumerable<SelectListItem>)ViewData["lista7"], "Genero *")
+                        </section>
+                        <!--Contrato-->
+                        <section class="section_contenido">
+                            @Html.DropDownListFor(model => model.nombre_contrato, (IEnumerable<SelectListItem>)ViewData["lista8"], "Contrato *")
+                        </section>
+                        <!--Tipo Poblacion-->
+                        <section class="section_contenido">
+                            @Html.DropDownListFor(model => model.tipo_pobla, (IEnumerable<SelectListItem>)ViewData["lista3"], "Tipo de población*")
+                        </section>
+                        <!--Estado Civil-->
+                        <section class="section_contenido">
+                            @Html.DropDownListFor(model => model.estado_civil, (IEnumerable<SelectListItem>)ViewData["lista9"], "Estado Civil*")
+                        </section>
+                        <!--Publicaciones-->
+                        <section class="section_contenido oculta" id="capa2">
+                            @Html.TextAreaFor(model => model.publicaciones, new { @class = "textarea1", @placeholder = "Publicaciones*" })
+                        </section>
+                        <!--Fecha Nacimiento-->
+                        <section class="section_contenido">
+                            <p>
+                                @{
+                                    string x = DateTime.Now.ToString("yyyy-MM-dd");
+                                }
+                                @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString() } })
+                                @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
+                                <h5>Fecha de nacimiento *</h5>
+                            </p>
+                        </section>
+                        <!--Foto Docente-->
+                        <section class="section_contenido oculta" id="capa3">
+                            <p>
+                                <input type="file" name="file1" accept=".jpg, .png,.jpeg " />
+                                <h5>Foto del docente *</h5>
+                            </p>
+                        </section>
+                        <!--Boton Guardar-->
+                        <section class="section_contenido">
+                            <button type="submit" name="subir1" class="boton" style="text-align: center;" value="Finalizar">Guardar</button>
+                        </section>
                     </div>
                 </div>
+
             </div>
             @{
                 if (ViewBag.mensaje == "Exito")
@@ -178,7 +198,7 @@
                     </div>
                 </div>
             }
-        </div>
+        </main>
 
 
 }

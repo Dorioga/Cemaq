@@ -4,10 +4,9 @@
     ViewBag.Title = "Registrar_Cursos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
-    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
-    <link href="~/Estilos/modal.css" rel="stylesheet" type="text/css">
-</head>
+    <head>
+        <link href="~/Estilos/modal.css" rel="stylesheet" type="text/css">
+    </head>
 
 
 @using (Html.BeginForm("Registrar_Cursos", "Registrar_Cursos", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -16,208 +15,130 @@
 
     Plataforma_academica.Models.Registrar_Cursos l = new Plataforma_academica.Models.Registrar_Cursos();
     
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <table class="table table-striped">
-            <tbody>
-                <tr style="background-color: #021d3a;border-top: 1px solid #dddddd00;">
-                    <td colspan="1" style="background-color: #021d3a; border-top: 1px solid #dddddd00;">
-                        <div class="well form-horizontal1" style="background-color: #021d3a;">
-                            <div class="form-group">
-                                <label class="col-md-4 control-label1" style="color:white;">Nombre del curso</label>
-                                <div class="col-md-8 inputGroupContainer">
+    <main class="con_form">
+        <div class="formulario">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <!--Nombre Diplomado-->
+            <section class="section_contenido">
+                <h5>Nombre del Diplomado</h5>
+                @Html.EditorFor(model => model.Nombre_curso, new { htmlAttributes = new { @placeholder = "Nombre del diplomado*", @id = "nombre" } })
+                @Html.ValidationMessageFor(model => model.Nombre_curso, "", new { @class = "text-danger" })
+            </section>
+            <!--Descripcion Diplomado-->
+            <section class="section_contenido">
+                <h5>Descripción del diplomado</h5>
+                @Html.TextAreaFor(model => model.descripcion_curso, new { @class = "textarea", @placeholder = "Descripcion del diplomado*" })
+            </section>
+            <!--Escuela o Area-->
+            <section class="section_contenido">
+                <h5> Escuela o Area</h5>
+                @Html.DropDownListFor(model => model.codigo_tematica, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
+            </section>
+            <!--Duracion-->
+            <section class="section_contenido">
+                <h5>Duración del Diplomado</h5>
+                @Html.DropDownListFor(model => model.codigo_horas, (IEnumerable<SelectListItem>)ViewData["lista5"], "--Seleccione one--")
+            </section>
+            <!--Cantidad Modulos-->
+            <section class="section_contenido">
+                <h5>Cantidad Modulos</h5>
+                @Html.DropDownListFor(model => model.cantidadBasico, (IEnumerable<SelectListItem>)ViewData["lista2"], "-Cantidad modulos-")
+
+            </section>
+            <!---->
+            <section class="section_contenido">
+                <h5>Docente modulo</h5>
+                        @Html.DropDownListFor(model => model.docente, (IEnumerable<SelectListItem>)ViewData["lista6"], "-Docente-")
+            </section>
+            <!---->
+            <section class="section_contenido">
+                        <button class="boton" type="submit" name="ir100" value="crear">Crear</button>
+            </section>
+            @{
+                if (ViewBag.mensaje1 == "Registro exitoso")
+                {
+                    <div class="form-group" id="Cantidad">
+                        <div class="col-sm-4">
+                            <h3 style="color:white;">Modulos Nuevos</h3>
+                            <div class="col-md-81 inputGroupContainer">
+                                @for (int k = 0; k < Convert.ToInt32(ViewBag.mensajebasico); k++)
+                                {
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.EditorFor(model => model.Nombre_curso, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre del diplomado*", @id = "nombre" } })
-                                        @Html.ValidationMessageFor(model => model.Nombre_curso, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.basico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre M.odulo*", @id = "nombre" + k } })
+                                        @Html.ValidationMessageFor(model => model.basico[k], "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+                                        @Html.EditorFor(model => model.descripcionbasico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "descripción Modulo*", @id = "nombre" + k } })
+                                        @Html.ValidationMessageFor(model => model.descripcionbasico[k], "", new { @class = "text-danger" })
+                                    </div>
+                                }
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label1" style="color:white;">Imagen</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <input type="file" name="file" accept=".png,.jpg,.jpeg,.gif" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label1" style="color:white;">Descripción del diplomado</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                       @Html.TextAreaFor(model => model.descripcion_curso, new { @class = "form-control", @placeholder = "Descripcion del diplomado*" })    
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label1" style="color:white;">Tipo de Tematica</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                        @Html.DropDownListFor(model => model.codigo_tematica, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--", new { @class = "form-control" })
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label1" style="color:white;">Duración del Diplomado</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                        @Html.DropDownListFor(model => model.codigo_horas, (IEnumerable<SelectListItem>)ViewData["lista5"], "--Seleccione one--", new { @class = "form-control" })
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">                                
-                                    <label class="col-sm-4" control-label1" style="color:white;">Modulos</label>
-                                        <div class="col-md-8 inputGroupContainer">
-                                            <div class="input-group">
-                                                @Html.DropDownListFor(model => model.cantidadBasico, (IEnumerable<SelectListItem>)ViewData["lista2"], "-Cantidad modulos-", new { @class = "form-control" })
-                                            </div>
-                                         </div> 
-                                    @*<div class="col-sm-4">
-                                        <h3>Intermedio</h3>
-                                        <div class="col-md-81 inputGroupContainer">
-                                               @Html.DropDownListFor(model => model.cantidadIntermedio, (IEnumerable<SelectListItem>)ViewData["lista3"])
-                                        </div>                                      
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3>Avanzado</h3>                                        
-                                        <div class="col-md-81 inputGroupContainer">
-                                            @Html.DropDownListFor(model => model.cantidadAvanzado, (IEnumerable<SelectListItem>)ViewData["lista4"])
-                                        </div>
-                                    </div>*@
-                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-4" control-label1" style="color:white;">Docente modulo</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                        @Html.DropDownListFor(model => model.docente, (IEnumerable<SelectListItem>)ViewData["lista6"], "-Docente-", new { @class = "form-control" })
-                                    </div>
-                                </div> 
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label1"></label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                        <button class="btn btn-success bcrear" type="submit" name="ir100" value="crear">Crear</button>
-                                    </div>
-                                </div>
-                            </div>
-                            @{
-                                if (ViewBag.mensaje1 == "Registro exitoso")
-                                {
-                                    <div class="form-group" id="Cantidad">
-                                        <div class="col-sm-4">
-                                                <h3 style="color:white;">Modulos Nuevos</h3>
-                                                <div class="col-md-81 inputGroupContainer">
-                                                @for (int k = 0; k < Convert.ToInt32(ViewBag.mensajebasico); k++)
-                                                {
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                                        @Html.EditorFor(model => model.basico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre M.odulo*", @id = "nombre"+k } })
-                                                        @Html.ValidationMessageFor(model => model.basico[k], "", new { @class = "text-danger" })
-                                                    </div>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                                                        @Html.EditorFor(model => model.descripcionbasico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "descripción Modulo*", @id = "nombre"+k } })
-                                                        @Html.ValidationMessageFor(model => model.descripcionbasico[k], "", new { @class = "text-danger" })
-                                                    </div>
-                                                }
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-4 control-label1" style="color:white;">Imagen</label>
-                                                <div class="col-md-8 inputGroupContainer">
-                                                    <div class="input-group">
-                                                        <input type="file" name="file" accept=".png,.jpg,.jpeg,.gif"/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                <br />
-                                                <button type="submit" name="ir101" value="crear" class="btn btn-success">Guardar</button>                                                
-                                            </div>
+                            <br />
+                            <button type="submit" name="ir101" value="crear" class="btn btn-success">Guardar</button>
+                        </div>
 
-                                       
-                                            @*<div class="col-sm-4">
-                                                <h3>Intermedio</h3>
-                                                <div class="col-md-81 inputGroupContainer">
-                                                @for (int j = 0; j < Convert.ToInt32(ViewBag.mensajeintermedio); j++)
-                                                {
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                                        @Html.EditorFor(model => model.intermedio[j], new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre U. intermedio*", @id = "nombre"+j } })
-                                                        @Html.ValidationMessageFor(model => model.intermedio[j], "", new { @class = "text-danger" })
-                                                    </div>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                                                        @Html.EditorFor(model => model.descripcionintermedio[j], new { htmlAttributes = new { @class = "form-control", @placeholder = "Descripción U. intermedio*", @id = "nombre" + j } })
-                                                        @Html.ValidationMessageFor(model => model.descripcionintermedio[j], "", new { @class = "text-danger" })
-                                                    </div>
-                                                }
-                                            </div>
-                                            </div>
-                                        <div class="col-sm-4">
-                                            <h3>Avanzado</h3>
-                                            <div class="col-md-81 inputGroupContainer">
-                                                @for (int i = 0; i < Convert.ToInt32(ViewBag.mensajeavanzado); i++)
-                                                {
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                                        @Html.EditorFor(model => model.avanzado[i], new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre U. avanzada*", @id = "nombre"+i } })
-                                                        @Html.ValidationMessageFor(model => model.avanzado[i], "", new { @class = "text-danger" })
-                                                    </div>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                                                        @Html.EditorFor(model => model.descripcionavanzado[i], new { htmlAttributes = new { @class = "form-control", @placeholder = "Descrición U. avanzada*", @id = "nombre" + i } })
-                                                        @Html.ValidationMessageFor(model => model.descripcionavanzado[i], "", new { @class = "text-danger" })
-                                                    </div>
-                                                }
-                                            </div>
-                                        </div>*@
-                                    </div>
-                                }
-                                if (ViewBag.mensaje2 == "Registro exito")
-                                {
-                                    @Scripts.Render("~/Scripts/Emergente1.js")
-                                }
-                                else
-                                {
-                                    if (ViewBag.mensaje2 == "Registro no")
-                                    {
-                                        @Scripts.Render("~/Scripts/Emergente2.js")
-                                    }
-                                }
-                            }     
-                            
-                            <div class="modal fade" id="mostrarmodal1" tabindex="-1" style="left:-136%" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h3 style="position: absolute;">Verificacion de registro</h3>
-                                        </div>
-                                        <div class="modal-body">
-                                            <h4>Se registro de forma exitosa el nuevo curso</h4>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-                                            <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="btn btn-info">Finalizar</a>
-                                          
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>   
-                            <div class="modal fade" id="mostrarmodal2" tabindex="-1" style="left:-136%" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h3 style="position: absolute;">Verificacion de registro</h3>
-                                        </div>
-                                        <div class="modal-body">
-                                            <h4>No se logro registrar el nuevo curso</h4>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                     
                     </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                }
+                if (ViewBag.mensaje2 == "Registro exito")
+                {
+                    @Scripts.Render("~/Scripts/Emergente1.js")
+                }
+                else
+                {
+                    if (ViewBag.mensaje2 == "Registro no")
+                    {
+                        @Scripts.Render("~/Scripts/Emergente2.js")
+                    }
+                }
+            }
+
+            <div class="modal fade" id="mostrarmodal1" tabindex="-1" style="left:-136%" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3 style="position: absolute;">Verificacion de registro</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Se registro de forma exitosa el nuevo curso</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                            <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="btn btn-info">Finalizar</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="mostrarmodal2" tabindex="-1" style="left:-136%" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3 style="position: absolute;">Verificacion de registro</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h4>No se logro registrar el nuevo curso</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</main>
 }
 
 
