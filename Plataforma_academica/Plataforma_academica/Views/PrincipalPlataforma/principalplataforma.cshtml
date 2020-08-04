@@ -61,9 +61,9 @@
                     if (DateTime.Today < arreglo[i].fecha_cierre)
                     {
                         TimeSpan dias_faltantes = arreglo[i].fecha_cierre - DateTime.Today;                        
-                        <button type="submit" class="boton" name="ir" value="@arreglo[i].codigo_curso">
+                        <button type="submit" class="boton pendiente" name="ir" value="@arreglo[i].codigo_curso">
                             <div class="content-btn">
-                                <span>Quedan @Convert.ToInt32(dias_faltantes.Days) dias</span>
+                                <span class="msjem">Quedan @Convert.ToInt32(dias_faltantes.Days) dias</span>
                                 <img src="~/imagenes/@arreglo[i].url" />
                                 <div class="progress ">
                                     <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
