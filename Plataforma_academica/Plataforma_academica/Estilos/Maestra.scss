@@ -6,6 +6,7 @@ $gris: #d6d6d6;
 $negro: #000000;
 $azuloscuro: #17223b;
 $azulclaro: #263859;
+$rojo: #d9534f;
 
 * {
     transition: color .05s ease-in-out;
@@ -699,42 +700,93 @@ header {
             .last {
                 border-radius: 0px 0px 5px 5px;
             }
-
-            .modal-header {
-                border-bottom: 0.5em solid $blanco;
-                background: $verdeoscuro;
-
-                body.dark & {
-                    border-color: $verdeazul;
-                    background: $azuloscuro;
-                }
+            //modal
+            .modal {
+                display: contents;
             }
 
-            .modal-content {
-                background: $verdeclaro;
-                color: white;
+            .modal-dialog {
+                position: initial;
 
-                body.dark & {
-                    background: $azulclaro;
-                }
-            }
-
-            .modal-footer {
-                border-top: 0.5em solid;
-                background-color: $blanco;
-                background: $verdeoscuro;
-
-                body.dark & {
-                    border-color: $verdeazul;
-                    background: $azuloscuro;
-                }
-
-                button {
+                .modal-content {
                     background: $verdeclaro;
+                    color: white;
 
                     body.dark & {
-                        background: #1bbc97;
-                        color: white;
+                        background: $azulclaro;
+                    }
+                    //Encabezado
+                    .modal-header {
+                        border-bottom: 0.5em solid $blanco;
+                        background: $verdeoscuro;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        padding: 1em;
+
+                        body.dark & {
+                            border-color: $verdeazul;
+                            background: $azuloscuro;
+                        }
+
+                        button {
+                            margin: 0;
+                            float: none;
+                            padding: 0.5em;
+                            font-size: 21px;
+                            background: transparent;
+                            color: $blanco;
+                            opacity: 1;
+                            font-weight: bold;
+
+                            body.dark & {
+                                color: $verdeazul;
+                            }
+                        }
+
+                        h3 {
+                            margin: 0;
+                            color:$blanco;
+                        }
+                    }
+                    //Cuerpo
+                    .modal-body {
+                        padding: 1em;
+                    }
+                    //Pie de Pagina
+                    .modal-footer {
+                        border-top: 0.5em solid;
+                        background-color: $blanco;
+                        background: $verdeoscuro;
+                        padding: 1em;
+                        margin: 0;
+
+                        body.dark & {
+                            border-color: $verdeazul;
+                            background: $azuloscuro;
+                        }
+
+                        a {
+                            background: $verdeclaro;
+
+                            body.dark & {
+                                background: $verdeazul;
+                                color: white;
+                            }
+                        }
+
+                        button {
+                            background: $verdeclaro;
+
+                            body.dark & {
+                                background: $verdeazul;
+                                color: white;
+                            }
+                        }
+
+                        .btn-danger {
+                            background: $rojo !important;
+                        }
                     }
                 }
             }

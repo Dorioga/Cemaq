@@ -499,29 +499,62 @@ header {
         border-radius: 5px 5px 0px 0px; }
       .principal .contenedor .con_form .last {
         border-radius: 0px 0px 5px 5px; }
-      .principal .contenedor .con_form .modal-header {
-        border-bottom: 0.5em solid #ffff;
-        background: #005E2D; }
-        body.dark .principal .contenedor .con_form .modal-header {
-          border-color: #1bbc97;
-          background: #17223b; }
-      .principal .contenedor .con_form .modal-content {
-        background: #009245;
-        color: white; }
-        body.dark .principal .contenedor .con_form .modal-content {
-          background: #263859; }
-      .principal .contenedor .con_form .modal-footer {
-        border-top: 0.5em solid;
-        background-color: #ffff;
-        background: #005E2D; }
-        body.dark .principal .contenedor .con_form .modal-footer {
-          border-color: #1bbc97;
-          background: #17223b; }
-        .principal .contenedor .con_form .modal-footer button {
-          background: #009245; }
-          body.dark .principal .contenedor .con_form .modal-footer button {
-            background: #1bbc97;
-            color: white; }
+      .principal .contenedor .con_form .modal {
+        display: contents; }
+      .principal .contenedor .con_form .modal-dialog {
+        position: initial; }
+        .principal .contenedor .con_form .modal-dialog .modal-content {
+          background: #009245;
+          color: white; }
+          body.dark .principal .contenedor .con_form .modal-dialog .modal-content {
+            background: #263859; }
+          .principal .contenedor .con_form .modal-dialog .modal-content .modal-header {
+            border-bottom: 0.5em solid #ffff;
+            background: #005E2D;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 1em; }
+            body.dark .principal .contenedor .con_form .modal-dialog .modal-content .modal-header {
+              border-color: #1bbc97;
+              background: #17223b; }
+            .principal .contenedor .con_form .modal-dialog .modal-content .modal-header button {
+              margin: 0;
+              float: none;
+              padding: 0.5em;
+              font-size: 21px;
+              background: transparent;
+              color: #ffff;
+              opacity: 1;
+              font-weight: bold; }
+              body.dark .principal .contenedor .con_form .modal-dialog .modal-content .modal-header button {
+                color: #1bbc97; }
+            .principal .contenedor .con_form .modal-dialog .modal-content .modal-header h3 {
+              margin: 0;
+              color: #ffff; }
+          .principal .contenedor .con_form .modal-dialog .modal-content .modal-body {
+            padding: 1em; }
+          .principal .contenedor .con_form .modal-dialog .modal-content .modal-footer {
+            border-top: 0.5em solid;
+            background-color: #ffff;
+            background: #005E2D;
+            padding: 1em;
+            margin: 0; }
+            body.dark .principal .contenedor .con_form .modal-dialog .modal-content .modal-footer {
+              border-color: #1bbc97;
+              background: #17223b; }
+            .principal .contenedor .con_form .modal-dialog .modal-content .modal-footer a {
+              background: #009245; }
+              body.dark .principal .contenedor .con_form .modal-dialog .modal-content .modal-footer a {
+                background: #1bbc97;
+                color: white; }
+            .principal .contenedor .con_form .modal-dialog .modal-content .modal-footer button {
+              background: #009245; }
+              body.dark .principal .contenedor .con_form .modal-dialog .modal-content .modal-footer button {
+                background: #1bbc97;
+                color: white; }
+            .principal .contenedor .con_form .modal-dialog .modal-content .modal-footer .btn-danger {
+              background: #d9534f !important; }
       .principal .contenedor .con_form .formulario {
         display: flex;
         flex-direction: column;

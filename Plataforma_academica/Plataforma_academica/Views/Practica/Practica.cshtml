@@ -21,11 +21,12 @@
             @Html.AntiForgeryToken()
             <!--Modal Informativo-->
             <div class="modal fade" id="mostrarmoda" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog" style="position: initial;">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
+
+                            <h3>Información</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h2 style="position: absolute;">Información</h2>
                         </div>
                         <div class="modal-body">
                             Se le recuerda al estudiante que podra repetir el examen las veces que desee, pero se mantendra la nota del primer intento
@@ -212,11 +213,12 @@
                         }
                     }
                     <div class="modal fade" id="mostrarmodal4" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                        <div class="modal-dialog" style="position: initial;">
+                        <div class="modal-dialog" >
                             <div class="modal-content">
                                 <div class="modal-header">
+
+                                    <h3>Resultado del examen</h3>
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h3 style="position: absolute;">Resultado del examen</h3>
                                 </div>
                                 <div class="modal-body">
                                     <h4>@ViewBag.mensaje2</h4>
@@ -371,14 +373,10 @@
                                 }
                             }
                         }
-                        <section>
-                            <div class="card">
-                                <div class="card-block p-3">
+                        <section class="section_contenido">
                                     <article>
-                                        <button type="submit" id="subir1" name="calcular" value="@arreglo.Length" class="btn btn-primary">Calificar</button>
+                                        <button type="submit" id="subir1" name="calcular" value="@arreglo.Length" class="boton">Calificar</button>
                                     </article>
-                                </div>
-                            </div>
                         </section>
                     }
 
@@ -399,11 +397,11 @@
                         }
                     }
                     <div class="modal fade" id="mostrarmodal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                        <div class="modal-dialog" style="position: initial;">
+                        <div class="modal-dialog" >
                             <div class="modal-content">
                                 <div class="modal-header">
+                                    <h3>Resultado del examen</h3>
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h3 style="position: absolute;">Resultado del examen</h3>
                                 </div>
                                 <div class="modal-body">
                                     <h4>@ViewBag.mensaje2</h4>
