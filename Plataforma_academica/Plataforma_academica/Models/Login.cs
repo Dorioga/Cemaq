@@ -15,8 +15,10 @@ namespace Plataforma_academica.Models
         public string escolaridad { set; get; }
         public string estado_civil { set; get; }
         public string cedula { set; get; }
+        public string tipo_sangui { set; get; }
         public string Tipo_rol { set; get; }
         public string tipo_doc { set; get; }
+        public string tipo_sanguineo { set; get; }
         public string tipo_pobla { set; get; }
         public string nombre1 { set; get; }
         public string nombre2 { set; get; }
@@ -50,19 +52,19 @@ namespace Plataforma_academica.Models
             string fecha = obj.fecha_nacimiento.ToString("yyyy-MM-dd");
             if (obj.genero=="1")
             {
-                int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuario.png" + "')");
+                int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuario.png" + "','"+obj.tipo_sanguineo+"')");
                 return x == 0 ? true : false;
             }
             else
             {
                 if (obj.genero == "2")
                 {
-                    int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuaria.png" + "')");
+                    int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuaria.png" + "','" + obj.tipo_sanguineo + "')");
                     return x == 0 ? true : false;
                 }
                 else
                 {
-                    int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "user.png" + "')");
+                    int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "user.png" + "','" + obj.tipo_sanguineo + "')");
                     return x == 0 ? true : false;
                 }
             }

@@ -18,7 +18,7 @@ namespace Plataforma_academica.Controllers
 
         // GET: Login
 
-        public ActionResult Login(Login usr, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla, Municipio mun, Pais pa, Departamento d, Genero g, Estado_civil e, Escolaridad cola)
+        public ActionResult Login(Login usr, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla, Municipio mun, Pais pa, Departamento d, Genero g, Estado_civil e, Escolaridad cola, Grupo_sanguineo grup)
         {
             DataTable datos = null;
             HtmlHelper.ClientValidationEnabled = false;
@@ -47,6 +47,7 @@ namespace Plataforma_academica.Controllers
                         user.foto = datos.Rows[0]["foto"].ToString();
                         user.correo = datos.Rows[0]["email_persona"].ToString();
                         user.nombre_usu = datos.Rows[0]["nombre2"].ToString();
+                        user.tipo_sangui = datos.Rows[0]["n"].ToString();
                         Session["usuario"] = user;
                         if (Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) < 7 && Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) > 3)
                         {
@@ -99,6 +100,10 @@ namespace Plataforma_academica.Controllers
             {
                 cola.id_escolaridad = Request.Form["listar8"].ToString();
             }
+            if (Request.Form["listar9"] != null)
+            {
+                grup.id_sanguineo = Request.Form["listar9"].ToString();
+            }
 
             List<SelectListItem> prueba = ViewData["lista"] as List<SelectListItem>;
             if (prueba == null)
@@ -119,6 +124,8 @@ namespace Plataforma_academica.Controllers
                 Plataforma_academica.Models.Estado_civil[] est;
                 Plataforma_academica.Models.Escolaridad esco = new Plataforma_academica.Models.Escolaridad();
                 Plataforma_academica.Models.Escolaridad[] escola;
+                Plataforma_academica.Models.Grupo_sanguineo sang = new Plataforma_academica.Models.Grupo_sanguineo();
+                Plataforma_academica.Models.Grupo_sanguineo[] grup_sangui;
 
                 tid = ti.Buscartipodocumento();
                 tipob = tip.Buscarpoblacion();
@@ -128,6 +135,7 @@ namespace Plataforma_academica.Controllers
                 gen = ge.BuscarGenero();
                 est = es.BuscarEstadoCivil();
                 escola = esco.BuscarEscolaridad();
+                grup_sangui = sang.BuscarSanguineo();
 
                 List<SelectListItem> lista1 = new List<SelectListItem>();
                 foreach (Tipo_documento i in tid)
@@ -225,6 +233,18 @@ namespace Plataforma_academica.Controllers
                     });
                 }
                 ViewData["lista9"] = lista9;
+
+                List<SelectListItem> lista10 = new List<SelectListItem>();
+                foreach (Grupo_sanguineo i in grup_sangui)
+                {
+                    lista10.Add(new SelectListItem
+                    {
+                        Text = i.nombre_sanguineo,
+                        Value = i.id_sanguineo,
+                        Selected = false
+                    });
+                }
+                ViewData["lista10"] = lista10;
             }
             if (ValidarDatos(usr))
             {
