@@ -4,7 +4,14 @@
     ViewBag.Title = "Diplomados_matriculados";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<head>
+    @*<script type="text/javascript">
+        function myFunction() {
+            var x = src = 
+            window.open('~/imagen_multimedia/INSTRUCTIVO DE PAGO PARA ESTUDIANTES EN COLOMBIA.pdf','_blank');
+        }
+    </script>*@
+</head>
 
 @using (Html.BeginForm()) 
 {
@@ -55,7 +62,9 @@
                                             <td><button class="boton" disabled="disabled">Pendiente</button></td>
                                         }
                                     }
-                                    <td><button class="boton" name="i" value="">Abrir</button></td>
+                                    
+                                    <td><a type="button" href="~/imagen_multimedia/INSTRUCTIVO DE PAGO PARA ESTUDIANTES EN COLOMBIA.pdf" class="boton" name="i" target="_blank">Abrir</a></td>
+                                    
                                 </tr>
                             }
                         }
