@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
-<html >
+﻿
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
@@ -36,8 +37,6 @@
     <link rel="stylesheet" type="text/css" href="~/Estilos/Maestra.css" />
     <!--<link rel="stylesheet" type="text/css" href="~/Estilos/Oscuro.css" />-->
     <link rel="icon" type="image/gif" href="~/Imagenes/cropped-favicom-32x32.png">
-
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -47,7 +46,7 @@
     <script src="~/Scripts/Menuprincipal.js"></script>
     <script src="~/Scripts/chosen.jquery.js"></script>
     <script src="~/Scripts/chosen.jquery.min.js"></script>
-    
+
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -87,7 +86,7 @@
                             if (Convert.ToInt32(usu.rol) < 4 || Convert.ToInt32(usu.rol) > 6)
                             {
                                 <div>
-                                    <img src="~/Imagenes/user-tie-solid.svg"  />
+                                    <img src="~/Imagenes/user-tie-solid.svg" />
                                     @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })
                                 </div>
 
@@ -170,12 +169,12 @@
                             {
 
                                 @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
-                                    <a href="https://zoom.us/signin" target="_blank">
-                                        <img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
-                                    </a>
-                                    <a href="http://pizarravirtualamazoniantic.azurewebsites.net/" target="_blank">
-                                        <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
-                                    </a>*@
+                                <a href="https://zoom.us/signin" target="_blank">
+                                    <img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
+                                </a>
+                                <a href="http://pizarravirtualamazoniantic.azurewebsites.net/" target="_blank">
+                                    <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
+                                </a>*@
                                 <img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
 
 
@@ -184,7 +183,7 @@
                             {
                                 @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />*@
                                 @*<a href="#"><img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal1" /></a>
-                                    <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>*@
+                                <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>*@
                                 <img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
 
                             }
@@ -202,55 +201,16 @@
             <ul class="contenido list-group">
             </ul>
         </nav>
-
         <!-- Contenedor Seleccionar_unidad  -->
         <div class="contenedor" id="container">
             @RenderBody()
         </div>
 
+
     </main>
 
 
-    <!-- Modal1 -->
-    <div class="modal fade" id="myModal1" role="dialog">
-        <div class="modal-dialog" style="position: initial;">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title" style="position: absolute;">VideoConferencia en Zoom</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Ingrese el link proporcionado por el docente para acceder a la conferencia</p>
-                    <input type="text" id="demo1" class="form-control" />
-                </div>
-                <div class="modal-footer">
-                    <button class="btn1 btn1-dark" style="color: white;" onclick="myFunction2()">Acceder a reunionvirtual</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal2 -->
-    <div class="modal fade" id="myModal2" role="dialog">
-        <div class="modal-dialog" style="position: initial;">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title" style="position: absolute;">Pizarra Virtual</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Ingrese el link propocionado por el docente para acceder a la clase en la pizarra virtual</p>
-                    <input type="text" id="demo" class="form-control" />
-                </div>
-                <div class="modal-footer">
-                    <button class="btn1 btn1-dark" style="color: white;" onclick="myFunction1()">Acceder a Pizarra</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- page-wrapper -->
+        <!-- page-wrapper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"></script>
@@ -263,7 +223,46 @@
     <script src="~/Scripts/chosen.jquery.min.js"></script>
 
     <script src="~/Scripts/Modooscuro.js"></script>
-
 </body>
 
 </html>
+
+
+<!--
+
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog" style="position: initial;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="position: absolute;">VideoConferencia en Zoom</h4>
+            </div>
+            <div class="modal-body">
+                <p>Ingrese el link proporcionado por el docente para acceder a la conferencia</p>
+                <input type="text" id="demo1" class="form-control" />
+            </div>
+            <div class="modal-footer">
+                <button class="btn1 btn1-dark" style="color: white;" onclick="myFunction2()">Acceder a reunionvirtual</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog" style="position: initial;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="position: absolute;">Pizarra Virtual</h4>
+            </div>
+            <div class="modal-body">
+                <p>Ingrese el link propocionado por el docente para acceder a la clase en la pizarra virtual</p>
+                <input type="text" id="demo" class="form-control" />
+            </div>
+            <div class="modal-footer">
+                <button class="btn1 btn1-dark" style="color: white;" onclick="myFunction1()">Acceder a Pizarra</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>-->

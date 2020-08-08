@@ -60,7 +60,7 @@
                 {
                     if (DateTime.Today < arreglo[i].fecha_cierre)
                     {
-                        TimeSpan dias_faltantes = arreglo[i].fecha_cierre - DateTime.Today;                        
+                        TimeSpan dias_faltantes = arreglo[i].fecha_cierre - DateTime.Today;
                         <button type="submit" class="boton pendiente" name="ir" value="@arreglo[i].codigo_curso">
                             <div class="content-btn">
                                 <span class="msjem">Quedan @Convert.ToInt32(dias_faltantes.Days) dias</span>
@@ -82,7 +82,7 @@
                                 <div class="content-btn">
                                     <img src="~/imagenes/@arreglo[i].url" />
                                     <div class="progress ">
-                                        <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
                                             <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@
                 }
             }
         }
-            </div>
+    </div>
     <!--Modulos-->
     <div class="contenercheck" id="bmodulo">
         <span>
@@ -127,8 +127,8 @@
                 {
                     @Scripts.Render("~/Scripts/Emerentelogin.js")
                 }
-               <!--Boton De Inforamcion del Docente-->
-                <button class="boton" href="#mostrarmodal2" data-toggle="modal">
+                <!--Boton De Inforamcion del Docente-->
+                <button class="boton" data-target="#mostrarmodal2" data-toggle="modal">
                     <div class="content-btn" onclick="modal2()">
                         <img src="~/imagen_multimedia/Presentacion Docente.png" />
                         <span><strong>Información docente</strong></span>
@@ -298,7 +298,7 @@
                     }
                     else
                     {
-                        <button class="boton" href="#mostrarmodal3" data-toggle="modal">
+                        <button class="boton" data-target="#mostrarmodal3" data-toggle="modal">
                             <div class="content-btn">
                                 <img src="~/imagen_multimedia/Actividad.png" />
                                 <span><strong>Subir Actividad</strong></span>
@@ -323,15 +323,19 @@
         {
             @Scripts.Render("~/Scripts/modal_exito_subir.js")
         }
+        <!--Modal Actividad Cargada Exitosamente-->
         <div class="modal fade" id="mostrarmodal4" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-            <div class="modal-dialog" style="left: 22%;top: -3%;position: absolute;">
-                <div class="modal-content1">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4>La actividad fue subida exitosamente</h4>
-                        <div>
-                            <img class="perfil2" src="~/Imagenes/cropped-cemaq_logo2-2.png">
+            <div class="marea">
+                <div class=" mcontenedor modal-content">
+                    <div class="modal-body mcontenido">
+                        <div class="cizq">
+                            <svg viewBox="0 0 512.00005 512" xmlns="http://www.w3.org/2000/svg"><path d="m502.003906 256c0 135.863281-110.140625 246.003906-246.003906 246.003906s-246-110.140625-246-246.003906 110.136719-246 246-246 246.003906 110.136719 246.003906 246zm0 0" fill="#cbe558" /><path d="m341.667969 139.847656-119.167969 119.167969-52.164062-52.164063-56.570313 56.570313 52.164063 52.164063 56.570312 56.566406 175.734375-175.734375zm0 0" fill="#fff" /><path d="m222.5 382.152344c-2.652344 0-5.195312-1.054688-7.070312-2.929688l-108.734376-108.730468c-3.90625-3.90625-3.90625-10.238282 0-14.144532l56.566407-56.566406c3.90625-3.90625 10.238281-3.90625 14.144531 0l45.09375 45.09375 112.09375-112.097656c1.875-1.875 4.421875-2.929688 7.074219-2.929688 2.648437 0 5.195312 1.054688 7.070312 2.929688l56.566407 56.570312c3.90625 3.902344 3.90625 10.234375 0 14.140625l-175.734376 175.738281c-1.875 1.875-4.417968 2.925782-7.070312 2.925782zm-94.589844-118.730469 94.589844 94.589844 161.59375-161.59375-42.425781-42.429688-112.097657 112.097657c-3.90625 3.90625-10.238281 3.90625-14.140624 0l-45.09375-45.09375zm0 0" /><path d="m255.9375 512c-6.53125 0-13.070312-.25-19.621094-.75-60.835937-4.664062-118.132812-31.027344-161.335937-74.226562-48.351563-48.355469-74.980469-112.640626-74.980469-181.023438 0-68.378906 26.628906-132.667969 74.980469-181.019531 48.351562-48.351563 112.640625-74.980469 181.019531-74.980469 68.382812 0 132.667969 26.628906 181.023438 74.980469 43.199218 43.203125 69.5625 100.5 74.226562 161.335937 4.613281 60.175782-12.144531 120.15625-47.183594 168.898438-3.222656 4.484375-9.472656 5.503906-13.957031 2.28125s-5.503906-9.472656-2.28125-13.957032c67.726563-94.207031 57.234375-222.230468-24.949219-304.417968-92.015625-92.015625-241.738281-92.015625-333.753906 0-92.019531 92.019531-92.019531 241.738281 0 333.757812 82.183594 82.179688 210.210938 92.675782 304.417969 24.945313 4.484375-3.222657 10.730469-2.199219 13.957031 2.285156 3.222656 4.484375 2.199219 10.730469-2.285156 13.957031-43.4375 31.226563-95.804688 47.933594-149.277344 47.933594zm0 0" /><path d="m429.953125 439.953125c-2.632813 0-5.210937-1.070313-7.070313-2.929687-1.859374-1.863282-2.929687-4.441407-2.929687-7.070313 0-2.632813 1.070313-5.210937 2.929687-7.070313 1.859376-1.859374 4.4375-2.929687 7.070313-2.929687 2.628906 0 5.207031 1.070313 7.070313 2.929687 1.859374 1.859376 2.929687 4.4375 2.929687 7.070313 0 2.628906-1.070313 5.207031-2.929687 7.070313-1.863282 1.859374-4.441407 2.929687-7.070313 2.929687zm0 0" /></svg>
                         </div>
+                        <div class="cder">
+                            <h1>La actividad fue subida exitosamente</h1>
+                            <img src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                 </div>
             </div>
@@ -344,76 +348,97 @@
             arreglo_docente = unidad.Consultar_docente_curso(n);
             if (arreglo_docente.Length > 0)
             {
+                <!--Presentacion del Docente-->
                 <div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                    <div class="modal-dialog" style="left: 22%;top: -3%;position: absolute;">
-                        <div class="modal-content1">
-                            <div class="modal-body">
+                    <div class="marea">
+                        <div class="mcontenedor modal-content">
+                            <div class="modal-body mcontenido">
+                                <div class="cizq">
+                                    <!--Foto-->
+                                    <div class="foto">
+                                        <img src="~/Imagenes/@arreglo_docente[0].foto">
+                                    </div>
+                                    <!--Nombre-->
+                                    <div class="dinfo">
+                                        <i class="fa fa-user"></i>
+                                        <label>@arreglo_docente[0].nombre</label>
+                                    </div>
+                                    <!--Escolaridad-->
+                                    <div class="dinfo">
+                                        <i class="fa fa-graduation-cap"></i>
+                                        <label>@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
+                                    </div>
+                                    <!--Email-->
+                                    <div class="dinfo">
+                                        <i class="fa fa-envelope"></i>
+                                        <label>@arreglo_docente[0].email_persona</label>
+                                    </div>
+                                </div>
+                                <div class="cder">
+                                    <!--Curso Encargado-->
+                                    <div class="encargado">
+                                        <h3>Docente de</h3>
+                                        <h2>@arreglo_docente[0].nombre_curso</h2>
+                                    </div>
+                                  <!--Logo-->
+                                    <div class="logo">
+                                        <label>Formación Virtual</label>
+                                        <img src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                                    </div>
+                                    
+                                </div>
+
+
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <div>
-                                    <img class="perfil1" src="~/Imagenes/@arreglo_docente[0].foto">
-                                </div>
-                                <div class="input-group4">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-user" style="color: #2f55a0;"></i> </span>
-                                    </div>
-                                    <label style="position: relative;margin-top: 14px;left: 4%;">@arreglo_docente[0].nombre</label>
-                                </div>
-                                <div class="input-group5">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-graduation-cap" style="color: #2f55a0;"></i> </span>
-                                    </div>
-                                    <label style="position: relative;margin-top: 3px;left: -6%;">@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
-                                </div>
-                                <div class="input-group6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-envelope" style="color: #2f55a0;"></i> </span>
-                                    </div>
-                                    <label style="position: relative;margin-top: 14px;left: 4%;">@arreglo_docente[0].email_persona</label>
-                                </div>
-                                <div>
-                                    <img class="perfil2" src="~/Imagenes/cropped-cemaq_logo2-2.png">
-                                </div>
-                                <label class="label5">Docente de</label>
-                                <label class="label6">@arreglo_docente[0].nombre_curso</label>
-                                <label class="label7">Formación Virtual</label>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--Bienvenidoa-->
                 <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                    <div class="modal-dialog" style="left: 22%;top: -3%;position: absolute;">
-                        <div class="modal-content1">
-                            <div class="modal-body">
+                    <div class="marea">
+                        <div class="mcontenedor modal-content">
+                            <div class="modal-body mcontenido">
+                                <div class="cizq">
+                                    <!--Foto-->
+                                    <div class="foto">
+                                        <h4 >Docente</h4>
+                                        <img src="~/Imagenes/@arreglo_docente[0].foto">
+                                    </div>
+                                    <!--Nombre Docente-->
+                                    <div class="dinfo">
+                                        <i class="fa fa-user" ></i>
+                                        <label>@arreglo_docente[0].nombre</label>
+                                    </div>
+                                        
+                                    <!--Estudios-->
+                                    <div class="dinfo">
+                                        <i class="fa fa-graduation-cap"></i>
+                                        <label>@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
+                                    </div>                                       
+                                <!--Email-->    
+                                    <div class="dinfo">
+                                        <i class="fa fa-envelope" ></i>
+                                        <label>@arreglo_docente[0].email_persona</label>
+                                    </div>
+                                        
+                                </div>
+                                <div class="cder">
+                                    <div class="encargado">
+                                        <h2>@usu.Nombre</h2>
+                                        <h3>Bienvenido(a) al diplomado virtual en</h3>
+                                        <h2>@arreglo_docente[0].nombre_curso</h2>
+                                    </div>
+
+                                    <div class="logo">
+                                        <label>Formación Virtual</label>
+                                        <img src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                                    </div>
+
+                                </div>
+                            
+                               
                                 <button type="submit" name="irmodal" class="btn" value="@n" style="float: right;margin-top: -15px;font-weight: bold;border-radius: 20px;">x</button>
-                                <div>
-                                    <h4 style="color: #080808;background-color: #ffffff91;text-align: center; width: 40%;">Docente</h4>
-                                    <img class="perfil1" src="~/Imagenes/@arreglo_docente[0].foto">
-                                </div>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-user" style="color: #2f55a0;"></i> </span>
-                                    </div>
-                                    <label style="position: relative;margin-top: 14px;left: 4%;">@arreglo_docente[0].nombre</label>
-                                </div>
-                                <div class="input-group2">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-graduation-cap" style="color: #2f55a0;"></i> </span>
-                                    </div>
-                                    <label style="position: relative;margin-top: 3px;left: -6%;">@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
-                                </div>
-                                <div class="input-group3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-envelope" style="color: #2f55a0;"></i> </span>
-                                    </div>
-                                    <label style="position: relative;margin-top: 14px;left: 4%;">@arreglo_docente[0].email_persona</label>
-                                </div>
-                                <div>
-                                    <img class="perfil2" src="~/Imagenes/cropped-cemaq_logo2-2.png">
-                                </div>
-                                <label class="label4">@usu.Nombre</label>
-                                <label class="label1">Bienvenido(a) al diplomado virtual en</label>
-                                <label class="label2">@arreglo_docente[0].nombre_curso</label>
-                                <label class="label3">Formación Virtual</label>
                             </div>
                         </div>
                     </div>
@@ -422,6 +447,7 @@
                 {
                     TempData.Keep("mensaje10");
                     string nx = Convert.ToString(TempData["mensaje10"]);
+                    <!--Modal Subir Actividad-->
                     <div class="modal fade" id="mostrarmodal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                         <div class="modal-dialog" style="left: 22%;top: -3%;position: absolute;">
                             <div class="modal-content1">
