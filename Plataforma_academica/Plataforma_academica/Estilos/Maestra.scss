@@ -455,6 +455,7 @@ header {
                 }
 
                 textarea {
+                    text-align: justify;
                     max-width: 100%;
                     width: 100%;
                     border: none;
@@ -733,7 +734,7 @@ header {
                             flex-direction: row;
                             padding: 0.5em;
 
-                            button {
+                            .close {
                                 position: absolute;
                                 left: 96%;
                             }
@@ -753,9 +754,11 @@ header {
 
                                 .foto {
                                     flex: 1 1 auto;
-                                     h4{
-                                         margin:0px;
-                                     }
+
+                                    h4 {
+                                        margin: 0px;
+                                    }
+
                                     img {
                                         height: 9em;
                                         border: 5px solid;
@@ -805,7 +808,9 @@ header {
                                 img {
                                     width: 20vw;
                                 }
+                                .cargar{
 
+                                }
                                 .encargado {
                                     flex: 1 1 50%;
                                     display: flex;
@@ -813,15 +818,16 @@ header {
                                     justify-content: center;
                                     align-items: center;
                                     font-size: 3vh;
-                                    padding-top:0.5em;
+                                    padding-top: 0.5em;
 
                                     h2 {
                                         font-size: 6vh;
                                         font-weight: bold;
-                                        margin:0;
+                                        margin: 0;
                                     }
-                                    h3{
-                                        margin:0.5em 0 0.5em 0;
+
+                                    h3 {
+                                        margin: 0.5em 0 0.5em 0;
                                     }
                                 }
 
@@ -835,7 +841,7 @@ header {
                                         position: relative;
                                         top: 2em;
                                         left: 3em;
-                                        font-size:2vh;
+                                        font-size: 2vh;
                                     }
                                 }
                             }
@@ -890,6 +896,7 @@ header {
                         //Cuerpo
                         .modal-body {
                             padding: 1em;
+                            text-align: justify;
                         }
                         //Pie de Pagina
                         .modal-footer {

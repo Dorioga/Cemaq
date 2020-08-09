@@ -336,6 +336,7 @@ header {
           body.dark .principal .contenedor .bb-custom-wrapper .bb-item h4 {
             color: #ffff; }
         .principal .contenedor .bb-custom-wrapper .bb-item textarea {
+          text-align: justify;
           max-width: 100%;
           width: 100%;
           border: none;
@@ -526,7 +527,7 @@ header {
               display: flex;
               flex-direction: row;
               padding: 0.5em; }
-              .principal .contenedor .con_form .modal .marea .mcontenedor .mcontenido button {
+              .principal .contenedor .con_form .modal .marea .mcontenedor .mcontenido .close {
                 position: absolute;
                 left: 96%; }
               .principal .contenedor .con_form .modal .marea .mcontenedor .mcontenido .cizq {
@@ -634,7 +635,8 @@ header {
                 margin: 0;
                 color: #ffff; }
             .principal .contenedor .con_form .modal .modal-dialog .modal-content .modal-body {
-              padding: 1em; }
+              padding: 1em;
+              text-align: justify; }
             .principal .contenedor .con_form .modal .modal-dialog .modal-content .modal-footer {
               border-top: 0.5em solid;
               background-color: #ffff;

@@ -129,7 +129,7 @@
                 }
                 <!--Boton De Inforamcion del Docente-->
                 <button class="boton" data-target="#mostrarmodal2" data-toggle="modal">
-                    <div class="content-btn" onclick="modal2()">
+                    <div class="content-btn">
                         <img src="~/imagen_multimedia/Presentacion Docente.png" />
                         <span><strong>Información docente</strong></span>
                     </div>
@@ -317,14 +317,14 @@
             }
         }
     </div>
-    <!-- Modal de Registro-->
+    <!-- Modals-->
     @{
         if (ViewBag.mensaje == "exito")
         {
             @Scripts.Render("~/Scripts/modal_exito_subir.js")
         }
         <!--Modal Actividad Cargada Exitosamente-->
-        <div class="modal fade" id="mostrarmodal4" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal" id="mostrarmodal4" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
             <div class="marea">
                 <div class=" mcontenedor modal-content">
                     <div class="modal-body mcontenido">
@@ -349,7 +349,7 @@
             if (arreglo_docente.Length > 0)
             {
                 <!--Presentacion del Docente-->
-                <div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                     <div class="marea">
                         <div class="mcontenedor modal-content">
                             <div class="modal-body mcontenido">
@@ -387,15 +387,13 @@
                                     </div>
                                     
                                 </div>
-
-
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--Bienvenidoa-->
-                <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <!--Bienvenido al Curso-->
+                <div class="modal " id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                     <div class="marea">
                         <div class="mcontenedor modal-content">
                             <div class="modal-body mcontenido">
@@ -435,10 +433,9 @@
                                         <img src="~/Imagenes/cropped-cemaq_logo2-2.png">
                                     </div>
 
-                                </div>
-                            
+                                </div>                          
                                
-                                <button type="submit" name="irmodal" class="btn" value="@n" style="float: right;margin-top: -15px;font-weight: bold;border-radius: 20px;">x</button>
+                                <button type="submit" name="irmodal" class="close" value="@n" >x</button>
                             </div>
                         </div>
                     </div>
@@ -448,43 +445,52 @@
                     TempData.Keep("mensaje10");
                     string nx = Convert.ToString(TempData["mensaje10"]);
                     <!--Modal Subir Actividad-->
-                    <div class="modal fade" id="mostrarmodal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                        <div class="modal-dialog" style="left: 22%;top: -3%;position: absolute;">
-                            <div class="modal-content1">
-                                <div class="modal-body">
+                    <div class="modal" id="mostrarmodal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                        <div class="marea">
+                            <div class="mcontenedor modal-content">
+                                <div class="modal-body mcontenido">
+                                    <div class="cizq">
+                                        <!--Foto-->
+                                        <div class="foto">
+                                            <img src="~/Imagenes/@usu.foto">
+                                        </div>
+                                        <!--Foto Usuario-->
+                                        <div class="dinfo">
+                                            <i class="fa fa-user"></i>
+                                            <label>@usu.Nombre</label>
+                                        </div>
+
+                                        <!--Nombre Curso Inscrito-->
+                                        <div class="dinfo">
+                                            <i class="fa fa-graduation-cap" ></i>
+                                            <label >@usu.Tipo_rol: @arreglo_docente[0].nombre_curso</label>
+                                        </div>
+                                        <!--Email-->
+                                        <div class="dinfo">
+                                            <i class="fa fa-envelope" ></i>
+                                            <label >@usu.correo</label>
+                                        </div>
+                                    </div>
+                                    <div class="cder">
+                                        <div class="encargado">
+                                            <h2>Subir Actividad:</h2>
+                                        </div>                                       
+                                        <div class="cargar">
+                                            <input type="file" name="file" accept=".docx, .pdf" />
+                                            <div class="form-group oculta" id="capa1">
+                                                @Html.TextAreaFor(model => model.informacion_actividad, new { @class = "form-control", @placeholder = "Descripción del archivo (opcional)" })
+                                            </div>
+                                            <button type="submit" name="irarchivo" class="btn" value="@nx" style="float: right;">Enviar</button>
+                                        </div>
+                                        <div class="logo">
+                                            <img src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                                        </div>
+
+                                    </div>
+                                   
+                               
+                                 
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <div>
-                                        <img class="perfil1" src="~/Imagenes/@usu.foto">
-                                    </div>
-                                    <div class="input-group4">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"> <i class="fa fa-user" style="color: #2f55a0;"></i> </span>
-                                        </div>
-                                        <label style="position: relative;margin-top: 14px;left: 4%;">@usu.Nombre</label>
-                                    </div>
-                                    <div class="input-group5">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"> <i class="fa fa-graduation-cap" style="color: #2f55a0;"></i> </span>
-                                        </div>
-                                        <label style="position: relative;margin-top: 3px;left: -13%;">@usu.Tipo_rol: @arreglo_docente[0].nombre_curso</label>
-                                    </div>
-                                    <div class="input-group6">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"> <i class="fa fa-envelope" style="color: #2f55a0;"></i> </span>
-                                        </div>
-                                        <label style="position: relative;margin-top: 14px;left: 4%;">@usu.correo</label>
-                                    </div>
-                                    <div>
-                                        <img class="perfil2" src="~/Imagenes/cropped-cemaq_logo2-2.png">
-                                    </div>
-                                    <label class="label5">Subir Actividad:</label>
-                                    <div class="subir">
-                                        <input type="file" name="file" accept=".docx, .pdf" />
-                                        <div class="form-group oculta" id="capa1">
-                                            @Html.TextAreaFor(model => model.informacion_actividad, new { @class = "form-control", @placeholder = "Descripción del archivo (opcional)" })
-                                        </div>
-                                        <button type="submit" name="irarchivo" class="btn" value="@nx" style="float: right;">Enviar</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
