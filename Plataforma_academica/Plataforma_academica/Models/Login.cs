@@ -46,6 +46,15 @@ namespace Plataforma_academica.Models
 
         }
 
+        public DataTable Buscaruser(string c)
+        {
+            //Login (Se realiza la verificacion del usuario y su contraseña)
+            conexion = new Conexion.Conexion();
+            DataTable x = conexion.Execute_Query("call Pr_cargar_nombre_usuario ('" + c + "')");
+            return x;
+
+        }
+
         public bool Registrar_estudiante(Login obj)
         {
             conexion = new Conexion.Conexion();
