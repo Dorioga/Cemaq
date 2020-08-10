@@ -20,6 +20,8 @@ namespace Plataforma_academica.Models
         public string id_unidad { set; get; }
         public string id_actividad { set; get; }
         public string id_examen { set; get; }
+        public string estado_tematica { set; get; }
+        public string estado_diplomado { set; get; }
 
         Conexion.Conexion con = new Conexion.Conexion();
 
@@ -50,6 +52,7 @@ namespace Plataforma_academica.Models
                 arreglo[j] = new Principal_todos();
                 arreglo[j].id_tematica = i["id_tematica_curso"].ToString();
                 arreglo[j].nombre_tematica = i["nombre_tematica_curso"].ToString();
+                arreglo[j].estado_tematica = i["estado"].ToString();
                 j++;
             }
             return arreglo;
@@ -67,6 +70,7 @@ namespace Plataforma_academica.Models
                 arreglo[j] = new Principal_todos();
                 arreglo[j].id_curso = i["id_curso"].ToString();
                 arreglo[j].nombre_curso = i["nombre_curso"].ToString();
+                arreglo[j].estado_diplomado = i["estado_curso"].ToString();
                 j++;
             }
             return arreglo;

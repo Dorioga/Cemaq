@@ -161,7 +161,7 @@
                         <!--Modulo 2-5 -->
                         if (Convert.ToInt32(arreglo_unidad[i - 1].porcentaje_modulo) < 99)
                         {
-                            <button type="submit" disabled="true" class="boton pendiente" value="@arreglo_unidad[i].codigo_unidad">
+                            <button type="submit" disabled="true" class="boton pendiente" @*value="@arreglo_unidad[i].codigo_unidad"*@>
                                 <div class="content-btn">
                                     <img src="~/imagen_multimedia/Modulo.png" />
                                     <span class="msjem" id="msejem">Anterior modulo pendiente</span>
