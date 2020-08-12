@@ -52,8 +52,8 @@
                                             else
                                             {
                                                 <td>
-                                                    <button disabled="true" class="btn btn-info btn-sm btn-block catalogo pendiente" name="ir" @*value="@arreglo[i].id_tematica"*@>
-                                                        @*<span class="msjem">Tematica pendiente por aprobar</span>*@
+                                                    <button disabled="true" class=" pendiente btn btn-info btn-sm btn-block catalogo" name="ir" @*value="@arreglo[i].id_tematica"*@>
+                                                        <span class="msjem">Tematica pendiente por aprobar</span>
                                                         <span class="glyphicon glyphicon-book"></span>
                                                         @arreglo[i].nombre_tematica
                                                     </button>
@@ -201,7 +201,7 @@
 <footer>
     <p> @DateTime.Now.Year - CEMAQ - Diplomados</p>
 </footer>
-
+<script src="~/Scripts/Efect Pending.js" ></script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

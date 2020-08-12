@@ -808,9 +808,10 @@ header {
                                 img {
                                     width: 20vw;
                                 }
-                                .cargar{
 
+                                .cargar {
                                 }
+
                                 .encargado {
                                     flex: 1 1 50%;
                                     display: flex;
@@ -1330,6 +1331,29 @@ header {
                         body.dark & {
                             background: $verdeazul;
                             color: white;
+                        }
+                    }
+
+                    .pendiente {
+                        pointer-events:all;
+                        .msjem {
+                            display: none;
+                        }
+
+                        &:hover .msjem {
+                            z-index: 3000;
+                            display: block;
+                            position: fixed;
+                            overflow: hidden;
+                            background: $verdeclaro;
+                            color: $blanco;
+                            padding: 0.5em;
+                            width: auto;
+                            border-radius: 0.5em;
+                            opacity:1;
+                            body.dark & {
+                                background: $verdeazul;
+                            }
                         }
                     }
                 }

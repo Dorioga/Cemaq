@@ -903,6 +903,23 @@ header {
           body.dark .principal .contenedor .con_form .row tbody .catalogo:hover {
             background: #1bbc97;
             color: white; }
+        .principal .contenedor .con_form .row tbody .pendiente {
+          pointer-events: all; }
+          .principal .contenedor .con_form .row tbody .pendiente .msjem {
+            display: none; }
+          .principal .contenedor .con_form .row tbody .pendiente:hover .msjem {
+            z-index: 3000;
+            display: block;
+            position: fixed;
+            overflow: hidden;
+            background: #009245;
+            color: #ffff;
+            padding: 0.5em;
+            width: auto;
+            border-radius: 0.5em;
+            opacity: 1; }
+            body.dark .principal .contenedor .con_form .row tbody .pendiente:hover .msjem {
+              background: #1bbc97; }
         .principal .contenedor .con_form .row .td {
           color: #000000; }
         .principal .contenedor .con_form .row .filtroc {
