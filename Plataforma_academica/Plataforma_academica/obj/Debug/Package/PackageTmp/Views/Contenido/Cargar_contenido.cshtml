@@ -6,61 +6,61 @@
 }
 
 
-    <head>
+<head>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       
-        
-        <script type="text/javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            function mostrar(value_elemento) {
-                var total = 2; //total de mis capas
-                var elemento, elemento1, tipo;
-                elemento = document.getElementById('capa');
-                elemento1 = document.getElementById('capa1');
-                tipo = document.getElementById("fname");
-                //elemento2 = document.getElementById('capa2');
-                //elemento3 = document.getElementById('capa3');
-                if (value_elemento == 1) {
-                    elemento.style.display = "block";
-                } else {
-                    elemento.style.display = "none";
-                }
-                if (value_elemento == 2) {
+
+    <script type="text/javascript">
+
+        function mostrar(value_elemento) {
+            var total = 2; //total de mis capas
+            var elemento, elemento1, tipo;
+            elemento = document.getElementById('capa');
+            elemento1 = document.getElementById('capa1');
+            tipo = document.getElementById("fname");
+            //elemento2 = document.getElementById('capa2');
+            //elemento3 = document.getElementById('capa3');
+            if (value_elemento == 1) {
+                elemento.style.display = "block";
+            } else {
+                elemento.style.display = "none";
+            }
+            if (value_elemento == 2) {
+                elemento1.style.display = "block";
+                tipo.accept = ".jpg,png";
+            } else {
+                if (value_elemento == 4) {
                     elemento1.style.display = "block";
-                    tipo.accept = ".jpg,png";
+                    tipo.accept = ".mp3";
                 } else {
-                    if (value_elemento == 4) {
+                    if (value_elemento == 5) {
                         elemento1.style.display = "block";
-                        tipo.accept = ".mp3";
+                        tipo.accept = ".gif";
                     } else {
-                        if (value_elemento == 5) {
-                            elemento1.style.display = "block";
-                            tipo.accept = ".gif";
-                        } else {
-                            elemento1.style.display = "none";
-                        }
+                        elemento1.style.display = "none";
                     }
                 }
             }
-            function mostrar1(value_elemento) {
-                var total = 2; //total de mis capas
-                var elemento, elemento1;
-                elemento = document.getElementById('capa4');
-                elemento1 = document.getElementById('capa5');
-                if (value_elemento == 3) {
-                    elemento.style.display = "block";
-                } else {
-                    elemento.style.display = "none";
-                }
-                if (value_elemento == 2) {
-                    elemento1.style.display = "block";
-                } else {
-                    elemento1.style.display = "none";
-                }
+        }
+        function mostrar1(value_elemento) {
+            var total = 2; //total de mis capas
+            var elemento, elemento1;
+            elemento = document.getElementById('capa4');
+            elemento1 = document.getElementById('capa5');
+            if (value_elemento == 3) {
+                elemento.style.display = "block";
+            } else {
+                elemento.style.display = "none";
             }
-        </script>
-    </head>
+            if (value_elemento == 2) {
+                elemento1.style.display = "block";
+            } else {
+                elemento1.style.display = "none";
+            }
+        }
+    </script>
+</head>
 @using (Html.BeginForm("Cargar_contenido", "contenido", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -124,9 +124,27 @@
                 </article>
             </sections>
         </div>
+        <!--MODAL-->
+
+        <div class="modal fade" id="mostrarmodal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog" >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Verificacion de proceso</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>La actividad se creo de forma exitosa, ¿desea adicionar una nueva sección a esta actividad?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="agregar" value="1" class="btn btn-info" onclick="myFunction()">Agregar Sección</button>
+                        <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="btn btn-danger">Finalizar Actividad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!--MODAL-->
     if (ViewBag.mensaje == "vacios")
     {
         @Scripts.Render("~/js/login_campos.js")
@@ -146,23 +164,7 @@
             }
         }
     }
-    <div class="modal fade" id="mostrarmodal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-        <div class="modal-dialog" style="position: initial;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3 style="position: absolute;">Verificacion de proceso</h3>
-                </div>
-                <div class="modal-body">
-                    <h4>La actividad se creo de forma exitosa, ¿desea adicionar una nueva sección a esta actividad?</h4>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" name="agregar" value="1" class="btn btn-info" onclick="myFunction()">Agregar Sección</button>
-                    <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="btn btn-danger">Finalizar Actividad</a>
-                </div>
-            </div>
-        </div>
-    </div>
+
 }
 
 

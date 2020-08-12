@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
     <head>
-        <link href="~/Estilos/modal.css" rel="stylesheet" type="text/css">
     </head>
 
 
@@ -101,13 +100,13 @@
                     }
                 }
             }
-
-            <div class="modal fade" id="mostrarmodal1" tabindex="-1" style="left:-136%" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <!--Modal-->
+            <div class="modal fade" id="mostrarmodal1" tabindex="-1"  role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
+                            <h3>Verificacion de registro</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h3 style="position: absolute;">Verificacion de registro</h3>
                         </div>
                         <div class="modal-body">
                             <h4>Se registro de forma exitosa el nuevo curso</h4>
@@ -124,8 +123,9 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
+
+                            <h3 >Verificacion de registro</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h3 style="position: absolute;">Verificacion de registro</h3>
                         </div>
                         <div class="modal-body">
                             <h4>No se logro registrar el nuevo curso</h4>
