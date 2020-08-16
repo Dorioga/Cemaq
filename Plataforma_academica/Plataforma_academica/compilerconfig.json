@@ -2,5 +2,9 @@
   {
     "outputFile": "Estilos/Maestra.css",
     "inputFile": "Estilos/Maestra.scss"
+  },
+  {
+    "outputFile": "Estilos/Login.css",
+    "inputFile": "Estilos/Login.scss"
   }
 ]

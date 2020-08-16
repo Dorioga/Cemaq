@@ -275,6 +275,9 @@
     <Content Include="Estilos\InfantilPage1.css" />
     <Content Include="Estilos\lista_personas.css" />
     <Content Include="Estilos\Login.css" />
+    <Content Include="Estilos\Login.min.css">
+      <DependentUpon>Login.css</DependentUpon>
+    </Content>
     <Content Include="Estilos\Maestra.css" />
     <Content Include="Estilos\Maestra.min.css" />
     <Content Include="Estilos\Menu_plataforma.css" />
@@ -420,6 +423,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="imagen_multimedia\INSTRUCTIVO DE PAGO PARA ESTUDIANTES EN COLOMBIA.pdf" />
+    <Content Include="Estilos\Login.scss" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - Web Deploy %282%29.pubxml" />

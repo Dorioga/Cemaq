@@ -27,7 +27,7 @@
 
 </head>
 
-<body class="login-page sidebar-collapse">
+<body>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Scripts/chosen.jquery.js"></script>
@@ -48,30 +48,26 @@
 
         <div class="container register">
             <div class="row">
-                <div class="col-md-3 register-left">
+                <!--Izquierda-->
+                <div class="register-left">
                     <img src="~/Imagenes/cropped-cemaq_logo2.png" alt="" />
                     <h3>BIENVENIDO A</h3>
                     <h3>CEMAQ DIPLOMADOS</h3>
-                    <div class="col-md-6">
-                        <div class="form-group">
+                    <div class="campos" >
                             @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", @placeholder = "Usuario *", @id = "usuario" } })
                             @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
                             @Html.EditorFor(model => model.contraseña, new { htmlAttributes = new { @type = "password", @class = "form-control", @placeholder = "Contraseña", @id = "contraseña" } })
                             @Html.ValidationMessageFor(model => model.contraseña, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
                             <input type="submit" value="Iniciar Sesión" name="iniciar" class="btn btn-primary btn-round btn-lg btn-block" id="envia" />
-                        </div>
                     </div>
                 </div>
-                <div class="col-md-9 register-right">
+                <!--Derecha-->
+                <div class="register-right">
 
                     <div class="tab-content" id="myTabContent">
 
                         <h3 class="register-heading">Regístrate</h3>
-                        <div class="row register-form">
+                        <div class="register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     @Html.DropDownListFor(model => model.tipo_doc, (IEnumerable<SelectListItem>)ViewData["lista1"], "Tipo documento *", htmlAttributes: new { @class = "form-control" })
