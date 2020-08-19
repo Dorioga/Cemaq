@@ -120,10 +120,12 @@
       flex-direction: column !important; }
       .register .row .register-left {
         flex: 0 0 auto !important;
-        padding: 2em; }
+        padding: 1em; }
         .register .row .register-left img {
           -webkit-animation: none !important;
           padding-bottom: 1em; }
+        .register .row .register-left .campos {
+          width: 100%; }
       .register .row .register-right {
         flex: 0 0 auto !important;
         border-radius: 1em; }

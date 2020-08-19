@@ -94,7 +94,8 @@ header {
         position: relative;
         cursor: pointer;
         display: flex;
-        outline: none; }
+        outline: none;
+        padding: 0; }
         header .navbar .slidermodo .switch::after {
           content: "";
           display: block;
@@ -979,3 +980,14 @@ header {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; }
+
+@media (max-width: 700px) {
+  header .navbar .icono {
+    flex: 0 1 20% !important; }
+  .principal .contenedor {
+    width: 98vw !important;
+    margin: 12vh 1vw 0 1vw; }
+  .principal .menu-izq {
+    display: none; }
+  .principal .menu-der {
+    display: none; } }
