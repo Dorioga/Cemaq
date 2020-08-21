@@ -5,7 +5,6 @@ window.onmousemove = function (e) {
     for (var i = 0; i < botones.length;i++) {
         botones[i].style.top = (y + 20) + 'px';
         botones[i].style.left = (x + 20) + 'px';
-        console.log(x + " - "+y);
     }
 
 };

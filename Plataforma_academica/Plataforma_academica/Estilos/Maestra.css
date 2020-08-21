@@ -180,30 +180,25 @@ header {
       margin: 0px;
       list-style: none; }
       .principal .menu-izq .contenido .logo {
-        border-radius: 10px 10px 0 0;
+        border-radius: 1em 1em 0 0;
         cursor: pointer;
         padding-top: 5px;
         width: 100%;
         text-align: center;
-        order: 0;
-        flex: 0 0 5%; }
+        color: #ffff;
+        flex-direction: row; }
       .principal .menu-izq .contenido .exterior {
         background-color: #009245; }
         body.dark .principal .menu-izq .contenido .exterior {
           background-color: #1bbc97; }
       .principal .menu-izq .contenido .pie {
-        border-radius: 0 0 10px 10px;
+        border-radius: 0 0 1em 1em;
         text-align: center;
-        width: 100%;
-        order: 2;
-        flex: 0 0 5%; }
+        flex-direction: row; }
       .principal .menu-izq .contenido .lista-menu {
-        width: 100%;
-        order: 1;
-        display: inline;
-        height: 90%;
         border-style: solid;
-        border-color: #009245; }
+        border-color: #009245;
+        height: auto !important; }
         body.dark .principal .menu-izq .contenido .lista-menu {
           border-color: #1bbc97; }
         .principal .menu-izq .contenido .lista-menu .opcion {
@@ -222,6 +217,8 @@ header {
         .principal .menu-izq .contenido .lista-menu .opcion a:not([href]):not([tabindex]) {
           color: white;
           text-decoration: none; }
+      .principal .menu-izq .contenido .active {
+        display: none; }
   .principal .contenedor {
     width: 64vw;
     min-width: 50%;
@@ -986,8 +983,28 @@ header {
     flex: 0 1 20% !important; }
   .principal .contenedor {
     width: 98vw !important;
-    margin: 12vh 1vw 0 1vw; }
+    margin: 18vh 1vw 0 1vw; }
   .principal .menu-izq {
-    display: none; }
+    z-index: 100; }
+    .principal .menu-izq .contenido {
+      flex-direction: row !important; }
+      .principal .menu-izq .contenido .logo {
+        border-radius: 1em 0 0 1em;
+        flex: 0 0 8vw;
+        align-items: center;
+        justify-content: center;
+        display: flex; }
+      .principal .menu-izq .contenido .lista-menu {
+        flex: 0 0 82vw; }
+      .principal .menu-izq .contenido .pie {
+        border-radius: 0 1em 1em 0;
+        flex: 0 0 8vw;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column; }
+      .principal .menu-izq .contenido .ordenar {
+        flex: 0 0 48vw;
+        flex-direction: row; }
   .principal .menu-der {
     display: none; } }

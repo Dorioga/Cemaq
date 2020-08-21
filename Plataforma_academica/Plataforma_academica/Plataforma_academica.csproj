@@ -463,6 +463,7 @@
     <Content Include="Scripts\CrearSeccion.js" />
     <Content Include="Scripts\departamento.js" />
     <Content Include="Scripts\Deshabilitar_creacion_exame.js" />
+    <Content Include="Scripts\Efect Pending.js" />
     <Content Include="Scripts\Emerentelogin.js" />
     <Content Include="Scripts\Emergente.js" />
     <Content Include="Scripts\Emergente1.js" />

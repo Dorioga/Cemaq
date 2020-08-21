@@ -240,13 +240,13 @@ header {
             list-style: none;
 
             .logo {
-                border-radius: 10px 10px 0 0;
+                border-radius: 1em 1em 0 0;
                 cursor: pointer;
                 padding-top: 5px;
                 width: 100%;
                 text-align: center;
-                order: 0;
-                flex: 0 0 5%;
+                color: $blanco;
+                flex-direction: row;
             }
 
             .exterior {
@@ -258,20 +258,15 @@ header {
             }
 
             .pie {
-                border-radius: 0 0 10px 10px;
+                border-radius: 0 0 1em 1em;
                 text-align: center;
-                width: 100%;
-                order: 2;
-                flex: 0 0 5%;
+                flex-direction: row;
             }
 
             .lista-menu {
-                width: 100%;
-                order: 1;
-                display: inline;
-                height: 90%;
                 border-style: solid;
                 border-color: $verdeclaro;
+                height:auto !important;
 
                 body.dark & {
                     border-color: $verdeazul;
@@ -302,6 +297,10 @@ header {
                     color: white;
                     text-decoration: none;
                 }
+            }
+
+            .active {
+                display: none;
             }
         }
     }
@@ -1337,7 +1336,8 @@ header {
                     }
 
                     .pendiente {
-                        pointer-events:all;
+                        pointer-events: all;
+
                         .msjem {
                             display: none;
                         }
@@ -1352,7 +1352,8 @@ header {
                             padding: 0.5em;
                             width: auto;
                             border-radius: 0.5em;
-                            opacity:1;
+                            opacity: 1;
+
                             body.dark & {
                                 background: $verdeazul;
                             }
@@ -1455,11 +1456,41 @@ header {
     .principal {
         .contenedor {
             width: 98vw !important;
-            margin: 12vh 1vw 0 1vw;
+            margin: 18vh 1vw 0 1vw;
         }
 
         .menu-izq {
-            display: none;
+            z-index: 100;
+
+            .contenido {
+                flex-direction: row !important;
+
+                .logo {
+                    border-radius:1em 0 0 1em;
+                    flex: 0 0 8vw;
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                }
+
+                .lista-menu {
+                    flex: 0 0 82vw;
+                }
+
+                .pie {
+                    border-radius:0 1em 1em 0 ;
+                    flex: 0 0 8vw;
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                    flex-direction:column;
+                }
+
+                .ordenar{
+                    flex:0 0 48vw;
+                    flex-direction:row;
+                }
+            }
         }
 
         .menu-der {
