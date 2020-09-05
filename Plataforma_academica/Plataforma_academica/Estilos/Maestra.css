@@ -8,7 +8,9 @@ body {
   background-color: #ffff;
   display: flex;
   flex-direction: column;
-  transition: .5 ease all; }
+  transition: .5 ease all;
+  font-size: 14px !important;
+  line-height: 1.428571429 !important; }
   body.dark {
     background-color: #17223b; }
 
@@ -137,19 +139,20 @@ header {
       -ms-flex-item-align: auto;
       align-self: auto; }
       header .navbar .info .p-2 {
-        flex: 0 0 auto; }
+        flex: 0 0 20%;
+        padding: 0.5em !important; }
       header .navbar .info .nombre {
         display: flex;
-        flex-direction: column; }
+        flex-direction: column;
+        flex: 0 0 80%; }
         header .navbar .info .nombre div {
           flex: 0 0 auto; }
           header .navbar .info .nombre div img {
-            width: 1.5em;
             width: 1.5em; }
         header .navbar .info .nombre label {
           flex: 0 0 auto; }
       header .navbar .info .perfil {
-        width: 3.5em;
+        width: 8vh;
         border-radius: 1em; }
       @media screen and (max-width: 510px) {
         header .navbar .info .perfil {
@@ -1008,3 +1011,30 @@ header {
         flex-direction: row; }
   .principal .menu-der {
     display: none; } }
+
+@media (max-height: 500px) {
+  body {
+    height: auto; }
+  header {
+    height: 14vh; }
+    header .navbar .icono {
+      padding: 1em 1em 1em 0; }
+    header .navbar .slidermodo .switch::after {
+      display: block;
+      width: 8vh;
+      height: 8vh; }
+    header .navbar .slidermodo .switch span {
+      width: 8vh;
+      height: 8vh;
+      line-height: 8vh; }
+    header .navbar .info .p-2 {
+      font-size: 3vh; }
+  .menu-izq {
+    margin-top: 16vh !important; }
+  .contenedor {
+    margin-top: 26vh !important; }
+    .contenedor .bb-custom-wrapper {
+      padding: 0.5em !important; }
+      .contenedor .bb-custom-wrapper span svg {
+        width: 4vw !important;
+        height: 4vw !important; } }

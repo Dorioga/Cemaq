@@ -21,6 +21,8 @@ body {
     display: flex;
     flex-direction: column;
     transition: .5 ease all;
+    font-size: 14px !important;
+    line-height: 1.428571429 !important;
 
     &.dark {
         background-color: $azuloscuro;
@@ -120,7 +122,7 @@ header {
                 cursor: pointer;
                 display: flex;
                 outline: none;
-                padding:0 ;
+                padding: 0;
 
                 &::after {
                     content: "";
@@ -172,20 +174,22 @@ header {
             flex: 0 1 auto;
             -ms-flex-item-align: auto;
             align-self: auto;
+         
 
             .p-2 {
-                flex: 0 0 auto;
+                flex: 0 0 20%;
+                padding: 0.5em !important;
             }
 
             .nombre {
                 display: flex;
                 flex-direction: column;
+                flex: 0 0 80%;
 
                 div {
                     flex: 0 0 auto;
 
                     img {
-                        width: 1.5em;
                         width: 1.5em;
                     }
                 }
@@ -198,7 +202,7 @@ header {
             }
 
             .perfil {
-                width: 3.5em;
+                width:8vh;
                 border-radius: 1em;
             }
 
@@ -1495,6 +1499,56 @@ header {
 
         .menu-der {
             display: none;
+        }
+    }
+}
+@media (max-height: 500px) {
+    body{
+        height:auto;
+    }
+    header {
+        height: 14vh;
+        .navbar {
+
+            .icono {
+                padding: 1em 1em 1em 0;
+            }
+            .slidermodo {
+                .switch {
+                    &::after {
+                        display: block;
+                        width: 8vh;
+                        height: 8vh;
+                    }
+
+                    span {
+                        width: 8vh;
+                        height: 8vh;
+                        line-height: 8vh;
+                    }
+                }
+            }
+            .info{
+               .p-2{
+                   font-size:3vh;
+               }
+            }
+        }
+    }
+    .menu-izq{
+        margin-top:16vh !important;
+    }
+    .contenedor {
+        margin-top: 26vh !important;
+
+        .bb-custom-wrapper {
+            padding:0.5em !important;
+            span {
+                svg {
+                    width: 4vw !important;
+                    height: 4vw !important;
+                }
+            }
         }
     }
 }
