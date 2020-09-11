@@ -182,6 +182,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Diplomados_matriculadosController.cs" />
     <Compile Include="Controllers\Editar_examenController.cs" />
+    <Compile Include="Controllers\Editar_perfilController.cs" />
     <Compile Include="Controllers\Principal_todosController.cs" />
     <Compile Include="Controllers\Registrar_BeneficiarioController.cs" />
     <Compile Include="Controllers\Registrar_CursosController.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="Models\Docentes.cs" />
     <Compile Include="Models\Editar_Actividad.cs" />
     <Compile Include="Models\Editar_examen.cs" />
+    <Compile Include="Models\Editar_perfil.cs" />
     <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\Escolaridad.cs" />
     <Compile Include="Models\Estado_civil.cs" />
@@ -550,6 +552,7 @@
     <Content Include="Views\Editar_examen\Editar_examen.cshtml" />
     <Content Include="Views\Principal_todos\Principal_todos.cshtml" />
     <Content Include="Views\Diplomados_matriculados\Diplomados_matriculados.cshtml" />
+    <Content Include="Views\Editar_perfil\Editar_perfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

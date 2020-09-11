@@ -1,0 +1,190 @@
+﻿@model Plataforma_academica.Models.Login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    @*<link href="~/Estilos/loginStyle1.css" rel="stylesheet" type="text/css">*@
+    <link href="~/Estilos/Login.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width" />
+    <title>CEMAQ - Inicio Sesión</title>
+    <link rel="icon" type="image/gif" href="~/Imagenes/cropped-favicom-32x32.png">
+    <script src="~/Scripts/login_campos.js"></script>
+    <link href="~/Content/chosen.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+</head>
+
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/chosen.jquery.js"></script>
+    <script src="~/Scripts/chosen.jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#pais").chosen();
+            $("#departamento").chosen();
+            $("#municipio").chosen();
+        });
+    </script>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="container register">
+            <div class="row">
+                <!--Izquierda-->
+                <div class="register-left">
+                    <img src="~/Imagenes/cropped-cemaq_logo2.png" alt="" />
+                    <h3>BIENVENIDO A</h3>
+                    <h3>CEMAQ DIPLOMADOS</h3>
+                    <div class="campos" >
+                            @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", @placeholder = "Usuario *", @id = "usuario" } })
+                            @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.contraseña, new { htmlAttributes = new { @type = "password", @class = "form-control", @placeholder = "Contraseña", @id = "contraseña" } })
+                            @Html.ValidationMessageFor(model => model.contraseña, "", new { @class = "text-danger" })
+                            <input type="submit" value="Iniciar Sesión" name="iniciar" class="btn btn-primary btn-round btn-lg btn-block" id="envia" />
+                    </div>
+                </div>
+                <!--Derecha-->
+                <div class="register-right">
+
+                    <div class="tab-content" id="myTabContent">
+
+                        <h3 class="register-heading">Regístrate</h3>
+                        <div class="register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.tipo_doc, (IEnumerable<SelectListItem>)ViewData["lista1"], "Tipo documento *", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.cedula, new { htmlAttributes = new { @type = "number", @class = "form-control", @placeholder = "N° Identificación *" } })
+                                    @Html.ValidationMessageFor(model => model.cedula, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.nombre1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombres *" } })
+                                    @Html.ValidationMessageFor(model => model.nombre1, "", new { @class = "text-danger" })
+                                </div>
+                                @*<div class="form-group">
+                                    @Html.EditorFor(model => model.nombre2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Segundo Nombre" } })
+                                    @Html.ValidationMessageFor(model => model.nombre2, "", new { @class = "text-danger" })
+                                </div>*@
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.apellido1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Apellido *" } })
+                                    @Html.ValidationMessageFor(model => model.apellido1, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.apellido2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Segundo Apellido" } })
+                                    @Html.ValidationMessageFor(model => model.apellido2, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.estado_civil, (IEnumerable<SelectListItem>)ViewData["lista8"], "Estado Civil *", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.tipo_sanguineo, (IEnumerable<SelectListItem>)ViewData["lista10"], "Grupo Sanguineo *", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    @{
+                                        string x = DateTime.Now.ToString("yyyy-MM-dd");
+                                    }
+                                    @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString() } })
+                                    @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
+                                    <h6>Fecha de nacimiento *</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @type = "email", @class = "form-control", @placeholder = "Correo *" } })
+                                    @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.genero, (IEnumerable<SelectListItem>)ViewData["lista7"], "Genero *", new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.tipo_pobla, (IEnumerable<SelectListItem>)ViewData["lista3"], "Tipo población *", new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.pais, (IEnumerable<SelectListItem>)ViewData["lista4"], "País de Residencia *", new { @class = "form-control", id = "pais" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.departamento, (IEnumerable<SelectListItem>)ViewData["lista5"], "Departamento *", new { @class = "form-control", id = "departamento" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.municipio, (IEnumerable<SelectListItem>)ViewData["lista6"], "Municipio *", new { @class = "form-control", id = "municipio" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @type = "number", @class = "form-control", @placeholder = "N° Telefono *" } })
+                                    @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.escolaridad, (IEnumerable<SelectListItem>)ViewData["lista9"], "Nivel Escolaridad *", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Enviar" name="subir1" class="btn btn-primary btn-round btn-lg btn-block" id="envia" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        if (ViewBag.mensaje == "datos incorrectos")
+        {
+            @Scripts.Render("~/Scripts/Emerentelogin.js")
+        }
+        else
+        {
+            if (ViewBag.mensaje == "Exito")
+            {
+                @Scripts.Render("~/Scripts/Emerentelogin.js")
+            }
+            else
+            {
+                if (ViewBag.mensaje == "No se registro el usuario")
+                {
+                    @Scripts.Render("~/Scripts/Emerentelogin.js")
+                }
+            }
+        }
+
+        <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog" style="position: initial;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 style="position: absolute;">Verificaciónn del proceso</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h5>@ViewBag.mensaje2</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" aria-hidden="true" class="btn btn-danger">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/chosen.jquery.js"></script>
+    <script src="~/Scripts/chosen.jquery.min.js"></script>
+</body>
+</html>

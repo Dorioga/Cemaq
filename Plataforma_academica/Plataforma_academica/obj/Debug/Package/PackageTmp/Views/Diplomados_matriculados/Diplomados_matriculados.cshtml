@@ -1,0 +1,88 @@
+﻿@model Plataforma_academica.Models.Diplomados_matriculados
+
+@{
+    ViewBag.Title = "Diplomados_matriculados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    @*<script type="text/javascript">
+        function myFunction() {
+            var x = src = 
+            window.open('~/imagen_multimedia/INSTRUCTIVO DE PAGO PARA ESTUDIANTES EN COLOMBIA.pdf','_blank');
+        }
+    </script>*@
+</head>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
+    Plataforma_academica.Models.Diplomados_matriculados principal = new Plataforma_academica.Models.Diplomados_matriculados();
+    Plataforma_academica.Models.Diplomados_matriculados[] arreglo;
+    int f = 0;
+<main class="con_form">
+    <div class="formulario">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @{
+            if (usu != null)
+            {
+                arreglo = principal.Buscardiplomadosdescargar(usu.usuario);
+                <!--Recordatorios-->
+                <h6 class="parpadeo"><strong>Para descargar su certificado debe haber realizado el cumplimiento del 100% del diplomado y haber realizado el pago</strong></h6>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">Diplomado</th>
+                            <th scope="col">Porcentaje</th>                            
+                            <th scope="col">Estado</th>
+                            <th scope="col">Descargar</th>
+                            <th scope="col">Manual de pago</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @{
+                            for (int i = 0; i < arreglo.Length; i++)
+                            {
+                                f = f + 1;
+                                <tr>
+                                    <td>@f</td>
+                                    <td>@arreglo[i].nombre_curso</td>
+                                    <td>@arreglo[i].porcentaje%</td>
+                                    <td>@arreglo[i].estado_pago</td>
+                                    @{
+                                        if (Convert.ToDouble(arreglo[i].porcentaje) >= 100 && arreglo[i].estado_pago == "Pagado")
+                                        {
+                                            <td><button class="boton" name="ir" value="@arreglo[i].id_curso">Abrir</button></td>
+                                        }
+                                        else
+                                        {
+                                            <td><button class="boton" disabled="disabled">Pendiente</button></td>
+                                        }
+                                    }
+                                    
+                                    <td><a type="button" href="~/imagen_multimedia/INSTRUCTIVO DE PAGO PARA ESTUDIANTES EN COLOMBIA.pdf" class="boton" name="i" target="_blank">Abrir</a></td>
+                                    
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                    <tfoot>
+                     <tr>
+                         <td colspan="100%"></td>
+                     </tr>
+                    </tfoot>
+                </table>
+            }
+        }
+    </div>
+</main>        
+            }
+
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

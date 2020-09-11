@@ -1,0 +1,61 @@
+﻿@model Plataforma_academica.Models.Editar_perfil
+
+@{
+    ViewBag.Title = "Editar_perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Estilos/Maestra.css" />
+</head>
+
+@using (Html.BeginForm("Editar_perfil", "Editar_perfil", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
+    @Html.AntiForgeryToken()
+    <main class="con_form">
+        <div class="formulario">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <section class="section_contenido" style="border: solid 1px #1bbc97;border-radius: 10px;padding: 6px;">
+                <h4 style="text-align: center;">Datos Personales</h4>
+                <hr style="margin-top: 10px;margin-bottom: 10px;border: 0;border-top: 1px solid #eeeeee;"/>
+                <h5>Nombre del Usuario</h5>
+               <label>@usu.Nombre</label>
+                <h5>N° de Identificación</h5>
+                <label>@usu.cedula</label>
+                <h5>Genero</h5>
+                <label>@usu.genero</label>
+                <h5>Tipo Sanguineo</h5>
+                <label>Rh: @usu.tipo_sangui</label>
+                <h5>Estado Civil</h5>
+                <label>@usu.estado_civil</label>
+            </section>
+            <section class="section_contenido" style="border: solid 1px #1bbc97;border-radius: 10px;padding: 6px;">
+                <h4 style="text-align: center;">Datos de contacto</h4>
+                <hr style="margin-top: 10px;margin-bottom: 10px;border: 0;border-top: 1px solid #eeeeee;" />
+                <h5>Numero Telefono</h5>
+                @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @placeholder = @usu.telefono, @id = "nombre", @type = "number" } })
+                @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })               
+                <h5>Correo</h5>
+                @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @placeholder = @usu.correo, @id = "nombre", @type = "email" } })
+                @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })                
+            </section>
+            <section class="section_contenido" style="border: solid 1px #1bbc97;border-radius: 10px;padding: 6px;">
+                <h4 style="text-align: center;">Datos Multimedia</h4>
+                <hr style="margin-top: 10px;margin-bottom: 10px;border: 0;border-top: 1px solid #eeeeee;" />
+                <h5>Foto Usuario</h5>
+                <div class="p-2">
+                    <img class="perfil" src="~/Imagenes/@usu.foto" style="width: 12vh;border-radius: 1em;">
+                </div>
+                <input type="file" name="file" accept=".png,.jpg,.jpeg,.gif" />                
+            </section>
+            <button type="submit" name="ir101" value="@usu.cedula" class="btn btn-success">Guardar</button>
+            <button formaction='@Url.Action("principalplataforma", "PrincipalPlataforma")' class="btn btn-danger">Cancelar</button>
+</div>
+    </main>            
+}
+
+
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }

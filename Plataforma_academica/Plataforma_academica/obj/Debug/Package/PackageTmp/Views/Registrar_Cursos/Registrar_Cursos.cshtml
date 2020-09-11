@@ -1,0 +1,148 @@
+﻿@model Plataforma_academica.Models.Registrar_Cursos
+
+@{
+    ViewBag.Title = "Registrar_Cursos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <head>
+    </head>
+
+
+@using (Html.BeginForm("Registrar_Cursos", "Registrar_Cursos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    Plataforma_academica.Models.Registrar_Cursos l = new Plataforma_academica.Models.Registrar_Cursos();
+    
+    <main class="con_form">
+        <div class="formulario">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <!--Nombre Diplomado-->
+            <section class="section_contenido">
+                <h5>Nombre del Diplomado</h5>
+                @Html.EditorFor(model => model.Nombre_curso, new { htmlAttributes = new { @placeholder = "Nombre del diplomado*", @id = "nombre" } })
+                @Html.ValidationMessageFor(model => model.Nombre_curso, "", new { @class = "text-danger" })
+            </section>
+            <!--Descripcion Diplomado-->
+            <section class="section_contenido">
+                <h5>Descripción del diplomado</h5>
+                @Html.TextAreaFor(model => model.descripcion_curso, new { @class = "textarea", @placeholder = "Descripcion del diplomado*" })
+            </section>
+            <!--Escuela o Area-->
+            <section class="section_contenido">
+                <h5> Escuela o Area</h5>
+                @Html.DropDownListFor(model => model.codigo_tematica, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
+            </section>
+            <!--Duracion-->
+            <section class="section_contenido">
+                <h5>Duración del Diplomado</h5>
+                @Html.DropDownListFor(model => model.codigo_horas, (IEnumerable<SelectListItem>)ViewData["lista5"], "--Seleccione one--")
+            </section>
+            <!--Cantidad Modulos-->
+            <section class="section_contenido">
+                <h5>Cantidad Modulos</h5>
+                @Html.DropDownListFor(model => model.cantidadBasico, (IEnumerable<SelectListItem>)ViewData["lista2"], "-Cantidad modulos-")
+
+            </section>
+            <!---->
+            <section class="section_contenido">
+                <h5>Docente modulo</h5>
+                        @Html.DropDownListFor(model => model.docente, (IEnumerable<SelectListItem>)ViewData["lista6"], "-Docente-")
+            </section>
+            <!---->
+            <section class="section_contenido">
+                        <button class="boton" type="submit" name="ir100" value="crear">Crear</button>
+            </section>
+            @{
+                if (ViewBag.mensaje1 == "Registro exitoso")
+                {
+                    <div class="form-group" id="Cantidad">
+                        <div class="col-sm-4">
+                            <h3 style="color:white;">Modulos Nuevos</h3>
+                            <div class="col-md-81 inputGroupContainer">
+                                @for (int k = 0; k < Convert.ToInt32(ViewBag.mensajebasico); k++)
+                                {
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        @Html.EditorFor(model => model.basico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre M.odulo*", @id = "nombre" + k } })
+                                        @Html.ValidationMessageFor(model => model.basico[k], "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+                                        @Html.EditorFor(model => model.descripcionbasico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "descripción Modulo*", @id = "nombre" + k } })
+                                        @Html.ValidationMessageFor(model => model.descripcionbasico[k], "", new { @class = "text-danger" })
+                                    </div>
+                                }
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label1" style="color:white;">Imagen</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <input type="file" name="file" accept=".png,.jpg,.jpeg,.gif" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <button type="submit" name="ir101" value="crear" class="btn btn-success">Guardar</button>
+                        </div>
+
+                    </div>
+                }
+                if (ViewBag.mensaje2 == "Registro exito")
+                {
+                    @Scripts.Render("~/Scripts/Emergente1.js")
+                }
+                else
+                {
+                    if (ViewBag.mensaje2 == "Registro no")
+                    {
+                        @Scripts.Render("~/Scripts/Emergente2.js")
+                    }
+                }
+            }
+            <!--Modal-->
+            <div class="modal fade" id="mostrarmodal1" tabindex="-1"  role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Verificacion de registro</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Se registro de forma exitosa el nuevo curso</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                            <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="btn btn-info">Finalizar</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="mostrarmodal2" tabindex="-1" style="left:-136%" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+                            <h3 >Verificacion de registro</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h4>No se logro registrar el nuevo curso</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</main>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

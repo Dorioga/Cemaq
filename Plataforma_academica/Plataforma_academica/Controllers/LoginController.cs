@@ -49,6 +49,8 @@ namespace Plataforma_academica.Controllers
                         user.correo = datos.Rows[0]["email_persona"].ToString();
                         user.nombre_usu = datos.Rows[0]["nombre2"].ToString();
                         user.tipo_sangui = datos.Rows[0]["n"].ToString();
+                        user.telefono = datos.Rows[0]["num_tel_persona"].ToString();
+                        user.estado_civil = datos.Rows[0]["civi"].ToString();
                         Session["usuario"] = user;
                         if (Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) < 7 && Convert.ToInt32(datos.Rows[0]["id_rol"].ToString()) > 3)
                         {

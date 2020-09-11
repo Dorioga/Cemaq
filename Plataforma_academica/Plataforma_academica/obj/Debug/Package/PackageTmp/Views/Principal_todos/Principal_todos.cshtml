@@ -1,0 +1,207 @@
+﻿@model Plataforma_academica.Models.Principal_todos
+
+@{
+    ViewBag.Title = "Principal_todos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <head>
+        <script src="~/Scripts/busqueda_todos_diplomados.js"></script>
+    </head>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
+    Plataforma_academica.Models.Principal_todos principal = new Plataforma_academica.Models.Principal_todos();
+    Plataforma_academica.Models.Principal_todos[] arreglo;
+    Plataforma_academica.Models.Principal_todos principal_modulos = new Plataforma_academica.Models.Principal_todos();
+    Plataforma_academica.Models.Principal_todos[] modulos;
+
+    <main class="con_form">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="filtro" >
+            <div class="filterable filtroc">
+                <table class="tablenb">
+                    <thead>
+                        <tr class="filters">
+                            <th><input type="text" class="form-control" placeholder="Buscar Área" enabled></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            if (usu != null)
+                            {
+                                arreglo = principal.Buscarareas();
+
+                                for (int i = 0; i < arreglo.Length; i++)
+                                {
+                                    <tr>
+                                        @{
+                                            if (arreglo[i].estado_tematica == "Aprobado")
+                                            {
+                                                <td>
+                                                    <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="ir" value="@arreglo[i].id_tematica">
+                                                        <span class="glyphicon glyphicon-book"></span>
+                                                        @arreglo[i].nombre_tematica
+                                                    </button>
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td>
+                                                    <button disabled="true" class=" pendiente btn btn-info btn-sm btn-block catalogo" name="ir" @*value="@arreglo[i].id_tematica"*@>
+                                                        <span class="msjem">Tematica pendiente por aprobar</span>
+                                                        <span class="glyphicon glyphicon-book"></span>
+                                                        @arreglo[i].nombre_tematica
+                                                    </button>
+                                                </td>
+                                            }
+                                        }
+                                    </tr>
+                                }
+                            }
+                        }                        
+                    </tbody>
+                </table>
+            </div>
+            @{
+                if (TempData["mensaje1"] != null && usu != null)
+                {
+                    TempData.Keep("mensaje1");
+                    principal_modulos.id_c = Convert.ToString(TempData["mensaje1"]);
+                    modulos = principal_modulos.Buscar_descripcion_areas(principal_modulos);
+                    <div class="panel panel-default panel-table">
+                        <div class="panel-heading">
+                            <div class="tr">
+                                <div class="td">Descripción Tematica</div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            @{
+                                for (int i = 0; i < modulos.Length; i++)
+                                {
+                                    <div class="tr">
+                                        <div class="td">@modulos[i].descripcion</div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                                }
+            }
+        </div>
+        <div class="filtro">
+            <div class="filterable1 filtroc">
+                <table class="tablenb1">
+                    <thead>
+                        <tr class="filters1">
+                            <th><input type="text" class="form-control" placeholder="Buscar Diplomado" enabled></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @{
+                            if (TempData["mensaje1"] != null && usu != null)
+                            {
+                                TempData.Keep("mensaje1");
+                                principal_modulos.id_c = Convert.ToString(TempData["mensaje1"]);
+                                modulos = principal_modulos.Buscar_cursos_areas(principal_modulos);
+
+                                for (int i = 0; i < modulos.Length; i++)
+                                {
+                                    <tr>
+                                        @{
+                                            if (modulos[i].estado_diplomado=="Y")
+                                            {
+                                                <td>
+                                                    <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="irr" value="@modulos[i].id_curso">
+                                                        <span class="glyphicon glyphicon-stats"></span>
+                                                        @modulos[i].nombre_curso
+                                                    </button>
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td>
+                                                    <button disabled="true" class="btn btn-info btn-sm btn-block catalogo" name="irr" @*value="@modulos[i].id_curso"*@>
+                                                        <span class="glyphicon glyphicon-stats"></span>
+                                                        @modulos[i].nombre_curso
+                                                    </button>
+                                                </td>
+                                            }
+                                        }
+                                        
+                                    </tr>
+
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td><a>Elija una Area</a></td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+        @{
+            if (ViewBag.mensaje == "cargar")
+            {
+
+                Plataforma_academica.Models.Principal_todos todo_R = Session["registrar_curso_usuario"] as Plataforma_academica.Models.Principal_todos;
+                @Scripts.Render("~/Scripts/Emerentelogin.js")
+            <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog" style="position: initial;">
+                    <div class="modal-content">                        
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="position: relative;left: 95%;">&times;</button>
+                            <h4 style="position: absolute;">@todo_R.nombre_R</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h5>@todo_R.descripcion_R</h5>
+                        </div>
+                        <div class="modal-footer">
+                            @{
+
+                                if (ViewBag.mensaje1 == "ya")
+                                {
+                                    <button disabled class="btn btn-info">Ya!</button>
+                                }
+                                else
+                                {
+                                    <label style="position: absolute;left: 3%;"><a href="#" style="color:black;">Acepta los Terminos y Condiciones </a><input type="checkbox" id="curso" onclick="myFunction()" /></label>
+                                    <button type="submit" name="ir_R" id="r" value="@todo_R.id_R" disabled class="btn btn-info">Registrar</button>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }            
+        }
+        <script>
+            function myFunction() {
+                var checkBox = document.getElementById("curso");
+                if (checkBox.checked == true) {                    
+                    document.getElementById("r").disabled = false;
+                } else {
+                    document.getElementById("r").disabled = true;
+                }
+            }
+        </script>
+    </main>
+
+}
+<footer>
+    <p> @DateTime.Now.Year - CEMAQ - Diplomados</p>
+</footer>
+<script src="~/Scripts/Efect Pending.js" ></script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
