@@ -1460,7 +1460,8 @@ header {
     .principal {
         .contenedor {
             width: 98vw !important;
-            margin: 18vh 1vw 0 1vw;
+            padding: 18vh 1vw 0 1vw;
+            max-height:95vh;
         }
 
         .menu-izq {
@@ -1539,7 +1540,7 @@ header {
         margin-top:16vh !important;
     }
     .contenedor {
-        margin-top: 26vh !important;
+        padding-top: 26vh !important;
 
         .bb-custom-wrapper {
             padding:0.5em !important;
