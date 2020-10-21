@@ -383,6 +383,11 @@
     <Content Include="imagen_multimedia\20200708152326firma.jpg" />
     <Content Include="imagen_multimedia\20200708152422j balvin - yo te lo dije.mp3" />
     <Content Include="imagen_multimedia\20200708152739fa81cf6c89cb81710a2312f7e4fbab67.gif" />
+    <Content Include="imagen_multimedia\202010202243331.png" />
+    <Content Include="imagen_multimedia\202010202249162.png" />
+    <Content Include="imagen_multimedia\202010202251583.png" />
+    <Content Include="imagen_multimedia\202010202254565.png" />
+    <Content Include="imagen_multimedia\202010202256436.png" />
     <Content Include="imagen_multimedia\3.png" />
     <Content Include="imagen_multimedia\4.png" />
     <Content Include="imagen_multimedia\5.png" />
@@ -431,6 +436,7 @@
     <Content Include="imagen_multimedia\INSTRUCTIVO DE PAGO PARA ESTUDIANTES EN COLOMBIA.pdf" />
     <Content Include="Estilos\Login.scss" />
     <Content Include="imagen_multimedia\20200723194023epistemologia de la psicologia 3.docx" />
+    <Content Include="imagen_multimedia\20201020224333diplomado %28pai%29 modulo 1 %281%29.pdf" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\academialenguaamazonica - Web Deploy %282%29.pubxml" />
