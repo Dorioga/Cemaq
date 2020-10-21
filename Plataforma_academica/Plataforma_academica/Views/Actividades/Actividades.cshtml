@@ -292,14 +292,19 @@
                                     <textarea readonly>@arreglo[i].descripcion</textarea>
                                 </article>
                             </section>
-                            
+
                             //                                                    <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
                         }
                         else
                         {
                             if (arreglo[i].id_tipo_multimedia == "2")
                             {
-                                <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                <section>
+                                    <article>
+                                        <textarea readonly>@arreglo[i].descripcion</textarea>
+                                    </article>
+                                </section>
+
                                 <section>
                                     <div>
                                         <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true">
