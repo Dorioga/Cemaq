@@ -583,8 +583,9 @@
         }
     </script>
     <script>
+  
         var Pagina = (function () {
-
+     
             var $bookBlock = $('#bb-bookblock'),
                 $items = $bookBlock.children(),
                 itemsCount = $items.length,
@@ -601,7 +602,7 @@
                         // updateNavigation
                         updateNavigation(isLimit);
                         setJSP('init');
-                        AjustarTextArea()
+                        AjustarTextArea();
                         // destroy jScrollPane on the content div for the old item
                         setJSP('destroy', old);
 
@@ -618,7 +619,7 @@
                 },
                 transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
                 supportTransitions = Modernizr.csstransitions;
-
+            
 
             function init() {
 
@@ -628,6 +629,7 @@
                     // Current tab is set to be the first tab (0)
                 } else {
                     current = 0;
+                     currentaux =0;
                 }
                 // Display the current tab
 
@@ -737,7 +739,7 @@
     </script>
 
     <script>
-        Pagina.init();
+        Pagina.init();        
     </script>
 }
 
