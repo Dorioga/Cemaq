@@ -152,7 +152,7 @@ header {
         header .navbar .info .nombre label {
           flex: 0 0 auto; }
       header .navbar .info .perfil {
-        width: 8vh;
+        width: 7vh;
         border-radius: 1em; }
       @media screen and (max-width: 510px) {
         header .navbar .info .perfil {
@@ -343,7 +343,7 @@ header {
           border: none;
           background-color: #d6d6d6;
           color: #000000;
-          padding: 0px 4px 0px 5px;
+          padding: 0px 2em 0px 2em;
           overflow: hidden !important; }
           .principal .contenedor .bb-custom-wrapper .bb-item textarea:focus {
             outline: none; }
