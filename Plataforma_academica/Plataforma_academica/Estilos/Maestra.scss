@@ -270,7 +270,7 @@ header {
             .lista-menu {
                 border-style: solid;
                 border-color: $verdeclaro;
-                height:auto !important;
+                height: auto !important;
 
                 body.dark & {
                     border-color: $verdeazul;
@@ -430,6 +430,7 @@ header {
                 min-height: 81.5vh;
                 max-height: 81.5vh;
                 overflow-y: auto;
+                font-family: TimesNewRoman;
 
                 body.dark & {
                     background: $azuloscuro !important;
@@ -444,6 +445,8 @@ header {
                 h2 {
                     color: $negro;
                     text-align: center;
+                    font-size: 26px;
+                    font-family: TimesNewRoman;
 
                     body.dark & {
                         color: $blanco;
@@ -453,13 +456,23 @@ header {
                 h4 {
                     color: $negro;
                     text-align: center;
+                    font-size: 22px;
+                    font-family: TimesNewRoman;
 
                     body.dark & {
                         color: $blanco;
                     }
                 }
 
+                iframe {
+                    border-radius: 2%;
+                    width: 95%;
+                    height: -webkit-fill-available;
+                    position: inherit;
+                }
+
                 textarea {
+                    font-size: 17px;
                     text-align: justify;
                     max-width: 100%;
                     width: 100%;

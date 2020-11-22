@@ -152,7 +152,7 @@ header {
         header .navbar .info .nombre label {
           flex: 0 0 auto; }
       header .navbar .info .perfil {
-        width: 7vh;
+        width: 8vh;
         border-radius: 1em; }
       @media screen and (max-width: 510px) {
         header .navbar .info .perfil {
@@ -319,7 +319,8 @@ header {
         height: auto !important;
         min-height: 81.5vh;
         max-height: 81.5vh;
-        overflow-y: auto; }
+        overflow-y: auto;
+        font-family: TimesNewRoman; }
         body.dark .principal .contenedor .bb-custom-wrapper .bb-item {
           background: #17223b !important; }
         .principal .contenedor .bb-custom-wrapper .bb-item div {
@@ -328,15 +329,25 @@ header {
           margin-bottom: 1em; }
         .principal .contenedor .bb-custom-wrapper .bb-item h2 {
           color: #000000;
-          text-align: center; }
+          text-align: center;
+          font-size: 26px;
+          font-family: TimesNewRoman; }
           body.dark .principal .contenedor .bb-custom-wrapper .bb-item h2 {
             color: #ffff; }
         .principal .contenedor .bb-custom-wrapper .bb-item h4 {
           color: #000000;
-          text-align: center; }
+          text-align: center;
+          font-size: 22px;
+          font-family: TimesNewRoman; }
           body.dark .principal .contenedor .bb-custom-wrapper .bb-item h4 {
             color: #ffff; }
+        .principal .contenedor .bb-custom-wrapper .bb-item iframe {
+          border-radius: 2%;
+          width: 95%;
+          height: -webkit-fill-available;
+          position: inherit; }
         .principal .contenedor .bb-custom-wrapper .bb-item textarea {
+          font-size: 17px;
           text-align: justify;
           max-width: 100%;
           width: 100%;

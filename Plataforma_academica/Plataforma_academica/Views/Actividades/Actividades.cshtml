@@ -61,11 +61,11 @@
                                                     @{
                                                         //Contenido Primera Hoja
 
-                                                        <h2 style="font-family: TimesNewRoman;font-size: 26px;">@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
+                                                        <h2>@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
 
                                                         if (arreglo[i].id_tipo_multimedia == "3")
                                                         {
-                                                            <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].descripcion</textarea>
+                                                            <textarea readonly >@arreglo[i].descripcion</textarea>
                                                         }
 
                                                         else   //style="width: 95%;"
@@ -83,13 +83,13 @@
                                                                 {
                                                                     <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
                                                                     <div class="embed-responsive" style="position: inherit;">
-                                                                        <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia" style="width: 95%; height: -webkit-fill-available; position: inherit;"></iframe>
+                                                                        <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia" ></iframe>
                                                                     </div>
                                                                 }
                                                                 else
                                                                 {
                                                                     <div class="embed-responsive"style="position: inherit;">
-                                                                        <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia" style="width: 95%; height: -webkit-fill-available; position: inherit;"></iframe>
+                                                                        <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia" ></iframe>
                                                                     </div>
                                                                 }
 
@@ -125,9 +125,9 @@
                                             {
                                                 <section>
                                                     <article>
-                                                        <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
 
-                                                        <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].contenido_seccion </textarea>
+                                                        <textarea readonly>@arreglo[i].contenido_seccion </textarea>
 
                                                     </article>
                                                 </section>
@@ -137,7 +137,7 @@
                                                 if (arreglo[i].contenido_seccion == "\r\n")
                                                 {
                                                     <section>
-                                                        <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
                                                         <div class="embed-responsive1">
                                                             <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                         </div>
@@ -147,8 +147,8 @@
                                                 {
                                                     <section>
                                                         <article>
-                                                            <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].contenido_seccion </textarea>
+                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
                                                         </article>
                                                     </section>
                                                     <section>
@@ -164,7 +164,7 @@
                                                 if (arreglo[i].contenido_seccion == "\r\n")
                                                 {
                                                     <section>
-                                                        <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
                                                         <div>
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                         </div>
@@ -175,8 +175,8 @@
                                                 {
                                                     <section>
                                                         <article>
-                                                            <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                            <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].contenido_seccion </textarea>
+                                                            <h4 >@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
                                                         </article>
                                                     </section>
                                                     <section>
@@ -192,7 +192,7 @@
                                                 if (arreglo[i].contenido_seccion == "\r\n")
                                                 {
                                                     <section>
-                                                        <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
                                                         <audio controls>
                                                             <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
                                                         </audio>
@@ -203,8 +203,8 @@
                                                 {
                                                     <section>
                                                         <article>
-                                                            <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                            <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].contenido_seccion </textarea>
+                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
                                                         </article>
                                                     </section>
                                                     <section>
@@ -220,7 +220,7 @@
                                                 if (arreglo[i].contenido_seccion == "\r\n")
                                                 {
                                                     <section>
-                                                        <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
                                                         <div>
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                         </div>
@@ -230,8 +230,8 @@
                                                 {
                                                     <section>
                                                         <article>
-                                                            <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                            <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].contenido_seccion </textarea>
+                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
                                                         </article>
                                                     </section>
                                                     <section>
@@ -283,13 +283,13 @@
                                         @{
                                             if (i == 0)
                                             {
-                                                <h2 style="font-family: TimesNewRoman;font-size: 26px;">@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
+                                                <h2>@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
 
                                                 if (arreglo[i].id_tipo_multimedia == "3")
                                                 {
                                                     <section>
                                                         <article>
-                                                            <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].descripcion</textarea>
+                                                            <textarea readonly >@arreglo[i].descripcion</textarea>
                                                         </article>
                                                     </section>
 
@@ -301,7 +301,7 @@
                                                     {
                                                         <section>
                                                             <article>
-                                                                <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].descripcion</textarea>
+                                                                <textarea readonly>@arreglo[i].descripcion</textarea>
                                                             </article>
                                                         </section>
 
@@ -319,7 +319,7 @@
                                                             <p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
                                                             <section>
                                                                 <div >
-                                                                    <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia" style="width: 95%; height: -webkit-fill-available; position: inherit;"></iframe>
+                                                                    <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia" ></iframe>
                                                                 </div>
                                                             </section>
 
@@ -328,7 +328,7 @@
                                                         {
                                                             <section>
                                                                 <div >
-                                                                    <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia" style="width: 95%; height: -webkit-fill-available; position: inherit;"></iframe>
+                                                                    <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
                                                                 </div>
                                                             </section>
 
@@ -358,8 +358,8 @@
                                                 {
                                                     <section>
                                                         <article>
-                                                            <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                            <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].contenido_seccion </textarea>
+                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                            <textarea readonly >@arreglo[i].contenido_seccion </textarea>
                                                         </article>
                                                     </section>
 
@@ -369,9 +369,9 @@
                                                     if (arreglo[i].contenido_seccion == "\r\n")
                                                     {
                                                         <section>
-                                                            <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
                                                             <div >
-                                                                <iframe src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 95%; height: -webkit-fill-available;border-radius: 2%"></iframe>
+                                                                <iframe src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
                                                             </div>
                                                         </section>
 
@@ -380,13 +380,13 @@
                                                     {
                                                         <section>
                                                             <article>
-                                                                <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                                <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].contenido_seccion </textarea>
+                                                                <h4 >@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                                <textarea readonly >@arreglo[i].contenido_seccion </textarea>
                                                             </article>
                                                         </section>
                                                         <section>
                                                             <div >
-                                                                <iframe src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 95%; height: -webkit-fill-available;border-radius: 2%"></iframe>
+                                                                <iframe src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
                                                             </div>
                                                         </section>
 
@@ -397,7 +397,7 @@
                                                     if (arreglo[i].contenido_seccion == "\r\n")
                                                     {
                                                         <section>
-                                                            <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
                                                             <div>
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                             </div>
@@ -408,8 +408,8 @@
                                                     {
                                                         <section>
                                                             <article>
-                                                                <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                                <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].contenido_seccion </textarea>
+                                                                <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                                <textarea readonly>@arreglo[i].contenido_seccion </textarea>
                                                             </article>
                                                         </section>
                                                         <section>
@@ -425,7 +425,7 @@
                                                     if (arreglo[i].contenido_seccion == "\r\n")
                                                     {
                                                         <section>
-                                                            <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                            <h4 >@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
                                                             <audio controls>
                                                                 <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
                                                             </audio>
@@ -436,7 +436,7 @@
                                                     {
                                                         <section>
                                                             <article>
-                                                                <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                                <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
                                                                 <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].contenido_seccion </textarea>
                                                             </article>
                                                         </section>
@@ -453,7 +453,7 @@
                                                     if (arreglo[i].contenido_seccion == "\r\n")
                                                     {
                                                         <section>
-                                                            <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                            <h4 >@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
                                                             <div>
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                             </div>
@@ -463,8 +463,8 @@
                                                     {
                                                         <section>
                                                             <article>
-                                                                <h4 style="font-family: TimesNewRoman;font-size: 22px;">@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                                <textarea readonly style="font-family: TimesNewRoman;font-size: 17px;">@arreglo[i].contenido_seccion </textarea>
+                                                                <h4 >@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                                                <textarea readonly>@arreglo[i].contenido_seccion </textarea>
                                                             </article>
                                                         </section>
                                                         <section>
