@@ -611,6 +611,13 @@ header {
                         justify-content: center;
                         padding: 1em;
 
+                        &:hover {
+                            p {
+                                overflow: visible;
+                                white-space: normal;
+                            }
+                        }
+
                         img {
                             order: 0;
                             flex: 1 1 auto;
@@ -619,12 +626,17 @@ header {
                             border-radius: 50%;
                         }
 
-                        span {
+                        p {
                             order: 0;
                             flex: 0 1 auto;
                             align-self: auto;
+                            max-width: 85%;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
                         }
 
+                    
                         .progress {
                             width: 100%;
                             order: 0;
@@ -740,10 +752,6 @@ header {
                     margin: 0;
 
                     .mcontenedor {
-                        background-image: url(../Imagenes/Banner1.png) !important;
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        background-size: cover;
                         height: 100%;
                         width: 100%;
 
@@ -765,6 +773,7 @@ header {
                                 justify-content: center;
                                 flex-direction: column;
                                 text-align: center;
+                                background-color: $verdeclaro;
 
                                 svg {
                                     height: 35vh;

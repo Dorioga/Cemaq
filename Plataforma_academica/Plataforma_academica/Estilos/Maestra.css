@@ -441,16 +441,23 @@ header {
             align-items: center;
             justify-content: center;
             padding: 1em; }
+            .principal .contenedor .con_form .contener .boton .content-btn:hover p {
+              overflow: visible;
+              white-space: normal; }
             .principal .contenedor .con_form .contener .boton .content-btn img {
               order: 0;
               flex: 1 1 auto;
               align-self: auto;
               width: 70%;
               border-radius: 50%; }
-            .principal .contenedor .con_form .contener .boton .content-btn span {
+            .principal .contenedor .con_form .contener .boton .content-btn p {
               order: 0;
               flex: 0 1 auto;
-              align-self: auto; }
+              align-self: auto;
+              max-width: 85%;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis; }
             .principal .contenedor .con_form .contener .boton .content-btn .progress {
               width: 100%;
               order: 0;
@@ -529,10 +536,6 @@ header {
           padding: 0;
           margin: 0; }
           .principal .contenedor .con_form .modal .marea .mcontenedor {
-            background-image: url(../Imagenes/Banner1.png) !important;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
             height: 100%;
             width: 100%; }
             .principal .contenedor .con_form .modal .marea .mcontenedor .mcontenido {
@@ -549,7 +552,8 @@ header {
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                text-align: center; }
+                text-align: center;
+                background-color: #009245; }
                 .principal .contenedor .con_form .modal .marea .mcontenedor .mcontenido .cizq svg {
                   height: 35vh; }
                 .principal .contenedor .con_form .modal .marea .mcontenedor .mcontenido .cizq .foto {
