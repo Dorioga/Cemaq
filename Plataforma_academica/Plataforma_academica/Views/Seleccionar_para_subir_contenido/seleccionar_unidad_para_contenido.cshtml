@@ -80,7 +80,7 @@
                         <button type="submit" class="boton" name="ir1" value="@arreglo[i].codigo_curso">
                             <div class="content-btn">
                                 <img src="~/imagenes/@arreglo[i].url" />
-                                <span>@arreglo[i].nombre_curso</span>
+                                <p>@arreglo[i].nombre_curso</p>
                             </div>
                         </button>
                     }
@@ -107,7 +107,7 @@
                         <button type="submit" class="boton" name="ir3" value="@arreglo_unidad[i].codigo_unidad">
                             <div class="content-btn">
                                 <img src="~/imagen_multimedia/Modulo.png" />
-                                <span>@arreglo_unidad[i].nombre_unidad</span>
+                                <p>@arreglo_unidad[i].nombre_unidad</p>
                             </div>
                             <script>
                                 var checkBox = document.getElementById("unidad");
@@ -156,7 +156,7 @@
                         <button type="submit" class="boton" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
                             <div class="content-btn">
                                 <img src="~/imagen_multimedia/Actividad.png" />
-                                <span>@arreglo_actividad[i].nombre_actividad "@arreglo_actividad[i].edicion"</span>
+                                <p>@arreglo_actividad[i].nombre_actividad "@arreglo_actividad[i].edicion"</p>
                             </div>
                         </button>
                         if (arreglo_actividad[i].edicion == "Desaprobado")
@@ -173,7 +173,7 @@
                         <button type="submit" class="boton" name="ir4_" value="@arreglo_examen[i].id_examen">
                             <div class="content-btn">
                                 <img src="~/imagen_multimedia/Examen.png" />
-                                <span>@arreglo_examen[i].examen "@arreglo_examen[i].edicion_examen"</span>
+                                <p>@arreglo_examen[i].examen "@arreglo_examen[i].edicion_examen"</p>
                             </div>
                         </button>
 
