@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<head>
-
-    <link href="~/Estilos/principal.css" rel="stylesheet" type="text/css">
-    <script src="~/Scripts/busqueda_todos_diplomados.js"></script>
-</head>
+    <head>
+        <script src="~/Scripts/busqueda_todos_diplomados.js"></script>
+    </head>
 
 
 @using (Html.BeginForm()) 
@@ -23,10 +21,9 @@
 
     <main class="con_form">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="container">
     <div class="row">
-        <div col-sm-6 style="margin-left: 15%;">
-            <div class="filterable">
+        <div class="filtro" >
+            <div class="filterable filtroc">
                 <table class="tablenb">
                     <thead>
                         <tr class="filters">
@@ -42,12 +39,27 @@
                                 for (int i = 0; i < arreglo.Length; i++)
                                 {
                                     <tr>
-                                        <td>
-                                            <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="ir" value="@arreglo[i].id_tematica">
-                                                <span class="glyphicon glyphicon-book"></span>
-                                                @arreglo[i].nombre_tematica
-                                            </button>
-                                        </td>
+                                        @{
+                                            if (arreglo[i].estado_tematica == "Aprobado")
+                                            {
+                                                <td>
+                                                    <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="ir" value="@arreglo[i].id_tematica">
+                                                        <span class="glyphicon glyphicon-book"></span>
+                                                        @arreglo[i].nombre_tematica
+                                                    </button>
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td>
+                                                    <button disabled="true" class=" pendiente btn btn-info btn-sm btn-block catalogo" name="ir" @*value="@arreglo[i].id_tematica"*@>
+                                                        <span class="msjem">Tematica pendiente por aprobar</span>
+                                                        <span class="glyphicon glyphicon-book"></span>
+                                                        @arreglo[i].nombre_tematica
+                                                    </button>
+                                                </td>
+                                            }
+                                        }
                                     </tr>
                                 }
                             }
@@ -81,8 +93,8 @@
                                 }
             }
         </div>
-        <div col-sm-6 style="margin-left: 10%;">
-            <div class="filterable1">
+        <div class="filtro">
+            <div class="filterable1 filtroc">
                 <table class="tablenb1">
                     <thead>
                         <tr class="filters1">
@@ -101,24 +113,30 @@
                                 for (int i = 0; i < modulos.Length; i++)
                                 {
                                     <tr>
-                                        <td>
-                                            <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="irr" value="@modulos[i].id_curso">
-                                                <span class="glyphicon glyphicon-stats"></span>
-                                                @modulos[i].nombre_curso
-                                            </button>
-                                        </td>
+                                        @{
+                                            if (modulos[i].estado_diplomado=="Y")
+                                            {
+                                                <td>
+                                                    <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="irr" value="@modulos[i].id_curso">
+                                                        <span class="glyphicon glyphicon-stats"></span>
+                                                        @modulos[i].nombre_curso
+                                                    </button>
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td>
+                                                    <button disabled="true" class="btn btn-info btn-sm btn-block catalogo" name="irr" @*value="@modulos[i].id_curso"*@>
+                                                        <span class="glyphicon glyphicon-stats"></span>
+                                                        @modulos[i].nombre_curso
+                                                    </button>
+                                                </td>
+                                            }
+                                        }
                                         
                                     </tr>
 
                                 }
-                                <tr>
-                                    <td>
-                                        <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="irr">
-                                            <span class="glyphicon glyphicon-stats"></span>nombre_curso
-                                        </button>
-                                    </td>
-
-                                </tr>
                             }
                             else
                             {
@@ -132,7 +150,6 @@
             </div>
         </div>
     </div>
-    </div>
         @{
             if (ViewBag.mensaje == "cargar")
             {
@@ -143,7 +160,7 @@
                 <div class="modal-dialog" style="position: initial;">
                     <div class="modal-content">                        
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="position: relative;left: 95%;">&times;</button>
                             <h4 style="position: absolute;">@todo_R.nombre_R</h4>
                         </div>
                         <div class="modal-body">
@@ -181,8 +198,10 @@
     </main>
 
 }
-
-
+<footer>
+    <p> @DateTime.Now.Year - CEMAQ - Diplomados</p>
+</footer>
+<script src="~/Scripts/Efect Pending.js" ></script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

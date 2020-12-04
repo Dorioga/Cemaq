@@ -6,7 +6,13 @@ $gris: #d6d6d6;
 $negro: #000000;
 $azuloscuro: #17223b;
 $azulclaro: #263859;
+$rojo: #d9534f;
 
+* {
+    transition: color 0.15s ease-in-out;
+}
+
+// Estilos Generales
 body {
     position: fixed;
     height: 100vh;
@@ -15,13 +21,15 @@ body {
     display: flex;
     flex-direction: column;
     transition: .5 ease all;
+    font-size: 14px !important;
+    line-height: 1.428571429 !important;
 
     &.dark {
         background-color: $azuloscuro;
     }
 }
 
-
+//Encabezado
 header {
     height: 10vh;
     flex-direction: row;
@@ -114,6 +122,7 @@ header {
                 cursor: pointer;
                 display: flex;
                 outline: none;
+                padding: 0;
 
                 &::after {
                     content: "";
@@ -165,9 +174,48 @@ header {
             flex: 0 1 auto;
             -ms-flex-item-align: auto;
             align-self: auto;
+         
+
+            .p-2 {
+                flex: 0 0 20%;
+                padding: 0.5em !important;
+            }
+
+            .nombre {
+                display: flex;
+                flex-direction: column;
+                flex: 0 0 80%;
+
+                div {
+                    flex: 0 0 auto;
+
+                    img {
+                        width: 1.5em;
+                    }
+                }
+
+
+
+                label {
+                    flex: 0 0 auto;
+                }
+            }
+
+            .perfil {
+                width:7vh;
+                border-radius: 1em;
+            }
+
+            @media screen and (max-width:510px) {
+                .perfil {
+                    max-height: 45px;
+                    width: 45px;
+                }
+            }
         }
     }
 }
+//Contenedor principal
 
 .principal {
     -ms-flex-order: 0;
@@ -177,7 +225,7 @@ header {
     flex: 1 1 auto;
     -ms-flex-item-align: auto;
     align-self: auto;
-
+    //Estilos del Menu Izquierdo
     .menu-izq {
         margin-top: 12vh;
         position: fixed;
@@ -196,13 +244,13 @@ header {
             list-style: none;
 
             .logo {
-                border-radius: 10px 10px 0 0;
+                border-radius: 1em 1em 0 0;
                 cursor: pointer;
                 padding-top: 5px;
                 width: 100%;
                 text-align: center;
-                order: 0;
-                flex: 0 0 5%;
+                color: $blanco;
+                flex-direction: row;
             }
 
             .exterior {
@@ -214,20 +262,15 @@ header {
             }
 
             .pie {
-                border-radius: 0 0 10px 10px;
+                border-radius: 0 0 1em 1em;
                 text-align: center;
-                width: 100%;
-                order: 2;
-                flex: 0 0 5%;
+                flex-direction: row;
             }
 
             .lista-menu {
-                width: 100%;
-                order: 1;
-                display: inline;
-                height: 90%;
                 border-style: solid;
                 border-color: $verdeclaro;
+                height: auto !important;
 
                 body.dark & {
                     border-color: $verdeazul;
@@ -259,9 +302,13 @@ header {
                     text-decoration: none;
                 }
             }
+
+            .active {
+                display: none;
+            }
         }
     }
-
+    //Contendor Cambiante
     .contenedor {
         width: 64vw;
         min-width: 50%;
@@ -273,404 +320,1272 @@ header {
         -webkit-transition: left 0.3s ease-in-out;
         -o-transition: left 0.3s ease-in-out;
         transition: left 0.3s ease-in-out;
-    }
-
-    .menu-der {
-        right: 0px;
-        position: fixed;
-        float: right;
-        margin-top: 12vh;
-        margin-right: 1vw;
-        border-radius: 15px;
-        width: 16vw;
-        height: 87%;
-        border-style: solid;
-        border-color: $verdeclaro;
-        background: $gris;
-
-        body.dark & {
-            border-color: $verdeazul;
-            background-color: $azulclaro;
-        }
-    }
-}
-
-.bb-custom-wrapper {
-    display: flex;
-    border-radius: 15px;
-    flex-direction: row;
-    width: 100%;
-    background: $verdeclaro;
-    height: 86vh;
-    padding: 1em;
-
-    body.dark & {
-        background: $azulclaro;
-    }
-
-    nav {
-        z-index: 999;
-        position: relative;
-        width: 100%;
-    }
-
-    nav span {
-        position: relative;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 0;
-        left: 0;
-        background: #1bbc97;
-        border-radius: 50%;
-        color: #fff;
-        line-height: 42px;
-        text-align: center;
-        speak: none;
-        font-weight: bold;
-        cursor: pointer;
-        float: right;
-    }
-
-    .atras {
-        display: flex;
-        align-items: center;
-        color: white;
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
-        -webkit-flex: 0 1 auto;
-        -ms-flex: 0 1 auto;
-        flex: 0 1 auto;
-        -webkit-align-self: auto;
-        -ms-flex-item-align: auto;
-        align-self: auto;
-    }
-
-    .bb-bookblock {
-        width: 100%;
-        height: 100%;
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
-        -webkit-flex: 1 1 auto;
-        -ms-flex: 1 1 auto;
-        flex: 1 1 auto;
-        -webkit-align-self: auto;
-        -ms-flex-item-align: auto;
-        align-self: auto;
-    }
-
-    .adelante {
-        display: flex;
-        align-items: center;
-        color: white;
-        -webkit-order: 0;
-        -ms-flex-order: 0;
-        order: 0;
-        -webkit-flex: 0 1 auto;
-        -ms-flex: 0 1 auto;
-        flex: 0 1 auto;
-        -webkit-align-self: auto;
-        -ms-flex-item-align: auto;
-        align-self: auto;
-    }
-}
-
-.bb-content {
-    background:$gris !important;
-    body.dark & {
-        background:$azuloscuro !important;
-    }
-}
-
-.bb-item {
-    background: $gris !important;
-    border-radius: 1em;
-    height: auto !important;
-    min-height: 81.5vh;
-    max-height: 81.5vh;
-    overflow-y: auto;
-
-    body.dark & {
-        background: $azuloscuro !important;
-    }
-
-    div {
-        text-align: center;
-        margin-top: 1em;
-        margin-bottom: 1em;
-    }
-
-    h2 {
-        color: $negro;
-        text-align: center;
-
-        body.dark & {
-            color: $blanco;
-        }
-    }
-
-    h4 {
-        color: $negro;
-        text-align: center;
-
-        body.dark & {
-            color: $blanco;
-        }
-    }
-
-    .btn {
-        margin-left: 1em !important;
-        margin-top: 1em;
-        position: absolute;
-        background: $verdeclaro;
-
-        body.dark & {
-            background: $azulclaro;
-        }
-    }
-
-    .step {
-        height: 30px;
-        width: 30px;
-        color:$blanco;
-        padding-top: 4px;
-        margin: 0 2px;
-        background:$verdeclaro;
-        border: none;
-        border-radius: 50%;
-        display: inline-block;
-        body.dark &{
-             background:$azulclaro;
-        }
-    }
-}
-
-textarea {
-    max-width: 100%;
-    width: 100%;
-    border: none;
-    background-color: $gris;
-    color: $negro;
-    padding: 0px 4px 0px 5px;
-    overflow: hidden !important;
-
-    body.dark & {
-        color: $blanco;
-        background-color: $azuloscuro;
-    }
-}
-
-
-.con_form {
-    border-radius: 15px;
-    color: white !important;
-
-    .contenercheck {
-        background-color: $verdeclaro;
-        width: 100%;
-        position: relative;
-        border: none;
-
-        body.dark & {
-            background-color: $verdeazul;
-        }
-
-        span {
-            p {
-                color: $blanco;
-                font-weight: bold;
-            }
-        }
-    }
-
-    .contener {
-        background-color: $gris;
-        height: 100%;
-        padding: 0.5em 0em;
-        width: 100%;
-        position: relative;
-        border-style: solid;
-        border-color: $verdeclaro;
-
-        body.dark & {
-            background-color: $azulclaro;
-            border-color: $verdeazul;
-        }
-
-        a {
-            color: $negro;
-            padding-left: 1em;
-
-            body.dark & {
-                color: $blanco;
-            }
-        }
-
-        .boton {
-            background: $gris;
-            max-width: 10em;
-            position: relative;
+        //Contenedor del Libro
+        .bb-custom-wrapper {
+            display: flex;
+            border-radius: 15px;
+            flex-direction: row;
             width: 100%;
-            left: 0.5em;
-            height: 100%;
-            border: none;
-            outline: none;
+            background: $verdeclaro;
+            height: 86vh;
+            padding: 1em;
 
             body.dark & {
                 background: $azulclaro;
+            }
 
-                span {
-                    color: white;
+            nav {
+                z-index: 999;
+                position: relative;
+                width: 100%;
+            }
+
+            nav span {
+                position: relative;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                left: 0;
+                background: #1bbc97;
+                border-radius: 50%;
+                color: #fff;
+                line-height: 42px;
+                text-align: center;
+                speak: none;
+                font-weight: bold;
+                cursor: pointer;
+                float: right;
+            }
+
+            .adelante {
+                display: flex;
+                align-items: center;
+                color: white;
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+                -webkit-flex: 0 1 auto;
+                -ms-flex: 0 1 auto;
+                flex: 0 1 auto;
+                -webkit-align-self: auto;
+                -ms-flex-item-align: auto;
+                align-self: auto;
+
+                svg {
+                    width: 2em;
+                    height: 2em;
                 }
             }
 
-            &:hover {
-                border-radius: 10%;
+
+            .atras {
+                display: flex;
+                align-items: center;
+                color: white;
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+                -webkit-flex: 0 1 auto;
+                -ms-flex: 0 1 auto;
+                flex: 0 1 auto;
+                -webkit-align-self: auto;
+                -ms-flex-item-align: auto;
+                align-self: auto;
+
+                svg {
+                    width: 2em;
+                    height: 2em;
+                }
+            }
+
+            .bb-bookblock {
+                width: 100%;
+                height: 100%;
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+                -webkit-flex: 1 1 auto;
+                -ms-flex: 1 1 auto;
+                flex: 1 1 auto;
+                -webkit-align-self: auto;
+                -ms-flex-item-align: auto;
+                align-self: auto;
+            }
+
+            .bb-content {
+                background: $gris !important;
+
+                body.dark & {
+                    background: $azuloscuro !important;
+                }
+            }
+
+            .bb-item {
+                background: $gris !important;
+                border-radius: 1em;
+                height: auto !important;
+                min-height: 81.5vh;
+                max-height: 81.5vh;
+                overflow-y: auto;
+                font-family: TimesNewRoman;
+
+                body.dark & {
+                    background: $azuloscuro !important;
+                }
+
+                div {
+                    text-align: center;
+                    margin-top: 1em;
+                    margin-bottom: 1em;
+                }
+
+                h2 {
+                    color: $negro;
+                    text-align: center;
+                    font-size: 26px;
+                    font-family: TimesNewRoman;
+
+                    body.dark & {
+                        color: $blanco;
+                    }
+                }
+
+                h4 {
+                    color: $negro;
+                    text-align: center;
+                    font-size: 22px;
+                    font-family: TimesNewRoman;
+
+                    body.dark & {
+                        color: $blanco;
+                    }
+                }
+
+                iframe {
+                    border-radius: 2%;
+                    width: 95%;
+                    height: -webkit-fill-available;
+                    position: inherit;
+                }
+
+                textarea {
+                    font-size: 17px;
+                    text-align: justify;
+                    max-width: 100%;
+                    width: 100%;
+                    border: none;
+                    background-color: $gris;
+                    color: $negro;
+                    padding: 0px 2em 0px 2em;
+                    overflow: hidden !important;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    body.dark & {
+                        color: $blanco;
+                        background-color: $azuloscuro;
+                    }
+                }
+
+
+                .btn {
+                    margin-left: 1em !important;
+                    margin-top: 1em;
+                    position: absolute;
+                    background: $verdeclaro;
+
+                    body.dark & {
+                        background: $azulclaro;
+                    }
+                }
+
+                .step {
+                    height: 30px;
+                    width: 30px;
+                    color: $blanco;
+                    padding-top: 4px;
+                    margin: 0 2px;
+                    background: $verdeclaro;
+                    border: none;
+                    border-radius: 50%;
+                    display: inline-block;
+
+                    body.dark & {
+                        background: $azulclaro;
+                    }
+                }
+            }
+        }
+        //Contenedor del Menu, Cargar Contenido, cargar examen
+        .con_form {
+            border-radius: 15px;
+            color: white;
+
+            .active {
+                display: none;
+            }
+
+            .contenercheck {
+                background-color: $verdeclaro;
+                width: 100%;
+                position: relative;
+                border: none;
+                text-align: center;
+                padding: 0.1em;
+                cursor: pointer;
+                border-bottom: 0.1em solid;
+                border-color: $verdeoscuro;
+
+                body.dark & {
+                    background-color: $verdeazul;
+                    border-color: $azuloscuro;
+                }
+
+                span {
+                    p {
+                        color: $blanco;
+                        font-weight: bold;
+                        margin: 0;
+                    }
+                }
+            }
+
+            .contener {
+                background-color: $gris;
+                padding: 0.5em 0em;
+                width: 100%;
+                position: relative;
                 border-style: solid;
                 border-color: $verdeclaro;
 
                 body.dark & {
+                    background-color: $azulclaro;
                     border-color: $verdeazul;
                 }
-            }
 
-            .content-btn {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 1em;
+                a {
+                    color: $negro;
+                    padding-left: 1em;
 
-                img {
-                    order: 0;
-                    flex: 1 1 auto;
-                    align-self: auto;
-                    width: 70%;
-                    border-radius: 50%;
+                    body.dark & {
+                        color: $blanco;
+                    }
                 }
 
-                span {
-                    order: 0;
-                    flex: 0 1 auto;
-                    align-self: auto;
-                }
-
-                .progress {
+                .boton {
+                    background: $gris;
+                    max-width: 10em;
+                    position: relative;
                     width: 100%;
-                    order: 0;
-                    flex: 0 1 auto;
-                    align-self: auto;
-                    cursor: pointer;
-                    margin: 1em;
-                    overflow: visible;
-                    border-radius: 7px;
-                    background: $verdeoscuro;
+                    left: 0.5em;
+                    border: none;
+                    outline: none;
 
                     body.dark & {
-                        background: $azuloscuro;
+                        background: $azulclaro;
+
+                        span {
+                            color: white;
+                        }
                     }
 
-                    progress-bar {
-                        border-radius: 7px;
+                    &:hover {
+                        border-radius: 10%;
+                        border-style: solid;
+                        border-color: $verdeclaro;
+
+                        body.dark & {
+                            border-color: $verdeazul;
+                        }
                     }
 
-                    .progress-value {
-                        position: relative;
-                        left: -45px;
-                        top: 4px;
-                        font-size: 14px;
-                        font-weight: bold;
-                        color: #fff;
-                        letter-spacing: 2px;
+                    .content-btn {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 1em;
+
+                        &:hover {
+                            p {
+                                overflow: visible;
+                                white-space: normal;
+                                text-align:center;
+                            }
+                        }
+
+                        img {
+                            order: 0;
+                            flex: 1 1 auto;
+                            align-self: auto;
+                            width: 70%;
+                            border-radius: 50%;
+                        }
+
+                        p {
+                            color: $negro;
+                            order: 0;
+                            flex: 0 1 auto;
+                            align-self: auto;
+                            max-width: 85%;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+
+                            body.dark & {
+                                color:white;
+                            }
+                          }
+
+
+                            .progress {
+                                width: 100%;
+                                order: 0;
+                                flex: 0 1 auto;
+                                align-self: auto;
+                                cursor: pointer;
+                                margin: 1em;
+                                overflow: visible;
+                                border-radius: 7px;
+                                background: $verdeoscuro;
+
+                                body.dark & {
+                                    background: $azuloscuro;
+                                }
+
+                                progress-bar {
+                                    border-radius: 7px;
+                                }
+
+                                .progress-value {
+                                    position: relative;
+                                    left: -45px;
+                                    top: 4px;
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    color: #fff;
+                                    letter-spacing: 2px;
+                                }
+
+                                .porcentaje {
+                                    position: relative;
+                                    left: 5px;
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    color: #fff;
+                                    letter-spacing: 2px;
+                                }
+                            }
+
+                            .progress-bar.active {
+                                animation: reverse progress-bar-stripes 6.0s linear infinite, animate-positive 2s;
+                            }
+
+                            .progress-bar-success {
+                                background: $verdeclaro;
+                                border-radius: 7px;
+
+                                body.dark & {
+                                    background: $verdeazul;
+                                }
+                            }
+
+                            .progress-outer {
+                                background: #ffffff0a;
+                                border-radius: 78px;
+                                padding: 0px;
+                                margin: 0px -11px;
+                            }
+                        }
                     }
 
-                    .porcentaje {
-                        position: relative;
-                        left: 5px;
-                        font-size: 14px;
-                        font-weight: bold;
-                        color: #fff;
-                        letter-spacing: 2px;
+                    .pendiente {
+
+                        .msjem {
+                            display: none;
+                        }
+
+                        &:hover .msjem {
+                            z-index: 1000;
+                            display: block;
+                            position: fixed;
+                            overflow: hidden;
+                            background: $verdeclaro;
+                            color: $blanco;
+                            padding: 0.5em;
+                            width: 8em;
+                            border-radius: 0.5em;
+
+                            body.dark & {
+                                background: $verdeazul;
+                            }
+                        }
                     }
                 }
 
-                .progress-bar.active {
-                    animation: reverse progress-bar-stripes 6.0s linear infinite, animate-positive 2s;
+                .first {
+                    border-radius: 5px 5px 0px 0px;
                 }
 
-                .progress-bar-success {
-                    background: $verdeclaro;
-                    border-radius: 7px;
+                .last {
+                    border-radius: 0px 0px 5px 5px;
+                }
+                //modal
+                .modal {
+                    // display: contents;
+                    width: 100vw;
+                    transition: opacity 0.15s linear;
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 1040;
+                    //Modal Presentacion
+                    .marea {
+                        height: 51vh;
+                        max-width: 70vw;
+                        width: 70vw;
+                        position: fixed;
+                        left: 15%;
+                        top: 10%;
+                        padding: 0;
+                        margin: 0;
+
+                        .mcontenedor {
+                            height: 100%;
+                            width: 100%;
+
+                            .mcontenido {
+                                display: flex;
+                                flex-direction: row;
+                                padding: 0.5em;
+
+                                .close {
+                                    position: absolute;
+                                    left: 96%;
+                                }
+
+                                .cizq {
+                                    flex: 1 1 50%;
+                                    height: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    flex-direction: column;
+                                    text-align: center;
+                                    background-color: $verdeclaro;
+
+                                    svg {
+                                        height: 35vh;
+                                    }
+
+                                    .foto {
+                                        flex: 1 1 auto;
+
+                                        h4 {
+                                            margin: 0px;
+                                        }
+
+                                        img {
+                                            height: 9em;
+                                            border: 5px solid;
+                                            border-color: $verdeclaro;
+                                            border-radius: 1em;
+                                        }
+                                    }
+
+                                    .dinfo {
+                                        color: black;
+                                        flex: 1 1 auto;
+                                        display: flex;
+                                        align-items: center;
+                                        flex-direction: row;
+                                        width: 60%;
+                                        background: $blanco;
+                                        border: 2px solid;
+                                        border-color: $verdeclaro;
+                                        border-radius: 1em;
+                                        padding-right: 1em;
+                                        margin-bottom: 1em;
+
+                                        i {
+                                            font-size: 4vh;
+                                            margin: 0 0.5em 0 0.5em;
+                                        }
+
+                                        label {
+                                            text-align: left;
+                                        }
+                                    }
+                                }
+
+                                .cder {
+                                    flex: 1 1 50%;
+                                    height: 100%;
+                                    text-align: center;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+
+                                    h1 {
+                                        margin: 0 0 1em 0;
+                                    }
+
+                                    img {
+                                        width: 20vw;
+                                    }
+
+                                    .cargar {
+                                    }
+
+                                    .encargado {
+                                        flex: 1 1 50%;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        align-items: center;
+                                        font-size: 3vh;
+                                        padding-top: 0.5em;
+
+                                        h2 {
+                                            font-size: 6vh;
+                                            font-weight: bold;
+                                            margin: 0;
+                                        }
+
+                                        h3 {
+                                            margin: 0.5em 0 0.5em 0;
+                                        }
+                                    }
+
+                                    .logo {
+                                        flex: 1 1 50%;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+
+                                        label {
+                                            position: relative;
+                                            top: 2em;
+                                            left: 3em;
+                                            font-size: 2vh;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //Modal Informativo
+                    .modal-dialog {
+                        position: initial;
+
+                        .modal-content {
+                            background: $verdeclaro;
+                            color: white;
+
+                            body.dark & {
+                                background: $azulclaro;
+                            }
+                            //Encabezado
+                            .modal-header {
+                                border-bottom: 0.5em solid $blanco;
+                                background: $verdeoscuro;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                padding: 1em;
+
+                                body.dark & {
+                                    border-color: $verdeazul;
+                                    background: $azuloscuro;
+                                }
+
+                                button {
+                                    margin: 0;
+                                    float: none;
+                                    padding: 0.5em;
+                                    font-size: 21px;
+                                    background: transparent;
+                                    color: $blanco;
+                                    opacity: 1;
+                                    font-weight: bold;
+
+                                    body.dark & {
+                                        color: $verdeazul;
+                                    }
+                                }
+
+                                h3 {
+                                    margin: 0;
+                                    color: $blanco;
+                                }
+                            }
+                            //Cuerpo
+                            .modal-body {
+                                padding: 1em;
+                                text-align: justify;
+                            }
+                            //Pie de Pagina
+                            .modal-footer {
+                                border-top: 0.5em solid;
+                                background-color: $blanco;
+                                background: $verdeoscuro;
+                                padding: 1em;
+                                margin: 0;
+
+                                body.dark & {
+                                    border-color: $verdeazul;
+                                    background: $azuloscuro;
+                                }
+
+                                a {
+                                    background: $verdeclaro;
+
+                                    body.dark & {
+                                        background: $verdeazul;
+                                        color: white;
+                                    }
+                                }
+
+                                button {
+                                    background: $verdeclaro;
+
+                                    body.dark & {
+                                        background: $verdeazul;
+                                        color: white;
+                                    }
+                                }
+
+                                .btn-danger {
+                                    background: $rojo !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                //Estilos de Diplomados Matriculados
+                //Estilos Cargar_Contenido
+                //Estilo Registrar_Beneficiario
+                .formulario {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1em;
+                    border: solid;
+                    background-color: $gris;
+                    border-color: $verdeclaro;
+                    border-radius: 15px;
+
+                    h1 {
+                        color: $negro;
+                        margin: 0.1em;
+
+                        body.dark & {
+                            color: $blanco;
+                        }
+                    }
+
+                    h2 {
+                        color: $negro;
+                        margin: 0.1em;
+
+                        body.dark & {
+                            color: $blanco;
+                        }
+                    }
+
+                    h3 {
+                        text-align: center;
+                        margin: 0px 0px 0.5em 0px;
+                        color: $negro;
+
+                        body.dark & {
+                            color: $blanco;
+                        }
+                    }
 
                     body.dark & {
-                        background: $verdeazul;
+                        background-color: $azulclaro;
+                        border-color: $verdeazul;
+                    }
+
+                    label {
+                        color: $negro;
+
+                        body.dark & {
+                            color: $blanco;
+                        }
+                    }
+
+                    table {
+                        width: 100%;
+                        margin-bottom: 0em;
+                        border-collapse: collapse;
+                        border-radius: 1em;
+                        overflow: hidden;
+                        border: 0.2em solid;
+                        border-color: $verdeoscuro;
+
+                        body.dark & {
+                            border-color: $verdeazul;
+                        }
+
+                        thead {
+                            tr {
+                                background: $verdeoscuro;
+
+                                body.dark & {
+                                    background: $verdeazul;
+                                }
+
+                                th {
+                                    padding: 0.5em;
+                                    text-align: center;
+                                    border: none;
+                                }
+                            }
+                        }
+
+                        tbody {
+                            tr {
+                                text-align: center;
+                                color: $negro;
+
+                                &:hover {
+                                    td {
+                                        background: $verdeclaro !important;
+                                        color: $blanco !important;
+                                    }
+                                }
+
+                                body.dark & {
+                                    color: $blanco;
+                                }
+
+                                td {
+                                    vertical-align: inherit;
+                                    padding: 0.5em;
+                                    border: none;
+
+                                    .boton {
+                                        width: 100%;
+                                        padding: 0;
+                                        border-radius: 1em;
+                                        border: 1px solid;
+                                        border-color: $verdeoscuro;
+
+                                        &:disabled {
+                                            color: $negro;
+
+                                            body.dark & {
+                                                color: $blanco;
+                                            }
+                                        }
+
+                                        &:enabled {
+                                            background: $verdeclaro;
+                                            color: $blanco;
+
+                                            body.dark & {
+                                                background: $verdeazul;
+                                            }
+                                        }
+
+                                        body.dark & {
+                                            border-color: $verdeazul;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        tfoot {
+                            width: 100%;
+                            height: 0.5em;
+                            background: $verdeoscuro;
+
+                            body.dark & {
+                                background: $verdeazul;
+                            }
+
+                            tr {
+                                td {
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
+
+
+                    .alert-danger {
+                        color: $negro;
+                        background-color: $gris;
+                        border: solid;
+                        border-color: $verdeclaro;
+
+                        body.dark & {
+                            color: $blanco;
+                            background-color: $azulclaro;
+                            border-color: $verdeazul;
+                        }
+                    }
+
+                    .form-group {
+                        margin: 1em 1em 1em 0px;
+
+                        input {
+                            border: none;
+                            margin: 0px 0px 0.5em 0px;
+                            color: $negro;
+                            max-width: 24vw;
+
+                            &[type="submit"] {
+                                background: $verdeclaro;
+                                border-radius: 1em;
+                                padding: 0.5em;
+                                width: 100%;
+                                color: $blanco;
+
+                                body.dark & {
+                                    background: $verdeazul;
+                                }
+                            }
+
+                            body.dark & {
+                                color: $blanco;
+                            }
+                        }
+                    }
+
+                    .pregunta1 {
+                        margin-top: 0.5em;
+                        border-top: 2px solid;
+                        border-color: $verdeclaro;
+
+                        body.dark & {
+                            border-color: $verdeazul;
+                        }
+                    }
+
+                    .tcolumn {
+                        display: flex;
+                        flex-direction: row;
+
+                        div {
+                            flex: 0 0 50%;
+                        }
+                    }
+
+                    .section_contenido {
+                        order: 0;
+                        flex: 0 1 auto;
+                        align-self: auto;
+                        //margin: 0px 0px 0.5em 0px;
+                        h5 {
+                            color: $negro;
+                            margin: 0px 0px 0.5em 0px;
+
+                            body.dark & {
+                                color: $blanco;
+                            }
+                        }
+
+                        .oculta {
+                            display: none;
+                        }
+
+                        input {
+                            max-width: 25vw;
+                            border-color: $verdeclaro !important;
+                            border: 1px solid;
+                            border-radius: 0.5em;
+                            width: 100%;
+                            margin: 0px 0px 0.5em 0px;
+                            padding: 0.5em;
+
+                            &:focus {
+                                outline: none;
+                            }
+
+                            body.dark & {
+                                border-color: $verdeazul;
+                            }
+                        }
+
+                        select {
+                            max-width: 25vw;
+                            width: 100%;
+                            border-radius: 0.5em;
+                            margin: 0px 0px 0.5em 0px;
+                            padding: 0.5em;
+                            border: 1px solid;
+                            border-color: $verdeclaro;
+
+                            &:focus {
+                                outline: none;
+                            }
+
+                            body.dark {
+                                border-color: $verdeazul;
+                            }
+                        }
+
+                        .boton {
+                            border: none;
+                            border-radius: 0.5em;
+                            width: 25vh;
+                            margin: 0.5em 0.5em 0px 0px;
+                            padding: 0.5em;
+                            background: $verdeclaro;
+                            color: $blanco;
+
+                            &:hover {
+                                background: $verdeoscuro;
+                            }
+
+                            body.dark & {
+                                background: $verdeazul;
+                            }
+                        }
+
+                        .filechooser {
+                            color: $negro;
+                            border: none;
+                            border-radius: 0px;
+                            padding: 0px;
+
+                            body.dark & {
+                                color: $blanco !important;
+                            }
+                        }
+
+                        .respuesta {
+                            display: flex;
+                            flex-direction: column;
+                        }
+
+                        .textarea {
+                            max-width: none;
+                            border-color: $verdeclaro !important;
+                            border: 1px solid;
+                            border-radius: 0.5em;
+                            width: 100%;
+                            height: 15em;
+                            resize: none;
+                            padding-top: 0.5em;
+                            padding-left: 0.5em;
+                            margin-bottom: 0.5em;
+
+                            &:focus {
+                                outline: none;
+                            }
+
+                            body.dark & {
+                                border-color: $verdeazul;
+                            }
+                        }
+                        //textarea mas pequeño
+                        .textarea1 {
+                            max-width: 25vw;
+                            border-color: $verdeclaro !important;
+                            border: 1px solid;
+                            border-radius: 0.5em;
+                            width: 100%;
+                            height: 5em;
+                            resize: none;
+                            padding-top: 0.5em;
+                            padding-left: 0.5em;
+                            margin-bottom: 0.5em;
+
+                            &:focus {
+                                outline: none;
+                            }
+
+                            body.dark & {
+                                border-color: $verdeazul;
+                            }
+                        }
+                    }
+                }
+                //Contenedor Principal_Todos
+                .row {
+                    background-color: $gris;
+                    color: $negro;
+                    padding: 1em;
+                    display: flex;
+                    flex-direction: row;
+                    margin: 0px;
+                    border-radius: 1em;
+                    border: solid;
+                    border-color: $verdeclaro;
+                    box-shadow: 0 1px 0 #cfcfcf;
+
+                    body.dark & {
+                        background: $azulclaro;
+                        border-color: $verdeazul;
+                        color: $blanco;
+                    }
+                    //Estilos Principal_Todos
+                    thead {
+                        margin-bottom: 1em;
+
+                        input {
+                            margin-bottom: 0.5em;
+                        }
+                    }
+
+                    tbody {
+                        a {
+                            padding-left: 1em;
+                        }
+
+                        .catalogo {
+                            margin-bottom: 0.5em;
+                            border: none;
+                            background: $verdeclaro;
+                            padding-left: 1em;
+                            text-align: initial;
+
+                            body.dark & {
+                                background: $azuloscuro;
+                            }
+                        }
+
+                        .catalogo:hover {
+                            background: $blanco;
+                            color: black;
+
+                            body.dark & {
+                                background: $verdeazul;
+                                color: white;
+                            }
+                        }
+
+                        .pendiente {
+                            pointer-events: all;
+
+                            .msjem {
+                                display: none;
+                            }
+
+                            &:hover .msjem {
+                                z-index: 3000;
+                                display: block;
+                                position: fixed;
+                                overflow: hidden;
+                                background: $verdeclaro;
+                                color: $blanco;
+                                padding: 0.5em;
+                                width: auto;
+                                border-radius: 0.5em;
+                                opacity: 1;
+
+                                body.dark & {
+                                    background: $verdeazul;
+                                }
+                            }
+                        }
+                    }
+
+                    .td {
+                        color: $negro;
+                    }
+
+                    .filtroc {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .filtro {
+                        flex: 0 0 50%;
                     }
                 }
 
-                .progress-outer {
-                    background: #ffffff0a;
-                    border-radius: 78px;
-                    padding: 0px;
-                    margin: 0px -11px;
+                .parpadeo {
+                    margin: 0px 0px 1em 0px;
+                    text-align: center;
+                    animation-name: parpadeo;
+                    animation-duration: 2s;
+                    animation-timing-function: linear;
+                    animation-iteration-count: 5;
+                    -webkit-animation-name: parpadeo;
+                    -webkit-animation-duration: 2s;
+                    -webkit-animation-timing-function: linear;
+                    -webkit-animation-iteration-count: 5;
+                    color: $negro;
+
+                    body.dark & {
+                        color: $blanco;
+                    }
+                }
+            }
+            //Pie de Pagina
+            footer p {
+                color: $negro;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+
+                body.dark & {
+                    color: $blanco;
                 }
             }
         }
-    }
-
-    .first {
-        border-radius: 5px 5px 0px 0px;
-    }
-
-    .last {
-        border-radius: 0px 0px 5px 5px;
-    }
-
-    .modal-header {
-        border-bottom: 0.5em solid $blanco;
-        background: $verdeoscuro;
-
-        body.dark & {
-            border-color: $verdeazul;
-            background: $azuloscuro;
-        }
-    }
-
-    .modal-content {
-        background: $verdeclaro;
-        color: white;
-
-        body.dark & {
-            background: $azulclaro;
-        }
-    }
-
-    .modal-footer {
-        border-top: 0.5em solid;
-        background-color: $blanco;
-        background: $verdeoscuro;
-
-        body.dark & {
-            border-color: $verdeazul;
-            background: $azuloscuro;
-        }
-
-        button {
-            background: $verdeclaro;
+        //Estilos del Menu Derecho
+        .menu-der {
+            right: 0px;
+            position: fixed;
+            float: right;
+            margin-top: 12vh;
+            margin-right: 1vw;
+            border-radius: 15px;
+            width: 16vw;
+            height: 87%;
+            border-style: solid;
+            border-color: $verdeclaro;
+            background: $gris;
 
             body.dark & {
-                background: #1bbc97;
-                color: white;
+                border-color: $verdeazul;
+                background-color: $azulclaro;
             }
         }
     }
-}
+    //ScrollBar
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    //Responsive
+    @media (max-width: 700px) {
 
-.footer p {
-    color: $negro;
-    margin-top: 8px;
-    margin-bottom: -6px;
-}
+        header {
+            .navbar {
+                .icono {
+                    flex: 0 1 20% !important;
+                }
+            }
+        }
+
+        .principal {
+            .contenedor {
+                width: 98vw !important;
+                padding: 18vh 1vw 0 1vw;
+                max-height: 95vh;
+            }
+
+            .menu-izq {
+                z-index: 100;
+
+                .contenido {
+                    flex-direction: row !important;
+
+                    .logo {
+                        border-radius: 1em 0 0 1em;
+                        flex: 0 0 8vw;
+                        align-items: center;
+                        justify-content: center;
+                        display: flex;
+                    }
+
+                    .lista-menu {
+                        flex: 0 0 82vw;
+                    }
+
+                    .pie {
+                        border-radius: 0 1em 1em 0;
+                        flex: 0 0 8vw;
+                        align-items: center;
+                        justify-content: center;
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .ordenar {
+                        flex: 0 0 48vw;
+                        flex-direction: row;
+                    }
+                }
+            }
+
+            .menu-der {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-height: 500px) {
+        body {
+            height: auto;
+        }
+
+        header {
+            height: 14vh;
+
+            .navbar {
+
+                .icono {
+                    padding: 1em 1em 1em 0;
+                }
+
+                .slidermodo {
+                    .switch {
+                        &::after {
+                            display: block;
+                            width: 8vh;
+                            height: 8vh;
+                        }
+
+                        span {
+                            width: 8vh;
+                            height: 8vh;
+                            line-height: 8vh;
+                        }
+                    }
+                }
+
+                .info {
+                    .p-2 {
+                        font-size: 3vh;
+                    }
+                }
+            }
+        }
+
+        .menu-izq {
+            margin-top: 16vh !important;
+        }
+
+        .contenedor {
+            padding-top: 26vh !important;
+
+            .bb-custom-wrapper {
+                padding: 0.5em !important;
+
+                span {
+                    svg {
+                        width: 4vw !important;
+                        height: 4vw !important;
+                    }
+                }
+            }
+        }
+    }
