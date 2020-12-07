@@ -66,14 +66,16 @@
                     {
                         for (int i = 0; i < arreglo.Length; i++)
                         {
-                            arreglo2 = practica.Consultar_respuestas_practica(act2.codigo_examen, arreglo[i].id_pregunta);
+                                int auxiliar = i + 1;
+                                arreglo2 = practica.Consultar_respuestas_practica(act2.codigo_examen, arreglo[i].id_pregunta);
                             <!--Texto-->
                             if (arreglo[i].id_tipo_multimedia == 3)
                             {
                                 <!--Pregunta-->
                                 <section class="section_contenido">
                                     <article>
-                                        <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                        <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
+                                         @*titulo sub*@
                                         @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class ="textarea", @disabled = "true" })
                                     </article>
                                 </section>
@@ -94,7 +96,7 @@
                             {<!--Pregunta-->
                                 <section class="section_contenido">
                                     <article>
-                                        <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                        <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
                                         @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
                                     </article>
                                 </section>
@@ -131,7 +133,7 @@
                             {
                                 <section class="section_contenido">
                                     <article>
-                                        <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                        <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
                                         @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
                                     </article>
                                 </section>
@@ -166,7 +168,7 @@
                             {<!--Pregunta-->
                                 <section class="section_contenido">
                                     <article>
-                                        <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                        <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
                                         @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
                                     </article>
                                 </section>
@@ -235,6 +237,7 @@
                 { <!--No es estudiante-->
                     if (rol < 4 || rol >= 7)
                     {
+                        
                         Plataforma_academica.Models.principalP act2 = Session["usuarios10"] as Plataforma_academica.Models.principalP;
                         arreglo3 = practica.Consultar_examen_practica(act2.codigo_examen);
                         <section>
@@ -254,13 +257,14 @@
                         {
                             for (int i = 0; i < arreglo.Length; i++)
                             {
+                                int auxiliar = i + 1;
                                 arreglo2 = practica.Consultar_respuestas_practica(act2.codigo_examen, arreglo[i].id_pregunta);
                                 <!--Texto-->
                                 if (arreglo[i].id_tipo_multimedia == 3)
                                 {<!--Pregunta-->
                                     <section class="section_contenido">
                                         <article>
-                                            <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                            <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
                                             @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
                                         </article>
                                     </section>
@@ -280,8 +284,8 @@
                                 if (arreglo[i].id_tipo_multimedia == 1)
                                 {
                                     <section class="section_contenido">
-                                        <article>
-                                            <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                        <article>                                              
+                                            <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
                                             @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
                                         </article>
                                     </section>
@@ -316,7 +320,7 @@
                                 {
                                     <section class="section_contenido">
                                         <article>
-                                            <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                            <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
                                             @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
                                         </article>
                                     </section>
@@ -351,7 +355,7 @@
                                 {
                                     <section class="section_contenido">
                                         <article>
-                                            <h4>@Html.LabelFor(Model => arreglo[i].nombre_pregunta, arreglo[i].nombre_pregunta, new { @class = "" })</h4> @*titulo sub*@
+                                            <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
                                             @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
                                         </article>
                                     </section>
