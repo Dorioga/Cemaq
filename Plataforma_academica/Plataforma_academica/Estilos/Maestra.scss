@@ -192,8 +192,6 @@ header {
                     }
                 }
 
-
-
                 label {
                     flex: 0 0 auto;
                 }
@@ -289,6 +287,11 @@ header {
 
                 .opcion a {
                     color: black;
+
+                    img {
+                        height: 4vh;
+                        margin-left: 0.5vw;
+                    }
 
                     body.dark & {
                         color: $blanco;
@@ -860,9 +863,10 @@ header {
                                 }
 
                                 .cargar {
-                                    input[type="file"]{
-                                        padding-bottom:1em;
+                                    input[type="file"] {
+                                        padding-bottom: 1em;
                                     }
+
                                     .oculta {
                                         textarea {
                                             width: 100%;
@@ -897,7 +901,6 @@ header {
                                     flex-direction: column;
                                     justify-content: center;
                                     padding-bottom: 1em;
-
                                 }
                             }
                         }

@@ -213,6 +213,9 @@ header {
             background-color: #263859; }
         .principal .menu-izq .contenido .lista-menu .opcion a {
           color: black; }
+          .principal .menu-izq .contenido .lista-menu .opcion a img {
+            height: 4vh;
+            margin-left: 0.5vw; }
           body.dark .principal .menu-izq .contenido .lista-menu .opcion a {
             color: #ffff; }
         .principal .menu-izq .contenido .lista-menu .opcion a:not([href]):not([tabindex]) {

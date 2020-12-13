@@ -59,8 +59,8 @@
         border: 1px solid #ced4da;
         margin-bottom: 0.5em; }
       .register .row .register-left img {
-        width: 20em;
-        /*-webkit-animation: mover 1s infinite alternate;*/ }
+        padding-bottom: 2vh;
+        width: 20em; }
       .register .row .register-left p {
         font-weight: lighter;
         padding: 12%;
