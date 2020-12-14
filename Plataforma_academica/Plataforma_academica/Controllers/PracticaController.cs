@@ -17,8 +17,7 @@ namespace Plataforma_academica.Controllers
             Plataforma_academica.Models.principalP act2 = Session["usuarios10"] as Plataforma_academica.Models.principalP;
             Plataforma_academica.Models.principalP act3 = Session["usuarios2"] as Plataforma_academica.Models.principalP;
             Plataforma_academica.Models.Practicas intent = Session["intentos"] as Plataforma_academica.Models.Practicas;
-            Plataforma_academica.Models.Practicas[] arreglo;
-            int rol = Convert.ToInt32(user.rol);
+            Plataforma_academica.Models.Practicas[] arreglo;            
             int intentos2;
             DataTable datos = null;
             if (user == null)
@@ -27,6 +26,7 @@ namespace Plataforma_academica.Controllers
             }
             else
             {
+                int rol = Convert.ToInt32(user.rol);
                 if (Convert.ToInt32(user.rol) > 10)
                 {
                     return RedirectToAction("Index", "Home");

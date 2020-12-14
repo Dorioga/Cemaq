@@ -150,7 +150,7 @@ header {
         header .navbar .info .nombre label {
           flex: 0 0 auto; }
       header .navbar .info .perfil {
-        width: 8vh;
+        width: 7vh;
         border-radius: 1em; }
       @media screen and (max-width: 510px) {
         header .navbar .info .perfil {
