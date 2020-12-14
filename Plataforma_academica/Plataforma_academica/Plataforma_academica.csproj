@@ -289,7 +289,6 @@
     <Content Include="Estilos\modal_presentacion.css" />
     <Content Include="Estilos\navbarderecho1.css" />
     <Content Include="Estilos\paginaci.css" />
-    <Content Include="Estilos\practica_textaarea.css" />
     <Content Include="Estilos\principal.css" />
     <Content Include="Estilos\principalreport.css" />
     <Content Include="Estilos\ProfesionalPage1.css" />

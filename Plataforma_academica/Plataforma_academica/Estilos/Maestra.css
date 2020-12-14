@@ -73,7 +73,7 @@ header {
       -ms-flex-item-align: auto;
       align-self: auto; }
       header .navbar .icono img {
-        width: 100%; }
+        height: 9vh; }
     header .navbar .slidermodo {
       height: 100%;
       position: relative;
@@ -817,11 +817,21 @@ header {
         .principal .contenedor .con_form .formulario .section_contenido {
           order: 0;
           flex: 0 1 auto;
-          align-self: auto; }
+          align-self: auto;
+          padding-top: 1em; }
+          .principal .contenedor .con_form .formulario .section_contenido h4 {
+            color: #000000; }
+            body.dark .principal .contenedor .con_form .formulario .section_contenido h4 {
+              color: #ffff; }
           .principal .contenedor .con_form .formulario .section_contenido h5 {
             color: #000000;
             margin: 0px 0px 0.5em 0px; }
             body.dark .principal .contenedor .con_form .formulario .section_contenido h5 {
+              color: #ffff; }
+          .principal .contenedor .con_form .formulario .section_contenido p {
+            padding-left: 1em;
+            color: #000000; }
+            body.dark .principal .contenedor .con_form .formulario .section_contenido p {
               color: #ffff; }
           .principal .contenedor .con_form .formulario .section_contenido .oculta {
             display: none; }
@@ -868,9 +878,26 @@ header {
             padding: 0px; }
             body.dark .principal .contenedor .con_form .formulario .section_contenido .filechooser {
               color: #ffff !important; }
+          .principal .contenedor .con_form .formulario .section_contenido .pregunta {
+            border-top: 1vh solid #005E2D; }
+            .principal .contenedor .con_form .formulario .section_contenido .pregunta p {
+              color: #000000; }
+              body.dark .principal .contenedor .con_form .formulario .section_contenido .pregunta p {
+                color: #ffff; }
+          .principal .contenedor .con_form .formulario .section_contenido .multimedia {
+            display: flex;
+            justify-content: center; }
           .principal .contenedor .con_form .formulario .section_contenido .respuesta {
             display: flex;
-            flex-direction: column; }
+            flex-direction: column;
+            align-items: baseline; }
+            .principal .contenedor .con_form .formulario .section_contenido .respuesta .opcion {
+              display: flex;
+              flex-direction: row;
+              align-items: center; }
+              .principal .contenedor .con_form .formulario .section_contenido .respuesta .opcion input {
+                width: auto;
+                margin: 0; }
           .principal .contenedor .con_form .formulario .section_contenido .textarea {
             max-width: none;
             border-color: #009245 !important;

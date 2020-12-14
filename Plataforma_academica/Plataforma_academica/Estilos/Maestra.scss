@@ -94,7 +94,7 @@ header {
             align-self: auto;
 
             img {
-                width: 100%;
+               height:9vh;
             }
         }
 
@@ -997,6 +997,7 @@ header {
             //Estilos de Diplomados Matriculados
             //Estilos Cargar_Contenido
             //Estilo Registrar_Beneficiario
+            //Estilo Practica (Examen)
             .formulario {
                 display: flex;
                 flex-direction: column;
@@ -1210,10 +1211,28 @@ header {
                     order: 0;
                     flex: 0 1 auto;
                     align-self: auto;
-                    //margin: 0px 0px 0.5em 0px;
+                    padding-top: 1em;
+
+                    h4 {
+                        color: $negro;
+
+                        body.dark & {
+                            color: $blanco;
+                        }
+                    }
+
                     h5 {
                         color: $negro;
                         margin: 0px 0px 0.5em 0px;
+
+                        body.dark & {
+                            color: $blanco;
+                        }
+                    }
+
+                    p {
+                        padding-left: 1em;
+                        color: $negro;
 
                         body.dark & {
                             color: $blanco;
@@ -1289,9 +1308,38 @@ header {
                         }
                     }
 
+                    .pregunta {
+                        border-top: 1vh solid $verdeoscuro;
+
+                        p {
+                            color: $negro;
+
+                            body.dark & {
+                                color: $blanco;
+                            }
+                        }
+                    }
+
+                    .multimedia {
+                        display: flex;
+                        justify-content: center;
+                    }
+
                     .respuesta {
                         display: flex;
                         flex-direction: column;
+                        align-items: baseline;
+
+                        .opcion {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+
+                            input {
+                                width: auto;
+                                margin: 0;
+                            }
+                        }
                     }
 
                     .textarea {
