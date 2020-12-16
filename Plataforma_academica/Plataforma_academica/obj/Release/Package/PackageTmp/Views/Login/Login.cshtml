@@ -19,7 +19,7 @@
     <link href="~/Estilos/Login.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width" />
     <title>CEMAQ - Inicio Sesión</title>
-    <link rel="icon" type="image/gif" href="~/Imagenes/cropped-favicom-32x32.png">
+    <link rel="icon" type="image/gif" href="~/Imagenes/CAPYBARA_TOGA.png">
     <script src="~/Scripts/login_campos.js"></script>
     <link href="~/Content/chosen.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
@@ -50,7 +50,7 @@
             <div class="row">
                 <!--Izquierda-->
                 <div class="register-left">
-                    <img src="~/Imagenes/LOGO_CEMAQ.png" alt="" style="width: 20em;"/>                    
+                    <img src="~/Imagenes/Logo Mascota.png" alt=""/>                    
                     <div class="campos" >
                             @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", @placeholder = "Usuario *", @id = "usuario" } })
                             @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
@@ -68,69 +68,72 @@
                         <div class="register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    @Html.DropDownListFor(model => model.tipo_doc, (IEnumerable<SelectListItem>)ViewData["lista1"], "Tipo documento *", htmlAttributes: new { @class = "form-control", @style = "text-transform:uppercase" })
+                                    @Html.DropDownListFor(model => model.tipo_doc, (IEnumerable<SelectListItem>)ViewData["lista1"], "TIPO DOCUMENTO *", htmlAttributes: new { @class = "form-control" })
                                 </div>
+                                
                                 <div class="form-group">
-                                    @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @type = "email", @class = "form-control", @placeholder = "Correo *", @style = "text-transform:uppercase" } })
-                                    @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group">
-                                    @Html.EditorFor(model => model.nombre1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombres *", @style = "text-transform:uppercase" } })
+                                    @Html.EditorFor(model => model.nombre1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombres *", @Style = "text-transform:uppercase" } })
                                     @Html.ValidationMessageFor(model => model.nombre1, "", new { @class = "text-danger" })
                                 </div>
                                 @*<div class="form-group">
                                     @Html.EditorFor(model => model.nombre2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Segundo Nombre" } })
                                     @Html.ValidationMessageFor(model => model.nombre2, "", new { @class = "text-danger" })
                                 </div>*@
+                                
                                 <div class="form-group">
-                                    @Html.EditorFor(model => model.apellido2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Segundo Apellido", @style = "text-transform:uppercase" } })
+                                    @Html.EditorFor(model => model.apellido2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Segundo Apellido", @Style = "text-transform:uppercase" } })
                                     @Html.ValidationMessageFor(model => model.apellido2, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                    @Html.DropDownListFor(model => model.estado_civil, (IEnumerable<SelectListItem>)ViewData["lista8"], "ESTADO CIVIL*", htmlAttributes: new { @class = "form-control"})
+                                    @Html.DropDownListFor(model => model.estado_civil, (IEnumerable<SelectListItem>)ViewData["lista8"], "ESTADO CIVIL *", htmlAttributes: new { @class = "form-control" })
                                 </div>
                                 <div class="form-group">
-                                    @Html.DropDownListFor(model => model.departamento, (IEnumerable<SelectListItem>)ViewData["lista5"], "DEPARTAMENTO*", new { @class = "form-control", id = "departamento" })
+                                    @Html.DropDownListFor(model => model.tipo_sanguineo, (IEnumerable<SelectListItem>)ViewData["lista10"], "GRUPO SANGUINEO *", htmlAttributes: new { @class = "form-control" })
                                 </div>
                                 <div class="form-group">
-                                    @Html.DropDownListFor(model => model.tipo_sanguineo, (IEnumerable<SelectListItem>)ViewData["lista10"], "Grupo Sanguineo *", htmlAttributes: new { @class = "form-control", @style = "text-transform:uppercase" })
+                                    @Html.DropDownListFor(model => model.pais, (IEnumerable<SelectListItem>)ViewData["lista4"], "PAÍS RESIDENCIA *", new { @class = "form-control", id = "pais" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.municipio, (IEnumerable<SelectListItem>)ViewData["lista6"], "MUNICIPIO *", new { @class = "form-control", id = "municipio" })
                                 </div>
                                 <div class="form-group">
                                     @{
                                         string x = DateTime.Now.ToString("yyyy-MM-dd");
                                     }
-                                    @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString(), @style = "text-transform:uppercase" } })
+                                    @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString() } })
                                     @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
                                     <h6>Fecha de nacimiento *</h6>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    @Html.EditorFor(model => model.cedula, new { htmlAttributes = new { @type = "number", @class = "form-control", @placeholder = "N° IDENTIFICACIÓN *" } })
+                                    @Html.EditorFor(model => model.cedula, new { htmlAttributes = new { @type = "number", @class = "form-control", @placeholder = "N° IDENTIFICACION *", @Style = "text-transform:uppercase" } })
                                     @Html.ValidationMessageFor(model => model.cedula, "", new { @class = "text-danger" })
-                                </div>                                
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.apellido1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Apellido *", @Style = "text-transform:uppercase" } })
+                                    @Html.ValidationMessageFor(model => model.apellido1, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @type = "email", @class = "form-control", @placeholder = "Correo *", @Style = "text-transform:uppercase" } })
+                                    @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
+                                </div>
                                 <div class="form-group">
                                     @Html.DropDownListFor(model => model.genero, (IEnumerable<SelectListItem>)ViewData["lista7"], "GENERO *", new { @class = "form-control" })
                                 </div>
                                 <div class="form-group">
-                                    @Html.EditorFor(model => model.apellido1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Primer Apellido *", @style = "text-transform:uppercase" } })
-                                    @Html.ValidationMessageFor(model => model.apellido1, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group">
                                     @Html.DropDownListFor(model => model.tipo_pobla, (IEnumerable<SelectListItem>)ViewData["lista3"], "TIPO POBLACIÓN *", new { @class = "form-control" })
                                 </div>
+                               
                                 <div class="form-group">
-                                    @Html.DropDownListFor(model => model.pais, (IEnumerable<SelectListItem>)ViewData["lista4"], "PAÍS DE RECIDENCIA*", new { @class = "form-control", id = "pais" })
+                                    @Html.DropDownListFor(model => model.departamento, (IEnumerable<SelectListItem>)ViewData["lista5"], "DEPARTAMENTO *", new { @class = "form-control", id = "departamento" })
+                                </div>                    
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.escolaridad, (IEnumerable<SelectListItem>)ViewData["lista9"], "NIVEL ESCOLARIDAD *", htmlAttributes: new { @class = "form-control" })
                                 </div>
                                 <div class="form-group">
-                                    @Html.DropDownListFor(model => model.municipio, (IEnumerable<SelectListItem>)ViewData["lista6"], "MUNICIPIO*", new { @class = "form-control", id = "municipio" })
-                                </div>
-                                <div class="form-group">
-                                    @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @type = "number", @class = "form-control", @placeholder = "N° TELEFONO *" } })
+                                    @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @type = "number", @class = "form-control", @placeholder = "N° Telefono *", @Style = "text-transform:uppercase" } })
                                     @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group">
-                                    @Html.DropDownListFor(model => model.escolaridad, (IEnumerable<SelectListItem>)ViewData["lista9"], "NIVEL ESCOLARIDAD*", htmlAttributes: new { @class = "form-control" })
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Enviar" name="subir1" class="btn btn-primary btn-round btn-lg btn-block" id="envia" />

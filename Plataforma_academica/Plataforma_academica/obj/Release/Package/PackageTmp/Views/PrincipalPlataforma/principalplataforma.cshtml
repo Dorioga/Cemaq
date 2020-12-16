@@ -159,7 +159,7 @@
                         else
                         {
                             <!--Modulo 2-5 -->
-                            if (Convert.ToInt32(arreglo_unidad[i - 1].porcentaje_modulo) < 99)
+                            if (Convert.ToSingle(arreglo_unidad[i - 1].porcentaje_modulo) < 99)
                             {
                                 <button type="submit" disabled="true" class="boton pendiente" @*value="@arreglo_unidad[i].codigo_unidad"*@>
                                     <div class="content-btn">
@@ -334,7 +334,7 @@
                             </div>
                             <div class="cder">
                                 <h1>La actividad fue subida exitosamente</h1>
-                                <img src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                                <img src="~/Imagenes/Logo Mascota.png">
                             </div>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
@@ -370,7 +370,7 @@
                                             <label>@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
                                         </div>
                                         <!--Email-->
-                                        <div class="dinfo">
+                                        <div class="dinfo last">
                                             <i class="fa fa-envelope"></i>
                                             <label>@arreglo_docente[0].email_persona</label>
                                         </div>
@@ -383,8 +383,7 @@
                                         </div>
                                         <!--Logo-->
                                         <div class="logo">
-                                            <label>Formación Virtual</label>
-                                            <img src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                                            <img src="~/Imagenes/Logo Mascota.png">
                                         </div>
 
                                     </div>
@@ -416,7 +415,7 @@
                                             <label>@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
                                         </div>
                                         <!--Email-->
-                                        <div class="dinfo">
+                                        <div class="dinfo last">
                                             <i class="fa fa-envelope"></i>
                                             <label>@arreglo_docente[0].email_persona</label>
                                         </div>
@@ -431,7 +430,7 @@
 
                                         <div class="logo">
                                             <label>Formación Virtual</label>
-                                            <img src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                                            <img src="~/Imagenes/Logo Mascota.png">
                                         </div>
 
                                     </div>
@@ -479,12 +478,12 @@
                                             <div class="cargar">
                                                 <input type="file" name="file" accept=".docx, .pdf" />
                                                 <div class="form-group oculta" id="capa1">
-                                                    @Html.TextAreaFor(model => model.informacion_actividad, new { @class = "form-control", @placeholder = "Descripción del archivo (opcional)" })
+                                                    @Html.TextAreaFor(model => model.informacion_actividad, new { @placeholder = "Descripción del archivo (opcional)" })
                                                 </div>
                                                 <button type="submit" name="irarchivo" class="btn" value="@nx" style="float: right;">Enviar</button>
                                             </div>
                                             <div class="logo">
-                                                <img src="~/Imagenes/cropped-cemaq_logo2-2.png">
+                                                <img src="~/Imagenes/Logo Mascota.png">
                                             </div>
 
                                         </div>

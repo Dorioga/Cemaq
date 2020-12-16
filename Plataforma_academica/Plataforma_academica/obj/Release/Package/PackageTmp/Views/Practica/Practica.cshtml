@@ -49,10 +49,11 @@
                 {
                     Plataforma_academica.Models.principalP act2 = Session["usuarios2"] as Plataforma_academica.Models.principalP;
                     arreglo3 = practica.Consultar_examen_practica(act2.codigo_examen);
-                    <section>
+                    <!--Nombre Examen-->
+                    <section class="section_contenido">
                         <article>
-                            <h2>@Html.LabelFor(Model => arreglo3[0].nombre_examen, arreglo3[0].nombre_examen, new { @class = "" })</h2>
-                            <p>@Html.LabelFor(Model => arreglo3[0].descripcion_examen, arreglo3[0].descripcion_examen, new { @id = "p" })</p>
+                            <h2>@arreglo3[0].nombre_examen</h2>
+                            <p>@arreglo3[0].descripcion_examen </p>
                         </article>
                     </section>
 
@@ -66,8 +67,8 @@
                     {
                         for (int i = 0; i < arreglo.Length; i++)
                         {
-                                int auxiliar = i + 1;
-                                arreglo2 = practica.Consultar_respuestas_practica(act2.codigo_examen, arreglo[i].id_pregunta);
+                            int auxiliar = i + 1;
+                            arreglo2 = practica.Consultar_respuestas_practica(act2.codigo_examen, arreglo[i].id_pregunta);
                             <!--Texto-->
                             if (arreglo[i].id_tipo_multimedia == 3)
                             {
@@ -75,8 +76,7 @@
                                 <section class="section_contenido">
                                     <article>
                                         <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
-                                         @*titulo sub*@
-                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class ="textarea", @disabled = "true" })
+                                        <p> @arreglo[i].contenido_pregunta</p>
                                     </article>
                                 </section>
                                 <!--Respuesta-->
@@ -85,7 +85,11 @@
                                         @{
                                             for (int j = 0; j < arreglo2.Length; j++)
                                             {
-                                                <label><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                <div class="opcion">
+                                                    <input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">
+                                                    <p> @arreglo2[j].contenido_respuesta</p>
+                                                </div>
+
                                             }
                                         }
                                     </article>
@@ -95,25 +99,18 @@
                             if (arreglo[i].id_tipo_multimedia == 1)
                             {<!--Pregunta-->
                                 <section class="section_contenido">
-                                    <article>
+                                    <article class="pregunta">
                                         <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
-                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
+                                        <p>@arreglo[i].contenido_pregunta</p>
                                     </article>
                                 </section>
-                                <section style="border: 1px solid white;">
-                                    <div class="container mt-4">
-                                        <div class="row" style="background-color: #021d3a;box-shadow: 0 1px 0 #cfcfcf00;">
-                                            <div class="col-md-12 mb-4">
-                                                <div class="card">
-                                                    <div class="card-block p-3">
-                                                        <div class="embed-responsive embed-responsive-16by9">
-                                                            <iframe width="560" height="315" src="@arreglo[i].multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <!--Multimedia-->
+                                <section class="section_contenido">
+                                    <article class="multimedia">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe width="560" height="315" src="@arreglo[i].multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         </div>
-                                    </div>
+                                    </article>
                                 </section>
                                 <!--Respuestas-->
                                 <section class="section_contenido">
@@ -121,43 +118,40 @@
                                         @{
                                             for (int j = 0; j < arreglo2.Length; j++)
                                             {
-                                                <label><input type="radio" name="elegida_@i" id="radio_@j" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                <div class="opcion">
+                                                    <input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">
+                                                    <p> @arreglo2[j].contenido_respuesta</p>
+                                                </div>
                                             }
+
                                         }
                                     </article>
                                 </section>
                             }
                             <!--Imagen-->
-
                             if (arreglo[i].id_tipo_multimedia == 2)
                             {
                                 <section class="section_contenido">
                                     <article>
                                         <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
-                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
+                                        <p>@arreglo[i].contenido_pregunta</p>
                                     </article>
                                 </section>
+                                <!--Multimedia-->
                                 <section class="section_contenido">
-                                    <div class="container mt-4">
-                                        <div class="row" style="background-color: #021d3a;box-shadow: 0 1px 0 #cfcfcf00;">
-                                            <div class="col-md-12 mb-4">
-                                                <div class="card">
-                                                    <div class="card-block p-3">
-                                                        <div>
-                                                            <img src="~/imagen_multimedia/@arreglo[i].multimedia" alt="Nature">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <article class="multimedia">
+                                        <img src="~/imagen_multimedia/@arreglo[i].multimedia" alt="Nature">
+                                    </article>
                                 </section>
                                 <section class="section_contenido">
                                     <article class="respuesta">
                                         @{
                                             for (int j = 0; j < arreglo2.Length; j++)
                                             {
-                                                <label><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                <div class="opcion">
+                                                    <input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">
+                                                    <p> @arreglo2[j].contenido_respuesta</p>
+                                                </div>
                                             }
                                         }
                                     </article>
@@ -169,14 +163,16 @@
                                 <section class="section_contenido">
                                     <article>
                                         <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
-                                        @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
+                                        <p>@arreglo[i].contenido_pregunta</p>
                                     </article>
                                 </section>
                                 <!--Audio-->
                                 <section class="section_contenido">
-                                    <audio controls>
-                                        <source src="~/imagen_multimedia/@arreglo[i].multimedia" type="audio/mp3" />
-                                    </audio>
+                                    <article class="multimedia">
+                                        <audio controls>
+                                            <source src="~/imagen_multimedia/@arreglo[i].multimedia" type="audio/mp3" />
+                                        </audio>
+                                    </article>
                                 </section>
                                 <!--Respuesta-->
                                 <section class="section_contenido">
@@ -184,7 +180,10 @@
                                         @{
                                             for (int j = 0; j < arreglo2.Length; j++)
                                             {
-                                                <label><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                <div class="opcion">
+                                                    <input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">
+                                                    <p> @arreglo2[j].contenido_respuesta</p>
+                                                </div>
                                             }
                                         }
                                     </article>
@@ -194,9 +193,9 @@
                     }
                     <!--Boton Calificar-->
                     <section class="section_contenido">
-                                <article>
-                                    <button type="submit" id="subir1" name="calcular" value="@arreglo.Length" class="boton">Calificar</button>
-                                </article>
+                        <article>
+                            <button type="submit" id="subir1" name="calcular" value="@arreglo.Length" class="boton">Calificar</button>
+                        </article>
                     </section>
                     <!--Modal-->
                     if (ViewBag.mensaje1 == "Perdio")
@@ -215,7 +214,7 @@
                         }
                     }
                     <div class="modal fade" id="mostrarmodal4" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                        <div class="modal-dialog" >
+                        <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
 
@@ -234,16 +233,18 @@
                     </div>
                 }
                 else
-                { <!--No es estudiante-->
+                {
+                    <!--No es estudiante-->
                     if (rol < 4 || rol >= 7)
                     {
-                        
+
                         Plataforma_academica.Models.principalP act2 = Session["usuarios10"] as Plataforma_academica.Models.principalP;
                         arreglo3 = practica.Consultar_examen_practica(act2.codigo_examen);
-                        <section>
+                        <!--Nombre Examen-->
+                        <section class="section_contenido">
                             <article>
-                                <h2>@Html.LabelFor(Model => arreglo3[0].nombre_examen, arreglo3[0].nombre_examen, new { @class = "" })</h2>
-                                <p>@Html.LabelFor(Model => arreglo3[0].descripcion_examen, arreglo3[0].descripcion_examen, new { @id = "p" })</p>
+                                <h2>@arreglo3[0].nombre_examen</h2>
+                                <p>@arreglo3[0].descripcion_examen </p>
                             </article>
                         </section>
 
@@ -259,22 +260,27 @@
                             {
                                 int auxiliar = i + 1;
                                 arreglo2 = practica.Consultar_respuestas_practica(act2.codigo_examen, arreglo[i].id_pregunta);
+
                                 <!--Texto-->
                                 if (arreglo[i].id_tipo_multimedia == 3)
-                                {<!--Pregunta-->
+                                {
+                                    <!--Pregunta-->
                                     <section class="section_contenido">
-                                        <article>
+                                        <article class="pregunta">
                                             <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
-                                            @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
+                                            <p>@arreglo[i].contenido_pregunta</p>
                                         </article>
                                     </section>
                                     <!--Respuesta-->
                                     <section class="section_contenido">
-                                        <article>
+                                        <article class="respuesta">
                                             @{
                                                 for (int j = 0; j < arreglo2.Length; j++)
                                                 {
-                                                    <label><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                    <div class="opcion">
+                                                        <input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">
+                                                        <p> @arreglo2[j].contenido_respuesta</p>
+                                                    </div>
                                                 }
                                             }
                                         </article>
@@ -283,33 +289,31 @@
                                 <!--Video-->
                                 if (arreglo[i].id_tipo_multimedia == 1)
                                 {
+                                    <!--Pregunta-->
                                     <section class="section_contenido">
-                                        <article>                                              
+                                        <article class="pregunta">
                                             <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
-                                            @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
+                                            <p>@arreglo[i].contenido_pregunta</p>
+                                        </article>
+                                    </section>
+                                    <!--Multimedia-->
+                                    <section class="section_contenido">
+                                        <article class="multimedia">
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe width="560" height="315" src="@arreglo[i].multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            </div>
                                         </article>
                                     </section>
                                     <section class="section_contenido">
-                                        <div class="container mt-4">
-                                            <div class="row" style="background-color: #021d3a;box-shadow: 0 1px 0 #cfcfcf00;">
-                                                <div class="col-md-12 mb-4">
-                                                    <div class="card">
-                                                        <div class="card-block p-3">
-                                                            <div class="embed-responsive embed-responsive-16by9">
-                                                                <iframe width="560" height="315" src="@arreglo[i].multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <section class="section_contenido">
-                                        <article>
+                                        <!--Respuesta-->
+                                        <article class="respuesta">
                                             @{
                                                 for (int j = 0; j < arreglo2.Length; j++)
                                                 {
-                                                    <label><input type="radio" name="elegida_@i" id="radio_@j" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                    <div class="opcion">
+                                                        <input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">
+                                                        <p> @arreglo2[j].contenido_respuesta</p>
+                                                    </div>
                                                 }
                                             }
                                         </article>
@@ -318,33 +322,30 @@
                                 <!--Imagen-->
                                 if (arreglo[i].id_tipo_multimedia == 2)
                                 {
+                                    <!--Pregunta-->
                                     <section class="section_contenido">
-                                        <article>
+                                        <article class="pregunta">
                                             <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
-                                            @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
+                                            <p>@arreglo[i].contenido_pregunta</p>
                                         </article>
                                     </section>
+                                    <!--Multimedia-->
                                     <section class="section_contenido">
-                                        <div class="container mt-4">
-                                            <div class="row" style="background-color: #021d3a;box-shadow: 0 1px 0 #cfcfcf00;">
-                                                <div class="col-md-12 mb-4">
-                                                    <div class="card">
-                                                        <div class="card-block p-3">
-                                                            <div>
-                                                                <img src="~/imagen_multimedia/@arreglo[i].multimedia" alt="Nature">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <article class="multimedia" >
+                                            <!-- -->
+                                            <img src="~/imagen_multimedia/@arreglo[i].multimedia" alt="Nature">
+                                        </article>
                                     </section>
+                                    <!--Respuesta-->
                                     <section class="section_contenido">
-                                        <article>
+                                        <article class="respuesta">
                                             @{
                                                 for (int j = 0; j < arreglo2.Length; j++)
                                                 {
-                                                    <label><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                    <div class="opcion">
+                                                        <input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">
+                                                        <p> @arreglo2[j].contenido_respuesta</p>
+                                                    </div>
                                                 }
                                             }
                                         </article>
@@ -353,23 +354,32 @@
                                 <!-- Audio-->
                                 if (arreglo[i].id_tipo_multimedia == 4)
                                 {
+                                    <!--Pregunta-->
                                     <section class="section_contenido">
-                                        <article>
+                                        <article class="pregunta">
                                             <h4>Pr. @auxiliar @arreglo[i].nombre_pregunta</h4>
-                                            @Html.TextArea(arreglo[i].contenido_pregunta, arreglo[i].contenido_pregunta, new { @class = "textarea", @disabled = "true" })
+                                            <p>@arreglo[i].contenido_pregunta</p>
                                         </article>
                                     </section>
+                                    <!--Multimedia-->
                                     <section class="section_contenido">
-                                        <audio controls>
-                                            <source src="~/imagen_multimedia/@arreglo[i].multimedia" type="audio/mp3" />
-                                        </audio>
+                                        <article class="multimedia">
+                                            <audio controls>
+                                                <source src="~/imagen_multimedia/@arreglo[i].multimedia" type="audio/mp3" />
+                                            </audio>
+                                        </article>
+                                        
                                     </section>
+                                    <!--Respuesta-->
                                     <section class="section_contenido">
-                                        <article>
+                                        <article class="respuesta">
                                             @{
                                                 for (int j = 0; j < arreglo2.Length; j++)
                                                 {
-                                                    <label><input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">@arreglo2[j].contenido_respuesta</label>
+                                                    <div class="opcion">
+                                                        <input type="radio" name="elegida_@i" value="@arreglo2[j].nombre_condicion">
+                                                        <p> @arreglo2[j].contenido_respuesta</p>
+                                                    </div>
                                                 }
                                             }
                                         </article>
@@ -377,10 +387,11 @@
                                 }
                             }
                         }
+                        <!--Boton Calificar-->
                         <section class="section_contenido">
-                                    <article>
-                                        <button type="submit" id="subir1" name="calcular" value="@arreglo.Length" class="boton">Calificar</button>
-                                    </article>
+                            <article>
+                                <button type="submit" id="subir1" name="calcular" value="@arreglo.Length" class="boton">Calificar</button>
+                            </article>
                         </section>
                     }
 
@@ -401,7 +412,7 @@
                         }
                     }
                     <div class="modal fade" id="mostrarmodal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                        <div class="modal-dialog" >
+                        <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h3>Resultado del examen</h3>
