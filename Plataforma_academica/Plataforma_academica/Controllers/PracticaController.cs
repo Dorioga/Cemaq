@@ -159,7 +159,7 @@ namespace Plataforma_academica.Controllers
                                     if (intentos2 == 2)
                                     {
                                         practica.examen_unidad_nivel = practica.Buscarexamen_codigo(act3.codigo_examen, user.usuario);
-                                        practica.Actualizar_porcentaje_examen(99, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
+                                        practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
                                     }
                                     ViewBag.mensaje3 = "Este es su intento N°: " + intentos2 + " intentos permitidos";
                                 }
