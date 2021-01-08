@@ -198,7 +198,7 @@ header {
             }
 
             .perfil {
-                width: 8vh;
+                width: 7vh;
                 border-radius: 1em;
             }
 
@@ -1279,6 +1279,14 @@ header {
                         }
                     }
 
+                    article {
+                        .cpregunta {
+                            margin-right: 5vw;
+                            height: 3em !important;
+                            margin-bottom:1vw;
+                        }
+                    }
+
                     .boton {
                         border: none;
                         border-radius: 0.5em;
@@ -1307,6 +1315,7 @@ header {
                             color: $blanco !important;
                         }
                     }
+
 
                     .pregunta {
                         border-top: 1vh solid $verdeoscuro;
@@ -1382,6 +1391,18 @@ header {
                         body.dark & {
                             border-color: $verdeazul;
                         }
+                    }
+                }
+
+                .mostrar {
+                    padding-bottom: 1em;
+                }
+
+                .seccion {
+                    border-top: 1em solid $verdeclaro;
+
+                    body.dark & {
+                        border-color: $verdeazul;
                     }
                 }
             }

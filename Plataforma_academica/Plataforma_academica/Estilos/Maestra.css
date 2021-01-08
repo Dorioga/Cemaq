@@ -859,6 +859,10 @@ header {
               outline: none; }
             .principal .contenedor .con_form .formulario .section_contenido select body.dark {
               border-color: #1bbc97; }
+          .principal .contenedor .con_form .formulario .section_contenido article .cpregunta {
+            margin-right: 5vw;
+            height: 3em !important;
+            margin-bottom: 1vw; }
           .principal .contenedor .con_form .formulario .section_contenido .boton {
             border: none;
             border-radius: 0.5em;
@@ -928,6 +932,12 @@ header {
               outline: none; }
             body.dark .principal .contenedor .con_form .formulario .section_contenido .textarea1 {
               border-color: #1bbc97; }
+        .principal .contenedor .con_form .formulario .mostrar {
+          padding-bottom: 1em; }
+        .principal .contenedor .con_form .formulario .seccion {
+          border-top: 1em solid #009245; }
+          body.dark .principal .contenedor .con_form .formulario .seccion {
+            border-color: #1bbc97; }
       .principal .contenedor .con_form .row {
         background-color: #d6d6d6;
         color: #000000;
