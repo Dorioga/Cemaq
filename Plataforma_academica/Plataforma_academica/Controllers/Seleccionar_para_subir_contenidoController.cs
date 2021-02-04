@@ -21,7 +21,7 @@ namespace Plataforma_academica.Controllers
             }
             else
             {
-                String codig = Request.Form["ir1"];
+                string codig = Request.Form["ir"];
 
                 if (codig != null)
                 {

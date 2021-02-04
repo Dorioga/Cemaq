@@ -10,6 +10,12 @@ $rojo: #d9534f;
 
 * {
     transition: color 0.15s ease-in-out;
+    margin:0px;
+    padding:0px;
+
+}
+img{
+    width:5vw;
 }
 
 // Estilos Generales
@@ -94,7 +100,7 @@ header {
             align-self: auto;
 
             img {
-               height:9vh;
+                height: 9vh;
             }
         }
 
@@ -163,26 +169,19 @@ header {
             display: flex;
             align-items: center;
             flex-direction: row;
-            margin: 0px 1em 0px 0px;
             height: 100%;
-            -ms-flex-order: 0;
             order: 0;
-            -webkit-flex: 0 1 auto;
-            -ms-flex: 0 1 auto;
             flex: 0 1 auto;
-            -ms-flex-item-align: auto;
             align-self: auto;
 
 
             .p-2 {
-                flex: 0 0 20%;
                 padding: 0.5em !important;
             }
 
             .nombre {
                 display: flex;
                 flex-direction: column;
-                flex: 0 0 80%;
 
                 div {
                     flex: 0 0 auto;
@@ -200,6 +199,86 @@ header {
             .perfil {
                 width: 7vh;
                 border-radius: 1em;
+            }
+
+            .contenido {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+
+                .logo {
+                    cursor: pointer;
+                    padding: 3vh 1vw 0px 1vw;
+                    height: 100%;
+                    width: 100%;
+                    text-align: center;
+                    color: $blanco;
+                    flex-direction: row;
+                }
+
+                .exterior {
+                    background-color: $verdeoscuro;
+
+                    body.dark & {
+                        background-color: $verdeazul;
+                    }
+                }
+
+                .pie {
+                    border-radius: 0 0 1em 1em;
+                    text-align: center;
+                    flex-direction: row;
+                }
+
+                .lista-menu {
+                    position: absolute;
+                    width: 20vw;
+                    top: 9vh;
+                    left: 80vw;
+                    border-style: solid;
+                    border-color: $verdeoscuro;
+                    height: auto !important;
+
+                    body.dark & {
+                        border-color: $verdeazul;
+                    }
+
+                    .opcion {
+                        background-color: $gris;
+                        border: none;
+                        padding: 0.5em 0px;
+                        font-size: 14px;
+                        border-radius: 0;
+                        z-index: 2;
+
+                        body.dark & {
+                            background-color: $azulclaro;
+                        }
+                    }
+
+                    .opcion a {
+                        color: black;
+
+                        img {
+                            height: 4vh;
+                            margin-left: 0.5vw;
+                        }
+
+                        body.dark & {
+                            color: $blanco;
+                        }
+                    }
+
+                    .opcion a:not([href]):not([tabindex]) {
+                        color: white;
+                        text-decoration: none;
+                    }
+                }
+
+                .active {
+                    display: none;
+                }
             }
 
             @media screen and (max-width:510px) {
@@ -223,89 +302,33 @@ header {
     align-self: auto;
     //Estilos del Menu Izquierdo
     .menu-izq {
-        margin-top: 12vh;
+        margin-top: 10vh;
+        height: 90vh;
         position: fixed;
         float: left;
-        border-radius: 15px;
-        margin-left: 1vw;
-        width: 16vw;
+        width:25vw;
+        background-color: $gris;
 
-        .contenido {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border-radius: 15px;
-            padding: 0px;
-            margin: 0px;
-            list-style: none;
+        .boton {
+            width: 100%;
 
-            .logo {
-                border-radius: 1em 1em 0 0;
-                cursor: pointer;
-                padding-top: 5px;
-                width: 100%;
-                text-align: center;
-                color: $blanco;
+            .content-btn {
+                display: flex;
                 flex-direction: row;
-            }
+                justify-content: center;
+                align-items: center;
 
-            .exterior {
-                background-color: #009245;
-
-                body.dark & {
-                    background-color: $verdeazul;
-                }
-            }
-
-            .pie {
-                border-radius: 0 0 1em 1em;
-                text-align: center;
-                flex-direction: row;
-            }
-
-            .lista-menu {
-                border-style: solid;
-                border-color: $verdeclaro;
-                height: auto !important;
-
-                body.dark & {
-                    border-color: $verdeazul;
+                .izq {
+                    width:5vw;
                 }
 
-                .opcion {
-                    background-color: $gris;
-                    border: none;
-                    padding: 0.5em 0px;
-                    font-size: 14px;
-                    border-radius: 0;
-                    z-index: 2;
-
-                    body.dark & {
-                        background-color: $azulclaro;
-                    }
+                .cent {
+                    width:15vw;
                 }
 
-                .opcion a {
-                    color: black;
-
-                    img {
-                        height: 4vh;
-                        margin-left: 0.5vw;
-                    }
-
-                    body.dark & {
-                        color: $blanco;
-                    }
+                .der {
+                    width:5vw;
                 }
-
-                .opcion a:not([href]):not([tabindex]) {
-                    color: white;
-                    text-decoration: none;
-                }
-            }
-
-            .active {
-                display: none;
             }
         }
     }
@@ -314,7 +337,7 @@ header {
         width: 64vw;
         min-width: 50%;
         margin-top: 12vh;
-        margin-left: 18vw;
+        margin-left: 28vw;
         max-height: 87vh;
         position: relative;
         overflow-y: auto;
@@ -518,6 +541,7 @@ header {
         }
         //Contenedor del Menu, Cargar Contenido, cargar examen
         .con_form {
+            //display:none;
             border-radius: 15px;
             color: white;
 
@@ -1283,7 +1307,7 @@ header {
                         .cpregunta {
                             margin-right: 5vw;
                             height: 3em !important;
-                            margin-bottom:1vw;
+                            margin-bottom: 1vw;
                         }
                     }
 
@@ -1521,6 +1545,7 @@ header {
         }
         //Pie de Pagina
         footer p {
+            display:none;
             color: $negro;
             margin-top: 0.5em;
             margin-bottom: 0.5em;
@@ -1530,7 +1555,7 @@ header {
             }
         }
     }
-    //Estilos del Menu Derecho
+    /*Estilos del Menu Derecho
     .menu-der {
         right: 0px;
         position: fixed;
@@ -1549,6 +1574,7 @@ header {
             background-color: $azulclaro;
         }
     }
+        */
 }
 //ScrollBar
 /* width */

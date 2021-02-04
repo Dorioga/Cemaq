@@ -5,9 +5,10 @@ const pie = document.getElementById('abajo');
 
 logo.addEventListener('click', function () {
     menu.classList.toggle('active');
-    logo.classList.toggle('ordenar')
-    pie.classList.toggle('ordenar')
+    logo.classList.toggle('ordenar');
+    pie.classList.toggle('active');
     if (menu.classList.contains('active')) {
+
         //Se guarda en Local Storage la configuracion c
         localStorage.setItem('menu', 'true');
     } else {
@@ -22,22 +23,22 @@ if (localStorage.getItem('menu') === 'true') {
     if (menu.classList.contains('active')) {
         menu.classList.remove('active');
         logo.classList.remove('ordenar')
-        pie.classList.remove('ordenar')
+        pie.classList.remove('active')
     } else {
         menu.classList.add('active');
         logo.classList.add('ordenar')
-        pie.classList.add('ordenar')
+        pie.classList.add('active')
     }
     
 } else {
     if (menu.classList.contains('active')) {
         menu.classList.add('active');
         logo.classList.add('ordenar')
-        pie.classList.add('ordenar')  
+        pie.classList.add('active')  
     } else {    
         menu.classList.remove('active');
         logo.classList.remove('ordenar')
-        pie.classList.remove('ordenar')
+        pie.classList.remove('active')
     }
 }
 //Cuando se active la vista responsive

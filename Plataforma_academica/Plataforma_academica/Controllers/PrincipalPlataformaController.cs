@@ -33,7 +33,6 @@ namespace Plataforma_academica.Controllers
                 //}
                 String codig = Request.Form["ir"];
 
-
                 if (codig != null)
                 {
                     TempData["mensaje9"] = codig;
