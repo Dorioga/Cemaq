@@ -12,10 +12,6 @@ $rojo: #d9534f;
     transition: color 0.15s ease-in-out;
     margin:0px;
     padding:0px;
-
-}
-img{
-    width:5vw;
 }
 
 // Estilos Generales
@@ -37,15 +33,14 @@ body {
 
 //Encabezado
 header {
-    height: 10vh;
+    height: 6vh;
+    min-height:7vh;
     flex-direction: row;
     position: fixed;
     width: 100%;
     top: 0%;
     z-index: 999;
-    -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
-    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
+
     -ms-flex-order: 0;
     order: 0;
     -webkit-flex: 0 1 auto;
@@ -56,34 +51,23 @@ header {
 
     .navbar {
         border-radius: 0px;
+        min-height:7vh;
         background-color: $verdeoscuro;
-        color: #FFFFFF;
+        color: $blanco;
         height: 100%;
-        margin: 0px;
-        padding: 0px;
-        display: -ms-flexbox;
-        display: -webkit-flex;
         display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
+        margin:0px;
+        padding:0px;
         flex-direction: row;
-        -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
-        -webkit-justify-content: flex-start;
-        -ms-flex-pack: start;
         justify-content: flex-start;
-        -webkit-align-content: stretch;
-        -ms-flex-line-pack: stretch;
         align-content: stretch;
-        -webkit-align-items: flex-start;
-        -ms-flex-align: start;
         align-items: flex-start;
 
         body.dark & {
             background-color: $azuloscuro;
         }
-
+        //Icono de CEMAQ
         .icono {
             height: 100%;
             display: flex;
@@ -91,31 +75,24 @@ header {
             justify-content: center;
             padding: 0px;
             margin: 0px 0px 0px 1em;
-            -ms-flex-order: 0;
             order: 0;
-            -webkit-flex: 0 1 10vw;
-            -ms-flex: 0 1 10vw;
             flex: 0 1 10vw;
-            -ms-flex-item-align: auto;
             align-self: auto;
 
             img {
-                height: 9vh;
+                height: 5vh;
             }
         }
 
+        //Modo Oscuro
         .slidermodo {
             height: 100%;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            -ms-flex-order: 0;
             order: 0;
-            -webkit-flex: 2 1 auto;
-            -ms-flex: 2 1 auto;
             flex: 2 1 auto;
-            -ms-flex-item-align: auto;
             align-self: auto;
 
             .switch {
@@ -165,6 +142,7 @@ header {
             }
         }
 
+        //Informacion
         .info {
             display: flex;
             align-items: center;
@@ -193,11 +171,14 @@ header {
 
                 label {
                     flex: 0 0 auto;
+                    margin:0px;
+                    padding:0px;
+                    font-size:2vh;
                 }
             }
 
             .perfil {
-                width: 7vh;
+                height:6vh;
                 border-radius: 1em;
             }
 
@@ -206,10 +187,10 @@ header {
                 display: flex;
                 flex-direction: column;
                 list-style: none;
+                padding:1em;
 
                 .logo {
                     cursor: pointer;
-                    padding: 3vh 1vw 0px 1vw;
                     height: 100%;
                     width: 100%;
                     text-align: center;
@@ -234,7 +215,7 @@ header {
                 .lista-menu {
                     position: absolute;
                     width: 20vw;
-                    top: 9vh;
+                    top: 6vh;
                     left: 80vw;
                     border-style: solid;
                     border-color: $verdeoscuro;
@@ -302,11 +283,11 @@ header {
     align-self: auto;
     //Estilos del Menu Izquierdo
     .menu-izq {
-        margin-top: 10vh;
-        height: 90vh;
+        margin-top: 7vh;
+        height: 93vh;
         position: fixed;
         float: left;
-        width:25vw;
+        width: 25vw;
         background-color: $gris;
 
         .boton {
@@ -317,29 +298,45 @@ header {
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
+                padding:1vh;
+                img{
+                    height:2vh;
+                }
 
                 .izq {
-                    width:5vw;
+                    width: 5vw;
                 }
 
                 .cent {
-                    width:15vw;
+                    flex:2 1 15vw;
+                    .nom{
+                        padding:0px;
+                        margin:0px;
+                    }
                 }
 
                 .der {
-                    width:5vw;
+                    width: 5vw;
+                    .msjem{
+                        font-weight:bold;
+
+                    }
                 }
             }
         }
     }
     //Contendor Cambiante
     .contenedor {
-        width: 64vw;
+        width: 75vw;
         min-width: 50%;
-        margin-top: 12vh;
-        margin-left: 28vw;
-        max-height: 87vh;
+        margin-top: 7vh;
+        margin-left: 25vw;
+        min-height: 93vh;
         position: relative;
+        background-image: url('/Imagenes/LOGO CEMAQ Negro.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
         overflow-y: auto;
         -webkit-transition: left 0.3s ease-in-out;
         -o-transition: left 0.3s ease-in-out;
@@ -347,11 +344,10 @@ header {
         //Contenedor del Libro
         .bb-custom-wrapper {
             display: flex;
-            border-radius: 15px;
             flex-direction: row;
             width: 100%;
             background: $verdeclaro;
-            height: 86vh;
+            height: 93vh;
             padding: 1em;
 
             body.dark & {
@@ -444,9 +440,6 @@ header {
             .bb-item {
                 background: $gris !important;
                 border-radius: 1em;
-                height: auto !important;
-                min-height: 81.5vh;
-                max-height: 81.5vh;
                 overflow-y: auto;
                 font-family: TimesNewRoman;
 
@@ -542,7 +535,6 @@ header {
         //Contenedor del Menu, Cargar Contenido, cargar examen
         .con_form {
             //display:none;
-            border-radius: 15px;
             color: white;
 
             .active {
@@ -745,14 +737,6 @@ header {
                         }
                     }
                 }
-            }
-
-            .first {
-                border-radius: 5px 5px 0px 0px;
-            }
-
-            .last {
-                border-radius: 0px 0px 5px 5px;
             }
             //modal
             .modal {
@@ -1026,10 +1010,11 @@ header {
                 display: flex;
                 flex-direction: column;
                 padding: 1em;
+                min-height: 93vh;
+                overflow-y: auto;
                 border: solid;
-                background-color: $gris;
+                background-color: rgba($gris, 0.5);
                 border-color: $verdeclaro;
-                border-radius: 15px;
 
                 h1 {
                     color: $negro;
@@ -1432,16 +1417,13 @@ header {
             }
             //Contenedor Principal_Todos
             .row {
-                background-color: $gris;
+                background-color: rgba($gris, 0.7);
                 color: $negro;
                 padding: 1em;
                 display: flex;
                 flex-direction: row;
                 margin: 0px;
-                border-radius: 1em;
-                border: solid;
-                border-color: $verdeclaro;
-                box-shadow: 0 1px 0 #cfcfcf;
+                height:93vh;
 
                 body.dark & {
                     background: $azulclaro;
@@ -1545,7 +1527,7 @@ header {
         }
         //Pie de Pagina
         footer p {
-            display:none;
+            display: none;
             color: $negro;
             margin-top: 0.5em;
             margin-bottom: 0.5em;
@@ -1594,6 +1576,7 @@ header {
     background: #555;
 }
 //Responsive
+/*
 @media (max-width: 700px) {
 
     header {
@@ -1808,3 +1791,4 @@ header {
         }
     }
 }
+    */

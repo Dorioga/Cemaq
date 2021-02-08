@@ -67,7 +67,7 @@
         <nav class="navbar" id="head">
             <!--Logo -->
             <a href="javascript:" onclick="window.open('https://cemaq.com.co/');" class="navbar-brand icono">
-                <img src="~/Imagenes/Logo Mascota.png"><img>
+                <img src="~/Imagenes/LOGO CEMAQ PNG.png"></img>
             </a>
             <!-- Checkbox Color  -->
             <div class="slidermodo">
@@ -90,7 +90,6 @@
                             if (Convert.ToInt32(usu.rol) < 4 || Convert.ToInt32(usu.rol) > 6)
                             {
                                 <div>
-                                    <img src="~/Imagenes/user-tie-solid.svg" />
                                     @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })
                                 </div>
 
@@ -102,7 +101,6 @@
                             else
                             {
                                 <div>
-                                    <img src="~/imagen_multimedia/usuario.svg" />
                                     @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })
                                 </div>
 
@@ -240,7 +238,9 @@
                                         </div>
                                     </button>
                                     <div class="contener" id="modulo">
+                                        
                                         @{
+                                            //Modulo
                                             if (TempData["mensaje9"] != null && usu != null)
                                             {
                                                 TempData.Keep("mensaje9");
@@ -253,8 +253,12 @@
                                                 <!--Boton De Inforamcion del Docente-->
                                                 <button class="boton" data-target="#mostrarmodal2" data-toggle="modal">
                                                     <div class="content-btn">
-                                                        <img src="~/imagen_multimedia/Presentacion Docente.png" />
-                                                        <span><strong>Información docente</strong></span>
+                                                        <section class="izq"></section>
+                                                        <section class="cent">
+                                                            <span><strong>Información docente</strong></span>
+                                                        </section>
+                                                        <!--<img src="~/imagen_multimedia/Presentacion Docente.png" />-->
+
                                                     </div>
                                                 </button>
 
@@ -265,13 +269,16 @@
                                                     {
                                                         <button type="submit" class="boton" name="irrr" value="@arreglo_unidad[j].codigo_unidad">
                                                             <div class="content-btn">
-                                                                <img src="~/imagen_multimedia/Modulo.png" />
-                                                                <div class="progress ">
-                                                                    <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_unidad[j].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                                                        <h6 class="porcentaje">@arreglo_unidad[j].porcentaje_modulo%</h6>
+                                                                <section class="izq"></section>
+                                                                <section class="cent">
+                                                                    <p class="nom">@arreglo_unidad[j].nombre_unidad</p>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_unidad[j].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                                                            <h6 class="porcentaje">@arreglo_unidad[j].porcentaje_modulo%</h6>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <p class="nom">@arreglo_unidad[j].nombre_unidad</p>
+                                                                </section>                                                           
+                                                                
                                                             </div>
                                                             <script>
                                                                 var checkBox = document.getElementById("unidad");
@@ -286,9 +293,12 @@
                                                         {
                                                             <button type="submit" disabled="true" class="boton pendiente" @*value="@arreglo_unidad[i].codigo_unidad"*@>
                                                                 <div class="content-btn">
-                                                                    <img src="~/imagen_multimedia/Modulo.png" />
-                                                                    <span class="msjem" id="msejem">Anterior modulo pendiente</span>
-                                                                    <p class="nom">@arreglo_unidad[j].nombre_unidad</p>
+                                                                    <section class="izq"></section>
+                                                                    <section class="cent"><p class="nom">@arreglo_unidad[j].nombre_unidad</p></section>
+                                                                    <section class="der"><span class="msjem" id="msejem">Modulo Pendiente</span> </section>
+                                                                    <!--<img src="~/imagen_multimedia/Modulo.png" />-->
+                                                                    
+                                                                    
                                                                 </div>
                                                             </button>
                                                         }
@@ -378,7 +388,6 @@
                                     <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso">
                                         <div class="content-btn">
                                             <section class="izq">
-                                                <img src="~/imagenes/@arreglop[i].url" />
                                             </section>
                                             <section class="cent">
                                                 <p class="nom">@arreglop[i].nombre_curso</p>
@@ -392,6 +401,7 @@
 
                                     if (TempData["mensaje10"] != null && usu != null)
                                     {
+                                                                    //Modulos
                                         TempData.Keep("mensaje10");
                                         string nc = Convert.ToString(TempData["mensaje10"]);
                                         arreglo_unidad = unidad.Consultar_unidades_grupo(nc);
@@ -400,8 +410,11 @@
                                         {
                                             <button type="submit" class="boton" name="ir3" value="@arreglo_unidad[j].codigo_unidad">
                                                 <div class="content-btn">
-                                                    <img src="~/imagen_multimedia/Modulo.png" />
-                                                    <p>@arreglo_unidad[j].nombre_unidad</p>
+                                                    <section class="izq"></section>
+                                                    <section class="cent">
+                                                        <p>@arreglo_unidad[j].nombre_unidad</p>
+                                                    </section>
+                                                    
                                                 </div>
                                                 <script>
                                                     var checkBox = document.getElementById("unidad");
