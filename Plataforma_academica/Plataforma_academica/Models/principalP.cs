@@ -84,8 +84,8 @@ namespace Plataforma_academica.Models
                 arreglo[j].fecha_cierre = Convert.ToDateTime(i["fecha_cierre"].ToString());
                 arreglo[j].codigo_curso_usaurio = i["Id_curso_usuario"].ToString();
                 arreglo[j].nombre_unidad = i["Nombre Unidad"].ToString();
-                arreglo[j].codigo_unidad = i["Codigo Curso nivel"].ToString();
-                arreglo[j].codigo_curso_nivel = i["Codigo Unidad"].ToString();
+                arreglo[j].codigo_unidad = i["Codigo unidad"].ToString();
+                arreglo[j].codigo_curso_nivel = i["Codigo Curso nivel"].ToString();
                 arreglo[j].porcentaje_modulo = i["porcentaje"].ToString();
                 arreglo[j].presentacion = i["presentacion"].ToString();
                 j++;
