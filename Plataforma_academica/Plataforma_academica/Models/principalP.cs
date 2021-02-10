@@ -18,6 +18,81 @@ namespace Plataforma_academica.Models
         public DateTime fecha_cierre  { set; get; }
         public string codigo_curso_usaurio { set; get; }
         private Conexion.Conexion conexion;
+        public string nombre_unidad { set; get; }
+        public string codigo_curso_nivel { set; get; }
+        public string codigo_unidad { set; get; }
+        public string porcentaje_modulo { set; get; }
+        public string presentacion { set; get; }
+
+        public principalP[] Buscar_diplomados_modulos_general()
+        {
+            //Login (Se realiza la verificacion del usuario y su contraseña)
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable menu = con.Execute_Query("call Pr_cargar_diplomados_modulos_general()");
+            principalP[] arreglo = new principalP[menu.Rows.Count];
+            int j = 0;
+            foreach (DataRow i in menu.Rows)
+            {
+                arreglo[j] = new principalP();
+                arreglo[j].nombre_curso = i["nombre_curso"].ToString();
+                arreglo[j].codigo_curso = i["id_curso"].ToString();
+                arreglo[j].url = i["Url_imagen_curso"].ToString();
+                arreglo[j].nombre_unidad = i["nombre_unidad"].ToString();
+                arreglo[j].codigo_unidad = i["id_unidad"].ToString();
+                arreglo[j].codigo_curso_nivel = i["Curso_nivelid_curso_nivel"].ToString();
+                j++;
+            }
+            return arreglo;
+
+        }
+
+        public principalP[] Buscar_diplomados_modulos_docente(string id_usuario)
+        {
+            //Login (Se realiza la verificacion del usuario y su contraseña)
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable menu = con.Execute_Query("call Pr_cargar_diplomados_modulos_docente('" + id_usuario + "')");
+            principalP[] arreglo = new principalP[menu.Rows.Count];
+            int j = 0;
+            foreach (DataRow i in menu.Rows)
+            {
+                arreglo[j] = new principalP();
+                arreglo[j].nombre_curso = i["nombre_curso"].ToString();
+                arreglo[j].codigo_curso = i["id_curso"].ToString();
+                arreglo[j].url = i["Url_imagen_curso"].ToString();
+                arreglo[j].nombre_unidad = i["nombre_unidad"].ToString();
+                arreglo[j].codigo_unidad = i["id_unidad"].ToString();
+                arreglo[j].codigo_curso_nivel = i["Curso_nivelid_curso_nivel"].ToString();
+                j++;
+            }
+            return arreglo;
+
+        }
+
+        public principalP[] Buscar_Cursos_Diplomados_Estudiante(string cc)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            DataTable diplomado_modulo = con.Execute_Query("call Pr_cargar_diplomados_modulos_estudiante(" + cc + ")");
+            principalP[] arreglo = new principalP[diplomado_modulo.Rows.Count];
+            int j = 0;
+            foreach (DataRow i in diplomado_modulo.Rows)
+            {
+                arreglo[j] = new principalP();
+                arreglo[j].nombre_curso = i["curso"].ToString();
+                arreglo[j].codigo_curso = i["codigo curso"].ToString();
+                arreglo[j].porcentaje_diplomado = i["porcentaje"].ToString();
+                arreglo[j].url = i["Url_imagen_curso"].ToString();
+                arreglo[j].fecha_cierre = Convert.ToDateTime(i["fecha_cierre"].ToString());
+                arreglo[j].codigo_curso_usaurio = i["Id_curso_usuario"].ToString();
+                arreglo[j].nombre_unidad = i["Nombre Unidad"].ToString();
+                arreglo[j].codigo_unidad = i["Codigo Curso nivel"].ToString();
+                arreglo[j].codigo_curso_nivel = i["Codigo Unidad"].ToString();
+                arreglo[j].porcentaje_modulo = i["porcentaje"].ToString();
+                arreglo[j].presentacion = i["presentacion"].ToString();
+                j++;
+            }
+            return arreglo;
+
+        }
 
         public principalP[] BuscarCursos(string cc)
         {

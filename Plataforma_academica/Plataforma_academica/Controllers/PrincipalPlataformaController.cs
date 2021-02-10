@@ -55,9 +55,9 @@ namespace Plataforma_academica.Controllers
                                 principalP act1 = new principalP();
                                 act1.codigo_actividad = codig4;
                                 Session["usuario3"] = act1;
-                                ViewBag.mensaje = "actividad";
-                                return View();
-                            //return RedirectToAction("Actividades", "Actividades"); 
+                                //ViewBag.mensaje = "actividad";
+                                //return View();
+                            return RedirectToAction("Actividades", "Actividades"); 
                         }
                         else
                             {

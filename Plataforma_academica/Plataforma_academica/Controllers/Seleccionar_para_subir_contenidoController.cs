@@ -78,9 +78,8 @@ namespace Plataforma_academica.Controllers
                                     String unidad = Convert.ToString(TempData["mensaje12"]);
                                     unid1.codigo_unidad = unidad;
                                     Session["uni"] = unid1;
-                                    ViewBag.mensaje = "actividad";
-                                    return View();
-                                    //return RedirectToAction("Actividades", "Actividades");
+                                    //ViewBag.mensaje = "actividad";                                    
+                                    return RedirectToAction("Actividades", "Actividades");
                                 }
                                 else
                                 {
