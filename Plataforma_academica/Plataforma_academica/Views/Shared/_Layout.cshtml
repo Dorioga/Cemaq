@@ -239,32 +239,38 @@
                                    if (i % 5 == 0)
                                    {
                                     <ul>
-                                        <div class="content-btn">
-                                            <section class="izq"></section>
-                                            <section class="cent">
-                                                <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
-                                            </section>
-                                        </div>
-                                        <li type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso_nivel">
+                                        <button>
+                                            <div class="content-btn">
+                                                <section class="izq"></section>
+                                                <section class="cent">
+                                                    <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
+                                                </section>
+                                            </div>
+                                        </button>
+                                        <li>
+                                            <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso_nivel">
+                                                <div class="content-btn">
+                                                    <section class="izq"></section>
+                                                    <section class="cent">
+                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                    </section>
+                                                </div>
+                                            </button>
+                                        </li>
+                                    </ul>
+
+                                   }
+                                   else
+                                   {
+                                    <li>
+                                        <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso_nivel">
                                             <div class="content-btn">
                                                 <section class="izq"></section>
                                                 <section class="cent">
                                                     <p class="nom">@arreglop[i].nombre_unidad</p>
                                                 </section>
                                             </div>
-                                        </li>
-                                    </ul>
-                                    
-                                   }
-                                   else
-                                   {
-                                    <li type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso_nivel">
-                                        <div class="content-btn">
-                                            <section class="izq"></section>
-                                            <section class="cent">
-                                                <p class="nom">@arreglop[i].nombre_unidad</p>
-                                            </section>
-                                        </div>
+                                        </button>
                                     </li>
                                    }
                                }
