@@ -36,7 +36,7 @@
     <main class="con_form">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <!--Diplomados-->
+        @*Diplomados
         <div class="contenercheck first" id="bdiplomado">
             <span>
                 <p>Diplomados</p>
@@ -56,7 +56,7 @@
 
                     for (int i = 0; i < arreglo.Length; i++)
                     {
-                        @*if (DateTime.Today < arreglo[i].fecha_cierre)
+                        if (DateTime.Today < arreglo[i].fecha_cierre)
                         {
                             TimeSpan dias_faltantes = arreglo[i].fecha_cierre - DateTime.Today;
                             <button type="submit" class="boton pendiente" name="ir" value="@arreglo[i].codigo_curso">
@@ -103,12 +103,12 @@
                                 });
                                 </script>
                             }
-                        }*@
+                        }
                     }
                 }
             }
         </div>
-        <!--Modulos-->
+        Modulos
         <div class="contenercheck" id="bmodulo">
             <span>
                 <p>Modulos</p>
@@ -159,7 +159,7 @@
                             <!--Modulo 2-5 -->
                             if (Convert.ToSingle(arreglo_unidad[i - 1].porcentaje_modulo) < 99)
                             {
-                                <button type="submit" disabled="true" class="boton pendiente" @*value="@arreglo_unidad[i].codigo_unidad"*@>
+                                <button type="submit" disabled="true" class="boton pendiente">
                                     <div class="content-btn">
                                         <img src="~/imagen_multimedia/Modulo.png" />
                                         <span class="msjem" id="msejem">Anterior modulo pendiente</span>
@@ -191,7 +191,7 @@
                     <a> Elija un Diplomado</a>
                 }
             }
-        </div>
+       </div>*@
 
         <!--Actividades-->
         <div class="contenercheck" id="bactividad">

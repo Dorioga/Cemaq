@@ -166,7 +166,12 @@
                                             <a href="http://pizarravirtualamazoniantic.azurewebsites.net/" target="_blank">
                                                 <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
                                             </a>*@
-                                        <img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
+                                        <div class="opcion">
+                                            
+                                            <a href="/Editar_perfil/Editar_perfil">
+                                                <img src="~/Imagenes/CAPYBARA_TOGA.png" data-toggle="modal" data-target="#myModal" /> Editar Perfil
+                                            </a>
+                                        </div>
 
 
                                     }
@@ -175,11 +180,18 @@
                                         @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />*@
                                         @*<a href="#"><img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal1" /></a>
                                             <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>*@
-                                        <a href="/Editar_perfil/Editar_perfil"><img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" /></a>
+                                        
+                                        <div class="opcion">
+                                            
+                                            <a href="/Editar_perfil/Editar_perfil">
+                                                <img src="~/Imagenes/CAPYBARA_TOGA.png" /> Editar PErfil
+                                            </a>
+                                        </div>
                                     }
                                 }
                             }
                             <div class="opcion">
+                                <hr />
                                 <a href="/Login/cerrarsesion">
                                     <img src="~/Imagenes/CAPYBARA_TOGA.png" /> Cerrar Sesion
                                 </a>
@@ -224,11 +236,14 @@
                        @{
                            if (Convert.ToInt32(usu.rol) == 4)
                            {
-                        <!--Estudiante-->
-                               //   using (Html.BeginForm("principalplataforma", "PrincipalPlataforma", FormMethod.Post, new { enctype = "multipart/form-data" })){
-
-
                                arreglop = principal.Buscar_Cursos_Diplomados_Estudiante(usu.cedula);
+                               if (arreglop.Length == 0)
+                               {
+                                <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
+                                //aqui debe ir el recogido
+                               }
+                        <!--Estudiante-->
+                               using (Html.BeginForm("principalplataforma", "PrincipalPlataforma", FormMethod.Post, new { enctype = "multipart/form-data" })){                               
                                if (arreglop.Length == 0)
                                {
                                 <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
@@ -248,7 +263,7 @@
                                             </div>
                                         </button>
                                         <li>
-                                            <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso_nivel">
+                                            <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
                                                 <div class="content-btn">
                                                     <section class="izq"></section>
                                                     <section class="cent">
@@ -263,7 +278,7 @@
                                    else
                                    {
                                     <li>
-                                        <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso_nivel">
+                                        <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
                                             <div class="content-btn">
                                                 <section class="izq"></section>
                                                 <section class="cent">
@@ -276,7 +291,7 @@
                                }
 
                            }
-                           //}
+                          }
 
                            else
                            {
@@ -300,33 +315,39 @@
                                {
                                    if (i % 5 == 0)
                                    {
-                                    <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso">
-                                        <div class="content-btn">
-                                            <section class="izq"></section>
-                                            <section class="cent">
-                                                <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
-                                            </section>
-                                        </div>
-                                    </button>
-                                    <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
-                                        <div class="content-btn">
-                                            <section class="izq"></section>
-                                            <section class="cent">
-                                                <p class="nom">@arreglop[i].nombre_unidad</p>
-                                            </section>
-                                        </div>
-                                    </button>
+                                    <ul>
+                                        <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso">
+                                            <div class="content-btn">
+                                                <section class="izq"></section>
+                                                <section class="cent">
+                                                    <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
+                                                </section>
+                                            </div>
+                                        </button>
+                                        <li>
+                                            <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
+                                                <div class="content-btn">
+                                                    <section class="izq"></section>
+                                                    <section class="cent">
+                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                    </section>
+                                                </div>
+                                            </button>
+                                        </li>
+                                    </ul>                                    
                                    }
                                    else
                                    {
-                                    <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
-                                        <div class="content-btn">
-                                            <section class="izq"></section>
-                                            <section class="cent">
-                                                <p class="nom">@arreglop[i].nombre_unidad</p>
-                                            </section>
-                                        </div>
-                                    </button>
+                                    <li>
+                                        <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
+                                            <div class="content-btn">
+                                                <section class="izq"></section>
+                                                <section class="cent">
+                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                </section>
+                                            </div>
+                                        </button>
+                                    </li>
                                    }
 
 
