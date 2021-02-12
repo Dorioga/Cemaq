@@ -1,17 +1,24 @@
-﻿$verdeclaro: #009245;
-$verdeoscuro: #005E2D;
+﻿$verdeclaro: #c0dfac;
+$verdeoscuro: #69b545;
 $verdeazul: #1bbc97;
 $blanco: #ffff;
 $gris: #d6d6d6;
 $negro: #000000;
+$azul: #50687a;
 $azuloscuro: #17223b;
-$azulclaro: #263859;
+$azulclaro: #317a8e;
 $rojo: #d9534f;
+
+@font-face {
+    font-family: "Champagne & Limousines";
+    src: url("'/fonts/Champagne & Limousines.ttf'");
+}
 
 * {
     transition: color 0.15s ease-in-out;
-    margin:0px;
-    padding:0px;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Champagne & Limousines';
 }
 
 // Estilos Generales
@@ -34,13 +41,12 @@ body {
 //Encabezado
 header {
     height: 6vh;
-    min-height:7vh;
+    min-height: 7vh;
     flex-direction: row;
     position: fixed;
     width: 100%;
     top: 0%;
     z-index: 999;
-
     -ms-flex-order: 0;
     order: 0;
     -webkit-flex: 0 1 auto;
@@ -51,13 +57,13 @@ header {
 
     .navbar {
         border-radius: 0px;
-        min-height:7vh;
+        min-height: 7vh;
         background-color: $verdeoscuro;
         color: $blanco;
         height: 100%;
         display: flex;
-        margin:0px;
-        padding:0px;
+        margin: 0px;
+        padding: 0px;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: flex-start;
@@ -80,10 +86,9 @@ header {
             align-self: auto;
 
             img {
-                height: 5vh;
+                height: 7vh;
             }
         }
-
         //Modo Oscuro
         .slidermodo {
             height: 100%;
@@ -111,7 +116,8 @@ header {
                     width: 4vh;
                     height: 4vh;
                     position: absolute;
-                    background: $blanco;
+                    background: $verdeoscuro;
+                    border: solid 1px $verdeclaro;
                     top: 0;
                     left: 0;
                     right: unset;
@@ -137,11 +143,10 @@ header {
                     line-height: 4vh;
                     display: block;
                     background: none;
-                    color: $blanco;
+                    color: $verdeoscuro;
                 }
             }
         }
-
         //Informacion
         .info {
             display: flex;
@@ -151,7 +156,7 @@ header {
             order: 0;
             flex: 0 1 auto;
             align-self: auto;
-
+            color: $negro;
 
             .p-2 {
                 padding: 0.5em !important;
@@ -171,14 +176,14 @@ header {
 
                 label {
                     flex: 0 0 auto;
-                    margin:0px;
-                    padding:0px;
-                    font-size:2vh;
+                    margin: 0px;
+                    padding: 0px;
+                    font-size: 2vh;
                 }
             }
 
             .perfil {
-                height:6vh;
+                height: 6vh;
                 border-radius: 1em;
             }
 
@@ -187,14 +192,14 @@ header {
                 display: flex;
                 flex-direction: column;
                 list-style: none;
-                padding:1em;
+                padding: 1em;
 
                 .logo {
                     cursor: pointer;
                     height: 100%;
                     width: 100%;
                     text-align: center;
-                    color: $blanco;
+                    color: $azul;
                     flex-direction: row;
                 }
 
@@ -288,39 +293,130 @@ header {
         position: fixed;
         float: left;
         width: 25vw;
-        background-color: $gris;
+        background-color: $verdeclaro;
 
-        .boton {
-            width: 100%;
+        .buscar {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            align-items: center;
+            height: 5vh;
 
-            .content-btn {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                padding:1vh;
-                img{
-                    height:2vh;
-                }
+            div {
+                height: 100%;
+            }
 
-                .izq {
-                    width: 5vw;
-                }
+            #bus {
+                flex: 2 1 auto;
+                background-color: $verdeclaro;
+            }
 
-                .cent {
-                    flex:2 1 15vw;
-                    .nom{
-                        padding:0px;
-                        margin:0px;
+            #ocultar {
+                flex: 1 1 auto;
+                background-color: $verdeoscuro;
+                cursor: pointer;
+            }
+
+            p {
+                font-weight: bold;
+                margin: 0px;
+                padding: 0px;
+            }
+        }
+
+        .botones {
+            overflow: auto;
+            max-height: 88vh;
+
+
+            ul {
+                li {
+                    text-align: center;
+                    cursor:pointer;
+
+                    .boton {
+                        width: 100%;
+
+                        .content-btn {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 1vh;
+
+                            img {
+                                height: 2vh;
+                            }
+
+                            .izq {
+                                width: 5vw;
+                            }
+
+                            .cent {
+                                flex: 2 1 15vw;
+
+                                .nom {
+                                    padding: 0px;
+                                    margin: 0px;
+                                }
+                            }
+
+                            .der {
+                                width: 5vw;
+
+                                .msjem {
+                                    font-weight: bold;
+                                }
+                            }
+                        }
                     }
                 }
 
-                .der {
-                    width: 5vw;
-                    .msjem{
-                        font-weight:bold;
+                .active{
+                    display:block !important;
+                }
+                .titulo {
+                    color: $azul;
+                    padding: 1vh;
+                    border-bottom: solid 1vh $azul;
 
+                    .content-btn {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 1vh;
+
+                        img {
+                            height: 2vh;
+                        }
+
+                        .izq {
+                            width: 5vw;
+                        }
+
+                        .cent {
+                            flex: 2 1 15vw;
+
+                            .nom {
+                                padding: 0px;
+                                margin: 0px;
+                            }
+                        }
+
+                        .der {
+                            width: 5vw;
+
+                            .msjem {
+                                font-weight: bold;
+                            }
+                        }
                     }
+                }
+
+                .modulo {
+                    color: $azulclaro;
+                    display: none;
                 }
             }
         }
@@ -1423,7 +1519,7 @@ header {
                 display: flex;
                 flex-direction: row;
                 margin: 0px;
-                height:93vh;
+                height: 93vh;
 
                 body.dark & {
                     background: $azulclaro;

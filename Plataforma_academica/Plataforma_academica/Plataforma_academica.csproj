@@ -516,6 +516,7 @@
     <Content Include="Scripts\Manejocurso.js" />
     <Content Include="Scripts\mensajes.js" />
     <Content Include="Scripts\menu.js" />
+    <Content Include="Scripts\Menumodulo.js" />
     <Content Include="Scripts\Menuprincipal.js" />
     <Content Include="Scripts\menu_submenu.js" />
     <Content Include="Scripts\modalzoom.js" />

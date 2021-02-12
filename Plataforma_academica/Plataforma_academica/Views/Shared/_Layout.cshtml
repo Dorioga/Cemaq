@@ -61,7 +61,7 @@
         Plataforma_academica.Models.Actividades_unidad[] arreglo_examen;
         Plataforma_academica.Models.Unidades[] arreglo_docente;
         Plataforma_academica.Models.Porcentaje_usuario porcentaje = new Plataforma_academica.Models.Porcentaje_usuario();
-        
+
     }
 
     <header>
@@ -69,7 +69,7 @@
         <nav class="navbar" id="head">
             <!--Logo -->
             <a href="javascript:" onclick="window.open('https://cemaq.com.co/');" class="navbar-brand icono">
-                <img src="~/Imagenes/LOGO CEMAQ PNG.png"></img>
+                <img src="~/Imagenes/Iconos/Logotipo001.png">
             </a>
             <!-- Checkbox Color  -->
             <div class="slidermodo">
@@ -168,7 +168,7 @@
                                                 <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
                                             </a>*@
                                         <div class="opcion">
-                                            
+
                                             <a href="/Editar_perfil/Editar_perfil">
                                                 <img src="~/Imagenes/CAPYBARA_TOGA.png" data-toggle="modal" data-target="#myModal" /> Editar Perfil
                                             </a>
@@ -181,9 +181,9 @@
                                         @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />*@
                                         @*<a href="#"><img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal1" /></a>
                                             <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>*@
-                                        
+
                                         <div class="opcion">
-                                            
+
                                             <a href="/Editar_perfil/Editar_perfil">
                                                 <img src="~/Imagenes/CAPYBARA_TOGA.png" /> Editar PErfil
                                             </a>
@@ -219,14 +219,14 @@
                         <div id="bus">
                             <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">
                             <script>
-                            $(document).ready(function () {
-                                $("#myInput").on("keyup", function () {
-                                    var value = $(this).val().toLowerCase();
-                                    $("#myTable ul").filter(function () {
-                                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                $(document).ready(function () {
+                                    $("#myInput").on("keyup", function () {
+                                        var value = $(this).val().toLowerCase();
+                                        $("#myTable ul").filter(function () {
+                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                        });
                                     });
                                 });
-                            });
                             </script>
                         </div>
                         <div id="ocultar">
@@ -234,97 +234,115 @@
                         </div>
                     </section>
                     <section class="botones" id="myTable">
-                       @{
-                           if (Convert.ToInt32(usu.rol) == 4)
-                           {
-                               arreglop = principal.Buscar_Cursos_Diplomados_Estudiante(usu.cedula);
-                               if (arreglop.Length == 0)
-                               {
-                                <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
-                                //aqui debe ir el recogido
-                               }
-                        <!--Estudiante-->
-                               using (Html.BeginForm("principalplataforma", "PrincipalPlataforma", FormMethod.Post, new { enctype = "multipart/form-data" })){                               
-                               if (arreglop.Length == 0)
-                               {
-                                <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
-                               }
-
-                               for (int i = 0; i < arreglop.Length; i++)
-                               {
-                                   if (i % 5 == 0)
-                                   {
+                        @{
+                            if (Convert.ToInt32(usu.rol) == 4)
+                            {
+                                arreglop = principal.Buscar_Cursos_Diplomados_Estudiante(usu.cedula);
+                                if (arreglop.Length == 0)
+                                {
+                                    <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
+                                    //aqui debe ir el recogido
+                                }
+                                <!--Estudiante-->
+                                using (Html.BeginForm("principalplataforma", "PrincipalPlataforma", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    if (arreglop.Length == 0)
+                                    {
+                                        <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
+                                    }
                                     <ul>
-                                        <button>
-                                            <div class="content-btn">
-                                                <section class="izq"></section>
-                                                <section class="cent">
-                                                    <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
-                                                </section>
-                                            </div>
-                                        </button>
-                                        <li>
-                                            <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                        @{
+                                            for (int i = 0; i < arreglop.Length; i++)
+                                            {
+
+                                                if (i % 5 == 0)
+                                                {
+                                                    <li class="titulo" onclick= "mostrarmodulo(@arreglop[i].codigo_curso)">
+                                                        <div class="content-btn">
+                                                            <section class="izq"></section>
+                                                            <section class="cent">
+                                                                <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
+                                                            </section>
+                                                        </div>
+                                                    </li>
+                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                        <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                                            <div class="content-btn">
+                                                                <section class="izq"></section>
+                                                                <section class="cent">
+                                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                </section>
+                                                            </div>
+                                                        </button>
+                                                    </li>
+
+                                                }
+                                                else
+                                                {
+                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                        <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                                            <div class="content-btn">
+                                                                <section class="izq"></section>
+                                                                <section class="cent">
+                                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                </section>
+                                                            </div>
+                                                        </button>
+                                                    </li>
+                                                }
+                                            }
+
+                                        }
+                                    </ul>
+
+                                }
+                            }
+
+                            else
+                            {
+                                //if (Convert.ToInt32(usu.rol) > 0 && Convert.ToInt32(usu.rol) < 3)
+                                //{
+                                <!--Administrador y lideres-->
+                                //using (Html.BeginForm("seleccionar_unidad_para_contenido", "Seleccionar_para_subir_contenido", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                //{
+
+
+                                if (Convert.ToInt32(usu.rol) == 7)
+                                {
+                                    arreglop = principal.Buscar_diplomados_modulos_docente(usu.cedula);
+                                }
+                                else
+                                {
+                                    arreglop = principal.Buscar_diplomados_modulos_general();
+                                }
+
+                                for (int i = 0; i < arreglop.Length; i++)
+                                {
+                                    if (i % 5 == 0)
+                                    {
+                                        <ul>
+                                            <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso">
                                                 <div class="content-btn">
                                                     <section class="izq"></section>
                                                     <section class="cent">
-                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                        <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
                                                     </section>
                                                 </div>
                                             </button>
-                                        </li>
-                                    </ul>
-
-                                   }
-                                   else
-                                   {
-                                    <li>
-                                        <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
-                                            <div class="content-btn">
-                                                <section class="izq"></section>
-                                                <section class="cent">
-                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                </section>
-                                            </div>
-                                        </button>
-                                    </li>
-                                   }
-                               }
-
-                           }
-                          }
-
-                           else
-                           {
-                               //if (Convert.ToInt32(usu.rol) > 0 && Convert.ToInt32(usu.rol) < 3)
-                               //{
-                        <!--Administrador y lideres-->
-                               //using (Html.BeginForm("seleccionar_unidad_para_contenido", "Seleccionar_para_subir_contenido", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                               //{
-
-
-                               if (Convert.ToInt32(usu.rol) == 7)
-                               {
-                                   arreglop = principal.Buscar_diplomados_modulos_docente(usu.cedula);
-                               }
-                               else
-                               {
-                                   arreglop = principal.Buscar_diplomados_modulos_general();
-                               }
-
-                               for (int i = 0; i < arreglop.Length; i++)
-                               {
-                                   if (i % 5 == 0)
-                                   {
-                                    <ul>
-                                        <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso">
-                                            <div class="content-btn">
-                                                <section class="izq"></section>
-                                                <section class="cent">
-                                                    <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
-                                                </section>
-                                            </div>
-                                        </button>
+                                            <li>
+                                                <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
+                                                    <div class="content-btn">
+                                                        <section class="izq"></section>
+                                                        <section class="cent">
+                                                            <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                        </section>
+                                                    </div>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    }
+                                    else
+                                    {
                                         <li>
                                             <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
                                                 <div class="content-btn">
@@ -335,44 +353,30 @@
                                                 </div>
                                             </button>
                                         </li>
-                                    </ul>                                    
-                                   }
-                                   else
-                                   {
-                                    <li>
-                                        <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
-                                            <div class="content-btn">
-                                                <section class="izq"></section>
-                                                <section class="cent">
-                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                </section>
-                                            </div>
-                                        </button>
-                                    </li>
-                                   }
+                                    }
 
 
-                               }
+                                }
 
-                               //}
-                               //}
-                           }
-                    }
+                                //}
+                                //}
+                            }
+                        }
                     </section>
-                 }
                 }
+            }
 
 
 
         </div>
 
         <!-- Menu Derecho
-    <nav class="menu-der">
-        <ul class="contenido list-group">
-        </ul>
-    </nav>
+        <nav class="menu-der">
+            <ul class="contenido list-group">
+            </ul>
+        </nav>
 
-        -->
+            -->
         <!-- Contenedor Seleccionar_unidad  -->
         <div class="contenedor" id="container">
             @RenderBody()
@@ -383,6 +387,9 @@
 
 
     <script src="~/Scripts/Menuprincipal.js"></script>
+    <script src="~/Scripts/Menumodulo.js">       
+    </script>
+
     <script>
         AjustarTextArea();
         function AjustarTextArea() {
