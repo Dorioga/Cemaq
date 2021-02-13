@@ -1,12 +1,13 @@
-﻿$verdeclaro: #c0dfac;
+﻿$verdeclaro: #d4e9c6;
 $verdeoscuro: #69b545;
 $verdeazul: #1bbc97;
-$blanco: #ffff;
+$verdehover:#c0dfac;
+$blanco: #ffffff;
 $gris: #d6d6d6;
 $negro: #000000;
 $azul: #50687a;
-$azuloscuro: #17223b;
-$azulclaro: #317a8e;
+$azuloscuro: #317a8e;
+$azulclaro: #d4e9c6;
 $rojo: #d9534f;
 
 @font-face {
@@ -34,7 +35,7 @@ body {
     line-height: 1.428571429 !important;
 
     &.dark {
-        background-color: $azuloscuro;
+        background-color: $verdeclaro;
     }
 }
 
@@ -59,7 +60,6 @@ header {
         border-radius: 0px;
         min-height: 7vh;
         background-color: $verdeoscuro;
-        color: $blanco;
         height: 100%;
         display: flex;
         margin: 0px;
@@ -133,7 +133,7 @@ header {
                     &::after {
                         right: 0;
                         left: unset;
-                        background: $verdeazul;
+                        background: $azuloscuro;
                     }
                 }
 
@@ -144,6 +144,10 @@ header {
                     display: block;
                     background: none;
                     color: $verdeoscuro;
+
+                    body.dark & {
+                        color: $azuloscuro;
+                    }
                 }
             }
         }
@@ -158,6 +162,9 @@ header {
             align-self: auto;
             color: $negro;
 
+            body.dark & {
+            }
+
             .p-2 {
                 padding: 0.5em !important;
             }
@@ -165,6 +172,8 @@ header {
             .nombre {
                 display: flex;
                 flex-direction: column;
+                color: $blanco;
+
 
                 div {
                     flex: 0 0 auto;
@@ -192,24 +201,18 @@ header {
                 display: flex;
                 flex-direction: column;
                 list-style: none;
-                padding: 1em;
+                padding: 2vh;
 
                 .logo {
                     cursor: pointer;
                     height: 100%;
                     width: 100%;
                     text-align: center;
-                    color: $azul;
+                    color: $blanco;
                     flex-direction: row;
                 }
 
-                .exterior {
-                    background-color: $verdeoscuro;
 
-                    body.dark & {
-                        background-color: $verdeazul;
-                    }
-                }
 
                 .pie {
                     border-radius: 0 0 1em 1em;
@@ -225,21 +228,23 @@ header {
                     border-style: solid;
                     border-color: $verdeoscuro;
                     height: auto !important;
+                    font-weight:bold;
 
                     body.dark & {
                         border-color: $verdeazul;
                     }
 
                     .opcion {
-                        background-color: $gris;
+                        background-color: $blanco;
                         border: none;
                         padding: 0.5em 0px;
                         font-size: 14px;
                         border-radius: 0;
                         z-index: 2;
 
+
                         body.dark & {
-                            background-color: $azulclaro;
+                            background-color: $verdeclaro;
                         }
                     }
 
@@ -252,12 +257,12 @@ header {
                         }
 
                         body.dark & {
-                            color: $blanco;
+                            color: $azul;
                         }
                     }
 
                     .opcion a:not([href]):not([tabindex]) {
-                        color: white;
+                        color: $azul;
                         text-decoration: none;
                     }
                 }
@@ -309,12 +314,22 @@ header {
             #bus {
                 flex: 2 1 auto;
                 background-color: $verdeclaro;
+
+                input {
+                    margin: 0px;
+                    height: 100%;
+                    max-width: 100%;
+                }
             }
 
             #ocultar {
                 flex: 1 1 auto;
                 background-color: $verdeoscuro;
                 cursor: pointer;
+
+                body.dark & {
+                    background-color: $azuloscuro;
+                }
             }
 
             p {
@@ -331,11 +346,18 @@ header {
 
             ul {
                 li {
-                    text-align: center;
-                    cursor:pointer;
+                    text-align: left;
+                    cursor: pointer;
+
 
                     .boton {
                         width: 100%;
+                        background-color: $verdeclaro;
+                        border: none;
+
+                        &:hover {
+                            background-color: $verdehover;
+                        }
 
                         .content-btn {
                             display: flex;
@@ -343,6 +365,7 @@ header {
                             justify-content: center;
                             align-items: center;
                             padding: 1vh;
+                            text-align: left;
 
                             img {
                                 height: 2vh;
@@ -372,9 +395,10 @@ header {
                     }
                 }
 
-                .active{
-                    display:block !important;
+                .active {
+                    display: block !important;
                 }
+
                 .titulo {
                     color: $azul;
                     padding: 1vh;
@@ -386,6 +410,7 @@ header {
                         justify-content: center;
                         align-items: center;
                         padding: 1vh;
+                        text-align: left;
 
                         img {
                             height: 2vh;
@@ -415,7 +440,7 @@ header {
                 }
 
                 .modulo {
-                    color: $azulclaro;
+                    color: $azuloscuro;
                     display: none;
                 }
             }
@@ -423,6 +448,7 @@ header {
     }
     //Contendor Cambiante
     .contenedor {
+        background-color: $blanco;
         width: 75vw;
         min-width: 50%;
         margin-top: 7vh;
@@ -631,7 +657,8 @@ header {
         //Contenedor del Menu, Cargar Contenido, cargar examen
         .con_form {
             //display:none;
-            color: white;
+            color: $blanco;
+            padding: 1vh;
 
             .active {
                 display: none;
@@ -645,33 +672,36 @@ header {
                 text-align: center;
                 padding: 0.1em;
                 cursor: pointer;
-                border-bottom: 0.1em solid;
-                border-color: $verdeoscuro;
 
                 body.dark & {
-                    background-color: $verdeazul;
-                    border-color: $azuloscuro;
+                    background-color: $azul;
+                    color: $blanco;
                 }
 
                 span {
                     p {
-                        color: $blanco;
+                        color: $azul;
                         font-weight: bold;
+                        font-size: 2vh;
                         margin: 0;
+                        body.dark &{
+                            color:$blanco;
+                        }
                     }
                 }
             }
 
             .contener {
-                background-color: $gris;
+                background-color: rbga($blanco,0.6);
                 padding: 0.5em 0em;
                 width: 100%;
                 position: relative;
-                border-style: solid;
-                border-color: $verdeclaro;
+                min-height: 90vh;
+                max-height: 90vh;
+                overflow-y: auto;
 
                 body.dark & {
-                    background-color: $azulclaro;
+                    background-color: rgba( $azulclaro,0.6);
                     border-color: $verdeazul;
                 }
 
@@ -685,7 +715,7 @@ header {
                 }
 
                 .boton {
-                    background: $gris;
+                    background: $blanco;
                     max-width: 10em;
                     position: relative;
                     width: 100%;
@@ -694,11 +724,7 @@ header {
                     outline: none;
 
                     body.dark & {
-                        background: $azulclaro;
-
-                        span {
-                            color: white;
-                        }
+                        background-color: rgba( $azulclaro,0.1);
                     }
 
                     &:hover {
@@ -745,7 +771,7 @@ header {
                             text-overflow: ellipsis;
 
                             body.dark & {
-                                color: white;
+                                color: $azul;
                             }
                         }
 
@@ -1631,6 +1657,13 @@ header {
             body.dark & {
                 color: $blanco;
             }
+        }
+
+        .onda {
+            position: absolute;
+            height: 40vh;
+            top: 53vh;
+            left: 63vw;
         }
     }
     /*Estilos del Menu Derecho

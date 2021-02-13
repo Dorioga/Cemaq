@@ -340,6 +340,7 @@
     <Content Include="Imagenes\Iconos\Logotipo004.png" />
     <Content Include="Imagenes\Iconos\Logotipo005.png" />
     <Content Include="Imagenes\Iconos\Logotipo006.png" />
+    <Content Include="Imagenes\Iconos\ondas.png" />
     <Content Include="Imagenes\infantil\avataaars.png" />
     <Content Include="Imagenes\infantil\cabin.png" />
     <Content Include="Imagenes\infantil\cake.png" />
