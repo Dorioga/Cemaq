@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="Diplomados-Cemaq" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\Cemaq\\Plataforma_academica\\Plataforma_academica\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\Cemaq\\Plataforma_academica\\Plataforma_academica\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Documents\\GitHub\\Cemaq\\Plataforma_academica\\Plataforma_academica\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Documents\\GitHub\\Cemaq\\Plataforma_academica\\Plataforma_academica\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
-  <parameter name="plataforma_academica-Web.config Connection String" description="" value="server=138.68.45.248;user id=sitice;password=siticepro;persist security info=True;database=diplomado; Ssl Mode=none;" tags="">
-    <parameterEntry kind="XmlFile" scope="E:\\Cemaq\\Plataforma_academica\\Plataforma_academica\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='plataforma_academica']/@connectionString" />
+  <parameter name="plataforma_academica-Web.config Connection String" description="" value="server=159.203.86.223;user id=desarrollador;password=Desarrollador2021?;persist security info=True;database=diplomados; Ssl Mode=none;" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Documents\\GitHub\\Cemaq\\Plataforma_academica\\Plataforma_academica\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='plataforma_academica']/@connectionString" />
   </parameter>
 </parameters>

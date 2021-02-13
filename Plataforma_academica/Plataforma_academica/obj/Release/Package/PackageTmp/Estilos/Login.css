@@ -1,4 +1,14 @@
-﻿body {
+﻿@import url(//db.onlinewebfonts.com/c/4bc98977ba557db3b2f5bb66bff54e25?family=Champagne+&+Limousines);
+@font-face {
+  font-family: "Champagne & Limousines";
+  src: url("'/fonts/Champagne & Limousines.ttf'"); }
+
+body {
+  background-image: url("/Imagenes/Iconos/Fondo para web_PNG.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  font-family: "Champagne & Limousines";
   width: 100vw;
   height: 100vh;
   background-color: white !important;
@@ -28,11 +38,8 @@
     background-color: #005E2D !important; }
 
 .register {
-  background: -webkit-linear-gradient(left, #005E2D, #009245);
-  background-color: #263859;
-  border-radius: 5px;
-  max-width: 80vw;
-  width: 75vw;
+  max-width: 100vw;
+  width: 100vw;
   padding: 0px; }
   .register .row {
     padding: 1.5em 1.5em 1em;
@@ -71,11 +78,11 @@
         padding: 1em;
         border-radius: 0.5em; }
     .register .row .register-right {
-      background: #f8f9fa;
-      border-top-left-radius: 7% 50%;
-      border-bottom-left-radius: 7% 50%;
-      flex: 0 0 60%;
+      flex: 0 0 50%;
       box-sizing: border-box; }
+      .register .row .register-right H3 {
+        font-weight: bold;
+        font-size: 2rem; }
       .register .row .register-right h6 {
         margin: 0px;
         padding-top: 0.3em;
@@ -83,9 +90,14 @@
       .register .row .register-right .col-md-6 {
         margin-top: 0.5em;
         max-width: 100%;
-        background-color: #f8f9fa;
         padding-top: 1em;
         border-radius: 20px; }
+        .register .row .register-right .col-md-6 .form-group .form-control {
+          opacity: 0.9;
+          font-weight: bold; }
+        .register .row .register-right .col-md-6 .form-group .chosen-container {
+          opacity: 0.9;
+          font-weight: bold; }
       .register .row .register-right .register-heading {
         text-align: center;
         color: #000000; }

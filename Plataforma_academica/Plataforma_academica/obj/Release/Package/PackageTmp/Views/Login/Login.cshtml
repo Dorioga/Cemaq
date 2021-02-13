@@ -23,6 +23,7 @@
     <script src="~/Scripts/login_campos.js"></script>
     <link href="~/Content/chosen.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <link href="//db.onlinewebfonts.com/c/4bc98977ba557db3b2f5bb66bff54e25?family=Champagne+&+Limousines" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -50,7 +51,7 @@
             <div class="row">
                 <!--Izquierda-->
                 <div class="register-left">
-                    <img src="~/Imagenes/Logo Mascota.png" alt=""/>                    
+                    <img src="~/Imagenes/Iconos/Logotipo001.png" alt=""/>                    
                     <div class="campos" >
                             @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", @placeholder = "Usuario *", @id = "usuario" } })
                             @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })

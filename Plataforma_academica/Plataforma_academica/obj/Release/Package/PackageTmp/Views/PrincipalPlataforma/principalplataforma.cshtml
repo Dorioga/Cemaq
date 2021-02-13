@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Estilos/modal_presentacion.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
-
 </head>
 
 
@@ -38,7 +36,7 @@
     <main class="con_form">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <!--Diplomados-->
+        @*Diplomados
         <div class="contenercheck first" id="bdiplomado">
             <span>
                 <p>Diplomados</p>
@@ -110,7 +108,7 @@
                 }
             }
         </div>
-        <!--Modulos-->
+        Modulos
         <div class="contenercheck" id="bmodulo">
             <span>
                 <p>Modulos</p>
@@ -161,7 +159,7 @@
                             <!--Modulo 2-5 -->
                             if (Convert.ToSingle(arreglo_unidad[i - 1].porcentaje_modulo) < 99)
                             {
-                                <button type="submit" disabled="true" class="boton pendiente" @*value="@arreglo_unidad[i].codigo_unidad"*@>
+                                <button type="submit" disabled="true" class="boton pendiente">
                                     <div class="content-btn">
                                         <img src="~/imagen_multimedia/Modulo.png" />
                                         <span class="msjem" id="msejem">Anterior modulo pendiente</span>
@@ -193,7 +191,7 @@
                     <a> Elija un Diplomado</a>
                 }
             }
-        </div>
+       </div>*@
 
         <!--Actividades-->
         <div class="contenercheck" id="bactividad">
@@ -517,7 +515,7 @@
 </footer>
 <script src="~/Scripts/progresos.js" charset="utf-8"></script>
 <script src="~/Scripts/Manejocurso.js" charset="utf-8"></script>
-<script src="~/Scripts/Efect Pending.js" charset="utf-8"></script>
+<!--<script src="~/Scripts/Efect Pending.js" charset="utf-8"></script>-->
 <script src="~/Scripts/texto_oculto.js" charset="utf-8"></script>
 
 @section Scripts {

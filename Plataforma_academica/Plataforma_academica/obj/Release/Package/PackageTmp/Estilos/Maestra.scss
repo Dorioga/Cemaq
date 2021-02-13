@@ -1,15 +1,25 @@
-﻿$verdeclaro: #009245;
-$verdeoscuro: #005E2D;
+﻿$verdeclaro: #d4e9c6;
+$verdeoscuro: #69b545;
 $verdeazul: #1bbc97;
-$blanco: #ffff;
+$verdehover:#c0dfac;
+$blanco: #ffffff;
 $gris: #d6d6d6;
 $negro: #000000;
-$azuloscuro: #17223b;
-$azulclaro: #263859;
+$azul: #50687a;
+$azuloscuro: #317a8e;
+$azulclaro: #d4e9c6;
 $rojo: #d9534f;
+
+@font-face {
+    font-family: "Champagne & Limousines";
+    src: url("'/fonts/Champagne & Limousines.ttf'");
+}
 
 * {
     transition: color 0.15s ease-in-out;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Champagne & Limousines';
 }
 
 // Estilos Generales
@@ -25,21 +35,19 @@ body {
     line-height: 1.428571429 !important;
 
     &.dark {
-        background-color: $azuloscuro;
+        background-color: $verdeclaro;
     }
 }
 
 //Encabezado
 header {
-    height: 10vh;
+    height: 6vh;
+    min-height: 7vh;
     flex-direction: row;
     position: fixed;
     width: 100%;
     top: 0%;
     z-index: 999;
-    -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
-    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
     -ms-flex-order: 0;
     order: 0;
     -webkit-flex: 0 1 auto;
@@ -50,34 +58,22 @@ header {
 
     .navbar {
         border-radius: 0px;
+        min-height: 7vh;
         background-color: $verdeoscuro;
-        color: #FFFFFF;
         height: 100%;
+        display: flex;
         margin: 0px;
         padding: 0px;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
         flex-direction: row;
-        -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
-        -webkit-justify-content: flex-start;
-        -ms-flex-pack: start;
         justify-content: flex-start;
-        -webkit-align-content: stretch;
-        -ms-flex-line-pack: stretch;
         align-content: stretch;
-        -webkit-align-items: flex-start;
-        -ms-flex-align: start;
         align-items: flex-start;
 
         body.dark & {
             background-color: $azuloscuro;
         }
-
+        //Icono de CEMAQ
         .icono {
             height: 100%;
             display: flex;
@@ -85,31 +81,23 @@ header {
             justify-content: center;
             padding: 0px;
             margin: 0px 0px 0px 1em;
-            -ms-flex-order: 0;
             order: 0;
-            -webkit-flex: 0 1 10vw;
-            -ms-flex: 0 1 10vw;
             flex: 0 1 10vw;
-            -ms-flex-item-align: auto;
             align-self: auto;
 
             img {
-               height:9vh;
+                height: 7vh;
             }
         }
-
+        //Modo Oscuro
         .slidermodo {
             height: 100%;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            -ms-flex-order: 0;
             order: 0;
-            -webkit-flex: 2 1 auto;
-            -ms-flex: 2 1 auto;
             flex: 2 1 auto;
-            -ms-flex-item-align: auto;
             align-self: auto;
 
             .switch {
@@ -128,7 +116,8 @@ header {
                     width: 4vh;
                     height: 4vh;
                     position: absolute;
-                    background: $blanco;
+                    background: $verdeoscuro;
+                    border: solid 1px $verdeclaro;
                     top: 0;
                     left: 0;
                     right: unset;
@@ -144,7 +133,7 @@ header {
                     &::after {
                         right: 0;
                         left: unset;
-                        background: $verdeazul;
+                        background: $azuloscuro;
                     }
                 }
 
@@ -154,35 +143,37 @@ header {
                     line-height: 4vh;
                     display: block;
                     background: none;
-                    color: $blanco;
+                    color: $verdeoscuro;
+
+                    body.dark & {
+                        color: $azuloscuro;
+                    }
                 }
             }
         }
-
+        //Informacion
         .info {
             display: flex;
             align-items: center;
             flex-direction: row;
-            margin: 0px 1em 0px 0px;
             height: 100%;
-            -ms-flex-order: 0;
             order: 0;
-            -webkit-flex: 0 1 auto;
-            -ms-flex: 0 1 auto;
             flex: 0 1 auto;
-            -ms-flex-item-align: auto;
             align-self: auto;
+            color: $negro;
 
+            body.dark & {
+            }
 
             .p-2 {
-                flex: 0 0 20%;
                 padding: 0.5em !important;
             }
 
             .nombre {
                 display: flex;
                 flex-direction: column;
-                flex: 0 0 80%;
+                color: $blanco;
+
 
                 div {
                     flex: 0 0 auto;
@@ -194,12 +185,91 @@ header {
 
                 label {
                     flex: 0 0 auto;
+                    margin: 0px;
+                    padding: 0px;
+                    font-size: 2vh;
                 }
             }
 
             .perfil {
-                width: 8vh;
+                height: 6vh;
                 border-radius: 1em;
+            }
+
+            .contenido {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                padding: 2vh;
+
+                .logo {
+                    cursor: pointer;
+                    height: 100%;
+                    width: 100%;
+                    text-align: center;
+                    color: $blanco;
+                    flex-direction: row;
+                }
+
+
+
+                .pie {
+                    border-radius: 0 0 1em 1em;
+                    text-align: center;
+                    flex-direction: row;
+                }
+
+                .lista-menu {
+                    position: absolute;
+                    width: 20vw;
+                    top: 6vh;
+                    left: 80vw;
+                    border-style: solid;
+                    border-color: $verdeoscuro;
+                    height: auto !important;
+                    font-weight:bold;
+
+                    body.dark & {
+                        border-color: $verdeazul;
+                    }
+
+                    .opcion {
+                        background-color: $blanco;
+                        border: none;
+                        padding: 0.5em 0px;
+                        font-size: 14px;
+                        border-radius: 0;
+                        z-index: 2;
+
+
+                        body.dark & {
+                            background-color: $verdeclaro;
+                        }
+                    }
+
+                    .opcion a {
+                        color: black;
+
+                        img {
+                            height: 4vh;
+                            margin-left: 0.5vw;
+                        }
+
+                        body.dark & {
+                            color: $azul;
+                        }
+                    }
+
+                    .opcion a:not([href]):not([tabindex]) {
+                        color: $azul;
+                        text-decoration: none;
+                    }
+                }
+
+                .active {
+                    display: none;
+                }
             }
 
             @media screen and (max-width:510px) {
@@ -223,100 +293,172 @@ header {
     align-self: auto;
     //Estilos del Menu Izquierdo
     .menu-izq {
-        margin-top: 12vh;
+        margin-top: 7vh;
+        height: 93vh;
         position: fixed;
         float: left;
-        border-radius: 15px;
-        margin-left: 1vw;
-        width: 16vw;
+        width: 25vw;
+        background-color: $verdeclaro;
 
-        .contenido {
-            height: 100%;
+        .buscar {
             display: flex;
-            flex-direction: column;
-            border-radius: 15px;
-            padding: 0px;
-            margin: 0px;
-            list-style: none;
+            flex-direction: row;
+            text-align: center;
+            align-items: center;
+            height: 5vh;
 
-            .logo {
-                border-radius: 1em 1em 0 0;
+            div {
+                height: 100%;
+            }
+
+            #bus {
+                flex: 2 1 auto;
+                background-color: $verdeclaro;
+
+                input {
+                    margin: 0px;
+                    height: 100%;
+                    max-width: 100%;
+                }
+            }
+
+            #ocultar {
+                flex: 1 1 auto;
+                background-color: $verdeoscuro;
                 cursor: pointer;
-                padding-top: 5px;
-                width: 100%;
-                text-align: center;
-                color: $blanco;
-                flex-direction: row;
-            }
-
-            .exterior {
-                background-color: #009245;
 
                 body.dark & {
-                    background-color: $verdeazul;
+                    background-color: $azuloscuro;
                 }
             }
 
-            .pie {
-                border-radius: 0 0 1em 1em;
-                text-align: center;
-                flex-direction: row;
+            p {
+                font-weight: bold;
+                margin: 0px;
+                padding: 0px;
             }
+        }
 
-            .lista-menu {
-                border-style: solid;
-                border-color: $verdeclaro;
-                height: auto !important;
+        .botones {
+            overflow: auto;
+            max-height: 88vh;
 
-                body.dark & {
-                    border-color: $verdeazul;
-                }
 
-                .opcion {
-                    background-color: $gris;
-                    border: none;
-                    padding: 0.5em 0px;
-                    font-size: 14px;
-                    border-radius: 0;
-                    z-index: 2;
+            ul {
+                li {
+                    text-align: left;
+                    cursor: pointer;
 
-                    body.dark & {
-                        background-color: $azulclaro;
+
+                    .boton {
+                        width: 100%;
+                        background-color: $verdeclaro;
+                        border: none;
+
+                        &:hover {
+                            background-color: $verdehover;
+                        }
+
+                        .content-btn {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 1vh;
+                            text-align: left;
+
+                            img {
+                                height: 2vh;
+                            }
+
+                            .izq {
+                                width: 5vw;
+                            }
+
+                            .cent {
+                                flex: 2 1 15vw;
+
+                                .nom {
+                                    padding: 0px;
+                                    margin: 0px;
+                                }
+                            }
+
+                            .der {
+                                width: 5vw;
+
+                                .msjem {
+                                    font-weight: bold;
+                                }
+                            }
+                        }
                     }
                 }
 
-                .opcion a {
-                    color: black;
+                .active {
+                    display: block !important;
+                }
 
-                    img {
-                        height: 4vh;
-                        margin-left: 0.5vw;
-                    }
+                .titulo {
+                    color: $azul;
+                    padding: 1vh;
+                    border-bottom: solid 1vh $azul;
 
-                    body.dark & {
-                        color: $blanco;
+                    .content-btn {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 1vh;
+                        text-align: left;
+
+                        img {
+                            height: 2vh;
+                        }
+
+                        .izq {
+                            width: 5vw;
+                        }
+
+                        .cent {
+                            flex: 2 1 15vw;
+
+                            .nom {
+                                padding: 0px;
+                                margin: 0px;
+                            }
+                        }
+
+                        .der {
+                            width: 5vw;
+
+                            .msjem {
+                                font-weight: bold;
+                            }
+                        }
                     }
                 }
 
-                .opcion a:not([href]):not([tabindex]) {
-                    color: white;
-                    text-decoration: none;
+                .modulo {
+                    color: $azuloscuro;
+                    display: none;
                 }
-            }
-
-            .active {
-                display: none;
             }
         }
     }
     //Contendor Cambiante
     .contenedor {
-        width: 64vw;
+        background-color: $blanco;
+        width: 75vw;
         min-width: 50%;
-        margin-top: 12vh;
-        margin-left: 18vw;
-        max-height: 87vh;
+        margin-top: 7vh;
+        margin-left: 25vw;
+        min-height: 93vh;
         position: relative;
+        background-image: url('/Imagenes/LOGO CEMAQ Negro.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
         overflow-y: auto;
         -webkit-transition: left 0.3s ease-in-out;
         -o-transition: left 0.3s ease-in-out;
@@ -324,11 +466,10 @@ header {
         //Contenedor del Libro
         .bb-custom-wrapper {
             display: flex;
-            border-radius: 15px;
             flex-direction: row;
             width: 100%;
             background: $verdeclaro;
-            height: 86vh;
+            height: 93vh;
             padding: 1em;
 
             body.dark & {
@@ -421,9 +562,6 @@ header {
             .bb-item {
                 background: $gris !important;
                 border-radius: 1em;
-                height: auto !important;
-                min-height: 81.5vh;
-                max-height: 81.5vh;
                 overflow-y: auto;
                 font-family: TimesNewRoman;
 
@@ -518,8 +656,9 @@ header {
         }
         //Contenedor del Menu, Cargar Contenido, cargar examen
         .con_form {
-            border-radius: 15px;
-            color: white;
+            //display:none;
+            color: $blanco;
+            padding: 1vh;
 
             .active {
                 display: none;
@@ -533,33 +672,36 @@ header {
                 text-align: center;
                 padding: 0.1em;
                 cursor: pointer;
-                border-bottom: 0.1em solid;
-                border-color: $verdeoscuro;
 
                 body.dark & {
-                    background-color: $verdeazul;
-                    border-color: $azuloscuro;
+                    background-color: $azul;
+                    color: $blanco;
                 }
 
                 span {
                     p {
-                        color: $blanco;
+                        color: $azul;
                         font-weight: bold;
+                        font-size: 2vh;
                         margin: 0;
+                        body.dark &{
+                            color:$blanco;
+                        }
                     }
                 }
             }
 
             .contener {
-                background-color: $gris;
+                background-color: rbga($blanco,0.6);
                 padding: 0.5em 0em;
                 width: 100%;
                 position: relative;
-                border-style: solid;
-                border-color: $verdeclaro;
+                min-height: 90vh;
+                max-height: 90vh;
+                overflow-y: auto;
 
                 body.dark & {
-                    background-color: $azulclaro;
+                    background-color: rgba( $azulclaro,0.6);
                     border-color: $verdeazul;
                 }
 
@@ -573,7 +715,7 @@ header {
                 }
 
                 .boton {
-                    background: $gris;
+                    background: $blanco;
                     max-width: 10em;
                     position: relative;
                     width: 100%;
@@ -582,11 +724,7 @@ header {
                     outline: none;
 
                     body.dark & {
-                        background: $azulclaro;
-
-                        span {
-                            color: white;
-                        }
+                        background-color: rgba( $azulclaro,0.1);
                     }
 
                     &:hover {
@@ -633,7 +771,7 @@ header {
                             text-overflow: ellipsis;
 
                             body.dark & {
-                                color: white;
+                                color: $azul;
                             }
                         }
 
@@ -721,14 +859,6 @@ header {
                         }
                     }
                 }
-            }
-
-            .first {
-                border-radius: 5px 5px 0px 0px;
-            }
-
-            .last {
-                border-radius: 0px 0px 5px 5px;
             }
             //modal
             .modal {
@@ -1002,10 +1132,11 @@ header {
                 display: flex;
                 flex-direction: column;
                 padding: 1em;
+                min-height: 93vh;
+                overflow-y: auto;
                 border: solid;
-                background-color: $gris;
+                background-color: rgba($gris, 0.5);
                 border-color: $verdeclaro;
-                border-radius: 15px;
 
                 h1 {
                     color: $negro;
@@ -1279,6 +1410,14 @@ header {
                         }
                     }
 
+                    article {
+                        .cpregunta {
+                            margin-right: 5vw;
+                            height: 3em !important;
+                            margin-bottom: 1vw;
+                        }
+                    }
+
                     .boton {
                         border: none;
                         border-radius: 0.5em;
@@ -1307,6 +1446,7 @@ header {
                             color: $blanco !important;
                         }
                     }
+
 
                     .pregunta {
                         border-top: 1vh solid $verdeoscuro;
@@ -1384,19 +1524,28 @@ header {
                         }
                     }
                 }
+
+                .mostrar {
+                    padding-bottom: 1em;
+                }
+
+                .seccion {
+                    border-top: 1em solid $verdeclaro;
+
+                    body.dark & {
+                        border-color: $verdeazul;
+                    }
+                }
             }
             //Contenedor Principal_Todos
             .row {
-                background-color: $gris;
+                background-color: rgba($gris, 0.7);
                 color: $negro;
                 padding: 1em;
                 display: flex;
                 flex-direction: row;
                 margin: 0px;
-                border-radius: 1em;
-                border: solid;
-                border-color: $verdeclaro;
-                box-shadow: 0 1px 0 #cfcfcf;
+                height: 93vh;
 
                 body.dark & {
                     background: $azulclaro;
@@ -1500,6 +1649,7 @@ header {
         }
         //Pie de Pagina
         footer p {
+            display: none;
             color: $negro;
             margin-top: 0.5em;
             margin-bottom: 0.5em;
@@ -1508,8 +1658,15 @@ header {
                 color: $blanco;
             }
         }
+
+        .onda {
+            position: absolute;
+            height: 40vh;
+            top: 53vh;
+            left: 63vw;
+        }
     }
-    //Estilos del Menu Derecho
+    /*Estilos del Menu Derecho
     .menu-der {
         right: 0px;
         position: fixed;
@@ -1528,6 +1685,7 @@ header {
             background-color: $azulclaro;
         }
     }
+        */
 }
 //ScrollBar
 /* width */
@@ -1547,6 +1705,7 @@ header {
     background: #555;
 }
 //Responsive
+/*
 @media (max-width: 700px) {
 
     header {
@@ -1761,3 +1920,4 @@ header {
         }
     }
 }
+    */

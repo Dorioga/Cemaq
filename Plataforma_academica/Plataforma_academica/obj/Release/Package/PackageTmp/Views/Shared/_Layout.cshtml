@@ -8,9 +8,10 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="~/Estilos/botonmodal.css" rel="stylesheet" type="text/css">
+    <link href="//db.onlinewebfonts.com/c/4bc98977ba557db3b2f5bb66bff54e25?family=Champagne+&+Limousines" rel="stylesheet" type="text/css" />
     <link href="~/Content/Chosen/chosen.min.css" rel="stylesheet" />
     <script>
-       
+
         function myFunction1() {
             var x = document.getElementById("demo").value;
             window.open(x);
@@ -30,12 +31,12 @@
     <title>CEMAQ - Diplomados</title>
     <link rel="stylesheet" type="text/css" href="~/Estilos/Maestra.css" />
     <link rel="icon" type="image/gif" href="~/Imagenes/CAPYBARA_TOGA.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
-    
+
     <script src="~/Scripts/chosen.jquery.js"></script>
     <script src="~/Scripts/chosen.jquery.min.js"></script>
 
@@ -44,10 +45,23 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    @Html.AntiForgeryToken()
     @{
         Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
         Plataforma_academica.Models.Permisos_Menu menu = new Plataforma_academica.Models.Permisos_Menu();
         Plataforma_academica.Models.Permisos_Menu[] arreglo;
+        Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
+        Plataforma_academica.Models.principalP[] arreglop;
+        Plataforma_academica.Models.Niveles nivel = new Plataforma_academica.Models.Niveles();
+        Plataforma_academica.Models.Niveles[] arreglo_nivel;
+        Plataforma_academica.Models.Unidades unidad = new Plataforma_academica.Models.Unidades();
+        Plataforma_academica.Models.Unidades[] arreglo_unidad;
+        Plataforma_academica.Models.Actividades_unidad actividad = new Plataforma_academica.Models.Actividades_unidad();
+        Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad;
+        Plataforma_academica.Models.Actividades_unidad[] arreglo_examen;
+        Plataforma_academica.Models.Unidades[] arreglo_docente;
+        Plataforma_academica.Models.Porcentaje_usuario porcentaje = new Plataforma_academica.Models.Porcentaje_usuario();
+
     }
 
     <header>
@@ -55,7 +69,7 @@
         <nav class="navbar" id="head">
             <!--Logo -->
             <a href="javascript:" onclick="window.open('https://cemaq.com.co/');" class="navbar-brand icono">
-                <img src="~/Imagenes/Logo Mascota.png"><img>
+                <img src="~/Imagenes/Iconos/Logotipo001.png">
             </a>
             <!-- Checkbox Color  -->
             <div class="slidermodo">
@@ -78,7 +92,6 @@
                             if (Convert.ToInt32(usu.rol) < 4 || Convert.ToInt32(usu.rol) > 6)
                             {
                                 <div>
-                                    <img src="~/Imagenes/user-tie-solid.svg" />
                                     @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })
                                 </div>
 
@@ -90,7 +103,6 @@
                             else
                             {
                                 <div>
-                                    <img src="~/imagen_multimedia/usuario.svg" />
                                     @Html.LabelFor(Model => usu.Nombre, usu.Nombre, new { @class = "" })
                                 </div>
 
@@ -107,100 +119,278 @@
                         }
                     }
                 </div>
+                <!--Contenedor del Menu izq-->
+                <nav class="contenido ">
+                    <!-- header nav-->
+                    <div class="logo exterior" id="arriba">
+                        <a>
+                            <span class="fas fa-bars"></span>
+                        </a>
+                    </div>
+                    <!-- contenido nav-->
+                    <div class="lista-menu" id="menu">
+                        <nav>
+
+                            @{
+                                if (usu != null)
+                                {
+
+                                    arreglo = menu.ConsultarMenu(usu.rol);
+
+                                    for (int i = 0; i < arreglo.Length; i++)
+                                    {
+                                        <div class="opcion">
+                                            <a style="color: white;">
+                                                <img src="~/Imagenes/CAPYBARA_TOGA.png" /> @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)
+                                            </a>
+                                        </div>
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
+                                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                                }
+                            }
+                            @{
+                                if (usu != null)
+                                {
+                                    if (Convert.ToInt32(usu.rol) < 4 || Convert.ToInt32(usu.rol) > 6)
+                                    {
+
+                                        @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
+                                            <a href="https://zoom.us/signin" target="_blank">
+                                                <img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
+                                            </a>
+                                            <a href="http://pizarravirtualamazoniantic.azurewebsites.net/" target="_blank">
+                                                <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
+                                            </a>*@
+                                        <div class="opcion">
+
+                                            <a href="/Editar_perfil/Editar_perfil">
+                                                <img src="~/Imagenes/CAPYBARA_TOGA.png" data-toggle="modal" data-target="#myModal" /> Editar Perfil
+                                            </a>
+                                        </div>
+
+
+                                    }
+                                    else
+                                    {
+                                        @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />*@
+                                        @*<a href="#"><img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal1" /></a>
+                                            <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>*@
+
+                                        <div class="opcion">
+
+                                            <a href="/Editar_perfil/Editar_perfil">
+                                                <img src="~/Imagenes/CAPYBARA_TOGA.png" /> Editar PErfil
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                            }
+                            <div class="opcion">
+                                <hr />
+                                <a href="/Login/cerrarsesion">
+                                    <img src="~/Imagenes/CAPYBARA_TOGA.png" /> Cerrar Sesion
+                                </a>
+                            </div>
+
+                        </nav>
+                    </div>
+
+                </nav>
+
             </div>
         </nav>
     </header>
+
     <!-- Contenedor para despues del Header -->
 
     <main class="principal">
         <!-- Menu izq  -->
         <div class="menu-izq">
-            <nav class="contenido ">
-                <!-- header nav-->
-                <div class="logo exterior" id="arriba">
-                    <a>
-                        <span class="fas fa-bars"></span>
-                    </a>
-                </div>
-                <!-- contenido nav-->
-                <div class="lista-menu" id="menu">
-                    <nav>
+            @{
+                if (usu != null)
+                {
+                    <section class="buscar">
+                        <div id="bus">
+                            <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">
+                            <script>
+                                $(document).ready(function () {
+                                    $("#myInput").on("keyup", function () {
+                                        var value = $(this).val().toLowerCase();
+                                        $("#myTable ul").filter(function () {
+                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                        });
+                                    });
+                                });
+                            </script>
+                        </div>
+                        <div id="ocultar">
 
+                        </div>
+                    </section>
+                    <section class="botones" id="myTable">
                         @{
-                            if (usu != null)
+                            if (Convert.ToInt32(usu.rol) == 4)
                             {
-
-                                arreglo = menu.ConsultarMenu(usu.rol);
-
-                                for (int i = 0; i < arreglo.Length; i++)
+                                arreglop = principal.Buscar_Cursos_Diplomados_Estudiante(usu.cedula);
+                                if (arreglop.Length == 0)
                                 {
-                                    <div class="opcion">
-                                        <a style="color: white;">
-                                            <img src="~/Imagenes/CAPYBARA_TOGA.png"/> @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)
-                                        </a>
-                                    </div>
+                                    <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
+                                    //aqui debe ir el recogido
+                                }
+                                <!--Estudiante-->
+                                using (Html.BeginForm("principalplataforma", "PrincipalPlataforma", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    if (arreglop.Length == 0)
+                                    {
+                                        <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
+                                    }
+                                    <ul>
+                                        @{
+                                            for (int i = 0; i < arreglop.Length; i++)
+                                            {
+
+                                                if (i % 5 == 0)
+                                                {
+                                                    <li class="titulo" onclick= "mostrarmodulo(@arreglop[i].codigo_curso)">
+                                                        <div class="content-btn">
+                                                            <section class="izq"></section>
+                                                            <section class="cent">
+                                                                <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
+                                                            </section>
+                                                        </div>
+                                                    </li>
+                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                        <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                                            <div class="content-btn">
+                                                                <section class="izq"></section>
+                                                                <section class="cent">
+                                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                </section>
+                                                            </div>
+                                                        </button>
+                                                    </li>
+
+                                                }
+                                                else
+                                                {
+                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                        <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                                            <div class="content-btn">
+                                                                <section class="izq"></section>
+                                                                <section class="cent">
+                                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                </section>
+                                                            </div>
+                                                        </button>
+                                                    </li>
+                                                }
+                                            }
+
+                                        }
+                                    </ul>
+
+                                }
+                            }
+
+                            else
+                            {
+                                //if (Convert.ToInt32(usu.rol) > 0 && Convert.ToInt32(usu.rol) < 3)
+                                //{
+                                <!--Administrador y lideres-->
+                                //using (Html.BeginForm("seleccionar_unidad_para_contenido", "Seleccionar_para_subir_contenido", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                //{
+
+
+                                if (Convert.ToInt32(usu.rol) == 7)
+                                {
+                                    arreglop = principal.Buscar_diplomados_modulos_docente(usu.cedula);
+                                }
+                                else
+                                {
+                                    arreglop = principal.Buscar_diplomados_modulos_general();
+                                }
+
+                                for (int i = 0; i < arreglop.Length; i++)
+                                {
+                                    if (i % 5 == 0)
+                                    {
+                                        <ul>
+                                            <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso">
+                                                <div class="content-btn">
+                                                    <section class="izq"></section>
+                                                    <section class="cent">
+                                                        <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
+                                                    </section>
+                                                </div>
+                                            </button>
+                                            <li>
+                                                <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
+                                                    <div class="content-btn">
+                                                        <section class="izq"></section>
+                                                        <section class="cent">
+                                                            <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                        </section>
+                                                    </div>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
+                                                <div class="content-btn">
+                                                    <section class="izq"></section>
+                                                    <section class="cent">
+                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                    </section>
+                                                </div>
+                                            </button>
+                                        </li>
+                                    }
+
 
                                 }
 
-                            }
-                            else
-                            {
-                                <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
-                                <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                                //}
+                                //}
                             }
                         }
-                    </nav>
-                </div>
-
-                <!-- footer -->
-                <footer class="pie exterior" id="abajo">
-                    @{
-                        if (usu != null)
-                        {
-                            if (Convert.ToInt32(usu.rol) < 4 || Convert.ToInt32(usu.rol) > 6)
-                            {
-
-                                @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
-                                    <a href="https://zoom.us/signin" target="_blank">
-                                        <img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
-                                    </a>
-                                    <a href="http://pizarravirtualamazoniantic.azurewebsites.net/" target="_blank">
-                                        <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
-                                    </a>*@
-                                <img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
+                    </section>
+                }
+            }
 
 
-                            }
-                            else
-                            {
-                                @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />*@
-                                @*<a href="#"><img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal1" /></a>
-                                    <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>*@
-                                <a href="/Editar_perfil/Editar_perfil"><img src="~/imagen_multimedia/persona (2).svg" style="width: 25px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" /></a>
-                            }
-                        }
-                    }
-                    <a href="/Login/cerrarsesion"><img src="~/imagen_multimedia/cerrar-sesion (4).svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" /></a>
-
-                </footer>
-            </nav>
 
         </div>
 
-        <!-- Menu Derecho  -->
+        <!-- Menu Derecho
         <nav class="menu-der">
             <ul class="contenido list-group">
             </ul>
         </nav>
+
+            -->
         <!-- Contenedor Seleccionar_unidad  -->
         <div class="contenedor" id="container">
+            <img class="onda" src="~/Imagenes/Iconos/ondas.png"/>
             @RenderBody()
         </div>
 
 
     </main>
 
+
     <script src="~/Scripts/Menuprincipal.js"></script>
+    <script src="~/Scripts/Menumodulo.js">       
+    </script>
+
     <script>
         AjustarTextArea();
         function AjustarTextArea() {
