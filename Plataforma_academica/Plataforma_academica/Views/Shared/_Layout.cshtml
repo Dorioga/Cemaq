@@ -222,7 +222,7 @@
                                 $(document).ready(function () {
                                     $("#myInput").on("keyup", function () {
                                         var value = $(this).val().toLowerCase();
-                                        $("#myTable ul").filter(function () {
+                                        $("#myTable li").filter(function () {
                                             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                                         });
                                     });
@@ -303,8 +303,8 @@
                                 //if (Convert.ToInt32(usu.rol) > 0 && Convert.ToInt32(usu.rol) < 3)
                                 //{
                                 <!--Administrador y lideres-->
-                                //using (Html.BeginForm("seleccionar_unidad_para_contenido", "Seleccionar_para_subir_contenido", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                                //{
+                                using (Html.BeginForm("seleccionar_unidad_para_contenido", "Seleccionar_para_subir_contenido", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
 
 
                                 if (Convert.ToInt32(usu.rol) == 7)
@@ -315,50 +315,52 @@
                                 {
                                     arreglop = principal.Buscar_diplomados_modulos_general();
                                 }
+                                <ul>
+                                    @{
+                                        for (int i = 0; i < arreglop.Length; i++)
+                                        {
+                                            if (i % 5 == 0)
+                                            {
+                                                
+                                                    <li class="titulo" onclick= "mostrarmodulo(@arreglop[i].codigo_curso)">
+                                                        <div class="content-btn">
+                                                            <section class="izq"></section>
+                                                            <section class="cent">
+                                                                <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
+                                                            </section>
+                                                        </div>
+                                                    </li>
+                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                        <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
+                                                            <div class="content-btn">
+                                                                <section class="izq"></section>
+                                                                <section class="cent">
+                                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                </section>
+                                                            </div>
+                                                        </button>
+                                                    </li>
+                                            
+                                            }
+                                            else
+                                            {
+                                                <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                    <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
+                                                        <div class="content-btn">
+                                                            <section class="izq"></section>
+                                                            <section class="cent">
+                                                                <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                            </section>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                            }
 
-                                for (int i = 0; i < arreglop.Length; i++)
-                                {
-                                    if (i % 5 == 0)
-                                    {
-                                        <ul>
-                                            <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso">
-                                                <div class="content-btn">
-                                                    <section class="izq"></section>
-                                                    <section class="cent">
-                                                        <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
-                                                    </section>
-                                                </div>
-                                            </button>
-                                            <li>
-                                                <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
-                                                    <div class="content-btn">
-                                                        <section class="izq"></section>
-                                                        <section class="cent">
-                                                            <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                        </section>
-                                                    </div>
-                                                </button>
-                                            </li>
-                                        </ul>
+
+                                        }
                                     }
-                                    else
-                                    {
-                                        <li>
-                                            <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
-                                                <div class="content-btn">
-                                                    <section class="izq"></section>
-                                                    <section class="cent">
-                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                    </section>
-                                                </div>
-                                            </button>
-                                        </li>
-                                    }
-
-
-                                }
-
-                                //}
+                                </ul>                              
+                              }
                                 //}
                             }
                         }
