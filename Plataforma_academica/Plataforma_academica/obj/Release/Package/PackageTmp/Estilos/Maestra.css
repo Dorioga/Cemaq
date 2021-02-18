@@ -3,12 +3,12 @@
   src: url("'/fonts/Champagne & Limousines.ttf'"); }
 
 * {
-  transition: color 0.15s ease-in-out;
   margin: 0px;
   padding: 0px;
   font-family: 'Champagne & Limousines'; }
 
 body {
+  transition: color 0.15s ease-in-out;
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -237,7 +237,9 @@ header {
         height: 100%; }
       .principal .menu-izq .buscar #bus {
         flex: 2 1 auto;
-        background-color: #d4e9c6; }
+        background-color: #d4e9c6;
+        width: 76%;
+      }
         .principal .menu-izq .buscar #bus input {
           margin: 0px;
           height: 100%;
@@ -245,7 +247,11 @@ header {
       .principal .menu-izq .buscar #ocultar {
         flex: 1 1 auto;
         background-color: #69b545;
-        cursor: pointer; }
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff; }
         body.dark .principal .menu-izq .buscar #ocultar {
           background-color: #317a8e; }
       .principal .menu-izq .buscar p {
@@ -316,7 +322,6 @@ header {
   .principal .contenedor {
     background-color: #ffffff;
     width: 75vw;
-    min-width: 50%;
     margin-top: 7vh;
     margin-left: 25vw;
     min-height: 93vh;
@@ -325,7 +330,6 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%;
-    overflow-y: auto;
     -webkit-transition: left 0.3s ease-in-out;
     -o-transition: left 0.3s ease-in-out;
     transition: left 0.3s ease-in-out; }
@@ -1109,6 +1113,19 @@ header {
       height: 40vh;
       top: 53vh;
       left: 63vw; }
+
+.active .menu-izq {
+  width: 3vw; }
+  .active .menu-izq #bus {
+    display: none; }
+  .active .menu-izq .botones {
+    display: none; }
+
+.active .contenedor {
+  width: 97vw;
+  margin-left: 3vw; }
+  .active .contenedor .onda {
+    left: 84vw; }
 
 /* width */
 ::-webkit-scrollbar {

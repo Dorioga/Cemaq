@@ -209,9 +209,9 @@
 
     <!-- Contenedor para despues del Header -->
 
-    <main class="principal">
+    <main class="principal" id="contenedor">
         <!-- Menu izq  -->
-        <div class="menu-izq">
+        <div class="menu-izq" id="menuizq">
             @{
                 if (usu != null)
                 {
@@ -230,7 +230,7 @@
                             </script>
                         </div>
                         <div id="ocultar">
-
+                            <span class="fas fa-bars"></span>
                         </div>
                     </section>
                     <section class="botones" id="myTable">
@@ -250,50 +250,67 @@
                                     {
                                         <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
                                     }
-                                    <ul>
-                                        @{
-                                            for (int i = 0; i < arreglop.Length; i++)
-                                            {
-
-                                                if (i % 5 == 0)
-                                                {
-                                                    <li class="titulo" onclick= "mostrarmodulo(@arreglop[i].codigo_curso)">
-                                                        <div class="content-btn">
-                                                            <section class="izq"></section>
-                                                            <section class="cent">
-                                                                <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
-                                                            </section>
+                    <ul>
+                        @{
+                            for (int i = 0; i < arreglop.Length; i++)
+                            {
+                                if (DateTime.Today < arreglop[i].fecha_cierre)
+                                {
+                                    TimeSpan dias_faltantes = arreglop[i].fecha_cierre - DateTime.Today;
+                                    if (i % 5 == 0)
+                                    {
+                                        <li class="titulo" onclick="mostrarmodulo(@arreglop[i].codigo_curso)">
+                                            <div class="content-btn">
+                                                <section class="izq"></section>
+                                                <section class="cent">
+                                                    <!--<p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>-->
+                                                    <p class="nom">@arreglop[i].nombre_curso</p>
+                                                    <div class="progress ">
+                                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglop[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                                            <h6 class="porcentaje">@arreglop[i].porcentaje_diplomado%</h6>
                                                         </div>
-                                                    </li>
-                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
-                                                        <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
-                                                            <div class="content-btn">
-                                                                <section class="izq"></section>
-                                                                <section class="cent">
-                                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                                </section>
-                                                            </div>
-                                                        </button>
-                                                    </li>
+                                                    </div>
+                                                </section>
+                                                <section class="der">
+                                                    <span class="msjem">@Convert.ToInt32(dias_faltantes.Days) dias</span>
+                                                </section>
+                                            </div>
+                                        </li>
+                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                            <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                                <div class="content-btn">
+                                                    <section class="izq"></section>
+                                                    <section class="cent">
+                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                    </section>
+                                                </div>
+                                            </button>
+                                        </li>
 
-                                                }
-                                                else
-                                                {
-                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
-                                                        <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
-                                                            <div class="content-btn">
-                                                                <section class="izq"></section>
-                                                                <section class="cent">
-                                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                                </section>
-                                                            </div>
-                                                        </button>
-                                                    </li>
-                                                }
-                                            }
+                                    }
+                                    else
+                                    {
+                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                            <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                                <div class="content-btn">
+                                                    <section class="izq"></section>
+                                                    <section class="cent">
+                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                    </section>
+                                                </div>
+                                            </button>
+                                        </li>
+                                    }
+                                }
+                                else
+                                {
 
-                                        }
-                                    </ul>
+                                }
+
+                            }
+
+                        }
+                    </ul>
 
                                 }
                             }
@@ -303,8 +320,8 @@
                                 //if (Convert.ToInt32(usu.rol) > 0 && Convert.ToInt32(usu.rol) < 3)
                                 //{
                                 <!--Administrador y lideres-->
-                                //using (Html.BeginForm("seleccionar_unidad_para_contenido", "Seleccionar_para_subir_contenido", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                                //{
+                                using (Html.BeginForm("seleccionar_unidad_para_contenido", "Seleccionar_para_subir_contenido", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
 
 
                                 if (Convert.ToInt32(usu.rol) == 7)
@@ -315,50 +332,52 @@
                                 {
                                     arreglop = principal.Buscar_diplomados_modulos_general();
                                 }
+                                <ul>
+                                    @{
+                                        for (int i = 0; i < arreglop.Length; i++)
+                                        {
+                                            if (i % 5 == 0)
+                                            {
+                                                
+                                                    <li class="titulo" onclick= "mostrarmodulo(@arreglop[i].codigo_curso)">
+                                                        <div class="content-btn">
+                                                            <section class="izq"></section>
+                                                            <section class="cent">
+                                                                <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
+                                                            </section>
+                                                        </div>
+                                                    </li>
+                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                        <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
+                                                            <div class="content-btn">
+                                                                <section class="izq"></section>
+                                                                <section class="cent">
+                                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                </section>
+                                                            </div>
+                                                        </button>
+                                                    </li>
+                                            
+                                            }
+                                            else
+                                            {
+                                                <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                    <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
+                                                        <div class="content-btn">
+                                                            <section class="izq"></section>
+                                                            <section class="cent">
+                                                                <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                            </section>
+                                                        </div>
+                                                    </button>
+                                                </li>
+                                            }
 
-                                for (int i = 0; i < arreglop.Length; i++)
-                                {
-                                    if (i % 5 == 0)
-                                    {
-                                        <ul>
-                                            <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_curso">
-                                                <div class="content-btn">
-                                                    <section class="izq"></section>
-                                                    <section class="cent">
-                                                        <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
-                                                    </section>
-                                                </div>
-                                            </button>
-                                            <li>
-                                                <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
-                                                    <div class="content-btn">
-                                                        <section class="izq"></section>
-                                                        <section class="cent">
-                                                            <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                        </section>
-                                                    </div>
-                                                </button>
-                                            </li>
-                                        </ul>
+
+                                        }
                                     }
-                                    else
-                                    {
-                                        <li>
-                                            <button type="submit" class="boton" name="ir" value="@arreglop[i].codigo_unidad">
-                                                <div class="content-btn">
-                                                    <section class="izq"></section>
-                                                    <section class="cent">
-                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                    </section>
-                                                </div>
-                                            </button>
-                                        </li>
-                                    }
-
-
-                                }
-
-                                //}
+                                </ul>                              
+                              }
                                 //}
                             }
                         }
@@ -388,9 +407,8 @@
 
 
     <script src="~/Scripts/Menuprincipal.js"></script>
-    <script src="~/Scripts/Menumodulo.js">       
-    </script>
-
+    <script src="~/Scripts/Menumodulo.js"></script>
+    <script src="~/Scripts/Menu-izq.js"></script>
     <script>
         AjustarTextArea();
         function AjustarTextArea() {

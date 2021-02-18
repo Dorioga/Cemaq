@@ -237,7 +237,9 @@ header {
         height: 100%; }
       .principal .menu-izq .buscar #bus {
         flex: 2 1 auto;
-        background-color: #d4e9c6; }
+        background-color: #d4e9c6;
+        width: 76%;
+      }
         .principal .menu-izq .buscar #bus input {
           margin: 0px;
           height: 100%;

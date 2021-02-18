@@ -193,129 +193,127 @@
             }
        </div>*@
 
-        <!--Actividades-->
-        <div class="contenercheck" id="bactividad">
-            <span>
-                <p>Actividades</p>
-            </span>
-        </div>
-        <div class="contener last" id="actividad">
+        <!--Actividades-->        
             @{
                 if (TempData["mensaje10"] != null && usu != null)
                 {
-                    TempData.Keep("mensaje10");
-                    string nc = Convert.ToString(TempData["mensaje10"]);
-                    arreglo_actividad = actividad.Consultar_Actividad_usuario(nc, usu.usuario);
-                    arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
-                    for (int i = 0; i < arreglo_actividad.Length; i++)
-                    {
+                    <div class="contenercheck" id="bactividad">
+                        <span>
+                            <p>Actividades</p>
+                        </span>
+                    </div>
+                    <div class="contener last" id="actividad">
+                        @{ 
+                        TempData.Keep("mensaje10");
+                        string nc = Convert.ToString(TempData["mensaje10"]);
+                        arreglo_actividad = actividad.Consultar_Actividad_usuario(nc, usu.usuario);
+                        arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
+                        for (int i = 0; i < arreglo_actividad.Length; i++)
+                        {
                         <!--Actividad 1-->
                         if (i == 0)
                         {
-                            <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
-                                <div class="content-btn">
-                                    <img src="~/imagen_multimedia/Actividad.png" />
-                                    <div class="progress ">
-                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                            <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
-                                        </div>
+                        <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
+                            <div class="content-btn">
+                                <img src="~/imagen_multimedia/Actividad.png" />
+                                <div class="progress ">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                        <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
                                     </div>
-                                    <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
                                 </div>
-                            </button>
+                                <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
+                            </div>
+                        </button>
                         }
                         else
                         {
-                            if (Convert.ToInt32(arreglo_actividad[i - 1].porcentaje) < 99)
-                            {
-                                //aqui debe ir la notificacion emergente
-                                <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_actividad[i].codigo_actividad">
-                                    <div class="content-btn">
-                                        <img src="~/imagen_multimedia/Actividad.png" />
-                                        <span class="msjem">Actividad anterior pendiente</span>
-                                        <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
-                                    </div>
-                                </button>
-                            }
-                            else
-                            {
-                                <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
-                                    <div class="content-btn">
-                                        <img src="~/imagen_multimedia/Actividad.png" />
-                                        <div class="progress ">
-                                            <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                                <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
-                                            </div>
-                                        </div>
-                                        <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
-                                    </div>
-                                </button>
-                            }
+                        if (Convert.ToInt32(arreglo_actividad[i - 1].porcentaje) < 99)
+                        {
+                        //aqui debe ir la notificacion emergente
+                        <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_actividad[i].codigo_actividad">
+                            <div class="content-btn">
+                                <img src="~/imagen_multimedia/Actividad.png" />
+                                <span class="msjem">Actividad anterior pendiente</span>
+                                <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
+                            </div>
+                        </button>
                         }
-                    }
-                    int a = Convert.ToInt32(arreglo_actividad.LongLength) - 1;
-                    for (int i = 0; i < arreglo_examen.Length; i++)
-                    {
+                        else
+                        {
+                        <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
+                            <div class="content-btn">
+                                <img src="~/imagen_multimedia/Actividad.png" />
+                                <div class="progress ">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                        <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
+                                    </div>
+                                </div>
+                                <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
+                            </div>
+                        </button>
+                        }
+                        }
+                        }
+                        int a = Convert.ToInt32(arreglo_actividad.LongLength) - 1;
+                        for (int i = 0; i < arreglo_examen.Length; i++)
+                        {
 
                         if (a >= 0)
                         {
-                            if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
-                            {
-                                //aqui debe ir la notificacion emergente
-                                <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_examen[i].id_examen">
-                                    <div class="content-btn">
-                                        <img src="~/imagen_multimedia/Examen.png" />
-                                        <span>Actividades pendientes</span>
-                                        <p class="nom">@arreglo_examen[i].examen</p>
-                                    </div>
-                                </button>
-                            }
-                            else
-                            {
-                                <button type="submit" class="boton" name="irrrr5" value="@arreglo_examen[i].id_examen">
-                                    <div class="content-btn">
-                                        <img src="~/imagen_multimedia/Examen.png" />
-                                        <p class="nom">@arreglo_examen[i].examen</p>
-                                    </div>
-                                </button>
-                            }
-                        }
-                    }
-                    <!-- Subir actividad-->
-                    if (a >= 0)
-                    {
                         if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
                         {
-                            //aqui debe ir la notificacion emergente
-                            <button class="boton pendiente" data-toggle="modal">
-                                <div class="content-btn">
-                                    <img src="~/imagen_multimedia/Actividad.png" />
-                                    <span class="msjem">Pendientes</span>
-                                    <span><strong>Subir Actividad</strong></span>
-                                </div>
-                            </button>
+                        //aqui debe ir la notificacion emergente
+                        <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_examen[i].id_examen">
+                            <div class="content-btn">
+                                <img src="~/imagen_multimedia/Examen.png" />
+                                <span>Actividades pendientes</span>
+                                <p class="nom">@arreglo_examen[i].examen</p>
+                            </div>
+                        </button>
                         }
                         else
                         {
-                            <button class="boton" data-target="#mostrarmodal3" data-toggle="modal">
-                                <div class="content-btn">
-                                    <img src="~/imagen_multimedia/Actividad.png" />
-                                    <span><strong>Subir Actividad</strong></span>
-                                </div>
-                            </button>
+                        <button type="submit" class="boton" name="irrrr5" value="@arreglo_examen[i].id_examen">
+                            <div class="content-btn">
+                                <img src="~/imagen_multimedia/Examen.png" />
+                                <p class="nom">@arreglo_examen[i].examen</p>
+                            </div>
+                        </button>
                         }
-                    }
-                    else
-                    {
+                        }
+                        }
+                        <!-- Subir actividad-->
+                        if (a >= 0)
+                        {
+                        if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
+                        {
+                        //aqui debe ir la notificacion emergente
+                        <button class="boton pendiente" data-toggle="modal">
+                            <div class="content-btn">
+                                <img src="~/imagen_multimedia/Actividad.png" />
+                                <span class="msjem">Pendientes</span>
+                                <span><strong>Subir Actividad</strong></span>
+                            </div>
+                        </button>
+                        }
+                        else
+                        {
+                        <button class="boton" data-target="#mostrarmodal3" data-toggle="modal">
+                            <div class="content-btn">
+                                <img src="~/imagen_multimedia/Actividad.png" />
+                                <span><strong>Subir Actividad</strong></span>
+                            </div>
+                        </button>
+                        }
+                        }
+                        else
+                        {
                         <a> El Modulo no posee actividades para trabajar</a>
-                    }
-                }
-                else
-                {
-                    <a> Elija un Modulo</a>
+                        }
+                        }
+                    </div>
                 }
             }
-        </div>
         <!-- Modals-->
         @{
             if (ViewBag.mensaje == "exito")
