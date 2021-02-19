@@ -434,6 +434,7 @@ header {
         .principal .contenedor .bb-custom-wrapper .bb-item iframe {
           border-radius: 2%;
           width: 95%;
+          min-height:79vh;
           height: -webkit-fill-available;
           position: inherit; }
         .principal .contenedor .bb-custom-wrapper .bb-item textarea {

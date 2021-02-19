@@ -14,6 +14,8 @@ namespace Plataforma_academica.Controllers
     {
         // GET: PrincipalPlataforma
         string nombre;
+        Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
+        Plataforma_academica.Models.principalP[] arreglop;
         public ActionResult principalplataforma(HttpPostedFileBase file)
         {
             Models.Login user = Session["usuario"] as Models.Login;
@@ -31,6 +33,13 @@ namespace Plataforma_academica.Controllers
                 //{
                 //    return RedirectToAction("Principal_todos", "Principal_todos");
                 //}
+
+                arreglop = principal.Buscar_Cursos_Diplomados_Estudiante(user.cedula);
+                if (arreglop.Length == 0)
+                {
+                    return RedirectToAction("Principal_todos", "Principal_todos");
+                 }
+
                 String codig = Request.Form["ir"];
 
                 if (codig != null)

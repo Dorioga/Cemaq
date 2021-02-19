@@ -125,12 +125,13 @@ namespace Plataforma_academica.Controllers
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com");
                 smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
                 smtp.Credentials = new NetworkCredential("cemaqacademica@gmail.com", "academica2020!");
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
                 a = true;
                 return a;
-            }
+            }           
 
             return a;
         }

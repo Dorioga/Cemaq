@@ -238,18 +238,15 @@
                             if (Convert.ToInt32(usu.rol) == 4)
                             {
                                 arreglop = principal.Buscar_Cursos_Diplomados_Estudiante(usu.cedula);
-                                if (arreglop.Length == 0)
+                                @*if (arreglop.Length == 0)
                                 {
                                     <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
                                     //aqui debe ir el recogido
-                                }
+                                }*@
                                 <!--Estudiante-->
                                 using (Html.BeginForm("principalplataforma", "PrincipalPlataforma", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
-                                    if (arreglop.Length == 0)
-                                    {
-                                        <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
-                                    }
+                                
                     <ul>
                         @{
                             for (int i = 0; i < arreglop.Length; i++)
