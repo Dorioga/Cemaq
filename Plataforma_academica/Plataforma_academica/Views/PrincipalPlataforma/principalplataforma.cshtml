@@ -33,476 +33,481 @@
     //Plataforma_academica.Models.Porcentaje_usuario[] arreglo_porcentaje_actividad;
     //Plataforma_academica.Models.Porcentaje_usuario[] arreglo_porcentaje_examen;
 
-    <main class="con_form">
+<main class="con_form">
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @*Diplomados
-        <div class="contenercheck first" id="bdiplomado">
-            <span>
-                <p>Diplomados</p>
-            </span>
-        </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @*Diplomados
+         <div class="contenercheck first" id="bdiplomado">
+             <span>
+                 <p>Diplomados</p>
+             </span>
+         </div>
 
-        <div class="contener" id="diplomado">
-            @{
-                if (usu != null)
-                {
+         <div class="contener" id="diplomado">
+             @{
+                 if (usu != null)
+                 {
 
-                    arreglo = principal.BuscarCursos(usu.cedula);
-                    if (arreglo.Length == 0)
+                     arreglo = principal.BuscarCursos(usu.cedula);
+                     if (arreglo.Length == 0)
+                     {
+                         <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
+                     }
+
+                     for (int i = 0; i < arreglo.Length; i++)
+                     {
+                         if (DateTime.Today < arreglo[i].fecha_cierre)
+                         {
+                             TimeSpan dias_faltantes = arreglo[i].fecha_cierre - DateTime.Today;
+                             <button type="submit" class="boton pendiente" name="ir" value="@arreglo[i].codigo_curso">
+                                 <div class="content-btn">
+                                     <span class="msjem">Quedan @Convert.ToInt32(dias_faltantes.Days) dias</span>
+                                     <img src="~/imagenes/@arreglo[i].url" />
+                                     <div class="progress ">
+                                         <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                             <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
+                                         </div>
+                                     </div>
+                                     <p class="nom">@arreglo[i].nombre_curso</p>
+                                 </div>
+                             </button>
+                         }
+                         else
+                         {
+                             if (DateTime.Today == arreglo[i].fecha_cierre)
+                             {
+                                 <button type="submit" class="boton" name="ir" value="@arreglo[i].codigo_curso">
+                                     <div class="content-btn">
+                                         <img src="~/imagenes/@arreglo[i].url" />
+                                         <div class="progress ">
+                                             <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                                 <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
+                                             </div>
+                                         </div>
+                                         <p class="nom">@arreglo[i].nombre_curso</p>
+                                     </div>
+                                 </button>
+                             }
+                             else
+                             {
+                                 //crear un script con json para actualizar automaticamente el estado de curso_usuario para que no se carque mas el curso que ya se paso de fecha
+                                 <script>
+                                 $(function () {
+                                     var url = "@Url.Action("finalizado_por_fecha", "PrincipalPlataforma")";
+                                     var codigo = @arreglo[i].codigo_curso_usaurio;
+                                     var data = {codigo : codigo};
+                                     $.post(url,data).done(function(data){
+
+                                     }).fail(manejarErrorAjax).always(function(){
+                                     });
+                                 });
+                                 </script>
+                             }
+                         }
+                     }
+                 }
+             }
+         </div>
+         Modulos
+         <div class="contenercheck" id="bmodulo">
+             <span>
+                 <p>Modulos</p>
+             </span>
+         </div>
+         <div class="contener" id="modulo">
+             @{
+                 if (TempData["mensaje9"] != null && usu != null)
+                 {
+                     TempData.Keep("mensaje9");
+                     string nc = Convert.ToString(TempData["mensaje9"]);
+                     arreglo_unidad = unidad.Consultar_unidades_usuario(nc, usu.usuario);
+                     if (arreglo_unidad[0].presentacion == "saludar")
+                     {
+                         @Scripts.Render("~/Scripts/Emerentelogin.js")
+                     }
+                     <!--Boton De Inforamcion del Docente-->
+                     <button class="boton" data-target="#mostrarmodal2" data-toggle="modal">
+                         <div class="content-btn">
+                             <img src="~/imagen_multimedia/Presentacion Docente.png" />
+                             <span><strong>Información docente</strong></span>
+                         </div>
+                     </button>
+
+                     for (int i = 0; i < arreglo_unidad.Length; i++)
+                     {
+                         <!--Modulo 1-->
+                         if (i == 0)
+                         {
+                             <button type="submit" class="boton" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
+                                 <div class="content-btn">
+                                     <img src="~/imagen_multimedia/Modulo.png" />
+                                     <div class="progress ">
+                                         <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                             <h6 class="porcentaje">@arreglo_unidad[i].porcentaje_modulo%</h6>
+                                         </div>
+                                     </div>
+                                     <p class="nom">@arreglo_unidad[i].nombre_unidad</p>
+                                 </div>
+                                 <script>
+                                     var checkBox = document.getElementById("unidad");
+                                     checkBox.checked = "checked"
+                                 </script>
+                             </button>
+                         }
+                         else
+                         {
+                             <!--Modulo 2-5 -->
+                             if (Convert.ToSingle(arreglo_unidad[i - 1].porcentaje_modulo) < 99)
+                             {
+                                 <button type="submit" disabled="true" class="boton pendiente">
+                                     <div class="content-btn">
+                                         <img src="~/imagen_multimedia/Modulo.png" />
+                                         <span class="msjem" id="msejem">Anterior modulo pendiente</span>
+                                         <p class="nom">@arreglo_unidad[i].nombre_unidad</p>
+                                     </div>
+                                 </button>
+                             }
+                             else
+                             {
+                                 <button type="submit" class="boton" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
+                                     <div class="content-btn">
+                                         <img src="~/imagen_multimedia/Modulo.png" />
+                                         <div class="progress ">
+                                             <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                                 <h6 class="porcentaje">@arreglo_unidad[i].porcentaje_modulo%</h6>
+                                             </div>
+                                         </div>
+                                         <p class="nom">@arreglo_unidad[i].nombre_unidad</p>
+                                     </div>
+                                 </button>
+                             }
+                         }
+                     }
+
+
+                 }
+                 else
+                 {
+                     <a> Elija un Diplomado</a>
+                 }
+             }
+        </div>*@
+
+    <!--Actividades-->
+    @{
+        if (TempData["mensaje10"] != null && usu != null)
+        {
+            <!--
+               <div class="contenercheck" id="bactividad">
+                   <span>
+                       <p>Actividades</p>
+                   </span>
+               </div>
+                -->
+            <div class="contener" id="actividad">
+                @{
+                    TempData.Keep("mensaje10");
+                    string nc = Convert.ToString(TempData["mensaje10"]);
+                    arreglo_actividad = actividad.Consultar_Actividad_usuario(nc, usu.usuario);
+                    arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
+                    for (int i = 0; i < arreglo_actividad.Length; i++)
                     {
-                        <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
-                    }
-
-                    for (int i = 0; i < arreglo.Length; i++)
-                    {
-                        if (DateTime.Today < arreglo[i].fecha_cierre)
-                        {
-                            TimeSpan dias_faltantes = arreglo[i].fecha_cierre - DateTime.Today;
-                            <button type="submit" class="boton pendiente" name="ir" value="@arreglo[i].codigo_curso">
-                                <div class="content-btn">
-                                    <span class="msjem">Quedan @Convert.ToInt32(dias_faltantes.Days) dias</span>
-                                    <img src="~/imagenes/@arreglo[i].url" />
-                                    <div class="progress ">
-                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                            <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
-                                        </div>
-                                    </div>
-                                    <p class="nom">@arreglo[i].nombre_curso</p>
-                                </div>
-                            </button>
-                        }
-                        else
-                        {
-                            if (DateTime.Today == arreglo[i].fecha_cierre)
-                            {
-                                <button type="submit" class="boton" name="ir" value="@arreglo[i].codigo_curso">
-                                    <div class="content-btn">
-                                        <img src="~/imagenes/@arreglo[i].url" />
-                                        <div class="progress ">
-                                            <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                                <h6 class="porcentaje">@arreglo[i].porcentaje_diplomado%</h6>
-                                            </div>
-                                        </div>
-                                        <p class="nom">@arreglo[i].nombre_curso</p>
-                                    </div>
-                                </button>
-                            }
-                            else
-                            {
-                                //crear un script con json para actualizar automaticamente el estado de curso_usuario para que no se carque mas el curso que ya se paso de fecha
-                                <script>
-                                $(function () {
-                                    var url = "@Url.Action("finalizado_por_fecha", "PrincipalPlataforma")";
-                                    var codigo = @arreglo[i].codigo_curso_usaurio;
-                                    var data = {codigo : codigo};
-                                    $.post(url,data).done(function(data){
-
-                                    }).fail(manejarErrorAjax).always(function(){
-                                    });
-                                });
-                                </script>
-                            }
-                        }
-                    }
-                }
-            }
-        </div>
-        Modulos
-        <div class="contenercheck" id="bmodulo">
-            <span>
-                <p>Modulos</p>
-            </span>
-        </div>
-        <div class="contener" id="modulo">
-            @{
-                if (TempData["mensaje9"] != null && usu != null)
-                {
-                    TempData.Keep("mensaje9");
-                    string nc = Convert.ToString(TempData["mensaje9"]);
-                    arreglo_unidad = unidad.Consultar_unidades_usuario(nc, usu.usuario);
-                    if (arreglo_unidad[0].presentacion == "saludar")
-                    {
-                        @Scripts.Render("~/Scripts/Emerentelogin.js")
-                    }
-                    <!--Boton De Inforamcion del Docente-->
-                    <button class="boton" data-target="#mostrarmodal2" data-toggle="modal">
-                        <div class="content-btn">
-                            <img src="~/imagen_multimedia/Presentacion Docente.png" />
-                            <span><strong>Información docente</strong></span>
-                        </div>
-                    </button>
-
-                    for (int i = 0; i < arreglo_unidad.Length; i++)
-                    {
-                        <!--Modulo 1-->
-                        if (i == 0)
-                        {
-                            <button type="submit" class="boton" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
-                                <div class="content-btn">
-                                    <img src="~/imagen_multimedia/Modulo.png" />
-                                    <div class="progress ">
-                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                            <h6 class="porcentaje">@arreglo_unidad[i].porcentaje_modulo%</h6>
-                                        </div>
-                                    </div>
-                                    <p class="nom">@arreglo_unidad[i].nombre_unidad</p>
-                                </div>
-                                <script>
-                                    var checkBox = document.getElementById("unidad");
-                                    checkBox.checked = "checked"
-                                </script>
-                            </button>
-                        }
-                        else
-                        {
-                            <!--Modulo 2-5 -->
-                            if (Convert.ToSingle(arreglo_unidad[i - 1].porcentaje_modulo) < 99)
-                            {
-                                <button type="submit" disabled="true" class="boton pendiente">
-                                    <div class="content-btn">
-                                        <img src="~/imagen_multimedia/Modulo.png" />
-                                        <span class="msjem" id="msejem">Anterior modulo pendiente</span>
-                                        <p class="nom">@arreglo_unidad[i].nombre_unidad</p>
-                                    </div>
-                                </button>
-                            }
-                            else
-                            {
-                                <button type="submit" class="boton" name="irrr" value="@arreglo_unidad[i].codigo_unidad">
-                                    <div class="content-btn">
-                                        <img src="~/imagen_multimedia/Modulo.png" />
-                                        <div class="progress ">
-                                            <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_unidad[i].porcentaje_modulo% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                                <h6 class="porcentaje">@arreglo_unidad[i].porcentaje_modulo%</h6>
-                                            </div>
-                                        </div>
-                                        <p class="nom">@arreglo_unidad[i].nombre_unidad</p>
-                                    </div>
-                                </button>
-                            }
-                        }
-                    }
-
-
-                }
-                else
-                {
-                    <a> Elija un Diplomado</a>
-                }
-            }
-       </div>*@
-
-        <!--Actividades-->        
-            @{
-                if (TempData["mensaje10"] != null && usu != null)
-                {
-                    <div class="contenercheck" id="bactividad">
-                        <span>
-                            <p>Actividades</p>
-                        </span>
-                    </div>
-                    <div class="contener last" id="actividad">
-                        @{ 
-                        TempData.Keep("mensaje10");
-                        string nc = Convert.ToString(TempData["mensaje10"]);
-                        arreglo_actividad = actividad.Consultar_Actividad_usuario(nc, usu.usuario);
-                        arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
-                        for (int i = 0; i < arreglo_actividad.Length; i++)
-                        {
                         <!--Actividad 1-->
                         if (i == 0)
                         {
-                        <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
-                            <div class="content-btn">
-                                <img src="~/imagen_multimedia/Actividad.png" />
-                                <div class="progress ">
-                                    <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                        <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
+                            <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
+                                <div class="content-btn">
+                                    <img src="~/imagen_multimedia/Actividad.png" />
+                                    <div class="progress ">
+                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                            <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
+                                        </div>
                                     </div>
+                                    <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
                                 </div>
-                                <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
-                            </div>
-                        </button>
+                            </button>
                         }
                         else
                         {
-                        if (Convert.ToInt32(arreglo_actividad[i - 1].porcentaje) < 99)
-                        {
-                        //aqui debe ir la notificacion emergente
-                        <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_actividad[i].codigo_actividad">
-                            <div class="content-btn">
-                                <img src="~/imagen_multimedia/Actividad.png" />
-                                <span class="msjem">Actividad anterior pendiente</span>
-                                <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
-                            </div>
-                        </button>
-                        }
-                        else
-                        {
-                        <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
-                            <div class="content-btn">
-                                <img src="~/imagen_multimedia/Actividad.png" />
-                                <div class="progress ">
-                                    <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                        <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
+                            if (Convert.ToInt32(arreglo_actividad[i - 1].porcentaje) < 99)
+                            {
+                                //aqui debe ir la notificacion emergente
+                                <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_actividad[i].codigo_actividad">
+                                    <div class="content-btn">
+                                        <img src="~/imagen_multimedia/Actividad.png" />
+                                        <span class="msjem">Actividad anterior pendiente</span>
+                                        <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
                                     </div>
-                                </div>
-                                <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
-                            </div>
-                        </button>
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
+                                    <div class="content-btn">
+                                        <img src="~/imagen_multimedia/Actividad.png" />
+                                        <div class="progress ">
+                                            <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                                <h6 class="porcentaje">@arreglo_actividad[i].porcentaje%</h6>
+                                            </div>
+                                        </div>
+                                        <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
+                                    </div>
+                                </button>
+                            }
                         }
-                        }
-                        }
-                        int a = Convert.ToInt32(arreglo_actividad.LongLength) - 1;
-                        for (int i = 0; i < arreglo_examen.Length; i++)
-                        {
+                    }
+                    int a = Convert.ToInt32(arreglo_actividad.LongLength) - 1;
+                    for (int i = 0; i < arreglo_examen.Length; i++)
+                    {
 
                         if (a >= 0)
                         {
+                            if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
+                            {
+                                //aqui debe ir la notificacion emergente
+                                <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_examen[i].id_examen">
+                                    <div class="content-btn">
+                                        <img src="~/imagen_multimedia/Examen.png" />
+                                        <span>Actividades pendientes</span>
+                                        <p class="nom">@arreglo_examen[i].examen</p>
+                                    </div>
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="boton" name="irrrr5" value="@arreglo_examen[i].id_examen">
+                                    <div class="content-btn">
+                                        <img src="~/imagen_multimedia/Examen.png" />
+                                        <p class="nom">@arreglo_examen[i].examen</p>
+                                    </div>
+                                </button>
+                            }
+                        }
+                    }
+                    <!-- Subir actividad-->
+                    if (a >= 0)
+                    {
                         if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
                         {
-                        //aqui debe ir la notificacion emergente
-                        <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_examen[i].id_examen">
-                            <div class="content-btn">
-                                <img src="~/imagen_multimedia/Examen.png" />
-                                <span>Actividades pendientes</span>
-                                <p class="nom">@arreglo_examen[i].examen</p>
-                            </div>
-                        </button>
+                            //aqui debe ir la notificacion emergente
+                            <button class="boton pendiente" data-toggle="modal">
+                                <div class="content-btn">
+                                    <img src="~/imagen_multimedia/Actividad.png" />
+                                    <span class="msjem">Pendientes</span>
+                                    <span><strong>Subir Actividad</strong></span>
+                                </div>
+                            </button>
                         }
                         else
                         {
-                        <button type="submit" class="boton" name="irrrr5" value="@arreglo_examen[i].id_examen">
-                            <div class="content-btn">
-                                <img src="~/imagen_multimedia/Examen.png" />
-                                <p class="nom">@arreglo_examen[i].examen</p>
-                            </div>
-                        </button>
+                            <button class="boton" data-target="#mostrarmodal3" data-toggle="modal">
+                                <div class="content-btn">
+                                    <img src="~/imagen_multimedia/Actividad.png" />
+                                    <span><strong>Subir Actividad</strong></span>
+                                </div>
+                            </button>
                         }
-                        }
-                        }
-                        <!-- Subir actividad-->
-                        if (a >= 0)
-                        {
-                        if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
-                        {
-                        //aqui debe ir la notificacion emergente
-                        <button class="boton pendiente" data-toggle="modal">
-                            <div class="content-btn">
-                                <img src="~/imagen_multimedia/Actividad.png" />
-                                <span class="msjem">Pendientes</span>
-                                <span><strong>Subir Actividad</strong></span>
-                            </div>
-                        </button>
-                        }
-                        else
-                        {
-                        <button class="boton" data-target="#mostrarmodal3" data-toggle="modal">
-                            <div class="content-btn">
-                                <img src="~/imagen_multimedia/Actividad.png" />
-                                <span><strong>Subir Actividad</strong></span>
-                            </div>
-                        </button>
-                        }
-                        }
-                        else
-                        {
+                    }
+                    else
+                    {
                         <a> El Modulo no posee actividades para trabajar</a>
-                        }
-                        }
-                    </div>
+                    }
                 }
-            }
-        <!-- Modals-->
-        @{
-            if (ViewBag.mensaje == "exito")
-            {
-                @Scripts.Render("~/Scripts/modal_exito_subir.js")
-            }
-            <!--Modal Actividad Cargada Exitosamente-->
-            <div class="modal" id="mostrarmodal4" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="marea">
-                    <div class=" mcontenedor modal-content">
-                        <div class="modal-body mcontenido">
-                            <div class="cizq">
-                                <svg viewBox="0 0 512.00005 512" xmlns="http://www.w3.org/2000/svg"><path d="m502.003906 256c0 135.863281-110.140625 246.003906-246.003906 246.003906s-246-110.140625-246-246.003906 110.136719-246 246-246 246.003906 110.136719 246.003906 246zm0 0" fill="#cbe558" /><path d="m341.667969 139.847656-119.167969 119.167969-52.164062-52.164063-56.570313 56.570313 52.164063 52.164063 56.570312 56.566406 175.734375-175.734375zm0 0" fill="#fff" /><path d="m222.5 382.152344c-2.652344 0-5.195312-1.054688-7.070312-2.929688l-108.734376-108.730468c-3.90625-3.90625-3.90625-10.238282 0-14.144532l56.566407-56.566406c3.90625-3.90625 10.238281-3.90625 14.144531 0l45.09375 45.09375 112.09375-112.097656c1.875-1.875 4.421875-2.929688 7.074219-2.929688 2.648437 0 5.195312 1.054688 7.070312 2.929688l56.566407 56.570312c3.90625 3.902344 3.90625 10.234375 0 14.140625l-175.734376 175.738281c-1.875 1.875-4.417968 2.925782-7.070312 2.925782zm-94.589844-118.730469 94.589844 94.589844 161.59375-161.59375-42.425781-42.429688-112.097657 112.097657c-3.90625 3.90625-10.238281 3.90625-14.140624 0l-45.09375-45.09375zm0 0" /><path d="m255.9375 512c-6.53125 0-13.070312-.25-19.621094-.75-60.835937-4.664062-118.132812-31.027344-161.335937-74.226562-48.351563-48.355469-74.980469-112.640626-74.980469-181.023438 0-68.378906 26.628906-132.667969 74.980469-181.019531 48.351562-48.351563 112.640625-74.980469 181.019531-74.980469 68.382812 0 132.667969 26.628906 181.023438 74.980469 43.199218 43.203125 69.5625 100.5 74.226562 161.335937 4.613281 60.175782-12.144531 120.15625-47.183594 168.898438-3.222656 4.484375-9.472656 5.503906-13.957031 2.28125s-5.503906-9.472656-2.28125-13.957032c67.726563-94.207031 57.234375-222.230468-24.949219-304.417968-92.015625-92.015625-241.738281-92.015625-333.753906 0-92.019531 92.019531-92.019531 241.738281 0 333.757812 82.183594 82.179688 210.210938 92.675782 304.417969 24.945313 4.484375-3.222657 10.730469-2.199219 13.957031 2.285156 3.222656 4.484375 2.199219 10.730469-2.285156 13.957031-43.4375 31.226563-95.804688 47.933594-149.277344 47.933594zm0 0" /><path d="m429.953125 439.953125c-2.632813 0-5.210937-1.070313-7.070313-2.929687-1.859374-1.863282-2.929687-4.441407-2.929687-7.070313 0-2.632813 1.070313-5.210937 2.929687-7.070313 1.859376-1.859374 4.4375-2.929687 7.070313-2.929687 2.628906 0 5.207031 1.070313 7.070313 2.929687 1.859374 1.859376 2.929687 4.4375 2.929687 7.070313 0 2.628906-1.070313 5.207031-2.929687 7.070313-1.863282 1.859374-4.441407 2.929687-7.070313 2.929687zm0 0" /></svg>
-                            </div>
-                            <div class="cder">
-                                <h1>La actividad fue subida exitosamente</h1>
-                                <img src="~/Imagenes/Logo Mascota.png">
-                            </div>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+        }
+    }
+    <!-- Modals-->
+    @{
+        if (ViewBag.mensaje == "exito")
+        {
+            @Scripts.Render("~/Scripts/modal_exito_subir.js")
+        }
+        <!--Modal Actividad Cargada Exitosamente-->
+        <div class="modal" id="mostrarmodal4" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="marea">
+                <div class=" mcontenedor modal-content">
+                    <div class="modal-body mcontenido">
+                        <div class="cizq">
+                            <svg viewBox="0 0 512.00005 512" xmlns="http://www.w3.org/2000/svg"><path d="m502.003906 256c0 135.863281-110.140625 246.003906-246.003906 246.003906s-246-110.140625-246-246.003906 110.136719-246 246-246 246.003906 110.136719 246.003906 246zm0 0" fill="#cbe558" /><path d="m341.667969 139.847656-119.167969 119.167969-52.164062-52.164063-56.570313 56.570313 52.164063 52.164063 56.570312 56.566406 175.734375-175.734375zm0 0" fill="#fff" /><path d="m222.5 382.152344c-2.652344 0-5.195312-1.054688-7.070312-2.929688l-108.734376-108.730468c-3.90625-3.90625-3.90625-10.238282 0-14.144532l56.566407-56.566406c3.90625-3.90625 10.238281-3.90625 14.144531 0l45.09375 45.09375 112.09375-112.097656c1.875-1.875 4.421875-2.929688 7.074219-2.929688 2.648437 0 5.195312 1.054688 7.070312 2.929688l56.566407 56.570312c3.90625 3.902344 3.90625 10.234375 0 14.140625l-175.734376 175.738281c-1.875 1.875-4.417968 2.925782-7.070312 2.925782zm-94.589844-118.730469 94.589844 94.589844 161.59375-161.59375-42.425781-42.429688-112.097657 112.097657c-3.90625 3.90625-10.238281 3.90625-14.140624 0l-45.09375-45.09375zm0 0" /><path d="m255.9375 512c-6.53125 0-13.070312-.25-19.621094-.75-60.835937-4.664062-118.132812-31.027344-161.335937-74.226562-48.351563-48.355469-74.980469-112.640626-74.980469-181.023438 0-68.378906 26.628906-132.667969 74.980469-181.019531 48.351562-48.351563 112.640625-74.980469 181.019531-74.980469 68.382812 0 132.667969 26.628906 181.023438 74.980469 43.199218 43.203125 69.5625 100.5 74.226562 161.335937 4.613281 60.175782-12.144531 120.15625-47.183594 168.898438-3.222656 4.484375-9.472656 5.503906-13.957031 2.28125s-5.503906-9.472656-2.28125-13.957032c67.726563-94.207031 57.234375-222.230468-24.949219-304.417968-92.015625-92.015625-241.738281-92.015625-333.753906 0-92.019531 92.019531-92.019531 241.738281 0 333.757812 82.183594 82.179688 210.210938 92.675782 304.417969 24.945313 4.484375-3.222657 10.730469-2.199219 13.957031 2.285156 3.222656 4.484375 2.199219 10.730469-2.285156 13.957031-43.4375 31.226563-95.804688 47.933594-149.277344 47.933594zm0 0" /><path d="m429.953125 439.953125c-2.632813 0-5.210937-1.070313-7.070313-2.929687-1.859374-1.863282-2.929687-4.441407-2.929687-7.070313 0-2.632813 1.070313-5.210937 2.929687-7.070313 1.859376-1.859374 4.4375-2.929687 7.070313-2.929687 2.628906 0 5.207031 1.070313 7.070313 2.929687 1.859374 1.859376 2.929687 4.4375 2.929687 7.070313 0 2.628906-1.070313 5.207031-2.929687 7.070313-1.863282 1.859374-4.441407 2.929687-7.070313 2.929687zm0 0" /></svg>
                         </div>
+                        <div class="cder">
+                            <h1>La actividad fue subida exitosamente</h1>
+                            <img src="~/Imagenes/Logo Mascota.png">
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                 </div>
             </div>
+        </div>
 
-            if (TempData["mensaje9"] != null && usu != null)
+        if (TempData["mensaje9"] != null && usu != null)
+        {
+            TempData.Keep("mensaje9");
+            string n = Convert.ToString(TempData["mensaje9"]);
+            arreglo_docente = unidad.Consultar_docente_curso(n);
+            if (arreglo_docente.Length > 0)
             {
-                TempData.Keep("mensaje9");
-                string n = Convert.ToString(TempData["mensaje9"]);
-                arreglo_docente = unidad.Consultar_docente_curso(n);
-                if (arreglo_docente.Length > 0)
+                <!--Presentacion del Docente-->
+                <div class="modal" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                    <div class="marea">
+                        <div class="mcontenedor modal-content">
+                            <div class="modal-body mcontenido">
+                                <div class="cizq">
+                                    <!--Foto-->
+                                    <div class="foto">
+                                        <img src="~/Imagenes/@arreglo_docente[0].foto">
+                                    </div>
+                                    <!--Nombre-->
+                                    <div class="dinfo">
+                                        <i class="fa fa-user"></i>
+                                        <label>@arreglo_docente[0].nombre</label>
+                                    </div>
+                                    <!--Escolaridad-->
+                                    <div class="dinfo">
+                                        <i class="fa fa-graduation-cap"></i>
+                                        <label>@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
+                                    </div>
+                                    <!--Email-->
+                                    <div class="dinfo last">
+                                        <i class="fa fa-envelope"></i>
+                                        <label>@arreglo_docente[0].email_persona</label>
+                                    </div>
+                                </div>
+                                <div class="cder">
+                                    <!--Curso Encargado-->
+                                    <div class="encargado">
+                                        <h3>Docente de</h3>
+                                        <h2>@arreglo_docente[0].nombre_curso</h2>
+                                    </div>
+                                    <!--Logo-->
+                                    <div class="logo">
+                                        <img src="~/Imagenes/Logo Mascota.png">
+                                    </div>
+
+                                </div>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Bienvenido al Curso-->
+                <div class="modal " id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                    <div class="marea">
+                        <div class="mcontenedor modal-content">
+                            <div class="modal-body mcontenido">
+                                <div class="cizq">
+                                    <!--Foto-->
+                                    <div class="foto">
+                                        <h4>Docente</h4>
+                                        <img src="~/Imagenes/@arreglo_docente[0].foto">
+                                    </div>
+                                    <!--Nombre Docente-->
+                                    <div class="dinfo">
+                                        <i class="fa fa-user"></i>
+                                        <label>@arreglo_docente[0].nombre</label>
+                                    </div>
+
+                                    <!--Estudios-->
+                                    <div class="dinfo">
+                                        <i class="fa fa-graduation-cap"></i>
+                                        <label>@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
+                                    </div>
+                                    <!--Email-->
+                                    <div class="dinfo last">
+                                        <i class="fa fa-envelope"></i>
+                                        <label>@arreglo_docente[0].email_persona</label>
+                                    </div>
+
+                                </div>
+                                <div class="cder">
+                                    <div class="encargado">
+                                        <h2>@usu.Nombre</h2>
+                                        <h3>Bienvenido(a) al diplomado virtual en</h3>
+                                        <h2>@arreglo_docente[0].nombre_curso</h2>
+                                    </div>
+
+                                    <div class="logo">
+                                        <label>Formación Virtual</label>
+                                        <img src="~/Imagenes/Logo Mascota.png">
+                                    </div>
+
+                                </div>
+
+                                <button type="submit" name="irmodal" class="close" value="@n">x</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                if (TempData["mensaje10"] != null && usu != null)
                 {
-                    <!--Presentacion del Docente-->
-                    <div class="modal" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                    TempData.Keep("mensaje10");
+                    string nx = Convert.ToString(TempData["mensaje10"]);
+                    <!--Modal Subir Actividad-->
+                    <div class="modal" id="mostrarmodal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                         <div class="marea">
                             <div class="mcontenedor modal-content">
                                 <div class="modal-body mcontenido">
                                     <div class="cizq">
                                         <!--Foto-->
                                         <div class="foto">
-                                            <img src="~/Imagenes/@arreglo_docente[0].foto">
+                                            <img src="~/Imagenes/@usu.foto">
                                         </div>
-                                        <!--Nombre-->
+                                        <!--Foto Usuario-->
                                         <div class="dinfo">
                                             <i class="fa fa-user"></i>
-                                            <label>@arreglo_docente[0].nombre</label>
+                                            <label>@usu.Nombre</label>
                                         </div>
-                                        <!--Escolaridad-->
+
+                                        <!--Nombre Curso Inscrito-->
                                         <div class="dinfo">
                                             <i class="fa fa-graduation-cap"></i>
-                                            <label>@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
+                                            <label>@usu.Tipo_rol: @arreglo_docente[0].nombre_curso</label>
                                         </div>
                                         <!--Email-->
-                                        <div class="dinfo last">
+                                        <div class="dinfo">
                                             <i class="fa fa-envelope"></i>
-                                            <label>@arreglo_docente[0].email_persona</label>
+                                            <label>@usu.correo</label>
                                         </div>
                                     </div>
                                     <div class="cder">
-                                        <!--Curso Encargado-->
                                         <div class="encargado">
-                                            <h3>Docente de</h3>
-                                            <h2>@arreglo_docente[0].nombre_curso</h2>
+                                            <h2>Subir Actividad:</h2>
                                         </div>
-                                        <!--Logo-->
+                                        <div class="cargar">
+                                            <input type="file" name="file" accept=".docx, .pdf" />
+                                            <div class="form-group oculta" id="capa1">
+                                                @Html.TextAreaFor(model => model.informacion_actividad, new { @placeholder = "Descripción del archivo (opcional)" })
+                                            </div>
+                                            <button type="submit" name="irarchivo" class="btn" value="@nx" style="float: right;">Enviar</button>
+                                        </div>
                                         <div class="logo">
                                             <img src="~/Imagenes/Logo Mascota.png">
                                         </div>
 
                                     </div>
+
+
+
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--Bienvenido al Curso-->
-                    <div class="modal " id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                        <div class="marea">
-                            <div class="mcontenedor modal-content">
-                                <div class="modal-body mcontenido">
-                                    <div class="cizq">
-                                        <!--Foto-->
-                                        <div class="foto">
-                                            <h4>Docente</h4>
-                                            <img src="~/Imagenes/@arreglo_docente[0].foto">
-                                        </div>
-                                        <!--Nombre Docente-->
-                                        <div class="dinfo">
-                                            <i class="fa fa-user"></i>
-                                            <label>@arreglo_docente[0].nombre</label>
-                                        </div>
-
-                                        <!--Estudios-->
-                                        <div class="dinfo">
-                                            <i class="fa fa-graduation-cap"></i>
-                                            <label>@arreglo_docente[0].escolaridad: @arreglo_docente[0].academica</label>
-                                        </div>
-                                        <!--Email-->
-                                        <div class="dinfo last">
-                                            <i class="fa fa-envelope"></i>
-                                            <label>@arreglo_docente[0].email_persona</label>
-                                        </div>
-
-                                    </div>
-                                    <div class="cder">
-                                        <div class="encargado">
-                                            <h2>@usu.Nombre</h2>
-                                            <h3>Bienvenido(a) al diplomado virtual en</h3>
-                                            <h2>@arreglo_docente[0].nombre_curso</h2>
-                                        </div>
-
-                                        <div class="logo">
-                                            <label>Formación Virtual</label>
-                                            <img src="~/Imagenes/Logo Mascota.png">
-                                        </div>
-
-                                    </div>
-
-                                    <button type="submit" name="irmodal" class="close" value="@n">x</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    if (TempData["mensaje10"] != null && usu != null)
-                    {
-                        TempData.Keep("mensaje10");
-                        string nx = Convert.ToString(TempData["mensaje10"]);
-                        <!--Modal Subir Actividad-->
-                        <div class="modal" id="mostrarmodal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                            <div class="marea">
-                                <div class="mcontenedor modal-content">
-                                    <div class="modal-body mcontenido">
-                                        <div class="cizq">
-                                            <!--Foto-->
-                                            <div class="foto">
-                                                <img src="~/Imagenes/@usu.foto">
-                                            </div>
-                                            <!--Foto Usuario-->
-                                            <div class="dinfo">
-                                                <i class="fa fa-user"></i>
-                                                <label>@usu.Nombre</label>
-                                            </div>
-
-                                            <!--Nombre Curso Inscrito-->
-                                            <div class="dinfo">
-                                                <i class="fa fa-graduation-cap"></i>
-                                                <label>@usu.Tipo_rol: @arreglo_docente[0].nombre_curso</label>
-                                            </div>
-                                            <!--Email-->
-                                            <div class="dinfo">
-                                                <i class="fa fa-envelope"></i>
-                                                <label>@usu.correo</label>
-                                            </div>
-                                        </div>
-                                        <div class="cder">
-                                            <div class="encargado">
-                                                <h2>Subir Actividad:</h2>
-                                            </div>
-                                            <div class="cargar">
-                                                <input type="file" name="file" accept=".docx, .pdf" />
-                                                <div class="form-group oculta" id="capa1">
-                                                    @Html.TextAreaFor(model => model.informacion_actividad, new { @placeholder = "Descripción del archivo (opcional)" })
-                                                </div>
-                                                <button type="submit" name="irarchivo" class="btn" value="@nx" style="float: right;">Enviar</button>
-                                            </div>
-                                            <div class="logo">
-                                                <img src="~/Imagenes/Logo Mascota.png">
-                                            </div>
-
-                                        </div>
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
                 }
             }
         }
+    }
 
 
 
-        @{
-            if (ViewBag.mensaje == "actividad")
-            {
-                <script> window.open ('@Url.Action("Actividades", "Actividades")'); </script>
-            }
+    @{
+        if (ViewBag.mensaje == "actividad")
+        {
+            <script> window.open ('@Url.Action("Actividades", "Actividades")'); </script>
         }
+    }
 
-    </main>
+</main>
 
 }
 <footer>

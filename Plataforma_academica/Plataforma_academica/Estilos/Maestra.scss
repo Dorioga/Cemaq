@@ -1,11 +1,12 @@
 ﻿$verdeclaro: #d4e9c6;
 $verdeoscuro: #69b545;
 $verdeazul: #1bbc97;
-$verdehover:#c0dfac;
+$verdehover: #c0dfac;
 $blanco: #ffffff;
 $gris: #d6d6d6;
 $negro: #000000;
 $azul: #50687a;
+$azulseleccionar: #317a8e;
 $azuloscuro: #317a8e;
 $azulclaro: #d4e9c6;
 $rojo: #d9534f;
@@ -16,7 +17,6 @@ $rojo: #d9534f;
 }
 
 * {
-   
     margin: 0px;
     padding: 0px;
     font-family: 'Champagne & Limousines';
@@ -204,6 +204,56 @@ header {
                 list-style: none;
                 padding: 2vh;
 
+                &:hover {
+                    .lista-menu {
+                        display: block;
+                        position: absolute;
+                        width: 20vw;
+                        top: 6vh;
+                        left: 80vw;
+                        border-style: solid;
+                        border-color: $verdeoscuro;
+                        height: auto !important;
+                        font-weight: bold;
+
+                        body.dark & {
+                            border-color: $azuloscuro;
+                        }
+
+                        .opcion {
+                            background-color: $blanco;
+                            border: none;
+                            padding: 0.5em 0px;
+                            font-size: 14px;
+                            border-radius: 0;
+                            z-index: 2;
+
+
+                            body.dark & {
+                                background-color: $verdeclaro;
+                            }
+                        }
+
+                        .opcion a {
+                            color: black;
+
+                            img {
+                                height: 4vh;
+                                margin-left: 0.5vw;
+                            }
+
+                            body.dark & {
+                                color: $azul;
+                            }
+                        }
+
+                        .opcion a:not([href]):not([tabindex]) {
+                            color: $azul;
+                            text-decoration: none;
+                        }
+                    }
+                }
+
                 .logo {
                     cursor: pointer;
                     height: 100%;
@@ -222,56 +272,11 @@ header {
                 }
 
                 .lista-menu {
-                    position: absolute;
-                    width: 20vw;
-                    top: 6vh;
-                    left: 80vw;
-                    border-style: solid;
-                    border-color: $verdeoscuro;
-                    height: auto !important;
-                    font-weight:bold;
-
-                    body.dark & {
-                        border-color: $verdeazul;
-                    }
-
-                    .opcion {
-                        background-color: $blanco;
-                        border: none;
-                        padding: 0.5em 0px;
-                        font-size: 14px;
-                        border-radius: 0;
-                        z-index: 2;
-
-
-                        body.dark & {
-                            background-color: $verdeclaro;
-                        }
-                    }
-
-                    .opcion a {
-                        color: black;
-
-                        img {
-                            height: 4vh;
-                            margin-left: 0.5vw;
-                        }
-
-                        body.dark & {
-                            color: $azul;
-                        }
-                    }
-
-                    .opcion a:not([href]):not([tabindex]) {
-                        color: $azul;
-                        text-decoration: none;
-                    }
-                }
-
-                .active {
                     display: none;
                 }
             }
+
+
 
             @media screen and (max-width:510px) {
                 .perfil {
@@ -313,7 +318,7 @@ header {
             }
 
             #bus {
-                flex: 2 1 auto;
+                flex: 2 1 75%;
                 background-color: $verdeclaro;
 
                 input {
@@ -330,7 +335,7 @@ header {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color:$blanco;
+                color: $blanco;
 
                 body.dark & {
                     background-color: $azuloscuro;
@@ -354,6 +359,10 @@ header {
                     text-align: left;
                     cursor: pointer;
 
+                    &:hover {
+                        color: $azulseleccionar;
+                        font-weight: bold;
+                    }
 
                     .boton {
                         width: 100%;
@@ -372,16 +381,24 @@ header {
                             padding: 1vh;
                             text-align: left;
 
-                            img {
-                                height: 2vh;
-                            }
+
 
                             .izq {
                                 width: 5vw;
+
+                                img {
+                                    width: 3vw;
+                                    border-radius: 1vh;
+                                }
                             }
 
                             .cent {
                                 flex: 2 1 15vw;
+
+                                .progress {
+                                    padding: 0px !important;
+                                    margin: 0px !important;
+                                }
 
                                 .nom {
                                     padding: 0px;
@@ -391,6 +408,7 @@ header {
 
                             .der {
                                 width: 5vw;
+
 
                                 .msjem {
                                     font-weight: bold;
@@ -408,6 +426,7 @@ header {
                     color: $azul;
                     padding: 1vh;
                     border-bottom: solid 1vh $azul;
+                    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.51);
 
                     .content-btn {
                         display: flex;
@@ -417,16 +436,24 @@ header {
                         padding: 1vh;
                         text-align: left;
 
-                        img {
-                            height: 2vh;
-                        }
-
                         .izq {
                             width: 5vw;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            img {
+                                width: 3vw;
+                                border-radius: 1vh;
+                            }
                         }
 
                         .cent {
                             flex: 2 1 15vw;
+
+                            .progress {
+                                margin: 0px;
+                            }
 
                             .nom {
                                 padding: 0px;
@@ -436,6 +463,9 @@ header {
 
                         .der {
                             width: 5vw;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
 
                             .msjem {
                                 font-weight: bold;
@@ -452,7 +482,6 @@ header {
         }
     }
     //Contendor Cambiante
-   
     .contenedor {
         background-color: $blanco;
         width: 75vw;
@@ -604,6 +633,7 @@ header {
                 iframe {
                     border-radius: 2%;
                     width: 95%;
+                    min-height:79vh;
                     height: -webkit-fill-available;
                     position: inherit;
                 }
@@ -668,34 +698,6 @@ header {
                 display: none;
             }
 
-            .contenercheck {
-                background-color: $verdeclaro;
-                width: 100%;
-                position: relative;
-                border: none;
-                text-align: center;
-                padding: 0.1em;
-                cursor: pointer;
-
-                body.dark & {
-                    background-color: $azul;
-                    color: $blanco;
-                }
-
-                span {
-                    p {
-                        color: $azul;
-                        font-weight: bold;
-                        font-size: 2vh;
-                        margin: 0;
-
-                        body.dark & {
-                            color: $blanco;
-                        }
-                    }
-                }
-            }
-
             .contener {
                 background-color: rbga($blanco,0.6);
                 padding: 0.5em 0em;
@@ -704,10 +706,11 @@ header {
                 min-height: 90vh;
                 max-height: 90vh;
                 overflow-y: auto;
+                display: flex;
+                flex-direction: column;
 
                 body.dark & {
                     background-color: rgba( $azulclaro,0.6);
-                    border-color: $verdeazul;
                 }
 
                 a {
@@ -721,9 +724,8 @@ header {
 
                 .boton {
                     background: $blanco;
-                    max-width: 10em;
                     position: relative;
-                    width: 100%;
+                    width: 98%;
                     left: 0.5em;
                     border: none;
                     outline: none;
@@ -733,7 +735,6 @@ header {
                     }
 
                     &:hover {
-                        border-radius: 10%;
                         border-style: solid;
                         border-color: $verdeclaro;
 
@@ -744,7 +745,7 @@ header {
 
                     .content-btn {
                         display: flex;
-                        flex-direction: column;
+                        flex-direction: row;
                         align-items: center;
                         justify-content: center;
                         padding: 1em;
@@ -761,7 +762,7 @@ header {
                             order: 0;
                             flex: 1 1 auto;
                             align-self: auto;
-                            width: 70%;
+                            width:10vw;
                             border-radius: 50%;
                         }
 
@@ -1692,6 +1693,7 @@ header {
     }
         */
 }
+
 .active {
     .menu-izq {
         width: 3vw;
@@ -1704,7 +1706,39 @@ header {
         }
 
         .botones {
-            display: none;
+            ul {
+                .titulo {
+                    .content-btn {
+                        .izq {
+                            img {
+                                width: 3vw;
+                            }
+                        }
+
+                        .cent {
+                            display: none;
+                        }
+
+                        .der {
+                            display: none;
+                        }
+                    }
+                }
+
+                .modulo {
+                    .content-btn {
+                        .izq {
+                            img {
+                                width: 3vw;
+                            }
+                        }
+
+                        .cent {
+                            display: none;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -1713,7 +1747,7 @@ header {
         margin-left: 3vw;
 
         .onda {
-           left: 84vw;
+            left: 84vw;
         }
     }
 }
