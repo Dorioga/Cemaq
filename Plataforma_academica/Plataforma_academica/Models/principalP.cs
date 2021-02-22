@@ -86,7 +86,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].nombre_unidad = i["Nombre Unidad"].ToString();
                 arreglo[j].codigo_unidad = i["Codigo unidad"].ToString();
                 arreglo[j].codigo_curso_nivel = i["Codigo Curso nivel"].ToString();
-                arreglo[j].porcentaje_modulo = i["porcentaje"].ToString();
+                arreglo[j].porcentaje_modulo = i["porcentaje unidad"].ToString();
                 arreglo[j].presentacion = i["presentacion"].ToString();
                 j++;
             }

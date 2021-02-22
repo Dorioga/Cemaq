@@ -674,7 +674,7 @@
 
                     bb.next();
 
-                    @*if (@rol >= 4 || @rol < 7)*@ if (@rol == 4) {
+                    if (@rol >= 4 || @rol < 7) @*if (@rol == 4)*@ {
                         console.log("Current " + current);
                         if (current+1 > currentaux) {
                             currentaux = current+1;
