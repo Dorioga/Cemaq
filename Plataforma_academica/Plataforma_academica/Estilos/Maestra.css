@@ -293,7 +293,10 @@ header {
                 padding: 0px;
                 margin: 0px; }
             .principal .menu-izq .botones ul li .boton .content-btn .der {
-              width: 5vw; }
+              width: 5vw;
+              display: flex;
+              align-items: center;
+              justify-content: center; }
               .principal .menu-izq .botones ul li .boton .content-btn .der .msjem {
                 font-weight: bold; }
       .principal .menu-izq .botones ul .active {
@@ -494,14 +497,15 @@ header {
         display: none; }
       .principal .contenedor .con_form .contener {
         background-color: rbga(#ffffff, 0.6);
-        padding: 0.5em 0em;
         width: 100%;
         position: relative;
         min-height: 90vh;
         max-height: 90vh;
         overflow-y: auto;
         display: flex;
-        flex-direction: column; }
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
         body.dark .principal .contenedor .con_form .contener {
           background-color: rgba(212, 233, 198, 0.6); }
         .principal .contenedor .con_form .contener a {
@@ -515,7 +519,10 @@ header {
           width: 98%;
           left: 0.5em;
           border: none;
-          outline: none; }
+          outline: none;
+          display: flex;
+          align-items: center;
+          justify-content: center; }
           body.dark .principal .contenedor .con_form .contener .boton {
             background-color: rgba(212, 233, 198, 0.1); }
           .principal .contenedor .con_form .contener .boton:hover {
@@ -526,71 +533,86 @@ header {
           .principal .contenedor .con_form .contener .boton .content-btn {
             display: flex;
             flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            padding: 1em; }
-            .principal .contenedor .con_form .contener .boton .content-btn:hover p {
-              overflow: visible;
-              white-space: normal;
-              text-align: center; }
-            .principal .contenedor .con_form .contener .boton .content-btn img {
-              order: 0;
-              flex: 1 1 auto;
-              align-self: auto;
-              width: 10vw;
-              border-radius: 50%; }
-            .principal .contenedor .con_form .contener .boton .content-btn p {
-              color: #000000;
-              order: 0;
-              flex: 0 1 auto;
-              align-self: auto;
-              max-width: 85%;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis; }
-              body.dark .principal .contenedor .con_form .contener .boton .content-btn p {
-                color: #50687a; }
-            .principal .contenedor .con_form .contener .boton .content-btn .progress {
-              width: 100%;
-              order: 0;
-              flex: 0 1 auto;
-              align-self: auto;
-              cursor: pointer;
-              margin: 1em;
-              overflow: visible;
-              border-radius: 7px;
-              background: #69b545; }
-              body.dark .principal .contenedor .con_form .contener .boton .content-btn .progress {
-                background: #317a8e; }
-              .principal .contenedor .con_form .contener .boton .content-btn .progress progress-bar {
+            min-width: 50vw;
+            padding: 1vw;
+            /*   &:hover {
+                            p {
+                                overflow: visible;
+                                white-space: normal;
+                                text-align: center;
+                            }
+                        }*/ }
+            .principal .contenedor .con_form .contener .boton .content-btn .izq {
+              flex: 1 1 20%; }
+              .principal .contenedor .con_form .contener .boton .content-btn .izq img {
+                order: 0;
+                align-self: auto;
+                width: 3vw;
+                border-radius: 50%; }
+            .principal .contenedor .con_form .contener .boton .content-btn .cent {
+              flex: 1 1 60%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center; }
+              .principal .contenedor .con_form .contener .boton .content-btn .cent p {
+                margin: 0;
+                padding: 0;
+                color: #000000;
+                order: 0;
+                flex: 0 1 auto;
+                align-self: auto; }
+                body.dark .principal .contenedor .con_form .contener .boton .content-btn .cent p {
+                  color: #50687a; }
+              .principal .contenedor .con_form .contener .boton .content-btn .cent .progress {
+                width: 100%;
+                order: 0;
+                flex: 0 1 auto;
+                align-self: auto;
+                cursor: pointer;
+                margin: 1em;
+                overflow: visible;
+                border-radius: 7px;
+                background: #69b545; }
+                body.dark .principal .contenedor .con_form .contener .boton .content-btn .cent .progress {
+                  background: #317a8e; }
+                .principal .contenedor .con_form .contener .boton .content-btn .cent .progress progress-bar {
+                  border-radius: 7px; }
+                .principal .contenedor .con_form .contener .boton .content-btn .cent .progress .progress-value {
+                  position: relative;
+                  left: -45px;
+                  top: 4px;
+                  font-size: 14px;
+                  font-weight: bold;
+                  color: #fff;
+                  letter-spacing: 2px; }
+                .principal .contenedor .con_form .contener .boton .content-btn .cent .progress .porcentaje {
+                  position: relative;
+                  left: 5px;
+                  font-size: 14px;
+                  font-weight: bold;
+                  color: #fff;
+                  letter-spacing: 2px; }
+              .principal .contenedor .con_form .contener .boton .content-btn .cent .progress-bar.active {
+                animation: reverse progress-bar-stripes 6.0s linear infinite, animate-positive 2s; }
+              .principal .contenedor .con_form .contener .boton .content-btn .cent .progress-bar-success {
+                background: #d4e9c6;
                 border-radius: 7px; }
-              .principal .contenedor .con_form .contener .boton .content-btn .progress .progress-value {
-                position: relative;
-                left: -45px;
-                top: 4px;
-                font-size: 14px;
-                font-weight: bold;
-                color: #fff;
-                letter-spacing: 2px; }
-              .principal .contenedor .con_form .contener .boton .content-btn .progress .porcentaje {
-                position: relative;
-                left: 5px;
-                font-size: 14px;
-                font-weight: bold;
-                color: #fff;
-                letter-spacing: 2px; }
-            .principal .contenedor .con_form .contener .boton .content-btn .progress-bar.active {
-              animation: reverse progress-bar-stripes 6.0s linear infinite, animate-positive 2s; }
-            .principal .contenedor .con_form .contener .boton .content-btn .progress-bar-success {
-              background: #d4e9c6;
-              border-radius: 7px; }
-              body.dark .principal .contenedor .con_form .contener .boton .content-btn .progress-bar-success {
-                background: #1bbc97; }
-            .principal .contenedor .con_form .contener .boton .content-btn .progress-outer {
-              background: #ffffff0a;
-              border-radius: 78px;
-              padding: 0px;
-              margin: 0px -11px; }
+                body.dark .principal .contenedor .con_form .contener .boton .content-btn .cent .progress-bar-success {
+                  background: #1bbc97; }
+              .principal .contenedor .con_form .contener .boton .content-btn .cent .progress-outer {
+                background: #ffffff0a;
+                border-radius: 78px;
+                padding: 0px;
+                margin: 0px -11px; }
+            .principal .contenedor .con_form .contener .boton .content-btn .der {
+              flex: 1 1 20%;
+              display: flex;
+              align-items: center;
+              justify-content: center; }
+              .principal .contenedor .con_form .contener .boton .content-btn .der h6 {
+                padding: 0;
+                margin: 0; }
         .principal .contenedor .con_form .contener .pendiente .msjem {
           display: none; }
         .principal .contenedor .con_form .contener .pendiente:hover .msjem {

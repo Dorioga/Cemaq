@@ -408,7 +408,9 @@ header {
 
                             .der {
                                 width: 5vw;
-
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
 
                                 .msjem {
                                     font-weight: bold;
@@ -633,7 +635,7 @@ header {
                 iframe {
                     border-radius: 2%;
                     width: 95%;
-                    min-height:79vh;
+                    min-height: 79vh;
                     height: -webkit-fill-available;
                     position: inherit;
                 }
@@ -700,7 +702,6 @@ header {
 
             .contener {
                 background-color: rbga($blanco,0.6);
-                padding: 0.5em 0em;
                 width: 100%;
                 position: relative;
                 min-height: 90vh;
@@ -708,6 +709,8 @@ header {
                 overflow-y: auto;
                 display: flex;
                 flex-direction: column;
+                align-items: center;
+                justify-content: center;
 
                 body.dark & {
                     background-color: rgba( $azulclaro,0.6);
@@ -729,6 +732,9 @@ header {
                     left: 0.5em;
                     border: none;
                     outline: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
 
                     body.dark & {
                         background-color: rgba( $azulclaro,0.1);
@@ -746,99 +752,117 @@ header {
                     .content-btn {
                         display: flex;
                         flex-direction: row;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 1em;
-
-                        &:hover {
+                        min-width: 50vw;
+                        padding: 1vw;
+                        /*   &:hover {
                             p {
                                 overflow: visible;
                                 white-space: normal;
                                 text-align: center;
                             }
-                        }
+                        }*/
+                        .izq {
+                            flex: 1 1 20%;
 
-                        img {
-                            order: 0;
-                            flex: 1 1 auto;
-                            align-self: auto;
-                            width:10vw;
-                            border-radius: 50%;
-                        }
-
-                        p {
-                            color: $negro;
-                            order: 0;
-                            flex: 0 1 auto;
-                            align-self: auto;
-                            max-width: 85%;
-                            white-space: nowrap;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-
-                            body.dark & {
-                                color: $azul;
+                            img {
+                                order: 0;
+                                align-self: auto;
+                                width: 3vw;
+                                border-radius: 50%;
                             }
                         }
 
+                        .cent {
+                            flex: 1 1 60%;
+                            display: flex;
+                            flex-direction:column;
+                            align-items: center;
+                            justify-content: center;
 
-                        .progress {
-                            width: 100%;
-                            order: 0;
-                            flex: 0 1 auto;
-                            align-self: auto;
-                            cursor: pointer;
-                            margin: 1em;
-                            overflow: visible;
-                            border-radius: 7px;
-                            background: $verdeoscuro;
+                            p {
+                                margin: 0;
+                                padding: 0;
+                                color: $negro;
+                                order: 0;
+                                flex: 0 1 auto;
+                                align-self: auto;
 
-                            body.dark & {
-                                background: $azuloscuro;
+                                body.dark & {
+                                    color: $azul;
+                                }
                             }
 
-                            progress-bar {
+
+                            .progress {
+                                width: 100%;
+                                order: 0;
+                                flex: 0 1 auto;
+                                align-self: auto;
+                                cursor: pointer;
+                                margin: 1em;
+                                overflow: visible;
                                 border-radius: 7px;
+                                background: $verdeoscuro;
+
+                                body.dark & {
+                                    background: $azuloscuro;
+                                }
+
+                                progress-bar {
+                                    border-radius: 7px;
+                                }
+
+                                .progress-value {
+                                    position: relative;
+                                    left: -45px;
+                                    top: 4px;
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    color: #fff;
+                                    letter-spacing: 2px;
+                                }
+
+                                .porcentaje {
+                                    position: relative;
+                                    left: 5px;
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    color: #fff;
+                                    letter-spacing: 2px;
+                                }
                             }
 
-                            .progress-value {
-                                position: relative;
-                                left: -45px;
-                                top: 4px;
-                                font-size: 14px;
-                                font-weight: bold;
-                                color: #fff;
-                                letter-spacing: 2px;
+                            .progress-bar.active {
+                                animation: reverse progress-bar-stripes 6.0s linear infinite, animate-positive 2s;
                             }
 
-                            .porcentaje {
-                                position: relative;
-                                left: 5px;
-                                font-size: 14px;
-                                font-weight: bold;
-                                color: #fff;
-                                letter-spacing: 2px;
+                            .progress-bar-success {
+                                background: $verdeclaro;
+                                border-radius: 7px;
+
+                                body.dark & {
+                                    background: $verdeazul;
+                                }
+                            }
+
+                            .progress-outer {
+                                background: #ffffff0a;
+                                border-radius: 78px;
+                                padding: 0px;
+                                margin: 0px -11px;
                             }
                         }
 
-                        .progress-bar.active {
-                            animation: reverse progress-bar-stripes 6.0s linear infinite, animate-positive 2s;
-                        }
+                        .der {
+                            flex: 1 1 20%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
 
-                        .progress-bar-success {
-                            background: $verdeclaro;
-                            border-radius: 7px;
-
-                            body.dark & {
-                                background: $verdeazul;
+                            h6 {
+                                padding: 0;
+                                margin: 0;
                             }
-                        }
-
-                        .progress-outer {
-                            background: #ffffff0a;
-                            border-radius: 78px;
-                            padding: 0px;
-                            margin: 0px -11px;
                         }
                     }
                 }

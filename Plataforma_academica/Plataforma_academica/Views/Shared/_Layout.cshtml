@@ -257,7 +257,7 @@
                                                 {
                                                     TimeSpan dias_faltantes = arreglop[i].fecha_cierre - DateTime.Today;
                                                     if (i % 5 == 0)
-                                                    {
+                                                    {<!--Titulo-->
                                                         <li class="titulo" onclick="mostrarmodulo(@arreglop[i].codigo_curso)">
                                                             <div class="content-btn">
                                                                 <section class="izq">
@@ -279,6 +279,7 @@
                                                                 </section>
                                                             </div>
                                                         </li>
+                                                        <!--Modulo-->
                                                         <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
                                                             <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
                                                                 <div class="content-btn">
@@ -287,6 +288,9 @@
                                                                     </section>
                                                                     <section class="cent">
                                                                         <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                    </section>
+                                                                    <section class="der">
+                                                                        <span> @arreglop[i].porcentaje_modulo %</span>
                                                                     </section>
                                                                 </div>
                                                             </button>
@@ -295,6 +299,7 @@
                                                     }
                                                     else
                                                     {
+                                                        <!--Modulo-->
                                                         <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
                                                             <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
                                                                 <div class="content-btn">
@@ -303,6 +308,9 @@
                                                                     </section>
                                                                     <section class="cent">
                                                                         <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                    </section>
+                                                                    <section class="der">
+                                                                        <span> @arreglop[i].porcentaje_modulo %</span>
                                                                     </section>
                                                                 </div>
                                                             </button>
