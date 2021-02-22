@@ -372,6 +372,8 @@
     <Content Include="Imagenes\sitio-web.png" />
     <Content Include="Imagenes\subject pronouns.jpg" />
     <Content Include="Imagenes\tecnologia.png" />
+    <Content Include="Imagenes\Temporal\Diana.jfif" />
+    <Content Include="Imagenes\Temporal\Leona.jfif" />
     <Content Include="Imagenes\ubicacion.png" />
     <Content Include="Imagenes\user-alt-solid.svg" />
     <Content Include="Imagenes\user-cog-solid.svg" />

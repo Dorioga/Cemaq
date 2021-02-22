@@ -18,6 +18,7 @@ namespace Plataforma_academica.Models
         public string url_video { set; get; }
         public string url_apoyo { set; get; }
         public string codigo_usuario_unidad { set; get; }
+        public string link_referencia { set; get; }
 
         private Conexion.Conexion conexion;
 
@@ -28,23 +29,23 @@ namespace Plataforma_academica.Models
             {
                 if (Convert.ToInt32(obj.tipo_soporte) == 3)
                 {
-                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.url_apoyo + "','" + obj.tipo_soporte + "')");
+                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.url_apoyo + "','" + obj.tipo_soporte + "','" + obj.link_referencia + "')");
                     return x;
                 }
                 else
                 {
-                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + archivo1 + "','" + obj.tipo_soporte + "')");
+                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + archivo1 + "','" + obj.tipo_soporte + "','" + obj.link_referencia + "')");
                     return x;
                 }
             }else
             {
                 if (Convert.ToInt32(obj.tipo_soporte) == 3)
                 {
-                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.url_apoyo+ "','" + obj.tipo_soporte + "')");
+                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.url_apoyo+ "','" + obj.tipo_soporte + "','"+obj.link_referencia+"')");
                     return x;
                 }else
                 {
-                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + archivo1 + "','" + obj.tipo_soporte + "')");
+                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + archivo1 + "','" + obj.tipo_soporte + "','" + obj.link_referencia + "')");
                     return x;
                 }
             }
@@ -102,22 +103,22 @@ namespace Plataforma_academica.Models
             {
                 if (Convert.ToInt32(obj.tipo_soporte) == 3)
                 {
-                    int x = conexion.Execute_Operation("call Pr_ingresar_seccion ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + id_act + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.tipo_soporte + "','" + obj.url_apoyo + "')");
+                    int x = conexion.Execute_Operation("call Pr_ingresar_seccion ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + id_act + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.tipo_soporte + "','" + obj.url_apoyo + "','" + obj.link_referencia + "')");
                     return x == 0 ? true : false;
                 }else
                 {
-                    int x = conexion.Execute_Operation("call Pr_ingresar_seccion ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + id_act + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.tipo_soporte + "','" + archivo1 + "')");
+                    int x = conexion.Execute_Operation("call Pr_ingresar_seccion ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + id_act + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.tipo_soporte + "','" + archivo1 + "','" + obj.link_referencia + "')");
                     return x == 0 ? true : false;
                 }
             }else
             {
                 if (Convert.ToInt32(obj.tipo_soporte) == 3)
                 {
-                    int x = conexion.Execute_Operation("call Pr_ingresar_seccion ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + id_act + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.tipo_soporte + "','" + obj.url_apoyo + "')");
+                    int x = conexion.Execute_Operation("call Pr_ingresar_seccion ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + id_act + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.tipo_soporte + "','" + obj.url_apoyo + "','" + obj.link_referencia + "')");
                     return x == 0 ? true : false;
                 }else
                 {
-                    int x = conexion.Execute_Operation("call Pr_ingresar_seccion ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + id_act + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.tipo_soporte + "','" + archivo1 + "')");
+                    int x = conexion.Execute_Operation("call Pr_ingresar_seccion ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + id_act + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.tipo_soporte + "','" + archivo1 + "','" + obj.link_referencia + "')");
                     return x == 0 ? true : false;
                 }
             }

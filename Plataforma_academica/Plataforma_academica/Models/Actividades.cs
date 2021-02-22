@@ -34,6 +34,7 @@ namespace Plataforma_academica.Models
         public int cont_seccion { set; get; }
         public int id_curso_actividad { set; get; }
         public double porc { set; get; }
+        public string link_referencia { set; get; }
         public DataTable actual_seccion { set; get; }
 
         public Actividades[] Consultar_contenido_actividad(string cn)
@@ -57,6 +58,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].id_tipo_multimedia = i["tipo multimedia"].ToString();
                 arreglo[j].tipo_seccion = i["Tipo_seccion"].ToString();
                 arreglo[j].arch = i["Archivo"].ToString();
+                arreglo[j].link_referencia = i["Link_apa"].ToString();
                 j++;
             }
             return arreglo;
