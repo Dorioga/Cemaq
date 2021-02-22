@@ -1,15 +1,17 @@
-﻿$verdeclaro: #d4e9c6;
+﻿//Modo Claro
 $verdeoscuro: #69b545;
-$verdeazul: #1bbc97;
-$verdehover: #c0dfac;
-$blanco: #ffffff;
-$gris: #d6d6d6;
+
+//Neutro
 $negro: #000000;
-$azul: #50687a;
-$azulseleccionar: #317a8e;
-$azuloscuro: #317a8e;
-$azulclaro: #d4e9c6;
+$blanco: #ffffff;
+$azulgris: #50687a;
+$verdefondo: #d4e9c6;
+$verdehover: #c0dfac;
+$gris: #d6d6d6;
 $rojo: #d9534f;
+//Modo Oscuro
+$azuloscuro: #317a8e;
+
 
 @font-face {
     font-family: "Champagne & Limousines";
@@ -36,7 +38,7 @@ body {
     line-height: 1.428571429 !important;
 
     &.dark {
-        background-color: $verdeclaro;
+        background-color: $verdefondo;
     }
 }
 
@@ -102,7 +104,7 @@ header {
             align-self: auto;
 
             .switch {
-                background-color: $verdeclaro;
+                background-color: $verdefondo;
                 border-radius: 1000px;
                 border: none;
                 position: relative;
@@ -118,7 +120,7 @@ header {
                     height: 4vh;
                     position: absolute;
                     background: $verdeoscuro;
-                    border: solid 1px $verdeclaro;
+                    border: solid 1px $verdefondo;
                     top: 0;
                     left: 0;
                     right: unset;
@@ -128,7 +130,7 @@ header {
                 }
 
                 &.active {
-                    background: $azulclaro;
+                    background: $verdefondo;
                     color: black;
 
                     &::after {
@@ -230,7 +232,7 @@ header {
 
 
                             body.dark & {
-                                background-color: $verdeclaro;
+                                background-color: $verdefondo;
                             }
                         }
 
@@ -243,12 +245,12 @@ header {
                             }
 
                             body.dark & {
-                                color: $azul;
+                                color: $azulgris;
                             }
                         }
 
                         .opcion a:not([href]):not([tabindex]) {
-                            color: $azul;
+                            color: $azulgris;
                             text-decoration: none;
                         }
                     }
@@ -304,7 +306,7 @@ header {
         position: fixed;
         float: left;
         width: 25vw;
-        background-color: $verdeclaro;
+        background-color: $verdefondo;
 
         .buscar {
             display: flex;
@@ -319,7 +321,6 @@ header {
 
             #bus {
                 flex: 2 1 75%;
-                background-color: $verdeclaro;
 
                 input {
                     margin: 0px;
@@ -360,13 +361,13 @@ header {
                     cursor: pointer;
 
                     &:hover {
-                        color: $azulseleccionar;
+                        color: $azuloscuro;
                         font-weight: bold;
                     }
 
                     .boton {
                         width: 100%;
-                        background-color: $verdeclaro;
+                        background-color: $verdefondo;
                         border: none;
 
                         &:hover {
@@ -425,9 +426,9 @@ header {
                 }
 
                 .titulo {
-                    color: $azul;
+                    color: $azulgris;
                     padding: 1vh;
-                    border-bottom: solid 1vh $azul;
+                    border-bottom: solid 1vh $azulgris;
                     box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.51);
 
                     .content-btn {
@@ -503,12 +504,13 @@ header {
             display: flex;
             flex-direction: row;
             width: 100%;
-            background: $verdeclaro;
+            background: $verdefondo;
             height: 93vh;
             padding: 1em;
 
             body.dark & {
-                background: $azulclaro;
+                background: $azuloscuro;
+                
             }
 
             nav {
@@ -666,10 +668,10 @@ header {
                     margin-left: 1em !important;
                     margin-top: 1em;
                     position: absolute;
-                    background: $verdeclaro;
+                    background: $verdefondo;
 
                     body.dark & {
-                        background: $azulclaro;
+                        background: $verdefondo;
                     }
                 }
 
@@ -679,13 +681,13 @@ header {
                     color: $blanco;
                     padding-top: 4px;
                     margin: 0 2px;
-                    background: $verdeclaro;
+                    background: $verdefondo;
                     border: none;
                     border-radius: 50%;
                     display: inline-block;
 
                     body.dark & {
-                        background: $azulclaro;
+                        background: $verdefondo;
                     }
                 }
             }
@@ -713,7 +715,7 @@ header {
                 justify-content: center;
 
                 body.dark & {
-                    background-color: rgba( $azulclaro,0.6);
+                    background-color: rgba( $verdefondo,0.6);
                 }
 
                 a {
@@ -737,15 +739,15 @@ header {
                     justify-content: center;
 
                     body.dark & {
-                        background-color: rgba( $azulclaro,0.1);
+                        background-color: rgba( $verdefondo,0.1);
                     }
 
                     &:hover {
                         border-style: solid;
-                        border-color: $verdeclaro;
+                        border-color: $verdefondo;
 
                         body.dark & {
-                            border-color: $verdeazul;
+                            border-color: $verdeoscuro;
                         }
                     }
 
@@ -788,7 +790,7 @@ header {
                                 align-self: auto;
 
                                 body.dark & {
-                                    color: $azul;
+                                    color: $azulgris;
                                 }
                             }
 
@@ -837,11 +839,11 @@ header {
                             }
 
                             .progress-bar-success {
-                                background: $verdeclaro;
+                                background: $verdefondo;
                                 border-radius: 7px;
 
                                 body.dark & {
-                                    background: $verdeazul;
+                                    background: $azuloscuro;
                                 }
                             }
 
@@ -878,14 +880,14 @@ header {
                         display: block;
                         position: fixed;
                         overflow: hidden;
-                        background: $verdeclaro;
+                        background: $verdefondo;
                         color: $blanco;
                         padding: 0.5em;
                         width: 8em;
                         border-radius: 0.5em;
 
                         body.dark & {
-                            background: $verdeazul;
+                            background: $azuloscuro;
                         }
                     }
                 }
@@ -918,7 +920,7 @@ header {
                         background: $verdeoscuro;
 
                         body.dark & {
-                            background: $verdeazul;
+                            background: $azuloscuro;
                         }
 
                         .mcontenido {
@@ -962,7 +964,7 @@ header {
                                     img {
                                         height: 9em;
                                         border: 5px solid;
-                                        border-color: $verdeclaro;
+                                        border-color: $verdefondo;
                                         border-radius: 1em;
                                     }
                                 }
@@ -976,7 +978,7 @@ header {
                                     width: 90%;
                                     background: $blanco;
                                     border: 2px solid;
-                                    border-color: $verdeclaro;
+                                    border-color: $verdefondo;
                                     border-radius: 1em;
                                     padding-right: 1em;
                                     margin-bottom: 1em;
@@ -1071,11 +1073,11 @@ header {
                     position: initial;
 
                     .modal-content {
-                        background: $verdeclaro;
+                        background: $verdefondo;
                         color: white;
 
                         body.dark & {
-                            background: $azulclaro;
+                            background: $verdefondo;
                         }
                         //Encabezado
                         .modal-header {
@@ -1087,7 +1089,7 @@ header {
                             padding: 1em;
 
                             body.dark & {
-                                border-color: $verdeazul;
+                                border-color: $azulgris;
                                 background: $azuloscuro;
                             }
 
@@ -1102,7 +1104,7 @@ header {
                                 font-weight: bold;
 
                                 body.dark & {
-                                    color: $verdeazul;
+                                    color: $azuloscuro;
                                 }
                             }
 
@@ -1125,24 +1127,24 @@ header {
                             margin: 0;
 
                             body.dark & {
-                                border-color: $verdeazul;
+                                border-color:$azulgris;
                                 background: $azuloscuro;
                             }
 
                             a {
-                                background: $verdeclaro;
+                                background: $verdefondo;
 
                                 body.dark & {
-                                    background: $verdeazul;
+                                    background: $azuloscuro;
                                     color: white;
                                 }
                             }
 
                             button {
-                                background: $verdeclaro;
+                                background: $verdefondo;
 
                                 body.dark & {
-                                    background: $verdeazul;
+                                    background: $azuloscuro;
                                     color: white;
                                 }
                             }
@@ -1166,7 +1168,7 @@ header {
                 overflow-y: auto;
                 border: solid;
                 background-color: rgba($gris, 0.5);
-                border-color: $verdeclaro;
+                border-color: $verdefondo;
 
                 h1 {
                     color: $negro;
@@ -1197,8 +1199,8 @@ header {
                 }
 
                 body.dark & {
-                    background-color: $azulclaro;
-                    border-color: $verdeazul;
+                    background-color: $verdefondo;
+                    border-color: $azulgris;
                 }
 
                 label {
@@ -1219,7 +1221,7 @@ header {
                     border-color: $verdeoscuro;
 
                     body.dark & {
-                        border-color: $verdeazul;
+                        border-color: $azulgris;
                     }
 
                     thead {
@@ -1227,7 +1229,7 @@ header {
                             background: $verdeoscuro;
 
                             body.dark & {
-                                background: $verdeazul;
+                                background: $azulgris;
                             }
 
                             th {
@@ -1245,7 +1247,7 @@ header {
 
                             &:hover {
                                 td {
-                                    background: $verdeclaro !important;
+                                    background: $verdefondo !important;
                                     color: $blanco !important;
                                 }
                             }
@@ -1275,16 +1277,16 @@ header {
                                     }
 
                                     &:enabled {
-                                        background: $verdeclaro;
+                                        background: $verdefondo;
                                         color: $blanco;
 
                                         body.dark & {
-                                            background: $verdeazul;
+                                            background: $azuloscuro;
                                         }
                                     }
 
                                     body.dark & {
-                                        border-color: $verdeazul;
+                                        border-color: $azulgris;
                                     }
                                 }
                             }
@@ -1297,7 +1299,7 @@ header {
                         background: $verdeoscuro;
 
                         body.dark & {
-                            background: $verdeazul;
+                            background: $azulgris;
                         }
 
                         tr {
@@ -1313,12 +1315,12 @@ header {
                     color: $negro;
                     background-color: $gris;
                     border: solid;
-                    border-color: $verdeclaro;
+                    border-color: $verdefondo;
 
                     body.dark & {
                         color: $blanco;
-                        background-color: $azulclaro;
-                        border-color: $verdeazul;
+                        background-color: $azulgris;
+                        border-color: $azulgris;
                     }
                 }
 
@@ -1332,14 +1334,14 @@ header {
                         max-width: 24vw;
 
                         &[type="submit"] {
-                            background: $verdeclaro;
+                            background: $verdefondo;
                             border-radius: 1em;
                             padding: 0.5em;
                             width: 100%;
                             color: $blanco;
 
                             body.dark & {
-                                background: $verdeazul;
+                                background: $azulgris;
                             }
                         }
 
@@ -1352,10 +1354,10 @@ header {
                 .pregunta1 {
                     margin-top: 0.5em;
                     border-top: 2px solid;
-                    border-color: $verdeclaro;
+                    border-color: $verdefondo;
 
                     body.dark & {
-                        border-color: $verdeazul;
+                        border-color: $azulgris;
                     }
                 }
 
@@ -1406,7 +1408,7 @@ header {
 
                     input {
                         max-width: 25vw;
-                        border-color: $verdeclaro !important;
+                        border-color: $verdefondo !important;
                         border: 1px solid;
                         border-radius: 0.5em;
                         width: 100%;
@@ -1418,7 +1420,7 @@ header {
                         }
 
                         body.dark & {
-                            border-color: $verdeazul;
+                            border-color: $azulgris;
                         }
                     }
 
@@ -1429,14 +1431,14 @@ header {
                         margin: 0px 0px 0.5em 0px;
                         padding: 0.5em;
                         border: 1px solid;
-                        border-color: $verdeclaro;
+                        border-color: $verdefondo;
 
                         &:focus {
                             outline: none;
                         }
 
                         body.dark {
-                            border-color: $verdeazul;
+                            border-color: $azulgris;
                         }
                     }
 
@@ -1454,7 +1456,7 @@ header {
                         width: 25vh;
                         margin: 0.5em 0.5em 0px 0px;
                         padding: 0.5em;
-                        background: $verdeclaro;
+                        background: $verdefondo;
                         color: $blanco;
 
                         &:hover {
@@ -1462,7 +1464,7 @@ header {
                         }
 
                         body.dark & {
-                            background: $verdeazul;
+                            background: $azulgris;
                         }
                     }
 
@@ -1514,7 +1516,7 @@ header {
 
                     .textarea {
                         max-width: none;
-                        border-color: $verdeclaro !important;
+                        border-color: $verdefondo !important;
                         border: 1px solid;
                         border-radius: 0.5em;
                         width: 100%;
@@ -1529,13 +1531,13 @@ header {
                         }
 
                         body.dark & {
-                            border-color: $verdeazul;
+                            border-color: $azulgris;
                         }
                     }
                     //textarea mas pequeño
                     .textarea1 {
                         max-width: 25vw;
-                        border-color: $verdeclaro !important;
+                        border-color: $verdefondo !important;
                         border: 1px solid;
                         border-radius: 0.5em;
                         width: 100%;
@@ -1550,7 +1552,7 @@ header {
                         }
 
                         body.dark & {
-                            border-color: $verdeazul;
+                            border-color: $azulgris;
                         }
                     }
                 }
@@ -1560,10 +1562,10 @@ header {
                 }
 
                 .seccion {
-                    border-top: 1em solid $verdeclaro;
+                    border-top: 1em solid $verdefondo;
 
                     body.dark & {
-                        border-color: $verdeazul;
+                        border-color: $azulgris;
                     }
                 }
             }
@@ -1578,8 +1580,8 @@ header {
                 height: 93vh;
 
                 body.dark & {
-                    background: $azulclaro;
-                    border-color: $verdeazul;
+                    background: $azulgris;
+                    border-color: $verdeoscuro;
                     color: $blanco;
                 }
                 //Estilos Principal_Todos
@@ -1599,7 +1601,7 @@ header {
                     .catalogo {
                         margin-bottom: 0.5em;
                         border: none;
-                        background: $verdeclaro;
+                        background: $verdefondo;
                         padding-left: 1em;
                         text-align: initial;
 
@@ -1613,7 +1615,7 @@ header {
                         color: black;
 
                         body.dark & {
-                            background: $verdeazul;
+                            background: $azulgris;
                             color: white;
                         }
                     }
@@ -1630,7 +1632,7 @@ header {
                             display: block;
                             position: fixed;
                             overflow: hidden;
-                            background: $verdeclaro;
+                            background: $verdefondo;
                             color: $blanco;
                             padding: 0.5em;
                             width: auto;
@@ -1638,7 +1640,7 @@ header {
                             opacity: 1;
 
                             body.dark & {
-                                background: $verdeazul;
+                                background: $verdehover;
                             }
                         }
                     }
