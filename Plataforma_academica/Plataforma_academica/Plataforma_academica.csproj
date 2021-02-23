@@ -334,7 +334,11 @@
     <Content Include="Imagenes\giphy.gif" />
     <Content Include="Imagenes\icon %282%29.png" />
     <Content Include="Imagenes\icon.png" />
+    <Content Include="Imagenes\Iconos\Fondo Blanco Libro.png" />
+    <Content Include="Imagenes\Iconos\Fondo Gris Libro.png" />
     <Content Include="Imagenes\Iconos\Fondo para web_PNG.png" />
+    <Content Include="Imagenes\Iconos\Logo CEMAQ Color.png" />
+    <Content Include="Imagenes\Iconos\Logo CEMAQ.png" />
     <Content Include="Imagenes\Iconos\Logotipo001.png" />
     <Content Include="Imagenes\Iconos\Logotipo002.png" />
     <Content Include="Imagenes\Iconos\Logotipo003.png" />

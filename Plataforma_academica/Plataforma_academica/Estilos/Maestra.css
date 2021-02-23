@@ -341,10 +341,11 @@ header {
     background-color: #ffffff;
     width: 75vw;
     margin-top: 7vh;
+    padding: 1vw;
     margin-left: 25vw;
     min-height: 93vh;
     position: relative;
-    background-image: url("/Imagenes/LOGO CEMAQ Negro.png");
+    background-image: url("/Imagenes/Iconos/Logo CEMAQ Color.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%;
@@ -353,13 +354,12 @@ header {
     transition: left 0.3s ease-in-out; }
     .principal .contenedor .bb-custom-wrapper {
       display: flex;
+      position: relative;
       flex-direction: row;
       width: 100%;
-      background: #d4e9c6;
-      height: 93vh;
-      padding: 1em; }
-      body.dark .principal .contenedor .bb-custom-wrapper {
-        background: #317a8e; }
+      height: 89vh;
+      padding: 1em;
+      border-radius: 2vh; }
       .principal .contenedor .bb-custom-wrapper nav {
         z-index: 999;
         position: relative;
@@ -421,16 +421,22 @@ header {
         -ms-flex-item-align: auto;
         align-self: auto; }
       .principal .contenedor .bb-custom-wrapper .bb-content {
-        background: #d6d6d6 !important; }
+        background: #ffffff !important; }
         body.dark .principal .contenedor .bb-custom-wrapper .bb-content {
-          background: #317a8e !important; }
+          background: #dadada !important; }
       .principal .contenedor .bb-custom-wrapper .bb-item {
-        background: #d6d6d6 !important;
+        background-image: url("/Imagenes/Iconos/Fondo Blanco Libro.png");
         border-radius: 1em;
         overflow-y: auto;
-        font-family: TimesNewRoman; }
+        font-family: TimesNewRoman;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%; }
         body.dark .principal .contenedor .bb-custom-wrapper .bb-item {
-          background: #317a8e !important; }
+          background-image: url("/Imagenes/Iconos/Fondo Gris Libro.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 100% 100%; }
         .principal .contenedor .bb-custom-wrapper .bb-item div {
           text-align: center;
           margin-top: 1em;
@@ -440,19 +446,15 @@ header {
           text-align: center;
           font-size: 26px;
           font-family: TimesNewRoman; }
-          body.dark .principal .contenedor .bb-custom-wrapper .bb-item h2 {
-            color: #ffffff; }
         .principal .contenedor .bb-custom-wrapper .bb-item h4 {
           color: #000000;
           text-align: center;
           font-size: 22px;
           font-family: TimesNewRoman; }
-          body.dark .principal .contenedor .bb-custom-wrapper .bb-item h4 {
-            color: #ffffff; }
         .principal .contenedor .bb-custom-wrapper .bb-item iframe {
           border-radius: 2%;
-          width: 95%;
-          min-height: 79vh;
+          width: 70%;
+          min-height: 60vh;
           height: -webkit-fill-available;
           position: inherit; }
         .principal .contenedor .bb-custom-wrapper .bb-item textarea {
@@ -461,15 +463,14 @@ header {
           max-width: 100%;
           width: 100%;
           border: none;
-          background-color: #d6d6d6;
           color: #000000;
           padding: 0px 2em 0px 2em;
-          overflow: hidden !important; }
+          overflow: hidden !important;
+          background: transparent; }
           .principal .contenedor .bb-custom-wrapper .bb-item textarea:focus {
             outline: none; }
           body.dark .principal .contenedor .bb-custom-wrapper .bb-item textarea {
-            color: #ffffff;
-            background-color: #317a8e; }
+            color: #000000; }
         .principal .contenedor .bb-custom-wrapper .bb-item .btn {
           margin-left: 1em !important;
           margin-top: 1em;
@@ -808,7 +809,7 @@ header {
         min-height: 93vh;
         overflow-y: auto;
         border: solid;
-        background-color: rgba(214, 214, 214, 0.5);
+        background-color: rgba(218, 218, 218, 0.5);
         border-color: #d4e9c6; }
         .principal .contenedor .con_form .formulario h1 {
           color: #000000;
@@ -890,7 +891,7 @@ header {
               border: none; }
         .principal .contenedor .con_form .formulario .alert-danger {
           color: #000000;
-          background-color: #d6d6d6;
+          background-color: #dadada;
           border: solid;
           border-color: #d4e9c6; }
           body.dark .principal .contenedor .con_form .formulario .alert-danger {
@@ -1050,7 +1051,7 @@ header {
           body.dark .principal .contenedor .con_form .formulario .seccion {
             border-color: #50687a; }
       .principal .contenedor .con_form .row {
-        background-color: rgba(214, 214, 214, 0.7);
+        background-color: rgba(218, 218, 218, 0.7);
         color: #000000;
         padding: 1em;
         display: flex;
@@ -1147,6 +1148,8 @@ header {
     width: 3vw; }
   .active .menu-izq .botones ul .modulo .content-btn .cent {
     display: none; }
+  .active .menu-izq .botones ul .modulo .content-btn .der {
+    display: none !important; }
 
 .active .contenedor {
   width: 97vw;

@@ -69,7 +69,7 @@
         <nav class="navbar" id="head">
             <!--Logo -->
             <a href="javascript:" onclick="window.open('https://cemaq.com.co/');" class="navbar-brand icono">
-                <img src="~/Imagenes/Iconos/Logotipo001.png">
+                <img src="~/Imagenes/Iconos/Logo CEMAQ.png">
             </a>
             <!-- Checkbox Color  -->
             <div class="slidermodo">
@@ -114,8 +114,8 @@
                         }
                         else
                         {
-                            <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
-                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                            @Html.ActionLink("Plataforma Academica", "Login", "Login")
+                            @Html.ActionLink("Acerca de", "About", "Home")
                         }
                     }
                 </div>
@@ -150,8 +150,8 @@
                                 }
                                 else
                                 {
-                                    <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
-                                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                                    @Html.ActionLink("Plataforma Academica", "Login", "Login")
+                                    @Html.ActionLink("Acerca de", "About", "Home")
                                 }
                             }
                             @{
@@ -191,7 +191,7 @@
                                     }
                                 }
                             }
-                            <div class="opcion">                              
+                            <div class="opcion">
                                 <a href="/Login/cerrarsesion">
                                     <img src="~/Imagenes/CAPYBARA_TOGA.png" /> Cerrar Sesion
                                 </a>
@@ -217,6 +217,7 @@
                     <section class="buscar">
                         <div id="bus">
                             <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">
+                           <!--Script Busqueda-->
                             <script>
                                 $(document).ready(function () {
                                     $("#myInput").on("keyup", function () {
@@ -239,11 +240,11 @@
                                 arreglop = principal.Buscar_Cursos_Diplomados_Estudiante(usu.cedula);
 
                                 <!--if (arreglop.Length == 0)
-            {
-                <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
-                //aqui debe ir el recogido
-            }
-                -->
+                                {
+                                    <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
+                                    //aqui debe ir el recogido
+                                }
+                                    -->
                                 <!--Estudiante-->
 
                                 using (Html.BeginForm("principalplataforma", "PrincipalPlataforma", FormMethod.Post, new { enctype = "multipart/form-data" }))
