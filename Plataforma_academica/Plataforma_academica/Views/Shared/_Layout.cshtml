@@ -66,9 +66,23 @@
         <!-- Menu Header  -->
         <nav class="navbar" id="head">
             <!--Logo -->
-            <a href="javascript:" onclick="window.open('https://cemaq.com.co/');" class="navbar-brand icono">
+            @*<a href="javascript:" onclick="window.open('https://cemaq.com.co/');" class="navbar-brand icono">
                 <img src="~/Imagenes/Iconos/Logo CEMAQ.png">
-            </a>
+            </a>*@
+            @{
+                if (Convert.ToInt32(usu.rol) == 4)
+                {
+                    <a href="/PrincipalPlataforma/principalplataforma" class="navbar-brand icono">
+                        <img src="~/Imagenes/Iconos/Logotipo001.png">
+                    </a>
+                }
+                else
+                {
+                    <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="navbar-brand icono">
+                        <img src="~/Imagenes/Iconos/Logotipo001.png">
+                    </a>
+                }
+            }
             <!-- Checkbox Color  -->
             <div class="slidermodo">
                 <button class="switch" id="switch">

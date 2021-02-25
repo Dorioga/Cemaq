@@ -169,15 +169,15 @@
                         <div class="modal-footer">
                             @{
 
-                                if (ViewBag.mensaje1 == "ya")
+                                @*if (ViewBag.mensaje1 == "ya")
                                 {
                                     <button disabled class="btn btn-info">Ya!</button>
                                 }
                                 else
                                 {
-                                    <label style="position: absolute;left: 3%;"><a href="#" style="color:black;">Acepta los Terminos y Condiciones </a><input type="checkbox" id="curso" onclick="myFunction()" /></label>
-                                    <button type="submit" name="ir_R" id="r" value="@todo_R.id_R" disabled class="btn btn-info">Registrar</button>
-                                }
+                                    <label style="position: absolute;left: 3%;"><a href="#" style="color:black;">Acepta los Terminos y Condiciones </a><input type="checkbox" id="curso" onclick="myFunction()" /></label>*@
+                                    <button type="submit" name="ir_R" id="r" value="@todo_R.id_R" class="btn btn-info">Registrar</button>
+                                    //}
                             }
                         </div>
                     </div>
@@ -185,16 +185,6 @@
             </div>
             }            
         }
-        <script>
-            function myFunction() {
-                var checkBox = document.getElementById("curso");
-                if (checkBox.checked == true) {                    
-                    document.getElementById("r").disabled = false;
-                } else {
-                    document.getElementById("r").disabled = true;
-                }
-            }
-        </script>
     </main>
 
 }

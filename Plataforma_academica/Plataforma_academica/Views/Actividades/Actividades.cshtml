@@ -670,7 +670,7 @@
 
             function init() {
 
-                if (@rol>= 4 || @rol < 7) {
+                if (@rol>= 4) {
                     current = @seccion_actual;
                     currentaux =@seccion_actual;
                     // Current tab is set to be the first tab (0)
@@ -694,7 +694,7 @@
 
                     bb.next();
 
-                    if (@rol >= 4 || @rol < 7) @*if (@rol == 4)*@ {
+                    if (@rol >= 4) @*if (@rol == 4)*@ {
                         console.log("Current " + current);
                         if (current+1 > currentaux) {
                             currentaux = current+1;
