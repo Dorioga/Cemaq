@@ -128,12 +128,7 @@
         @{
             if (TempData["mensaje12"] != null && usu != null)
             {
-                <div class="contenercheck" id="bactividad">
-                    <span>
-                        <p>Actividades</p>
-                    </span>
-                </div>
-                <div class="contener last" id="actividad">
+                <div class="contener" id="actividad">
                     @{
                         TempData.Keep("mensaje12");
                         string nc1 = Convert.ToString(TempData["mensaje12"]);
@@ -143,14 +138,21 @@
                         {
                             <button type="submit" class="boton" name="ir5" value="nueva">
                                 <div class="content-btn">
-                                    <img src="~/imagen_multimedia/Agregar Actividad.png" />
-                                    <span>Actividad</span>
+                                    <section class="izq">
+                                        <img src="~/imagen_multimedia/Agregar Actividad.png" />
+                                    </section>
+                                    <section class="cent">
+                                        <span>Actividad</span>
+                                    </section>
                                 </div>
                             </button>
                             <button type="submit" class="boton" name="ir99" value="nueva2">
                                 <div class="content-btn">
-                                    <img src="~/imagen_multimedia/Agregar Examen.png" />
-                                    <span>Crear Examen</span>
+                                    <section class="izq">
+                                        <img src="~/imagen_multimedia/Agregar Examen.png" />
+                                    </section>
+                                    <section class="cent"><span>Crear Examen</span></section>
+                                    
                                 </div>
                             </button>
                         }
@@ -158,15 +160,18 @@
                         {
                             <button type="submit" class="boton" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
                                 <div class="content-btn">
-                                    <img src="~/imagen_multimedia/Actividad.png" />
-                                    <p>@arreglo_actividad[i].nombre_actividad "@arreglo_actividad[i].edicion"</p>
+                                    <section class="izq"><img src="~/imagen_multimedia/Actividad.png" /></section>
+                                    <section class="cent"><p>@arreglo_actividad[i].nombre_actividad "@arreglo_actividad[i].edicion"</p></section>
+                                    
+                                    
                                 </div>
                             </button>
                             if (arreglo_actividad[i].edicion == "Desaprobado")
                             {
                                 <button type="submit" class="boton btn-editar" name="ir6" value="@arreglo_actividad[i].codigo_actividad">
                                     <div class="content-btn">
-                                        <span class="glyphicon glyphicon-hand-left">Editar</span>
+                                        <section class="cent"><span class="glyphicon glyphicon-hand-left">Editar</span></section>
+                                        
                                     </div>
                                 </button>
                             }
@@ -175,8 +180,14 @@
                         {
                             <button type="submit" class="boton" name="ir4_" value="@arreglo_examen[i].id_examen">
                                 <div class="content-btn">
-                                    <img src="~/imagen_multimedia/Examen.png" />
-                                    <p>@arreglo_examen[i].examen "@arreglo_examen[i].edicion_examen"</p>
+                                    <section class="izq">
+                                        <img src="~/imagen_multimedia/Examen.png" />
+                                    </section>
+                                    <section class="cent">
+                                        <p>@arreglo_examen[i].examen "@arreglo_examen[i].edicion_examen"</p>
+                                    </section>
+                                    
+                                    
                                 </div>
                             </button>
 
@@ -184,14 +195,15 @@
                             {
                                 <button type="submit" class="boton" name="ir6_" value="@arreglo_examen[i].id_examen">
                                     <div class="content-btn">
-                                        <span class="glyphicon glyphicon-hand-left">Editar</span>
+                                        <section class="cent"><span class="glyphicon glyphicon-hand-left">Editar</span></section>
+                                        
                                     </div>
                                 </button>
                             }
                         }
                         <script>
-                        var checkBox = document.getElementById("actividad");
-                        checkBox.checked = "checked"
+                            var checkBox = document.getElementById("actividad");
+                            checkBox.checked = "checked"
                         </script>
 
                     }

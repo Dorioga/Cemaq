@@ -15,20 +15,23 @@
 @using (Html.BeginForm())
 {
     int i = 0;
+    int m = 0;
+    int cant = 0;
     @Html.AntiForgeryToken()
 
     <form id="regForm">
         <!--Libro -->
         <div class="bb-custom-wrapper">
-            <!-- Boton Atras -->
-            <span id="bb-nav-prev" class="atras">
-                <svg viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5.854 4.646a.5.5 0 0 1 0 .708L3.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z" />
-                    <path fill-rule="evenodd" d="M2.5 8a.5.5 0 0 1 .5-.5h10.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                </svg>
-            </span>
+            <div id="izq">
+                <!--<img id="imgizq" src="~/Imagenes/Iconos/Izq Libro.png" />-->
+            </div>
+
+
+         
+
             <!-- Libro Contenido -->
             <div id="bb-bookblock" class="bb-bookblock">
+
                 @{
                     Plataforma_academica.Models.Login usu = Session["usuario"] as Plataforma_academica.Models.Login;
                     Plataforma_academica.Models.principalP actividad1 = Session["usuario3"] as Plataforma_academica.Models.principalP;
@@ -37,7 +40,7 @@
                     Plataforma_academica.Models.Actividades us = new Plataforma_academica.Models.Actividades();
                     int rol = Convert.ToInt32(usu.rol);
                     int seccion_actual = 0;
-                    int cant = 0;
+
                     if (usu != null)
                     {
                         <!--Estudiantes-->
@@ -88,6 +91,7 @@
                                                                     <div>
                                                                         <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                                     </div>
+                                                                    <p>@arreglo[i].link_referencia</p>
                                                                 </section>
                                                             }
                                                             else
@@ -188,6 +192,7 @@
                                                         <div>
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                         </div>
+                                                        <p>@arreglo[i].link_referencia</p>
                                                     </section>
 
                                                 }
@@ -203,6 +208,7 @@
                                                         <div>
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                         </div>
+                                                        <p>@arreglo[i].link_referencia</p>
                                                     </section>
 
                                                 }
@@ -278,11 +284,14 @@
                                                 }
                                             }
                                         }
-                                        int m = i + 1;
 
+                                        m = i + 1;
+                                        <!--numero de -->
                                         <div>
                                             <span class="step">@m/@cant</span>
                                         </div>
+
+
                                     }
 
                                 </div>
@@ -330,6 +339,7 @@
                                                             <div>
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                             </div>
+                                                            <p>@arreglo[i].link_referencia</p>
                                                         </section>
 
                                                     }
@@ -337,7 +347,7 @@
                                                     {
                                                         if (arreglo[i].descripcion != null)
                                                         {
-                                    <textarea readonly> @arreglo[i].descripcion</textarea>
+                                                            <textarea readonly> @arreglo[i].descripcion</textarea>
                                                             <section>
                                                                 <div>
                                                                     <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
@@ -422,6 +432,7 @@
                                                             <div>
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                             </div>
+                                                            <p>@arreglo[i].link_referencia</p>
                                                         </section>
 
                                                     }
@@ -437,6 +448,7 @@
                                                             <div>
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                             </div>
+                                                            <p>@arreglo[i].link_referencia</p>
                                                         </section>
 
                                                     }
@@ -512,20 +524,22 @@
                                                     }
                                                 }
                                             }
-                                            int m = i + 1;
+                                            m = i + 1;
+                                            <!--numero de -->
                                             <div>
                                                 <span class="step">@m/@cant</span>
                                             </div>
+
                                             //Metodo para activar nuevas actividades a todos los usuarios que tienen el diplomado registrado
                                             @*if (i == (arreglo.Length - 1) && arreglo[i].edicion_estado == "Pendiente")
-                                                {
-                                                    <div>
-                                                        <h4 style="font-family: TimesNewRoman;font-size: 22px;">Descripción para editar</h4>
-                                                        @Html.TextAreaFor(model => model.edicion, new { @class = "form-control" })
-                                                        <button type="submit" class="btn" name="iraprobado" value="@arreglo[i].id_actividad" onclick="activar()" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Aprobado</button>
-                                                        <button type="submit" class="btn" name="irdesaprobado" value="@arreglo[i].id_actividad" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Desaprobado</button>
-                                                    </div>
-                                                }*@
+                                        {
+                                            <div>
+                                                <h4 style="font-family: TimesNewRoman;font-size: 22px;">Descripción para editar</h4>
+                                                @Html.TextAreaFor(model => model.edicion, new { @class = "form-control" })
+                                                <button type="submit" class="btn" name="iraprobado" value="@arreglo[i].id_actividad" onclick="activar()" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Aprobado</button>
+                                                <button type="submit" class="btn" name="irdesaprobado" value="@arreglo[i].id_actividad" style="box-shadow: 0 9px #999;border: 1px solid #212529;">Desaprobado</button>
+                                            </div>
+                                        }*@
                                         }
                                     </div>
 
@@ -546,13 +560,25 @@
 
                 }
             </div>
-            <!-- Boton Adelante -->
-            <span id="bb-nav-next" class="adelante">
-                <svg viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z" />
-                    <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z" />
-                </svg>
-            </span>
+            <div id="der">
+                <div id="menubot">
+                    <!-- Boton Atras -->
+                    <span id="bb-nav-prev" class="atras">
+                        <svg viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.854 4.646a.5.5 0 0 1 0 .708L3.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z" />
+                            <path fill-rule="evenodd" d="M2.5 8a.5.5 0 0 1 .5-.5h10.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </span>
+                    <!-- Boton Adelante -->
+                    <span id="bb-nav-next" class="adelante">
+                        <svg viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z" />
+                            <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z" />
+                        </svg>
+                    </span>
+                </div>
+                <!--   <img id="imgder" src="~/Imagenes/Iconos/Der Libro.png" />-->
+            </div>
 
             <!-- Modal -->
             <div class="modal fade" id="mostrarmodal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -613,7 +639,7 @@
                 current = 0,
                 currentaux = 0
                 bb = $bookBlock.bookblock({
-                    speed: 800,
+                    speed: 600,
                     perspective: 2000,
                     shadowSides: 0.8,
                     shadowFlip: 0.4,
@@ -644,7 +670,7 @@
 
             function init() {
 
-                if (@rol>= 4 || @rol < 7) {
+                if (@rol>= 4) {
                     current = @seccion_actual;
                     currentaux =@seccion_actual;
                     // Current tab is set to be the first tab (0)
@@ -668,7 +694,7 @@
 
                     bb.next();
 
-                    if (@rol >= 4 || @rol < 7) {
+                    if (@rol >= 4) @*if (@rol == 4)*@ {
                         console.log("Current " + current);
                         if (current+1 > currentaux) {
                             currentaux = current+1;

@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="~/Estilos/botonmodal.css" rel="stylesheet" type="text/css">
     <link href="//db.onlinewebfonts.com/c/4bc98977ba557db3b2f5bb66bff54e25?family=Champagne+&+Limousines" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Chosen/chosen.min.css" rel="stylesheet" />
     <script>
 
         function myFunction1() {
@@ -68,9 +66,23 @@
         <!-- Menu Header  -->
         <nav class="navbar" id="head">
             <!--Logo -->
-            <a href="javascript:" onclick="window.open('https://cemaq.com.co/');" class="navbar-brand icono">
-                <img src="~/Imagenes/Iconos/Logotipo001.png">
-            </a>
+            @*<a href="javascript:" onclick="window.open('https://cemaq.com.co/');" class="navbar-brand icono">
+                <img src="~/Imagenes/Iconos/Logo CEMAQ.png">
+            </a>*@
+            @{
+                if (Convert.ToInt32(usu.rol) == 4)
+                {
+                    <a href="/PrincipalPlataforma/principalplataforma" class="navbar-brand icono">
+                        <img src="~/Imagenes/Iconos/Logotipo001.png">
+                    </a>
+                }
+                else
+                {
+                    <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="navbar-brand icono">
+                        <img src="~/Imagenes/Iconos/Logotipo001.png">
+                    </a>
+                }
+            }
             <!-- Checkbox Color  -->
             <div class="slidermodo">
                 <button class="switch" id="switch">
@@ -114,13 +126,13 @@
                         }
                         else
                         {
-                            <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
-                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                            @Html.ActionLink("Plataforma Academica", "Login", "Login")
+                            @Html.ActionLink("Acerca de", "About", "Home")
                         }
                     }
                 </div>
                 <!--Contenedor del Menu izq-->
-                <nav class="contenido ">
+                <nav class="contenido">
                     <!-- header nav-->
                     <div class="logo exterior" id="arriba">
                         <a>
@@ -150,8 +162,8 @@
                                 }
                                 else
                                 {
-                                    <li>@Html.ActionLink("Plataforma Academica", "Login", "Login")</li>
-                                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                                    @Html.ActionLink("Plataforma Academica", "Login", "Login")
+                                    @Html.ActionLink("Acerca de", "About", "Home")
                                 }
                             }
                             @{
@@ -192,7 +204,6 @@
                                 }
                             }
                             <div class="opcion">
-                                <hr />
                                 <a href="/Login/cerrarsesion">
                                     <img src="~/Imagenes/CAPYBARA_TOGA.png" /> Cerrar Sesion
                                 </a>
@@ -218,6 +229,7 @@
                     <section class="buscar">
                         <div id="bus">
                             <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">
+                            <!--Script Busqueda-->
                             <script>
                                 $(document).ready(function () {
                                     $("#myInput").on("keyup", function () {
@@ -235,85 +247,106 @@
                     </section>
                     <section class="botones" id="myTable">
                         @{
+                            <!--Estudiante-->
                             if (Convert.ToInt32(usu.rol) == 4)
                             {
                                 arreglop = principal.Buscar_Cursos_Diplomados_Estudiante(usu.cedula);
-                                @*if (arreglop.Length == 0)
+
+                                <!--if (arreglop.Length == 0)
                                 {
                                     <script> window.location.href ='@Url.Action("Principal_todos", "Principal_todos")'; </script>
                                     //aqui debe ir el recogido
-                                }*@
-                                <!--Estudiante-->
+                                }
+                                    -->
+
+
                                 using (Html.BeginForm("principalplataforma", "PrincipalPlataforma", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
-                                
-                    <ul>
-                        @{
-                            for (int i = 0; i < arreglop.Length; i++)
-                            {
-                                if (DateTime.Today < arreglop[i].fecha_cierre)
-                                {
-                                    TimeSpan dias_faltantes = arreglop[i].fecha_cierre - DateTime.Today;
-                                    if (i % 5 == 0)
-                                    {
-                                        <li class="titulo" onclick="mostrarmodulo(@arreglop[i].codigo_curso)">
-                                            <div class="content-btn">
-                                                <section class="izq"></section>
-                                                <section class="cent">
-                                                    <!--<p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>-->
-                                                    <p class="nom">@arreglop[i].nombre_curso</p>
-                                                    <div class="progress ">
-                                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglop[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                                            <h6 class="porcentaje">@arreglop[i].porcentaje_diplomado%</h6>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                                <section class="der">
-                                                    <span class="msjem">@Convert.ToInt32(dias_faltantes.Days) dias</span>
-                                                </section>
-                                            </div>
-                                        </li>
-                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
-                                            <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
-                                                <div class="content-btn">
-                                                    <section class="izq"></section>
-                                                    <section class="cent">
-                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                    </section>
-                                                </div>
-                                            </button>
-                                        </li>
 
-                                    }
-                                    else
-                                    {
-                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
-                                            <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
-                                                <div class="content-btn">
-                                                    <section class="izq"></section>
-                                                    <section class="cent">
-                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                    </section>
-                                                </div>
-                                            </button>
-                                        </li>
-                                    }
-                                }
-                                else
-                                {
+                                    <ul>
+                                        @{
+                                            for (int i = 0; i < arreglop.Length; i++)
+                                            {
+                                                if (DateTime.Today < arreglop[i].fecha_cierre)
+                                                {
+                                                    TimeSpan dias_faltantes = arreglop[i].fecha_cierre - DateTime.Today;
+                                                    if (i % 5 == 0)
+                                                    {<!--Titulo-->
+                                                        <li class="titulo" onclick="mostrarmodulo(@arreglop[i].codigo_curso)">
+                                                            <div class="content-btn">
+                                                                <section class="izq">
+                                                                    <!--<img src="~/imagenes/@arreglop[i].url" />-->
+                                                                    <img src="~/Imagenes/Temporal/Diana.jfif" />
 
-                                }
+                                                                </section>
+                                                                <section class="cent">
+                                                                    <!--<p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>-->
+                                                                    <p class="nom">@arreglop[i].nombre_curso</p>
+                                                                    <div class="progress ">
+                                                                        <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglop[i].porcentaje_diplomado% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
+                                                                            <h6 class="porcentaje">@arreglop[i].porcentaje_diplomado%</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                                <section class="der">
+                                                                    <span class="msjem">@Convert.ToInt32(dias_faltantes.Days) dias</span>
+                                                                </section>
+                                                            </div>
+                                                        </li>
+                                                        <!--Modulo-->
+                                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                            <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                                                <div class="content-btn">
+                                                                    <section class="izq">
+                                                                        <img src="~/Imagenes/Temporal/Leona.jfif" />
+                                                                    </section>
+                                                                    <section class="cent">
+                                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                    </section>
+                                                                    <section class="der">
+                                                                        <span> @arreglop[i].porcentaje_modulo %</span>
+                                                                    </section>
+                                                                </div>
+                                                            </button>
+                                                        </li>
 
-                            }
+                                                    }
+                                                    else
+                                                    {
+                                                        <!--Modulo-->
+                                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                            <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                                                <div class="content-btn">
+                                                                    <section class="izq">
+                                                                        <img src="~/Imagenes/Temporal/Leona.jfif" />
+                                                                    </section>
+                                                                    <section class="cent">
+                                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                    </section>
+                                                                    <section class="der">
+                                                                        <span> @arreglop[i].porcentaje_modulo %</span>
+                                                                    </section>
+                                                                </div>
+                                                            </button>
+                                                        </li>
+                                                    }
+                                                }
+                                                else
+                                                {
 
-                        }
-                    </ul>
+                                                }
+
+                                            }
+
+                                        }
+                                    </ul>
 
                                 }
                             }
 
                             else
                             {
+                                <!--Profesores y Admin-->
                                 //if (Convert.ToInt32(usu.rol) > 0 && Convert.ToInt32(usu.rol) < 3)
                                 //{
                                 <!--Administrador y lideres-->
@@ -321,24 +354,26 @@
                                 {
 
 
-                                if (Convert.ToInt32(usu.rol) == 7)
-                                {
-                                    arreglop = principal.Buscar_diplomados_modulos_docente(usu.cedula);
-                                }
-                                else
-                                {
-                                    arreglop = principal.Buscar_diplomados_modulos_general();
-                                }
-                                <ul>
-                                    @{
-                                        for (int i = 0; i < arreglop.Length; i++)
-                                        {
-                                            if (i % 5 == 0)
+                                    if (Convert.ToInt32(usu.rol) == 7)
+                                    {
+                                        arreglop = principal.Buscar_diplomados_modulos_docente(usu.cedula);
+                                    }
+                                    else
+                                    {
+                                        arreglop = principal.Buscar_diplomados_modulos_general();
+                                    }
+                                    <ul>
+                                        @{
+                                            for (int i = 0; i < arreglop.Length; i++)
                                             {
-                                                
-                                                    <li class="titulo" onclick= "mostrarmodulo(@arreglop[i].codigo_curso)">
+                                                if (i % 5 == 0)
+                                                {
+
+                                                    <li class="titulo" onclick="mostrarmodulo(@arreglop[i].codigo_curso)">
                                                         <div class="content-btn">
-                                                            <section class="izq"></section>
+                                                            <section class="izq">
+                                                                <img src="~/Imagenes/Temporal/Diana.jfif" />
+                                                            </section>
                                                             <section class="cent">
                                                                 <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
                                                             </section>
@@ -347,34 +382,38 @@
                                                     <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
                                                         <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
                                                             <div class="content-btn">
-                                                                <section class="izq"></section>
+                                                                <section class="izq">
+                                                                    <img src="~/Imagenes/Temporal/Leona.jfif" />
+                                                                </section>
                                                                 <section class="cent">
                                                                     <p class="nom">@arreglop[i].nombre_unidad</p>
                                                                 </section>
                                                             </div>
                                                         </button>
                                                     </li>
-                                            
-                                            }
-                                            else
-                                            {
-                                                <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
-                                                    <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
-                                                        <div class="content-btn">
-                                                            <section class="izq"></section>
-                                                            <section class="cent">
-                                                                <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                            </section>
-                                                        </div>
-                                                    </button>
-                                                </li>
-                                            }
+
+                                                }
+                                                else
+                                                {
+                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                        <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
+                                                            <div class="content-btn">
+                                                                <section class="izq">
+                                                                    <img src="~/Imagenes/Temporal/Leona.jfif" />
+                                                                </section>
+                                                                <section class="cent">
+                                                                    <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                </section>
+                                                            </div>
+                                                        </button>
+                                                    </li>
+                                                }
 
 
+                                            }
                                         }
-                                    }
-                                </ul>                              
-                              }
+                                    </ul>
+                                }
                                 //}
                             }
                         }
@@ -395,7 +434,7 @@
             -->
         <!-- Contenedor Seleccionar_unidad  -->
         <div class="contenedor" id="container">
-            <img class="onda" src="~/Imagenes/Iconos/ondas.png"/>
+            <img class="onda" src="~/Imagenes/Iconos/ondas.png" />
             @RenderBody()
         </div>
 

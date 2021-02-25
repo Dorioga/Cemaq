@@ -400,7 +400,64 @@
             </div>
         </div>
 
-        if (TempData["mensaje9"] != null && usu != null)
+        if (TempData["mensaje10"] != null && usu != null)
+        {
+            TempData.Keep("mensaje10");
+            string nx = Convert.ToString(TempData["mensaje10"]);
+                    <!--Modal Subir Actividad-->
+            <div class="modal" id="mostrarmodal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="marea">
+                    <div class="mcontenedor modal-content">
+                        <div class="modal-body mcontenido">
+                            <div class="cizq">
+                                <!--Foto-->
+                                <div class="foto">
+                                    <img src="~/Imagenes/@usu.foto">
+                                </div>
+                                <!--Foto Usuario-->
+                                <div class="dinfo">
+                                    <i class="fa fa-graduation-cap"></i>
+                                    <label>@usu.Tipo_rol: @usu.Nombre</label>
+                                </div>
+
+                                <!--Nombre Curso Inscrito-->
+                                @*<div class="dinfo">
+                                    <i class="fa fa-graduation-cap"></i>
+                                    <label>@usu.Tipo_rol: @arreglo_docente[0].nombre_cursohola</label>
+                                </div>*@
+                                <!--Email-->
+                                <div class="dinfo">
+                                    <i class="fa fa-envelope"></i>
+                                    <label>@usu.correo</label>
+                                </div>
+                            </div>
+                            <div class="cder">
+                                <div class="encargado">
+                                    <h2>Subir Actividad:</h2>
+                                </div>
+                                <div class="cargar">
+                                    <input type="file" name="file" accept=".docx, .pdf" />
+                                    <div class="form-group oculta" id="capa1">
+                                        @Html.TextAreaFor(model => model.informacion_actividad, new { @placeholder = "Descripción del archivo (opcional)" })
+                                    </div>
+                                    <button type="submit" name="irarchivo" class="btn" value="@nx" style="float: right;">Enviar</button>
+                                </div>
+                                <div class="logo">
+                                    <img src="~/Imagenes/Logo Mascota.png">
+                                </div>
+
+                            </div>
+
+
+
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        if (TempData["mensaje9"] != null && usu != null) //Verificar error docente y error cargar archivo, el mensaje9 esta vacio, pues no se carga con el boton del layout
         {
             TempData.Keep("mensaje9");
             string n = Convert.ToString(TempData["mensaje9"]);
@@ -497,63 +554,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                if (TempData["mensaje10"] != null && usu != null)
-                {
-                    TempData.Keep("mensaje10");
-                    string nx = Convert.ToString(TempData["mensaje10"]);
-                    <!--Modal Subir Actividad-->
-                    <div class="modal" id="mostrarmodal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                        <div class="marea">
-                            <div class="mcontenedor modal-content">
-                                <div class="modal-body mcontenido">
-                                    <div class="cizq">
-                                        <!--Foto-->
-                                        <div class="foto">
-                                            <img src="~/Imagenes/@usu.foto">
-                                        </div>
-                                        <!--Foto Usuario-->
-                                        <div class="dinfo">
-                                            <i class="fa fa-user"></i>
-                                            <label>@usu.Nombre</label>
-                                        </div>
-
-                                        <!--Nombre Curso Inscrito-->
-                                        <div class="dinfo">
-                                            <i class="fa fa-graduation-cap"></i>
-                                            <label>@usu.Tipo_rol: @arreglo_docente[0].nombre_curso</label>
-                                        </div>
-                                        <!--Email-->
-                                        <div class="dinfo">
-                                            <i class="fa fa-envelope"></i>
-                                            <label>@usu.correo</label>
-                                        </div>
-                                    </div>
-                                    <div class="cder">
-                                        <div class="encargado">
-                                            <h2>Subir Actividad:</h2>
-                                        </div>
-                                        <div class="cargar">
-                                            <input type="file" name="file" accept=".docx, .pdf" />
-                                            <div class="form-group oculta" id="capa1">
-                                                @Html.TextAreaFor(model => model.informacion_actividad, new { @placeholder = "Descripción del archivo (opcional)" })
-                                            </div>
-                                            <button type="submit" name="irarchivo" class="btn" value="@nx" style="float: right;">Enviar</button>
-                                        </div>
-                                        <div class="logo">
-                                            <img src="~/Imagenes/Logo Mascota.png">
-                                        </div>
-
-                                    </div>
-
-
-
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
+                </div>                
             }
         }
     }
