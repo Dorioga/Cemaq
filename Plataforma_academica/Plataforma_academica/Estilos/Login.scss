@@ -1,5 +1,34 @@
 ﻿@import url(//db.onlinewebfonts.com/c/4bc98977ba557db3b2f5bb66bff54e25?family=Champagne+&+Limousines);
+@font-face {
+    font-family: 'Champagne & Limousines';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Champagne & Limousines'), url('/fonts/Champagne & Limousines.woff') format('woff');
+}
 
+
+@font-face {
+    font-family: 'Champagne & Limousines Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Champagne & Limousines Italic'), url('/fonts/Champagne & Limousines Italic.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Champagne & Limousines Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Champagne & Limousines Bold'), url('/fonts/Champagne & Limousines Bold.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Champagne & Limousines Bold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Champagne & Limousines Bold Italic'), url('/fonts/Champagne & Limousines Bold Italic.woff') format('woff');
+}
 
 body {
     background-image:url('/Imagenes/Iconos/Fondo para web_PNG.png');

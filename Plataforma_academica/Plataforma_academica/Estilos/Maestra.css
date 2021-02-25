@@ -513,6 +513,12 @@ header {
           display: inline-block; }
           body.dark .principal .contenedor .bb-custom-wrapper .bb-item .step {
             background: #317a8e; }
+    .principal .contenedor .hoja {
+      position: relative;
+      background: #000000;
+      transform: rotate(15deg); }
+    .principal .contenedor .ultima {
+      transform: rotate(30deg); }
     .principal .contenedor .con_form {
       color: #ffffff;
       padding: 1vh; }

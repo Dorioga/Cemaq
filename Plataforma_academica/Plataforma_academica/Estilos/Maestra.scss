@@ -737,6 +737,16 @@ header {
                 }
             }
         }
+
+        .hoja {
+            position: relative;
+            background: $negro;
+            transform: rotate(15deg);
+        }
+
+        .ultima {
+            transform: rotate(30deg);
+        }
         //Contenedor del Menu, Cargar Contenido, cargar examen
         .con_form {
             //display:none;
