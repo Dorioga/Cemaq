@@ -299,7 +299,6 @@
     <Content Include="Estilos\visualizar_practica.css" />
     <Content Include="Excel_R_Beneficiarios\20200219094645libro1.xlsx" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagenes\20200619151509excel.png" />
@@ -334,9 +333,11 @@
     <Content Include="Imagenes\giphy.gif" />
     <Content Include="Imagenes\icon %282%29.png" />
     <Content Include="Imagenes\icon.png" />
+    <Content Include="Imagenes\Iconos\Der Libro.png" />
     <Content Include="Imagenes\Iconos\Fondo Blanco Libro.png" />
     <Content Include="Imagenes\Iconos\Fondo Gris Libro.png" />
     <Content Include="Imagenes\Iconos\Fondo para web_PNG.png" />
+    <Content Include="Imagenes\Iconos\Izq Libro.png" />
     <Content Include="Imagenes\Iconos\Logo CEMAQ Color.png" />
     <Content Include="Imagenes\Iconos\Logo CEMAQ.png" />
     <Content Include="Imagenes\Iconos\Logotipo001.png" />
@@ -455,10 +456,10 @@
     <Content Include="Estilos\Login.scss" />
     <Content Include="imagen_multimedia\20200723194023epistemologia de la psicologia 3.docx" />
     <Content Include="imagen_multimedia\20201020224333diplomado %28pai%29 modulo 1 %281%29.pdf" />
-    <Content Include="fonts\Champagne &amp; Limousines Bold Italic.ttf" />
-    <Content Include="fonts\Champagne &amp; Limousines Bold.ttf" />
-    <Content Include="fonts\Champagne &amp; Limousines Italic.ttf" />
-    <Content Include="fonts\Champagne &amp; Limousines.ttf" />
+    <Content Include="fonts\Champagne &amp; Limousines Bold Italic.woff" />
+    <Content Include="fonts\Champagne &amp; Limousines Bold.woff" />
+    <Content Include="fonts\Champagne &amp; Limousines Italic.woff" />
+    <Content Include="fonts\Champagne &amp; Limousines.woff" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - Web Deploy.pubxml" />
@@ -576,9 +577,6 @@
     <Folder Include="Views\Profesional\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

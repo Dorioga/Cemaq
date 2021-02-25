@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="~/Estilos/botonmodal.css" rel="stylesheet" type="text/css">
     <link href="//db.onlinewebfonts.com/c/4bc98977ba557db3b2f5bb66bff54e25?family=Champagne+&+Limousines" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Chosen/chosen.min.css" rel="stylesheet" />
     <script>
 
         function myFunction1() {
@@ -217,7 +215,7 @@
                     <section class="buscar">
                         <div id="bus">
                             <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">
-                           <!--Script Busqueda-->
+                            <!--Script Busqueda-->
                             <script>
                                 $(document).ready(function () {
                                     $("#myInput").on("keyup", function () {
@@ -235,6 +233,7 @@
                     </section>
                     <section class="botones" id="myTable">
                         @{
+                            <!--Estudiante-->
                             if (Convert.ToInt32(usu.rol) == 4)
                             {
                                 arreglop = principal.Buscar_Cursos_Diplomados_Estudiante(usu.cedula);
@@ -245,7 +244,7 @@
                                     //aqui debe ir el recogido
                                 }
                                     -->
-                                <!--Estudiante-->
+
 
                                 using (Html.BeginForm("principalplataforma", "PrincipalPlataforma", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
@@ -333,6 +332,7 @@
 
                             else
                             {
+                                <!--Profesores y Admin-->
                                 //if (Convert.ToInt32(usu.rol) > 0 && Convert.ToInt32(usu.rol) < 3)
                                 //{
                                 <!--Administrador y lideres-->
@@ -357,7 +357,9 @@
 
                                                     <li class="titulo" onclick="mostrarmodulo(@arreglop[i].codigo_curso)">
                                                         <div class="content-btn">
-                                                            <section class="izq"></section>
+                                                            <section class="izq">
+                                                                <img src="~/Imagenes/Temporal/Diana.jfif" />
+                                                            </section>
                                                             <section class="cent">
                                                                 <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
                                                             </section>
@@ -366,7 +368,9 @@
                                                     <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
                                                         <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
                                                             <div class="content-btn">
-                                                                <section class="izq"></section>
+                                                                <section class="izq">
+                                                                    <img src="~/Imagenes/Temporal/Leona.jfif" />
+                                                                </section>
                                                                 <section class="cent">
                                                                     <p class="nom">@arreglop[i].nombre_unidad</p>
                                                                 </section>
@@ -380,7 +384,9 @@
                                                     <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
                                                         <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
                                                             <div class="content-btn">
-                                                                <section class="izq"></section>
+                                                                <section class="izq">
+                                                                    <img src="~/Imagenes/Temporal/Leona.jfif" />
+                                                                </section>
                                                                 <section class="cent">
                                                                     <p class="nom">@arreglop[i].nombre_unidad</p>
                                                                 </section>

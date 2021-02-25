@@ -1,8 +1,4 @@
-﻿@font-face {
-  font-family: "Champagne & Limousines";
-  src: url("'/fonts/Champagne & Limousines.ttf'"); }
-
-* {
+﻿* {
   margin: 0px;
   padding: 0px;
   font-family: 'Champagne & Limousines'; }
@@ -228,6 +224,8 @@ header {
     float: left;
     width: 25vw;
     background-color: #d4e9c6; }
+    body.dark .principal .menu-izq {
+      background-color: #dadada; }
     .principal .menu-izq .buscar {
       display: flex;
       flex-direction: row;
@@ -357,9 +355,10 @@ header {
       position: relative;
       flex-direction: row;
       width: 100%;
-      height: 89vh;
-      padding: 1em;
-      border-radius: 2vh; }
+      background: #ffffff;
+      height: 89vh; }
+      body.dark .principal .contenedor .bb-custom-wrapper {
+        background: #dadada; }
       .principal .contenedor .bb-custom-wrapper nav {
         z-index: 999;
         position: relative;
@@ -382,50 +381,75 @@ header {
         font-weight: bold;
         cursor: pointer;
         float: right; }
-      .principal .contenedor .bb-custom-wrapper .adelante {
+      .principal .contenedor .bb-custom-wrapper #izq {
+        flex: 1 1 18%;
+        background-image: url("/Imagenes/Iconos/Izq Libro.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        /*                #imgizq {
+                    position: relative;
+                }*/ }
+      .principal .contenedor .bb-custom-wrapper #der {
+        flex: 1 1 20%;
+        background-image: url("/Imagenes/Iconos/Der Libro.png");
+        background-repeat: no-repeat;
+        background-size: contain;
         display: flex;
-        align-items: center;
-        color: white;
-        -ms-flex-order: 0;
-        order: 0;
-        -webkit-flex: 0 1 auto;
-        -ms-flex: 0 1 auto;
-        flex: 0 1 auto;
-        -ms-flex-item-align: auto;
-        align-self: auto; }
-        .principal .contenedor .bb-custom-wrapper .adelante svg {
-          width: 2em;
-          height: 2em; }
-      .principal .contenedor .bb-custom-wrapper .atras {
-        display: flex;
-        align-items: center;
-        color: white;
-        -ms-flex-order: 0;
-        order: 0;
-        -webkit-flex: 0 1 auto;
-        -ms-flex: 0 1 auto;
-        flex: 0 1 auto;
-        -ms-flex-item-align: auto;
-        align-self: auto; }
-        .principal .contenedor .bb-custom-wrapper .atras svg {
-          width: 2em;
-          height: 2em; }
+        flex-direction: column-reverse;
+        padding-bottom: 10vh;
+        padding-left: 1vw;
+        /*
+                #imgder {
+                    position: relative;
+                    object-fit: contain;
+                    object-position: top;
+                    max-width: 10vw;
+                }*/ }
+        .principal .contenedor .bb-custom-wrapper #der #menubot {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center; }
+          .principal .contenedor .bb-custom-wrapper #der #menubot .adelante {
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            order: 0;
+            flex: 0 1 auto;
+            align-self: auto;
+            background-color: #69b545;
+            border-radius: 50%; }
+            body.dark .principal .contenedor .bb-custom-wrapper #der #menubot .adelante {
+              background-color: #317a8e !important; }
+            .principal .contenedor .bb-custom-wrapper #der #menubot .adelante svg {
+              width: 2em;
+              height: 2em; }
+          .principal .contenedor .bb-custom-wrapper #der #menubot .atras {
+            display: flex;
+            align-items: center;
+            color: white;
+            order: 0;
+            flex: 0 1 auto;
+            align-self: auto;
+            background-color: #69b545;
+            border-radius: 50%;
+            margin-right: 2vw; }
+            body.dark .principal .contenedor .bb-custom-wrapper #der #menubot .atras {
+              background-color: #317a8e !important; }
+            .principal .contenedor .bb-custom-wrapper #der #menubot .atras svg {
+              width: 2em;
+              height: 2em; }
       .principal .contenedor .bb-custom-wrapper .bb-bookblock {
         width: 100%;
-        height: 100%;
-        -ms-flex-order: 0;
         order: 0;
-        -webkit-flex: 1 1 auto;
-        -ms-flex: 1 1 auto;
         flex: 1 1 auto;
-        -ms-flex-item-align: auto;
-        align-self: auto; }
+        align-self: auto;
+        margin: 2vh 0 2vh 0; }
       .principal .contenedor .bb-custom-wrapper .bb-content {
         background: #ffffff !important; }
         body.dark .principal .contenedor .bb-custom-wrapper .bb-content {
           background: #dadada !important; }
       .principal .contenedor .bb-custom-wrapper .bb-item {
-        background-image: url("/Imagenes/Iconos/Fondo Blanco Libro.png");
         border-radius: 1em;
         overflow-y: auto;
         font-family: TimesNewRoman;
@@ -433,7 +457,6 @@ header {
         background-position: center;
         background-size: 100% 100%; }
         body.dark .principal .contenedor .bb-custom-wrapper .bb-item {
-          background-image: url("/Imagenes/Iconos/Fondo Gris Libro.png");
           background-repeat: no-repeat;
           background-position: center;
           background-size: 100% 100%; }
@@ -453,7 +476,7 @@ header {
           font-family: TimesNewRoman; }
         .principal .contenedor .bb-custom-wrapper .bb-item iframe {
           border-radius: 2%;
-          width: 70%;
+          width: 90%;
           min-height: 60vh;
           height: -webkit-fill-available;
           position: inherit; }
@@ -464,7 +487,7 @@ header {
           width: 100%;
           border: none;
           color: #000000;
-          padding: 0px 2em 0px 2em;
+          padding: 0px 1vw 0px 0;
           overflow: hidden !important;
           background: transparent; }
           .principal .contenedor .bb-custom-wrapper .bb-item textarea:focus {
@@ -475,21 +498,21 @@ header {
           margin-left: 1em !important;
           margin-top: 1em;
           position: absolute;
-          background: #d4e9c6; }
+          background: #69b545; }
           body.dark .principal .contenedor .bb-custom-wrapper .bb-item .btn {
-            background: #d4e9c6; }
+            background: #317a8e; }
         .principal .contenedor .bb-custom-wrapper .bb-item .step {
           height: 30px;
           width: 30px;
           color: #ffffff;
           padding-top: 4px;
           margin: 0 2px;
-          background: #d4e9c6;
+          background: #69b545;
           border: none;
           border-radius: 50%;
           display: inline-block; }
           body.dark .principal .contenedor .bb-custom-wrapper .bb-item .step {
-            background: #d4e9c6; }
+            background: #317a8e; }
     .principal .contenedor .con_form {
       color: #ffffff;
       padding: 1vh; }
@@ -504,8 +527,7 @@ header {
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center; }
+        align-items: center; }
         body.dark .principal .contenedor .con_form .contener {
           background-color: rgba(212, 233, 198, 0.6); }
         .principal .contenedor .con_form .contener a {
@@ -1159,11 +1181,13 @@ header {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px; }
+  width: 1px; }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; }
+  background: #69b545; }
+  body.dark ::-webkit-scrollbar-track {
+    background: #317a8e; }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
@@ -1172,6 +1196,30 @@ header {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; }
+
+@font-face {
+  font-family: 'Champagne & Limousines';
+  font-style: normal;
+  font-weight: normal;
+  src: local("Champagne & Limousines"), url("/fonts/Champagne & Limousines.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Champagne & Limousines Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local("Champagne & Limousines Italic"), url("/fonts/Champagne & Limousines Italic.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Champagne & Limousines Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local("Champagne & Limousines Bold"), url("/fonts/Champagne & Limousines Bold.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Champagne & Limousines Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local("Champagne & Limousines Bold Italic"), url("/fonts/Champagne & Limousines Bold Italic.woff") format("woff"); }
 
 /*
 @media (max-width: 700px) {
