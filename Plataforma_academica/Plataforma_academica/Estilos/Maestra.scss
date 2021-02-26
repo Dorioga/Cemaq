@@ -556,15 +556,20 @@ header {
                 background-size: contain;
                 display: flex;
                 flex-direction: column-reverse;
-                img{
-                    width:18vh;
-                    height:18vh;
+
+                img {
+                    width: 26vh;
+                    height: 26vh;
                 }
+
                 #menubot {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
                     justify-content: center;
+                    position: fixed;
+                    padding-bottom: 5vh;
+                    padding-left: 13vh;
 
                     .adelante {
                         display: flex;
@@ -642,7 +647,16 @@ header {
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: 100% 100%;
-
+                .imagen{
+                    .msjem{
+                        display:none;
+                    }
+                    &:hover{
+                        .msjem{
+                            display:block;
+                        }
+                    }
+                }
                 body.dark & {
                     //background: $gris !important;
                     //background-image: url('/Imagenes/Iconos/Fondo Gris Libro.png');
@@ -679,6 +693,7 @@ header {
                     position: inherit;
                 }
 
+               
                 textarea {
                     font-size: 17px;
                     text-align: justify;

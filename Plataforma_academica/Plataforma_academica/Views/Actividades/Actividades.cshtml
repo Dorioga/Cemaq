@@ -87,11 +87,11 @@
                                                                     </article>
                                                                 </section>
 
-                                                                <section>
+                                                                <section class="imagen">
                                                                     <div>
                                                                         <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                                     </div>
-                                                                    <p>@arreglo[i].link_referencia</p>
+                                                                    <p class="msjem">@arreglo[i].link_referencia</p>
                                                                 </section>
                                                             }
                                                             else
@@ -187,12 +187,12 @@
                                             {
                                                 if (arreglo[i].contenido_seccion == "\r\n")
                                                 {
-                                                    <section>
+                                                    <section class="imagen">
                                                         <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
                                                         <div>
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                         </div>
-                                                        <p>@arreglo[i].link_referencia</p>
+                                                        <p class="msjem">@arreglo[i].link_referencia</p>
                                                     </section>
 
                                                 }
@@ -204,11 +204,11 @@
                                                             <textarea readonly>@arreglo[i].contenido_seccion </textarea>
                                                         </article>
                                                     </section>
-                                                    <section>
+                                                    <section class="imagen">
                                                         <div>
                                                             <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                         </div>
-                                                        <p>@arreglo[i].link_referencia</p>
+                                                        <p class="msjem">@arreglo[i].link_referencia</p>
                                                     </section>
 
                                                 }
@@ -335,11 +335,11 @@
                                                             </article>
                                                         </section>
 
-                                                        <section>
+                                                        <section class="imagen">
                                                             <div>
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                             </div>
-                                                            <p>@arreglo[i].link_referencia</p>
+                                                            <p class="msjem">@arreglo[i].link_referencia</p>
                                                         </section>
 
                                                     }
@@ -427,12 +427,12 @@
                                                 {
                                                     if (arreglo[i].contenido_seccion == "\r\n")
                                                     {
-                                                        <section>
+                                                        <section class="imagen">
                                                             <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                            <div>
+                                                            <div >
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                             </div>
-                                                            <p>@arreglo[i].link_referencia</p>
+                                                            <p class="msjem">@arreglo[i].link_referencia</p>
                                                         </section>
 
                                                     }
@@ -444,11 +444,11 @@
                                                                 <textarea readonly>@arreglo[i].contenido_seccion </textarea>
                                                             </article>
                                                         </section>
-                                                        <section>
+                                                        <section class="imagen">
                                                             <div>
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                             </div>
-                                                            <p>@arreglo[i].link_referencia</p>
+                                                            <p class="msjem">@arreglo[i].link_referencia</p>
                                                         </section>
 
                                                     }
@@ -485,12 +485,13 @@
                                                 {
                                                     if (arreglo[i].contenido_seccion == "\r\n")
                                                     {
-                                                        <section>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                            <div>
-                                                                <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
-                                                            </div>
-                                                        </section>
+                                    <section class="imagen">
+                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                        <div>
+                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
+                                        </div>
+                                        <p class="msjem">@arreglo[i].link_referencia</p>
+                                    </section>
                                                     }
                                                     else
                                                     {
@@ -500,10 +501,11 @@
                                                                 <textarea readonly>@arreglo[i].contenido_seccion </textarea>
                                                             </article>
                                                         </section>
-                                                        <section>
-                                                            <div>
+                                                        <section class="imagen">
+                                                            <div >
                                                                 <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
                                                             </div>
+                                                            <p class="msjem">@arreglo[i].link_referencia</p>
                                                         </section>
                                                     }
 
@@ -561,7 +563,7 @@
                 }
             </div>
             <div id="der">
-                <img src="~/Imagenes/Iconos/HOJA.svg" />
+
                 <div id="menubot">
                     <!-- Boton Atras -->
                     <span id="bb-nav-prev" class="atras">
@@ -579,6 +581,7 @@
                     </span>
 
                 </div>
+                <img src="~/Imagenes/Iconos/HOJA.svg" />
 
                 <!--   <img id="imgder" src="~/Imagenes/Iconos/Der Libro.png" />-->
             </div>

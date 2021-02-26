@@ -404,13 +404,16 @@ header {
                     max-width: 10vw;
                 }*/ }
         .principal .contenedor .bb-custom-wrapper #der img {
-          width: 18vh;
-          height: 18vh; }
+          width: 26vh;
+          height: 26vh; }
         .principal .contenedor .bb-custom-wrapper #der #menubot {
           display: flex;
           flex-direction: row;
           align-items: center;
-          justify-content: center; }
+          justify-content: center;
+          position: fixed;
+          padding-bottom: 5vh;
+          padding-left: 13vh; }
           .principal .contenedor .bb-custom-wrapper #der #menubot .adelante {
             display: flex;
             align-items: center;
@@ -457,6 +460,10 @@ header {
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%; }
+        .principal .contenedor .bb-custom-wrapper .bb-item .imagen .msjem {
+          display: none; }
+        .principal .contenedor .bb-custom-wrapper .bb-item .imagen:hover .msjem {
+          display: block; }
         body.dark .principal .contenedor .bb-custom-wrapper .bb-item {
           background-repeat: no-repeat;
           background-position: center;
