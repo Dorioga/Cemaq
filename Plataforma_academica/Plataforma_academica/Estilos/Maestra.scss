@@ -353,7 +353,6 @@ header {
             overflow: auto;
             max-height: 88vh;
 
-
             ul {
                 li {
                     text-align: left;
@@ -455,6 +454,19 @@ header {
 
                             .progress {
                                 margin: 0px;
+                                background-color: $verdefondo;
+
+                                body.dark & {
+                                    background-color: $gris;
+                                }
+
+                                .progress-bar-success {
+                                    background-color: $verdeoscuro;
+
+                                    body.dark & {
+                                        background-color: $azuloscuro;
+                                    }
+                                }
                             }
 
                             .nom {
@@ -647,16 +659,19 @@ header {
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: 100% 100%;
-                .imagen{
-                    .msjem{
-                        display:none;
+
+                .imagen {
+                    .msjem {
+                        display: none;
                     }
-                    &:hover{
-                        .msjem{
-                            display:block;
+
+                    &:hover {
+                        .msjem {
+                            display: block;
                         }
                     }
                 }
+
                 body.dark & {
                     //background: $gris !important;
                     //background-image: url('/Imagenes/Iconos/Fondo Gris Libro.png');
@@ -693,7 +708,7 @@ header {
                     position: inherit;
                 }
 
-               
+
                 textarea {
                     font-size: 17px;
                     text-align: justify;
@@ -803,7 +818,6 @@ header {
             }
 
             .contener {
-                background-color: rbga($blanco,0.6);
                 width: 100%;
                 position: relative;
                 min-height: 90vh;
@@ -812,9 +826,10 @@ header {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                background-color: rgba( $verdefondo,0.8);
 
                 body.dark & {
-                    background-color: rgba( $verdefondo,0.6);
+                    background-color: rgba( $gris,0.8);
                 }
 
                 a {
@@ -827,18 +842,19 @@ header {
                 }
 
                 .boton {
-                    background: $blanco;
+                    background-color: transparent;
                     position: relative;
-                    width: 98%;
-                    left: 0.5em;
+                    width: 100%;
                     border: none;
                     outline: none;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    font-family:"Champagne & Limousines Bold";
+                    font-weight:bold;
 
                     body.dark & {
-                        background-color: rgba( $verdefondo,0.1);
+                        background-color: transparent;
                     }
 
                     &:hover {
@@ -903,10 +919,10 @@ header {
                                 margin: 1em;
                                 overflow: visible;
                                 border-radius: 7px;
-                                background: $verdeoscuro;
+                                background: $verdefondo;
 
                                 body.dark & {
-                                    background: $azuloscuro;
+                                    background: $gris;
                                 }
 
                                 progress-bar {
@@ -938,7 +954,7 @@ header {
                             }
 
                             .progress-bar-success {
-                                background: $verdefondo;
+                                background: $verdeoscuro;
                                 border-radius: 7px;
 
                                 body.dark & {
