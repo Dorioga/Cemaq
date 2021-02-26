@@ -223,7 +223,8 @@ header {
     position: fixed;
     float: left;
     width: 25vw;
-    background-color: #d4e9c6; }
+    background-color: #d4e9c6;
+    z-index: 999; }
     body.dark .principal .menu-izq {
       background-color: #dadada; }
     .principal .menu-izq .buscar {
@@ -354,9 +355,8 @@ header {
       display: flex;
       position: relative;
       flex-direction: row;
-      width: 100%;
       background: #ffffff;
-      height: 89vh; }
+      z-index: 10; }
       body.dark .principal .contenedor .bb-custom-wrapper {
         background: #dadada; }
       .principal .contenedor .bb-custom-wrapper nav {
@@ -396,8 +396,6 @@ header {
         background-size: contain;
         display: flex;
         flex-direction: column-reverse;
-        padding-bottom: 10vh;
-        padding-left: 1vw;
         /*
                 #imgder {
                     position: relative;
@@ -405,11 +403,17 @@ header {
                     object-position: top;
                     max-width: 10vw;
                 }*/ }
+        .principal .contenedor .bb-custom-wrapper #der img {
+          width: 26vh;
+          height: 26vh; }
         .principal .contenedor .bb-custom-wrapper #der #menubot {
           display: flex;
           flex-direction: row;
           align-items: center;
-          justify-content: center; }
+          justify-content: center;
+          position: fixed;
+          padding-bottom: 5vh;
+          padding-left: 13vh; }
           .principal .contenedor .bb-custom-wrapper #der #menubot .adelante {
             display: flex;
             align-items: center;
@@ -456,6 +460,10 @@ header {
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%; }
+        .principal .contenedor .bb-custom-wrapper .bb-item .imagen .msjem {
+          display: none; }
+        .principal .contenedor .bb-custom-wrapper .bb-item .imagen:hover .msjem {
+          display: block; }
         body.dark .principal .contenedor .bb-custom-wrapper .bb-item {
           background-repeat: no-repeat;
           background-position: center;
@@ -514,11 +522,36 @@ header {
           body.dark .principal .contenedor .bb-custom-wrapper .bb-item .step {
             background: #317a8e; }
     .principal .contenedor .hoja {
-      position: relative;
-      background: #000000;
-      transform: rotate(15deg); }
+      position: absolute;
+      width: 95%;
+      height: 85vh;
+      border: solid 1px #69b545;
+      margin-top: 2vh;
+      margin-left: 2vh; }
+      body.dark .principal .contenedor .hoja {
+        border-color: #317a8e !important; }
+    .principal .contenedor .rotar {
+      z-index: 2;
+      transform: rotate(-1deg);
+      display: flex;
+      background-color: #ffffff; }
+      body.dark .principal .contenedor .rotar {
+        background-color: #dadada; }
+      .principal .contenedor .rotar #izq {
+        flex: 1 1 18%;
+        background-image: url("/Imagenes/Iconos/Izq Libro.png");
+        background-repeat: no-repeat;
+        background-size: contain; }
+      .principal .contenedor .rotar #cent {
+        flex: 1 1 62%; }
+      .principal .contenedor .rotar #der {
+        flex: 1 1 20%;
+        background-image: url("/Imagenes/Iconos/Der Libro.png");
+        background-repeat: no-repeat;
+        background-size: contain; }
     .principal .contenedor .ultima {
-      transform: rotate(30deg); }
+      z-index: 1;
+      transform: rotate(-2deg); }
     .principal .contenedor .con_form {
       color: #ffffff;
       padding: 1vh; }

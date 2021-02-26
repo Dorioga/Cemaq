@@ -12,9 +12,6 @@ $rojo: #d9534f;
 //Modo Oscuro
 $azuloscuro: #317a8e;
 
-
-
-
 * {
     margin: 0px;
     padding: 0px;
@@ -304,6 +301,7 @@ header {
         float: left;
         width: 25vw;
         background-color: $verdefondo;
+        z-index: 999;
 
         body.dark & {
             background-color: $gris;
@@ -506,9 +504,8 @@ header {
             display: flex;
             position: relative;
             flex-direction: row;
-            width: 100%;
             background: $blanco;
-            height: 89vh;
+            z-index: 10;
 
             body.dark & {
                 background: $gris;
@@ -559,14 +556,20 @@ header {
                 background-size: contain;
                 display: flex;
                 flex-direction: column-reverse;
-                padding-bottom: 10vh;
-                padding-left: 1vw;
+
+                img {
+                    width: 26vh;
+                    height: 26vh;
+                }
 
                 #menubot {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
                     justify-content: center;
+                    position: fixed;
+                    padding-bottom: 5vh;
+                    padding-left: 13vh;
 
                     .adelante {
                         display: flex;
@@ -619,11 +622,6 @@ header {
                 }*/
             }
 
-
-
-
-
-
             .bb-bookblock {
                 width: 100%;
                 order: 0;
@@ -649,7 +647,16 @@ header {
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: 100% 100%;
-
+                .imagen{
+                    .msjem{
+                        display:none;
+                    }
+                    &:hover{
+                        .msjem{
+                            display:block;
+                        }
+                    }
+                }
                 body.dark & {
                     //background: $gris !important;
                     //background-image: url('/Imagenes/Iconos/Fondo Gris Libro.png');
@@ -686,6 +693,7 @@ header {
                     position: inherit;
                 }
 
+               
                 textarea {
                     font-size: 17px;
                     text-align: justify;
@@ -739,13 +747,50 @@ header {
         }
 
         .hoja {
-            position: relative;
-            background: $negro;
-            transform: rotate(15deg);
+            position: absolute;
+            width: 95%;
+            height: 85vh;
+            border: solid 1px $verdeoscuro;
+            margin-top: 2vh;
+            margin-left: 2vh;
+
+            body.dark & {
+                border-color: $azuloscuro !important;
+            }
+        }
+
+        .rotar {
+            z-index: 2;
+            transform: rotate(-1deg);
+            display: flex;
+            background-color: $blanco;
+
+            body.dark & {
+                background-color: $gris;
+            }
+
+            #izq {
+                flex: 1 1 18%;
+                background-image: url('/Imagenes/Iconos/Izq Libro.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+
+            #cent {
+                flex: 1 1 62%;
+            }
+
+            #der {
+                flex: 1 1 20%;
+                background-image: url('/Imagenes/Iconos/Der Libro.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
         }
 
         .ultima {
-            transform: rotate(30deg);
+            z-index: 1;
+            transform: rotate(-2deg);
         }
         //Contenedor del Menu, Cargar Contenido, cargar examen
         .con_form {
@@ -1856,6 +1901,7 @@ header {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
 @font-face {
     font-family: 'Champagne & Limousines';
     font-style: normal;
