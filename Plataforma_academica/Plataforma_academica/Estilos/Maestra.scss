@@ -369,7 +369,17 @@ header {
                         border: none;
 
                         &:hover {
-                            background-color: $verdehover;
+                            background-color: $verdeoscuro;
+                            color:$blanco;
+                        }
+
+                        body.dark & {
+                            background-color: $gris;
+
+                            &:hover {
+                                background-color: $azulgris;
+                                color: $blanco;
+                            }
                         }
 
                         .content-btn {
@@ -850,8 +860,8 @@ header {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-family:"Champagne & Limousines Bold";
-                    font-weight:bold;
+                    font-family: "Champagne & Limousines Bold";
+                    font-weight: bold;
 
                     body.dark & {
                         background-color: transparent;

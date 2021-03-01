@@ -269,7 +269,13 @@ header {
           background-color: #d4e9c6;
           border: none; }
           .principal .menu-izq .botones ul li .boton:hover {
-            background-color: #c0dfac; }
+            background-color: #69b545;
+            color: #ffffff; }
+          body.dark .principal .menu-izq .botones ul li .boton {
+            background-color: #dadada; }
+            body.dark .principal .menu-izq .botones ul li .boton:hover {
+              background-color: #50687a;
+              color: #ffffff; }
           .principal .menu-izq .botones ul li .boton .content-btn {
             display: flex;
             flex-direction: row;
