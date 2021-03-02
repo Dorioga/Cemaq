@@ -19,6 +19,7 @@ namespace Plataforma_academica.Models
         public string url_apoyo { set; get; }
         public string codigo_usuario_unidad { set; get; }
         public string link_referencia { set; get; }
+        public string tipo_acti { set; get; }
 
         private Conexion.Conexion conexion;
 
@@ -29,23 +30,23 @@ namespace Plataforma_academica.Models
             {
                 if (Convert.ToInt32(obj.tipo_soporte) == 3)
                 {
-                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.url_apoyo + "','" + obj.tipo_soporte + "','" + obj.link_referencia + "')");
+                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "','" + unidad + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.url_apoyo + "','" + obj.tipo_soporte + "','" + obj.link_referencia + "','" + obj.tipo_acti+ "')");
                     return x;
                 }
                 else
                 {
-                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + archivo1 + "','" + obj.tipo_soporte + "','" + obj.link_referencia + "')");
+                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "','" + unidad + "','" + o + "','" + obj.url_video + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + archivo1 + "','" + obj.tipo_soporte + "','" + obj.link_referencia + "','" + obj.tipo_acti + "')");
                     return x;
                 }
             }else
             {
                 if (Convert.ToInt32(obj.tipo_soporte) == 3)
                 {
-                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.url_apoyo+ "','" + obj.tipo_soporte + "','"+obj.link_referencia+"')");
+                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "','" + unidad + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + obj.url_apoyo+ "','" + obj.tipo_soporte + "','"+obj.link_referencia+ "','" + obj.tipo_acti + "')");
                     return x;
                 }else
                 {
-                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "', '" + "1" + "','" + unidad + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + archivo1 + "','" + obj.tipo_soporte + "','" + obj.link_referencia + "')");
+                    DataTable x = conexion.Execute_Query("call Pr_ingresar_titulo_actividad_inicial ('" + obj.nombre_contenido + "', '" + obj.descripcion_contenido + "','" + unidad + "','" + o + "','" + archivo + "', '" + 3 + "', '" + obj.tipo_multimedia + "','" + archivo1 + "','" + obj.tipo_soporte + "','" + obj.link_referencia + "','" + obj.tipo_acti + "')");
                     return x;
                 }
             }

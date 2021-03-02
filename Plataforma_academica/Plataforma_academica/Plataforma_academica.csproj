@@ -245,6 +245,7 @@
     <Compile Include="Models\Subir_contenidos.cs" />
     <Compile Include="Models\Clasificacion_multimedia.cs" />
     <Compile Include="Models\Tematica.cs" />
+    <Compile Include="Models\Tipo_actividad.cs" />
     <Compile Include="Models\Tipo_de_pregunta.cs" />
     <Compile Include="Models\Tipo_documento.cs" />
     <Compile Include="Models\Tipo_examen.cs" />

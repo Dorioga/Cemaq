@@ -12,7 +12,7 @@ namespace Plataforma_academica.Controllers
     {
         string nombre;
         // GET: Contenido
-        public ActionResult Cargar_contenido(contenido obj, lista_tipo_multimedia tipo, HttpPostedFileBase file, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3, Clasificacion_multimedia tipoact)
+        public ActionResult Cargar_contenido(contenido obj, lista_tipo_multimedia tipo, HttpPostedFileBase file, HttpPostedFileBase file1, HttpPostedFileBase file2, HttpPostedFileBase file3, Clasificacion_multimedia tipoact, Tipo_actividad ta)
         {
             Plataforma_academica.Models.principalP act2 = Session["usuario12"] as Plataforma_academica.Models.principalP;
             Login user = Session["usuario"] as Login;
@@ -37,6 +37,10 @@ namespace Plataforma_academica.Controllers
                     {
                        tipoact.codigo = Request.Form["listar1"].ToString();
                     }
+                    if (Request.Form["listar2"] != null)
+                    {
+                        ta.id_tipo_actividad = Request.Form["listar2"].ToString();
+                    }
                     List<SelectListItem> prueba = ViewData["lista"] as List<SelectListItem>;
                     if (prueba == null)
                     {
@@ -44,9 +48,12 @@ namespace Plataforma_academica.Controllers
                         Plataforma_academica.Models.lista_tipo_multimedia[] tid;
                         Plataforma_academica.Models.Clasificacion_multimedia tiacti = new Plataforma_academica.Models.Clasificacion_multimedia();
                         Plataforma_academica.Models.Clasificacion_multimedia[] tia;
+                        Plataforma_academica.Models.Tipo_actividad tiac = new Plataforma_academica.Models.Tipo_actividad();
+                        Plataforma_academica.Models.Tipo_actividad[] tiact;
 
                         tid = ti.Consultar_tipo_multimedia();
                         tia = tiacti.Consultar_tipo_clasificacion();
+                        tiact = tiac.BuscarTipoActividad();
 
                         List<SelectListItem> lista = new List<SelectListItem>();
                         foreach (lista_tipo_multimedia i in tid)
@@ -71,6 +78,18 @@ namespace Plataforma_academica.Controllers
                             });
                         }
                         ViewData["lista1"] = lista1;
+
+                        List<SelectListItem> lista2 = new List<SelectListItem>();
+                        foreach (Tipo_actividad i in tiact)
+                        {
+                            lista2.Add(new SelectListItem
+                            {
+                                Text = i.nombre_tipo_actividad,
+                                Value = i.id_tipo_actividad,
+                                Selected = false
+                            });
+                        }
+                        ViewData["lista3"] = lista2;
                     }
                 }
             }

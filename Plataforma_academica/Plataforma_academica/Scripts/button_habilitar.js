@@ -1,4 +1,4 @@
 ﻿$(document).ready(function () {
     document.getElementById("subir").disabled = true;
-    document.getElementById("seccion").disabled = false;
+    document.getElementById("seccion").disabled = false;  
 });
