@@ -1254,25 +1254,7 @@ header {
   font-family: 'Champagne & Limousines';
   font-style: normal;
   font-weight: normal;
-  src: local("Champagne & Limousines"), url("/fonts/Champagne & Limousines.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Champagne & Limousines Italic';
-  font-style: normal;
-  font-weight: normal;
-  src: local("Champagne & Limousines Italic"), url("/fonts/Champagne & Limousines Italic.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Champagne & Limousines Bold';
-  font-style: normal;
-  font-weight: normal;
-  src: local("Champagne & Limousines Bold"), url("/fonts/Champagne & Limousines Bold.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Champagne & Limousines Bold Italic';
-  font-style: normal;
-  font-weight: normal;
-  src: local("Champagne & Limousines Bold Italic"), url("/fonts/Champagne & Limousines Bold Italic.woff") format("woff"); }
+  src: local("Champagne & Limousines"), url("/fonts/Champagne-Limousines.ttf.woff") format("woff"); }
 
 /*
 @media (max-width: 700px) {

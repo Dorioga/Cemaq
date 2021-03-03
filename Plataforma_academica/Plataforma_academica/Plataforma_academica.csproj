@@ -459,10 +459,7 @@
     <Content Include="Estilos\Login.scss" />
     <Content Include="imagen_multimedia\20200723194023epistemologia de la psicologia 3.docx" />
     <Content Include="imagen_multimedia\20201020224333diplomado %28pai%29 modulo 1 %281%29.pdf" />
-    <Content Include="fonts\Champagne &amp; Limousines Bold Italic.woff" />
-    <Content Include="fonts\Champagne &amp; Limousines Bold.woff" />
-    <Content Include="fonts\Champagne &amp; Limousines Italic.woff" />
-    <Content Include="fonts\Champagne &amp; Limousines.woff" />
+    <Content Include="fonts\Champagne-Limousines.ttf.woff" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - Web Deploy.pubxml" />

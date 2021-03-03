@@ -295,7 +295,7 @@
                                                             </div>
                                                         </li>
                                                         <!--Modulo-->
-                                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                        <li class="modulo" id="hola" onclick="mostrarmodulo(@arreglop[i].codigo_curso)" value="@arreglop[i].codigo_curso">
                                                             <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
                                                                 <div class="content-btn">
                                                                     <section class="izq">
@@ -315,7 +315,7 @@
                                                     else
                                                     {
                                                         <!--Modulo-->
-                                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso" onclick="mostrarmodulo(@arreglop[i].codigo_curso)">
                                                             <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
                                                                 <div class="content-btn">
                                                                     <section class="izq">
@@ -370,7 +370,7 @@
                                                 if (i % 5 == 0)
                                                 {
 
-                                                    <li class="titulo" onclick="mostrarmodulo(@arreglop[i].codigo_curso)">
+                                                    <li class="titulo" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'titulo')">
                                                         <div class="content-btn">
                                                             <section class="izq">
                                                                 <img src="~/Imagenes/Temporal/Diana.jfif" />
@@ -380,7 +380,7 @@
                                                             </section>
                                                         </div>
                                                     </li>
-                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'modulo')">
                                                         <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
                                                             <div class="content-btn">
                                                                 <section class="izq">
@@ -396,7 +396,7 @@
                                                 }
                                                 else
                                                 {
-                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso">
+                                                    <li class="modulo" id="hola" value="@arreglop[i].codigo_curso" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'modulo')">
                                                         <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
                                                             <div class="content-btn">
                                                                 <section class="izq">
