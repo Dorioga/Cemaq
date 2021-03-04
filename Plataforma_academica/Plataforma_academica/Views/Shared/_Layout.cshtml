@@ -273,7 +273,7 @@
                                                     TimeSpan dias_faltantes = arreglop[i].fecha_cierre - DateTime.Today;
                                                     if (i % 5 == 0)
                                                     {<!--Titulo-->
-                                                        <li class="titulo" onclick="mostrarmodulo(@arreglop[i].codigo_curso)">
+                                                        <li class="titulo" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'titulo')">
                                                             <div class="content-btn">
                                                                 <section class="izq">
                                                                     <!--<img src="~/imagenes/@arreglop[i].url" />-->
@@ -295,7 +295,7 @@
                                                             </div>
                                                         </li>
                                                         <!--Modulo-->
-                                                        <li class="modulo" id="hola" onclick="mostrarmodulo(@arreglop[i].codigo_curso)" value="@arreglop[i].codigo_curso">
+                                                        <li class="modulo" id="hola" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'modulo')" value="@arreglop[i].codigo_curso">
                                                             <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
                                                                 <div class="content-btn">
                                                                     <section class="izq">
@@ -315,7 +315,7 @@
                                                     else
                                                     {
                                                         <!--Modulo-->
-                                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso" onclick="mostrarmodulo(@arreglop[i].codigo_curso)">
+                                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'modulo')">
                                                             <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
                                                                 <div class="content-btn">
                                                                     <section class="izq">
