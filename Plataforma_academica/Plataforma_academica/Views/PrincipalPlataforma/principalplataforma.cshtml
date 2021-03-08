@@ -210,6 +210,7 @@
                     string nc = Convert.ToString(TempData["mensaje10"]);
                     arreglo_actividad = actividad.Consultar_Actividad_usuario(nc, usu.usuario);
                     arreglo_examen = actividad.Consultar_examen_usuario(nc, usu.usuario);
+                    int b = 0;
                     for (int i = 0; i < arreglo_actividad.Length; i++)
                     {
                         <!--Actividad 1-->
@@ -280,6 +281,10 @@
                                 </button>
                             }
                         }
+                        if (Convert.ToInt32(arreglo_actividad[i].tipo_actividad)==2)
+                        {
+                            b++;
+                        }
                     }
                     int a = Convert.ToInt32(arreglo_actividad.LongLength) - 1;
                     for (int i = 0; i < arreglo_examen.Length; i++)
@@ -299,10 +304,7 @@
                                         <p class="nom">@arreglo_examen[i].examen</p>
                                         </section>
                                         <section class="der"> 
-                                        <span>Actividades pendientes</span> </section>
-                                      
-                                     
-                                       
+                                        <span>Actividades pendientes</span> </section>                                     
                                     </div>
                                 </button>
                             }
@@ -332,41 +334,43 @@
                     <!-- Subir actividad-->
                     if (a >= 0)
                     {
-                        if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
+                        if (b>0)
                         {
-                            //aqui debe ir la notificacion emergente
-                            <button class="boton pendiente" data-toggle="modal">
-                                <div class="content-btn">
-                                    <section class="izq">
-                                        <img src="~/imagen_multimedia/Actividad.png" />
-                                    </section>
-                                    <section class="cent">
-                                        <p>Subir Actividad</p>
-                                    </section>
-                                    <section class="der">
-                                        <span class="msjem">Pendientes</span>
-                                    </section>
-                                   
-                                
-                                   
-                                </div>
-                            </button>
+                            if (Convert.ToInt32(arreglo_actividad[a].porcentaje) < 99)
+                            {
+                                //aqui debe ir la notificacion emergente
+                                <button class="boton pendiente" data-toggle="modal">
+                                    <div class="content-btn">
+                                        <section class="izq">
+                                            <img src="~/imagen_multimedia/Actividad.png" />
+                                        </section>
+                                        <section class="cent">
+                                            <p>Subir Actividad</p>
+                                        </section>
+                                        <section class="der">
+                                            <span class="msjem">Pendientes</span>
+                                        </section>
+
+                                    </div>
+                                </button>
+                            }
+                            else
+                            {
+                                <button class="boton" data-target="#mostrarmodal3" data-toggle="modal">
+                                        <div class="content-btn">
+                                            <section class="izq">
+                                                <img src="~/imagen_multimedia/Actividad.png" />
+                                            </section>
+                                            <section class="cent">
+                                                <p>Subir Actividad</p>
+                                            </section>
+                                            <section class="der">
+                                            </section>
+                                        </div>
+                                    </button>
+                            }
                         }
-                        else
-                        {
-                            <button class="boton" data-target="#mostrarmodal3" data-toggle="modal">
-                                <div class="content-btn">
-                                    <section class="izq">
-                                        <img src="~/imagen_multimedia/Actividad.png" />
-                                    </section>
-                                    <section class="cent">
-                                        <p>Subir Actividad</p>
-                                    </section>
-                                    <section class="der">
-                                    </section>
-                                </div>
-                            </button>
-                        }
+
                     }
                     else
                     {
