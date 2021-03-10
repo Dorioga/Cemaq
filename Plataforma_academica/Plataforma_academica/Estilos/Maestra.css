@@ -146,21 +146,23 @@ header {
           width: 20vw;
           top: 6vh;
           left: 80vw;
+          padding: 0.5vw 1vw 1vw 1vw;
           border-style: solid;
+          border-radius: 0 0 1vw 1vw;
           border-color: #69b545;
           height: auto !important;
-          font-weight: bold; }
+          font-weight: bold;
+          background-color: rgba(212, 233, 198, 0.6); }
           body.dark header .navbar .info .contenido:hover .lista-menu {
+            background-color: #dadada;
             border-color: #317a8e; }
           header .navbar .info .contenido:hover .lista-menu .opcion {
-            background-color: #ffffff;
+            background-color: transparent;
             border: none;
             padding: 0.5em 0px;
             font-size: 14px;
             border-radius: 0;
             z-index: 2; }
-            body.dark header .navbar .info .contenido:hover .lista-menu .opcion {
-              background-color: #d4e9c6; }
           header .navbar .info .contenido:hover .lista-menu .opcion a {
             color: black; }
             header .navbar .info .contenido:hover .lista-menu .opcion a img {

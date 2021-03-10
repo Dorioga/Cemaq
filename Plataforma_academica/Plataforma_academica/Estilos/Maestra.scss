@@ -207,27 +207,26 @@ header {
                         width: 20vw;
                         top: 6vh;
                         left: 80vw;
+                        padding: 0.5vw 1vw 1vw 1vw;
                         border-style: solid;
+                        border-radius: 0 0 1vw 1vw;
                         border-color: $verdeoscuro;
                         height: auto !important;
                         font-weight: bold;
+                        background-color: rgba($verdefondo,0.6);
 
                         body.dark & {
+                            background-color: rgba(gris,0.6);
                             border-color: $azuloscuro;
                         }
 
                         .opcion {
-                            background-color: $blanco;
+                            background-color: transparent;
                             border: none;
                             padding: 0.5em 0px;
                             font-size: 14px;
                             border-radius: 0;
                             z-index: 2;
-
-
-                            body.dark & {
-                                background-color: $verdefondo;
-                            }
                         }
 
                         .opcion a {
