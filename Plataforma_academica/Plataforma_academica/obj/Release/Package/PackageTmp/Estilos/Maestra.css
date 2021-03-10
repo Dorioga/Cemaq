@@ -269,7 +269,13 @@ header {
           background-color: #d4e9c6;
           border: none; }
           .principal .menu-izq .botones ul li .boton:hover {
-            background-color: #c0dfac; }
+            background-color: #69b545;
+            color: #ffffff; }
+          body.dark .principal .menu-izq .botones ul li .boton {
+            background-color: #dadada; }
+            body.dark .principal .menu-izq .botones ul li .boton:hover {
+              background-color: #50687a;
+              color: #ffffff; }
           .principal .menu-izq .botones ul li .boton .content-btn {
             display: flex;
             flex-direction: row;
@@ -322,7 +328,14 @@ header {
           .principal .menu-izq .botones ul .titulo .content-btn .cent {
             flex: 2 1 15vw; }
             .principal .menu-izq .botones ul .titulo .content-btn .cent .progress {
-              margin: 0px; }
+              margin: 0px;
+              background-color: #d4e9c6; }
+              body.dark .principal .menu-izq .botones ul .titulo .content-btn .cent .progress {
+                background-color: #dadada; }
+              .principal .menu-izq .botones ul .titulo .content-btn .cent .progress .progress-bar-success {
+                background-color: #69b545; }
+                body.dark .principal .menu-izq .botones ul .titulo .content-btn .cent .progress .progress-bar-success {
+                  background-color: #317a8e; }
             .principal .menu-izq .botones ul .titulo .content-btn .cent .nom {
               padding: 0px;
               margin: 0px; }
@@ -558,7 +571,6 @@ header {
       .principal .contenedor .con_form .active {
         display: none; }
       .principal .contenedor .con_form .contener {
-        background-color: rbga(#ffffff, 0.6);
         width: 100%;
         position: relative;
         min-height: 90vh;
@@ -566,29 +578,31 @@ header {
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        align-items: center; }
+        align-items: center;
+        background-color: rgba(212, 233, 198, 0.8); }
         body.dark .principal .contenedor .con_form .contener {
-          background-color: rgba(212, 233, 198, 0.6); }
+          background-color: rgba(218, 218, 218, 0.8); }
         .principal .contenedor .con_form .contener a {
           color: #000000;
           padding-left: 1em; }
           body.dark .principal .contenedor .con_form .contener a {
             color: #ffffff; }
         .principal .contenedor .con_form .contener .boton {
-          background: #ffffff;
+          background-color: transparent;
           position: relative;
-          width: 98%;
-          left: 0.5em;
+          width: 100%;
           border: none;
           outline: none;
           display: flex;
           align-items: center;
-          justify-content: center; }
+          justify-content: center;
+          font-family: "Champagne & Limousines Bold";
+          font-weight: bold; }
           body.dark .principal .contenedor .con_form .contener .boton {
-            background-color: rgba(212, 233, 198, 0.1); }
+            background-color: transparent; }
           .principal .contenedor .con_form .contener .boton:hover {
             border-style: solid;
-            border-color: #d4e9c6; }
+            border-color: #50687a; }
             body.dark .principal .contenedor .con_form .contener .boton:hover {
               border-color: #69b545; }
           .principal .contenedor .con_form .contener .boton .content-btn {
@@ -634,9 +648,9 @@ header {
                 margin: 1em;
                 overflow: visible;
                 border-radius: 7px;
-                background: #69b545; }
+                background: #d4e9c6; }
                 body.dark .principal .contenedor .con_form .contener .boton .content-btn .cent .progress {
-                  background: #317a8e; }
+                  background: #dadada; }
                 .principal .contenedor .con_form .contener .boton .content-btn .cent .progress progress-bar {
                   border-radius: 7px; }
                 .principal .contenedor .con_form .contener .boton .content-btn .cent .progress .progress-value {
@@ -657,7 +671,7 @@ header {
               .principal .contenedor .con_form .contener .boton .content-btn .cent .progress-bar.active {
                 animation: reverse progress-bar-stripes 6.0s linear infinite, animate-positive 2s; }
               .principal .contenedor .con_form .contener .boton .content-btn .cent .progress-bar-success {
-                background: #d4e9c6;
+                background: #69b545;
                 border-radius: 7px; }
                 body.dark .principal .contenedor .con_form .contener .boton .content-btn .cent .progress-bar-success {
                   background: #317a8e; }
@@ -1240,25 +1254,7 @@ header {
   font-family: 'Champagne & Limousines';
   font-style: normal;
   font-weight: normal;
-  src: local("Champagne & Limousines"), url("/fonts/Champagne & Limousines.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Champagne & Limousines Italic';
-  font-style: normal;
-  font-weight: normal;
-  src: local("Champagne & Limousines Italic"), url("/fonts/Champagne & Limousines Italic.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Champagne & Limousines Bold';
-  font-style: normal;
-  font-weight: normal;
-  src: local("Champagne & Limousines Bold"), url("/fonts/Champagne & Limousines Bold.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Champagne & Limousines Bold Italic';
-  font-style: normal;
-  font-weight: normal;
-  src: local("Champagne & Limousines Bold Italic"), url("/fonts/Champagne & Limousines Bold Italic.woff") format("woff"); }
+  src: local("Champagne & Limousines"), url("/fonts/Champagne-Limousines.ttf.woff") format("woff"); }
 
 /*
 @media (max-width: 700px) {

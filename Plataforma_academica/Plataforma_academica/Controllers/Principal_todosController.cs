@@ -118,7 +118,7 @@ namespace Plataforma_academica.Controllers
                 mail.From = new MailAddress("cemaqacademica@gmail.com");
                 mail.Subject = "Notificación";
                 mail.Body = nom + ", Usted ha sido registrado de forma exitosa en un DIPLOMADO en: " + "https://cemaq.com.co/" + 
-                "para iniciar el proceso de formación ingrese a: "+"http://diplomados-cemaq.azurewebsites.net/Login/Login";
+                " para iniciar el proceso de formación ingrese a: "+"http://diplomados-cemaq.azurewebsites.net/Login/Login";
 
 
                 mail.IsBodyHtml = true;

@@ -45,7 +45,7 @@ namespace Plataforma_academica.Models
         {
 
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_ingresar_curso ('" + obj.Nombre_curso + "','" + obj.descripcion_curso + "','" + obj.codigo_tematica + "','"+archivo+"')");
+            int x = conexion.Execute_Operation("call Pr_ingresar_curso ('" + obj.Nombre_curso + "','" + obj.descripcion_curso + "','" + obj.codigo_tematica + "','"+archivo+"','"+obj.codigo_horas+"')");
             return x >= 0 ? true : false;
 
         }

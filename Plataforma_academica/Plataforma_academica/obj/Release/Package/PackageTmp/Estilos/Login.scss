@@ -1,41 +1,24 @@
 ﻿@import url(//db.onlinewebfonts.com/c/4bc98977ba557db3b2f5bb66bff54e25?family=Champagne+&+Limousines);
+
+$verdefondo: #d4e9c6;
+$verdeoscuro: #69b545;
+
 @font-face {
     font-family: 'Champagne & Limousines';
     font-style: normal;
     font-weight: normal;
-    src: local('Champagne & Limousines'), url('/fonts/Champagne & Limousines.woff') format('woff');
+    src: local('Champagne & Limousines'), url('/fonts/Champagne-Limousines.ttf.woff') format('woff');
 }
 
 
-@font-face {
-    font-family: 'Champagne & Limousines Italic';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Champagne & Limousines Italic'), url('/fonts/Champagne & Limousines Italic.woff') format('woff');
-}
 
-
-@font-face {
-    font-family: 'Champagne & Limousines Bold';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Champagne & Limousines Bold'), url('/fonts/Champagne & Limousines Bold.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Champagne & Limousines Bold Italic';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Champagne & Limousines Bold Italic'), url('/fonts/Champagne & Limousines Bold Italic.woff') format('woff');
-}
 
 body {
-    background-image:url('/Imagenes/Iconos/Fondo para web_PNG.png');
-    background-repeat:no-repeat;
-    background-size:100%;
-    background-position:center;
-    font-family:"Champagne & Limousines";
+    background-image: url('/Imagenes/Iconos/Fondo para web_PNG.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    font-family: "Champagne & Limousines";
     width: 100vw;
     height: 100vh;
     background-color: white !important;
@@ -43,6 +26,39 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.modal {
+    justify-content: center;
+
+    .modal-dialog {
+        max-width: 70vw;
+
+        .modal-content {
+            .modal-header {
+                flex-direction: row-reverse;
+                background-color: $verdeoscuro;
+                color: white;
+            }
+
+            .modal-body {
+                background-color: $verdefondo;
+                text-align: justify;
+                max-height:80vh;
+                overflow-y:auto;
+
+                .titulo {
+                    font-weight: bold;
+                }
+            }
+
+            .modal-footer {
+                background-color: $verdeoscuro;
+                color: white;
+            }
+        }
+    }
+}
+
 
 .btnRegister {
     float: right;
@@ -108,7 +124,7 @@ body {
 
             img {
                 //padding-bottom: 2vh;
-                width:60vh;
+                width: 60vh;
             }
 
             p {
@@ -242,4 +258,3 @@ body {
         }
     }
 }
-
