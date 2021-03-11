@@ -216,7 +216,7 @@ header {
                         background-color: rgba($verdefondo,0.6);
 
                         body.dark & {
-                            background-color: rgba(gris,0.6);
+                            background-color: rgba($gris,0.6);
                             border-color: $azuloscuro;
                         }
 
@@ -369,7 +369,7 @@ header {
 
                         &:hover {
                             background-color: $verdeoscuro;
-                            color:$blanco;
+                            color: $blanco;
                         }
 
                         body.dark & {
@@ -1291,25 +1291,24 @@ header {
                 min-height: 93vh;
                 overflow-y: auto;
                 border: solid;
-                background-color: rgba($gris, 0.5);
-                border-color: $verdefondo;
+                background-color: rgba($verdefondo, 0.5);
+                border-color: $verdeoscuro;
+
+                body.dark & {
+                    background-color: rgba($gris, 0.5);
+                    border-color: $azulgris;
+                }
 
                 h1 {
                     color: $negro;
                     margin: 0.1em;
-
-                    body.dark & {
-                        color: $blanco;
-                    }
-                }
+                   }
 
                 h2 {
                     color: $negro;
                     margin: 0.1em;
 
-                    body.dark & {
-                        color: $blanco;
-                    }
+                    
                 }
 
                 h3 {
@@ -1322,17 +1321,9 @@ header {
                     }
                 }
 
-                body.dark & {
-                    background-color: $verdefondo;
-                    border-color: $azulgris;
-                }
 
                 label {
                     color: $negro;
-
-                    body.dark & {
-                        color: $blanco;
-                    }
                 }
 
                 table {
@@ -1462,17 +1453,11 @@ header {
                             border-radius: 1em;
                             padding: 0.5em;
                             width: 100%;
-                            color: $blanco;
 
-                            body.dark & {
-                                background: $azulgris;
-                            }
+                           
                         }
 
-                        body.dark & {
-                            color: $blanco;
-                        }
-                    }
+                                       }
                 }
 
                 .pregunta1 {
