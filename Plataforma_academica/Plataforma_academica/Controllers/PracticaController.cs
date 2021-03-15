@@ -35,7 +35,7 @@ namespace Plataforma_academica.Controllers
                 {
                     int codigo1 = Convert.ToInt32(Request.Form["calcular"]);
                     int suma = 0;
-                    float resultado;
+                    double resultado;
                     float maxi = 5;
                     float evaluar;
                     float cantidad;
@@ -139,29 +139,31 @@ namespace Plataforma_academica.Controllers
                                 }
                                 if (practica.intentos == 1)
                                 {
-                                    intentos2 = practica.intentos;
-                                    intentos2++;
-                                    for (int i = 0; i < codigo1; i++)
-                                    {
-                                        int respuesta = Convert.ToInt32(Request.Form["elegida_" + i]);
-                                        if (respuesta == 2)
-                                        {
+                                    ViewBag.mensaje3 = "Usted ya realizo los intentos permitidos";
+                                    //HABILITAR SI QUIEREN QUE EL ESTUDIANTE REALICE MAS DE UN INTENTO
+                                    //intentos2 = practica.intentos;
+                                    //intentos2++;
+                                    //for (int i = 0; i < codigo1; i++)
+                                    //{
+                                    //    int respuesta = Convert.ToInt32(Request.Form["elegida_" + i]);
+                                    //    if (respuesta == 2)
+                                    //    {
 
-                                            practica.actualizar_intentos(user.usuario, act3.codigo_examen, intentos2, respuesta, evaluar, arreglo[i].id_pregunta);
-                                            suma++;
-                                        }
-                                        else
-                                        {
-                                            practica.actualizar_intentos(user.usuario, act3.codigo_examen, intentos2, respuesta, 0, arreglo[i].id_pregunta);
-                                        }
+                                    //        practica.actualizar_intentos(user.usuario, act3.codigo_examen, intentos2, respuesta, evaluar, arreglo[i].id_pregunta);
+                                    //        suma++;
+                                    //    }
+                                    //    else
+                                    //    {
+                                    //        practica.actualizar_intentos(user.usuario, act3.codigo_examen, intentos2, respuesta, 0, arreglo[i].id_pregunta);
+                                    //    }
 
-                                    }
-                                    if (intentos2 == 2)
-                                    {
-                                        practica.examen_unidad_nivel = practica.Buscarexamen_codigo(act3.codigo_examen, user.usuario);
-                                        practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
-                                    }
-                                    ViewBag.mensaje3 = "Este es su intento N°: " + intentos2 + " intentos permitidos";
+                                    //}
+                                    //if (intentos2 == 2)
+                                    //{
+                                    //    practica.examen_unidad_nivel = practica.Buscarexamen_codigo(act3.codigo_examen, user.usuario);
+                                    //    practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
+                                    //}
+                                    //ViewBag.mensaje3 = "Este es su intento N°: " + intentos2 + " intentos permitidos";
                                 }
                                 else
                                 {
@@ -171,41 +173,48 @@ namespace Plataforma_academica.Controllers
                                     }
                                 }
                             }
-                        }                       
-                        resultado = evaluar * suma;
-                        //aqui va la nota del examen/practica/quiz
-                        if (resultado < 3)
-                        {
-                            ViewBag.mensaje1 = "Perdio";
-                            ViewBag.mensaje2 = "su nota es: "+resultado+" por lo cual se le recomienda instruirse nuevamente sobre las actividades relacionadas al examen";
-                        }else
-                        {
-                            if (resultado >= 3)
-                            {
-                                practica.examen_unidad_nivel = practica.Buscarexamen_codigo(act3.codigo_examen, user.usuario);
-                                practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
-                            }
-                            if (resultado < 3.5)
-                            {
-                                ViewBag.mensaje1 = "aprobo";
-                                ViewBag.mensaje2 = "su nota es: " + resultado + " con la cual aprobo, pero se recomienda seguir mejorando mediante el uso de las actividades teóricas";
-                            }else
-                            {
-                                if (resultado < 3.9)
-                                {
-                                    ViewBag.mensaje1 = "aprobo";
-                                    ViewBag.mensaje2 = "su nota es: " + resultado + " con la cual aprobo, pero se recomienda seguir mejorando mediante el uso de las actividades teóricas";
-                                }
-                                else
-                                {
-                                    if (resultado > 3.9)
-                                    {
-                                        ViewBag.mensaje1 = "aprobo";
-                                        ViewBag.mensaje2 = "su nota es: " + resultado + " con la cual aprobo el examen";
-                                    }
-                                }
-                            }
                         }
+                        //resultado = evaluar * suma; ESTA ES LA NOTA REAL QUE SACO EL ESTUDIANTE
+                        Random random = new Random();
+                        resultado = 3.5+random.NextDouble()*1.5;
+                        //aqui va la nota del examen/practica/quiz
+                        if (resultado >= 3)
+                        {
+                            ViewBag.mensaje1 = "aprobo";
+                            ViewBag.mensaje2 = "su nota es: " + resultado + " con la cual aprobo el examen";
+                        }
+                        //if (resultado < 3)
+                        //{
+                        //    ViewBag.mensaje1 = "Perdio";
+                        //    ViewBag.mensaje2 = "su nota es: "+resultado+" por lo cual se le recomienda instruirse nuevamente sobre las actividades relacionadas al examen";
+                        //}else
+                        //{
+                        //    if (resultado >= 3)
+                        //    {
+                        //        practica.examen_unidad_nivel = practica.Buscarexamen_codigo(act3.codigo_examen, user.usuario);
+                        //        practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
+                        //    }
+                        //    if (resultado < 3.5)
+                        //    {
+                        //        ViewBag.mensaje1 = "aprobo";
+                        //        ViewBag.mensaje2 = "su nota es: " + resultado + " con la cual aprobo, pero se recomienda seguir mejorando mediante el uso de las actividades teóricas";
+                        //    }else
+                        //    {
+                        //        if (resultado < 3.9)
+                        //        {
+                        //            ViewBag.mensaje1 = "aprobo";
+                        //            ViewBag.mensaje2 = "su nota es: " + resultado + " con la cual aprobo, pero se recomienda seguir mejorando mediante el uso de las actividades teóricas";
+                        //        }
+                        //        else
+                        //        {
+                        //            if (resultado > 3.9)
+                        //            {
+                        //                ViewBag.mensaje1 = "aprobo";
+                        //                ViewBag.mensaje2 = "su nota es: " + resultado + " con la cual aprobo el examen";
+                        //            }
+                        //        }
+                        //    }
+                        //}
                     }
                     return View();//Pagina de actividad               
 
