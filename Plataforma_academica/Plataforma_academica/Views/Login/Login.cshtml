@@ -95,7 +95,7 @@
                                 <div class="form-group">
                                     @Html.DropDownListFor(model => model.pais, (IEnumerable<SelectListItem>)ViewData["lista4"], "PAÍS RESIDENCIA *", new { @class = "form-control", id = "pais" })
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mun">
                                     @Html.DropDownListFor(model => model.municipio, (IEnumerable<SelectListItem>)ViewData["lista6"], "MUNICIPIO *", new { @class = "form-control", id = "municipio" })
                                 </div>
                                 <div class="form-group">
@@ -105,7 +105,9 @@
                                     @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @type = "date", @class = "form-control", @max = x.ToString() } })
                                     @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
                                     <h6>Fecha de nacimiento *</h6>
-                                    <label style="position: absolute;left: 3%;"><a href="#" style="color:#1005ad;" data-toggle="modal" data-target="#myModal">Acepta los Terminos y Condiciones </a><input type="checkbox" id="curso" onclick="myFunction()" /></label>
+                                                               </div>
+                                <div class="form-group mun">
+                                    <label><a href="#" style="color:#1005ad;" data-toggle="modal" data-target="#myModal">Acepta los Terminos y Condiciones </a><input type="checkbox" id="curso" onclick="myFunction()" /></label>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -170,7 +172,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 style="position: absolute;">Verificación del proceso</h4>
+                        <h4>Verificación del Proceso</h4>
                     </div>
                     <div class="modal-body">
                         <h5>@ViewBag.mensaje2</h5>

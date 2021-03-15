@@ -264,8 +264,9 @@ header {
         text-align: left;
         cursor: pointer; }
         .principal .menu-izq .botones ul li:hover {
-          color: #317a8e;
-          font-weight: bold; }
+          color: #317a8e; }
+        .principal .menu-izq .botones ul li p {
+          font-size: 2.5vh; }
         .principal .menu-izq .botones ul li .boton {
           width: 100%;
           background-color: #d4e9c6;
@@ -504,7 +505,7 @@ header {
           height: -webkit-fill-available;
           position: inherit; }
         .principal .contenedor .bb-custom-wrapper .bb-item textarea {
-          font-size: 17px;
+          font-size: 2.7vh;
           text-align: justify;
           max-width: 100%;
           width: 100%;
@@ -568,8 +569,7 @@ header {
       z-index: 1;
       transform: rotate(-2deg); }
     .principal .contenedor .con_form {
-      color: #ffffff;
-      padding: 1vh; }
+      color: #000000; }
       .principal .contenedor .con_form .active {
         display: none; }
       .principal .contenedor .con_form .contener {
@@ -581,7 +581,8 @@ header {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: rgba(212, 233, 198, 0.8); }
+        background-color: rgba(212, 233, 198, 0.8);
+        border: solid 0.5vh #69b545; }
         body.dark .principal .contenedor .con_form .contener {
           background-color: rgba(218, 218, 218, 0.8); }
         .principal .contenedor .con_form .contener a {
@@ -1225,7 +1226,7 @@ header {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 1px; }
+  width: 0.5vw; }
 
 /* Track */
 ::-webkit-scrollbar-track {

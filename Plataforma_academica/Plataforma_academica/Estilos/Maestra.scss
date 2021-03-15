@@ -359,7 +359,10 @@ header {
 
                     &:hover {
                         color: $azuloscuro;
-                        font-weight: bold;
+                    }
+
+                    p {
+                        font-size: 2.5vh;
                     }
 
                     .boton {
@@ -719,7 +722,7 @@ header {
 
 
                 textarea {
-                    font-size: 17px;
+                    font-size: 2.7vh;
                     text-align: justify;
                     max-width: 100%;
                     width: 100%;
@@ -819,8 +822,7 @@ header {
         //Contenedor del Menu, Cargar Contenido, cargar examen
         .con_form {
             //display:none;
-            color: $blanco;
-            padding: 1vh;
+            color: $negro;
 
             .active {
                 display: none;
@@ -836,6 +838,7 @@ header {
                 flex-direction: column;
                 align-items: center;
                 background-color: rgba( $verdefondo,0.8);
+                border: solid 0.5vh $verdeoscuro;
 
                 body.dark & {
                     background-color: rgba( $gris,0.8);
@@ -1302,13 +1305,11 @@ header {
                 h1 {
                     color: $negro;
                     margin: 0.1em;
-                   }
+                }
 
                 h2 {
                     color: $negro;
                     margin: 0.1em;
-
-                    
                 }
 
                 h3 {
@@ -1453,11 +1454,8 @@ header {
                             border-radius: 1em;
                             padding: 0.5em;
                             width: 100%;
-
-                           
                         }
-
-                                       }
+                    }
                 }
 
                 .pregunta1 {
@@ -1893,7 +1891,7 @@ header {
 //ScrollBar
 /* width */
 ::-webkit-scrollbar {
-    width: 1px;
+    width: 0.5vw;
 }
 /* Track */
 ::-webkit-scrollbar-track {
