@@ -23,6 +23,7 @@ namespace Plataforma_academica.Models
         public string codigo_unidad { set; get; }
         public string porcentaje_modulo { set; get; }
         public string presentacion { set; get; }
+        public string nx { set; get; }
 
         public principalP[] Buscar_diplomados_modulos_general()
         {
@@ -169,10 +170,10 @@ namespace Plataforma_academica.Models
             return x > 0 ? true : false;
         }
 
-        public bool Actualizar_subir_archivo(string url_archivo, string codigo_curso_usuario_unidad)
+        public bool subir_archivo(string url_archivo, string codigo_curso_usuario_unidad, string id_x)
         {
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_actualizar_subir_archivo ('" + url_archivo + "','" + codigo_curso_usuario_unidad + "')");
+            int x = conexion.Execute_Operation("call Pr_actualizar_subir_archivo_ ('" + url_archivo + "','" + codigo_curso_usuario_unidad + "','"+id_x+"')");
             return x > 0 ? true : false;
         }
     }

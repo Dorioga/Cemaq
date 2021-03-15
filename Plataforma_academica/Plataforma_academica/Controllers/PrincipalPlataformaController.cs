@@ -16,6 +16,7 @@ namespace Plataforma_academica.Controllers
         string nombre;
         Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
         Plataforma_academica.Models.principalP[] arreglop;
+        principalP n = new principalP();
         public ActionResult principalplataforma(HttpPostedFileBase file)
         {
             Models.Login user = Session["usuario"] as Models.Login;
@@ -50,11 +51,13 @@ namespace Plataforma_academica.Controllers
                 else
                 {
                         String codig3 = Request.Form["irrr"];
-
+                        
                         if (codig3 != null)
                         {
                             TempData["mensaje10"] = codig3;
-                            return View();
+                            n.nx = codig3;
+                            Session["nx"] = n;
+                        return View();
                         }else
                         {
                             String codig4 = Request.Form["irrrr"];
@@ -92,7 +95,8 @@ namespace Plataforma_academica.Controllers
                                     if (codigarchivo != null)
                                     {
                                         principalP subir = new principalP();
-                                        if (subir.Actualizar_subir_archivo(Subir(file), codigarchivo))
+                                        Plataforma_academica.Models.principalP x = Session["nx"] as Plataforma_academica.Models.principalP;
+                                        if (subir.subir_archivo(Subir(file), codigarchivo,x.nx))
                                         {
                                             if (SendEmail(user.correo, user.Nombre))
                                             {

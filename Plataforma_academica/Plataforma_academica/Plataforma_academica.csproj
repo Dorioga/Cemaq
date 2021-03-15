@@ -506,6 +506,7 @@
     <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\Menumodulo.js" />
     <Content Include="Scripts\menu_submenu.js" />
+    <Content Include="Scripts\ModalSubirArchivo.js" />
     <Content Include="Scripts\modalzoom.js" />
     <Content Include="Scripts\Modal_entrada.js" />
     <Content Include="Scripts\modal_exito_subir.js" />
