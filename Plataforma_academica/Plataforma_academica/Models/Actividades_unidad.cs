@@ -15,7 +15,6 @@ namespace Plataforma_academica.Models
         public String examen { set; get; }
         public String id_examen { set; get; }
         public String porcentaje { set; get; }
-        public String url_archivo { set; get; }
         public String tipo_actividad { set; get; }
 
         public Actividades_unidad[] Consultar_Actividad_unidades(string nc)
@@ -119,7 +118,6 @@ namespace Plataforma_academica.Models
                 arreglo[j].nombre_actividad = i["nombre_actividad"].ToString();
                 arreglo[j].codigo_actividad = i["id_actividad"].ToString();
                 arreglo[j].porcentaje = i["Porcentaje_usuario_actividad"].ToString();
-                arreglo[j].url_archivo = i["url_archivo_actividad"].ToString();
                 arreglo[j].tipo_actividad = i["tipo_actividad"].ToString();
                 j++;
             }

@@ -173,7 +173,7 @@ namespace Plataforma_academica.Models
         public bool subir_archivo(string url_archivo, string codigo_curso_usuario_unidad, string id_x)
         {
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_actualizar_subir_archivo_ ('" + url_archivo + "','" + codigo_curso_usuario_unidad + "','"+id_x+"')");
+            int x = conexion.Execute_Operation("call Pr_ingresar_subir_archivo ('" + url_archivo + "','" + codigo_curso_usuario_unidad + "','" + id_x + "')");
             return x > 0 ? true : false;
         }
     }
