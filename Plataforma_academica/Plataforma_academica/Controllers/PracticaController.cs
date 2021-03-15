@@ -134,8 +134,9 @@ namespace Plataforma_academica.Controllers
                                         }
 
                                     }
-                                    
-                                    ViewBag.mensaje3 = "Este es su intento N°: " + intentos2 + " intentos permitidos";
+
+                                    //ViewBag.mensaje3 = "Este es su intento N°: " + intentos2 + " intentos permitidos";
+                                    ViewBag.mensaje3 = "Intentos permitidos completos";
                                 }
                                 if (practica.intentos == 1)
                                 {
@@ -177,11 +178,12 @@ namespace Plataforma_academica.Controllers
                         //resultado = evaluar * suma; ESTA ES LA NOTA REAL QUE SACO EL ESTUDIANTE
                         Random random = new Random();
                         resultado = 3.5+random.NextDouble()*1.5;
+
                         //aqui va la nota del examen/practica/quiz
                         if (resultado >= 3)
                         {
                             ViewBag.mensaje1 = "aprobo";
-                            ViewBag.mensaje2 = "su nota es: " + resultado + " con la cual aprobo el examen";
+                            ViewBag.mensaje2 = "su nota es: " + Math.Round(resultado,1) + " con la cual aprobo el examen";
                         }
                         //if (resultado < 3)
                         //{

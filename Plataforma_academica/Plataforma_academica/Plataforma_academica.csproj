@@ -300,6 +300,7 @@
     <Content Include="Estilos\visualizar_practica.css" />
     <Content Include="Excel_R_Beneficiarios\20200219094645libro1.xlsx" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\Champagne-Limousines.ttf.woff" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagenes\20200619151509excel.png" />
@@ -459,7 +460,6 @@
     <Content Include="Estilos\Login.scss" />
     <Content Include="imagen_multimedia\20200723194023epistemologia de la psicologia 3.docx" />
     <Content Include="imagen_multimedia\20201020224333diplomado %28pai%29 modulo 1 %281%29.pdf" />
-    <Content Include="fonts\Champagne-Limousines.ttf.woff" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - Web Deploy.pubxml" />
