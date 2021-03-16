@@ -94,10 +94,10 @@ namespace Plataforma_academica.Models
 
         }
 
-        public bool Registrar_examen_Beneficiarios(Principal_todos obj, string usuario)
+        public bool Registrar_examen_Beneficiarios(Principal_todos obj, Principal_todos ob,string usuario)
         {
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_ingresar_examen_beneficiario ('" + obj.id_unidad + "', '" + usuario + "', '"+obj.id_examen+"')");
+            int x = conexion.Execute_Operation("call Pr_ingresar_examen_beneficiario ('" + ob.id_unidad + "', '" + usuario + "', '"+obj.id_examen+"')");
             return x > 0 ? true : false;
 
         }

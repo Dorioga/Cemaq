@@ -88,7 +88,7 @@ namespace Plataforma_academica.Controllers
                                             for (int j = 0; j < datos1.Rows.Count; j++)
                                             {
                                                 actividad.id_examen = datos1.Rows[j]["id_examen"].ToString();
-                                                actividad1.Registrar_examen_Beneficiarios(actividad, usu.usuario);
+                                                actividad1.Registrar_examen_Beneficiarios(actividad, unidad, usu.usuario);
 
                                             }
                                         }

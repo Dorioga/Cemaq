@@ -100,7 +100,7 @@ body {
     .register .row .register-right {
       flex: 0 0 50%;
       box-sizing: border-box; }
-      .register .row .register-right H3 {
+      .register .row .register-right h3 {
         font-weight: bold;
         font-size: 2rem; }
       .register .row .register-right h6 {
@@ -114,10 +114,16 @@ body {
         border-radius: 20px; }
         .register .row .register-right .col-md-6 .form-group .form-control {
           opacity: 0.9;
-          font-weight: bold; }
+          font-weight: bold;
+          z-index: 150; }
         .register .row .register-right .col-md-6 .form-group .chosen-container {
           opacity: 0.9;
-          font-weight: bold; }
+          font-weight: bold;
+          z-index: 99; }
+        .register .row .register-right .col-md-6 .mun div {
+          z-index: 98 !important; }
+        .register .row .register-right .col-md-6 .mun label {
+          padding-left: 1vw; }
       .register .row .register-right .register-heading {
         text-align: center;
         color: #000000; }

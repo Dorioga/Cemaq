@@ -120,17 +120,20 @@ namespace Plataforma_academica.Controllers
                                     Session["intentos"] = practica;
                                     intentos2 = practica.intentos;
                                     intentos2++;
+                                    practica.examen_unidad_nivel = practica.Buscarexamen_codigo(act3.codigo_examen, user.usuario);
                                     for (int i = 0; i < codigo1; i++)
                                     {
                                         int respuesta = Convert.ToInt32(Request.Form["elegida_" + i]);
                                         if (respuesta == 2)
                                         {
                                             practica.registrar_nota(user.usuario, arreglo[i].id_pregunta, respuesta, evaluar,intentos2);
+                                            practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
                                             suma++;
                                         }
                                         else
                                         {                                            
-                                            practica.registrar_nota(user.usuario, arreglo[i].id_pregunta, respuesta, 0, intentos2);
+                                            practica.registrar_nota(user.usuario, arreglo[i].id_pregunta, respuesta, 0, intentos2);                                            
+                                            practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
                                         }
 
                                     }

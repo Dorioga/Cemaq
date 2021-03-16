@@ -224,8 +224,7 @@
                                     <section class="cent">
                                         <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
                                         <div class="progress ">
-                                            <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">
-                                              
+                                            <div class="progress-bar progress-bar-success progress-bar-striped " style="width:@arreglo_actividad[i].porcentaje% ; box-shadow:-1px 0px 0px rgba(91, 192, 222, 0.7);">                                              
                                             </div>
                                         </div>
                                     </section>
@@ -256,7 +255,7 @@
                                 }
                                 else
                                 {
-                                    <button class="boton" data-target="#mostrarmodal3" data-toggle="modal">
+                                    <button class="boton" @*data-target="#mostrarmodal3"*@ onclick="enviarvariable(@arreglo_actividad[i].codigo_actividad)" data-toggle="modal">
                                         <div class="content-btn">
                                             <section class="izq">
                                                 <img src="~/imagen_multimedia/Actividad.png" />
@@ -329,7 +328,7 @@
                                 </button>
                                 if (Convert.ToInt32(arreglo_actividad[i].tipo_actividad) >= 2)
                                 {
-                                        <button class="boton" data-target="#mostrarmodal3" data-toggle="modal">
+                                        <button class="boton" @*data-target="#mostrarmodal3"*@ onclick="enviarvariable(@arreglo_actividad[i].codigo_actividad)" data-toggle="modal">
                                             <div class="content-btn">
                                                 <section class="izq">
                                                     <img src="~/imagen_multimedia/Actividad.png" />
@@ -470,16 +469,12 @@
                                     <div class="form-group oculta" id="capa1">
                                         @Html.TextAreaFor(model => model.informacion_actividad, new { @placeholder = "Descripción del archivo (opcional)" })
                                     </div>
-                                    <button type="submit" name="irarchivo" class="btn" value="@nx" style="float: right;">Enviar</button>
+                                    <button type="submit" name="irarchivo" id="irarchivo" class="btn" style="float: right;">Enviar</button>
                                 </div>
                                 <div class="logo">
                                     <img src="~/Imagenes/Logo Mascota.png">
                                 </div>
-
                             </div>
-
-
-
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                     </div>
@@ -608,6 +603,7 @@
 <script src="~/Scripts/Manejocurso.js" charset="utf-8"></script>
 <!--<script src="~/Scripts/Efect Pending.js" charset="utf-8"></script>-->
 <script src="~/Scripts/texto_oculto.js" charset="utf-8"></script>
+<script src="~/Scripts/ModalSubirArchivo.js"></script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
