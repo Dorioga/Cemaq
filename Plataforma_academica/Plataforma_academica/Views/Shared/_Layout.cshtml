@@ -295,41 +295,63 @@
                                                             </div>
                                                         </li>
                                                         <!--Modulo-->
-                                                        <li class="modulo" id="hola" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'modulo')" value="@arreglop[i].codigo_curso">
-                                                            <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
-                                                                <div class="content-btn">
-                                                                    <section class="izq">
-                                                                        <img src="~/Imagenes/Temporal/Leona.jfif" />
-                                                                    </section>
-                                                                    <section class="cent">
-                                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                                    </section>
-                                                                    <section class="der">
-                                                                        <span> @arreglop[i].porcentaje_modulo %</span>
-                                                                    </section>
-                                                                </div>
-                                                            </button>
-                                                        </li>
+                                                            <li class="modulo" id="hola" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'modulo')" value="@arreglop[i].codigo_curso">
+                                                                <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                                                    <div class="content-btn">
+                                                                        <section class="izq">
+                                                                            <img src="~/Imagenes/Temporal/Leona.jfif" />
+                                                                        </section>
+                                                                        <section class="cent">
+                                                                            <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                        </section>
+                                                                        <section class="der">
+                                                                            <span> @arreglop[i].porcentaje_modulo %</span>
+                                                                        </section>
+                                                                    </div>
+                                                                </button>
+                                                            </li>
 
                                                     }
                                                     else
                                                     {
-                                                        <!--Modulo-->
-                                                        <li class="modulo" id="hola" value="@arreglop[i].codigo_curso" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'modulo')">
-                                                            <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
-                                                                <div class="content-btn">
-                                                                    <section class="izq">
-                                                                        <img src="~/Imagenes/Temporal/Leona.jfif" />
-                                                                    </section>
-                                                                    <section class="cent">
-                                                                        <p class="nom">@arreglop[i].nombre_unidad</p>
-                                                                    </section>
-                                                                    <section class="der">
-                                                                        <span> @arreglop[i].porcentaje_modulo %</span>
-                                                                    </section>
-                                                                </div>
-                                                            </button>
-                                                        </li>
+                                                        if (Convert.ToInt32(arreglop[i-1].porcentaje_modulo)<99)
+                                                        {
+                                                             <!--Modulo-->
+                                                            <li class="modulo" id="hola" value="@arreglop[i].codigo_curso" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'modulo')">
+                                                                <button type="submit" disabled class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                                                    <div class="content-btn">
+                                                                        <section class="izq">
+                                                                            <img src="~/Imagenes/Temporal/Leona.jfif" />
+                                                                        </section>
+                                                                        <section class="cent">
+                                                                            <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                        </section>
+                                                                        <section class="der">
+                                                                            <span> @arreglop[i].porcentaje_modulo %</span>
+                                                                        </section>
+                                                                    </div>
+                                                                </button>
+                                                            </li>
+                                                        }
+                                                        else
+                                                        {
+                                                             <!--Modulo-->
+                                                            <li class="modulo" id="hola" value="@arreglop[i].codigo_curso" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'modulo')">
+                                                                <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
+                                                                    <div class="content-btn">
+                                                                        <section class="izq">
+                                                                            <img src="~/Imagenes/Temporal/Leona.jfif" />
+                                                                        </section>
+                                                                        <section class="cent">
+                                                                            <p class="nom">@arreglop[i].nombre_unidad</p>
+                                                                        </section>
+                                                                        <section class="der">
+                                                                            <span> @arreglop[i].porcentaje_modulo %</span>
+                                                                        </section>
+                                                                    </div>
+                                                                </button>
+                                                            </li>
+                                                        }
                                                     }
                                                 }
                                                 else
