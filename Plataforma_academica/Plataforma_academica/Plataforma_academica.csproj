@@ -335,11 +335,17 @@
     <Content Include="Imagenes\giphy.gif" />
     <Content Include="Imagenes\icon %282%29.png" />
     <Content Include="Imagenes\icon.png" />
+    <Content Include="Imagenes\Iconos\administracion.png" />
     <Content Include="Imagenes\Iconos\Der Libro.png" />
+    <Content Include="Imagenes\Iconos\DISEÑO.png" />
+    <Content Include="Imagenes\Iconos\educacion1.png" />
     <Content Include="Imagenes\Iconos\Fondo Blanco Libro.png" />
     <Content Include="Imagenes\Iconos\Fondo Gris Libro.png" />
     <Content Include="Imagenes\Iconos\Fondo para web_PNG.png" />
     <Content Include="Imagenes\Iconos\HOJA.svg" />
+    <Content Include="Imagenes\Iconos\idiomas.png" />
+    <Content Include="Imagenes\Iconos\idiomas2.png" />
+    <Content Include="Imagenes\Iconos\idiomas3.png" />
     <Content Include="Imagenes\Iconos\Izq Libro.png" />
     <Content Include="Imagenes\Iconos\Logo CEMAQ Color.png" />
     <Content Include="Imagenes\Iconos\Logo CEMAQ.png" />
@@ -349,6 +355,8 @@
     <Content Include="Imagenes\Iconos\Logotipo004.png" />
     <Content Include="Imagenes\Iconos\Logotipo005.png" />
     <Content Include="Imagenes\Iconos\Logotipo006.png" />
+    <Content Include="Imagenes\Iconos\Marketing.png" />
+    <Content Include="Imagenes\Iconos\nutricion.png" />
     <Content Include="Imagenes\Iconos\ondas.png" />
     <Content Include="Imagenes\infantil\avataaars.png" />
     <Content Include="Imagenes\infantil\cabin.png" />

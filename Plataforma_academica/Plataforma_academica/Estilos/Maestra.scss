@@ -1,6 +1,6 @@
 ﻿//Modo Claro
 $verdeoscuro: #69b545;
-
+$verdeboton:#96ca79;
 //Neutro
 $negro: #000000;
 $blanco: #ffffff;
@@ -200,6 +200,7 @@ header {
                 list-style: none;
                 padding: 2vh;
 
+
                 &:hover {
                     .lista-menu {
                         display: block;
@@ -224,7 +225,7 @@ header {
                             background-color: transparent;
                             border: none;
                             padding: 0.5em 0px;
-                            font-size: 14px;
+                            font-size: 2.5vh;
                             border-radius: 0;
                             z-index: 2;
                         }
@@ -823,6 +824,7 @@ header {
         .con_form {
             //display:none;
             color: $negro;
+            position: relative;
 
             .active {
                 display: none;
@@ -1684,87 +1686,74 @@ header {
                 display: flex;
                 flex-direction: row;
                 margin: 0px;
-                height: 93vh;
+                height: 90vh;
+                background-color: $verdefondo;
 
                 body.dark & {
-                    background: $azulgris;
-                    border-color: $verdeoscuro;
-                    color: $blanco;
+                    background: $gris;
                 }
                 //Estilos Principal_Todos
-                thead {
-                    margin-bottom: 1em;
+                .filtro {
+                    flex: 0 0 50%;
 
-                    input {
-                        margin-bottom: 0.5em;
-                    }
-                }
+                    .filtroc {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
 
-                tbody {
-                    a {
-                        padding-left: 1em;
-                    }
-
-                    .catalogo {
-                        margin-bottom: 0.5em;
-                        border: none;
-                        background: $verdefondo;
-                        padding-left: 1em;
-                        text-align: initial;
-
-                        body.dark & {
-                            background: $azuloscuro;
-                        }
-                    }
-
-                    .catalogo:hover {
-                        background: $blanco;
-                        color: black;
-
-                        body.dark & {
-                            background: $azulgris;
-                            color: white;
-                        }
-                    }
-
-                    .pendiente {
-                        pointer-events: all;
-
-                        .msjem {
-                            display: none;
-                        }
-
-                        &:hover .msjem {
-                            z-index: 3000;
-                            display: block;
-                            position: fixed;
-                            overflow: hidden;
-                            background: $verdefondo;
-                            color: $blanco;
-                            padding: 0.5em;
-                            width: auto;
-                            border-radius: 0.5em;
-                            opacity: 1;
-
+                        .catalogo {
+                            width: 8vw;
+                            height: 8vw;
+                            max-width: 8vw;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 0;
+                            padding: 0;
+                            word-wrap: break-word;
+                            white-space: normal;
+                            background-color: transparent;
+                            border:none;
+                            color:$negro;
+                            font-weight:bold;
+                            border:solid 1px $verdehover;
+                            &:hover{
+                                background-color:$verdeboton;
+                            }
                             body.dark & {
-                                background: $verdehover;
+                                border-color:$azuloscuro;
+                            }
+                            .msjem{
+                                display:none;
+                            }
+                            section{
+                                display:flex;
+                                align-items:center;
+                                justify-content:center;
+                            }
+                            .arriba {
+                                flex: 0 0 60%;
+
+
+                                .fondo {
+                                    width: 3vw;
+                                }
+                            }
+
+                            .abajo {
+                                flex: 0 0 40%;
+
+                                p {
+                                    margin: 0;
+                                    padding: 0;
+                                    overflow-wrap: break-word;
+                                    word-wrap: break-word;
+                                    hyphens: auto;
+                                }
                             }
                         }
                     }
-                }
-
-                .td {
-                    color: $negro;
-                }
-
-                .filtroc {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                .filtro {
-                    flex: 0 0 50%;
                 }
             }
 

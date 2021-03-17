@@ -22,50 +22,44 @@
     <main class="con_form">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="row">
-        <div class="filtro" >
+        <div class="filtro">
             <div class="filterable filtroc">
-                <table class="tablenb">
-                    <thead>
-                        <tr class="filters">
-                            <th><input type="text" class="form-control" placeholder="Buscar Área" enabled></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @{
-                            if (usu != null)
-                            {
-                                arreglo = principal.Buscarareas();
+                @{
+                    if (usu != null)
+                    {
+                        arreglo = principal.Buscarareas();
 
-                                for (int i = 0; i < arreglo.Length; i++)
-                                {
-                                    <tr>
-                                        @{
-                                            if (arreglo[i].estado_tematica == "Aprobado")
-                                            {
-                                                <td>
-                                                    <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="ir" value="@arreglo[i].id_tematica">
-                                                        <span class="glyphicon glyphicon-book"></span>
-                                                        @arreglo[i].nombre_tematica
-                                                    </button>
-                                                </td>
-                                            }
-                                            else
-                                            {
-                                                <td>
-                                                    <button disabled="true" class=" pendiente btn btn-info btn-sm btn-block catalogo" name="ir" @*value="@arreglo[i].id_tematica"*@>
-                                                        <span class="msjem">Tematica pendiente por aprobar</span>
-                                                        <span class="glyphicon glyphicon-book"></span>
-                                                        @arreglo[i].nombre_tematica
-                                                    </button>
-                                                </td>
-                                            }
-                                        }
-                                    </tr>
-                                }
+                        for (int i = 0; i < arreglo.Length; i++)
+                        {
+                            if (arreglo[i].estado_tematica == "Aprobado")
+                            {
+                                <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="ir" value="@arreglo[i].id_tematica">
+                                    <!-- <span class="glyphicon glyphicon-book"></span>-->
+                                    <section class="arriba">
+                                        <img class="fondo" src="~/Imagenes/Iconos/idiomas.png" />
+                                    </section>
+                                    <section class="abajo">
+                                        <p> @arreglo[i].nombre_tematica</p>
+                                    </section>
+
+                                </button>
                             }
-                        }                        
-                    </tbody>
-                </table>
+                            else
+                            {
+                                <button disabled="true" class=" pendiente btn btn-info btn-sm btn-block catalogo" name="ir" @*value="@arreglo[i].id_tematica"*@>
+                                    <span class="msjem">Tematica pendiente por aprobar</span>
+                                    <!--  <span class="glyphicon glyphicon-book"></span>-->
+                                    <section class="arriba">
+                                        <img class="fondo" src="~/Imagenes/Iconos/idiomas.png" />
+                                    </section>
+                                    <section class="abajo">
+                                        <p> @arreglo[i].nombre_tematica</p>
+                                    </section>
+                                </button>
+                            }
+                        }
+                    }
+                }
             </div>
             @{
                 if (TempData["mensaje1"] != null && usu != null)
@@ -90,7 +84,7 @@
                             }
                         </div>
                     </div>
-                                }
+                }
             }
         </div>
         <div class="filtro">
