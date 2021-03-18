@@ -104,11 +104,16 @@ header {
           width: 4vh;
           height: 4vh;
           line-height: 4vh;
-          display: block;
+          flex: 0 0 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           background: none;
           color: #69b545; }
           body.dark header .navbar .slidermodo .switch span {
             color: #317a8e; }
+          header .navbar .slidermodo .switch span i {
+            font-size: calc(1em + 1vh); }
     header .navbar .info {
       display: flex;
       align-items: center;
@@ -154,9 +159,9 @@ header {
           border-color: #69b545;
           height: auto !important;
           font-weight: bold;
-          background-color: rgba(212, 233, 198, 0.6); }
+          background-color: rgba(212, 233, 198, 0.9); }
           body.dark header .navbar .info .contenido:hover .lista-menu {
-            background-color: rgba(218, 218, 218, 0.6);
+            background-color: rgba(218, 218, 218, 0.9);
             border-color: #317a8e; }
           header .navbar .info .contenido:hover .lista-menu .opcion {
             background-color: transparent;
@@ -166,6 +171,7 @@ header {
             border-radius: 0;
             z-index: 2; }
           header .navbar .info .contenido:hover .lista-menu .opcion a {
+            font-size: calc(0.7em + 0.5vh) !important;
             color: black; }
             header .navbar .info .contenido:hover .lista-menu .opcion a img {
               height: 4vh;
@@ -182,6 +188,8 @@ header {
           text-align: center;
           color: #ffffff;
           flex-direction: row; }
+          header .navbar .info .contenido .logo a span {
+            font-size: calc(1em + 2vh) !important; }
         header .navbar .info .contenido .pie {
           border-radius: 0 0 1em 1em;
           text-align: center;
@@ -350,10 +358,13 @@ header {
             align-items: center;
             justify-content: center; }
             .principal .menu-izq .botones ul .titulo .content-btn .der .msjem {
-              font-weight: bold; }
+              font-weight: bold;
+              font-size: calc(1em + 1vh); }
       .principal .menu-izq .botones ul .modulo {
         color: #317a8e;
         display: none; }
+        .principal .menu-izq .botones ul .modulo .der span {
+          font-size: calc(1em + 1vh); }
   .principal .contenedor {
     background-color: #ffffff;
     width: 75vw;
@@ -478,6 +489,8 @@ header {
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%; }
+        .principal .contenedor .bb-custom-wrapper .bb-item section article label {
+          font-size: calc(0.7em + 0.5vh) !important; }
         .principal .contenedor .bb-custom-wrapper .bb-item .imagen .msjem {
           display: none; }
         .principal .contenedor .bb-custom-wrapper .bb-item .imagen:hover .msjem {
@@ -642,7 +655,8 @@ header {
                 color: #000000;
                 order: 0;
                 flex: 0 1 auto;
-                align-self: auto; }
+                align-self: auto;
+                font-size: calc(1em + 1vh) !important; }
                 body.dark .principal .contenedor .con_form .contener .boton .content-btn .cent p {
                   color: #50687a; }
               .principal .contenedor .con_form .contener .boton .content-btn .cent .progress {
