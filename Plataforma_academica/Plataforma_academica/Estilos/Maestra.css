@@ -1,7 +1,9 @@
-﻿* {
+﻿@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
   margin: 0px;
   padding: 0px;
-  font-family: 'Champagne & Limousines'; }
+  font-family: 'Roboto';
+  font-size: 5px; }
 
 body {
   transition: color 0.15s ease-in-out;
@@ -1136,26 +1138,29 @@ header {
             flex-direction: row;
             flex-wrap: wrap; }
             .principal .contenedor .con_form .row .filtro .filtroc .catalogo {
-              width: 8vw;
-              height: 8vw;
-              max-width: 8vw;
+              width: 10vw;
+              height: 10vw;
               display: flex;
               flex-direction: column;
               align-items: center;
               justify-content: center;
               margin: 0;
-              padding: 0;
+              padding: 1vw;
               word-wrap: break-word;
               white-space: normal;
               background-color: transparent;
               border: none;
               color: #000000;
               font-weight: bold;
-              border: solid 1px #c0dfac; }
+              border: solid 1px #69b545; }
               .principal .contenedor .con_form .row .filtro .filtroc .catalogo:hover {
                 background-color: #96ca79; }
               body.dark .principal .contenedor .con_form .row .filtro .filtroc .catalogo {
                 border-color: #317a8e; }
+                body.dark .principal .contenedor .con_form .row .filtro .filtroc .catalogo:hover {
+                  background-color: #50687a;
+                  color: #ffffff;
+                  font-weight: normal; }
               .principal .contenedor .con_form .row .filtro .filtroc .catalogo .msjem {
                 display: none; }
               .principal .contenedor .con_form .row .filtro .filtroc .catalogo section {
@@ -1165,7 +1170,7 @@ header {
               .principal .contenedor .con_form .row .filtro .filtroc .catalogo .arriba {
                 flex: 0 0 60%; }
                 .principal .contenedor .con_form .row .filtro .filtroc .catalogo .arriba .fondo {
-                  width: 3vw; }
+                  width: 4vw; }
               .principal .contenedor .con_form .row .filtro .filtroc .catalogo .abajo {
                 flex: 0 0 40%; }
                 .principal .contenedor .con_form .row .filtro .filtroc .catalogo .abajo p {
@@ -1173,7 +1178,8 @@ header {
                   padding: 0;
                   overflow-wrap: break-word;
                   word-wrap: break-word;
-                  hyphens: auto; }
+                  hyphens: auto;
+                  font-size: calc(1em + 0.9vh) !important; }
       .principal .contenedor .con_form .parpadeo {
         margin: 0px 0px 1em 0px;
         text-align: center;
