@@ -37,7 +37,7 @@
                                 <button type="submit" class="btn btn-info btn-sm btn-block catalogo" name="ir" value="@arreglo[i].id_tematica">
                                     <!-- <span class="glyphicon glyphicon-book"></span>-->
                                     <section class="arriba">
-                                        <img class="fondo" src="~/Imagenes/Iconos/educacion1.png" />
+                                        <img class="fondo" src="~/Imagenes/Iconos/@arreglo[i].imagen" />
                                     </section>
                                     <section class="abajo">
                                         <p> @arreglo[i].nombre_tematica</p>
@@ -51,7 +51,7 @@
                                     <span class="msjem">Tematica pendiente por aprobar</span>
                                     <!--  <span class="glyphicon glyphicon-book"></span>-->
                                     <section class="arriba">
-                                        <img class="fondo" src="~/Imagenes/Iconos/educacion1.png" />
+                                        <img class="fondo" src="~/Imagenes/Iconos/@arreglo[i].imagen" />
                                     </section>
                                     <section class="abajo">
                                         <p> @arreglo[i].nombre_tematica</p>
@@ -62,7 +62,7 @@
                     }
                 }
             </div>
-            @{
+            @*@{
                 if (TempData["mensaje1"] != null && usu != null)
                 {
                     TempData.Keep("mensaje1");
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 }
-            }
+            }*@
         </div>
         <!-- Diplomados-->
         <div class="filtro">

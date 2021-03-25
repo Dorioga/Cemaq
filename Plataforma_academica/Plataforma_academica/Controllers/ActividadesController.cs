@@ -46,14 +46,19 @@ namespace Plataforma_academica.Controllers
                         return File(ruta, "aplication/pdf,docx", codigo_);
                     }
                         //cargar y aumentar en uno la seccion de la tabla y el porcentaje aumentarlo como si ya se hubiera realizado uno
-                        if (actividad != null)
+                    if (actividad != null)
                     {
                         datos2 = act.Buscar_porcentaje_seccion(actividad.codigo_actividad, user.usuario);
                         if (Convert.ToInt32(datos2.Rows[0]["seccion"].ToString()) == 0)
                         {
                             datos3 = act.Buscar_cantidad_secciones(actividad.codigo_actividad);
-                            double porce = (1 * 100) / Convert.ToInt32(datos3.Rows[0]["numero secciones"].ToString());
                             act.id_curso_actividad = Convert.ToInt32(datos2.Rows[0]["id tabla"].ToString());
+                            if (Convert.ToInt32(datos3.Rows[0]["numero secciones"].ToString()) == 1)
+                            {
+                                //Actividades usu = new Actividades();
+                                act.Actualizar_porcentaje_estado(Convert.ToInt32(actividad.codigo_actividad), act.id_curso_actividad);
+                            }
+                            double porce = (1 * 100) / Convert.ToInt32(datos3.Rows[0]["numero secciones"].ToString());                            
                             act.Actualizar_porcentaje(porce, Convert.ToInt32(actividad.codigo_actividad), 1, act.id_curso_actividad);
                         }
                     }else
