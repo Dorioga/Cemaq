@@ -13,6 +13,7 @@
     </script>*@
 </head>
 
+
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -55,11 +56,19 @@
                                     @{
                                         if (Convert.ToDouble(arreglo[i].porcentaje) >= 100 && arreglo[i].estado_pago == "Pagado")
                                         {
-                                            <td><button class="boton" name="ir" value="@arreglo[i].id_curso">Abrir</button></td>
+                                            <td><button class="boton" name="ir" value="@arreglo[i].id_curso">Descargar</button></td>
                                         }
                                         else
                                         {
-                                            <td><button class="boton" disabled="disabled">Pendiente</button></td>
+                                            if (Convert.ToDouble(arreglo[i].porcentaje) >= 100 && arreglo[i].estado_pago=="Pendiente")
+                                            {
+                                                <td><button class="boton" name="pagarr" value="@arreglo[i].id_curso">Pagar</button></td>
+                                            }
+                                            else
+                                            {
+                                                <td><button class="boton" disabled="disabled">Pendiente</button></td>
+                                            }
+
                                         }
                                     }
                                     
@@ -76,7 +85,8 @@
                      </tr>
                     </tfoot>
                 </table>
-            }
+             }
+                                        
         }
     </div>
 </main>        

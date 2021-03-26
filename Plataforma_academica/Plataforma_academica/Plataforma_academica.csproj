@@ -389,15 +389,10 @@
     <Content Include="Imagenes\subject pronouns.jpg" />
     <Content Include="Imagenes\tecnologia.png" />
     <Content Include="Imagenes\Temporal\Diana.jfif" />
-    <Content Include="Imagenes\Temporal\Leona.jfif" />
-    <Content Include="Imagenes\Temporal\letra a.png" />
     <Content Include="Imagenes\Temporal\letra a2.png" />
-    <Content Include="Imagenes\Temporal\LETRA E 2.png" />
-    <Content Include="Imagenes\Temporal\letra e.png" />
+    <Content Include="Imagenes\Temporal\LETRA E.png" />
     <Content Include="Imagenes\Temporal\letra m.png" />
-    <Content Include="Imagenes\Temporal\letra m2.png" />
     <Content Include="Imagenes\Temporal\letra s 2.png" />
-    <Content Include="Imagenes\Temporal\letra s.png" />
     <Content Include="Imagenes\Temporal\smallant.gif" />
     <Content Include="Imagenes\ubicacion.png" />
     <Content Include="Imagenes\user-alt-solid.svg" />
@@ -533,6 +528,7 @@
     <Content Include="Scripts\nanvarprofesional.js" />
     <Content Include="Scripts\principaldashb.js" />
     <Content Include="Scripts\procentaje.js" />
+    <Content Include="Scripts\procesar_pago.js" />
     <Content Include="Scripts\profesionalweb.js" />
     <Content Include="Scripts\progresos.js" />
     <Content Include="Scripts\registro.js" />

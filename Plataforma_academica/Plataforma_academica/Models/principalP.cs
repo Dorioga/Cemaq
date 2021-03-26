@@ -24,6 +24,7 @@ namespace Plataforma_academica.Models
         public string porcentaje_modulo { set; get; }
         public string presentacion { set; get; }
         public string nx { set; get; }
+        public string imagen { set; get; }
 
         public principalP[] Buscar_diplomados_modulos_general()
         {
@@ -89,6 +90,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].codigo_curso_nivel = i["Codigo Curso nivel"].ToString();
                 arreglo[j].porcentaje_modulo = i["porcentaje unidad"].ToString();
                 arreglo[j].presentacion = i["presentacion"].ToString();
+                arreglo[j].imagen= i["url imagen"].ToString();
 
                 j++;
             }
