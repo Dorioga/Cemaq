@@ -223,7 +223,6 @@ header {
                         border-radius: 0 0 1vw 1vw;
                         border-color: $verdeoscuro;
                         height: auto !important;
-                        font-weight: bold;
                         background-color: rgba($verdefondo,0.9);
 
                         body.dark & {
@@ -242,7 +241,7 @@ header {
 
                         .opcion a {
                             font-size: calc(0.7em + 0.5vh) !important;
-                            color: black;
+                            color: $negro;
 
                             img {
                                 height: 4vh;
@@ -255,7 +254,7 @@ header {
                         }
 
                         .opcion a:not([href]):not([tabindex]) {
-                            color: $azulgris;
+                            color: $negro;
                             text-decoration: none;
                         }
                     }
@@ -357,6 +356,10 @@ header {
                 body.dark & {
                     background-color: $azuloscuro;
                 }
+
+                span {
+                    font-size: calc(1em + 1vh);
+                }
             }
 
             p {
@@ -451,6 +454,31 @@ header {
 
                 .active {
                     display: block !important;
+
+                    &:hover {
+                        .cent {
+                            .msjem {
+                                display: block;
+                                position: absolute;
+                                width: 10vw;
+                                height: 8vh;
+                                padding: 0.5vh;
+                                text-align: center;
+                                background-color: $verdeoscuro;
+                                color: $blanco;
+
+                                body.dark & {
+                                    background-color: $azuloscuro;
+                                }
+                            }
+                        }
+                    }
+
+                    .cent {
+                        .msjem {
+                            display: none;
+                        }
+                    }
                 }
 
                 .titulo {
@@ -635,8 +663,8 @@ header {
                         }
 
                         svg {
-                            width: 2em;
-                            height: 2em;
+                            width: 3vh;
+                            height: 3vh;
                         }
                     }
 
@@ -657,8 +685,8 @@ header {
                         }
 
                         svg {
-                            width: 2em;
-                            height: 2em;
+                            width: 3vh;
+                            height: 3vh;
                         }
                     }
                 }
@@ -699,9 +727,9 @@ header {
 
                 section {
                     article {
-                            label {
-                                font-size:calc(0.7em + 0.5vh) !important
-                            }
+                        label {
+                            font-size: calc(0.7em + 0.5vh) !important
+                        }
                     }
                 }
 
@@ -760,7 +788,6 @@ header {
                     max-width: 100%;
                     width: 100%;
                     border: none;
-                    // background-color: $blanco;
                     color: $negro;
                     padding: 0px 1vw 0px 0;
                     overflow: hidden !important;
@@ -782,22 +809,35 @@ header {
                     margin-top: 1em;
                     position: absolute;
                     background: $verdeoscuro;
+                    border: none;
 
                     body.dark & {
                         background: $azuloscuro;
                     }
                 }
 
+                .pie {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
                 .step {
-                    height: 30px;
-                    width: 30px;
+                    height: 5vh;
+                    width: 5vh;
                     color: $blanco;
-                    padding-top: 4px;
-                    margin: 0 2px;
                     background: $verdeoscuro;
                     border: none;
                     border-radius: 50%;
-                    display: inline-block;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    p {
+                        font-size: calc(1em + 1vh);
+                        margin: 0;
+                        padding: 0;
+                    }
 
                     body.dark & {
                         background: $azuloscuro;
@@ -876,6 +916,7 @@ header {
 
                 body.dark & {
                     background-color: rgba( $gris,0.8);
+                    border-color: $azuloscuro;
                 }
 
                 a {
@@ -945,15 +986,10 @@ header {
                             p {
                                 margin: 0;
                                 padding: 0;
-                                color: $negro;
                                 order: 0;
                                 flex: 0 1 auto;
                                 align-self: auto;
                                 font-size: calc(1em + 1vh) !important;
-
-                                body.dark & {
-                                    color: $azulgris;
-                                }
                             }
 
 
@@ -1038,15 +1074,16 @@ header {
                     }
 
                     &:hover .msjem {
-                        z-index: 1000;
-                        display: block;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         position: fixed;
                         overflow: hidden;
-                        background: $verdefondo;
+                        background: $verdeoscuro;
                         color: $blanco;
-                        padding: 0.5em;
-                        width: 8em;
-                        border-radius: 0.5em;
+                        width: 10vw;
+                        height: 10vh;
+                        font-size: calc(1em + 1vh);
 
                         body.dark & {
                             background: $azuloscuro;
@@ -1893,6 +1930,13 @@ header {
                 }
 
                 .modulo {
+                    &:hover {
+                        .msjem {
+                            display: block;
+                            position: absolute;
+                        }
+                    }
+
                     .content-btn {
                         .izq {
                             img {

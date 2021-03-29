@@ -51,246 +51,248 @@
                             {
 
                                 <!-- Tabs-->
-                                <div class="bb-item">
+                <div class="bb-item">
+                    @{
+                        //Primera hoja
+                        if (i == 0)
+                        {
+                            <section>
+                                <article>
                                     @{
-                                        //Primera hoja
-                                        if (i == 0)
+                                        //Contenido Primera Hoja
+                                        //Nombre Actividad
+                                        <h2>@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
+
+                                        //Texto
+                                        if (arreglo[i].id_tipo_multimedia == "3")
                                         {
                                             <section>
                                                 <article>
-                                                    @{
-                                                        //Contenido Primera Hoja
-                                                        //Nombre Actividad
-                                                        <h2>@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
-
-                                                        //Texto
-                                                        if (arreglo[i].id_tipo_multimedia == "3")
-                                                        {
-                                                            <section>
-                                                                <article>
-                                                                    <textarea readonly>@arreglo[i].descripcion</textarea>
-                                                                </article>
-                                                            </section>
-                                                        }
-
-                                                        else
-                                                        {
-                                                            if (arreglo[i].id_tipo_multimedia == "2")
-                                                            {
-                                                                <section>
-                                                                    <article>
-                                                                        <textarea readonly>@arreglo[i].descripcion</textarea>
-                                                                    </article>
-                                                                </section>
-
-                                                                <section class="imagen">
-                                                                    <div>
-                                                                        <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
-                                                                    </div>
-                                                                    <a class="msjem" href="javascript:" onclick="window.open('@arreglo[i].link_referencia');">@arreglo[i].link_referencia</a>
-                                                                </section>
-                                                            }
-                                                            else
-                                                            {
-                                                                if (arreglo[i].descripcion != null)
-                                                                {
-                                                                    <textarea readonly> @arreglo[i].descripcion</textarea>
-                                                                    //<p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
-                                                                    <section>
-                                                                        <div>
-                                                                            <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
-                                                                        </div>
-                                                                    </section>
-
-                                                                }
-                                                                else
-                                                                {
-                                                                    <section>
-                                                                        <div>
-                                                                            <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
-                                                                        </div>
-                                                                    </section>
-
-                                                                }
-
-                                                            }
-                                                        }
-                                                    }
+                                                    <textarea readonly>@arreglo[i].descripcion</textarea>
                                                 </article>
                                             </section>
-                                            //Boton Material de Apoyo
-                                            if (arreglo[i].tipo_seccion == "2")
-                                            {
-                                                <button type="submit" id="subir" name="subir" value="@arreglo[i].arch" class="btn btn-primary">Material de apoyo</button>
-                                            }
-                                            else
-                                            {
-                                                if (arreglo[i].tipo_seccion == "1")
-                                                {
-
-                                                }
-                                                else
-                                                {
-                                                    <a href="@arreglo[i].arch" class="btn btn-primary" target="_blank">Material de apoyo</a>
-                                                }
-                                            }
-
-
-
                                         }
-                                        //Segunda en Adelante
+
                                         else
                                         {
-                                            if (arreglo[i].id_tipo_multimedia == "3")
+                                            if (arreglo[i].id_tipo_multimedia == "2")
                                             {
                                                 <section>
                                                     <article>
-                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-
-                                                        <textarea readonly>@arreglo[i].contenido_seccion </textarea>
-
+                                                        <textarea readonly>@arreglo[i].descripcion</textarea>
                                                     </article>
                                                 </section>
-                                            }
-                                            if (arreglo[i].id_tipo_multimedia == "1")
-                                            {
-                                                if (arreglo[i].contenido_seccion == "\r\n")
-                                                {
-                                                    <section>
-                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                        <div class="embed-responsive1">
-                                                            <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                        </div>
-                                                    </section>
-                                                }
-                                                else
-                                                {
-                                                    <section>
-                                                        <article>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
-                                                        </article>
-                                                    </section>
-                                                    <section>
-                                                        <div class="embed-responsive" style="position: inherit;">
-                                                            <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                        </div>
-                                                    </section>
 
-                                                }
-                                            }
-                                            if (arreglo[i].id_tipo_multimedia == "2")
-                                            {
-                                                if (arreglo[i].contenido_seccion == "\r\n")
-                                                {
-                                                    <section class="imagen">
-                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
-                                                        <div>
-                                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
-                                                        </div>
-                                                        <a class="msjem" href="javascript:" onclick="window.open('@arreglo[i].link_referencia');">@arreglo[i].link_referencia</a>
-                                                    </section>
-
-                                                }
-                                                else
-                                                {
-                                                    <section>
-                                                        <article>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
-                                                        </article>
-                                                    </section>
-                                                    <section class="imagen">
-                                                        <div>
-                                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
-                                                        </div>
-                                                        <a class="msjem" href="javascript:" onclick="window.open('@arreglo[i].link_referencia');">@arreglo[i].link_referencia</a>
-                                                    </section>
-
-                                                }
-                                            }
-                                            if (arreglo[i].id_tipo_multimedia == "4")
-                                            {
-                                                if (arreglo[i].contenido_seccion == "\r\n")
-                                                {
-                                                    <section>
-                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                        <audio controls>
-                                                            <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
-                                                        </audio>
-                                                    </section>
-
-                                                }
-                                                else
-                                                {
-                                                    <section>
-                                                        <article>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
-                                                        </article>
-                                                    </section>
-                                                    <section>
-                                                        <audio controls>
-                                                            <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
-                                                        </audio>
-                                                    </section>
-
-                                                }
-                                            }
-                                            if (arreglo[i].id_tipo_multimedia == "5")
-                                            {
-                                                if (arreglo[i].contenido_seccion == "\r\n")
-                                                {
-                                                    <section>
-                                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                        <div>
-                                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
-                                                        </div>
-                                                    </section>
-                                                }
-                                                else
-                                                {
-                                                    <section>
-                                                        <article>
-                                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
-                                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
-                                                        </article>
-                                                    </section>
-                                                    <section>
-                                                        <div>
-                                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
-                                                        </div>
-                                                    </section>
-                                                }
-
-                                            }
-                                            if (arreglo[i].tipo_seccion == "2")
-                                            {
-                                                <button type="submit" id="subir" name="subir" value="@arreglo[i].arch" class="btn btn-primary">Material de apoyo</button>
+                                                <section class="imagen">
+                                                    <div>
+                                                        <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
+                                                    </div>
+                                                    <a class="msjem" href="javascript:" onclick="window.open('@arreglo[i].link_referencia');">@arreglo[i].link_referencia</a>
+                                                </section>
                                             }
                                             else
                                             {
-                                                if (arreglo[i].tipo_seccion == "1")
+                                                if (arreglo[i].descripcion != null)
                                                 {
+                                                    <textarea readonly> @arreglo[i].descripcion</textarea>
+                                                    //<p>@Html.LabelFor(Model => arreglo[i].descripcion, arreglo[i].descripcion, new { @class = "form-control", @id = "p" })</p>
+                                                    <section>
+                                                        <div>
+                                                            <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                        </div>
+                                                    </section>
 
                                                 }
                                                 else
                                                 {
-                                                    <a href="@arreglo[i].arch" class="btn btn-primary" target="_blank">Material de apoyo</a>
+                                                    <section>
+                                                        <div>
+                                                            <iframe class="embed-responsive-item" src="@arreglo[i].url_multimedia"></iframe>
+                                                        </div>
+                                                    </section>
+
                                                 }
+
                                             }
                                         }
-
-                                        m = i + 1;
-                                        <!--numero de -->
-                                        <div>
-                                            <span class="step">@m/@cant</span>
-                                        </div>
-
-
                                     }
+                                </article>
+                            </section>
+                            //Boton Material de Apoyo
+                            if (arreglo[i].tipo_seccion == "2")
+                            {
+                                <button type="submit" id="subir" name="subir" value="@arreglo[i].arch" class="btn btn-primary">Material de apoyo</button>
+                            }
+                            else
+                            {
+                                if (arreglo[i].tipo_seccion == "1")
+                                {
 
-                                </div>
+                                }
+                                else
+                                {
+                                    <a href="@arreglo[i].arch" class="btn btn-primary" target="_blank">Material de apoyo</a>
+                                }
+                            }
+
+
+
+                        }
+                        //Segunda en Adelante
+                        else
+                        {
+                            if (arreglo[i].id_tipo_multimedia == "3")
+                            {
+                                <section>
+                                    <article>
+                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+
+                                        <textarea readonly>@arreglo[i].contenido_seccion </textarea>
+
+                                    </article>
+                                </section>
+                            }
+                            if (arreglo[i].id_tipo_multimedia == "1")
+                            {
+                                if (arreglo[i].contenido_seccion == "\r\n")
+                                {
+                                    <section>
+                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                        <div class="embed-responsive1">
+                                            <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </section>
+                                }
+                                else
+                                {
+                                    <section>
+                                        <article>
+                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
+                                        </article>
+                                    </section>
+                                    <section>
+                                        <div class="embed-responsive" style="position: inherit;">
+                                            <iframe width="560" height="315" src="@arreglo[i].url_multimedia" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </section>
+
+                                }
+                            }
+                            if (arreglo[i].id_tipo_multimedia == "2")
+                            {
+                                if (arreglo[i].contenido_seccion == "\r\n")
+                                {
+                                    <section class="imagen">
+                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4> @*titulo sub*@
+                                        <div>
+                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
+                                        </div>
+                                        <a class="msjem" href="javascript:" onclick="window.open('@arreglo[i].link_referencia');">@arreglo[i].link_referencia</a>
+                                    </section>
+
+                                }
+                                else
+                                {
+                                    <section>
+                                        <article>
+                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
+                                        </article>
+                                    </section>
+                                    <section class="imagen">
+                                        <div>
+                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
+                                        </div>
+                                        <a class="msjem" href="javascript:" onclick="window.open('@arreglo[i].link_referencia');">@arreglo[i].link_referencia</a>
+                                    </section>
+
+                                }
+                            }
+                            if (arreglo[i].id_tipo_multimedia == "4")
+                            {
+                                if (arreglo[i].contenido_seccion == "\r\n")
+                                {
+                                    <section>
+                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                        <audio controls>
+                                            <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
+                                        </audio>
+                                    </section>
+
+                                }
+                                else
+                                {
+                                    <section>
+                                        <article>
+                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
+                                        </article>
+                                    </section>
+                                    <section>
+                                        <audio controls>
+                                            <source src="~/imagen_multimedia/@arreglo[i].url_multimedia" type="audio/mp3" />
+                                        </audio>
+                                    </section>
+
+                                }
+                            }
+                            if (arreglo[i].id_tipo_multimedia == "5")
+                            {
+                                if (arreglo[i].contenido_seccion == "\r\n")
+                                {
+                                    <section>
+                                        <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                        <div>
+                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
+                                        </div>
+                                    </section>
+                                }
+                                else
+                                {
+                                    <section>
+                                        <article>
+                                            <h4>@Html.LabelFor(Model => arreglo[i].titulo_seccion, arreglo[i].titulo_seccion, new { @class = "" })</h4>
+                                            <textarea readonly>@arreglo[i].contenido_seccion </textarea>
+                                        </article>
+                                    </section>
+                                    <section>
+                                        <div>
+                                            <img src="~/imagen_multimedia/@arreglo[i].url_multimedia" alt="Nature" disabled="true" style="width: 95%;">
+                                        </div>
+                                    </section>
+                                }
+
+                            }
+                            if (arreglo[i].tipo_seccion == "2")
+                            {
+                                <button type="submit" id="subir" name="subir" value="@arreglo[i].arch" class="btn btn-primary">Material de apoyo</button>
+                            }
+                            else
+                            {
+                                if (arreglo[i].tipo_seccion == "1")
+                                {
+
+                                }
+                                else
+                                {
+                                    <a href="@arreglo[i].arch" class="btn btn-primary" target="_blank">Material de apoyo</a>
+                                }
+                            }
+                        }
+
+                        m = i + 1;
+                        <!--numero de -->
+                        <div class="pie">
+                            <span class="step">
+                                <p>@m/@cant</p>
+                            </span>
+                        </div>
+
+
+                    }
+
+                </div>
                             }
 
                         }

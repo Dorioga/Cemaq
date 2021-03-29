@@ -274,7 +274,7 @@
                             if (Convert.ToInt32(arreglo_actividad[i - 1].porcentaje) < 99)
                             {
                                 //aqui debe ir la notificacion emergente
-                                <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_actividad[i].codigo_actividad">
+                                <button type="submit" class="boton pendiente" disabled value="@arreglo_actividad[i].codigo_actividad">
                                     <div class="content-btn">
                                         <section class="izq">
                                             <img src="~/Imagenes/Temporal/letra a2.png" />
@@ -291,7 +291,7 @@
                                 if (Convert.ToInt32(arreglo_actividad[i].tipo_actividad) >= 2)
                                 {
                                         //aqui debe ir la notificacion emergente
-                                        <button class="boton pendiente" data-toggle="modal">
+                                        <button class="boton pendiente" disabled data-toggle="modal">
                                             <div class="content-btn">
                                                 <section class="izq">
                                                     <img src="~/Imagenes/Temporal/letra a2.png" />
