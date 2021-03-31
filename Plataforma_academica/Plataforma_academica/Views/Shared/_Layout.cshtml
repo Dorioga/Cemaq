@@ -227,25 +227,25 @@
             @{
                 if (usu != null)
                 {
-                    <section class="buscar">
-                        <div id="bus">
-                            <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">
-                            <!--Script Busqueda-->
-                            <script>
-                                $(document).ready(function () {
-                                    $("#myInput").on("keyup", function () {
-                                        var value = $(this).val().toLowerCase();
-                                        $("#myTable li").filter(function () {
-                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        <section class="buscar">
+                            <div id="bus">
+                                <!--   <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">-->
+                                <!--Script Busqueda-->
+                                <script>
+                                    $(document).ready(function () {
+                                        $("#myInput").on("keyup", function () {
+                                            var value = $(this).val().toLowerCase();
+                                            $("#myTable li").filter(function () {
+                                                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                            });
                                         });
                                     });
-                                });
-                            </script>
-                        </div>
-                        <div id="ocultar">
-                            <span class="fas fa-bars"></span>
-                        </div>
-                    </section>
+                                </script>
+                            </div>
+                            <div id="ocultar">
+                                <span class="fas fa-times" id="iconos"></span>
+                            </div>
+                        </section>
                     <section class="botones" id="myTable">
                         @{
                             <!--Estudiante-->

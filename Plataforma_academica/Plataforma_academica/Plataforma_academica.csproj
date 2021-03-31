@@ -341,6 +341,7 @@
     <Content Include="Imagenes\Iconos\educacion1.png" />
     <Content Include="Imagenes\Iconos\Fondo Blanco Libro.png" />
     <Content Include="Imagenes\Iconos\Fondo Gris Libro.png" />
+    <Content Include="Imagenes\Iconos\Fondo Login.png" />
     <Content Include="Imagenes\Iconos\Fondo para web_PNG.png" />
     <Content Include="Imagenes\Iconos\HOJA.svg" />
     <Content Include="Imagenes\Iconos\idiomas.png" />

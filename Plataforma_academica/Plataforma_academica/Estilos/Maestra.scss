@@ -335,7 +335,7 @@ header {
             }
 
             #bus {
-                flex: 2 1 75%;
+                flex: 1 1 75%;
 
                 input {
                     margin: 0px;
@@ -663,8 +663,8 @@ header {
                         }
 
                         svg {
-                            width: 3vh;
-                            height: 3vh;
+                            width: 4vh;
+                            height: 4vh;
                         }
                     }
 
@@ -685,8 +685,8 @@ header {
                         }
 
                         svg {
-                            width: 3vh;
-                            height: 3vh;
+                            width: 4vh;
+                            height: 4vh;
                         }
                     }
                 }
@@ -972,7 +972,6 @@ header {
                                 order: 0;
                                 align-self: auto;
                                 width: 3vw;
-                                border-radius: 50%;
                             }
                         }
 
@@ -1155,13 +1154,15 @@ header {
                                 .foto {
                                     flex: 1 1 auto;
                                     padding-bottom: 1em;
+                                    display: flex;
+                                    align-items: center;
 
                                     h4 {
                                         margin: 0px;
                                     }
 
                                     img {
-                                        height: 9em;
+                                        height: 16vh;
                                         border: 5px solid;
                                         border-color: $verdefondo;
                                         border-radius: 1em;
@@ -1189,6 +1190,7 @@ header {
 
                                     label {
                                         text-align: left;
+                                        font-size: calc(1em + 2vh) !important;
                                     }
                                 }
 
@@ -1216,7 +1218,9 @@ header {
                                 }
 
                                 h1 {
-                                    margin: 0 0 1em 0;
+                                    flex: 1 1 50%;
+                                    display: flex;
+                                    align-items: center;
                                 }
 
                                 img {
@@ -1224,12 +1228,23 @@ header {
                                 }
 
                                 .cargar {
+                                    width: 100%;
+                                    font-size: calc(1em + 0.9vh) !important;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    flex-direction: column;
+
                                     input[type="file"] {
                                         padding-bottom: 1em;
+                                        width: 100%;
                                     }
 
                                     .oculta {
+                                        width: 100%;
+
                                         textarea {
+                                            font-size: calc(1em + 0.9vh) !important;
                                             width: 100%;
                                             height: auto !important;
                                         }
@@ -1258,10 +1273,16 @@ header {
 
                                 .logo {
                                     flex: 1 1 50%;
+                                    width: 60%;
+                                    background-image: url('/Imagenes/Iconos/Logo CEMAQ Color.png');
                                     display: flex;
-                                    flex-direction: column;
-                                    justify-content: center;
-                                    padding-bottom: 1em;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: contain;
+
+                                    body.dark & {
+                                        background-image: url('/Imagenes/Iconos/Logo CEMAQ.png') !important;
+                                    }
                                 }
                             }
                         }
@@ -1276,7 +1297,7 @@ header {
                         color: white;
 
                         body.dark & {
-                            background: $verdefondo;
+                            background: $gris;
                         }
                         //Encabezado
                         .modal-header {
@@ -1285,7 +1306,7 @@ header {
                             display: flex;
                             flex-direction: row;
                             align-items: center;
-                            padding: 1em;
+                            padding: 3em;
 
                             body.dark & {
                                 border-color: $azulgris;
@@ -1314,8 +1335,9 @@ header {
                         }
                         //Cuerpo
                         .modal-body {
-                            padding: 1em;
+                            padding: 3em;
                             text-align: justify;
+                            color: $negro;
                         }
                         //Pie de Pagina
                         .modal-footer {
@@ -1341,15 +1363,20 @@ header {
 
                             button {
                                 background: $verdefondo;
+                                color: $negro;
 
                                 body.dark & {
-                                    background: $azuloscuro;
-                                    color: white;
+                                    background: $azulgris;
+                                    color: $blanco;
+                                    ;
                                 }
                             }
 
                             .btn-danger {
                                 background: $rojo !important;
+                            }
+                            .btn-info{
+                                background-color:$verdeoscuro;
                             }
                         }
                     }
@@ -1362,16 +1389,19 @@ header {
             .formulario {
                 display: flex;
                 flex-direction: column;
-                padding: 1em;
-                min-height: 93vh;
+                padding: 1vh;
+                min-height: 90vh;
+                max-height: 90vh;
                 overflow-y: auto;
                 border: solid;
                 background-color: rgba($verdefondo, 0.5);
                 border-color: $verdeoscuro;
+                font-size: calc(1em + 4vh) !important;
 
                 body.dark & {
                     background-color: rgba($gris, 0.5);
                     border-color: $azulgris;
+                    color: $negro;
                 }
 
                 h1 {
@@ -1555,11 +1585,14 @@ header {
                     align-self: auto;
                     padding-top: 1em;
 
+                    h3 {
+                        font-size: calc(1em + 2vh) !important;
+                    }
+
                     h4 {
                         color: $negro;
 
                         body.dark & {
-                            color: $blanco;
                         }
                     }
 
@@ -1568,7 +1601,6 @@ header {
                         margin: 0px 0px 0.5em 0px;
 
                         body.dark & {
-                            color: $blanco;
                         }
                     }
 
@@ -1577,7 +1609,6 @@ header {
                         color: $negro;
 
                         body.dark & {
-                            color: $blanco;
                         }
                     }
 
@@ -1593,6 +1624,7 @@ header {
                         width: 100%;
                         margin: 0px 0px 0.5em 0px;
                         padding: 0.5em;
+                        font-size: calc(1em + 0.9vh) !important;
 
                         &:focus {
                             outline: none;
@@ -1611,6 +1643,7 @@ header {
                         padding: 0.5em;
                         border: 1px solid;
                         border-color: $verdefondo;
+                        font-size: calc(1em + 0.9vh) !important;
 
                         &:focus {
                             outline: none;
@@ -1618,6 +1651,10 @@ header {
 
                         body.dark {
                             border-color: $azulgris;
+                        }
+
+                        option {
+                            font-size: calc(1em + 0.1vh) !important;
                         }
                     }
 
@@ -1635,8 +1672,9 @@ header {
                         width: 25vh;
                         margin: 0.5em 0.5em 0px 0px;
                         padding: 0.5em;
-                        background: $verdefondo;
+                        background: $verdeoscuro;
                         color: $blanco;
+                        font-size: calc(1em + 0.9vh) !important;
 
                         &:hover {
                             background: $verdeoscuro;
@@ -1652,6 +1690,7 @@ header {
                         border: none;
                         border-radius: 0px;
                         padding: 0px;
+                        font-size: calc(1em + 0.9vh) !important;
 
                         body.dark & {
                             color: $blanco !important;
@@ -1704,6 +1743,7 @@ header {
                         padding-top: 0.5em;
                         padding-left: 0.5em;
                         margin-bottom: 0.5em;
+                        font-size: calc(1em + 0.9vh) !important;
 
                         &:focus {
                             outline: none;
@@ -1732,6 +1772,20 @@ header {
 
                         body.dark & {
                             border-color: $azulgris;
+                        }
+                    }
+
+                    .form-group {
+                        width:50%;
+                        label {
+                            font-size: calc(1em + 2vh) !important;
+                            font-weight:normal;
+                        }
+
+
+                        input {
+                            font-size: calc(1em + 1vh) !important;
+                            width:auto;
                         }
                     }
                 }
@@ -1770,6 +1824,10 @@ header {
                         display: flex;
                         flex-direction: row;
                         flex-wrap: wrap;
+
+                        a {
+                            font-size: 3vh;
+                        }
 
                         .catalogo {
                             width: 10vw;
