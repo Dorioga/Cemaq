@@ -503,8 +503,6 @@ header {
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%; }
-        .principal .contenedor .bb-custom-wrapper .bb-item section article label {
-          font-size: calc(0.7em + 0.5vh) !important; }
         .principal .contenedor .bb-custom-wrapper .bb-item .imagen .msjem {
           display: none; }
         .principal .contenedor .bb-custom-wrapper .bb-item .imagen:hover .msjem {
@@ -519,14 +517,14 @@ header {
           margin-bottom: 1em; }
         .principal .contenedor .bb-custom-wrapper .bb-item h2 {
           color: #000000;
-          text-align: center;
-          font-size: 26px;
-          font-family: TimesNewRoman; }
+          text-align: center; }
+          .principal .contenedor .bb-custom-wrapper .bb-item h2 label {
+            font-size: calc(0.7em + 0.5vh) !important; }
         .principal .contenedor .bb-custom-wrapper .bb-item h4 {
           color: #000000;
-          text-align: center;
-          font-size: 22px;
-          font-family: TimesNewRoman; }
+          text-align: center; }
+          .principal .contenedor .bb-custom-wrapper .bb-item h4 label {
+            font-size: calc(0.7em + 0.6vh) !important; }
         .principal .contenedor .bb-custom-wrapper .bb-item iframe {
           border-radius: 2%;
           width: 90%;
@@ -1107,6 +1105,8 @@ header {
             margin-right: 5vw;
             height: 3em !important;
             margin-bottom: 1vw; }
+          .principal .contenedor .con_form .formulario .section_contenido article p {
+            font-size: calc(1em + 2vh) !important; }
           .principal .contenedor .con_form .formulario .section_contenido .boton {
             border: none;
             border-radius: 0.5em;
@@ -1126,14 +1126,10 @@ header {
             border-radius: 0px;
             padding: 0px;
             font-size: calc(1em + 0.9vh) !important; }
-            body.dark .principal .contenedor .con_form .formulario .section_contenido .filechooser {
-              color: #ffffff !important; }
           .principal .contenedor .con_form .formulario .section_contenido .pregunta {
             border-top: 1vh solid #69b545; }
             .principal .contenedor .con_form .formulario .section_contenido .pregunta p {
               color: #000000; }
-              body.dark .principal .contenedor .con_form .formulario .section_contenido .pregunta p {
-                color: #ffffff; }
           .principal .contenedor .con_form .formulario .section_contenido .multimedia {
             display: flex;
             justify-content: center; }

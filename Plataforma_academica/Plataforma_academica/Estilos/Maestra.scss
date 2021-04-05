@@ -1,6 +1,6 @@
 ﻿//Modo Claro
 $verdeoscuro: #69b545;
-$verdeboton:#96ca79;
+$verdeboton: #96ca79;
 //Neutro
 $negro: #000000;
 $blanco: #ffffff;
@@ -13,11 +13,12 @@ $rojo: #d9534f;
 $azuloscuro: #317a8e;
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
     margin: 0px;
     padding: 0px;
     font-family: 'Roboto';
-    font-size:5px;
+    font-size: 5px;
 }
 
 // Estilos Generales
@@ -727,8 +728,9 @@ header {
 
                 section {
                     article {
-                        label {
-                            font-size: calc(0.7em + 0.5vh) !important
+
+
+                        h2 {
                         }
                     }
                 }
@@ -762,15 +764,19 @@ header {
                 h2 {
                     color: $negro;
                     text-align: center;
-                    font-size: 26px;
-                    font-family: TimesNewRoman;
+
+                    label {
+                        font-size: calc(0.7em + 0.5vh) !important;
+                    }
                 }
 
                 h4 {
                     color: $negro;
                     text-align: center;
-                    font-size: 22px;
-                    font-family: TimesNewRoman;
+
+                    label {
+                        font-size: calc(0.7em + 0.6vh) !important;
+                    }
                 }
 
                 iframe {
@@ -1338,6 +1344,7 @@ header {
                             padding: 3em;
                             text-align: justify;
                             color: $negro;
+                            font-size:
                         }
                         //Pie de Pagina
                         .modal-footer {
@@ -1375,8 +1382,9 @@ header {
                             .btn-danger {
                                 background: $rojo !important;
                             }
-                            .btn-info{
-                                background-color:$verdeoscuro;
+
+                            .btn-info {
+                                background-color: $verdeoscuro;
                             }
                         }
                     }
@@ -1418,12 +1426,11 @@ header {
                     text-align: center;
                     margin: 0px 0px 0.5em 0px;
                     color: $negro;
+                    font-size: calc(1em + 3.7vh) !important;
 
                     body.dark & {
-                        color: $blanco;
                     }
                 }
-
 
                 label {
                     color: $negro;
@@ -1528,7 +1535,6 @@ header {
                     }
                 }
 
-
                 .alert-danger {
                     color: $negro;
                     background-color: $gris;
@@ -1586,7 +1592,7 @@ header {
                     padding-top: 1em;
 
                     h3 {
-                        font-size: calc(1em + 2vh) !important;
+                        font-size: calc(1em + 3.7vh) !important;
                     }
 
                     h4 {
@@ -1664,6 +1670,10 @@ header {
                             height: 3em !important;
                             margin-bottom: 1vw;
                         }
+
+                        p {
+                            font-size: calc(1em + 2vh) !important;
+                        }
                     }
 
                     .boton {
@@ -1693,19 +1703,24 @@ header {
                         font-size: calc(1em + 0.9vh) !important;
 
                         body.dark & {
-                            color: $blanco !important;
                         }
                     }
 
-
                     .pregunta {
                         border-top: 1vh solid $verdeoscuro;
+
+                        body.dark & {
+                            border-top-color: $azuloscuro !important;
+                        }
+
+                        h4 {
+                            padding-left: 1em;
+                        }
 
                         p {
                             color: $negro;
 
                             body.dark & {
-                                color: $blanco;
                             }
                         }
                     }
@@ -1724,6 +1739,7 @@ header {
                             display: flex;
                             flex-direction: row;
                             align-items: center;
+                            padding-left: 3em;
 
                             input {
                                 width: auto;
@@ -1776,16 +1792,17 @@ header {
                     }
 
                     .form-group {
-                        width:50%;
+                        width: 50%;
+
                         label {
                             font-size: calc(1em + 2vh) !important;
-                            font-weight:normal;
+                            font-weight: normal;
                         }
 
 
                         input {
                             font-size: calc(1em + 1vh) !important;
-                            width:auto;
+                            width: auto;
                         }
                     }
                 }

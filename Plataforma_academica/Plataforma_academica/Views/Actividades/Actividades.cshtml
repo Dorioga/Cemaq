@@ -61,7 +61,9 @@
                                     @{
                                         //Contenido Primera Hoja
                                         //Nombre Actividad
-                                        <h2>@Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })</h2>
+                                        <h2>
+                                    @Html.LabelFor(Model => arreglo[i].Nombre_actividad, arreglo[i].Nombre_actividad, new { @class = "" })
+                                        </h2>
 
                                         //Texto
                                         if (arreglo[i].id_tipo_multimedia == "3")
@@ -527,7 +529,9 @@
                                             m = i + 1;
                                             <!--numero de -->
                                             <div>
-                                                <span class="step">@m/@cant</span>
+                                                <span class="step">
+                                               <p> @m/@cant </p>
+                                                </span>
                                             </div>
 
                                             //Metodo para activar nuevas actividades a todos los usuarios que tienen el diplomado registrado
