@@ -669,8 +669,6 @@ D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\System.W
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\System.Web.WebPages.dll
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\System.Web.WebPages.Razor.dll
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\WebGrease.dll
-D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\Google.Protobuf.dll
-D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\BouncyCastle.Crypto.dll
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\Microsoft.AI.DependencyCollector.xml
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\Microsoft.AI.Web.xml
@@ -680,7 +678,6 @@ D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\Microsof
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\Microsoft.Owin.xml
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\Microsoft.Owin.Security.xml
-D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\MySql.Data.xml
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\System.Web.Helpers.xml
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\System.Web.Mvc.xml
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\System.Web.Optimization.xml

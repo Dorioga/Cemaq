@@ -219,7 +219,7 @@
                             <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
                                 <div class="content-btn">
                                     <section class="izq">
-                                        <img src="~/imagen_multimedia/Actividad.png" />
+                                        <img src="~/Imagenes/Temporal/letra a2.png" />
                                     </section>
                                     <section class="cent">
                                         <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
@@ -241,7 +241,7 @@
                                     <button class="boton pendiente" data-toggle="modal">
                                         <div class="content-btn">
                                             <section class="izq">
-                                                <img src="~/imagen_multimedia/Actividad.png" />
+                                                <img src="~/Imagenes/Temporal/letra a2.png" />
                                             </section>
                                             <section class="cent">
                                                 <p>Subir Actividad</p>
@@ -258,7 +258,7 @@
                                     <button class="boton" @*data-target="#mostrarmodal3"*@ onclick="enviarvariable(@arreglo_actividad[i].codigo_actividad)" data-toggle="modal">
                                         <div class="content-btn">
                                             <section class="izq">
-                                                <img src="~/imagen_multimedia/Actividad.png" />
+                                                <img style="width: 2.9vw;" src="~/Imagenes/Temporal/letra s 2.png" />
                                             </section>
                                             <section class="cent">
                                                 <p>Subir Actividad</p>
@@ -274,10 +274,10 @@
                             if (Convert.ToInt32(arreglo_actividad[i - 1].porcentaje) < 99)
                             {
                                 //aqui debe ir la notificacion emergente
-                                <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_actividad[i].codigo_actividad">
+                                <button type="submit" class="boton pendiente" disabled value="@arreglo_actividad[i].codigo_actividad">
                                     <div class="content-btn">
                                         <section class="izq">
-                                            <img src="~/imagen_multimedia/Actividad.png" />
+                                            <img src="~/Imagenes/Temporal/letra a2.png" />
                                         </section>
                                         <section class="cent">
                                             <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
@@ -291,10 +291,10 @@
                                 if (Convert.ToInt32(arreglo_actividad[i].tipo_actividad) >= 2)
                                 {
                                         //aqui debe ir la notificacion emergente
-                                        <button class="boton pendiente" data-toggle="modal">
+                                        <button class="boton pendiente" disabled data-toggle="modal">
                                             <div class="content-btn">
                                                 <section class="izq">
-                                                    <img src="~/imagen_multimedia/Actividad.png" />
+                                                    <img src="~/Imagenes/Temporal/letra a2.png" />
                                                 </section>
                                                 <section class="cent">
                                                     <p>Subir Actividad</p>
@@ -312,7 +312,7 @@
                                 <button type="submit" class="boton" name="irrrr" value="@arreglo_actividad[i].codigo_actividad">
                                     <div class="content-btn">
                                         <section class="izq">
-                                            <img src="~/imagen_multimedia/Actividad.png" />
+                                            <img src="~/Imagenes/Temporal/letra a2.png" />
                                         </section>
                                         <section class="cent">
                                             <p class="nom">@arreglo_actividad[i].nombre_actividad</p>
@@ -331,7 +331,7 @@
                                         <button class="boton" @*data-target="#mostrarmodal3"*@ onclick="enviarvariable(@arreglo_actividad[i].codigo_actividad)" data-toggle="modal">
                                             <div class="content-btn">
                                                 <section class="izq">
-                                                    <img src="~/imagen_multimedia/Actividad.png" />
+                                                    <img style="width: 2.9vw;" src="~/Imagenes/Temporal/letra s 2.png" />
                                                 </section>
                                                 <section class="cent">
                                                     <p>Subir Actividad</p>
@@ -359,7 +359,7 @@
                                 <button type="submit" class="boton pendiente" disabled="true" value="@arreglo_examen[i].id_examen">
                                     <div class="content-btn">
                                         <section class="izq">  
-                                        <img src="~/imagen_multimedia/Examen.png" /> 
+                                        <img style="width: 2.7vw;" src="~/Imagenes/Temporal/LETRA E.png" /> 
                                         </section>
                                         <section class="cent">
                                         <p class="nom">@arreglo_examen[i].examen</p>
@@ -374,7 +374,7 @@
                                 <button type="submit" class="boton" name="irrrr5" value="@arreglo_examen[i].id_examen">
                                     <div class="content-btn">
                                         <section class="izq">
-                                            <img src="~/imagen_multimedia/Examen.png" />
+                                            <img style="width: 2.7vw;" src="~/Imagenes/Temporal/LETRA E.png" />
                                         </section>
                                         <section class="cent">
                                             <p class="nom">
@@ -421,7 +421,9 @@
                         </div>
                         <div class="cder">
                             <h1>La actividad fue subida exitosamente</h1>
-                            <img src="~/Imagenes/Logo Mascota.png">
+                            <div class="logo">
+
+                            </div>
                         </div>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
@@ -472,7 +474,6 @@
                                     <button type="submit" name="irarchivo" id="irarchivo" class="btn" style="float: right;">Enviar</button>
                                 </div>
                                 <div class="logo">
-                                    <img src="~/Imagenes/Logo Mascota.png">
                                 </div>
                             </div>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

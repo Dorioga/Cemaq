@@ -9,16 +9,16 @@ $verdeoscuro: #69b545;
     font-weight: normal;
     src: local('Champagne & Limousines'), url('/fonts/Champagne-Limousines.ttf.woff') format('woff');
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
 
 body {
-    background-image: url('/Imagenes/Iconos/Fondo para web_PNG.png');
+    background-image: url('/Imagenes/Iconos/Fondo Login.png');
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
-    font-family: "Champagne & Limousines";
+    font-family: "Roboto";
     width: 100vw;
     height: 100vh;
     background-color: white !important;
@@ -34,6 +34,7 @@ body {
         max-width: 70vw;
 
         .modal-content {
+            max-height:90vh;
             .modal-header {
                 flex-direction: row-reverse;
                 background-color: $verdeoscuro;
@@ -84,7 +85,6 @@ body {
         background-color: #005E2D !important;
     }
 }
-
 
 
 .register {
@@ -229,6 +229,7 @@ body {
 @media (max-width:1050px) {
     body {
         height: auto !important;
+        background: $verdeoscuro !important;
     }
 
     .register {

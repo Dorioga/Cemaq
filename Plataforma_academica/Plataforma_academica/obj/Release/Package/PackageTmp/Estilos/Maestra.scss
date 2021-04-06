@@ -1,6 +1,6 @@
 ﻿//Modo Claro
 $verdeoscuro: #69b545;
-
+$verdeboton: #96ca79;
 //Neutro
 $negro: #000000;
 $blanco: #ffffff;
@@ -12,10 +12,13 @@ $rojo: #d9534f;
 //Modo Oscuro
 $azuloscuro: #317a8e;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
     margin: 0px;
     padding: 0px;
-    font-family: 'Champagne & Limousines';
+    font-family: 'Roboto';
+    font-size: 5px;
 }
 
 // Estilos Generales
@@ -138,12 +141,20 @@ header {
                     width: 4vh;
                     height: 4vh;
                     line-height: 4vh;
-                    display: block;
+                    flex: 0 0 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     background: none;
                     color: $verdeoscuro;
 
+
                     body.dark & {
                         color: $azuloscuro;
+                    }
+
+                    i {
+                        font-size: calc(1em + 1vh);
                     }
                 }
             }
@@ -200,6 +211,7 @@ header {
                 list-style: none;
                 padding: 2vh;
 
+
                 &:hover {
                     .lista-menu {
                         display: block;
@@ -212,11 +224,10 @@ header {
                         border-radius: 0 0 1vw 1vw;
                         border-color: $verdeoscuro;
                         height: auto !important;
-                        font-weight: bold;
-                        background-color: rgba($verdefondo,0.6);
+                        background-color: rgba($verdefondo,0.9);
 
                         body.dark & {
-                            background-color: rgba($gris,0.6);
+                            background-color: rgba($gris,0.9);
                             border-color: $azuloscuro;
                         }
 
@@ -224,13 +235,14 @@ header {
                             background-color: transparent;
                             border: none;
                             padding: 0.5em 0px;
-                            font-size: 14px;
+                            font-size: 2.5vh;
                             border-radius: 0;
                             z-index: 2;
                         }
 
                         .opcion a {
-                            color: black;
+                            font-size: calc(0.7em + 0.5vh) !important;
+                            color: $negro;
 
                             img {
                                 height: 4vh;
@@ -243,7 +255,7 @@ header {
                         }
 
                         .opcion a:not([href]):not([tabindex]) {
-                            color: $azulgris;
+                            color: $negro;
                             text-decoration: none;
                         }
                     }
@@ -256,6 +268,12 @@ header {
                     text-align: center;
                     color: $blanco;
                     flex-direction: row;
+
+                    a {
+                        span {
+                            font-size: calc(1em + 2vh) !important;
+                        }
+                    }
                 }
 
 
@@ -318,7 +336,7 @@ header {
             }
 
             #bus {
-                flex: 2 1 75%;
+                flex: 1 1 75%;
 
                 input {
                     margin: 0px;
@@ -338,6 +356,10 @@ header {
 
                 body.dark & {
                     background-color: $azuloscuro;
+                }
+
+                span {
+                    font-size: calc(1em + 1vh);
                 }
             }
 
@@ -433,6 +455,31 @@ header {
 
                 .active {
                     display: block !important;
+
+                    &:hover {
+                        .cent {
+                            .msjem {
+                                display: block;
+                                position: absolute;
+                                width: 10vw;
+                                height: 8vh;
+                                padding: 0.5vh;
+                                text-align: center;
+                                background-color: $verdeoscuro;
+                                color: $blanco;
+
+                                body.dark & {
+                                    background-color: $azuloscuro;
+                                }
+                            }
+                        }
+                    }
+
+                    .cent {
+                        .msjem {
+                            display: none;
+                        }
+                    }
                 }
 
                 .titulo {
@@ -495,6 +542,7 @@ header {
 
                             .msjem {
                                 font-weight: bold;
+                                font-size: calc(1em + 1vh)
                             }
                         }
                     }
@@ -503,6 +551,12 @@ header {
                 .modulo {
                     color: $azuloscuro;
                     display: none;
+
+                    .der {
+                        span {
+                            font-size: calc(1em + 1vh);
+                        }
+                    }
                 }
             }
         }
@@ -610,8 +664,8 @@ header {
                         }
 
                         svg {
-                            width: 2em;
-                            height: 2em;
+                            width: 4vh;
+                            height: 4vh;
                         }
                     }
 
@@ -632,8 +686,8 @@ header {
                         }
 
                         svg {
-                            width: 2em;
-                            height: 2em;
+                            width: 4vh;
+                            height: 4vh;
                         }
                     }
                 }
@@ -672,6 +726,15 @@ header {
                 background-position: center;
                 background-size: 100% 100%;
 
+                section {
+                    article {
+
+
+                        h2 {
+                        }
+                    }
+                }
+
                 .imagen {
                     .msjem {
                         display: none;
@@ -701,15 +764,19 @@ header {
                 h2 {
                     color: $negro;
                     text-align: center;
-                    font-size: 26px;
-                    font-family: TimesNewRoman;
+
+                    label {
+                        font-size: calc(0.7em + 0.5vh) !important;
+                    }
                 }
 
                 h4 {
                     color: $negro;
                     text-align: center;
-                    font-size: 22px;
-                    font-family: TimesNewRoman;
+
+                    label {
+                        font-size: calc(0.7em + 0.6vh) !important;
+                    }
                 }
 
                 iframe {
@@ -727,7 +794,6 @@ header {
                     max-width: 100%;
                     width: 100%;
                     border: none;
-                    // background-color: $blanco;
                     color: $negro;
                     padding: 0px 1vw 0px 0;
                     overflow: hidden !important;
@@ -749,22 +815,35 @@ header {
                     margin-top: 1em;
                     position: absolute;
                     background: $verdeoscuro;
+                    border: none;
 
                     body.dark & {
                         background: $azuloscuro;
                     }
                 }
 
+                .pie {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
                 .step {
-                    height: 30px;
-                    width: 30px;
+                    height: 5vh;
+                    width: 5vh;
                     color: $blanco;
-                    padding-top: 4px;
-                    margin: 0 2px;
                     background: $verdeoscuro;
                     border: none;
                     border-radius: 50%;
-                    display: inline-block;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    p {
+                        font-size: calc(1em + 1vh);
+                        margin: 0;
+                        padding: 0;
+                    }
 
                     body.dark & {
                         background: $azuloscuro;
@@ -823,6 +902,7 @@ header {
         .con_form {
             //display:none;
             color: $negro;
+            position: relative;
 
             .active {
                 display: none;
@@ -842,6 +922,7 @@ header {
 
                 body.dark & {
                     background-color: rgba( $gris,0.8);
+                    border-color: $azuloscuro;
                 }
 
                 a {
@@ -897,7 +978,6 @@ header {
                                 order: 0;
                                 align-self: auto;
                                 width: 3vw;
-                                border-radius: 50%;
                             }
                         }
 
@@ -911,14 +991,10 @@ header {
                             p {
                                 margin: 0;
                                 padding: 0;
-                                color: $negro;
                                 order: 0;
                                 flex: 0 1 auto;
                                 align-self: auto;
-
-                                body.dark & {
-                                    color: $azulgris;
-                                }
+                                font-size: calc(1em + 1vh) !important;
                             }
 
 
@@ -1003,15 +1079,16 @@ header {
                     }
 
                     &:hover .msjem {
-                        z-index: 1000;
-                        display: block;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         position: fixed;
                         overflow: hidden;
-                        background: $verdefondo;
+                        background: $verdeoscuro;
                         color: $blanco;
-                        padding: 0.5em;
-                        width: 8em;
-                        border-radius: 0.5em;
+                        width: 10vw;
+                        height: 10vh;
+                        font-size: calc(1em + 1vh);
 
                         body.dark & {
                             background: $azuloscuro;
@@ -1083,13 +1160,15 @@ header {
                                 .foto {
                                     flex: 1 1 auto;
                                     padding-bottom: 1em;
+                                    display: flex;
+                                    align-items: center;
 
                                     h4 {
                                         margin: 0px;
                                     }
 
                                     img {
-                                        height: 9em;
+                                        height: 16vh;
                                         border: 5px solid;
                                         border-color: $verdefondo;
                                         border-radius: 1em;
@@ -1117,6 +1196,7 @@ header {
 
                                     label {
                                         text-align: left;
+                                        font-size: calc(1em + 2vh) !important;
                                     }
                                 }
 
@@ -1144,7 +1224,9 @@ header {
                                 }
 
                                 h1 {
-                                    margin: 0 0 1em 0;
+                                    flex: 1 1 50%;
+                                    display: flex;
+                                    align-items: center;
                                 }
 
                                 img {
@@ -1152,12 +1234,23 @@ header {
                                 }
 
                                 .cargar {
+                                    width: 100%;
+                                    font-size: calc(1em + 0.9vh) !important;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    flex-direction: column;
+
                                     input[type="file"] {
                                         padding-bottom: 1em;
+                                        width: 100%;
                                     }
 
                                     .oculta {
+                                        width: 100%;
+
                                         textarea {
+                                            font-size: calc(1em + 0.9vh) !important;
                                             width: 100%;
                                             height: auto !important;
                                         }
@@ -1186,10 +1279,16 @@ header {
 
                                 .logo {
                                     flex: 1 1 50%;
+                                    width: 60%;
+                                    background-image: url('/Imagenes/Iconos/Logo CEMAQ Color.png');
                                     display: flex;
-                                    flex-direction: column;
-                                    justify-content: center;
-                                    padding-bottom: 1em;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: contain;
+
+                                    body.dark & {
+                                        background-image: url('/Imagenes/Iconos/Logo CEMAQ.png') !important;
+                                    }
                                 }
                             }
                         }
@@ -1204,7 +1303,7 @@ header {
                         color: white;
 
                         body.dark & {
-                            background: $verdefondo;
+                            background: $gris;
                         }
                         //Encabezado
                         .modal-header {
@@ -1213,7 +1312,7 @@ header {
                             display: flex;
                             flex-direction: row;
                             align-items: center;
-                            padding: 1em;
+                            padding: 3em;
 
                             body.dark & {
                                 border-color: $azulgris;
@@ -1242,8 +1341,10 @@ header {
                         }
                         //Cuerpo
                         .modal-body {
-                            padding: 1em;
+                            padding: 3em;
                             text-align: justify;
+                            color: $negro;
+                            font-size:
                         }
                         //Pie de Pagina
                         .modal-footer {
@@ -1269,15 +1370,21 @@ header {
 
                             button {
                                 background: $verdefondo;
+                                color: $negro;
 
                                 body.dark & {
-                                    background: $azuloscuro;
-                                    color: white;
+                                    background: $azulgris;
+                                    color: $blanco;
+                                    ;
                                 }
                             }
 
                             .btn-danger {
                                 background: $rojo !important;
+                            }
+
+                            .btn-info {
+                                background-color: $verdeoscuro;
                             }
                         }
                     }
@@ -1290,16 +1397,19 @@ header {
             .formulario {
                 display: flex;
                 flex-direction: column;
-                padding: 1em;
-                min-height: 93vh;
+                padding: 1vh;
+                min-height: 90vh;
+                max-height: 90vh;
                 overflow-y: auto;
                 border: solid;
                 background-color: rgba($verdefondo, 0.5);
                 border-color: $verdeoscuro;
+                font-size: calc(1em + 4vh) !important;
 
                 body.dark & {
                     background-color: rgba($gris, 0.5);
                     border-color: $azulgris;
+                    color: $negro;
                 }
 
                 h1 {
@@ -1316,12 +1426,11 @@ header {
                     text-align: center;
                     margin: 0px 0px 0.5em 0px;
                     color: $negro;
+                    font-size: calc(1em + 3.7vh) !important;
 
                     body.dark & {
-                        color: $blanco;
                     }
                 }
-
 
                 label {
                     color: $negro;
@@ -1426,7 +1535,6 @@ header {
                     }
                 }
 
-
                 .alert-danger {
                     color: $negro;
                     background-color: $gris;
@@ -1483,11 +1591,14 @@ header {
                     align-self: auto;
                     padding-top: 1em;
 
+                    h3 {
+                        font-size: calc(1em + 3.7vh) !important;
+                    }
+
                     h4 {
                         color: $negro;
 
                         body.dark & {
-                            color: $blanco;
                         }
                     }
 
@@ -1496,7 +1607,6 @@ header {
                         margin: 0px 0px 0.5em 0px;
 
                         body.dark & {
-                            color: $blanco;
                         }
                     }
 
@@ -1505,7 +1615,6 @@ header {
                         color: $negro;
 
                         body.dark & {
-                            color: $blanco;
                         }
                     }
 
@@ -1521,6 +1630,7 @@ header {
                         width: 100%;
                         margin: 0px 0px 0.5em 0px;
                         padding: 0.5em;
+                        font-size: calc(1em + 0.9vh) !important;
 
                         &:focus {
                             outline: none;
@@ -1539,6 +1649,7 @@ header {
                         padding: 0.5em;
                         border: 1px solid;
                         border-color: $verdefondo;
+                        font-size: calc(1em + 0.9vh) !important;
 
                         &:focus {
                             outline: none;
@@ -1546,6 +1657,10 @@ header {
 
                         body.dark {
                             border-color: $azulgris;
+                        }
+
+                        option {
+                            font-size: calc(1em + 0.1vh) !important;
                         }
                     }
 
@@ -1555,6 +1670,10 @@ header {
                             height: 3em !important;
                             margin-bottom: 1vw;
                         }
+
+                        p {
+                            font-size: calc(1em + 2vh) !important;
+                        }
                     }
 
                     .boton {
@@ -1563,8 +1682,9 @@ header {
                         width: 25vh;
                         margin: 0.5em 0.5em 0px 0px;
                         padding: 0.5em;
-                        background: $verdefondo;
+                        background: $verdeoscuro;
                         color: $blanco;
+                        font-size: calc(1em + 0.9vh) !important;
 
                         &:hover {
                             background: $verdeoscuro;
@@ -1580,21 +1700,27 @@ header {
                         border: none;
                         border-radius: 0px;
                         padding: 0px;
+                        font-size: calc(1em + 0.9vh) !important;
 
                         body.dark & {
-                            color: $blanco !important;
                         }
                     }
 
-
                     .pregunta {
                         border-top: 1vh solid $verdeoscuro;
+
+                        body.dark & {
+                            border-top-color: $azuloscuro !important;
+                        }
+
+                        h4 {
+                            padding-left: 1em;
+                        }
 
                         p {
                             color: $negro;
 
                             body.dark & {
-                                color: $blanco;
                             }
                         }
                     }
@@ -1613,6 +1739,7 @@ header {
                             display: flex;
                             flex-direction: row;
                             align-items: center;
+                            padding-left: 3em;
 
                             input {
                                 width: auto;
@@ -1632,6 +1759,7 @@ header {
                         padding-top: 0.5em;
                         padding-left: 0.5em;
                         margin-bottom: 0.5em;
+                        font-size: calc(1em + 0.9vh) !important;
 
                         &:focus {
                             outline: none;
@@ -1662,6 +1790,21 @@ header {
                             border-color: $azulgris;
                         }
                     }
+
+                    .form-group {
+                        width: 50%;
+
+                        label {
+                            font-size: calc(1em + 2vh) !important;
+                            font-weight: normal;
+                        }
+
+
+                        input {
+                            font-size: calc(1em + 1vh) !important;
+                            width: auto;
+                        }
+                    }
                 }
 
                 .mostrar {
@@ -1684,87 +1827,90 @@ header {
                 display: flex;
                 flex-direction: row;
                 margin: 0px;
-                height: 93vh;
+                height: 90vh;
+                background-color: $verdefondo;
 
                 body.dark & {
-                    background: $azulgris;
-                    border-color: $verdeoscuro;
-                    color: $blanco;
+                    background: $gris;
                 }
                 //Estilos Principal_Todos
-                thead {
-                    margin-bottom: 1em;
+                .filtro {
+                    flex: 0 0 50%;
 
-                    input {
-                        margin-bottom: 0.5em;
-                    }
-                }
+                    .filtroc {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
 
-                tbody {
-                    a {
-                        padding-left: 1em;
-                    }
-
-                    .catalogo {
-                        margin-bottom: 0.5em;
-                        border: none;
-                        background: $verdefondo;
-                        padding-left: 1em;
-                        text-align: initial;
-
-                        body.dark & {
-                            background: $azuloscuro;
-                        }
-                    }
-
-                    .catalogo:hover {
-                        background: $blanco;
-                        color: black;
-
-                        body.dark & {
-                            background: $azulgris;
-                            color: white;
-                        }
-                    }
-
-                    .pendiente {
-                        pointer-events: all;
-
-                        .msjem {
-                            display: none;
+                        a {
+                            font-size: 3vh;
                         }
 
-                        &:hover .msjem {
-                            z-index: 3000;
-                            display: block;
-                            position: fixed;
-                            overflow: hidden;
-                            background: $verdefondo;
-                            color: $blanco;
-                            padding: 0.5em;
-                            width: auto;
-                            border-radius: 0.5em;
-                            opacity: 1;
+                        .catalogo {
+                            width: 10vw;
+                            height: 10vw;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 0;
+                            padding: 1vw;
+                            word-wrap: break-word;
+                            white-space: normal;
+                            background-color: transparent;
+                            border: none;
+                            color: $negro;
+                            font-weight: bold;
+                            border: solid 1px $verdeoscuro;
+
+
+                            &:hover {
+                                background-color: $verdeboton;
+                            }
 
                             body.dark & {
-                                background: $verdehover;
+                                border-color: $azuloscuro;
+
+                                &:hover {
+                                    background-color: $azulgris;
+                                    color: $blanco;
+                                    font-weight: normal;
+                                }
+                            }
+
+                            .msjem {
+                                display: none;
+                            }
+
+                            section {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+
+                            .arriba {
+                                flex: 0 0 60%;
+
+
+                                .fondo {
+                                    width: 4vw;
+                                }
+                            }
+
+                            .abajo {
+                                flex: 0 0 40%;
+
+                                p {
+                                    margin: 0;
+                                    padding: 0;
+                                    overflow-wrap: break-word;
+                                    word-wrap: break-word;
+                                    hyphens: auto;
+                                    font-size: calc(1em + 0.9vh) !important;
+                                }
                             }
                         }
                     }
-                }
-
-                .td {
-                    color: $negro;
-                }
-
-                .filtroc {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                .filtro {
-                    flex: 0 0 50%;
                 }
             }
 
@@ -1859,6 +2005,13 @@ header {
                 }
 
                 .modulo {
+                    &:hover {
+                        .msjem {
+                            display: block;
+                            position: absolute;
+                        }
+                    }
+
                     .content-btn {
                         .izq {
                             img {

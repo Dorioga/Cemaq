@@ -56,37 +56,29 @@
             @{
                 if (ViewBag.mensaje1 == "Registro exitoso")
                 {
-                    <div class="form-group" id="Cantidad">
-                        <div class="col-sm-4">
-                            <h3 style="color:white;">Modulos Nuevos</h3>
-                            <div class="col-md-81 inputGroupContainer">
-                                @for (int k = 0; k < Convert.ToInt32(ViewBag.mensajebasico); k++)
-                                {
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.EditorFor(model => model.basico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre M.odulo*", @id = "nombre" + k } })
-                                        @Html.ValidationMessageFor(model => model.basico[k], "", new { @class = "text-danger" })
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                                        @Html.EditorFor(model => model.descripcionbasico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "descripción Modulo*", @id = "nombre" + k } })
-                                        @Html.ValidationMessageFor(model => model.descripcionbasico[k], "", new { @class = "text-danger" })
-                                    </div>
-                                }
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label1" style="color:white;">Imagen</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                        <input type="file" name="file" accept=".png,.jpg,.jpeg,.gif" />
-                                    </div>
+                        <section class="section_contenido" id="Cantidad">
+                            <h3>Modulos Nuevos</h3>
+                            @for (int k = 0; k < Convert.ToInt32(ViewBag.mensajebasico); k++)
+                            {
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    @Html.EditorFor(model => model.basico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre Modulo*", @id = "nombre" + k } })
+                                    @Html.ValidationMessageFor(model => model.basico[k], "", new { @class = "text-danger" })
                                 </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+                                    @Html.EditorFor(model => model.descripcionbasico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "descripción Modulo*", @id = "nombre" + k } })
+                                    @Html.ValidationMessageFor(model => model.descripcionbasico[k], "", new { @class = "text-danger" })
+                                </div>
+                            }
+                            <div class="form-group">
+                                <label class="col-md-4 control-label1">Imagen</label>
+                                <input type="file" name="file" accept=".png,.jpg,.jpeg,.gif" />
                             </div>
                             <br />
                             <button type="submit" name="ir101" value="crear" class="btn btn-success">Guardar</button>
-                        </div>
 
-                    </div>
+                        </section>
                 }
                 if (ViewBag.mensaje2 == "Registro exito")
                 {

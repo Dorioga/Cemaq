@@ -38,7 +38,7 @@ namespace Plataforma_academica.Models
                 arreglo[j] = new principalP();
                 arreglo[j].nombre_curso = i["nombre_curso"].ToString();
                 arreglo[j].codigo_curso = i["id_curso"].ToString();
-                arreglo[j].url = i["Url_imagen_curso"].ToString();
+                arreglo[j].url = i["Url_imagen"].ToString();
                 arreglo[j].nombre_unidad = i["nombre_unidad"].ToString();
                 arreglo[j].codigo_unidad = i["id_unidad"].ToString();
                 arreglo[j].codigo_curso_nivel = i["Curso_nivelid_curso_nivel"].ToString();
@@ -60,7 +60,7 @@ namespace Plataforma_academica.Models
                 arreglo[j] = new principalP();
                 arreglo[j].nombre_curso = i["nombre_curso"].ToString();
                 arreglo[j].codigo_curso = i["id_curso"].ToString();
-                arreglo[j].url = i["Url_imagen_curso"].ToString();
+                arreglo[j].url = i["Url_imagen"].ToString();
                 arreglo[j].nombre_unidad = i["nombre_unidad"].ToString();
                 arreglo[j].codigo_unidad = i["id_unidad"].ToString();
                 arreglo[j].codigo_curso_nivel = i["Curso_nivelid_curso_nivel"].ToString();

@@ -342,6 +342,7 @@
     <Content Include="Imagenes\Temporal\letra m.png" />
     <Content Include="Imagenes\Temporal\letra s 2.png" />
     <Content Include="Imagenes\user.png" />
+    <Content Include="Imagenes\usuaria.png" />
     <Content Include="Imagenes\YCZH.gif" />
     <Content Include="imagen_multimedia\Agregar Actividad.png" />
     <Content Include="imagen_multimedia\Agregar Examen.png" />
@@ -364,6 +365,9 @@
     </None>
     <Content Include="imagen_multimedia\INSTRUCTIVO DE PAGO PARA ESTUDIANTES EN COLOMBIA.pdf" />
     <Content Include="Estilos\Login.scss" />
+    <None Include="Properties\PublishProfiles\Diplomado-Cemaq - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Diplomado-Cemaq - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Diplomado-Cemaq - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - Web Deploy.pubxml" />
