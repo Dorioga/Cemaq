@@ -347,6 +347,8 @@
     <Content Include="imagen_multimedia\Agregar Actividad.png" />
     <Content Include="imagen_multimedia\Agregar Examen.png" />
     <Content Include="imagen_multimedia\Examen.png" />
+    <Content Include="imagen_multimedia\letra a2a.png" />
+    <Content Include="imagen_multimedia\LETRA Ee.png" />
     <Content Include="Scripts\accederzoom.js" />
     <Content Include="Scripts\actualizar.js" />
     <Content Include="Scripts\actualizar_curso_usuario.js" />
