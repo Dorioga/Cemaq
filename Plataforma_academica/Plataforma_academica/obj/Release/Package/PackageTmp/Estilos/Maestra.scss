@@ -319,6 +319,9 @@ header {
         width: 25vw;
         background-color: $verdefondo;
         z-index: 999;
+        transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
 
         body.dark & {
             background-color: $gris;
@@ -1344,7 +1347,7 @@ header {
                             padding: 3em;
                             text-align: justify;
                             color: $negro;
-                            font-size:
+                            font-size: calc(1em + 1vh);
                         }
                         //Pie de Pagina
                         .modal-footer {
@@ -1432,6 +1435,11 @@ header {
                     }
                 }
 
+                h6 {
+                    color: $negro;
+                    font-size: calc(0.4em + 0.1vh);
+                }
+
                 label {
                     color: $negro;
                 }
@@ -1461,6 +1469,7 @@ header {
                                 padding: 0.5em;
                                 text-align: center;
                                 border: none;
+                                font-size: calc(1em + 1vh);
                             }
                         }
                     }
@@ -1472,41 +1481,45 @@ header {
 
                             &:hover {
                                 td {
-                                    background: $verdefondo !important;
-                                    color: $blanco !important;
+                                    background: $verdeoscuro !important;
+
+                                    body.dark & {
+                                        background: $azulgris !important;
+
+                                        .boton {
+                                            border: solid 1px $blanco;
+                                        }
+                                    }
                                 }
                             }
 
-                            body.dark & {
-                                color: $blanco;
-                            }
 
                             td {
                                 vertical-align: inherit;
                                 padding: 0.5em;
                                 border: none;
+                                font-size: calc(1em + 1vh);
 
+                                a{
+                                    color:$negro !important;
+                                }
                                 .boton {
                                     width: 100%;
                                     padding: 0;
                                     border-radius: 1em;
                                     border: 1px solid;
                                     border-color: $verdeoscuro;
+                                    font-size: calc(1em + 0.3vh);
 
                                     &:disabled {
                                         color: $negro;
-
-                                        body.dark & {
-                                            color: $blanco;
-                                        }
                                     }
 
                                     &:enabled {
-                                        background: $verdefondo;
-                                        color: $blanco;
+                                        background: $verdeoscuro;
 
                                         body.dark & {
-                                            background: $azuloscuro;
+                                            background: $azulgris;
                                         }
                                     }
 
@@ -1893,7 +1906,7 @@ header {
 
 
                                 .fondo {
-                                    width: 4vw;
+                                    width: 9vw;
                                 }
                             }
 
@@ -1926,10 +1939,6 @@ header {
                 -webkit-animation-timing-function: linear;
                 -webkit-animation-iteration-count: 5;
                 color: $negro;
-
-                body.dark & {
-                    color: $blanco;
-                }
             }
         }
         //Pie de Pagina
@@ -1974,8 +1983,13 @@ header {
 }
 
 .active {
+
+
     .menu-izq {
         width: 3vw;
+        transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
 
         #bus {
             display: none;

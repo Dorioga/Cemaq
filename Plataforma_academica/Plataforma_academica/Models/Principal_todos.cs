@@ -23,6 +23,7 @@ namespace Plataforma_academica.Models
         public string estado_tematica { set; get; }
         public string estado_diplomado { set; get; }
         public string imagen { set; get; }
+        public string url_imagen { set; get; }
 
         Conexion.Conexion con = new Conexion.Conexion();
 
@@ -73,6 +74,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].id_curso = i["id_curso"].ToString();
                 arreglo[j].nombre_curso = i["nombre_curso"].ToString();
                 arreglo[j].estado_diplomado = i["estado_curso"].ToString();
+                arreglo[j].url_imagen = i["Url_imagen_curso"].ToString();
                 j++;
             }
             return arreglo;
