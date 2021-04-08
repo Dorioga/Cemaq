@@ -60,7 +60,6 @@ body {
     }
 }
 
-
 .btnRegister {
     float: right;
     margin-top: 10%;
@@ -142,12 +141,16 @@ body {
         }
         //Panel Derecho
         .register-right {
-            flex: 0 0 50%;
+            max-width: 1200px;
+            flex: 0 0 60%;
             box-sizing: border-box;
+            display: grid;
+            grid-template-areas: "head" "main" "foot";
 
             h3 {
                 font-weight: bold;
                 font-size: 2rem;
+                grid-area: head;
             }
 
             h6 {
@@ -159,30 +162,54 @@ body {
             .col-md-6 {
                 margin-top: 0.5em;
                 max-width: 100%;
-                padding-top: 1em;
-                border-radius: 20px;
+                padding: 1em 0 0 3em;
+                display: grid;
+                grid-area: main;
+                grid-template-columns: repeat(2,1fr);
 
                 .form-group {
 
                     .form-control {
                         opacity: 0.9;
                         font-weight: bold;
-                        z-index:150;
+                        z-index: 150;
+                        width: 90%;
                     }
 
                     .chosen-container {
                         opacity: 0.9;
                         font-weight: bold;
-                        z-index:99;
+                        z-index: 99;
+                        width: 90% !important;
+                        position: relative;
+                        display: inline-block;
+                        vertical-align: middle;
+                        font-size: 15px;
+                        zoom: 1;
                     }
-                   
                 }
-                .mun{
-                    div{
-                        z-index:98 !important;
-                    }
-                    label{
-                        padding-left:1vw;
+            }
+
+            .mun {
+                div {
+                    z-index: 98 !important;
+                }
+
+                label {
+                    padding-left: 1vw;
+                }
+            }
+
+            .foot {
+                grid-area: foot;
+                display: flex;
+                padding-left: 3em;
+
+                .form-group {
+                    flex: 0 0 50%;
+
+                    input[type=submit] {
+                        width: 90%;
                     }
                 }
             }
@@ -233,8 +260,8 @@ body {
     }
 
     .register {
-        max-width: 100vw;
-        width: 100vw;
+        max-width: 100%;
+        width: 100%;
         border-radius: 0px !important;
 
         .row {
@@ -266,7 +293,18 @@ body {
                 .col-md-6 {
                     margin: 0;
                     padding: 0;
+                    grid-template-columns: repeat(1,1fr);
+
+                    .form-control {
+                        //width: 100% !important;
+                    }
+
+                    .chosen-container {
+                       // width: 100% !important;
+                    }
                 }
+
+                
             }
         }
     }
