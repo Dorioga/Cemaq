@@ -280,7 +280,7 @@ header {
         .principal .menu-izq .botones ul li:hover {
           color: #317a8e; }
         .principal .menu-izq .botones ul li p {
-          font-size: 2.5vh; }
+          font-size: 2vh; }
         .principal .menu-izq .botones ul li .boton {
           width: 100%;
           background-color: #d4e9c6;
@@ -301,7 +301,7 @@ header {
             padding: 1vh;
             text-align: left; }
             .principal .menu-izq .botones ul li .boton .content-btn .izq {
-              width: 5vw; }
+              width: 1.5vw; }
               .principal .menu-izq .botones ul li .boton .content-btn .izq img {
                 width: 3vw;
                 border-radius: 1vh; }
@@ -353,7 +353,7 @@ header {
             align-items: center;
             justify-content: center; }
             .principal .menu-izq .botones ul .titulo .content-btn .izq img {
-              width: 3vw;
+              width: 5vw;
               border-radius: 1vh; }
           .principal .menu-izq .botones ul .titulo .content-btn .cent {
             flex: 2 1 15vw; }
@@ -552,10 +552,10 @@ header {
           margin-left: 1em !important;
           margin-top: 1em;
           position: absolute;
-          background: #69b545;
+          background: #317a8e;
           border: none; }
           body.dark .principal .contenedor .bb-custom-wrapper .bb-item .btn {
-            background: #317a8e; }
+            background: #69b545; }
         .principal .contenedor .bb-custom-wrapper .bb-item .pie {
           display: flex;
           align-items: center;

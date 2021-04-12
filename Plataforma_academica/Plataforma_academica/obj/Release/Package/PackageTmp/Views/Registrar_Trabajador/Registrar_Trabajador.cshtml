@@ -124,6 +124,10 @@
                     <section class="section_contenido oculta" id="capa2">
                         @Html.TextAreaFor(model => model.publicaciones, new { @class = "textarea1", @placeholder = "Publicaciones*" })
                     </section>
+                    <!--Tipo Sanguineo-->
+                    <selection class="section_contenido">
+                        @Html.DropDownListFor(model => model.sanguineo, (IEnumerable<SelectListItem>)ViewData["lista11"], "Tipo Sanguineo*", new { @*@onchange = "mostrar(this.value)"*@ })
+                    </selection>
                     <!--Fecha Nacimiento-->
                     <section class="section_contenido">
                         <p>

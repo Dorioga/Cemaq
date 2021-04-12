@@ -26,6 +26,7 @@ namespace Plataforma_academica.Models
         public string experiencia { set; get; }
         public string formacion { set; get; }
         public string publicaciones { set; get; }
+        public string sanguineo { set; get; }
 
 
         private Conexion.Conexion conexion;
@@ -36,26 +37,26 @@ namespace Plataforma_academica.Models
             string fecha = obj.fecha_nacimiento.ToString("yyyy-MM-dd");
             if (obj.tipo_rol==7)
             {
-                int x = conexion.Execute_Operation("call Pr_ingresar_trabajador ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.nombre_contrato + "','" + obj.tipo_rol + "','" + obj.estado_civil + "','" + obj.escolaridad + "','" + foto + "','" + obj.experiencia + "','" + obj.formacion + "','" + obj.publicaciones + "')");
+                int x = conexion.Execute_Operation("call Pr_ingresar_trabajador ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.nombre_contrato + "','" + obj.tipo_rol + "','" + obj.estado_civil + "','" + obj.escolaridad + "','" + foto + "','" + obj.experiencia + "','" + obj.formacion + "','" + obj.publicaciones + "','" + obj.sanguineo + "')");
                 return x > 0 ? true : false;
             }
             else
             {
                 if (obj.genero == "1")
                 {
-                    int x = conexion.Execute_Operation("call Pr_ingresar_trabajador ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.nombre_contrato + "','" + obj.tipo_rol + "','" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuario.png" + "','" + "" + "','" + "" + "','" + "" + "')");
+                    int x = conexion.Execute_Operation("call Pr_ingresar_trabajador ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.nombre_contrato + "','" + obj.tipo_rol + "','" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuario.png" + "','" + "" + "','" + "" + "','" + "" + "','" + obj.sanguineo + "')");
                     return x > 0 ? true : false;
                 }
                 else
                 {
                     if (obj.genero == "2")
                     {
-                        int x = conexion.Execute_Operation("call Pr_ingresar_trabajador ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.nombre_contrato + "','" + obj.tipo_rol + "','" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuaria.png" + "','" + "" + "','" + "" + "','" + "" + "')");
+                        int x = conexion.Execute_Operation("call Pr_ingresar_trabajador ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.nombre_contrato + "','" + obj.tipo_rol + "','" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuaria.png" + "','" + "" + "','" + "" + "','" + "" + "','" + obj.sanguineo + "')");
                         return x > 0 ? true : false;
                     }
                     else
                     {
-                        int x = conexion.Execute_Operation("call Pr_ingresar_trabajador ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.nombre_contrato + "','" + obj.tipo_rol + "','" + obj.estado_civil + "','" + obj.escolaridad + "','" + "user.png" + "','" + "" + "','" + "" + "','" + "" + "')");
+                        int x = conexion.Execute_Operation("call Pr_ingresar_trabajador ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + fecha + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.nombre_contrato + "','" + obj.tipo_rol + "','" + obj.estado_civil + "','" + obj.escolaridad + "','" + "user.png" + "','" + "" + "','" + "" + "','" + "" + "','" + obj.sanguineo + "')");
                         return x > 0 ? true : false;
                     }
                 }                

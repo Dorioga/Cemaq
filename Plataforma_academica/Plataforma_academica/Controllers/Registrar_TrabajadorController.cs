@@ -12,7 +12,7 @@ namespace Plataforma_academica.Controllers
     {
         string nombre;
         // GET: Registrar_Trabajador
-        public ActionResult Registrar_Trabajador(Registrar_Trabajador obj, HttpPostedFileBase file1, Rol rol, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla, Genero g, Contrato c, Escolaridad e, Estado_civil es)
+        public ActionResult Registrar_Trabajador(Registrar_Trabajador obj, HttpPostedFileBase file1, Rol rol, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla, Genero g, Contrato c, Escolaridad e, Estado_civil es, Grupo_sanguineo san)
         {
             Models.Login user = Session["usuario"] as Models.Login;
 
@@ -55,6 +55,10 @@ namespace Plataforma_academica.Controllers
                     {
                         es.id_estado = Request.Form["listar9"].ToString();
                     }
+                    if (Request.Form["listar10"] != null)
+                    {
+                        san.id_sanguineo = Request.Form["listar10"].ToString();
+                    }
                     List<SelectListItem> prueba = ViewData["lista"] as List<SelectListItem>;
                     if (prueba == null)
                     {
@@ -72,6 +76,8 @@ namespace Plataforma_academica.Controllers
                         Plataforma_academica.Models.Estado_civil[] civi;
                         Plataforma_academica.Models.Escolaridad esco = new Plataforma_academica.Models.Escolaridad();
                         Plataforma_academica.Models.Escolaridad[] cola;
+                        Plataforma_academica.Models.Grupo_sanguineo sangui = new Plataforma_academica.Models.Grupo_sanguineo();
+                        Plataforma_academica.Models.Grupo_sanguineo[] sa;
 
                         rol_ = r.BuscarRol();
                         tid = ti.Buscartipodocumento();
@@ -80,6 +86,7 @@ namespace Plataforma_academica.Controllers
                         con = co.BuscarContrato();
                         civi = esta.BuscarEstadoCivil();
                         cola = esco.BuscarEscolaridad();
+                        sa = sangui.BuscarSanguineo();
 
                         List<SelectListItem> lista = new List<SelectListItem>();
                         foreach (Rol i in rol_)
@@ -164,6 +171,18 @@ namespace Plataforma_academica.Controllers
                             });
                         }
                         ViewData["lista10"] = lista10;
+
+                        List<SelectListItem> lista11 = new List<SelectListItem>();
+                        foreach (Grupo_sanguineo i in sa)
+                        {
+                            lista11.Add(new SelectListItem
+                            {
+                                Text = i.nombre_sanguineo,
+                                Value = i.id_sanguineo,
+                                Selected = false
+                            });
+                        }
+                        ViewData["lista11"] = lista11;
                     }
                 }
 
