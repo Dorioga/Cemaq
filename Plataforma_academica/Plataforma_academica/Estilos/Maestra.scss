@@ -1986,19 +1986,29 @@ header {
 
 
     .menu-izq {
-        width: 3vw;
-        transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -webkit-transition: all 0.5s ease;
+        border-radius: 50%;
+        margin-top: 8vh;
+        height: 5vh;
+        width: 5vh;
+        transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        -webkit-transition: all 0.1s ease;
 
-        #bus {
-            display: none;
-        }
+        .buscar {
+            border-radius: 50%;
 
-        #ocultar {
+            #bus {
+                display: none;
+            }
+
+            #ocultar {
+                border-radius:50%;
+            }
         }
 
         .botones {
+            display: none;
+
             ul {
                 .titulo {
                     .content-btn {
@@ -2047,11 +2057,11 @@ header {
     }
 
     .contenedor {
-        width: 97vw;
-        margin-left: 3vw;
+        width: 100vw;
+        margin-left: 0;
 
         .onda {
-            left: 84vw;
+            left: 88vw;
         }
     }
 }
