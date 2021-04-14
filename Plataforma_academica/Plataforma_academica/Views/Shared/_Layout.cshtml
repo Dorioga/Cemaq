@@ -153,8 +153,9 @@
                                     for (int i = 0; i < arreglo.Length; i++)
                                     {
                                         <div class="opcion">
-                                            <a style="color: white;">
-                                                <img src="~/Imagenes/CAPYBARA_TOGA.png" /> @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)
+                                            <a>
+                                                <i class="fas fa-circle"></i>
+                                                @Html.ActionLink(arreglo[i].nombre, arreglo[i].accion, arreglo[i].controlador)
                                             </a>
                                         </div>
 
@@ -174,14 +175,13 @@
                                     {
 
                                         @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal" />
-                                            <a href="https://zoom.us/signin" target="_blank">
-                                                <img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
-                                            </a>
-                                            <a href="http://pizarravirtualamazoniantic.azurewebsites.net/" target="_blank">
-                                                <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
-                                            </a>*@
+                    <a href="https://zoom.us/signin" target="_blank">
+                        <img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />
+                    </a>
+                    <a href="http://pizarravirtualamazoniantic.azurewebsites.net/" target="_blank">
+                        <img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" />
+                    </a>*@
                                         <div class="opcion">
-
                                             <a href="/Editar_perfil/Editar_perfil">
                                                 <img src="~/Imagenes/CAPYBARA_TOGA.png" data-toggle="modal" data-target="#myModal" /> Editar Perfil
                                             </a>
@@ -193,12 +193,12 @@
                                     {
                                         @*<img src="~/Imagenes/bell-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" />*@
                                         @*<a href="#"><img src="~/Imagenes/video-solid.svg" style="width: 22px; height: 27px;padding: 1%;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal1" /></a>
-                                            <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>*@
+                    <a href="#"><img src="~/Imagenes/chalkboard-teacher-solid.svg" style="width: 27px;padding: 1%; height: 27px;margin-left: 2%; margin-right: 2%;" data-toggle="modal" data-target="#myModal2" /></a>*@
 
                                         <div class="opcion">
 
                                             <a href="/Editar_perfil/Editar_perfil">
-                                                <img src="~/Imagenes/CAPYBARA_TOGA.png" /> Editar Perfil
+                                                <i class="fas fa-circle"></i> Editar Perfil
                                             </a>
                                         </div>
                                     }
@@ -206,7 +206,7 @@
                             }
                             <div class="opcion">
                                 <a href="/Login/cerrarsesion">
-                                    <img src="~/Imagenes/CAPYBARA_TOGA.png" /> Cerrar Sesion
+                                    <i class="fas fa-circle"></i> Cerrar Sesion
                                 </a>
                             </div>
 

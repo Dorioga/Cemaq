@@ -238,20 +238,20 @@ header {
                             font-size: 2.5vh;
                             border-radius: 0;
                             z-index: 2;
+
+                            a {
+                            }
                         }
 
                         .opcion a {
                             font-size: calc(0.7em + 0.5vh) !important;
                             color: $negro;
 
-                            img {
-                                height: 4vh;
-                                margin-left: 0.5vw;
+                            i {
+                                color: $negro;
                             }
 
-                            body.dark & {
-                                color: $azulgris;
-                            }
+                          
                         }
 
                         .opcion a:not([href]):not([tabindex]) {
@@ -462,11 +462,13 @@ header {
                     &:hover {
                         .cent {
                             .msjem {
-                                display: block;
+                                display: flex;
+                                align-items:center;
+                                justify-content:center;
                                 position: absolute;
-                                width: 10vw;
-                                height: 8vh;
-                                padding: 0.5vh;
+                                width: 1vw;
+                                height: 5vh;
+                              //  padding: 0.5vh;
                                 text-align: center;
                                 background-color: $verdeoscuro;
                                 color: $blanco;
@@ -1988,6 +1990,7 @@ header {
     .menu-izq {
         border-radius: 50%;
         margin-top: 8vh;
+        margin-left:0.5vw;
         height: 5vh;
         width: 5vh;
         transition: all 0.1s ease;

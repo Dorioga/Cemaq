@@ -165,6 +165,7 @@ body {
                 padding: 1em 0 0 3em;
                 display: grid;
                 grid-area: main;
+                grid-gap:0 1vw;
                 grid-template-columns: repeat(2,1fr);
 
                 .form-group {
@@ -173,14 +174,14 @@ body {
                         opacity: 0.9;
                         font-weight: bold;
                         z-index: 150;
-                        width: 90%;
+                        width: 100%;
                     }
 
                     .chosen-container {
                         opacity: 0.9;
                         font-weight: bold;
                         z-index: 99;
-                        width: 90% !important;
+                        //width: 90% !important;
                         position: relative;
                         display: inline-block;
                         vertical-align: middle;
@@ -253,16 +254,82 @@ body {
     }
 }
 
-@media (max-width:1050px) {
+@media (max-width:1150px) {
+    body {
+        background: $verdeoscuro !important;
+      
+    }
+
+    .register {
+        max-width: 100%;
+        width: 100vw;
+        border-radius: 0px !important;
+        margin:0px;
+        padding:0px;
+        .row {
+           // flex-direction: column !important;
+
+            .register-left {
+                flex: 1 0 45% ;
+                padding: 1em;
+
+                img {
+                    -webkit-animation: none !important;
+                    padding-bottom: 1em;
+                }
+
+                .campos {
+                    width: 100%;
+                }
+            }
+
+            .register-right {
+                flex: 2 0 50%;
+                border-radius: 1em;
+                
+
+                .register-form {
+                    flex-direction: column !important;
+                    padding: 0 1em;
+                }
+
+                .col-md-6 {
+                    margin: 0;
+                    padding: 0;
+                    grid-template-columns: repeat(1,1fr);
+                    max-height:70vh;
+                    overflow-y:auto;
+                    .form-control {
+                        width: 100% !important;
+                    }
+
+                    .chosen-container {
+                       // width: 100% !important;
+                    }
+                }
+                .foot{
+                    padding-top:2em;
+                }
+                
+            }
+        }
+    }
+}
+
+@media (max-width:600px){
     body {
         height: auto !important;
         background: $verdeoscuro !important;
+        justify-content: normal;
+        align-items: normal;
     }
 
     .register {
         max-width: 100%;
         width: 100%;
         border-radius: 0px !important;
+        margin: 0px;
+        padding: 0px;
 
         .row {
             flex-direction: column !important;
@@ -294,17 +361,17 @@ body {
                     margin: 0;
                     padding: 0;
                     grid-template-columns: repeat(1,1fr);
-
+                     height:auto !important;
+                     overflow:hidden;
+                     max-height: 100%;
                     .form-control {
-                        //width: 100% !important;
+                        width: 100% !important;
                     }
 
                     .chosen-container {
-                       // width: 100% !important;
+                        // width: 100% !important;
                     }
                 }
-
-                
             }
         }
     }
