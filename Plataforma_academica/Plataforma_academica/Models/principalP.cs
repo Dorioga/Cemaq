@@ -25,6 +25,7 @@ namespace Plataforma_academica.Models
         public string presentacion { set; get; }
         public string nx { set; get; }
         public string imagen { set; get; }
+        public string Url_video_presentacion { set; get; }
 
         public principalP[] Buscar_diplomados_modulos_general()
         {
@@ -42,6 +43,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].nombre_unidad = i["nombre_unidad"].ToString();
                 arreglo[j].codigo_unidad = i["id_unidad"].ToString();
                 arreglo[j].codigo_curso_nivel = i["Curso_nivelid_curso_nivel"].ToString();
+                arreglo[j].Url_video_presentacion = i["Url_video"].ToString();
                 j++;
             }
             return arreglo;
@@ -64,6 +66,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].nombre_unidad = i["nombre_unidad"].ToString();
                 arreglo[j].codigo_unidad = i["id_unidad"].ToString();
                 arreglo[j].codigo_curso_nivel = i["Curso_nivelid_curso_nivel"].ToString();
+                arreglo[j].Url_video_presentacion = i["Url_video"].ToString();
                 j++;
             }
             return arreglo;
@@ -91,6 +94,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].porcentaje_modulo = i["porcentaje unidad"].ToString();
                 arreglo[j].presentacion = i["presentacion"].ToString();
                 arreglo[j].imagen= i["url imagen"].ToString();
+                arreglo[j].Url_video_presentacion = i["Url_video"].ToString();
 
                 j++;
             }
@@ -133,6 +137,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].nombre_curso = i["nombre_curso"].ToString();
                 arreglo[j].codigo_curso = i["id_curso"].ToString();
                 arreglo[j].url = i["Url_imagen_curso"].ToString();
+                arreglo[j].Url_video_presentacion = i["Url_video"].ToString();
                 j++;
             }
             return arreglo;

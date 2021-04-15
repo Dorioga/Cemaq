@@ -278,7 +278,6 @@
                                                                 <section class="izq">
                                                                     <!--<img src="~/imagenes/@arreglop[i].url" />-->
                                                                     <img src="~/Imagenes/Iconos/@arreglop[i].imagen" />
-
                                                                 </section>
                                                                 <section class="cent">
                                                                     <!--<p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>-->
@@ -294,7 +293,23 @@
                                                                 </section>
                                                             </div>
                                                         </li>
-                                                        <!--Modulo-->
+                                                        <!--Video presntacion-->
+                                                        <li class="modulo" id="hola" onclick="" value="@arreglop[i].codigo_curso">
+                                                            <button class="boton" data-toggle="modal" data-target="#@i">
+                                                                <div class="content-btn">
+                                                                    <section class="izq">
+                                                                        @*<img src="~/Imagenes/Temporal/letra m.png" />*@
+                                                                    </section>
+                                                                    <section class="cent">
+                                                                        <p class="nom">VIDEO DE PRESENTACIÓN</p>
+                                                                    </section>
+                                                                    <section class="der">
+                                                                        @*<span> @arreglop[i].porcentaje_modulo %</span>*@
+                                                                    </section>
+                                                                </div>
+                                                            </button>
+                                                        </li>
+                                                        <!--Modulo-->                                                        
                                                             <li class="modulo" id="hola" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'modulo')" value="@arreglop[i].codigo_curso">
                                                                 <button type="submit" class="boton" name="irrr" value="@arreglop[i].codigo_curso_nivel">
                                                                     <div class="content-btn">
@@ -354,6 +369,23 @@
                                                             </li>
                                                         }
                                                     }
+                                                    <div class="modal fade" id="@i" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                                        <div class="modal-dialog" style="position: initial;">
+                                                            <div class="modal-content">
+                                                                @*<div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                    <h4>Verificación del Proceso</h4>
+                                                                </div>*@
+                                                                <div class="modal-body">
+                                                                    @*<h5>@ViewBag.mensaje2</h5>*@
+                                                                    <iframe class="embed-responsive-item" src="@arreglop[i].Url_video_presentacion"></iframe>
+                                                                </div>
+                                                                @*<div class="modal-footer">
+                                                                    <button type="button" data-dismiss="modal" aria-hidden="true" class="btn btn-danger">Cerrar</button>
+                                                                </div>*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 }
                                                 else
                                                 {
@@ -403,6 +435,22 @@
                                                             </section>
                                                         </div>
                                                     </li>
+                                                    <!--Video presntacion-->
+                                                    <li class="modulo" id="hola" onclick="" value="@arreglop[i].codigo_curso">
+                                                        <button class="boton" data-toggle="modal" data-target="#@i">
+                                                            <div class="content-btn">
+                                                                <section class="izq">
+                                                                    @*<img src="~/Imagenes/Temporal/letra m.png" />*@
+                                                                </section>
+                                                                <section class="cent">
+                                                                    <p class="nom">VIDEO DE PRESENTACIÓN</p>
+                                                                </section>
+                                                                <section class="der">
+                                                                    @*<span> @arreglop[i].porcentaje_modulo %</span>*@
+                                                                </section>
+                                                            </div>
+                                                        </button>
+                                                    </li>
                                                     <li class="modulo" id="hola" value="@arreglop[i].codigo_curso" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'modulo')">
                                                         <button type="submit" class="boton" name="ir3" value="@arreglop[i].codigo_unidad">
                                                             <div class="content-btn">
@@ -415,7 +463,23 @@
                                                             </div>
                                                         </button>
                                                     </li>
-
+                                                    <div class="modal fade" id="@i" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                                        <div class="modal-dialog" style="position: initial;">
+                                                            <div class="modal-content">
+                                                                @*<div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                        <h4>Verificación del Proceso</h4>
+                                                                    </div>*@
+                                                                <div class="modal-body">
+                                                                    @*<h5>@ViewBag.mensaje2</h5>*@
+                                                                    <iframe class="embed-responsive-item" src="@arreglop[i].Url_video_presentacion"></iframe>
+                                                                </div>
+                                                                @*<div class="modal-footer">
+                                                                        <button type="button" data-dismiss="modal" aria-hidden="true" class="btn btn-danger">Cerrar</button>
+                                                                    </div>*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 }
                                                 else
                                                 {
@@ -432,8 +496,7 @@
                                                         </button>
                                                     </li>
                                                 }
-
-
+                                                
                                             }
                                         }
                                     </ul>
