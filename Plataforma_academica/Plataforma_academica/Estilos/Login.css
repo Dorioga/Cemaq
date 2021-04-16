@@ -242,3 +242,10 @@ body {
           max-height: 100%; }
           .register .row .register-right .col-md-6 .form-control {
             width: 100% !important; } }
+
+@media (orientation: landscape) {
+  .register .row .register-right {
+    max-height: 90vh; }
+  .register .row .foot {
+    padding-top: 1em !important;
+    padding-left: 0px !important; } }

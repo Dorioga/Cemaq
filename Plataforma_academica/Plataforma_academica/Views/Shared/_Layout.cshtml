@@ -183,7 +183,7 @@
                     </a>*@
                                         <div class="opcion">
                                             <a href="/Editar_perfil/Editar_perfil">
-                                                <img src="~/Imagenes/CAPYBARA_TOGA.png" data-toggle="modal" data-target="#myModal" /> Editar Perfil
+                                                <img src="~/Imagenes/CAPYBARA_TOGA.png" data-toggle="modal" data-backdrop="false" data-target="#myModal" /> Editar Perfil
                                             </a>
                                         </div>
 
@@ -295,7 +295,7 @@
                                                         </li>
                                                         <!--Video presntacion-->
                                                         <li class="modulo" id="hola" onclick="" value="@arreglop[i].codigo_curso">
-                                                            <button class="boton" data-toggle="modal" data-target="#@i">
+                                                            <button class="boton" data-toggle="modal"  data-target="#@i">
                                                                 <div class="content-btn">
                                                                     <section class="izq">
                                                                         @*<img src="~/Imagenes/Temporal/letra m.png" />*@
@@ -369,13 +369,12 @@
                                                             </li>
                                                         }
                                                     }
-                                                    <div class="modal fade" id="@i" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                                        <div class="modal-dialog" style="position: initial;">
+                                                    <div class="modal fade " id="@i" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                                        <div class="modal-dialog">
                                                             <div class="modal-content">
-                                                                @*<div class="modal-header">
+                                                                <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                                    <h4>Verificación del Proceso</h4>
-                                                                </div>*@
+                                                                </div>
                                                                 <div class="modal-body">
                                                                     @*<h5>@ViewBag.mensaje2</h5>*@
                                                                     <iframe class="embed-responsive-item" src="@arreglop[i].Url_video_presentacion"></iframe>
@@ -437,7 +436,7 @@
                                                     </li>
                                                     <!--Video presntacion-->
                                                     <li class="modulo" id="hola" onclick="" value="@arreglop[i].codigo_curso">
-                                                        <button class="boton" data-toggle="modal" data-target="#@i">
+                                                        <button class="boton" data-toggle="modal" data-backdrop="false" data-target="#@i">
                                                             <div class="content-btn">
                                                                 <section class="izq">
                                                                     @*<img src="~/Imagenes/Temporal/letra m.png" />*@
@@ -524,7 +523,7 @@
         <div class="contenedor" id="container">
             <img class="onda" src="~/Imagenes/Iconos/ondas.png" />
             @RenderBody()
-        </div>
+        </div>0
 
 
     </main>

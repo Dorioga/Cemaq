@@ -376,3 +376,17 @@ body {
         }
     }
 }
+
+@media (orientation:landscape) {
+    .register{
+        .row{
+            .register-right{
+                max-height:90vh;
+            }
+            .foot{
+                padding-top:1em !important;
+                padding-left:0px !important;
+            }
+        }
+    }
+}
