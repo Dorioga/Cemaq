@@ -23,6 +23,12 @@
                 @Html.EditorFor(model => model.Nombre_curso, new { htmlAttributes = new { @placeholder = "Nombre del diplomado*", @id = "nombre" } })
                 @Html.ValidationMessageFor(model => model.Nombre_curso, "", new { @class = "text-danger" })
             </section>
+            <!--Video Presentacion-->
+            <section class="section_contenido">
+                <h5>Video Presentacón</h5>
+                @Html.EditorFor(model => model.url_video, new { htmlAttributes = new { @placeholder = "Https//*", @id = "video" } })
+                @Html.ValidationMessageFor(model => model.url_video, "", new { @class = "text-danger" })
+            </section>
             <!--Descripcion Diplomado-->
             <section class="section_contenido">
                 <h5>Descripción del diplomado</h5>
