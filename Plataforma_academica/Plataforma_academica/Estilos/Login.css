@@ -138,16 +138,17 @@ body {
           zoom: 1; }
       .register .row .register-right .mun div {
         z-index: 98 !important; }
-      .register .row .register-right .mun label {
-        padding-left: 1vw; }
       .register .row .register-right .foot {
         grid-area: foot;
         display: flex;
         padding-left: 3em; }
+        .register .row .register-right .foot label {
+          padding-left: 4vw; }
         .register .row .register-right .foot .form-group {
           flex: 0 0 50%; }
           .register .row .register-right .foot .form-group input[type=submit] {
-            width: 90%; }
+            width: 90%;
+            margin-left: 3vw; }
       .register .row .register-right .register-heading {
         text-align: center;
         color: #000000; }
@@ -205,43 +206,45 @@ body {
       .register .row .register-right .foot {
         padding-top: 2em; } }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   body {
     height: auto !important;
     background: #69b545 !important;
     justify-content: normal;
     align-items: normal; }
+  .register .row {
+    flex-direction: column !important; } }
+
+@media (max-width: 600px) {
   .register {
     max-width: 100%;
     width: 100%;
     border-radius: 0px !important;
     margin: 0px;
     padding: 0px; }
-    .register .row {
-      flex-direction: column !important; }
-      .register .row .register-left {
-        flex: 0 0 auto !important;
-        padding: 1em; }
-        .register .row .register-left img {
-          -webkit-animation: none !important;
-          padding-bottom: 1em; }
-        .register .row .register-left .campos {
-          width: 100%; }
-      .register .row .register-right {
-        flex: 0 0 auto !important;
-        border-radius: 1em; }
-        .register .row .register-right .register-form {
-          flex-direction: column !important;
-          padding: 0 1em; }
-        .register .row .register-right .col-md-6 {
-          margin: 0;
-          padding: 0;
-          grid-template-columns: repeat(1, 1fr);
-          height: auto !important;
-          overflow: hidden;
-          max-height: 100%; }
-          .register .row .register-right .col-md-6 .form-control {
-            width: 100% !important; } }
+    .register .row .register-left {
+      flex: 0 0 auto !important;
+      padding: 1em; }
+      .register .row .register-left img {
+        -webkit-animation: none !important;
+        padding-bottom: 1em; }
+      .register .row .register-left .campos {
+        width: 100%; }
+    .register .row .register-right {
+      flex: 0 0 auto !important;
+      border-radius: 1em; }
+      .register .row .register-right .register-form {
+        flex-direction: column !important;
+        padding: 0 1em; }
+      .register .row .register-right .col-md-6 {
+        margin: 0;
+        padding: 0;
+        grid-template-columns: repeat(1, 1fr);
+        height: auto !important;
+        overflow: hidden;
+        max-height: 100%; }
+        .register .row .register-right .col-md-6 .form-control {
+          width: 100% !important; } }
 
 @media (orientation: landscape) {
   .register .row .register-right {
