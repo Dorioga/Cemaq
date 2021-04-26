@@ -302,6 +302,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagenes\20210410121555unnamed.png" />
+    <Content Include="Imagenes\20210414170724fondo redndo %281%29.png" />
+    <Content Include="Imagenes\20210414171235fondo redndo %281%29.png" />
+    <Content Include="Imagenes\2021042016172787808094_p7_master1200.jpg" />
+    <Content Include="Imagenes\2021042114190787629571_p0_master1200.jpg" />
     <Content Include="Imagenes\animated_favicon1.gif" />
     <Content Include="Imagenes\CAPYBARA_TOGA.png" />
     <Content Include="Imagenes\cargando-gif-sin-fondo-7.gif" />
