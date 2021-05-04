@@ -328,7 +328,9 @@ header {
           justify-content: center;
           position: absolute;
           width: 10vw;
+          min-width: 100px;
           height: 5vh;
+          min-height: 50px;
           text-align: center;
           background-color: #69b545;
           color: #ffffff; }
@@ -392,10 +394,12 @@ header {
             height: 6vh;
             padding: 0 2em 0 0;
             border: none;
-            background-color: #317a8e;
             flex-direction: column;
             align-items: flex-end;
-            color: #ffffff; }
+            color: #ffffff;
+            background-color: #69b545; }
+            body.dark .principal .menu-izq .botones .modal .modal-dialog .modal-content .modal-header {
+              background-color: #317a8e; }
             .principal .menu-izq .botones .modal .modal-dialog .modal-content .modal-header button {
               margin: 0;
               padding: 0; }
@@ -989,7 +993,7 @@ header {
           text-align: center;
           margin: 0px 0px 0.5em 0px;
           color: #000000;
-          font-size: calc(1em + 3.7vh) !important; }
+          font-size: calc(1em + 1vh) !important; }
         .principal .contenedor .con_form .formulario h6 {
           color: #000000;
           font-size: calc(0.4em + 0.1vh); }
@@ -1100,6 +1104,8 @@ header {
           .principal .contenedor .con_form .formulario .section_contenido p {
             padding-left: 1em;
             color: #000000; }
+          .principal .contenedor .con_form .formulario .section_contenido .alert p {
+            font-size: calc(2em + 1vh) !important; }
           .principal .contenedor .con_form .formulario .section_contenido .oculta {
             display: none; }
           .principal .contenedor .con_form .formulario .section_contenido input {
@@ -1115,6 +1121,8 @@ header {
               outline: none; }
             body.dark .principal .contenedor .con_form .formulario .section_contenido input {
               border-color: #50687a; }
+          .principal .contenedor .con_form .formulario .section_contenido label {
+            font-size: calc(2em + 1vh) !important; }
           .principal .contenedor .con_form .formulario .section_contenido select {
             max-width: 25vw;
             width: 100%;
@@ -1123,13 +1131,16 @@ header {
             padding: 0.5em;
             border: 1px solid;
             border-color: #d4e9c6;
-            font-size: calc(1em + 0.9vh) !important; }
+            font-size: calc(1em + 1vh) !important; }
             .principal .contenedor .con_form .formulario .section_contenido select:focus {
               outline: none; }
             .principal .contenedor .con_form .formulario .section_contenido select body.dark {
               border-color: #50687a; }
             .principal .contenedor .con_form .formulario .section_contenido select option {
               font-size: calc(1em + 0.1vh) !important; }
+          .principal .contenedor .con_form .formulario .section_contenido button {
+            width: 40%;
+            margin: 0 4% 0 4%; }
           .principal .contenedor .con_form .formulario .section_contenido article .cpregunta {
             margin-right: 5vw;
             height: 3em !important;
@@ -1216,7 +1227,12 @@ header {
               font-weight: normal; }
             .principal .contenedor .con_form .formulario .section_contenido .form-group input {
               font-size: calc(1em + 1vh) !important;
-              width: auto; }
+              width: 50%; }
+            .principal .contenedor .con_form .formulario .section_contenido .form-group input[type=submit] {
+              background-color: #69b545;
+              color: #ffffff; }
+              body.dark .principal .contenedor .con_form .formulario .section_contenido .form-group input[type=submit] {
+                background-color: #317a8e; }
         .principal .contenedor .con_form .formulario .mostrar {
           padding-bottom: 1em; }
         .principal .contenedor .con_form .formulario .seccion {
@@ -1244,6 +1260,8 @@ header {
               font-size: 3vh; }
             .principal .contenedor .con_form .row .filtro .filtroc .catalogo {
               width: 10vw;
+              min-width: 150px;
+              min-height: 150px;
               height: 10vw;
               display: flex;
               flex-direction: column;
@@ -1376,9 +1394,47 @@ header {
 @media (max-width: 1000px) {
   header .navbar .icono img {
     height: 5vh; }
+  .active .contenedor .onda {
+    left: 55vw; }
+  .principal .contenedor .con_form .row .filtro {
+    max-height: 85vh;
+    overflow-y: auto; }
+    .principal .contenedor .con_form .row .filtro .filtroc .catalogo {
+      padding: 0px; }
+      .principal .contenedor .con_form .row .filtro .filtroc .catalogo .arriba .fondo {
+        width: 15vw; } }
+
+@media (max-width: 1000px) and (min-width: 600px) {
+  header .navbar .info .contenido:hover .lista-menu {
+    width: 25vw;
+    left: 75vw; }
+  .principal .contenedor .con_form .row .filtro .filtroc .catalogo .arriba {
+    flex: 0 0 0%; }
+  .principal .contenedor .con_form .row .filtro .filtroc .catalogo .abajo p {
+    font-size: calc(0.7em + 0.9vh) !important; }
+  .active .contenedor .onda {
+    left: 86vw; } }
+
+@media (max-width: 600px) {
+  header .navbar .info .contenido:hover .lista-menu {
+    width: 40vw;
+    left: 60vw; }
   .principal .menu-izq {
     width: 75vw; }
+    .principal .menu-izq .botones ul .titulo .content-btn .izq {
+      display: none; }
+  .principal .contenedor .con_form .row .filtro .filtroc {
+    justify-content: center;
+    align-items: center; }
+    .principal .contenedor .con_form .row .filtro .filtroc .catalogo .arriba {
+      flex: 0 0 0%; }
+    .principal .contenedor .con_form .row .filtro .filtroc .catalogo .abajo p {
+      font-size: calc(0.7em + 0.9vh) !important; }
   .active .menu-izq {
     width: 5vh; }
   .active .contenedor .onda {
-    left: 55vw; } }
+    left: 70vw; } }
+
+@media (orientation: landscape) and (max-width: 600px) {
+  .active .contenedor .onda {
+    left: 86vw; } }
