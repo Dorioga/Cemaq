@@ -1528,6 +1528,15 @@ header {
                                 td {
                                     background: $verdeoscuro !important;
 
+                                    a {
+                                        border: solid 1px $blanco;
+                                        background-color:$verdefondo;
+                                    }
+
+                                    .boton {
+                                        border: solid 1px $blanco;
+                                    }
+
                                     body.dark & {
                                         background: $azulgris !important;
 
@@ -2179,6 +2188,9 @@ header {
             .info {
             }
         }
+        .slidermodo{
+
+        }
     }
 
     .active {
@@ -2196,8 +2208,9 @@ header {
             .con_form {
                 .row {
                     .filtro {
-                        max-height:85vh;
-                        overflow-y:auto;
+                        max-height: 85vh;
+                        overflow-y: auto;
+
                         .filtroc {
                             .catalogo {
                                 padding: 0px;
@@ -2210,6 +2223,23 @@ header {
                             }
                         }
                     }
+                }
+            }
+
+            .bb-custom-wrapper {
+                #der {
+                    display: none;
+                }
+
+                #izq {
+                    display: none;
+                }
+
+                .bb-bookblock {
+                }
+
+                .bb-item {
+                    padding: 0 4em 0 4em;
                 }
             }
         }

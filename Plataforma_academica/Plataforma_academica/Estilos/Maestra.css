@@ -1023,6 +1023,11 @@ header {
             color: #000000; }
             .principal .contenedor .con_form .formulario table tbody tr:hover td {
               background: #69b545 !important; }
+              .principal .contenedor .con_form .formulario table tbody tr:hover td a {
+                border: solid 1px #ffffff;
+                background-color: #d4e9c6; }
+              .principal .contenedor .con_form .formulario table tbody tr:hover td .boton {
+                border: solid 1px #ffffff; }
               body.dark .principal .contenedor .con_form .formulario table tbody tr:hover td {
                 background: #50687a !important; }
                 body.dark .principal .contenedor .con_form .formulario table tbody tr:hover td .boton {
@@ -1402,7 +1407,13 @@ header {
     .principal .contenedor .con_form .row .filtro .filtroc .catalogo {
       padding: 0px; }
       .principal .contenedor .con_form .row .filtro .filtroc .catalogo .arriba .fondo {
-        width: 15vw; } }
+        width: 15vw; }
+  .principal .contenedor .bb-custom-wrapper #der {
+    display: none; }
+  .principal .contenedor .bb-custom-wrapper #izq {
+    display: none; }
+  .principal .contenedor .bb-custom-wrapper .bb-item {
+    padding: 0 4em 0 4em; } }
 
 @media (max-width: 1000px) and (min-width: 600px) {
   header .navbar .info .contenido:hover .lista-menu {
