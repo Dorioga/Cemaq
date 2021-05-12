@@ -1,0 +1,68 @@
+﻿@model Plataforma_academica.Models.Formatos
+
+@{
+    ViewBag.Title = "Formatos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Formatos</h2>*@
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+@using (Html.BeginForm("Formatos", "Formatos", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @{ 
+            Plataforma_academica.Models.Formatos[] arreglo;
+            Plataforma_academica.Models.Formatos formato = new Plataforma_academica.Models.Formatos();
+            arreglo = formato.consultar_formatos();
+            int cont = 0;
+        }
+        <table class="table table-striped custab">
+            <thead>
+                <input class="btn btn-primary btn-xs pull-right" type="submit" id="seccion" name="seccion" value="Guardar"/>
+                <input class="filechooser pull-right" type="file" name="file" accept=".pdf, .doc, .docx, .xlsx" />
+                <tr>
+                    <th>Item</th>
+                    <th>Nombre Formato</th>
+                    <th>Fecha Subido</th>
+                    <th>Estado formato</th>
+                    <th class="text-center">Acción</th>
+                </tr>
+            </thead>
+           @{
+                   for (int i = 0; i < arreglo.Length; i++)
+                   {
+                       cont++;
+                <tr>
+                    <td>@cont</td>
+                    <td>@arreglo[i].nombre_formato</td>
+                    <td>@arreglo[i].fecha_subido</td>
+                    <td>@arreglo[i].estado</td>
+                    <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                </tr>
+               }
+        }            
+        </table>
+        @{ 
+            if (ViewBag.mensaje == "Exito al cargar")
+            {
+                //Ejecutar un script que muestre exito sobre la operacion, puede ser un modal o sorprendame
+            }
+            else
+            {
+                //Ejecutar un script que muestre fallo sobre la operacion, puede ser un modal o sorprendame
+            }
+        }
+    </div>
+            }
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
