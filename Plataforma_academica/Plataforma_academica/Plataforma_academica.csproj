@@ -183,6 +183,7 @@
     <Compile Include="Controllers\Diplomados_matriculadosController.cs" />
     <Compile Include="Controllers\Editar_examenController.cs" />
     <Compile Include="Controllers\Editar_perfilController.cs" />
+    <Compile Include="Controllers\FormatosController.cs" />
     <Compile Include="Controllers\Principal_todosController.cs" />
     <Compile Include="Controllers\Registrar_BeneficiarioController.cs" />
     <Compile Include="Controllers\Registrar_CursosController.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\Escolaridad.cs" />
     <Compile Include="Models\Estado_civil.cs" />
+    <Compile Include="Models\Formatos.cs" />
     <Compile Include="Models\Genero.cs" />
     <Compile Include="Models\Grupo.cs" />
     <Compile Include="Models\Grupo_sanguineo.cs" />
@@ -363,7 +365,6 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="imagen_multimedia\INSTRUCTIVO DE PAGO PARA ESTUDIANTES EN COLOMBIA.pdf" />
     <Content Include="Estilos\Login.scss" />
     <None Include="Properties\PublishProfiles\Diplomado-Cemaq - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomado-Cemaq - ReadOnly - FTP.pubxml" />
@@ -478,6 +479,7 @@
     <Content Include="Views\Principal_todos\Principal_todos.cshtml" />
     <Content Include="Views\Diplomados_matriculados\Diplomados_matriculados.cshtml" />
     <Content Include="Views\Editar_perfil\Editar_perfil.cshtml" />
+    <Content Include="Views\Formatos\Formatos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
