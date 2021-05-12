@@ -952,6 +952,8 @@ header {
             color: $negro;
             position: relative;
 
+
+
             .active {
                 display: none;
             }
@@ -1460,6 +1462,49 @@ header {
                     color: $negro;
                 }
 
+                .carga {
+                    display: flex;
+                    flex-direction: column;
+
+                    input {
+                        font-size: calc(1em + 1vh);
+                        margin-bottom: 1vh;
+                    }
+
+                    input[type=submit] {
+                        background-color: $verdeboton;
+                        color: $negro;
+
+                        body.dark & {
+                            background-color: $azuloscuro;
+                        }
+                    }
+                }
+
+                .table {
+                    thead {
+                        tr {
+                            th {
+                                font-size: calc(1em + 1.5vh);
+                            }
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            td {
+                                font-size: calc(1em + 1vh);
+
+                                a {
+                                    span {
+                                        font-size: calc(1em + 0.5vh);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
                 h1 {
                     color: $negro;
                     margin: 0.1em;
@@ -1499,7 +1544,7 @@ header {
                     border-color: $verdeoscuro;
 
                     body.dark & {
-                        border-color: $azulgris;
+                        border-color: $azuloscuro;
                     }
 
                     thead {
@@ -1507,7 +1552,7 @@ header {
                             background: $verdeoscuro;
 
                             body.dark & {
-                                background: $azulgris;
+                                background: $azuloscuro;
                             }
 
                             th {
@@ -1530,7 +1575,7 @@ header {
 
                                     a {
                                         border: solid 1px $blanco;
-                                        background-color:$verdefondo;
+                                        background-color: $verdefondo;
                                     }
 
                                     .boton {
@@ -1538,7 +1583,7 @@ header {
                                     }
 
                                     body.dark & {
-                                        background: $azulgris !important;
+                                        background: $azuloscuro !important;
 
                                         .boton {
                                             border: solid 1px $blanco;
@@ -1574,12 +1619,12 @@ header {
                                         background: $verdeoscuro;
 
                                         body.dark & {
-                                            background: $azulgris;
+                                            background: $azuloscuro;
                                         }
                                     }
 
                                     body.dark & {
-                                        border-color: $azulgris;
+                                        border-color: $azuloscuro;
                                     }
                                 }
                             }
@@ -1592,7 +1637,7 @@ header {
                         background: $verdeoscuro;
 
                         body.dark & {
-                            background: $azulgris;
+                            background: $azuloscuro;
                         }
 
                         tr {
