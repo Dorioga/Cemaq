@@ -63,17 +63,15 @@
                 if (ViewBag.mensaje1 == "Registro exitoso")
                 {
                         <section class="section_contenido" id="Cantidad">
-                            <h3>Modulos Nuevos</h3>
+                            <h3 style="font-family: fantasy;">Modulos Nuevos</h3>
                             @for (int k = 0; k < Convert.ToInt32(ViewBag.mensajebasico); k++)
                             {
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <div class="input-group">                                    
                                     @Html.EditorFor(model => model.basico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre Modulo*", @id = "nombre" + k } })
                                     @Html.ValidationMessageFor(model => model.basico[k], "", new { @class = "text-danger" })
                                 </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                                    @Html.EditorFor(model => model.descripcionbasico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "descripción Modulo*", @id = "nombre" + k } })
+                                <div class="input-group">                                    
+                                    @Html.EditorFor(model => model.descripcionbasico[k], new { htmlAttributes = new { @class = "form-control", @placeholder = "Descripcion del Modulo*", @id = "nombre" + k } })
                                     @Html.ValidationMessageFor(model => model.descripcionbasico[k], "", new { @class = "text-danger" })
                                 </div>
                             }

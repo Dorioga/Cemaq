@@ -1,6 +1,7 @@
 ﻿using Plataforma_academica.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,7 +28,7 @@ namespace Plataforma_academica.Controllers
                     String codigo1 = Request.Form["seccion"];
                     if (codigo1 != null)
                     {
-                        if (obj.Registrar_formato(Subir(file), nombre))
+                        if (obj.Registrar_formato(Subir(file), nombre, Convert.ToInt32(user.usuario)))
                         {
                             ViewBag.mensaje = "Exito al cargar";
                             return View();
@@ -35,6 +36,12 @@ namespace Plataforma_academica.Controllers
                         {
                             ViewBag.mensaje = "Fallo cargue";
                         }
+                    }
+                    String codigo_ = Request.Form["subir"];
+                    if (codigo_ != null)
+                    {
+                        var ruta = Server.MapPath("~/imagen_multimedia/" + codigo_);
+                        return File(ruta, "aplication/pdf,docx", codigo_);
                     }
                     return View();                
                 }
@@ -63,6 +70,24 @@ namespace Plataforma_academica.Controllers
                 nombre = file.FileName;
             }
             return archivo;
+        }
+
+        [HttpPost]
+        public JsonResult Actualizar_formato(int id_formato, HttpPostedFileBase file)
+        {       
+            var x = 2;
+            Formatos formato = new Formatos();
+                formato.Actualizar_formatos(id_formato, Subir(file), nombre);
+           return Json(x);
+        }
+
+        [HttpPost]
+        public JsonResult Deshabilitar_formato(int id_formato)
+        {
+            var x = 2;
+            Formatos formato = new Formatos();
+            formato.Deshabilitar_formatos(id_formato);
+            return Json(x);
         }
     }
 }

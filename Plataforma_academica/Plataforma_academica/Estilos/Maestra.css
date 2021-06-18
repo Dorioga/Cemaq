@@ -5,6 +5,10 @@
   font-family: 'Roboto';
   font-size: 5px; }
 
+.glyphicon {
+  font-size: 14px;
+  width: 18px; }
+
 body {
   transition: color 0.15s ease-in-out;
   position: fixed;
@@ -542,6 +546,9 @@ header {
           text-align: center;
           margin-top: 1em;
           margin-bottom: 1em; }
+        .principal .contenedor .bb-custom-wrapper .bb-item .centrar {
+          justify-content: center;
+          display: flex; }
         .principal .contenedor .bb-custom-wrapper .bb-item h2 {
           color: #000000;
           text-align: center; }

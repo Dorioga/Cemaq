@@ -26,8 +26,12 @@
             <h2>
                 Agregar Documento
             </h2>
-            <input class="filechooser" type="file" name="file" accept=".pdf, .doc, .docx, .xlsx" />
+            <span id="estado"></span>
+            <input class="filechooser" type="file" id="archivo" name="file" accept=".pdf, .doc, .docx, .xlsx" />
             <input class="btn btn-primary btn-xs" type="submit" id="seccion" name="seccion" value="Guardar" />
+            <button type="submit" class='btn btn-success btn-xs'>
+             <span class="glyphicon glyphicon-refresh"></span>Actualizar
+            </button>
         </section>
         <table class="table table-striped custab">
             <thead>
@@ -50,10 +54,18 @@
                             <td>@arreglo[i].fecha_subido</td>
                             <td>@arreglo[i].estado</td>
                             <td class="text-center">
-                            <a class='btn btn-info btn-xs' href="#">
-                                <span class="glyphicon glyphicon-edit"></span> Edit</a>
-                            <a href="#" class="btn btn-danger btn-xs">
-                                <span class="glyphicon glyphicon-remove"></span> Del</a>
+                            <button type="submit" id="subir" name="subir" value="@arreglo[i].url" class='btn btn-success btn-xs' href="#">
+                                <span class="glyphicon glyphicon-cloud-download"></span> Descargar</button>
+
+                                <button type="button" id="@arreglo[i].id_formato" onclick="update()" class='btn btn-info btn-xs'>
+                                    <span class="glyphicon glyphicon-edit"></span>Editar
+                                </button>
+
+                                <button type="button" id="@arreglo[i].id_formato" onclick="remove()" class='btn btn-danger btn-xs'>
+                                    <span class="glyphicon glyphicon-trash"></span> Eliminar
+                                </button>
+                            @*<input type="button" id="@arreglo[i].id_formato" onclick="actualizar()" value="Editar" class='btn btn-info btn-xs'/>                        
+                            <input type="button" id="@arreglo[i].id_formato" onclick="eliminar()" value="Eliminar" class='btn btn-danger btn-xs'/>*@  
                             </td>
                         </tr>
                     }
@@ -62,18 +74,100 @@
         </table>
 
         @{
-            if (ViewBag.mensaje == "Exito al cargar")
+            if (ViewBag.mensaje != null)
             {
-                //Ejecutar un script que muestre exito sobre la operacion, puede ser un modal o sorprendame
-            }
-            else
-            {
-                //Ejecutar un script que muestre fallo sobre la operacion, puede ser un modal o sorprendame
+                @Scripts.Render("~/Scripts/modal_upload.js")
             }
         }
     </div>
-
+    <div class="modal fade" id="guia" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Respuesta de Tramite</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <section class="carga">                       
+                            <h4>@ViewBag.mensaje</h4>                        
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
 </main>
+
+            <script type="text/javascript">
+                function update() {
+                    $(function () {
+                        $(document).on('click', 'button[type="button"]', function (event) {
+                            let id = this.id;
+                            var archivo = ($("#archivo"))[0].files[0];
+                            var datastring = new FormData();
+
+                            datastring.append("id_formato", id);
+                            datastring.append("file", archivo);
+
+                            $.ajax({
+                                url: '@Url.Action("Actualizar_formato", "Formatos")',
+                                type: "POST",
+                                data: datastring,
+                                contentType: false,
+                                processData: false,
+                                success: function (data) {
+                                    if (typeof (data.Value) != "undefined") {
+                                        if (data.Value == true) {
+                                            alert(data.Message);
+                                            refresh();
+                                        } else {
+                                            alert("Error");
+                                        }
+                                    }
+                                },
+                                error: function (data) {
+
+                                }
+                            });
+                        });
+                    });
+                }
+
+                function remove() {
+                    $(function () {
+                        $(document).on('click', 'button[type="button"]', function (event) {
+                            let id = this.id;
+
+                            var datastring = new FormData();
+                            datastring.append("id_formato", id);
+
+                            $.ajax({
+                                url: '@Url.Action("Deshabilitar_formato", "Formatos")',
+                                type: "POST",
+                                data: datastring,
+                                contentType: false,
+                                processData: false,
+                                success: function (data) {
+                                    if (typeof (data.Value) != "undefined") {
+                                        if (data.Value == true) {
+                                            alert(data.Message);
+
+                                        } else {
+                                            alert("Error");
+                                        }
+                                    }
+                                },
+                                error: function (data) {
+
+                                }
+                            });
+                        });
+                    });
+                }
+            </script>
 
             }
 

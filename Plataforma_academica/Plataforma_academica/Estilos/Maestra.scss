@@ -21,6 +21,11 @@ $azuloscuro: #317a8e;
     font-size: 5px;
 }
 
+.glyphicon {
+    font-size: 14px;
+    width: 18px;
+}
+
 // Estilos Generales
 body {
     transition: color 0.15s ease-in-out;
@@ -552,7 +557,7 @@ header {
 
                             .msjem {
                                 font-weight: bold;
-                                font-size: calc(1em + 1vh)
+                                font-size: calc(1em + 1vh);
                             }
                         }
                     }
@@ -807,6 +812,11 @@ header {
                     text-align: center;
                     margin-top: 1em;
                     margin-bottom: 1em;
+                }
+
+                .centrar {
+                    justify-content: center;
+                    display: flex;
                 }
 
                 h2 {

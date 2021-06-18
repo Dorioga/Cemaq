@@ -1,0 +1,155 @@
+﻿@model Plataforma_academica.Models.Formatos
+
+@{
+    ViewBag.Title = "Formatos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Formatos</h2>*@
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+@using (Html.BeginForm("Formatos", "Formatos", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+<main class="con_form">
+    <div class="formulario">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @{
+            Plataforma_academica.Models.Formatos[] arreglo;
+            Plataforma_academica.Models.Formatos formato = new Plataforma_academica.Models.Formatos();
+            arreglo = formato.consultar_formatos();
+            int cont = 0;
+        }
+        <section class="carga">
+            <h2>
+                Agregar Documento
+            </h2>
+            <span id="estado"></span>
+            <input class="filechooser" type="file" id="archivo" name="file" accept=".pdf, .doc, .docx, .xlsx" />
+            <input class="btn btn-primary btn-xs" type="submit" id="seccion" name="seccion" value="Guardar" />
+        </section>
+        <table class="table table-striped custab">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Nombre Formato</th>
+                    <th>Fecha Subido</th>
+                    <th>Estado formato</th>
+                    <th class="text-center">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    for (int i = 0; i < arreglo.Length; i++)
+                    {
+                        cont++;
+                        <tr>
+                            <td>@cont</td>
+                            <td>@arreglo[i].nombre_formato</td>
+                            <td>@arreglo[i].fecha_subido</td>
+                            <td>@arreglo[i].estado</td>
+                            <td class="text-center">
+                            <button type="submit" id="subir" name="subir" value="@arreglo[i].url" class='btn btn-success btn-xs' href="#">
+                                <span class="glyphicon glyphicon-download"></span> Descargar</button>
+                            <input type="button" id="@arreglo[i].id_formato" onclick="actualizar()" value="Editar" class='btn btn-info btn-xs'/>                        
+                            <input type="button" id="@arreglo[i].id_formato" onclick="eliminar()" value="Eliminar" class='btn btn-danger btn-xs'/>  
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        @{
+            if (ViewBag.mensaje == "Exito al cargar")
+            {
+                //Ejecutar un script que muestre exito sobre la operacion, puede ser un modal o sorprendame
+            }
+            else
+            {
+                //Ejecutar un script que muestre fallo sobre la operacion, puede ser un modal o sorprendame
+            }
+        }
+    </div>
+
+   
+</main>
+
+            <script type="text/javascript">
+
+                function actualizar() {
+                    $(function () {
+                        $(document).on('click', 'input[type="button"]', function (event) {
+                            let id = this.id;
+                            var archivo = ($("#archivo"))[0].files[0];
+                            var datastring = new FormData();
+
+                            datastring.append("id_formato", id);
+                            datastring.append("file", archivo);
+
+                            $.ajax({
+                                url: '@Url.Action("Actualizar_formato", "Formatos")',
+                                type: "POST",
+                                data: datastring,
+                                contentType: false,
+                                processData: false,
+                                success: function (data) {
+                                    if (typeof (data.Value) != "undefined") {
+                                        if (data.Value == true) {
+                                            alert(data.Message);
+                                            refresh();
+                                        } else {
+                                            alert("Error");
+                                        }
+                                    }
+                                },
+                                error: function (data) {
+
+                                }
+                            });
+                        });
+                    });
+                }
+
+                function eliminar() {
+                    $(function () {
+                        $(document).on('click', 'input[type="button"]', function (event) {
+                            let id = this.id;
+
+                            var datastring = new FormData();
+                            datastring.append("id_formato", id);
+
+                            $.ajax({
+                                url: '@Url.Action("Deshabilitar_formato", "Formatos")',
+                                type: "POST",
+                                data: datastring,
+                                contentType: false,
+                                processData: false,
+                                success: function (data) {
+                                    if (typeof (data.Value) != "undefined") {
+                                        if (data.Value == true) {
+                                            alert(data.Message);
+                                            
+                                        } else {
+                                            alert("Error");
+                                        }
+                                    }
+                                },
+                                error: function (data) {
+
+                                }
+                            });
+                            refresh();
+                        });
+                    });
+                }
+            </script>
+
+            }
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -25,34 +25,34 @@
 
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("seleccionar_unidad_para_contenido","Seleccionar_para_subir_contenido", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
-    Plataforma_academica.Models.principalP[] arreglo;
+    //Plataforma_academica.Models.principalP[] arreglo;
     Plataforma_academica.Models.Niveles nivel = new Plataforma_academica.Models.Niveles();
-    Plataforma_academica.Models.Niveles[] arreglo_nivel;
+    //Plataforma_academica.Models.Niveles[] arreglo_nivel;
     Plataforma_academica.Models.Unidades unidad = new Plataforma_academica.Models.Unidades();
-    Plataforma_academica.Models.Unidades[] arreglo_unidad;
+    //Plataforma_academica.Models.Unidades[] arreglo_unidad;
     Plataforma_academica.Models.Actividades_unidad actividad = new Plataforma_academica.Models.Actividades_unidad();
     Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad;
     Plataforma_academica.Models.Actividades_unidad[] arreglo_examen;
     Plataforma_academica.Models.Pais pai = new Plataforma_academica.Models.Pais();
-    Plataforma_academica.Models.Pais[] arreglo_pais;
+    //Plataforma_academica.Models.Pais[] arreglo_pais;
     Plataforma_academica.Models.Departamento dep = new Plataforma_academica.Models.Departamento();
-    Plataforma_academica.Models.Departamento[] arreglo_departamento;
+    //Plataforma_academica.Models.Departamento[] arreglo_departamento;
     Plataforma_academica.Models.Municipio mun = new Plataforma_academica.Models.Municipio();
-    Plataforma_academica.Models.Municipio[] arreglo_municipio;
+    //Plataforma_academica.Models.Municipio[] arreglo_municipio;
     Plataforma_academica.Models.Empresa emp = new Plataforma_academica.Models.Empresa();
-    Plataforma_academica.Models.Empresa[] arreglo_empresa;
+    //Plataforma_academica.Models.Empresa[] arreglo_empresa;
     Plataforma_academica.Models.Grupo grup = new Plataforma_academica.Models.Grupo();
-    Plataforma_academica.Models.Grupo[] arreglo_grupo;
+    //Plataforma_academica.Models.Grupo[] arreglo_grupo;
     Plataforma_academica.Models.Alumnos alum = new Plataforma_academica.Models.Alumnos();
-    Plataforma_academica.Models.Alumnos[] arreglo_alumnos;
+    //Plataforma_academica.Models.Alumnos[] arreglo_alumnos;
     Plataforma_academica.Models.Chat cha = new Plataforma_academica.Models.Chat();
-    Plataforma_academica.Models.Chat[] arreglo_chat;
-    string nc;
+    //Plataforma_academica.Models.Chat[] arreglo_chat;
+    //string nc1;
 
 
     <main class="con_form">
@@ -136,6 +136,13 @@
                         arreglo_examen = actividad.Consultar_examen_unidades_edic(nc1);
                         if (Convert.ToInt32(usu.rol) != 7)
                         {
+                            <button type="button" class="boton" data-toggle="modal" data-target="#guia" name="guia">
+                                <div class="content-btn">
+                                    <section class="cent">
+                                        <p>Cargar Guía</p>
+                                    </section>
+                                </div>
+                            </button>
                             <button type="submit" class="boton" name="ir5" value="nueva">
                                 <div class="content-btn">
                                     @*<section class="izq">
@@ -160,6 +167,14 @@
                         }
                         for (int i = 0; i < arreglo_actividad.Length; i++)
                         {
+                            if (i==0)
+                            {
+                                <button type="submit" class="boton" data-toggle="modal" data-target="#guia_ver">
+                                    <div class="content-btn">
+                                        <section class="cent"><p>Guía de Aprendizaje</p></section>
+                                    </div>
+                                </button>
+                            }
                             <button type="submit" class="boton" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
                                 <div class="content-btn">
                                     @*<section class="izq"><img src="~/Imagenes/Temporal/letra a2.png" /></section>*@
@@ -178,7 +193,7 @@
                                         
                                     </div>
                                 </button>
-                            }
+                            }                            
                         }
                         for (int i = 0; i < arreglo_examen.Length; i++)
                         {
@@ -211,11 +226,44 @@
 
                     }
                 </div>
+                <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" style='width:100%; min-height:700px;'>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <embed src="https://docs.google.com/gview?url=https://diplomado-cemaq.azurewebsites.net/Imagenes/@arreglo_actividad[0].url_guia&embedded=true" style='width:100%; min-height:700px;' frameborder='0'></embed>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="guia" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
 
+                                <h3>Agregar Guía</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <section class="carga">
+                                    <span id="estado"></span>
+                                    <input class="filechooser" type="file" id="archivo" name="file" accept=".pdf" style="font-size: 12px;" />
+                                    <button class="btn btn-primary btn-xs" type="submit" id="seccion" name="seccion" value="@nc1" style="font-size: 16px;">Guardar</button>/>
+                                </section>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                         }
         }  
         
-        <script>
+        
+        @*<script>
             function myFunction() {
                 var checkBox = document.getElementById("curso");
                 var text = document.getElementById("Cursos");
@@ -252,7 +300,7 @@
                     text.style.display = "none";
                 }
             }
-        </script>
+        </script>*@
         @*@{
             if (ViewBag.mensaje == "actividad")
             {

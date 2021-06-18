@@ -10,7 +10,8 @@ namespace Plataforma_academica.Controllers
     public class Seleccionar_para_subir_contenidoController : Controller
     {
         // GET: Seleccionar_para_subir_contenido
-        public ActionResult seleccionar_unidad_para_contenido()
+        string nombre;
+        public ActionResult seleccionar_unidad_para_contenido(HttpPostedFileBase file)
         {
             Models.Login user = Session["usuario"] as Models.Login;
             Models.Pais pais = new Models.Pais();
@@ -178,6 +179,15 @@ namespace Plataforma_academica.Controllers
                                                                                 TempData["mensaje25"] = codig16;
                                                                                 return View();
                                                                             }
+                                                                            else
+                                                                            {
+                                                                                String codig17 = Request.Form["seccion"];
+                                                                                if (codig17 != null)
+                                                                                {
+                                                                                    Cargar_guia cargar = new Cargar_guia();
+                                                                                    cargar.Actualizar_guia(Subir(file), codig17);
+                                                                                }
+                                                                            }
                                                                         }
                                                                     }
                                                                 }
@@ -200,6 +210,25 @@ namespace Plataforma_academica.Controllers
 
             }
             return View();
+        }
+
+        [HttpPost]
+        public string Subir(HttpPostedFileBase file)
+        {
+            string archivo;
+
+            if (file == null)
+            {
+                nombre = null;
+                return null;
+            }
+            else
+            {
+                archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + file.FileName).ToLower();
+                file.SaveAs(Server.MapPath("~/Imagenes/" + archivo));
+                nombre = file.FileName;
+            }
+            return archivo;
         }
     }
 }

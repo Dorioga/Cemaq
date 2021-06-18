@@ -552,7 +552,7 @@ header {
 
                             .msjem {
                                 font-weight: bold;
-                                font-size: calc(1em + 1vh)
+                                font-size: calc(1em + 1vh);
                             }
                         }
                     }
@@ -809,6 +809,11 @@ header {
                     margin-bottom: 1em;
                 }
 
+                .centrar {
+                    justify-content: center;
+                    display: flex;
+                }
+
                 h2 {
                     color: $negro;
                     text-align: center;
@@ -951,6 +956,8 @@ header {
             //display:none;
             color: $negro;
             position: relative;
+
+
 
             .active {
                 display: none;
@@ -1460,6 +1467,49 @@ header {
                     color: $negro;
                 }
 
+                .carga {
+                    display: flex;
+                    flex-direction: column;
+
+                    input {
+                        font-size: calc(1em + 1vh);
+                        margin-bottom: 1vh;
+                    }
+
+                    input[type=submit] {
+                        background-color: $verdeboton;
+                        color: $negro;
+
+                        body.dark & {
+                            background-color: $azuloscuro;
+                        }
+                    }
+                }
+
+                .table {
+                    thead {
+                        tr {
+                            th {
+                                font-size: calc(1em + 1.5vh);
+                            }
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            td {
+                                font-size: calc(1em + 1vh);
+
+                                a {
+                                    span {
+                                        font-size: calc(1em + 0.5vh);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
                 h1 {
                     color: $negro;
                     margin: 0.1em;
@@ -1499,7 +1549,7 @@ header {
                     border-color: $verdeoscuro;
 
                     body.dark & {
-                        border-color: $azulgris;
+                        border-color: $azuloscuro;
                     }
 
                     thead {
@@ -1507,7 +1557,7 @@ header {
                             background: $verdeoscuro;
 
                             body.dark & {
-                                background: $azulgris;
+                                background: $azuloscuro;
                             }
 
                             th {
@@ -1528,8 +1578,17 @@ header {
                                 td {
                                     background: $verdeoscuro !important;
 
+                                    a {
+                                        border: solid 1px $blanco;
+                                        background-color: $verdefondo;
+                                    }
+
+                                    .boton {
+                                        border: solid 1px $blanco;
+                                    }
+
                                     body.dark & {
-                                        background: $azulgris !important;
+                                        background: $azuloscuro !important;
 
                                         .boton {
                                             border: solid 1px $blanco;
@@ -1565,12 +1624,12 @@ header {
                                         background: $verdeoscuro;
 
                                         body.dark & {
-                                            background: $azulgris;
+                                            background: $azuloscuro;
                                         }
                                     }
 
                                     body.dark & {
-                                        border-color: $azulgris;
+                                        border-color: $azuloscuro;
                                     }
                                 }
                             }
@@ -1583,7 +1642,7 @@ header {
                         background: $verdeoscuro;
 
                         body.dark & {
-                            background: $azulgris;
+                            background: $azuloscuro;
                         }
 
                         tr {
@@ -2179,6 +2238,9 @@ header {
             .info {
             }
         }
+        .slidermodo{
+
+        }
     }
 
     .active {
@@ -2196,8 +2258,9 @@ header {
             .con_form {
                 .row {
                     .filtro {
-                        max-height:85vh;
-                        overflow-y:auto;
+                        max-height: 85vh;
+                        overflow-y: auto;
+
                         .filtroc {
                             .catalogo {
                                 padding: 0px;
@@ -2210,6 +2273,23 @@ header {
                             }
                         }
                     }
+                }
+            }
+
+            .bb-custom-wrapper {
+                #der {
+                    display: none;
+                }
+
+                #izq {
+                    display: none;
+                }
+
+                .bb-bookblock {
+                }
+
+                .bb-item {
+                    padding: 0 4em 0 4em;
                 }
             }
         }

@@ -209,6 +209,7 @@
     <Compile Include="Models\Actividades.cs" />
     <Compile Include="Models\Actividades_unidad.cs" />
     <Compile Include="Models\Alumnos.cs" />
+    <Compile Include="Models\Cargar_guia.cs" />
     <Compile Include="Models\Chat.cs" />
     <Compile Include="Models\Condiciones.cs" />
     <Compile Include="Models\contenido.cs" />
@@ -310,7 +311,6 @@
     <Content Include="Imagenes\2021042114190787629571_p0_master1200.jpg" />
     <Content Include="Imagenes\animated_favicon1.gif" />
     <Content Include="Imagenes\CAPYBARA_TOGA.png" />
-    <Content Include="Imagenes\cargando-gif-sin-fondo-7.gif" />
     <Content Include="Imagenes\Iconos\231645.png" />
     <Content Include="Imagenes\Iconos\3165548.png" />
     <Content Include="Imagenes\Iconos\65498.png" />
@@ -332,7 +332,6 @@
     <Content Include="Imagenes\Iconos\ondas.png" />
     <Content Include="Imagenes\Iconos\qasda.png" />
     <Content Include="Imagenes\Iconos\sedfws.png" />
-    <Content Include="Imagenes\loading.gif" />
     <Content Include="Imagenes\LOGO CEMAQ Negro.png" />
     <Content Include="Imagenes\LOGO CEMAQ PNG.png" />
     <Content Include="Imagenes\LOGO_CEMAQ.png" />
@@ -343,15 +342,11 @@
     <Content Include="Imagenes\Temporal\letra s 2.png" />
     <Content Include="Imagenes\user.png" />
     <Content Include="Imagenes\usuaria.png" />
-    <Content Include="Imagenes\YCZH.gif" />
-    <Content Include="imagen_multimedia\Agregar Actividad.png" />
-    <Content Include="imagen_multimedia\Agregar Examen.png" />
-    <Content Include="imagen_multimedia\Examen.png" />
-    <Content Include="imagen_multimedia\letra a2a.png" />
     <Content Include="imagen_multimedia\LETRA Ee.png" />
     <Content Include="Scripts\accederzoom.js" />
     <Content Include="Scripts\actualizar.js" />
     <Content Include="Scripts\actualizar_curso_usuario.js" />
+    <Content Include="Scripts\Actualizar_guia.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\alumnos.js" />
@@ -378,6 +373,7 @@
     <Content Include="Scripts\buton_examen.js" />
     <Content Include="Scripts\button_habilitar.js" />
     <Content Include="Scripts\button_habilitar_pregunt.js" />
+    <Content Include="Scripts\Cambiar_a_PDF.js" />
     <Content Include="Scripts\chat.js" />
     <Content Include="Scripts\chat1.js" />
     <Content Include="Scripts\chosen.jquery.js" />
@@ -396,6 +392,7 @@
     <Content Include="Scripts\Emergente_nota.js" />
     <Content Include="Scripts\Emergente_nota1.js" />
     <Content Include="Scripts\empresas.js" />
+    <Content Include="Scripts\format_edit_dele.js" />
     <Content Include="Scripts\Grupo.js" />
     <Content Include="Scripts\infantilpage.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -420,6 +417,7 @@
     <Content Include="Scripts\Modal_entrada.js" />
     <Content Include="Scripts\modal_exito_subir.js" />
     <Content Include="Scripts\modal_inicial_mensaje.js" />
+    <Content Include="Scripts\modal_upload.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Modooscuro.js" />
     <Content Include="Scripts\municipio.js" />

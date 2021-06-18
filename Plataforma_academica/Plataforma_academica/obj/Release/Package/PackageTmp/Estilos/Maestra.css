@@ -542,6 +542,9 @@ header {
           text-align: center;
           margin-top: 1em;
           margin-bottom: 1em; }
+        .principal .contenedor .bb-custom-wrapper .bb-item .centrar {
+          justify-content: center;
+          display: flex; }
         .principal .contenedor .bb-custom-wrapper .bb-item h2 {
           color: #000000;
           text-align: center; }
@@ -983,6 +986,23 @@ header {
           background-color: rgba(218, 218, 218, 0.5);
           border-color: #50687a;
           color: #000000; }
+        .principal .contenedor .con_form .formulario .carga {
+          display: flex;
+          flex-direction: column; }
+          .principal .contenedor .con_form .formulario .carga input {
+            font-size: calc(1em + 1vh);
+            margin-bottom: 1vh; }
+          .principal .contenedor .con_form .formulario .carga input[type=submit] {
+            background-color: #96ca79;
+            color: #000000; }
+            body.dark .principal .contenedor .con_form .formulario .carga input[type=submit] {
+              background-color: #317a8e; }
+        .principal .contenedor .con_form .formulario .table thead tr th {
+          font-size: calc(1em + 1.5vh); }
+        .principal .contenedor .con_form .formulario .table tbody tr td {
+          font-size: calc(1em + 1vh); }
+          .principal .contenedor .con_form .formulario .table tbody tr td a span {
+            font-size: calc(1em + 0.5vh); }
         .principal .contenedor .con_form .formulario h1 {
           color: #000000;
           margin: 0.1em; }
@@ -1008,11 +1028,11 @@ header {
           border: 0.2em solid;
           border-color: #69b545; }
           body.dark .principal .contenedor .con_form .formulario table {
-            border-color: #50687a; }
+            border-color: #317a8e; }
           .principal .contenedor .con_form .formulario table thead tr {
             background: #69b545; }
             body.dark .principal .contenedor .con_form .formulario table thead tr {
-              background: #50687a; }
+              background: #317a8e; }
             .principal .contenedor .con_form .formulario table thead tr th {
               padding: 0.5em;
               text-align: center;
@@ -1023,8 +1043,13 @@ header {
             color: #000000; }
             .principal .contenedor .con_form .formulario table tbody tr:hover td {
               background: #69b545 !important; }
+              .principal .contenedor .con_form .formulario table tbody tr:hover td a {
+                border: solid 1px #ffffff;
+                background-color: #d4e9c6; }
+              .principal .contenedor .con_form .formulario table tbody tr:hover td .boton {
+                border: solid 1px #ffffff; }
               body.dark .principal .contenedor .con_form .formulario table tbody tr:hover td {
-                background: #50687a !important; }
+                background: #317a8e !important; }
                 body.dark .principal .contenedor .con_form .formulario table tbody tr:hover td .boton {
                   border: solid 1px #ffffff; }
             .principal .contenedor .con_form .formulario table tbody tr td {
@@ -1046,15 +1071,15 @@ header {
                 .principal .contenedor .con_form .formulario table tbody tr td .boton:enabled {
                   background: #69b545; }
                   body.dark .principal .contenedor .con_form .formulario table tbody tr td .boton:enabled {
-                    background: #50687a; }
+                    background: #317a8e; }
                 body.dark .principal .contenedor .con_form .formulario table tbody tr td .boton {
-                  border-color: #50687a; }
+                  border-color: #317a8e; }
           .principal .contenedor .con_form .formulario table tfoot {
             width: 100%;
             height: 0.5em;
             background: #69b545; }
             body.dark .principal .contenedor .con_form .formulario table tfoot {
-              background: #50687a; }
+              background: #317a8e; }
             .principal .contenedor .con_form .formulario table tfoot tr td {
               border: none; }
         .principal .contenedor .con_form .formulario .alert-danger {
@@ -1402,7 +1427,13 @@ header {
     .principal .contenedor .con_form .row .filtro .filtroc .catalogo {
       padding: 0px; }
       .principal .contenedor .con_form .row .filtro .filtroc .catalogo .arriba .fondo {
-        width: 15vw; } }
+        width: 15vw; }
+  .principal .contenedor .bb-custom-wrapper #der {
+    display: none; }
+  .principal .contenedor .bb-custom-wrapper #izq {
+    display: none; }
+  .principal .contenedor .bb-custom-wrapper .bb-item {
+    padding: 0 4em 0 4em; } }
 
 @media (max-width: 1000px) and (min-width: 600px) {
   header .navbar .info .contenido:hover .lista-menu {

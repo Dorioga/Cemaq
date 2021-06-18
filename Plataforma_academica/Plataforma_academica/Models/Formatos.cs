@@ -12,13 +12,14 @@ namespace Plataforma_academica.Models
         public String nombre_formato { set; get; }
         public String url { set; get; }
         public String fecha_subido { set; get; }
+        public HttpPostedFileBase file { set; get; }
         public String estado { set; get; }
         public String id_formato { set; get; }
 
-        public bool Registrar_formato(string url, string n)
+        public bool Registrar_formato(string url, string n, int id_usaurio)
         {
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_ingresar_formato ('" + n + "', '" + url + "')");
+            int x = conexion.Execute_Operation("call Pr_ingresar_formato ('" + n + "', '" + url + "','"+id_usaurio+"')");
             return x > 0 ? true : false;
         }
 
@@ -42,6 +43,20 @@ namespace Plataforma_academica.Models
             return arreglo;
         }
 
+        public bool Actualizar_formatos(int id_formato, string url, string nombre_formato)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            int x = con.Execute_Operation("call Pr_actualizar_formatos ('" + id_formato + "', '" + url + "', '"+ nombre_formato +"')");
+            return x > 0 ? true : false;
+        }
+
+
+        public bool Deshabilitar_formatos(int id_formato)
+        {
+            Conexion.Conexion con = new Conexion.Conexion();
+            int x = con.Execute_Operation("call Pr_actualizar_formatos_inactivo ('" + id_formato + "')");
+            return x > 0 ? true : false;
+        }
 
     }
 }

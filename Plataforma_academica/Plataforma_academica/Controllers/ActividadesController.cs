@@ -172,6 +172,14 @@ namespace Plataforma_academica.Controllers
         }
 
         [HttpPost]
+        public string cien100()
+        {
+            string resultado = "";
+            
+            return (resultado);
+        }
+
+        [HttpPost]
         public JsonResult porcentaje()
         {
             Models.principalP actividad = Session["usuario3"] as Models.principalP;
