@@ -5,6 +5,10 @@
   font-family: 'Roboto';
   font-size: 5px; }
 
+.glyphicon {
+  font-size: 14px;
+  width: 18px; }
+
 body {
   transition: color 0.15s ease-in-out;
   position: fixed;

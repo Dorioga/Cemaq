@@ -28,7 +28,7 @@ namespace Plataforma_academica.Models
         {
             
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_registrar_curso_unidad ('" + obj.Nombre_curso + "','"+codigo_nivel+"','" + nombre_unidad + "','" + descripcion_unidad + "')");
+            int x = conexion.Execute_Operation("call Pr_registrar_curso_unidad ('" + obj.Nombre_curso + "','"+codigo_nivel+"','" + nombre_unidad + "','" + descripcion_unidad + "','"+"pendiente"+"')");
             return x == 0 ? true : false;
 
         }
