@@ -145,7 +145,9 @@ namespace Plataforma_academica.Controllers
                                     for (int i = 0; i < obj.cantidadBasico; i++)
                                     {
                                         obj.Registrar_curso_unidad(obj, 1, obj.basico[i], obj.descripcionbasico[i]);
+
                                     }
+                                    ViewBag.mensaje2 = "Registro exito";
                                 }
 
                             }
@@ -175,7 +177,7 @@ namespace Plataforma_academica.Controllers
                         {
                             ViewBag.mensaje2 = "Registro no";
                         }
-                        ViewBag.mensaje2 = "Registro exito";
+                        
                     }
                 }
             }
