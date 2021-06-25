@@ -169,11 +169,14 @@
                         {
                             if (i == 0)
                             {
-                                <button type="submit" class="boton" data-toggle="modal" data-target="#guia_ver">
-                                    <div class="content-btn">
-                                        <section class="cent"><p>Guía de Aprendizaje</p></section>
-                                    </div>
-                                </button>
+                                if (arreglo_actividad[i].url_guia != "pendiente")
+                                {
+                                    <button type="submit" class="boton" data-toggle="modal" data-target="#guia_ver">
+                                        <div class="content-btn">
+                                            <section class="cent"><p>Guía de Aprendizaje</p></section>
+                                        </div>
+                                    </button>
+                                }
                             }
                             <button type="submit" class="boton" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
                                 <div class="content-btn">
