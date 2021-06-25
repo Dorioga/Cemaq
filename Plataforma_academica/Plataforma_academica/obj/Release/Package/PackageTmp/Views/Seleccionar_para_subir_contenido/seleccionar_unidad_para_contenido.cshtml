@@ -169,11 +169,14 @@
                         {
                             if (i == 0)
                             {
-                                <button type="submit" class="boton" data-toggle="modal" data-target="#guia_ver">
-                                    <div class="content-btn">
-                                        <section class="cent"><p>Guía de Aprendizaje</p></section>
-                                    </div>
-                                </button>
+                                if (arreglo_actividad[i].url_guia != "pendiente")
+                                {
+                                    <button type="submit" class="boton" data-toggle="modal" data-target="#guia_ver">
+                                        <div class="content-btn">
+                                            <section class="cent"><p>Guía de Aprendizaje</p></section>
+                                        </div>
+                                    </button>
+                                }
                             }
                             <button type="submit" class="boton" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
                                 <div class="content-btn">
@@ -227,7 +230,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content" style="width: 50vw;">
                             <div class="modal-body">
-                                @*<embed src="https://docs.google.com/gview?url=https://diplomado-cemaq.azurewebsites.net/Imagenes/@arreglo_actividad[0].url_guia&embedded=true" style='width:100%; min-height:700px;' frameborder='0'></embed>*@
+                                <embed src="https://docs.google.com/gview?url=https://diplomado-cemaq.azurewebsites.net/Imagenes/@arreglo_actividad[0].url_guia&embedded=true" style='width:100%; min-height:700px;' frameborder='0'></embed>
                             </div>
                             <div class="modal-footer">
                                 <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
