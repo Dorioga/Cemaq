@@ -342,6 +342,11 @@
     <Content Include="Imagenes\Temporal\letra s 2.png" />
     <Content Include="Imagenes\user.png" />
     <Content Include="Imagenes\usuaria.png" />
+    <Content Include="imagen_multimedia\20210701102629imagen2.jpg" />
+    <Content Include="imagen_multimedia\2021070117245352-525758_hd-hi-tech-wallpaper-background-images-for-consultancy.jpg" />
+    <Content Include="imagen_multimedia\2021070208564952-525758_hd-hi-tech-wallpaper-background-images-for-consultancy.jpg" />
+    <Content Include="imagen_multimedia\202107021535292820019-637490925715171707-16x9.jpg" />
+    <Content Include="imagen_multimedia\20210703084024concepto-reserva-cita-telefono-inteligente_23-2148557912.jpg" />
     <Content Include="imagen_multimedia\LETRA Ee.png" />
     <Content Include="Scripts\accederzoom.js" />
     <Content Include="Scripts\actualizar.js" />
@@ -361,6 +366,11 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Estilos\Login.scss" />
+    <Content Include="imagen_multimedia\20210702085649certificado_antonio_fajardo_rico.pdf" />
+    <Content Include="imagen_multimedia\20210701103252certificado_antonio_fajardo_rico.pdf" />
+    <Content Include="imagen_multimedia\20210703084039diplomado1modulo1.pdf" />
+    <Content Include="imagen_multimedia\20210703083104certificado_antonio_fajardo_rico.pdf" />
+    <Content Include="imagen_multimedia\20210702153529certificado_antonio_fajardo_rico.pdf" />
     <None Include="Properties\PublishProfiles\Diplomado-Cemaq - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomado-Cemaq - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomado-Cemaq - Web Deploy.pubxml" />

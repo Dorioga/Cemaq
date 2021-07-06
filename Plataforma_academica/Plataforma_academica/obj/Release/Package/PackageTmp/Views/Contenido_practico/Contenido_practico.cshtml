@@ -9,6 +9,53 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
      
+        <script type="text/javascript">
+
+        function mostrar(value_elemento) {
+            var total = 2; //total de mis capas
+            var elemento, elemento1, tipo;
+            elemento = document.getElementById('capa');
+            elemento1 = document.getElementById('capa1');
+            tipo = document.getElementById("fname");
+            if (value_elemento == 1) {
+                elemento.style.display = "block";
+            } else {
+                elemento.style.display = "none";
+            }
+            if (value_elemento == 2) {
+                elemento1.style.display = "block";
+                tipo.accept = ".jpg,png";
+            } else {
+                if (value_elemento == 4) {
+                    elemento1.style.display = "block";
+                    tipo.accept = ".mp3";
+                } else {
+                    if (value_elemento == 5) {
+                        elemento1.style.display = "block";
+                        tipo.accept = ".gif";
+                    } else {
+                        elemento1.style.display = "none";
+                    }
+                }
+            }
+        }
+        function mostrar1(value_elemento) {
+            var total = 2; //total de mis capas
+            var elemento, elemento1;
+            elemento = document.getElementById('capa4');
+            elemento1 = document.getElementById('capa5');
+            if (value_elemento == 3) {
+                elemento.style.display = "block";
+            } else {
+                elemento.style.display = "none";
+            }
+            if (value_elemento == 2) {
+                elemento1.style.display = "block";
+            } else {
+                elemento1.style.display = "none";
+            }
+        }
+        </script>
     </head>
 
 @using (Html.BeginForm("Contenido_practico", "Contenido_practico", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -69,11 +116,30 @@
                 <section class="section_contenido">
                     <article>
                         <h5>Tipo Multimedia</h5>
-                        @Html.DropDownListFor(model => model.tipo_multimedia, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione one--")
-                        <h5>Publico para el multimedia</h5>
-                        @Html.DropDownListFor(model => model.tipo_clasificacion, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione one--")
-                        <h5>Multimedia Actividad (Opcional)</h5>
-                        <input type="file" name="file" class="filechooser" />
+                        @Html.DropDownListFor(model => model.tipo_multimedia, (IEnumerable<SelectListItem>)ViewData["lista2"], "--Seleccione--", new { @onchange = "mostrar(this.value)" })
+                        <section class="oculta" id="capa">
+                            <h5>Link del video</h5>
+                            @Html.EditorFor(model => model.url_multimedia, new { htmlAttributes = new { @id = "contenido", @placeholder = "Http://*" } })
+                            @Html.ValidationMessageFor(model => model.url_multimedia, "", new { @class = "text-danger" })
+                        </section>
+                        <section  class="oculta" id="capa1">
+                            <h5>Multimedia Actividad</h5>
+                            <input class="filechooser" id="fname" type="file" name="file" @*accept=".jpg,.png"*@ />
+                            <h5>Link de referencia apa</h5>
+                            @Html.EditorFor(model => model.link_apa, new { htmlAttributes = new { @id = "contenido", @placeholder = "Http://*" } })
+                            @Html.ValidationMessageFor(model => model.link_apa, "", new { @class = "text-danger" })
+                        </section>
+                        <h5>Apoyo adicional</h5>
+                        @Html.DropDownListFor(model => model.tipo_clasificacion, (IEnumerable<SelectListItem>)ViewData["lista1"], "--Seleccione--", new { @onchange = "mostrar1(this.value)"})
+                        <section class="oculta" id="capa5">
+                            <h5>Multimedia Actividad</h5>
+                            <input type="file" name="file1" class="filechooser" />
+                        </section>
+                        <section class="oculta" id="capa4">
+                            <h5>Link de referencia</h5>
+                            @Html.EditorFor(model => model.link_apoyo, new { htmlAttributes = new { @id = "contenido", @placeholder = "Http://*" } })
+                            @Html.ValidationMessageFor(model => model.link_apoyo, "", new { @class = "text-danger" })
+                        </section>
                     </article>
                 </section>
                 <section class="section_contenido">

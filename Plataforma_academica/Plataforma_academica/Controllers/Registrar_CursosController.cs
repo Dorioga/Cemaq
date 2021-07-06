@@ -98,38 +98,13 @@ namespace Plataforma_academica.Controllers
                             });
                         }
                         ViewData["lista6"] = lista6;
-
-                        //List<SelectListItem> lista2 = new List<SelectListItem>();
-                        //for (int j = 0; j < 11; j++)
-                        //{
-                        //    lista2.Add(new SelectListItem
-                        //    {
-                        //        Text = Convert.ToString(j),
-                        //        Value = Convert.ToString(j),
-                        //        Selected = false
-                        //    });
-                        //}
-                        //ViewData["lista3"] = lista2;
-
-                        //List<SelectListItem> lista3 = new List<SelectListItem>();
-                        //for (int h = 0; h < 11; h++)
-                        //{
-                        //    lista3.Add(new SelectListItem
-                        //    {
-                        //        Text = Convert.ToString(h),
-                        //        Value = Convert.ToString(h),
-                        //        Selected = false
-                        //    });
-                        //}
-                        //ViewData["lista4"] = lista3;
+                        
                     }
                 }
                 String codig100 = Request.Form["ir100"];
                 if (codig100 != null)
                 {
-                    //ViewBag.mensajeavanzado = obj.cantidadAvanzado;
                     ViewBag.mensajebasico = obj.cantidadBasico;
-                    //ViewBag.mensajeintermedio = obj.cantidadIntermedio;
                     ViewBag.mensaje1 = "Registro exitoso";
                 }else
                 {
@@ -150,29 +125,7 @@ namespace Plataforma_academica.Controllers
                                     ViewBag.mensaje2 = "Registro exito";
                                 }
 
-                            }
-                            //if (obj.cantidadIntermedio > 0)
-                            //{
-                            //    if (obj.Registrar_curso_nivel(obj, 2))
-                            //    {
-                            //        for (int j = 0; j < obj.cantidadIntermedio; j++)
-                            //        {
-                            //            obj.Registrar_curso_unidad(obj, 2, obj.intermedio[j], obj.descripcionintermedio[j]);
-                            //        }
-                            //    }
-
-                            //}
-                            //if (obj.cantidadAvanzado > 0)
-                            //{
-                            //    if (obj.Registrar_curso_nivel(obj, 3))
-                            //    {
-                            //        for (int m = 0; m < obj.cantidadAvanzado; m++)
-                            //        {
-                            //            obj.Registrar_curso_unidad(obj, 3, obj.avanzado[m], obj.descripcionavanzado[m]);
-                            //        }
-                            //    }
-
-                            //}
+                            }                            
                         }else
                         {
                             ViewBag.mensaje2 = "Registro no";

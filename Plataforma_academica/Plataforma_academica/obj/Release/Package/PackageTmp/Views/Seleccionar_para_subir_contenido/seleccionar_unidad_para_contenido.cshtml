@@ -30,100 +30,23 @@
     @Html.AntiForgeryToken()
 
     Plataforma_academica.Models.principalP principal = new Plataforma_academica.Models.principalP();
-    //Plataforma_academica.Models.principalP[] arreglo;
     Plataforma_academica.Models.Niveles nivel = new Plataforma_academica.Models.Niveles();
-    //Plataforma_academica.Models.Niveles[] arreglo_nivel;
     Plataforma_academica.Models.Unidades unidad = new Plataforma_academica.Models.Unidades();
-    //Plataforma_academica.Models.Unidades[] arreglo_unidad;
     Plataforma_academica.Models.Actividades_unidad actividad = new Plataforma_academica.Models.Actividades_unidad();
-    Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad;
-    Plataforma_academica.Models.Actividades_unidad[] arreglo_examen;
+    Plataforma_academica.Models.Actividades_unidad[] arreglo_actividad = new Plataforma_academica.Models.Actividades_unidad[0];
+    Plataforma_academica.Models.Actividades_unidad[] arreglo_examen = new Plataforma_academica.Models.Actividades_unidad[0];
     Plataforma_academica.Models.Pais pai = new Plataforma_academica.Models.Pais();
-    //Plataforma_academica.Models.Pais[] arreglo_pais;
     Plataforma_academica.Models.Departamento dep = new Plataforma_academica.Models.Departamento();
-    //Plataforma_academica.Models.Departamento[] arreglo_departamento;
     Plataforma_academica.Models.Municipio mun = new Plataforma_academica.Models.Municipio();
-    //Plataforma_academica.Models.Municipio[] arreglo_municipio;
     Plataforma_academica.Models.Empresa emp = new Plataforma_academica.Models.Empresa();
-    //Plataforma_academica.Models.Empresa[] arreglo_empresa;
     Plataforma_academica.Models.Grupo grup = new Plataforma_academica.Models.Grupo();
-    //Plataforma_academica.Models.Grupo[] arreglo_grupo;
     Plataforma_academica.Models.Alumnos alum = new Plataforma_academica.Models.Alumnos();
-    //Plataforma_academica.Models.Alumnos[] arreglo_alumnos;
     Plataforma_academica.Models.Chat cha = new Plataforma_academica.Models.Chat();
-    //Plataforma_academica.Models.Chat[] arreglo_chat;
-    //string nc1;
+    string url = "";
 
 
     <main class="con_form">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-       <!-- Diplomados-->
-        @*<div class="contenercheck first" id="bdiplomado">
-            <span>
-                <p>Diplomados</p>
-            </span>
-        </div>
-        <div class="contener" id="diplomado">
-            @{
-                if (usu != null)
-                {
-
-                    if (Convert.ToInt32(usu.rol) == 7)
-                    {
-                        arreglo = principal.BuscarCursosDocentes(usu.cedula);
-                    }
-                    else
-                    {
-                        arreglo = principal.BuscarCursosgeneral();
-                    }
-                    for (int i = 0; i < arreglo.Length; i++)
-                    {
-                        <button type="submit" class="boton" name="ir" value="@arreglo[i].codigo_curso">
-                            <div class="content-btn">
-                                <img src="~/imagenes/@arreglo[i].url" />
-                                <p>@arreglo[i].nombre_curso</p>
-                            </div>
-                        </button>
-                    }
-                    
-                }
-            }
-        </div>*@
-     
-        <!--Modulos-->
-        @*<div class="contenercheck" id="bmodulo">
-            <span>
-                <p>Modulos</p>
-            </span>
-        </div>
-        <div class="contener" id="modulo">
-            @{
-                if (TempData["mensaje10"] != null && usu != null)
-                {
-                    TempData.Keep("mensaje10");
-                    nc = Convert.ToString(TempData["mensaje10"]);
-                    arreglo_unidad = unidad.Consultar_unidades_grupo(nc);
-
-                    for (int i = 0; i < arreglo_unidad.Length; i++)
-                    {
-                        <button type="submit" class="boton" name="ir3" value="@arreglo_unidad[i].codigo_unidad">
-                            <div class="content-btn">
-                                <img src="~/imagen_multimedia/Modulo.png" />
-                                <p>@arreglo_unidad[i].nombre_unidad</p>
-                            </div>
-                            <script>
-                                var checkBox = document.getElementById("unidad");
-                                checkBox.checked = "checked"
-                            </script>
-                        </button>
-                    }
-                }
-                else
-                {
-                    <a>Elija un Diplomado</a>
-                }
-            }
-        </div>*@
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })      
         <!--Actividades-->
         @{
             if (TempData["mensaje12"] != null && usu != null)
@@ -145,9 +68,6 @@
                             </button>
                             <button type="submit" class="boton" name="ir5" value="nueva">
                                 <div class="content-btn">
-                                    @*<section class="izq">
-                                        <img src="~/imagen_multimedia/letra a2a.png" style="width: 3.9vw;" />
-                                    </section>*@
                                     <section class="cent">
                                         <p>Crear Actividad</p>
                                     </section>
@@ -155,13 +75,10 @@
                             </button>
                             <button type="submit" class="boton" name="ir99" value="nueva2">
                                 <div class="content-btn">
-                                    @*<section class="izq">
-                                        <img src="~/imagen_multimedia/LETRA Ee.png" />
-                                    </section>*@
                                     <section class="cent">
-                                    <p>Crear Examen</p>
+                                        <p>Crear Examen</p>
                                     </section>
-                                    
+
                                 </div>
                             </button>
                         }
@@ -169,9 +86,10 @@
                         {
                             if (i == 0)
                             {
+                                url = arreglo_actividad[i].url_guia;
                                 if (arreglo_actividad[i].url_guia != "pendiente")
                                 {
-                                    <button type="submit" class="boton" data-toggle="modal" data-target="#guia_ver">
+                                    <button class="boton" data-toggle="modal" data-target="#guia_ver">
                                         <div class="content-btn">
                                             <section class="cent"><p>Guía de Aprendizaje</p></section>
                                         </div>
@@ -180,7 +98,6 @@
                             }
                             <button type="submit" class="boton" name="ir4" value="@arreglo_actividad[i].codigo_actividad">
                                 <div class="content-btn">
-                                    @*<section class="izq"><img src="~/Imagenes/Temporal/letra a2.png" /></section>*@
                                     <section class="cent"><p>@arreglo_actividad[i].nombre_actividad "@arreglo_actividad[i].edicion"</p></section>
                                 </div>
                             </button>
@@ -230,7 +147,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content" style="width: 50vw;">
                             <div class="modal-body">
-                                <embed src="https://docs.google.com/gview?url=https://diplomado-cemaq.azurewebsites.net/Imagenes/@arreglo_actividad[0].url_guia&embedded=true" style='width:100%; min-height:700px;' frameborder='0'></embed>
+                                <embed src="~/Imagenes/@url" style='width:100%; min-height:700px;' frameborder='0'></embed>
                             </div>
                             <div class="modal-footer">
                                 <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
@@ -260,53 +177,7 @@
                     </div>
                 </div>
                         }
-        }  
-        
-        
-        @*<script>
-            function myFunction() {
-                var checkBox = document.getElementById("curso");
-                var text = document.getElementById("Cursos");
-                if (checkBox.checked == true) {
-                    text.style.display = "block";
-                } else {
-                    text.style.display = "none";
-                }
-            }
-            function mynivel() {
-                var checkBox = document.getElementById("nivel");
-                var text = document.getElementById("Niveles");
-                if (checkBox.checked == true) {
-                    text.style.display = "block";
-                } else {
-                    text.style.display = "none";
-                }
-            }
-            function myunidad() {
-                var checkBox = document.getElementById("unidad");
-                var text = document.getElementById("Unidades");
-                if (checkBox.checked == true) {
-                    text.style.display = "block";
-                } else {
-                    text.style.display = "none";
-                }
-            }
-            function myactividad() {
-                var checkBox = document.getElementById("actividad");
-                var text = document.getElementById("Actividades");
-                if (checkBox.checked == true) {
-                    text.style.display = "block";
-                } else {
-                    text.style.display = "none";
-                }
-            }
-        </script>*@
-        @*@{
-            if (ViewBag.mensaje == "actividad")
-            {
-                <script> window.open ('@Url.Action("Actividades", "Actividades")'); </script>
-            }
-        }*@
+        }        
     </main>
 
 }<script src="~/Scripts/Manejocurso.js" charset="utf-8"></script>

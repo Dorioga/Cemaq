@@ -335,51 +335,5 @@ namespace Plataforma_academica.Controllers
             Response.AppendHeader("Cache-Control", "no-store");
             return RedirectToAction("Login", "Login");
         }
-
-        
-        //public JsonResult GetStateList(int CountryId)
-        //{
-        //    List<SelectListItem> states = new List<SelectListItem>();
-
-        //        Plataforma_academica.Models.Departamento dp = new Plataforma_academica.Models.Departamento();
-        //        Plataforma_academica.Models.Departamento[] depa;
-
-        //        depa = dp.BuscarDepartamento(CountryId);
-            
-        //        foreach (Departamento i in depa)
-        //        {
-        //            states.Add(new SelectListItem
-        //            {
-        //                Text = i.nombre_departamento,
-        //                Value = i.id_departamento,
-        //                Selected = false
-        //            });
-        //        }
-        //    ViewData["states"] = states;
-        //    return Json(ViewData["states"],JsonRequestBehavior.AllowGet);
-        //}
-
-        //public JsonResult GetCity(string x)
-        //{
-        //    List<SelectListItem> City = new List<SelectListItem>();
-
-        //    Plataforma_academica.Models.Municipio m = new Plataforma_academica.Models.Municipio();
-        //    Plataforma_academica.Models.Municipio[] mu;
-
-        //    mu = m.BuscarMunicipio(x);
-
-        //    foreach (Municipio i in mu)
-        //    {
-        //        City.Add(new SelectListItem
-        //        {
-        //            Text = i.nombre_municipio,
-        //            Value = i.id_municipio,
-        //            Selected = false
-        //        });
-        //    }
-        //    ViewData["City"] = City;
-        //    return Json(ViewData["City"]);
-        //}
-
     }
 }

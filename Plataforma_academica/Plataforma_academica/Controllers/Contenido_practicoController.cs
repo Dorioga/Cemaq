@@ -11,8 +11,9 @@ namespace Plataforma_academica.Controllers
     public class Contenido_practicoController : Controller
     {
         string nombre;
+        string nombre2;
         // GET: Contenido_practico
-        public ActionResult Contenido_practico(Contenido_practico obj, lista_tipo_multimedia tipo, HttpPostedFileBase file, Clasificacion_multimedia tipoact, Tipo_de_pregunta tipo_pregunta, Tipo_examen tipo_examen, Condiciones condicion)
+        public ActionResult Contenido_practico(Contenido_practico obj, lista_tipo_multimedia tipo, HttpPostedFileBase file1, HttpPostedFileBase file, Clasificacion_multimedia tipoact, Tipo_de_pregunta tipo_pregunta, Tipo_examen tipo_examen, Condiciones condicion)
         {
             Plataforma_academica.Models.principalP act2 = Session["usuario12"] as Plataforma_academica.Models.principalP;
             Login user = Session["usuario"] as Login;
@@ -173,7 +174,7 @@ namespace Plataforma_academica.Controllers
                             Contenido_practico pregunta = new Contenido_practico();
                             Plataforma_academica.Models.Contenido_practico cont = Session["usuario_id_actividad_examen"] as Plataforma_academica.Models.Contenido_practico;
                             DataTable datos = null;
-                            datos = obj.Registrar_pregunta(obj,cont.id_exam, Subir(file), nombre);
+                            datos = obj.Registrar_pregunta(obj,cont.id_exam, Subir(file), nombre, Subir1(file1), nombre2);
                             if (datos != null)
                             {
                                 pregunta.tipo_pregunta = obj.tipo_pregunta;
@@ -252,6 +253,25 @@ namespace Plataforma_academica.Controllers
                 nombre = file.FileName;
             }
             return archivo;
+        }
+
+        [HttpPost]
+        public string Subir1(HttpPostedFileBase file)
+        {
+            string archivo2;
+
+            if (file == null)
+            {
+                nombre2 = null;
+                return null;
+            }
+            else
+            {
+                archivo2 = (DateTime.Now.ToString("yyyyMMddHHmmss") + file.FileName).ToLower();
+                file.SaveAs(Server.MapPath("~/imagen_multimedia/" + archivo2));
+                nombre2 = file.FileName;
+            }
+            return archivo2;
         }
     }
 }

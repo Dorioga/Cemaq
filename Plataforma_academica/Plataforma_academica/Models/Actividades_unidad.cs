@@ -19,9 +19,7 @@ namespace Plataforma_academica.Models
         public String url_guia { set; get; }
 
         public Actividades_unidad[] Consultar_Actividad_unidades(string nc)
-        {
-            //@ -27,5 + 28,23 @@ namespace Plataforma_academica.Models
-            
+        {                      
             Conexion.Conexion con = new Conexion.Conexion();
             DataTable porcentaje = con.Execute_Query("call Pr_cargar_actividad(" + nc + ")");
             Actividades_unidad[] arreglo = new Actividades_unidad[porcentaje.Rows.Count];
@@ -121,6 +119,7 @@ namespace Plataforma_academica.Models
                 arreglo[j].codigo_actividad = i["id_actividad"].ToString();
                 arreglo[j].porcentaje = i["Porcentaje_usuario_actividad"].ToString();
                 arreglo[j].tipo_actividad = i["tipo_actividad"].ToString();
+                arreglo[j].url_guia = i["url_guia"].ToString();
                 j++;
             }
             return arreglo;

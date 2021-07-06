@@ -20,9 +20,11 @@ namespace Plataforma_academica.Models
         public String[] respuestas { set; get; }
         public string nombre_multimedia { set; get; }
         public string url_multimedia { set; get; }
+        public string link_apoyo { set; get; }
         public string id_pregunta { set; get; }
         public int[] tipo_condicion { set; get; }
         public string codigo_usuario_unidad { set; get; }
+        public string link_apa { set; get; }
 
         private Conexion.Conexion conexion;
 
@@ -58,11 +60,11 @@ namespace Plataforma_academica.Models
 
         }
 
-        public DataTable Registrar_pregunta(Contenido_practico obj, int fk_examen, string url, string nombre)
+        public DataTable Registrar_pregunta(Contenido_practico obj, int fk_examen, string url, string nombre, string url2, string nombre2)
         {
-            conexion = new Conexion.Conexion();
-            DataTable x = conexion.Execute_Query("call Pr_ingresar_pregunta ('" + obj.nombre_pregunta + "', '" + obj.descripcion_pregunta + "','" + fk_examen + "','" + obj.tipo_pregunta + "','" + nombre + "','" + url + "','" + obj.tipo_clasificacion + "','" + obj.tipo_multimedia+ "')");
-            return x;
+            conexion = new Conexion.Conexion();            
+            DataTable x = conexion.Execute_Query("call Pr_ingresar_pregunta ('" + obj.nombre_pregunta + "', '" + obj.descripcion_pregunta + "','" + fk_examen + "','" + obj.tipo_pregunta + "','" + nombre + "','" + url + "','" + obj.tipo_clasificacion + "','" + obj.tipo_multimedia + "', '" + obj.link_apa + "', '" + obj.url_multimedia + "','" + nombre2 + "','" + url2 + "', '" + obj.link_apoyo + "')");
+            return x;                
         }
 
         public bool Registrar_Respuesta(Contenido_practico obj, string pregunta)

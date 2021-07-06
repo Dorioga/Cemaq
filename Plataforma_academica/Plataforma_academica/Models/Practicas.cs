@@ -23,7 +23,12 @@ namespace Plataforma_academica.Models
         public int id_respuesta { set; get; }
         public String contenido_respuesta { set; get; }
         public int nombre_condicion { set; get; }
+        public string url_video { set; get; }
         public DataTable examen_unidad_nivel { set; get; }
+        public string nombre_archivo { set; get; }
+        public string url_archivo { set; get; }
+        public string link_apa { set; get; }
+        public string link_archivo { set; get; }
 
         public Practicas[] Consultar_contenido_practica(string cn)
         {
@@ -40,10 +45,15 @@ namespace Plataforma_academica.Models
                 arreglo[j].contenido_pregunta = i["contenido pregunta"].ToString();
                 arreglo[j].id_tipo_multimedia = Convert.ToInt32(i["id_tipo_multimedia"].ToString());
                 arreglo[j].nombre_tipo_multimedia = i["nombre_tipo_multimedia"].ToString();
-                arreglo[j].id_clasificacion = Convert.ToInt32(i["id_clasificacion"].ToString());
-                arreglo[j].nombre_clasificacion = i["nombre_clasificacion"].ToString();
+                arreglo[j].id_clasificacion = Convert.ToInt32(i["id_tipo_soporte"].ToString());
+                arreglo[j].nombre_clasificacion = i["Nombre_soporte"].ToString();
                 arreglo[j].id_multimedia_examen = Convert.ToInt32(i["id_multimedia_examen"].ToString());
                 arreglo[j].multimedia = i["multimedia"].ToString();
+                arreglo[j].url_video = i["url_video"].ToString();
+                arreglo[j].nombre_archivo = i["nombre_archivo"].ToString();
+                arreglo[j].url_archivo = i["url_archivo"].ToString();
+                arreglo[j].link_apa = i["Link_apa"].ToString();
+                arreglo[j].link_archivo = i["link_archivo"].ToString();
                 j++;
             }
             return arreglo;
