@@ -204,7 +204,8 @@ header {
                     flex: 0 0 auto;
                     margin: 0px;
                     padding: 0px;
-                    font-size: 2vh;
+                    font-size: calc(2em + 1vh);
+                    text-transform:capitalize;
                 }
             }
 
@@ -395,7 +396,7 @@ header {
                     }
 
                     p {
-                        font-size: 2vh;
+                        font-size: calc(1em + 1vh);
                     }
 
                     .boton {
@@ -1481,8 +1482,17 @@ header {
                         margin-bottom: 1vh;
                     }
 
+                    .btn {
+                        background-color: $azuloscuro;
+                        border: none;
+
+                        body.dark & {
+                            background-color: $verdeoscuro;
+                        }
+                    }
+
                     input[type=submit] {
-                        background-color: $verdeboton;
+                        background-color: $verdeoscuro;
                         color: $negro;
 
                         body.dark & {
@@ -1866,9 +1876,9 @@ header {
                     .multimedia {
                         display: flex;
                         justify-content: center;
-                        img{
-                            &::hover{
 
+                        img {
+                            &::hover {
                             }
                         }
                     }
@@ -2095,9 +2105,12 @@ header {
 
         .onda {
             position: absolute;
-            height: 40vh;
-            top: 53vh;
-            left: 63vw;
+            height: 93vh;
+            width: 100%;
+            background-image: url('/Imagenes/Iconos/ondas.png');
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: 20%;
         }
     }
     /*Estilos del Menu Derecho
@@ -2123,7 +2136,7 @@ header {
 }
 
 .active {
-
+    background-color: $blanco;
 
     .menu-izq {
         border-radius: 50%;
@@ -2198,12 +2211,8 @@ header {
     }
 
     .contenedor {
-        width: 100vw;
-        margin-left: 0;
-
-        .onda {
-            left: 88vw;
-        }
+        width: 97.5vw;
+        margin-left: 2.5vw;        
     }
 }
 //ScrollBar

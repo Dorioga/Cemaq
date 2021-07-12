@@ -22,7 +22,7 @@ body {
     font-family: "Roboto";
     width: 100vw;
     height: 100vh;
-    background-color: white !important;
+    background-color: $verdefondo !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -279,6 +279,7 @@ body {
                 img {
                     -webkit-animation: none !important;
                     padding-bottom: 1em;
+                    width:80vw;
                 }
 
                 .campos {
@@ -402,5 +403,10 @@ body {
                 padding-left: 0px !important;
             }
         }
+    }
+}
+@media(max-aspect-ratio:16/9){
+    body{
+        background:$verdeoscuro !important;
     }
 }
