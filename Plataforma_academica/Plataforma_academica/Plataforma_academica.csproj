@@ -371,6 +371,7 @@
     <Content Include="imagen_multimedia\20210703084039diplomado1modulo1.pdf" />
     <Content Include="imagen_multimedia\20210703083104certificado_antonio_fajardo_rico.pdf" />
     <Content Include="imagen_multimedia\20210702153529certificado_antonio_fajardo_rico.pdf" />
+    <Content Include="Excel_R_Beneficiarios\20210710115005libro1.xlsx" />
     <None Include="Properties\PublishProfiles\Diplomado-Cemaq - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomado-Cemaq - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomado-Cemaq - Web Deploy.pubxml" />
@@ -493,7 +494,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Audios\" />
     <Folder Include="bin\" />
-    <Folder Include="Excel_R_Beneficiarios\" />
     <Folder Include="Imagenes\infantil\" />
     <Folder Include="obj\Debug\" />
     <Folder Include="Views\Pais\" />

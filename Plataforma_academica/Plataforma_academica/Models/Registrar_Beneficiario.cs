@@ -32,14 +32,44 @@ namespace Plataforma_academica.Models
         public string codigo_unidad { set; get; }
         public string codigo_actividad { set; get; }
         public string codigo_examen { set; get; }
+        public string tipo_doc { set; get; }
+        public string tipo_pobla { set; get; }
+        public string municipio { set; get; }
+        public string estado_civil { set; get; }
+        public string escolaridad { set; get; }
+        public string tipo_sanguineo { set; get; }
 
         private Conexion.Conexion conexion;
+
+        //public bool Registrar_Beneficiarios(Registrar_Beneficiario obj)
+        //{
+        //    conexion = new Conexion.Conexion();
+        //    int x = conexion.Execute_Operation("call Pr_ingresar_beneficiario ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + obj.fecha_nacimiento + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.nombre_empresa + "', '" + obj.nombre_grupo + "', '"+obj.poblacion+"','"+obj.documento+"','"+obj.cod_rol+ "','" + obj.nombre_curso + "')");
+        //    return x > 0 ? true : false;
+
+        //}
 
         public bool Registrar_Beneficiarios(Registrar_Beneficiario obj)
         {
             conexion = new Conexion.Conexion();
-            int x = conexion.Execute_Operation("call Pr_ingresar_beneficiario ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + obj.fecha_nacimiento + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.nombre_empresa + "', '" + obj.nombre_grupo + "', '"+obj.poblacion+"','"+obj.documento+"','"+obj.cod_rol+ "','" + obj.nombre_curso + "')");
-            return x > 0 ? true : false;
+            if (obj.genero == "1")
+            {
+                int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + obj.fecha_nacimiento + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuario.png" + "','" + obj.tipo_sanguineo + "','" + "Acepto" + "')");
+                return x == 0 ? true : false;
+            }
+            else
+            {
+                if (obj.genero == "2")
+                {
+                    int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + obj.fecha_nacimiento+ "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "usuaria.png" + "','" + obj.tipo_sanguineo + "','" + "Acepto" + "')");
+                    return x == 0 ? true : false;
+                }
+                else
+                {
+                    int x = conexion.Execute_Operation("call Pr_ingresar_estudiante ('" + obj.cedula + "', '" + obj.nombre1 + "', '" + obj.nombre2 + "', '" + obj.apellido1 + "', '" + obj.apellido2 + "', '" + obj.fecha_nacimiento + "', '" + obj.telefono + "', '" + obj.correo + "', '" + obj.genero + "', '" + obj.tipo_doc + "', '" + obj.tipo_pobla + "', '" + obj.municipio + "', '" + obj.estado_civil + "','" + obj.escolaridad + "','" + "user.png" + "','" + obj.tipo_sanguineo + "','" + "Acepto" + "')");
+                    return x == 0 ? true : false;
+                }
+            }
 
         }
 
