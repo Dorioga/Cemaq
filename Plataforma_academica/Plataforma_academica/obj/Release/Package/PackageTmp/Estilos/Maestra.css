@@ -143,7 +143,8 @@ header {
           flex: 0 0 auto;
           margin: 0px;
           padding: 0px;
-          font-size: 2vh; }
+          font-size: calc(2em + 1vh);
+          text-transform: capitalize; }
       header .navbar .info .perfil {
         height: 6vh;
         border-radius: 1em; }
@@ -284,7 +285,7 @@ header {
         .principal .menu-izq .botones ul li:hover {
           color: #317a8e; }
         .principal .menu-izq .botones ul li p {
-          font-size: 2vh; }
+          font-size: calc(1em + 1vh); }
         .principal .menu-izq .botones ul li .boton {
           width: 100%;
           background-color: #d4e9c6;
@@ -996,8 +997,13 @@ header {
           .principal .contenedor .con_form .formulario .carga input {
             font-size: calc(1em + 1vh);
             margin-bottom: 1vh; }
+          .principal .contenedor .con_form .formulario .carga .btn {
+            background-color: #317a8e;
+            border: none; }
+            body.dark .principal .contenedor .con_form .formulario .carga .btn {
+              background-color: #69b545; }
           .principal .contenedor .con_form .formulario .carga input[type=submit] {
-            background-color: #96ca79;
+            background-color: #69b545;
             color: #000000; }
             body.dark .principal .contenedor .con_form .formulario .carga input[type=submit] {
               background-color: #317a8e; }
@@ -1353,48 +1359,50 @@ header {
         color: #ffffff; }
     .principal .contenedor .onda {
       position: absolute;
-      height: 40vh;
-      top: 53vh;
-      left: 63vw; }
+      height: 93vh;
+      width: 100%;
+      background-image: url("/Imagenes/Iconos/ondas.png");
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      background-size: 20%; }
 
-.active .menu-izq {
-  border-radius: 50%;
-  margin-top: 8vh;
-  margin-left: 0.5vw;
-  height: 5vh;
-  width: 5vh;
-  transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -webkit-transition: all 0.1s ease; }
-  .active .menu-izq .buscar {
-    border-radius: 50%; }
-    .active .menu-izq .buscar #bus {
-      display: none; }
-    .active .menu-izq .buscar #ocultar {
+.active {
+  background-color: #ffffff; }
+  .active .menu-izq {
+    border-radius: 50%;
+    margin-top: 8vh;
+    margin-left: 0.5vw;
+    height: 5vh;
+    width: 5vh;
+    transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -webkit-transition: all 0.1s ease; }
+    .active .menu-izq .buscar {
       border-radius: 50%; }
-  .active .menu-izq .botones {
-    display: none; }
-    .active .menu-izq .botones ul .titulo .content-btn .izq img {
-      width: 3vw; }
-    .active .menu-izq .botones ul .titulo .content-btn .cent {
+      .active .menu-izq .buscar #bus {
+        display: none; }
+      .active .menu-izq .buscar #ocultar {
+        border-radius: 50%; }
+    .active .menu-izq .botones {
       display: none; }
-    .active .menu-izq .botones ul .titulo .content-btn .der {
-      display: none; }
-    .active .menu-izq .botones ul .modulo:hover .msjem {
-      display: block;
-      position: absolute; }
-    .active .menu-izq .botones ul .modulo .content-btn .izq img {
-      width: 3vw; }
-    .active .menu-izq .botones ul .modulo .content-btn .cent {
-      display: none; }
-    .active .menu-izq .botones ul .modulo .content-btn .der {
-      display: none !important; }
-
-.active .contenedor {
-  width: 100vw;
-  margin-left: 0; }
-  .active .contenedor .onda {
-    left: 88vw; }
+      .active .menu-izq .botones ul .titulo .content-btn .izq img {
+        width: 3vw; }
+      .active .menu-izq .botones ul .titulo .content-btn .cent {
+        display: none; }
+      .active .menu-izq .botones ul .titulo .content-btn .der {
+        display: none; }
+      .active .menu-izq .botones ul .modulo:hover .msjem {
+        display: block;
+        position: absolute; }
+      .active .menu-izq .botones ul .modulo .content-btn .izq img {
+        width: 3vw; }
+      .active .menu-izq .botones ul .modulo .content-btn .cent {
+        display: none; }
+      .active .menu-izq .botones ul .modulo .content-btn .der {
+        display: none !important; }
+  .active .contenedor {
+    width: 97.5vw;
+    margin-left: 2.5vw; }
 
 /* width */
 ::-webkit-scrollbar {

@@ -8,6 +8,7 @@ using System.Data;
 using System.Web.UI;
 using System.Net.Mail;
 using System.Net;
+using System.Net.Mime;
 
 namespace Plataforma_academica.Controllers
 {
@@ -16,7 +17,7 @@ namespace Plataforma_academica.Controllers
         Login user = new Login();
         Pais consul = new Pais();
         Login b = new Login();
-
+        string usuario;
         // GET: Login
 
         public ActionResult Login(Login usr, Tipo_documento tipo_doc, Tipo_poblacion tipo_pobla, Municipio mun, Pais pa, Departamento d, Genero g, Estado_civil e, Escolaridad cola, Grupo_sanguineo grup)
@@ -256,7 +257,8 @@ namespace Plataforma_academica.Controllers
                 {
                     if (usr.Registrar_estudiante(usr))
                     {
-                        if (SendEmail(usr.correo,usr.apellido1, usr.cedula))
+                        usuario = usr.nombre1.Substring(0, 3);
+                        if (SendEmail(usr.correo,usr.apellido1, usuario, usr.cedula, usr.nombre1))
                         {
                             ViewBag.mensaje = "Exito";
                             ViewBag.mensaje2 = "El Nuevo Usuario fue registrado con exito, se envió los datos de inicio de sesión, al correo " + usr.correo;
@@ -273,7 +275,7 @@ namespace Plataforma_academica.Controllers
             return View();
         }
 
-        public bool SendEmail(string c,string apellido, string contrase)
+        public bool SendEmail(string c,string apellido, string usuario, string contrase, string nombre1)
         {
             bool a = false;
             if (c == null)
@@ -282,31 +284,42 @@ namespace Plataforma_academica.Controllers
             }
             else
             {
-                DataTable r;
-                r = b.Buscaruser(contrase);
-                if (r != null && r.Rows.Count > 0)
+                MailMessage mail = new MailMessage();
+                mail.To.Add(c);
+                mail.From = new MailAddress("cemaqacademica@gmail.com");
+                mail.Subject = "Nuevo Registro CEMAQ";
+                mail.Body = @"<html>
+                      <body>
+                      <p>Estudiante, " + nombre1 + " " + apellido +
+                  "</p><p>Usted ha sido registrado como un usuario de forma exitosa en DIPLOMADOS - CEMAQ, sus credenciales son: </p><p>Usuario: " + usuario + "." + apellido +
+                  "<p> Contraseña: " + contrase + "</p>" +
+                  "<p> Iniciar Sesión: http://diplomado-cemaq.azurewebsites.net/Login/Login </p>" +
+                  "<br style='font-weight:bold;'>-Este correo es automatico, por favor no responder</br></p><img src='https://diplomado-cemaq.azurewebsites.net/Imagenes/Iconos/Logo%20pequeño.png'/></body></html>";
+
+
+                mail.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.Credentials = new NetworkCredential("cemaqacademica@gmail.com", "academica2020!");
+                smtp.EnableSsl = true;
+                try
                 {
-                    MailMessage mail = new MailMessage();
-                    mail.To.Add(c);
-                    mail.From = new MailAddress("cemaqacademica@gmail.com");
-                    mail.Subject = "Notificación";
-                    mail.Body = "Usted ha sido registrado como un usuario de forma exitosa en DIPLOMADOS - CEMAQ, sus credenciales son:\n\r" +
-                        "Usuario: " + r.Rows[0]["nombre_usuario"].ToString() +
-                        "\n\rContraseña: " + contrase + " " + "http://diplomados-cemaq.azurewebsites.net/Login/Login";
-
-
-                    mail.IsBodyHtml = true;
-
-                    SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.Port = 587;
-                    smtp.Credentials = new NetworkCredential("cemaqacademica@gmail.com", "academica2020!");
-                    smtp.EnableSsl = true;
                     smtp.Send(mail);
-                    a = true;
-                    return a;
                 }
-                  
+                catch(Exception e)
+                {
+                    Console.WriteLine("IOException source: {0}", e.Source);
+                }
+                finally
+                {
+                    smtp.Dispose();
+                }
+                
+                a = true;
+                return a;
+
             }
 
             return a;

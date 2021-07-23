@@ -23,6 +23,7 @@ namespace Plataforma_academica.Controllers
             Registrar_Beneficiario actividad = new Registrar_Beneficiario();
             Plataforma_academica.Models.principalP act2 = Session["usuario12"] as Plataforma_academica.Models.principalP;
             Models.Login user = Session["usuario"] as Models.Login;
+            string usuario;
             if (user == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -88,7 +89,8 @@ namespace Plataforma_academica.Controllers
                                     {
                                         if (D.Registrar_Beneficiarios(R))
                                         {
-                                            if (SendEmail())
+                                            usuario = R.nombre1.Substring(0,3);
+                                            if (SendEmail(R.correo, usuario, R.apellido1, R.cedula))
                                             {
                                                 ViewBag.Mensaje = "Correcto!";
                                             }
@@ -115,7 +117,7 @@ namespace Plataforma_academica.Controllers
             }
         }
 
-        public bool SendEmail(string c, string nombre, string contrase)
+        public bool SendEmail(string c, string nombre, string apellido, string contrase)
         {
             bool a = false;
             if (c == null)
@@ -129,7 +131,7 @@ namespace Plataforma_academica.Controllers
                mail.From = new MailAddress("cemaqacademica@gmail.com");
                mail.Subject = "Notificación";
                mail.Body = "Usted ha sido registrado como un usuario de forma exitosa en DIPLOMADOS - CEMAQ, sus credenciales son:\n\r" +
-                        "Usuario: " + r.Rows[0]["nombre_usuario"].ToString() +
+                        "Usuario: " + nombre +"."+apellido+
                         "\n\rContraseña: " + contrase + " " + "http://diplomados-cemaq.azurewebsites.net/Login/Login";
 
 
@@ -141,6 +143,7 @@ namespace Plataforma_academica.Controllers
                smtp.Credentials = new NetworkCredential("cemaqacademica@gmail.com", "academica2020!");
                smtp.EnableSsl = true;
                smtp.Send(mail);
+                smtp.Dispose();
                a = true;
                return a;
                 
