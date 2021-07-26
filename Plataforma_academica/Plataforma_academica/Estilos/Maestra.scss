@@ -35,7 +35,7 @@ body {
     background-color: $blanco;
     display: flex;
     flex-direction: column;
-    transition: .5 ease all;
+    transition:  ease all 0.5s ;
     font-size: 14px !important;
     line-height: 1.428571429 !important;
 
@@ -131,7 +131,7 @@ header {
                     left: 0;
                     right: unset;
                     border-radius: 100px;
-                    transition: 0.3 ease all;
+                    transition: ease all 0.3s;
                     box-shadow: 0px 0x 2px 2px $verdeoscuro;
                 }
 
@@ -205,7 +205,7 @@ header {
                     margin: 0px;
                     padding: 0px;
                     font-size: calc(2em + 1vh);
-                    text-transform:capitalize;
+                    text-transform: capitalize;
                 }
             }
 
@@ -842,7 +842,6 @@ header {
                     border-radius: 2%;
                     width: 90%;
                     min-height: 60vh;
-                    height: -webkit-fill-available;
                     position: inherit;
                 }
 
@@ -978,11 +977,11 @@ header {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                background-color: rgba( $verdefondo,0.8);
+                background-color: rgba( $verdefondo,0.9);
                 border: solid 0.5vh $verdeoscuro;
 
                 body.dark & {
-                    background-color: rgba( $gris,0.8);
+                    background-color: rgba( $gris,0.9);
                     border-color: $azuloscuro;
                 }
 
@@ -1398,6 +1397,7 @@ header {
                             h3 {
                                 margin: 0;
                                 color: $blanco;
+                                font-size: calc(1em + 3vh) !important;
                             }
                         }
                         //Cuerpo
@@ -1436,7 +1436,6 @@ header {
                                 body.dark & {
                                     background: $azulgris;
                                     color: $blanco;
-                                    ;
                                 }
                             }
 
@@ -1463,16 +1462,20 @@ header {
                 max-height: 90vh;
                 overflow-y: auto;
                 border: solid;
-                background-color: rgba($verdefondo, 0.5);
+                background-color: rgba($verdefondo, 0.9);
                 border-color: $verdeoscuro;
                 font-size: calc(1em + 4vh) !important;
 
                 body.dark & {
-                    background-color: rgba($gris, 0.5);
+                    background-color: rgba($gris, 0.9);
                     border-color: $azulgris;
                     color: $negro;
                 }
 
+                a, .boton{
+                    width:5vw;
+                    height:4vh;
+                }
                 .carga {
                     display: flex;
                     flex-direction: column;
@@ -1700,12 +1703,12 @@ header {
                 }
 
                 .pregunta1 {
-                    margin-top: 0.5em;
+                    margin-top: 3em;
                     border-top: 2px solid;
-                    border-color: $verdefondo;
+                    border-color: $verdeoscuro;
 
                     body.dark & {
-                        border-color: $azulgris;
+                        border-color: $azuloscuro;
                     }
                 }
 
@@ -1738,6 +1741,7 @@ header {
                     h5 {
                         color: $negro;
                         margin: 0px 0px 0.5em 0px;
+                        font-weight: bold;
 
                         body.dark & {
                         }
@@ -1761,6 +1765,14 @@ header {
                         display: none;
                     }
 
+                    #elegir1, #seccion_2 {
+                        background-color: $verdeoscuro;
+
+                        body.dark & {
+                            background-color: $azuloscuro;
+                        }
+                    }
+
                     input {
                         max-width: 25vw;
                         border-color: $verdefondo !important;
@@ -1770,6 +1782,7 @@ header {
                         margin: 0px 0px 0.5em 0px;
                         padding: 0.5em;
                         font-size: calc(1em + 0.9vh) !important;
+
 
                         &:focus {
                             outline: none;
@@ -1825,14 +1838,16 @@ header {
                     }
 
                     .boton {
+                        float:right;
                         border: none;
                         border-radius: 0.5em;
-                        width: 25vh;
-                        margin: 0.5em 0.5em 0px 0px;
+                        width: 15vw;
+                        height:5vh;
+                        margin: 0px 5em 0.5em 0em;
                         padding: 0.5em;
                         background: $verdeoscuro;
                         color: $blanco;
-                        font-size: calc(1em + 0.9vh) !important;
+                        font-size: calc(1em + 1.5vh) !important;
 
                         &:hover {
                             background: $verdeoscuro;
@@ -1876,10 +1891,25 @@ header {
                     .multimedia {
                         display: flex;
                         justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+
+                        &:hover {
+                            .msjem {
+                                font-size: calc(1em + 2vh);
+                                visibility: visible;
+                                transition: all 0.5s ease-out;
+                                width: 60vw;
+                            }
+                        }
 
                         img {
-                            &::hover {
-                            }
+                            width: 60vw;
+                        }
+
+                        .msjem {
+                            visibility: hidden;
+                          
                         }
                     }
 
@@ -2212,7 +2242,7 @@ header {
 
     .contenedor {
         width: 97.5vw;
-        margin-left: 2.5vw;        
+        margin-left: 2.5vw;
     }
 }
 //ScrollBar
@@ -2257,8 +2287,8 @@ header {
             .info {
             }
         }
-        .slidermodo{
 
+        .slidermodo {
         }
     }
 

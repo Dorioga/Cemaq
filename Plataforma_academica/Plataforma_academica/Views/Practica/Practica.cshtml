@@ -78,25 +78,22 @@
                                 </section>
                                 if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
                                 {
+                                    <!--Material de Apoyo-->
                                     <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
-                                        <div class="content-btn">
-                                            <section class="cent">
-                                                <p>Material de apoyo</p>
-                                            </section>
-                                        </div>
+                                        <p>Material de apoyo</p>
                                     </button>
-                                                                    <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                                                        <div class="modal-dialog">
-                                                                            <div class="modal-content" style="width: 50vw;">
-                                                                                <div class="modal-body">
-                                                                                    <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'></embed>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                    <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" style="width: 50vw;">
+                                                <div class="modal-body">
+                                                    <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 }
                                 else
                                 {
@@ -138,35 +135,31 @@
                                         </div>
                                     </article>
                                 </section>
-                                                if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
-                                                {
-                                                    <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
-                                                        <div class="content-btn">
-                                                            <section class="cent">
-                                                                <p>Material de apoyo</p>
-                                                            </section>
-                                                        </div>
-                                                    </button>
-                                                                    <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                                                        <div class="modal-dialog">
-                                                                            <div class="modal-content" style="width: 50vw;">
-                                                                                <div class="modal-body">
-                                                                                    <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'></embed>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                }
-                                                else
-                                                {
-                                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
-                                                    {
-                                                        <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
-                                                    }
-                                                }
+                                if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
+                                {
+                                    <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
+                                                <p>Material de apoyo</p>
+                                    </button>
+                                    <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" style="width: 50vw;">
+                                                <div class="modal-body">
+                                                    <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
+                                    {
+                                        <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
+                                    }
+                                }
                                 <!--Respuestas-->
                                 <section class="section_contenido">
                                     <article class="respuesta">
@@ -196,38 +189,34 @@
                                 <section class="section_contenido">
                                     <article class="multimedia imagen">
                                         <img src="~/imagen_multimedia/@arreglo[i].multimedia" alt="Nature">
-                                        <a class="msjem" href="javascript:" onclick="window.open('@arreglo[i].link_apa');">@arreglo[i].link_apa</a>
+                                        <a class="msjem" href="javascript:" onclick="window.open('@arreglo[i].link_apa');">Link de Referencia: @arreglo[i].link_apa</a>
                                     </article>
                                 </section>
-                                                if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
-                                                {
-                                                    <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
-                                                        <div class="content-btn">
-                                                            <section class="cent">
-                                                                <p>Material de apoyo</p>
-                                                            </section>
-                                                        </div>
-                                                    </button>
-                                                                    <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                                                        <div class="modal-dialog">
-                                                                            <div class="modal-content" style="width: 50vw;">
-                                                                                <div class="modal-body">
-                                                                                    <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'></embed>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                }
-                                                else
-                                                {
-                                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
-                                                    {
-                                                        <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
-                                                    }
-                                                }
+                                if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
+                                {
+                                    <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
+                                                <p>Material de apoyo</p>
+                                    </button>
+                                    <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" style="width: 50vw;">
+                                                <div class="modal-body">
+                                                    <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
+                                    {
+                                        <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
+                                    }
+                                }
                                 <section class="section_contenido">
                                     <article class="respuesta">
                                         @{
@@ -259,35 +248,31 @@
                                         </audio>
                                     </article>
                                 </section>
-                                                if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
-                                                {
-                                                    <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
-                                                        <div class="content-btn">
-                                                            <section class="cent">
-                                                                <p>Material de apoyo</p>
-                                                            </section>
-                                                        </div>
-                                                    </button>
-                                                                    <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                                                        <div class="modal-dialog">
-                                                                            <div class="modal-content" style="width: 50vw;">
-                                                                                <div class="modal-body">
-                                                                                    <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'></embed>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                }
-                                                else
-                                                {
-                                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
-                                                    {
-                                                        <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
-                                                    }
-                                                }
+                                if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
+                                {
+                                    <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
+                                                <p>Material de apoyo</p>
+                                    </button>
+                                    <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" style="width: 50vw;">
+                                                <div class="modal-body">
+                                                    <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
+                                    {
+                                        <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
+                                    }
+                                }
                                 <!--Respuesta-->
                                 <section class="section_contenido">
                                     <article class="respuesta">
@@ -385,35 +370,31 @@
                                             <p>@arreglo[i].contenido_pregunta</p>
                                         </article>
                                     </section>
-                                                                if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
-                                                                {
-                                                                    <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
-                                                                        <div class="content-btn">
-                                                                            <section class="cent">
-                                                                                <p>Material de apoyo</p>
-                                                                            </section>
-                                                                        </div>
-                                                                    </button>
-                                                                    <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                                                        <div class="modal-dialog">
-                                                                            <div class="modal-content" style="width: 50vw;">
-                                                                                <div class="modal-body">
-                                                                                    <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'></embed>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                }
-                                                                else
-                                                                {
-                                                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
-                                                                    {
-                                                                        <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
-                                                                    }
-                                                                }
+                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
+                                    {
+                                        <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
+                                                    <p>Material de apoyo</p>
+                                        </button>
+                                        <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content" style="width: 50vw;">
+                                                    <div class="modal-body">
+                                                        <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0' />
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
+                                        {
+                                            <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
+                                        }
+                                    }
                                     <!--Respuesta-->
                                     <section class="section_contenido">
                                         <article class="respuesta">
@@ -428,11 +409,11 @@
                                             }
                                         </article>
                                     </section>
-                                                
-                                  }
+
+                                }
                                 <!--Video-->
-                                                if (arreglo[i].id_tipo_multimedia == 1)
-                                                {
+                                if (arreglo[i].id_tipo_multimedia == 1)
+                                {
                                     <!--Pregunta-->
                                     <section class="section_contenido">
                                         <article class="pregunta">
@@ -448,35 +429,31 @@
                                             </div>
                                         </article>
                                     </section>
-                                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
-                                                    {
-                                                        <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
-                                                            <div class="content-btn">
-                                                                <section class="cent">
-                                                                    <p>Material de apoyo</p>
-                                                                </section>
-                                                            </div>
-                                                        </button>
-                                                        <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content" style="width: 50vw;">
-                                                                    <div class="modal-body">
-                                                                        <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'></embed>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    }
-                                                    else
-                                                    {
-                                                        if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
-                                                        {
-                                                            <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
-                                                        }
-                                                    }
+                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
+                                    {
+                                        <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
+                                                    <p>Material de apoyo</p>
+                                        </button>
+                                        <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content" style="width: 50vw;">
+                                                    <div class="modal-body">
+                                                        <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
+                                        {
+                                            <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
+                                        }
+                                    }
                                     <section class="section_contenido">
                                         <!--Respuesta-->
                                         <article class="respuesta">
@@ -504,41 +481,38 @@
                                     </section>
                                     <!--Multimedia-->
                                     <section class="section_contenido">
-                                        <article class="multimedia imagen" >
+                                        <article class="multimedia imagen">
                                             <!-- -->
                                             <img src="~/imagen_multimedia/@arreglo[i].multimedia" alt="Nature">
-                                            <a class="msjem" href="javascript:" onclick="window.open('@arreglo[i].link_apa');">@arreglo[i].link_apa</a>
+                                            <a class="msjem" href="javascript:" onclick="window.open('@arreglo[i].link_apa');"> @arreglo[i].link_apa</a>
                                         </article>
                                     </section>
-                                                if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
-                                                {
-                                                    <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
-                                                        <div class="content-btn">
-                                                            <section class="cent">
-                                                                <p>Material de apoyo</p>
-                                                            </section>
-                                                        </div>
-                                                    </button>
-                                                    <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content" style="width: 50vw;">
-                                                                <div class="modal-body">
-                                                                    <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'></embed>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
+                                    {
+                                        <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
+                                                    <p>Material de apoyo</p>
+                                        </button>
+                                        <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content" style="width: 50vw;">
+                                                    <div class="modal-body">
+                                                        <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'>
                                                     </div>
-                                                }
-                                                else
-                                                {
-                                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
-                                                    {
-                                                        <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
-                                                    }
-                                                }
+                                                    <div class="modal-footer">
+                                                        <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
+                                        {
+                                            <!-- asdasddddddddddddddddddddddddddddddddddddddddddddd-->
+                                            <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
+                                        }
+                                    }
                                     <!--Respuesta-->
                                     <section class="section_contenido">
                                         <article class="respuesta">
@@ -553,8 +527,8 @@
                                             }
                                         </article>
                                     </section>
-                                                
-                                                }
+
+                                }
                                 <!-- Audio-->
                                 if (arreglo[i].id_tipo_multimedia == 4)
                                 {
@@ -572,37 +546,33 @@
                                                 <source src="~/imagen_multimedia/@arreglo[i].multimedia" type="audio/mp3" />
                                             </audio>
                                         </article>
-                                        
+
                                     </section>
-                                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
-                                                    {
-                                                        <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
-                                                            <div class="content-btn">
-                                                                <section class="cent">
-                                                                    <p>Material de apoyo</p>
-                                                                </section>
-                                                            </div>
-                                                        </button>
-                                                        <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content" style="width: 50vw;">
-                                                                    <div class="modal-body">
-                                                                        <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'></embed>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    }
-                                                    else
-                                                    {
-                                                        if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
-                                                        {
-                                                            <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
-                                                        }
-                                                    }
+                                    if (Convert.ToInt32(arreglo[i].id_clasificacion) == 2)
+                                    {
+                                        <button type="button" class="boton" data-toggle="modal" data-target="#guia_ver" name="guia">
+                                                    <p>Material de apoyo</p>
+                                        </button>
+                                        <div class="modal fade" id="guia_ver" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content" style="width: 50vw;">
+                                                    <div class="modal-body">
+                                                        <embed src="~/imagen_multimedia/@arreglo[i].url_archivo" style='width:100%; min-height:700px;' frameborder='0'>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        if (Convert.ToInt32(arreglo[i].id_clasificacion) == 3)
+                                        {
+                                            <a href="@arreglo[i].link_archivo" class="btn btn-primary" target="_blank">Material de apoyo</a>
+                                        }
+                                    }
                                     <!--Respuesta-->
                                     <section class="section_contenido">
                                         <article class="respuesta">

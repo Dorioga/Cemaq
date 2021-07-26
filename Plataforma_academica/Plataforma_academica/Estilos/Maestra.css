@@ -17,7 +17,7 @@ body {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  transition: .5 ease all;
+  transition: ease all 0.5s;
   font-size: 14px !important;
   line-height: 1.428571429 !important; }
   body.dark {
@@ -97,7 +97,7 @@ header {
           left: 0;
           right: unset;
           border-radius: 100px;
-          transition: 0.3 ease all;
+          transition: ease all 0.3s;
           box-shadow: 0px 0x 2px 2px #69b545; }
         header .navbar .slidermodo .switch.active {
           background: #d4e9c6;
@@ -564,7 +564,6 @@ header {
           border-radius: 2%;
           width: 90%;
           min-height: 60vh;
-          height: -webkit-fill-available;
           position: inherit; }
         .principal .contenedor .bb-custom-wrapper .bb-item textarea {
           font-size: 2.7vh;
@@ -653,10 +652,10 @@ header {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: rgba(212, 233, 198, 0.8);
+        background-color: rgba(212, 233, 198, 0.9);
         border: solid 0.5vh #69b545; }
         body.dark .principal .contenedor .con_form .contener {
-          background-color: rgba(218, 218, 218, 0.8);
+          background-color: rgba(218, 218, 218, 0.9);
           border-color: #317a8e; }
         .principal .contenedor .con_form .contener a {
           color: #000000;
@@ -946,7 +945,8 @@ header {
                   color: #317a8e; }
               .principal .contenedor .con_form .modal .modal-dialog .modal-content .modal-header h3 {
                 margin: 0;
-                color: #ffffff; }
+                color: #ffffff;
+                font-size: calc(1em + 3vh) !important; }
             .principal .contenedor .con_form .modal .modal-dialog .modal-content .modal-body {
               padding: 3em;
               text-align: justify;
@@ -984,13 +984,16 @@ header {
         max-height: 90vh;
         overflow-y: auto;
         border: solid;
-        background-color: rgba(212, 233, 198, 0.5);
+        background-color: rgba(212, 233, 198, 0.9);
         border-color: #69b545;
         font-size: calc(1em + 4vh) !important; }
         body.dark .principal .contenedor .con_form .formulario {
-          background-color: rgba(218, 218, 218, 0.5);
+          background-color: rgba(218, 218, 218, 0.9);
           border-color: #50687a;
           color: #000000; }
+        .principal .contenedor .con_form .formulario a, .principal .contenedor .con_form .formulario .boton {
+          width: 5vw;
+          height: 4vh; }
         .principal .contenedor .con_form .formulario .carga {
           display: flex;
           flex-direction: column; }
@@ -1114,11 +1117,11 @@ header {
               padding: 0.5em;
               width: 100%; }
         .principal .contenedor .con_form .formulario .pregunta1 {
-          margin-top: 0.5em;
+          margin-top: 3em;
           border-top: 2px solid;
-          border-color: #d4e9c6; }
+          border-color: #69b545; }
           body.dark .principal .contenedor .con_form .formulario .pregunta1 {
-            border-color: #50687a; }
+            border-color: #317a8e; }
         .principal .contenedor .con_form .formulario .tcolumn {
           display: flex;
           flex-direction: row; }
@@ -1135,7 +1138,8 @@ header {
             color: #000000; }
           .principal .contenedor .con_form .formulario .section_contenido h5 {
             color: #000000;
-            margin: 0px 0px 0.5em 0px; }
+            margin: 0px 0px 0.5em 0px;
+            font-weight: bold; }
           .principal .contenedor .con_form .formulario .section_contenido p {
             padding-left: 1em;
             color: #000000; }
@@ -1143,6 +1147,10 @@ header {
             font-size: calc(2em + 1vh) !important; }
           .principal .contenedor .con_form .formulario .section_contenido .oculta {
             display: none; }
+          .principal .contenedor .con_form .formulario .section_contenido #elegir1, .principal .contenedor .con_form .formulario .section_contenido #seccion_2 {
+            background-color: #69b545; }
+            body.dark .principal .contenedor .con_form .formulario .section_contenido #elegir1, body.dark .principal .contenedor .con_form .formulario .section_contenido #seccion_2 {
+              background-color: #317a8e; }
           .principal .contenedor .con_form .formulario .section_contenido input {
             max-width: 25vw;
             border-color: #d4e9c6 !important;
@@ -1183,14 +1191,16 @@ header {
           .principal .contenedor .con_form .formulario .section_contenido article p {
             font-size: calc(1em + 2vh) !important; }
           .principal .contenedor .con_form .formulario .section_contenido .boton {
+            float: right;
             border: none;
             border-radius: 0.5em;
-            width: 25vh;
-            margin: 0.5em 0.5em 0px 0px;
+            width: 15vw;
+            height: 5vh;
+            margin: 0px 5em 0.5em 0em;
             padding: 0.5em;
             background: #69b545;
             color: #ffffff;
-            font-size: calc(1em + 0.9vh) !important; }
+            font-size: calc(1em + 1.5vh) !important; }
             .principal .contenedor .con_form .formulario .section_contenido .boton:hover {
               background: #69b545; }
             body.dark .principal .contenedor .con_form .formulario .section_contenido .boton {
@@ -1211,7 +1221,18 @@ header {
               color: #000000; }
           .principal .contenedor .con_form .formulario .section_contenido .multimedia {
             display: flex;
-            justify-content: center; }
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; }
+            .principal .contenedor .con_form .formulario .section_contenido .multimedia:hover .msjem {
+              font-size: calc(1em + 2vh);
+              visibility: visible;
+              transition: all 0.5s ease-out;
+              width: 60vw; }
+            .principal .contenedor .con_form .formulario .section_contenido .multimedia img {
+              width: 60vw; }
+            .principal .contenedor .con_form .formulario .section_contenido .multimedia .msjem {
+              visibility: hidden; }
           .principal .contenedor .con_form .formulario .section_contenido .respuesta {
             display: flex;
             flex-direction: column;
