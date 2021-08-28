@@ -1190,6 +1190,9 @@ header {
             margin-bottom: 1vw; }
           .principal .contenedor .con_form .formulario .section_contenido article p {
             font-size: calc(1em + 2vh) !important; }
+          .principal .contenedor .con_form .formulario .section_contenido article textarea {
+            height: 4em !important;
+            font-size: calc(0.1em + 2vh) !important; }
           .principal .contenedor .con_form .formulario .section_contenido .boton {
             float: right;
             border: none;
@@ -1216,7 +1219,8 @@ header {
             body.dark .principal .contenedor .con_form .formulario .section_contenido .pregunta {
               border-top-color: #317a8e !important; }
             .principal .contenedor .con_form .formulario .section_contenido .pregunta h4 {
-              padding-left: 1em; }
+              padding-left: 1em;
+              font-weight: bold; }
             .principal .contenedor .con_form .formulario .section_contenido .pregunta p {
               color: #000000; }
           .principal .contenedor .con_form .formulario .section_contenido .multimedia {
