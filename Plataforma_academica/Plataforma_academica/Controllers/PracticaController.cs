@@ -127,16 +127,17 @@ namespace Plataforma_academica.Controllers
                                         if (respuesta == 2)
                                         {
                                             practica.registrar_nota(user.usuario, arreglo[i].id_pregunta, respuesta, evaluar,intentos2);
-                                            practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
+                                           
                                             suma++;
                                         }
                                         else
                                         {                                            
                                             practica.registrar_nota(user.usuario, arreglo[i].id_pregunta, respuesta, 0, intentos2);                                            
-                                            practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
+                                          
                                         }
 
                                     }
+                                    practica.Actualizar_porcentaje_examen(100, act3.codigo_examen, Convert.ToInt32(practica.examen_unidad_nivel.Rows[0]["Id_curso_usuario_examen"].ToString()));
 
                                     //ViewBag.mensaje3 = "Este es su intento N°: " + intentos2 + " intentos permitidos";
                                     ViewBag.mensaje3 = "Intentos permitidos completos";
