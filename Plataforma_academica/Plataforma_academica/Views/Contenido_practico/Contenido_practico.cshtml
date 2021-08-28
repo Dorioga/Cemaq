@@ -182,8 +182,8 @@
                                     for (int i = 1; i < 5; i++)
                                     {
                                         <h5>Opción @i</h5>
-                                        <input type="text"  id="respuestas"/>
-                                      /*  @Html.TextAreaFor(model => model.respuestas, new { @id = "respuestas", cols = "100%", Styles = "border-radius:4px" })*/
+                                        @*<input type="text"  id="respuestas"/>*@
+                                        @Html.TextAreaFor(model => model.respuestas, new { @id = "respuestas", cols = "100%", Styles = "border-radius:4px" })
                                         @Html.DropDownListFor(model => model.tipo_condicion, (IEnumerable<SelectListItem>)ViewData["lista5"])
                                     }
                                 }

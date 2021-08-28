@@ -697,6 +697,8 @@ D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\es\Syste
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\es\System.Web.WebPages.resources.dll
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.dll
 D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.pdb
+D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.csproj.AssemblyReference.cache
+D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\Cemaq\Plataforma_academica\Plataforma_academica\obj\Release\Plataforma_academica.csproj.CopyComplete

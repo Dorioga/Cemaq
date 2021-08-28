@@ -373,9 +373,13 @@
     <Content Include="imagen_multimedia\20210703083104certificado_antonio_fajardo_rico.pdf" />
     <Content Include="imagen_multimedia\20210702153529certificado_antonio_fajardo_rico.pdf" />
     <Content Include="Excel_R_Beneficiarios\20210710115005libro1.xlsx" />
+    <Content Include="Imagenes\20210827051841guia estudiante docente modulo 1.pdf" />
     <None Include="Properties\PublishProfiles\Diplomado-Cemaq - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Diplomado-Cemaq - FTP1.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomado-Cemaq - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Diplomado-Cemaq - ReadOnly - FTP1.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomado-Cemaq - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Diplomado-Cemaq - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Diplomados-Cemaq - Web Deploy.pubxml" />
@@ -497,6 +501,7 @@
     <Folder Include="bin\" />
     <Folder Include="Imagenes\infantil\" />
     <Folder Include="obj\Debug\" />
+    <Folder Include="Views\Default\" />
     <Folder Include="Views\Pais\" />
     <Folder Include="Views\Profesional\" />
   </ItemGroup>
