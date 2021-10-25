@@ -1,17 +1,21 @@
 ﻿//Modo Claro
-$verdeoscuro: #69b545;
-$verdeboton: #96ca79;
+$fondo: #69b545;
+$medio: #96ca79;
 //Neutro
 $negro: #000000;
 $blanco: #ffffff;
 $azulgris: #50687a;
-$verdefondo: #d4e9c6;
-$verdehover: #c0dfac;
+/*$claro: #d4e9c6;
+$verdehover: #c0dfac;*/
 $gris: #dadada;
 $rojo: #d9534f;
 //Modo Oscuro
 $azuloscuro: #317a8e;
 
+$fondo: #0f044c;
+$claro: #eeeeee;
+$medio: #141E61;
+$tenue: #787A91;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
@@ -32,7 +36,7 @@ body {
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background-color: $blanco;
+    background-color: $claro !important;
     display: flex;
     flex-direction: column;
     transition:  ease all 0.5s ;
@@ -40,7 +44,7 @@ body {
     line-height: 1.428571429 !important;
 
     &.dark {
-        background-color: $verdefondo;
+        background-color: $claro;
     }
 
     .modal-backdrop {
@@ -68,7 +72,7 @@ header {
     .navbar {
         border-radius: 0px;
         min-height: 7vh;
-        background-color: $verdeoscuro;
+        background-color: $fondo;
         height: 100%;
         display: flex;
         margin: 0px;
@@ -95,7 +99,7 @@ header {
             align-self: auto;
 
             img {
-                height: 7vh;
+                height: 5vh;
             }
         }
         //Modo Oscuro
@@ -110,12 +114,13 @@ header {
             align-self: auto;
 
             .switch {
-                background-color: $verdefondo;
+                display:none;
+                background-color: $tenue;
                 border-radius: 1000px;
                 border: none;
                 position: relative;
                 cursor: pointer;
-                display: flex;
+              /*  display: flex;*/
                 outline: none;
                 padding: 0;
 
@@ -125,18 +130,18 @@ header {
                     width: 4vh;
                     height: 4vh;
                     position: absolute;
-                    background: $verdeoscuro;
-                    border: solid 1px $verdefondo;
+                    background: $medio;
+                    border: solid 1px $claro;
                     top: 0;
                     left: 0;
                     right: unset;
                     border-radius: 100px;
                     transition: ease all 0.3s;
-                    box-shadow: 0px 0x 2px 2px $verdeoscuro;
+                    box-shadow: 0px 0x 2px 2px $fondo;
                 }
 
                 &.active {
-                    background: $verdefondo;
+                    background: $claro;
                     color: black;
 
                     &::after {
@@ -155,7 +160,7 @@ header {
                     align-items: center;
                     justify-content: center;
                     background: none;
-                    color: $verdeoscuro;
+                    color: $claro;
 
 
                     body.dark & {
@@ -189,7 +194,7 @@ header {
             .nombre {
                 display: flex;
                 flex-direction: column;
-                color: $blanco;
+                color: $claro;
 
 
                 div {
@@ -232,9 +237,9 @@ header {
                         padding: 0.5vw 1vw 1vw 1vw;
                         border-style: solid;
                         border-radius: 0 0 1vw 1vw;
-                        border-color: $verdeoscuro;
+                        border-color: $fondo;
                         height: auto !important;
-                        background-color: rgba($verdefondo,0.9);
+                        background-color: rgba($claro,0.9);
 
                         body.dark & {
                             background-color: rgba($gris,0.9);
@@ -326,7 +331,7 @@ header {
         position: fixed;
         float: left;
         width: 25vw;
-        background-color: $verdefondo;
+        background-color: $medio;
         z-index: 999;
         transition: all 0.5s ease;
         -moz-transition: all 0.5s ease;
@@ -356,10 +361,11 @@ header {
                     max-width: 100%;
                 }
             }
+            //Boton para Ocultar Menu Izq
 
             #ocultar {
                 flex: 1 1 auto;
-                background-color: $verdeoscuro;
+                background-color: $medio;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
@@ -391,22 +397,26 @@ header {
                     text-align: left;
                     cursor: pointer;
 
+                 
                     &:hover {
-                        color: $azuloscuro;
+                        background-color: $claro;
+
+                                         
                     }
 
                     p {
                         font-size: calc(1em + 1vh);
+                        color: $claro;
                     }
 
                     .boton {
                         width: 100%;
-                        background-color: $verdefondo;
+                        background-color: $tenue;
                         border: none;
 
                         &:hover {
-                            background-color: $verdeoscuro;
-                            color: $blanco;
+                            background-color: $medio;
+                            color: $claro !important;
                         }
 
                         body.dark & {
@@ -481,8 +491,8 @@ header {
                                 min-height: 50px;
                                 //  padding: 0.5vh;
                                 text-align: center;
-                                background-color: $verdeoscuro;
-                                color: $blanco;
+                                background-color: $fondo;
+                                color: $claro !important;
 
                                 body.dark & {
                                     background-color: $azuloscuro;
@@ -501,9 +511,12 @@ header {
                 .titulo {
                     color: $azulgris;
                     padding: 1vh;
-                    border-bottom: solid 1vh $azulgris;
-                    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.51);
 
+                    &:hover{
+                        p{
+                            color:$fondo;
+                        }
+                    }
                     .content-btn {
                         display: flex;
                         flex-direction: row;
@@ -519,7 +532,7 @@ header {
                             justify-content: center;
 
                             img {
-                                width: 5vw;
+                                width: 2vw;
                                 border-radius: 1vh;
                             }
                         }
@@ -529,14 +542,14 @@ header {
 
                             .progress {
                                 margin: 0px;
-                                background-color: $verdefondo;
+                                background-color: $claro;
 
                                 body.dark & {
                                     background-color: $gris;
                                 }
 
                                 .progress-bar-success {
-                                    background-color: $verdeoscuro;
+                                    background-color: $fondo;
 
                                     body.dark & {
                                         background-color: $azuloscuro;
@@ -565,7 +578,7 @@ header {
                 }
 
                 .modulo {
-                    color: $azuloscuro;
+         color:$claro ;
                     display: none;
 
                     .der {
@@ -592,7 +605,7 @@ header {
                             flex-direction: column;
                             align-items: flex-end;
                             color: $blanco;
-                            background-color: $verdeoscuro;
+                            background-color: $fondo;
 
                             body.dark & {
                                 background-color: $azuloscuro;
@@ -617,17 +630,17 @@ header {
     }
     //Contendor Cambiante
     .contenedor {
-        background-color: $blanco;
+        background-color: $claro;
         width: 75vw;
         margin-top: 7vh;
         padding: 1vw;
         margin-left: 25vw;
         min-height: 93vh;
         position: relative;
-        background-image: url('/Imagenes/Iconos/Logo CEMAQ Color.png');
+        background-image: url('/Imagenes/Iconos/Logo Horizontal.svg');
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 50%;
+        background-size: 70%;
         -webkit-transition: left 0.3s ease-in-out;
         -o-transition: left 0.3s ease-in-out;
         transition: left 0.3s ease-in-out;
@@ -710,7 +723,7 @@ header {
                         order: 0;
                         flex: 0 1 auto;
                         align-self: auto;
-                        background-color: $verdeoscuro;
+                        background-color: $fondo;
                         border-radius: 50%;
 
                         body.dark & {
@@ -731,7 +744,7 @@ header {
                         order: 0;
                         flex: 0 1 auto;
                         align-self: auto;
-                        background-color: $verdeoscuro;
+                        background-color: $fondo;
                         border-radius: 50%;
                         margin-right: 2vw;
 
@@ -863,7 +876,7 @@ header {
 
                     body.dark & {
                         color: $negro;
-                        //   background-color: $gris;
+                        //   background-color: $gris;a
                     }
                 }
 
@@ -876,7 +889,7 @@ header {
                     border: none;
 
                     body.dark & {
-                        background: $verdeoscuro;
+                        background: $fondo;
                     }
                 }
 
@@ -890,7 +903,7 @@ header {
                     height: 5vh;
                     width: 5vh;
                     color: $blanco;
-                    background: $verdeoscuro;
+                    background: $fondo;
                     border: none;
                     border-radius: 50%;
                     display: flex;
@@ -914,7 +927,7 @@ header {
             position: absolute;
             width: 95%;
             height: 85vh;
-            border: solid 1px $verdeoscuro;
+            border: solid 1px $fondo;
             margin-top: 2vh;
             margin-left: 2vh;
 
@@ -959,10 +972,8 @@ header {
         //Contenedor del Menu, Cargar Contenido, cargar examen
         .con_form {
             //display:none;
-            color: $negro;
+            color: $claro !important;
             position: relative;
-
-
 
             .active {
                 display: none;
@@ -977,8 +988,8 @@ header {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                background-color: rgba( $verdefondo,0.9);
-                border: solid 0.5vh $verdeoscuro;
+                background-color: rgba( $tenue,0.9);
+                border: solid 0.5vh $fondo;
 
                 body.dark & {
                     background-color: rgba( $gris,0.9);
@@ -986,7 +997,7 @@ header {
                 }
 
                 a {
-                    color: $negro;
+                    color: $claro;
                     padding-left: 1em;
 
                     body.dark & {
@@ -1015,7 +1026,7 @@ header {
                         border-color: $azulgris;
 
                         body.dark & {
-                            border-color: $verdeoscuro;
+                            border-color: $fondo;
                         }
                     }
 
@@ -1067,7 +1078,7 @@ header {
                                 margin: 1em;
                                 overflow: visible;
                                 border-radius: 7px;
-                                background: $verdefondo;
+                                background: $claro;
 
                                 body.dark & {
                                     background: $gris;
@@ -1102,7 +1113,7 @@ header {
                             }
 
                             .progress-bar-success {
-                                background: $verdeoscuro;
+                                background: $fondo;
                                 border-radius: 7px;
 
                                 body.dark & {
@@ -1144,7 +1155,7 @@ header {
                         justify-content: center;
                         position: fixed;
                         overflow: hidden;
-                        background: $verdeoscuro;
+                        background: $fondo;
                         color: $blanco;
                         width: 10vw;
                         height: 10vh;
@@ -1181,7 +1192,7 @@ header {
                     .mcontenedor {
                         height: 100%;
                         width: 100%;
-                        background: $verdeoscuro;
+                        background: $fondo;
 
                         body.dark & {
                             background: $azuloscuro;
@@ -1230,7 +1241,7 @@ header {
                                     img {
                                         height: 16vh;
                                         border: 5px solid;
-                                        border-color: $verdefondo;
+                                        border-color: $claro;
                                         border-radius: 1em;
                                     }
                                 }
@@ -1244,7 +1255,7 @@ header {
                                     width: 90%;
                                     background: $blanco;
                                     border: 2px solid;
-                                    border-color: $verdefondo;
+                                    border-color: $claro;
                                     border-radius: 1em;
                                     padding-right: 1em;
                                     margin-bottom: 1em;
@@ -1359,7 +1370,7 @@ header {
                     position: initial;
 
                     .modal-content {
-                        background: $verdefondo;
+                        background: $claro;
                         color: white;
 
                         body.dark & {
@@ -1368,7 +1379,7 @@ header {
                         //Encabezado
                         .modal-header {
                             border-bottom: 0.5em solid $blanco;
-                            background: $verdeoscuro;
+                            background: $fondo;
                             display: flex;
                             flex-direction: row;
                             align-items: center;
@@ -1411,7 +1422,7 @@ header {
                         .modal-footer {
                             border-top: 0.5em solid;
                             background-color: $blanco;
-                            background: $verdeoscuro;
+                            background: $fondo;
                             padding: 1em;
                             margin: 0;
 
@@ -1421,7 +1432,7 @@ header {
                             }
 
                             a {
-                                background: $verdefondo;
+                                background: $claro;
 
                                 body.dark & {
                                     background: $azuloscuro;
@@ -1430,7 +1441,7 @@ header {
                             }
 
                             button {
-                                background: $verdefondo;
+                                background: $claro;
                                 color: $negro;
 
                                 body.dark & {
@@ -1444,7 +1455,7 @@ header {
                             }
 
                             .btn-info {
-                                background-color: $verdeoscuro;
+                                background-color: $fondo;
                             }
                         }
                     }
@@ -1462,8 +1473,8 @@ header {
                 max-height: 90vh;
                 overflow-y: auto;
                 border: solid;
-                background-color: rgba($verdefondo, 0.9);
-                border-color: $verdeoscuro;
+                background-color: rgba($claro, 0.9);
+                border-color: $fondo;
                 font-size: calc(1em + 4vh) !important;
 
                 body.dark & {
@@ -1487,17 +1498,17 @@ header {
                     }
 
                     .btn {
-                        background-color: $azuloscuro;
+                        background-color: $fondo;
                         border: none;
 
                         body.dark & {
-                            background-color: $verdeoscuro;
+                            background-color: $fondo;
                         }
                     }
 
                     input[type=submit] {
-                        background-color: $verdeoscuro;
-                        color: $negro;
+                        background-color: $fondo;
+                        color: $claro;
 
                         body.dark & {
                             background-color: $azuloscuro;
@@ -1565,7 +1576,7 @@ header {
                     border-radius: 1em;
                     overflow: hidden;
                     border: 0.2em solid;
-                    border-color: $verdeoscuro;
+                    border-color: $fondo;
 
                     body.dark & {
                         border-color: $azuloscuro;
@@ -1573,7 +1584,7 @@ header {
 
                     thead {
                         tr {
-                            background: $verdeoscuro;
+                            background: $fondo;
 
                             body.dark & {
                                 background: $azuloscuro;
@@ -1595,11 +1606,11 @@ header {
 
                             &:hover {
                                 td {
-                                    background: $verdeoscuro !important;
+                                    background: $fondo !important;
 
                                     a {
                                         border: solid 1px $blanco;
-                                        background-color: $verdefondo;
+                                        background-color: $claro;
                                     }
 
                                     .boton {
@@ -1632,7 +1643,7 @@ header {
                                     padding: 0;
                                     border-radius: 1em;
                                     border: 1px solid;
-                                    border-color: $verdeoscuro;
+                                    border-color: $fondo;
                                     font-size: calc(1em + 0.3vh);
 
                                     &:disabled {
@@ -1640,7 +1651,7 @@ header {
                                     }
 
                                     &:enabled {
-                                        background: $verdeoscuro;
+                                        background: $fondo;
 
                                         body.dark & {
                                             background: $azuloscuro;
@@ -1658,7 +1669,7 @@ header {
                     tfoot {
                         width: 100%;
                         height: 0.5em;
-                        background: $verdeoscuro;
+                        background: $fondo;
 
                         body.dark & {
                             background: $azuloscuro;
@@ -1676,7 +1687,7 @@ header {
                     color: $negro;
                     background-color: $gris;
                     border: solid;
-                    border-color: $verdefondo;
+                    border-color: $claro;
 
                     body.dark & {
                         color: $blanco;
@@ -1695,7 +1706,7 @@ header {
                         max-width: 24vw;
 
                         &[type="submit"] {
-                            background: $verdefondo;
+                            background: $claro;
                             border-radius: 1em;
                             padding: 0.5em;
                             width: 100%;
@@ -1706,7 +1717,7 @@ header {
                 .pregunta1 {
                     margin-top: 3em;
                     border-top: 2px solid;
-                    border-color: $verdeoscuro;
+                    border-color: $fondo;
 
                     body.dark & {
                         border-color: $azuloscuro;
@@ -1767,7 +1778,7 @@ header {
                     }
 
                     #elegir1, #seccion_2 {
-                        background-color: $verdeoscuro;
+                        background-color: $fondo;
 
                         body.dark & {
                             background-color: $azuloscuro;
@@ -1776,7 +1787,7 @@ header {
 
                     input {
                         max-width: 25vw;
-                        border-color: $verdefondo !important;
+                        border-color: $claro !important;
                         border: 1px solid;
                         border-radius: 0.5em;
                         width: 100%;
@@ -1805,7 +1816,7 @@ header {
                         margin: 0px 0px 0.5em 0px;
                         padding: 0.5em;
                         border: 1px solid;
-                        border-color: $verdefondo;
+                        border-color: $claro;
                         font-size: calc(1em + 1vh) !important;
 
                         &:focus {
@@ -1851,12 +1862,12 @@ header {
                         height: 5vh;
                         margin: 0px 5em 0.5em 0em;
                         padding: 0.5em;
-                        background: $verdeoscuro;
+                        background: $fondo;
                         color: $blanco;
                         font-size: calc(1em + 1.5vh) !important;
 
                         &:hover {
-                            background: $verdeoscuro;
+                            background: $fondo;
                         }
 
                         body.dark & {
@@ -1876,7 +1887,7 @@ header {
                     }
 
                     .pregunta {
-                        border-top: 1vh solid $verdeoscuro;
+                        border-top: 1vh solid $fondo;
 
                         body.dark & {
                             border-top-color: $azuloscuro !important;
@@ -1939,7 +1950,7 @@ header {
 
                     .textarea {
                         max-width: none;
-                        border-color: $verdefondo !important;
+                        border-color: $claro !important;
                         border: 1px solid;
                         border-radius: 0.5em;
                         width: 100%;
@@ -1961,7 +1972,7 @@ header {
                     //textarea mas pequeño
                     .textarea1 {
                         max-width: 25vw;
-                        border-color: $verdefondo !important;
+                        border-color: $claro !important;
                         border: 1px solid;
                         border-radius: 0.5em;
                         width: 100%;
@@ -1994,7 +2005,7 @@ header {
                         }
 
                         input[type=submit] {
-                            background-color: $verdeoscuro;
+                            background-color: $fondo;
                             color: $blanco;
 
                             body.dark & {
@@ -2009,7 +2020,7 @@ header {
                 }
 
                 .seccion {
-                    border-top: 1em solid $verdefondo;
+                    border-top: 1em solid $claro;
 
                     body.dark & {
                         border-color: $azulgris;
@@ -2025,7 +2036,7 @@ header {
                 flex-direction: row;
                 margin: 0px;
                 height: 90vh;
-                background-color: $verdefondo;
+                background-color: $claro;
 
                 body.dark & {
                     background: $gris;
@@ -2060,11 +2071,11 @@ header {
                             border: none;
                             color: $negro;
                             font-weight: bold;
-                            border: solid 1px $verdeoscuro;
+                            border: solid 1px $fondo;
 
 
                             &:hover {
-                                background-color: $verdeboton;
+                                background-color: $medio;
                             }
 
                             body.dark & {
@@ -2172,7 +2183,7 @@ header {
 }
 
 .active {
-    background-color: $blanco;
+    background-color: $claro;
 
     .menu-izq {
         border-radius: 50%;
@@ -2258,7 +2269,7 @@ header {
 }
 /* Track */
 ::-webkit-scrollbar-track {
-    background: $verdeoscuro;
+    background: $fondo;
 
     body.dark & {
         background: $azuloscuro;

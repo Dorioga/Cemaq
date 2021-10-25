@@ -26,9 +26,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="~/Scripts/menu.js"></script>
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>CEMAQ - Diplomados</title>
+    <title>PROSUR - Diplomados</title>
     <link rel="stylesheet" type="text/css" href="~/Estilos/Maestra.css" />
-    <link rel="icon" type="image/gif" href="~/Imagenes/Iconos/logop.png">
+    <link rel="icon" type="image/gif" href="~/Imagenes/Iconos/Logo.svg">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
@@ -73,13 +73,13 @@
                 if (Convert.ToInt32(usu.rol) == 4)
                 {
                     <a href="/PrincipalPlataforma/principalplataforma" class="navbar-brand icono">
-                        <img src="~/Imagenes/Iconos/Logo CEMAQ.png">
+                        <img src="~/Imagenes/Iconos/Logo Horizontal Blanco.svg">
                     </a>
                 }
                 else
                 {
         <a href="/Seleccionar_para_subir_contenido/seleccionar_unidad_para_contenido" class="navbar-brand icono">
-            <img src="~/Imagenes/Iconos/Logo CEMAQ.png">
+            <img src="~/Imagenes/Iconos/Logo Horizontal Blanco.svg">
 
         </a>
                 }
@@ -429,7 +429,8 @@
                                                     <li class="titulo" onclick="mostrarmodulo(@arreglop[i].codigo_curso,'titulo')">
                                                         <div class="content-btn">
                                                             <section class="izq">
-                                                                <img src="~/Imagenes/Iconos/@arreglop[i].url" />
+                                                                <!-- <img src="~/Imagenes/Iconos/@arreglop[i].url" />-->
+                                                                <img src="~/Imagenes/Iconos/Fruta.svg" />
                                                             </section>
                                                             <section class="cent">
                                                                 <p class="nom" style="font-weight: bold;">@arreglop[i].nombre_curso</p>
@@ -527,8 +528,8 @@
 
         <div class="contenedor" id="container">
 
-            <div class="onda"></div>
-            <!--   <img class="onda" src="~/Imagenes/Iconos/ondas.png" />
+            <!--  <div class="onda"></div>
+              <img class="onda" src="~/Imagenes/Iconos/ondas.png" />
     -->
             @RenderBody()
         </div>0
